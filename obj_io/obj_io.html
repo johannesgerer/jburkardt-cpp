@@ -1,0 +1,236 @@
+<html>
+
+  <head>
+    <title>
+      OBJ_IO - Read and Write Routines for Alias OBJ 3D Graphics Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      OBJ_IO <br> Read and Write Routines <br> Alias OBJ 3D Graphics Files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>OBJ_IO</b>
+      is a C++ library which
+      reads or writes some of the 3D graphics
+      information stored in an Alias OBJ file.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>OBJ_IO</b> is available in
+      <a href = "../../cpp_src/obj_io/obj_io.html">a C++ version</a> and
+      <a href = "../../f_src/obj_io/obj_io.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/obj_io/obj_io.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/ivcon/ivcon.html">
+      IVCON</a>,
+      a C++ program which
+      can convert graphics information between STLA and other formats.
+    </p>
+
+    <p>
+      <a href = "../../f_src/ivread/ivread.html">
+      IVREAD</a>,
+      a FORTRAN90 program which
+      can convert graphics information between STLA and other formats.
+    </p>
+
+    <p>
+      <a href = "../../data/obj/obj.html">
+      OBJ</a>,
+      a data directory which
+      has some examples of OBJ files.
+    </p>
+
+    <p>
+      <a href = "../../c_src/obj_to_ply/obj_to_ply.html">
+      OBJ_TO_PLY</a>,
+      a C program which
+      reads an OBJ file and writes similar information to a
+      <a href = "../../data/ply/ply.html">PLY</a> file.
+    </p>
+
+    <p>
+      <a href = "../../m_src/obj_to_tri_mesh/obj_to_tri_mesh.html">
+      OBJ_TO_TRI_MESH</a>,
+      a MATLAB program which
+      reads an OBJ file and extracts
+      the surface mesh data as a
+      <a href = "../../data/tri_mesh/tri_mesh.html">TRI_MESH</a> dataset.
+    </p>
+
+    <p>
+      <a href = "../../pl_src/obj2opengl/obj2opengl.html">
+      OBJ2OPENGL</a>,
+      a PERL script which
+      converts an OBJ file to a C/C++ include file appropriate for use with
+      <a href = "../../cpp_src/open_gl/open_gl.html">OPEN_GL</a>.
+    </p>
+
+    <p>
+      <a href = "../../c_src/ply_to_obj/ply_to_obj.html">
+      PLY_TO_OBJ</a>,
+      a C program which
+      reads a PLY 3D graphics file and writes an equivalent OBJ graphics file.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://www.alias.com/eng/index.shtml">
+                     http://www.alias.com/eng/index.shtml</a>,
+          The Alias web site.
+        </li>
+        <li>
+          <a href = "../../txt/obj_format.txt">obj_format.txt</a>,
+          some information about the OBJ format.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "obj_io.cpp">obj_io.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "obj_io.hpp">obj_io.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "obj_io.sh">obj_io.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "obj_io_prb.cpp">obj_io_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "obj_io_prb.sh">obj_io_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "../../data/obj/cube.obj">cube.obj</a>,
+          a simple OBJ file that describes a cube.
+        </li>
+        <li>
+          <a href = "cube_no_normals.obj">cube_no_normals.obj</a>,
+          an OBJ file describing a cube, without normal vectors,
+          written by OBJ_WRITE.
+        </li>
+        <li>
+          <a href = "cube_normals.obj">cube_normals.obj</a>,
+          an OBJ file describing a cube, including normal vectors,
+          written by OBJ_WRITE.
+        </li>
+        <li>
+          <a href = "obj_io_prb_output.txt">obj_io_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>OBJ_FACE_NODE_PRINT</b> prints the node indices for each face.
+        </li>
+        <li>
+          <b>OBJ_NORMAL_VECTOR_PRINT</b> prints the normal vectors.
+        </li>
+        <li>
+          <b>OBJ_NODE_XYZ_PRINT</b> prints the node coordinates.
+        </li>
+        <li>
+          <b>OBJ_SIZE</b> determines sizes of graphics objects in an Alias OBJ file.
+        </li>
+        <li>
+          <b>OBJ_SIZE_PRINT</b> prints sizes associated with an OBJ file.
+        </li>
+        <li>
+          <b>OBJ_VERTEX_NORMAL_PRINT</b> prints the normal vectors indices per vertex.
+        </li>
+        <li>
+          <b>OBJ_WRITE</b> writes graphics information to an Alias OBJ file.
+        </li>
+        <li>
+          <b>R8VEC_CROSS_PRODUCT_3D</b> computes the cross product of two R8VEC's in 3D.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 April 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -1,0 +1,46 @@
+09 November 2011 02:29:00 PM
+
+PRIME_SERIAL_PRB
+  C++ version
+  Test the PRIME_SERIAL library.
+
+TEST01
+  Call PRIME_NUMBER to count the primes from 1 to N.
+
+         N        Pi          Time
+
+         1         0           1e-06
+         2         1           2e-06
+         4         2               0
+         8         4               0
+        16         6           1e-06
+        32        11           1e-06
+        64        18           3e-06
+       128        31           8e-06
+       256        54         2.6e-05
+       512        97         9.7e-05
+      1024       172        0.000323
+      2048       309        0.001074
+      4096       564         0.00407
+      8192      1028        0.014483
+     16384      1900        0.053114
+     32768      3512        0.196597
+     65536      6542        0.738833
+    131072     12251         2.76142
+
+TEST01
+  Call PRIME_NUMBER to count the primes from 1 to N.
+
+         N        Pi          Time
+
+         5         3           1e-06
+        50        15           2e-06
+       500        95         8.4e-05
+      5000       669        0.005708
+     50000      5133        0.440607
+    500000     41538          36.059
+
+PRIME_SERIAL_PRB
+  Normal end of execution.
+
+09 November 2011 02:29:40 PM

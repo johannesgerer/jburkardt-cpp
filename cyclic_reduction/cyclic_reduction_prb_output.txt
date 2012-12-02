@@ -1,0 +1,90 @@
+19 December 2011 09:52:45 AM
+
+CYCLIC_REDUCTION_PRB
+  C++ version
+  Test the CYCLIC_REDUCTION library.
+
+TEST02
+  R83_CR_FA factors a real tridiagonal matrix;
+  R83_CR_SLS solves 1 or more systems.
+
+  Matrix order N = 5
+  Demonstrate multiple system solution method.
+
+  Input matrix:
+
+  Col:       1             2             3             4             5       
+  Row
+  ---
+     1:            2            -1                                            
+     2:           -1             2            -1                              
+     3:                         -1             2            -1                
+     4:                                       -1             2            -1  
+     5:                                                     -1             2  
+
+  Cyclic reduction factor information:
+
+  Col:       1             2             3             4             5       
+  Row
+  ---
+     1:            0            -1                                            
+     2:            0           0.5          -0.5                              
+     3:                       -0.5             2            -1                
+     4:                                       -1           0.5          -0.5  
+     5:                                                   -0.5             2  
+     6:                                                                   -1  
+
+  Col:       6             7             8             9            10       
+  Row
+  ---
+     5:            0                                                          
+     6:          0.5          -0.5                                            
+     7:            0             1             0                              
+     8:                       -0.5             1             0                
+     9:                                        0       1.33333             0  
+    10:                                                      0             0  
+    11:                                                                    0  
+
+  Col:      11       
+  Row
+  ---
+    10:            0  
+    11:            0  
+
+  Solutions:
+
+  Col:          1             2       
+  Row
+
+    1:            1             1  
+    2:            2             1  
+    3:            3             1  
+    4:            4             1  
+    5:            5             1  
+
+TEST03
+  For a real tridiagonal matrix,
+  using CYCLIC REDUCTION,
+  R83_CR_FA factors;
+  R83_CR_SL solves a system.
+
+  Matrix order N = 10
+  The matrix is NOT symmetric.
+
+  The solution:
+
+         0:              1
+         1:              2
+         2:              3
+         3:              4
+         4:              5
+         5:              6
+         6:              7
+         7:              8
+         8:              9
+         9:             10
+
+CYCLIC_REDUCTION_PRB
+  Normal end of execution.
+
+19 December 2011 09:52:45 AM

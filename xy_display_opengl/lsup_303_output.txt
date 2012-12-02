@@ -1,0 +1,19 @@
+
+23 June 2006 05:36:27 AM
+
+POINTS_DISPLAY_OPEN_GL:
+
+  Compiled on Jun 23 2006 at 05:36:05.
+
+  This is a program which uses OpenGL
+  to display a set of points.
+
+  The file has been examined.
+
+  The spatial dimension DIM_NUM =  2
+  The number of points POINT_NUM = 303
+
+  Minimum: -8.91541  0.289256
+  Maximum: 7.92287  8.52152
+  Range:   16.8383  8.23226
+  Pixels:  500  244

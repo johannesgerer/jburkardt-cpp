@@ -1,0 +1,96 @@
+
+30 September 2010 11:27:11 AM
+
+TRIANGULATION_MASK
+  C++ version:
+
+  Read a node file of NODE_NUM points in 2 dimensions.
+  Read an associated triangulation file of TRIANGLE_NUM
+  triangles using 3 or 6 nodes.
+
+  For each triangle, call a user masking routine
+  to see if the triangle should be MASKED (not shown).
+
+  Write new node and triangulation files corresponding
+  to the unmasked data only.
+
+  Compiled on Sep 30 2010 at 11:23:46.
+
+  Read the header of "p15_nodes.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of nodes NODE_NUM =  612
+
+  Read the data in "p15_nodes.txt".
+
+  First 5 nodes:
+
+  Row:       1             2       
+  Col
+
+    1             -8            -1
+    2              2            -1
+    3              2             0
+    4              8             0
+    5              8             1
+
+  Read the header of "p15_elements.txt".
+
+  Triangle order TRIANGLE_ORDER =    3
+  Number of triangles TRIANGLE_NUM = 1108
+
+  Read the data in "p15_elements.txt".
+
+  First 5 triangles::
+
+  Row:      1       2       3  
+  Col
+
+    1       9       1      14  
+    2      10       9      16  
+    3      17      10      16  
+    4      17      11      10  
+    5      18      12      11  
+
+MESH_BASE_ZERO:
+  The element indexing appears to be 1-based!
+  This will be converted to 0-based.
+
+  The masked triangle data was written to "p15_mask_elements.txt".
+
+  The masked node data was written to "p15_mask_nodes.txt".
+
+  Number of input triangles =   1108
+  Number of output triangles =  1091
+  Number of deleted triangles = 17
+
+  Number of input nodes =   612
+  Number of output nodes =  611
+  Number of deleted nodes = 1
+
+  First 5 output triangles:
+
+  Row:      1       2       3  
+  Col
+
+    1       9       8      15  
+    2      16       9      15  
+    3      16      10       9  
+    4      17      11      10  
+    5       7      11      12  
+
+  First 5 output nodes:
+
+  Row:       1             2       
+  Col
+
+    1             -8            -1
+    2              2            -1
+    3              2             0
+    4              8             0
+    5              8             1
+
+TRIANGULATION_MASK:
+  Normal end of execution.
+
+30 September 2010 11:27:11 AM

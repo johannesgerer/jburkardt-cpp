@@ -1,0 +1,669 @@
+19 December 2011 12:09:27 PM
+
+CHRPAK_PRB:
+  C++ version
+  Test the CHRPAK library.
+
+PRINT_SIZES: Report data type sizes.
+
+  (Min/Max data currently unavailable...
+
+  Type                   Size     Min     Max
+
+  bool                   1
+  char                   1
+  unsigned char          1 
+  short int              2
+  unsigned short int     2 
+  int                    4
+  unsigned int           4 
+  long int               8
+  unsigned long int      8 
+  long long int          8
+  unsigned long long int 8 
+  float                  4
+  double                 8
+
+TEST001
+  A_TO_I4: Alphabetic character => I
+  I4_TO_A: I => Alphabetic character
+
+  1:26 = A:Z
+  27:52 = a:z
+
+   I  ==>  A  ==>  I
+
+         0  ' '         0
+         3  'C'         3
+         6  'F'         6
+         9  'I'         9
+        12  'L'        12
+        15  'O'        15
+        18  'R'        18
+        21  'U'        21
+        24  'X'        24
+        27  'a'        27
+        30  'd'        30
+        33  'g'        33
+        36  'j'        36
+        39  'm'        39
+        42  'p'        42
+        45  's'        45
+        48  'v'        48
+        51  'y'        51
+        54  ' '         0
+
+TEST0055
+  INT_TO_BYTE converts an unsigned int to a string,
+  BYTE_TO_INT converts it back.
+
+    IVAL   Recovered IVAL
+
+          3          3
+       1952       1952
+  123456789  123456789
+
+TEST011
+  CH_CAP uppercases a character.
+
+  C  CH_CAP(C)
+
+  F  F
+  f  F
+  1  1
+  b  B
+  B  B
+
+TEST012
+  CH_COUNT_FILE_ADD adds the characters in a file
+  to a character count.
+  DEBUG, call C_COUNT_INIT:
+  DEBUG, call C_COUNT_FILE_ADD:
+  DEBUG, call C_COUNT_PRINT:
+
+  Raw character count data:
+
+  Char  Percent  Count
+
+  # 10  5.29712  2315
+        20.8132  9096
+     !  0.0709333  31
+     "  3.28124  1434
+     #  0.066357  29
+     $  0.00915269  4
+     %  0.00686452  3
+     &  0.0366108  16
+     '  0.114409  50
+     (  0.830607  363
+     )  0.830607  363
+     *  14.2851  6243
+     +  0.139579  61
+     ,  0.366108  160
+     -  0.446194  195
+     .  0.366108  160
+     /  3.66108  1600
+     0  0.892387  390
+     1  0.894675  391
+     2  0.700181  306
+     3  0.233394  102
+     4  0.224241  98
+     5  0.368396  161
+     6  0.132714  58
+     7  0.109832  48
+     8  0.283733  124
+     9  0.235682  103
+     :  0.517127  226
+     ;  1.99757  873
+     <  3.53294  1544
+     =  0.503398  220
+     >  0.0366108  16
+     ?  0.0205936  9
+     @  0.00915269  4
+     A  0.363819  159
+     B  0.226529  99
+     C  0.210512  92
+     D  0.107544  47
+     E  0.496533  217
+     F  0.0434753  19
+     G  0.247123  108
+     H  0.164748  72
+     I  0.235682  103
+     J  0.160172  70
+     K  0.0274581  12
+     L  0.446194  195
+     M  0.235682  103
+     N  0.33865  148
+     O  0.242546  106
+     P  0.253987  111
+     Q  0.013729  6
+     R  0.199071  87
+     S  0.633824  277
+     T  0.974761  426
+     U  0.253987  111
+     V  0.0114409  5
+     W  0.0617807  27
+     X  0.0434753  19
+     Y  0.0228817  10
+     Z  0.00457634  2
+     [  0.105256  46
+     \  1.16926  511
+     ]  0.105256  46
+     ^  0.00915269  4
+     _  1.00451  439
+     a  1.12578  492
+     b  0.331785  145
+     c  2.0502  896
+     d  1.19671  523
+     e  2.81903  1232
+     f  0.443905  194
+     g  0.52628  230
+     h  0.892387  390
+     i  2.41173  1054
+     j  0.052628  23
+     k  0.16246  71
+     l  0.56289  246
+     m  0.167037  73
+     n  2.57648  1126
+     o  2.3019  1006
+     p  0.372972  163
+     q  0.0274581  12
+     r  1.99986  874
+     s  3.04556  1331
+     t  4.07066  1779
+     u  1.87401  819
+     v  0.276869  121
+     w  0.217376  95
+     x  0.066357  29
+     y  0.183054  80
+     z  0.0251699  11
+     {  0.242546  106
+     |  0.00686452  3
+     }  0.242546  106
+
+TEST014
+  CH_INDEX_FIRST searches a string for a character.
+
+  The test string, in quotes:
+
+  "Joel prefers graphics to graphs."
+  The first occurrence of 'g' is at index 13.
+
+TEST015
+  CH_INDEX_LAST finds the last occurrence of a character.
+
+  The test string, in quotes:
+
+  "HELLO World, how ARE you?"
+  Last occurrence of o is at 22.
+
+TEST016
+  CH_LOW lowercases a character.
+
+  C  CH_LOW(C)
+
+  F  f
+  f  f
+  1  1
+  b  b
+  B  b
+
+TEST0175
+  CH_PAD places spaces around a character.
+
+  The string is : "I vant to be alone!"
+  We will try to place spaces around the A in ALONE.
+  The string is : "I vant to be  a lone!"
+
+TEST022
+  HEX_DIGIT_TO_I4: hexadecimal digit -> I4,
+  I4_TO_HEX_DIGIT: I4 -> hexadecimal digit.
+
+        -2  '*'        -1
+        -1  '*'        -1
+         0  '0'         0
+         1  '1'         1
+         2  '2'         2
+         3  '3'         3
+         4  '4'         4
+         5  '5'         5
+         6  '6'         6
+         7  '7'         7
+         8  '8'         8
+         9  '9'         9
+        10  'a'        10
+        11  'b'        11
+        12  'c'        12
+        13  'd'        13
+        14  'e'        14
+        15  'f'        15
+        16  '*'        -1
+        17  '*'        -1
+
+TEST026
+  CH_TO_ROT13 "encodes" a character using ROT13.
+
+             CH  :ABCDEFGHIJKLMNOPQRSTUVQXYZ
+       ROT13(CH) :NOPQRSTUVWXYZABCDEFGHIDKLM
+ ROT13(ROT13(CH)):ABCDEFGHIJKLMNOPQRSTUVQXYZ
+
+             CH  :  CH_TO_ROT13 "encodes" a character using ROT13.
+       ROT13(CH) :  PU_GB_EBG68 "rapbqrf" n punenpgre hfvat EBG68.
+ ROT13(ROT13(CH)):  CH_TO_ROT13 "encodes" a character using ROT13.
+
+TEST029
+  CH_UNIFORM returns a random character.
+
+   I  A  Count
+
+   1  A      0
+   2  B      0
+   3  C      0
+   4  D   5327
+   5  E   5277
+   6  F   5131
+   7  G   5174
+   8  H   5331
+   9  I   5352
+  10  J   5334
+  11  K   5279
+  12  L   5266
+  13  M   5173
+  14  N   5428
+  15  O   5316
+  16  P   5279
+  17  Q   5226
+  18  R   5235
+  19  S   5221
+  20  T   5279
+  21  U   5289
+  22  V   5083
+  23  W      0
+  24  X      0
+  25  Y      0
+  26  Z      0
+
+TEST11255
+  CHARSTAR_LEN_TRIM reports the length of a string to the last nonblank.
+
+  Here are some strings, and their lengths:
+
+ "HELLO"  5
+ "  B la nk"  9
+ " "  0
+ "1234567890"  10
+
+TEST0545
+  I4_TO_MONTH_ABB returns the name of the I-th month.
+
+  I  Month
+
+  0 ???
+  1 Jan
+  2 Feb
+  3 Mar
+  4 Apr
+  5 May
+  6 Jun
+  7 Jul
+  8 Aug
+  9 Sep
+  10 Oct
+  11 Nov
+  12 Dec
+
+TEST058
+  I4_TO_S:  int ->    string;
+  S_TO_I4:  string -> I4.
+
+  "0"  0  "0"
+  "9"  9  "9"
+  "10"  10  "10"
+  "11"  11  "11"
+  " -124 56 AbC"  -124  "-124"
+  "25,50,5"  25  "25"
+  "+15.9"  15  "15"
+  "  123abc"  123  "123"
+
+TEST065
+  I4_TO_UNARY converts an integer to unary.
+
+  I4  I4_TO_UNARY(I4)
+
+        -5  "-11111"
+         0  "0"
+         7  "1111111"
+
+TEST085
+  S_ADJUSTL justifies a string to the left;
+
+             Original   S_ADJUSTL
+           ----------  ---------- 
+
+"  Hello!  "  "Hello!    "
+"Ouch!     "  "Ouch!     "
+"  A B C   "  "A B C     "
+
+TEST090
+  S_BEGIN is true if string 1 begins with string 2.
+
+  S1: "Look for the lily in the field."
+  S2: "Look for"
+  SBEGIN ( S1, S2 ) = 1
+
+  S1: "Look for"
+  S2: "Look for the lily in the field."
+  SBEGIN ( S1, S2 ) = 0
+
+  S1: "Look for the lily in the field."
+  S2: "Look out!"
+  SBEGIN ( S1, S2 ) = 0
+
+TEST091
+  S_BEHEAD_SUBSTRING removes an initial substring from a 
+  string, if it occurs.
+
+  ------String--------  -----SUB------------  ---Beheaded----
+
+          HELLO World!                 HELLO                World!
+  12345678901234567890                 12345       678901234567890
+          0.314159E+01                   314          0.314159E+01
+  !@#$%a^&A(){}[]\|<>?  !@#$%a^&A(){}[]\|<>?                      
+
+TEST093
+  S_BLANKS_DELETE removes double blanks.
+
+  Original string:
+
+    " HELLO    World   !! !  "
+
+  After S_BLANKS_DELETE:
+
+    "HELLO World !! !"
+
+TEST094
+  S_CAP capitalizes all characters in a string;
+  S_LOW lowercases all characters;
+  S_WORD_CAP initial-capitalizes words in a string;
+
+  ------Original------  -----Capitalized----------Lower Cased-----  -----Word_Caps-----
+
+  "HELLO World   !! !  "  "HELLO WORLD   !! !  "  "hello world   !! !  "  "Hello World   !! !  "
+  "12345678901234567890"  "12345678901234567890"  "12345678901234567890"  "12345678901234567890"
+  "Abc Def Ghi Jkl Mno "  "ABC DEF GHI JKL MNO "  "abc def ghi jkl mno "  "Abc Def Ghi Jkl Mno "
+  "!@#$%a^&A(){}[]\|<>?"  "!@#$%A^&A(){}[]\|<>?"  "!@#$%a^&a(){}[]\|<>?"  "!@#$%a^&a(){}[]\|<>?"
+  "it is time to turn the page."  "IT IS TIME TO TURN THE PAGE."  "it is time to turn the page."  "It Is Time To Turn The Page."
+
+TEST0975
+  S_CH_COUNT counts occurrences of a character.
+
+  String =     "Bob is debobbing the bobber!".
+  Character is "b".
+  Number of occurrences = 7
+
+TEST1015
+  S_EQI reports if two strings are equal, ignoring case.
+
+  String 1:
+
+  "HELLO"
+
+  String2:
+
+  "HeLLO"
+
+  S_EQI(S1,S2) = 1
+
+  String 1:
+
+  "HELP ME"
+
+  String2:
+
+  "HELP"
+
+  S_EQI(S1,S2) = 0
+
+TEST102
+  S_ESCAPE_TEX "protects" characters in a string
+  that might otherwise be interpreted as TeX
+  escape characters.
+
+  Original string:
+
+  "The file A_B.TXT is {I think__so} of size 2^8 or C\B.".
+
+  De-escaped string:
+
+  "The file A\_B.TXT is \{I think\_\_so\} of size 2\^8 or C\\B.".
+
+TEST1035
+  S_FIRST_CH finds the first occurrence of a character.
+
+  The test string, in quotes:
+
+  "Look for the lily in the field."
+
+  The character 'l' first occurs in position 13.
+
+TEST1036
+  S_FIRST_NONBLANK finds a pointer to the first 
+  nonblank character in a string.
+
+  The test string, in quotes:
+
+  "     HELLO World, how ARE you?"
+
+  The string shifted left, using the pointer:
+
+  "HELLO World, how ARE you?"
+
+TEST105
+  S_INC_C can "increment" the characters in a string.
+
+  Starting string: "Tax"
+
+  Incremented forms:
+
+  Tay
+  Taz
+  Tba
+  Tbb
+  Tbc
+
+  Starting string: "aB34c* 8zY"
+
+  Incremented forms:
+
+  aB34c* 8zZ
+  aB34d* 8aA
+  aB34d* 8aB
+  aB34d* 8aC
+  aB34d* 8aD
+
+TEST109
+  CH_INDEX_LAST reports the LAST occurrence
+  of a character.
+
+  String = The quick brown fox jumps right over the big lazy dog!
+
+  C       J
+
+  a      46
+  b      41
+  c       7
+  d      50
+  e      39
+  f      16
+  g      52
+  h      38
+  i      42
+  j      20
+  k       8
+  l      45
+  m      22
+  n      14
+  o      51
+  p      23
+  q       4
+  r      35
+  s      24
+  t      37
+  u      21
+  v      33
+  w      13
+  x      18
+  y      48
+  z      47
+
+TEST1125
+  S_LAST_CH finds the last occurrence of a character.
+
+  The test string, in quotes:
+
+  "Look for last . in file_name.cpp"
+
+  The string, starting with the last occurrence of '.':
+
+  ".cpp"
+
+TEST1126
+  S_LEN_TRIM reports the length of a string to the last nonblank.
+
+  Here are some strings, and their lengths:
+
+ "HELLO"  5
+ "  B la nk"  9
+ " "  0
+ "1234567890"  10
+
+TEST115
+  S_REPLACE_CH replaces one character by another;
+
+    C1  C2  Original String  Modified String
+
+     n   t   No pennies now.   No petties tow.
+
+TEST119
+  S_REVERSE reverses a string.
+
+  Before: "A man, a plan, a canal, Panama!".
+  After:  "!amanaP ,lanac a ,nalp a ,nam A".
+
+TEST1225
+  S_S_SUBANAGRAM is TRUE if S2 is a "subanagram"
+  of S1.
+
+  "Get a priest!"  "stripe"  1
+  "Get a priest!"  "pastor"  0
+  "Get a priest!"  "a sip"  1
+  "Get a priest!"  "tag!"  0
+
+TEST1255
+  S_SORT_A ascending sorts a string.
+
+  -------String-------  -------Sorted-------
+
+  "HELLO World   !! !  "  "       !!!EHLLOWdlor"
+  "12345678901234567890"  "00112233445566778899"
+  "Abc Def Ghi Jkl Mno "  "     ADGJMbcefhiklno"
+  "AbleBakerCharlieDelt"  "ABCDaabeeeehiklllrrt"
+  "What? You have seen?"  "   ??WYaaeeehhnostuv"
+
+TEST1265
+  S_SUBSTRING returns a substring of a given string.
+
+      S                  A   B    S(A:B)
+  --------------------  --  --  ----------
+
+  abcdefghijklmnopqrts   6  10  fghij
+  abcdefghijklmnopqrts  15  15  o
+  abcdefghijklmnopqrts  17  20  qrts
+
+TEST129
+  S_TO_FORMAT, string -> FORTRAN format RcW.M;
+
+  --------String------       R  c     W       M
+
+                   a80       1  a    80       0
+                  f8.4       1  f     8       4
+                3g14.6       3  g    14       6
+                   i12       1  i    12       0
+                  12l1      12  l     1       0
+               (10o11)      10  o    11       0
+         ( 5 z 11.7  )       5  z    11       7
+
+TEST132
+  S_TO_ROT13 encrypts a string.
+
+
+  Original:      abcdefghijklmnopqrstuvwxyz
+  Rotated once:  nopqrstuvwxyzabcdefghijklm
+  Rotated twice: abcdefghijklmnopqrstuvwxyz
+
+  Original:      Cher
+  Rotated once:  Pure
+  Rotated twice: Cher
+
+  Original:      James Thurston Howell
+  Rotated once:  Wnzrf Guhefgba Ubjryy
+  Rotated twice: James Thurston Howell
+
+TEST137
+  S_WORD_COUNT counts the words in a string
+
+  STRING                      Words
+
+                                 ?             1
+  A man, a plan, a canal - Panama!             8
+                justone!word,-@#$              1
+      How about a day in the park?             7
+
+TEST138
+  S_WORD_EXTRACT_FIRST extracts the first word from a string.
+
+  Our input string is:
+  "Just an incontrovertible sample of text!".
+
+  "Just"
+  "an"
+  "incontrovertible"
+  "sample"
+  "of"
+  "text!"
+
+  Reached the last word.
+
+TEST154
+  WORD_NEXT_READ returns each word from a string.
+  It pays attention to various parentheses and brackets.
+
+  We use the following string:
+    "  Here is a string, (you see) with x[1] = {gamma}!".
+
+  Here are the individual words:
+
+       1  "Here".
+       2  "is".
+       3  "a".
+       4  "string".
+       5  "(".
+       6  "you".
+       7  "see".
+       8  ")".
+       9  "with".
+      10  "x".
+      11  "[".
+      12  "1".
+      13  "]".
+      14  "=".
+      15  "{".
+      16  "gamma".
+      17  "}".
+      18  "!".
+
+  Number of words was 18
+
+CHRPAK_PRB:
+  Normal end of execution.
+
+19 December 2011 12:09:27 PM

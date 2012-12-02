@@ -1,0 +1,189 @@
+<html>
+
+  <head>
+    <title>
+      PPMA_TO_PPMB - PPMA to PPMB graphics file conversion
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PPMA_TO_PPMB <br> PPMA to PPMB graphics file conversion
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PPMA_TO_PPMB</b>
+      is a C++ program which
+      converts PPMA files to PPMB format.
+    </p>
+
+    <p>
+      <b>PPMA_TO_PPMB</b> is a simple application which runs on top
+      of the
+      <a href = "../../cpp_src/ppma_io/ppma_io.html">PPMA_IO</a>
+      and
+      <a href = "../../cpp_src/ppmb_io/ppmb_io.html">PPMB_IO</a>
+      libraries.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>ppma_to_ppmb</b> <i>file.ppma</i> <i>file.ppmb</i>
+        </dt>
+        <dd>
+          reads the data in <i>file.ppma</i> and writes it to <i>file.ppmb</i>
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>PPMA_TO_PPMB</b> is available in
+      <a href = "../../cpp_src/ppma_to_ppmb/ppma_to_ppmb.html">a C++ version</a> and
+      <a href = "../../f_src/ppma_to_ppmb/ppma_to_ppmb.html">a FORTRAN90 version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/ppma/ppma.html">
+      PPMA</a>,
+      a data directory which
+      contains sample ASCII PPM files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppma_io/ppma_io.html">
+      PPMA_IO</a>,
+      a C++ library which
+      is used by <b>PPMA_TO_PPMB</b> to read in
+      the ASCII PPM file.
+    </p>
+
+    <p>
+      <a href = "../../data/ppmb/ppmb.html">
+      PPMB</a>,
+      a data directory which
+      contains sample PPMB files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_io/ppmb_io.html">
+      PPMB_IO</a>,
+      a C++ library which
+      is used by PPMA_TO_PPMB to write out
+      the PPMB file.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">the NETPBM homepage</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ppma_to_ppmb.cpp">ppma_to_ppmb.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "ppma_to_ppmb.sh">ppma_to_ppmb.sh</a>,
+           commands to compile, link and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for PPMA_TO_PPMB.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two integers.
+        </li>
+        <li>
+          <b>I4VEC_TO_UCVEC</b> converts an I4VEC to a UCVEC.
+        </li>
+        <li>
+          <b>PPMA_CHECK_DATA</b> checks the data for an ASCII portable pixel map file.
+        </li>
+        <li>
+          <b>PPMA_READ</b> reads the header and data from an ASCII portable pixel map file.
+        </li>
+        <li>
+          <b>PPMA_READ_DATA</b> reads the data in an ASCII portable pixel map file.
+        </li>
+        <li>
+          <b>PPMA_READ_HEADER</b> reads the header of an ASCII portable pixel map file.
+        </li>
+        <li>
+          <b>PPMA_TO_PPMB</b> converts an ASCII PPM file to binary PPM format.
+        </li>
+        <li>
+          <b>PPMB_WRITE</b> writes the header and data for a binary portable pixel map file.
+        </li>
+        <li>
+          <b>PPMB_WRITE_DATA</b> writes the data for a binary portable pixel map file.
+        </li>
+        <li>
+          <b>PPMB_WRITE_HEADER</b> writes the header of a binary portable pixel map file.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 04 December 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

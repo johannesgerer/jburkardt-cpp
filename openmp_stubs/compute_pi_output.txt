@@ -1,0 +1,107 @@
+20 November 2007 12:21:58 PM
+
+COMPUTE_PI
+  C++ version
+
+  Estimate the value of PI by summing a series.
+
+  This program includes Open MP directives, which
+  may be used to run the program in parallel.
+
+  The number of processors available:
+  OMP_GET_NUM_PROCS () = 1
+
+  Call OMP_SET_NUM_THREADS, and request 4 threads
+  This is process 0
+
+  Calling OMP_GET_NUM_THREADS inside a
+  parallel region, we get the number of
+  threads is 1.
+
+
+R4_TEST:
+  Estimate the value of PI,
+  using single arithmetic.
+
+  N = number of terms computed and added;
+
+  MODE = SEQ for sequential code;
+  MODE = OMP for Open MP enabled code;
+  (performance depends on whether Open MP is used,
+  and how many processes are available)
+
+  ESTIMATE = the computed estimate of PI;
+
+  ERROR = ( the computed estimate - PI );
+
+  TIME = elapsed wall clock time;
+
+  Note that you can''t increase N forever, because:
+  A) ROUNDOFF starts to be a problem, and
+  B) maximum integer size is a problem.
+
+             N Mode    Estimate        Error           Time
+
+               1  SEQ             3.2       0.0584073           9e-06
+               1  OMP             3.2       0.0584073           4e-06
+              10  SEQ         3.14243     0.000833273           5e-06
+              10  OMP         3.14243     0.000833273           4e-06
+             100  SEQ          3.1416     7.86781e-06           1e-05
+             100  OMP          3.1416     7.86781e-06           1e-05
+            1000  SEQ         3.14159     2.38419e-07         6.7e-05
+            1000  OMP         3.14159     2.38419e-07         6.6e-05
+           10000  SEQ         3.14159     1.90735e-06        0.000674
+           10000  OMP         3.14159     1.90735e-06        0.000628
+          100000  SEQ         3.14153     5.98431e-05        0.006508
+          100000  OMP         3.14153     5.98431e-05        0.006263
+         1000000  SEQ         3.14135     0.000244379        0.065411
+         1000000  OMP         3.14135     0.000244379        0.062539
+
+R8_TEST:
+  Estimate the value of PI,
+  using double arithmetic.
+
+  N = number of terms computed and added;
+
+  MODE = SEQ for sequential code;
+  MODE = OMP for Open MP enabled code;
+  (performance depends on whether Open MP is used,
+  and how many processes are available)
+
+  ESTIMATE = the computed estimate of PI;
+
+  ERROR = ( the computed estimate - PI );
+
+  TIME = elapsed wall clock time;
+
+  Note that you can''t increase N forever, because:
+  A) ROUNDOFF starts to be a problem, and
+  B) maximum integer size is a problem.
+
+             N Mode    Estimate        Error           Time
+
+               1  SEQ             3.2       0.0584073           4e-06
+               1  OMP             3.2       0.0584073           3e-06
+              10  SEQ         3.14243     0.000833331           3e-06
+              10  OMP         3.14243     0.000833331           3e-06
+             100  SEQ          3.1416     8.33333e-06           9e-06
+             100  OMP          3.1416     8.33333e-06           9e-06
+            1000  SEQ         3.14159     8.33333e-08         5.9e-05
+            1000  OMP         3.14159     8.33333e-08         5.5e-05
+           10000  SEQ         3.14159     8.33341e-10        0.000554
+           10000  OMP         3.14159     8.33341e-10        0.000529
+          100000  SEQ         3.14159     8.36842e-12         0.00553
+          100000  OMP         3.14159     8.36842e-12        0.005269
+         1000000  SEQ         3.14159     2.84217e-14        0.055102
+         1000000  OMP         3.14159     2.84217e-14        0.052648
+        10000000  SEQ         3.14159     6.21725e-14        0.551744
+        10000000  OMP         3.14159     6.21725e-14        0.526432
+       100000000  SEQ         3.14159     6.33271e-13         5.51182
+       100000000  OMP         3.14159     6.33271e-13         5.25891
+      1000000000  SEQ         3.14159     1.77636e-13         55.1052
+      1000000000  OMP         3.14159     1.77636e-13         52.6762
+
+COMPUTE_PI
+  Normal end of execution.
+
+20 November 2007 12:23:58 PM

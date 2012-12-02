@@ -1,0 +1,196 @@
+12 May 2012 09:16:18 PM
+
+PARTITION_PROBLEM_PRB:
+  C++ version
+  Test the PARTITION_PROBLEM library.
+
+TEST01:
+  Partition a set of N integers W so that the subsets
+  have equal sums.
+
+     I        W0        W1
+
+     0        19
+     1                  17
+     2        13
+     3                   9
+     4                   6
+        --------  --------
+              32        32
+
+  Discrepancy =        0
+
+TEST01:
+  Partition a set of N integers W so that the subsets
+  have equal sums.
+
+     I        W0        W1
+
+     0       484
+     1       114
+     2       205
+     3       288
+     4                 506
+     5                 503
+     6       201
+     7       127
+     8                 410
+        --------  --------
+            1419      1419
+
+  Discrepancy =        0
+
+TEST01:
+  Partition a set of N integers W so that the subsets
+  have equal sums.
+
+     I        W0        W1
+
+     0       771
+     1                 121
+     2       281
+     3       854
+     4                 885
+     5       734
+     6                 486
+     7                1003
+     8                  83
+     9                  62
+        --------  --------
+            2640      2640
+
+  Discrepancy =        0
+
+TEST01:
+  Partition a set of N integers W so that the subsets
+  have equal sums.
+
+     I        W0        W1
+
+     0         2
+     1        10
+     2         3
+     3                   8
+     4         5
+     5         7
+     6                   9
+     7                   5
+     8                   3
+     9                   2
+        --------  --------
+              27        27
+
+  Discrepancy =        0
+
+TEST01:
+  Partition a set of N integers W so that the subsets
+  have equal sums.
+
+     I        W0        W1
+
+     0         3
+     1         4
+     2         3
+     3         1
+     4                   3
+     5                   2
+     6                   3
+     7                   2
+     8                   1
+        --------  --------
+              11        11
+
+  Discrepancy =        0
+
+TEST02:
+  PARTITION_COUNT counts the number of exact solutions
+  of the partition problem.
+
+     I        W
+
+     0        19
+     1        17
+     2        13
+     3         9
+     4         6
+
+  Number of solutions = 2
+
+TEST02:
+  PARTITION_COUNT counts the number of exact solutions
+  of the partition problem.
+
+     I        W
+
+     0       484
+     1       114
+     2       205
+     3       288
+     4       506
+     5       503
+     6       201
+     7       127
+     8       410
+
+  Number of solutions = 2
+
+TEST02:
+  PARTITION_COUNT counts the number of exact solutions
+  of the partition problem.
+
+     I        W
+
+     0       771
+     1       121
+     2       281
+     3       854
+     4       885
+     5       734
+     6       486
+     7      1003
+     8        83
+     9        62
+
+  Number of solutions = 2
+
+TEST02:
+  PARTITION_COUNT counts the number of exact solutions
+  of the partition problem.
+
+     I        W
+
+     0         2
+     1        10
+     2         3
+     3         8
+     4         5
+     5         7
+     6         9
+     7         5
+     8         3
+     9         2
+
+  Number of solutions = 46
+
+TEST02:
+  PARTITION_COUNT counts the number of exact solutions
+  of the partition problem.
+
+     I        W
+
+     0         3
+     1         4
+     2         3
+     3         1
+     4         3
+     5         2
+     6         3
+     7         2
+     8         1
+
+  Number of solutions = 48
+
+PARTITION_PROBLEM_PRB
+  Normal end of execution.
+
+12 May 2012 09:16:18 PM

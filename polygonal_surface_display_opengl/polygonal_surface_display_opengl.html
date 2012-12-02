@@ -1,0 +1,407 @@
+<html>
+
+  <head>
+    <title>
+      POLYGONAL_SURFACE_DISPLAY_OPENGL - Display a Polygonal Surface using OpenGL
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      POLYGONAL_SURFACE_DISPLAY_OPENGL <br> Display a Polygonal Surface using OpenGL
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>POLYGONAL_SURFACE_DISPLAY_OPENGL</b>
+      is a C++ program which
+      gets the names of the node and
+      element files defining a polygonal surface, reads the information
+      from the files, and displays the surface on the screen using OpenGL.
+    </p>
+
+    <p>
+      The surface is presented in rotation about the X axis.  By clicking
+      the mouse button, the axis of rotation will be advanced from X to Y
+      to Z and back to X.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>polygonal_surface_display</b> <i>prefix</i>
+      </blockquote>
+      where <i>prefix</i> is the common filename prefix, so that:
+      <ul>
+        <li>
+          <i>prefix</i><b>_nodes.txt</b> contains the node coordinates;
+        </li>
+        <li>
+          <i>prefix</i><b>_elements.txt</b> contains indices of nodes that form the elements;
+        </li>
+      </ul>
+      reads the information
+      and displays an image of the polygonal surface on the screen.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../m_src/bezier_surface_display/bezier_surface_display.html">
+      BEZIER_SURFACE_DISPLAY</a>,
+      a MATLAB program which
+      reads two files defining a Bezier surface and displays it.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/caustic_opengl/caustic_opengl.html">
+      CAUSTIC_OPENGL</a>,
+      a C++ program which
+      computes a caustic curve and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fern_opengl/fern_opengl.html">
+      FERN_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the Barnsley fractal fern.
+    </p>
+
+    <p>
+      <a href = "../../c_src/flood_opengl/flood_opengl.html">
+      FLOOD_OPENGL</a>,
+      a C program which
+      allows a user to select a region and flood it with color,
+      using OpenGL, by Art Wetzel.
+    </p>
+
+    <p>
+      <a href = "../../c_src/life_opengl/life_opengl.html">
+      LIFE_OPENGL</a>,
+      a C program which
+      simulates a version of John Conway's "Game of Life", displaying the
+      results using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lights_out_opengl/lights_out_opengl.html">
+      LIGHTS_OUT_OPENGL</a>,
+      a C++ program which
+      sets up a "Lights Out" game and allows the user to solve it,
+      using the OpenGL graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lissajous_opengl/lissajous_opengl.html">
+      LISSAJOUS_OPENGL</a>,
+      a C++ program which
+      computes a Lissajous figure and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/opengl/opengl.html">
+      OPENGL</a>,
+      C++ programs which
+      illustrate the use of the OpenGL graphics library;
+    </p>
+
+    <p>
+      <a href = "../../m_src/obj_display/obj_display.html">
+      OBJ_DISPLAY</a>,
+      a MATLAB program which
+      reads an OBJ file defining a 3D object and displays it within MATLAB.
+    </p>
+
+    <p>
+      <a href = "../../data/polygonal_surface/polygonal_surface.html">
+      POLYGONAL_SURFACE</a>,
+      a data directory which
+      contains examples of polygonal surface files.
+    </p>
+
+    <p>
+      <a href = "../../m_src/polygonal_surface_display/polygonal_surface_display.html">
+      POLYGONAL_SURFACE_DISPLAY</a>,
+      a MATLAB program which
+      displays a surface in 3D described as a set of polygons.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rotating_cube_display_opengl/rotating_cube_display_opengl.html">
+      ROTATING_CUBE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a rotating color cube in 3D, using OpenGL;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_xyz_display_opengl/sphere_xyz_display_opengl.html">
+      SPHERE_XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYZ information defining points in 3D,
+      and displays a unit sphere and the points, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../m_src/stla_display/stla_display.html">
+      STLA_DISPLAY</a>,
+      a MATLAB program which
+      reads an ASCII STL file and displays it.
+    </p>
+
+    <p>
+      <a href = "../../m_src/tet_mesh_display/tet_mesh_display.html">
+      TET_MESH_DISPLAY</a>,
+      a MATLAB program which
+      reads files defining a tet mesh and displays an image
+      within MATLAB.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_display_opengl/tet_mesh_display_opengl.html">
+      TET_MESH_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads files defining a tet mesh and displays an image
+      using Open GL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tri_surface_display_opengl/tri_surface_display_opengl.html">
+      TRI_SURFACE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays the 3D graphics information
+      in a TRI_SURFACE file
+      using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_display_opengl/triangulation_display_opengl.html">
+      TRIANGULATION_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads files defining a triangulation and displays an image
+      using Open GL.
+    </p>
+
+    <p>
+      <a href = "../../m_src/triangulation_order1_display/triangulation_order1_display.html">
+      TRIANGULATION_ORDER1_DISPLAY</a>,
+      a MATLAB program which
+      reads files defining a piecewise constant triangulation of data, and displays
+      a corresponding 3D surface.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xy_display_opengl/xy_display_opengl.html">
+      XY_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XY file of 2D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyl_display_opengl/xyl_display_opengl.html">
+      XYL_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYL information defining points and lines in 2D, and displays
+      an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyz_display_opengl/xyz_display_opengl.html">
+      XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XYZ file of 3D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics,
+          a Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000,<br>
+          ISBN: 0-201-38597-X,<br>
+          LC: T385.A514.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "polygonal_surface_display_opengl.cpp">polygonal_surface_display_opengl.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "polygonal_surface_display_opengl.sh">polygonal_surface_display_opengl.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>SPHERE_T3</b> is a sphere, tiled with an 8 by 8 array of
+      logically triangular patches.
+      <ul>
+        <li>
+          <a href = "sphere_t3_nodes.txt">
+          sphere_t3_nodes.txt</a>, the node file;
+        </li>
+        <li>
+          <a href = "sphere_t3_elements.txt">
+          sphere_t3_elements.txt</a>, the face file;
+        </li>
+        <li>
+          <a href = "sphere_t3.png">
+          sphere_t3.png</a>,
+          a PNG image of
+          the shape as displayed by <b>POLYGONAL_SURFACE_DISPLAY</b>.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for POLYGONAL_SURFACE_DISPLAY_OPENGL.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DISPLAY</b> generates the graphics output.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT_SOME</b> prints some of an I4MAT, transposed.
+        </li>
+        <li>
+          <b>MESH_BASE_ZERO</b> ensures that the element definition is zero-based.
+        </li>
+        <li>
+          <b>MOUSE</b> determines the response to mouse input.
+        </li>
+        <li>
+          <b>MYINIT</b> initializes OpenGL state variables.
+        </li>
+        <li>
+          <b>MYRESHAPE</b> determines the window mapping.
+        </li>
+        <li>
+          <b>NODE_NORMAL_SET</b> computes node normal vectors.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R83VEC_MAX</b> returns the maximum value in an R83VEC.
+        </li>
+        <li>
+          <b>R83VEC_MIN</b> returns the minimum value in an R83VEC.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>SPINSURFACE</b> adjusts the angle of rotation and redisplays the picture.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

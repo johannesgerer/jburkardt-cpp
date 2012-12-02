@@ -1,0 +1,20 @@
+#  cvt_03_00007.latin.txt
+#  created by LATINIZE.CC
+#  at 08 October 2004 08:08:28 AM
+#
+#  Spatial dimension M = 3
+#  Number of points N =  7
+#  EPSILON (unit roundoff) = 2.22045e-16
+#
+#  This data was created by the C++ TABLE_LATINIZE program.
+#  The data was read from cvt_03_00007.txt by DTABLE_DATA_READ.CC
+#  The data was latinized by DTABLE_LATINIZE.CC.
+#  The data was written to cvt_03_00007.latin.txt by DTABLE_DATA_WRITE.CC.
+#
+ 0.0714286   0.0714286         0.5  
+  0.785714    0.785714    0.642857  
+  0.214286         0.5    0.928571  
+       0.5    0.214286    0.785714  
+  0.357143    0.642857    0.214286  
+  0.928571    0.928571   0.0714286  
+  0.642857    0.357143    0.357143  

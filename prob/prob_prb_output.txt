@@ -1,0 +1,4426 @@
+03 January 2012 05:03:47 PM
+
+PROB_PRB
+  C++ version.
+  Test the PROB library.
+
+TEST001
+  For the ANGLE PDF:
+  ANGLE_CDF evaluates the CDF;
+
+  Parameter N =     5
+  PDF argument X =   0.5
+  CDF value =       0.0107809
+
+TEST002
+  For the ANGLE PDF:
+  ANGLE_PDF evaluates the PDF;
+
+  Parameter N =    5
+  PDF argument X =  0.5
+  PDF value =      0.0826466
+
+TEST003
+  For the ANGLE PDF:
+  ANGLIT_MEAN computes the mean;
+
+  Parameter N = 5
+  PDF mean =    1.5708
+
+TEST004
+  For the Anglit PDF:
+  ANGLIT_CDF evaluates the CDF;
+  ANGLIT_CDF_INV inverts the CDF.
+  ANGLIT_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+     -0.299105      0.186098      0.218418     -0.299105
+      0.574842      0.934378      0.956318      0.574842
+      0.359757       0.99783      0.829509      0.359757
+     0.0618531      0.788954      0.561695     0.0618531
+    -0.0851032      0.577115      0.415307    -0.0851032
+     -0.525341     -0.262184     0.0661187     -0.525341
+     -0.253093      0.275599      0.257578     -0.253093
+     -0.447402     -0.109188      0.109957     -0.447402
+     -0.574484     -0.355613      0.043829     -0.574484
+      0.135623       0.87071      0.633966      0.135623
+
+TEST005
+  For the Anglit PDF:
+  ANGLIT_MEAN computes the mean;
+  ANGLIT_SAMPLE samples;
+  ANGLIT_VARIANCE computes the variance.
+
+  PDF mean =     0
+  PDF variance = 0.11685
+
+  Sample size =     1000
+  Sample mean =     0.00239765
+  Sample variance = 0.116844
+  Sample maximum =  0.739647
+  Sample minimum =  -0.742509
+
+TEST006
+  For the Arcsin PDF:
+  ARCSIN_CDF evaluates the CDF;
+  ARCSIN_CDF_INV inverts the CDF.
+  ARCSIN_PDF evaluates the PDF;
+
+  PDF parameter A =             1
+
+       X            PDF           CDF            CDF_INV
+
+     -0.773671      0.502393      0.218418     -0.773671
+      0.990598       2.32679      0.956318      0.990598
+      0.859956      0.623687      0.829509      0.859956
+      0.192611      0.324384      0.561695      0.192611
+     -0.262942      0.329919      0.415307     -0.262942
+     -0.978504       1.54349     0.0661187     -0.978504
+     -0.690074      0.439813      0.257578     -0.690074
+     -0.940927      0.940048      0.109957     -0.940927
+     -0.990535       2.31906      0.043829     -0.990535
+      0.408551      0.348743      0.633966      0.408551
+
+TEST007
+  For the Arcsin PDF:
+  ARCSIN_MEAN computes the mean;
+  ARCSIN_SAMPLE samples;
+  ARCSIN_VARIANCE computes the variance.
+
+  PDF parameter A =             1
+  PDF mean =                    0
+  PDF variance =                0.5
+
+  Sample size =     1000
+  Sample mean =     0.00986339
+  Sample variance = 0.490326
+  Sample maximum =  0.999978
+  Sample minimum =  -0.999983
+
+  PDF parameter A =             16
+  PDF mean =                    0
+  PDF variance =                128
+
+  Sample size =     1000
+  Sample mean =     -0.453245
+  Sample variance = 129.51
+  Sample maximum =  15.9995
+  Sample minimum =  -15.9993
+
+TEST008
+  For the Benford PDF:
+  BENFORD_PDF evaluates the PDF.
+
+  N    PDF(N)
+
+       1         0.30103
+       2        0.176091
+       3        0.124939
+       4         0.09691
+       5       0.0791812
+       6       0.0669468
+       7       0.0579919
+       8       0.0511525
+       9       0.0457575
+      10       0.0413927
+      11       0.0377886
+      12       0.0347621
+      13       0.0321847
+      14       0.0299632
+      15       0.0280287
+      16       0.0263289
+      17       0.0248236
+      18       0.0234811
+      19       0.0222764
+
+TEST009
+  For the Bernoulli PDF,
+  BERNOULLI_CDF evaluates the CDF;
+  BERNOULLI_CDF_INV inverts the CDF;
+  BERNOULLI_PDF evaluates the PDF.
+
+  PDF parameter A =             0.75
+
+       X            PDF           CDF            CDF_INV
+
+             0          0.25          0.25             0
+             1          0.75             1             1
+             1          0.75             1             1
+             1          0.75             1             1
+             1          0.75             1             1
+             0          0.25          0.25             0
+             1          0.75             1             1
+             0          0.25          0.25             0
+             0          0.25          0.25             0
+             1          0.75             1             1
+
+TEST010
+  For the Bernoulli PDF:
+  BERNOULLI_MEAN computes the mean;
+  BERNOULLI_SAMPLE samples;
+  BERNOULLI_VARIANCE computes the variance.
+
+  PDF parameter A =             0.75
+  PDF mean =                    0.75
+  PDF variance =       0.1875
+
+  Sample size =     1000
+  Sample mean =     0.768
+  Sample variance = 0.178354
+  Sample maximum =  1
+  Sample minimum =  0
+
+TEST0105:
+  BESSEL_I0 evaluates the Bessel function of the
+    first kind and order 0;
+  BESSEL_I0_VALUES returns some exact values.
+
+      X       Exact F       BESSEL_I0(X)
+
+         0                 1                 1
+       0.2           1.01003           1.01003
+       0.4            1.0404            1.0404
+       0.6           1.09205           1.09205
+       0.8           1.16651           1.16651
+         1           1.26607           1.26607
+       1.2           1.39373           1.39373
+       1.4            1.5534            1.5534
+       1.6           1.74998           1.74998
+       1.8           1.98956           1.98956
+         2           2.27959           2.27959
+       2.5           3.28984           3.28984
+         3           4.88079           4.88079
+       3.5            7.3782            7.3782
+         4           11.3019           11.3019
+       4.5           17.4812           17.4812
+         5           27.2399           27.2399
+         6           67.2344           67.2344
+         8           427.564           427.564
+        10           2815.72           2815.72
+
+TEST0106:
+  BESSEL_I1 evaluates the Bessel function of the
+    first kind and order 1;
+  BESSEL_I1_VALUES returns some exact values.
+
+      X       Exact F       BESSEL_I1(X)
+
+         0                 0                 0
+       0.2          0.100501          0.100501
+       0.4          0.204027          0.204027
+       0.6          0.313704          0.313704
+       0.8          0.432865          0.432865
+         1          0.565159          0.565159
+       1.2          0.714678          0.714678
+       1.4          0.886092          0.886092
+       1.6           1.08481           1.08481
+       1.8           1.31717           1.31717
+         2           1.59064           1.59064
+       2.5           2.51672           2.51672
+         3           3.95337           3.95337
+       3.5           6.20583           6.20583
+         4           9.75947           9.75947
+       4.5           15.3892           15.3892
+         5           24.3356           24.3356
+         6           61.3419           61.3419
+         8           399.873           399.873
+        10           2670.99           2670.99
+
+TEST011
+  BETA evaluates the Beta function;
+  GAMMA evaluates the Gamma function.
+
+  Argument A =                   2.2
+  Argument B =                   3.7
+  Beta(A,B) =                    0.045376
+  (Expected value = 0.0454 )
+
+  Gamma(A)*Gamma(B)/Gamma(A+B) = 0.045376
+
+TEST012
+  For the Beta PDF:
+  BETA_CDF evaluates the CDF;
+  BETA_CDF_INV inverts the CDF.
+  BETA_PDF evaluates the PDF;
+
+  PDF parameter A =      12
+  PDF parameter B =      12
+
+       X            PDF           CDF            CDF_INV
+
+      0.678986      0.855881      0.963719      0.678818
+      0.449603       3.45732      0.312092      0.449603
+      0.629299       1.80664      0.898948      0.629281
+      0.557035        3.3493      0.710504      0.557035
+      0.322395      0.877392     0.0374775       0.32185
+      0.301166      0.582322     0.0221188      0.299241
+      0.504229       3.86528      0.516356      0.504228
+      0.356011        1.4926     0.0768453      0.355968
+      0.470671       3.72441      0.387964      0.470671
+      0.539969       3.60494      0.651058      0.539969
+
+TEST013:
+  BETA_INC evaluates the normalized incomplete Beta
+    function BETA_INC(A,B,X).
+  BETA_INC_VALUES returns some exact values.
+
+         A         B         X       Exact F       BETA_INC(A,B,X)
+
+       0.5       0.5      0.01         0.0637686         0.0637686
+       0.5       0.5       0.1          0.204833          0.204833
+       0.5       0.5         1                 1                 1
+         1       0.5         0                 0                 0
+         1       0.5      0.01        0.00501256        0.00501256
+         1       0.5       0.1         0.0513167         0.0513167
+         1       0.5       0.5          0.292893          0.292893
+         1         1       0.5               0.5               0.5
+         2         2       0.1             0.028             0.028
+         2         2       0.2             0.104             0.104
+         2         2       0.3             0.216             0.216
+         2         2       0.4             0.352             0.352
+         2         2       0.5               0.5               0.5
+         2         2       0.6             0.648             0.648
+         2         2       0.7             0.784             0.784
+         2         2       0.8             0.896             0.896
+         2         2       0.9             0.972             0.972
+       5.5         5       0.5          0.436191          0.436191
+        10       0.5       0.9          0.151641          0.151641
+        10         5       0.5         0.0897827         0.0897827
+        10         5         1                 1                 1
+        10        10       0.5               0.5               0.5
+        20         5       0.8          0.459877          0.459877
+        20        10       0.6          0.214682          0.214682
+        20        10       0.8          0.950736          0.950736
+        20        20       0.5               0.5               0.5
+        20        20       0.6          0.897941          0.897941
+        30        10       0.7           0.22413           0.22413
+        30        10       0.8          0.758641          0.758641
+        40        20       0.7          0.700178          0.700178
+
+TEST014
+  For the Beta PDF:
+  BETA_MEAN computes the mean;
+  BETA_SAMPLE samples;
+  BETA_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     0.4
+  PDF variance = 0.04
+
+  Sample size =     1000
+  Sample mean =     0.403172
+  Sample variance = 0.04072
+  Sample maximum =  0.940639
+  Sample minimum =  0.00845055
+
+TEST015
+  For the Beta Binomial PDF:
+  BETA_BINOMIAL_CDF evaluates the CDF;
+  BETA_BINOMIAL_CDF_INV inverts the CDF.
+  BETA_BINOMIAL_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+  PDF parameter C =      4
+
+       X            PDF           CDF            CDF_INV
+
+             1      0.285714           0.5             1
+             4     0.0714286             1             4
+             3      0.171429      0.928571             3
+             2      0.257143      0.757143             2
+             1      0.285714           0.5             1
+             0      0.214286      0.214286             0
+             1      0.285714           0.5             1
+             0      0.214286      0.214286             0
+             0      0.214286      0.214286             0
+             2      0.257143      0.757143             2
+
+TEST016
+  For the Beta Binomial PDF:
+  BETA_BINOMIAL_MEAN computes the mean;
+  BETA_BINOMIAL_SAMPLE samples;
+  BETA_BINOMIAL_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+  PDF parameter C =      4
+
+  PDF mean =     1.6
+  PDF variance = 1.44
+
+  Sample size =     1000
+  Sample mean =     1.62
+  Sample variance = 1.401
+  Sample maximum =  4
+  Sample minimum =  0
+
+TEST020:
+  BINOMIAL_CDF evaluates the cumulative distribution
+    function for the discrete binomial probability
+    density function.
+  BINOMIAL_CDF_VALUES returns some exact values.
+
+  A is the number of trials;
+  B is the probability of success on one trial;
+  X is the number of successes;
+  BINOMIAL_CDF is the probability of having up to X
+  successes.
+
+      A     B         X   Exact F     BINOMIAL_CDF(A,B,X)
+
+         2      0.05         0            0.9025            0.9025
+         2      0.05         1            0.9975            0.9975
+         2      0.05         2                 1                 1
+         2       0.5         0              0.25              0.25
+         2       0.5         1              0.75              0.75
+         4      0.25         0          0.316406          0.316406
+         4      0.25         1          0.738281          0.738281
+         4      0.25         2          0.949219          0.949219
+         4      0.25         3          0.996094          0.996094
+        10      0.05         4          0.999936          0.999936
+        10       0.1         4          0.998365          0.998365
+        10      0.15         4          0.990126          0.990126
+        10       0.2         4          0.967207          0.967207
+        10      0.25         4          0.921873          0.921873
+        10       0.3         4          0.849732          0.849732
+        10       0.4         4          0.633103          0.633103
+        10       0.5         4          0.376953          0.376953
+
+TEST021
+  For the Binomial PDF:
+  BINOMIAL_CDF evaluates the CDF;
+  BINOMIAL_CDF_INV inverts the CDF.
+  BINOMIAL_PDF evaluates the PDF;
+
+  PDF parameter A =      5
+  PDF parameter B =      0.65
+
+       X            PDF           CDF            CDF_INV
+
+             3      0.336416      0.571585             3
+             5      0.116029             1             5
+             3      0.336416      0.571585             3
+             4      0.312386      0.883971             4
+             3      0.336416      0.571585             3
+             3      0.336416      0.571585             3
+             2      0.181147      0.235169             2
+             4      0.312386      0.883971             4
+             5      0.116029             1             5
+             2      0.181147      0.235169             2
+
+TEST022
+  BINOMIAL_COEF evaluates binomial coefficients.
+  BINOMIAL_COEF_LOG evaluates the logarithm.
+
+    N     K       C(N,K)
+
+       0       0       1               1
+       1       0       1               1
+       1       1       1               1
+       2       0       1               1
+       2       1       2               2
+       2       2       1               1
+       3       0       1               1
+       3       1       3               3
+       3       2       3               3
+       3       3       1               1
+       4       0       1               1
+       4       1       4               4
+       4       2       6               6
+       4       3       4               4
+       4       4       1               1
+
+TEST023
+  For the Binomial PDF:
+  BINOMIAL_MEAN computes the mean;
+  BINOMIAL_SAMPLE samples;
+  BINOMIAL_VARIANCE computes the variance;
+
+  PDF parameter A =      5
+  PDF parameter B =      0.3
+
+  PDF mean =     1.5
+  PDF variance = 1.05
+
+  Sample size =     1000
+  Sample mean =     1.522
+  Sample variance = 1.02854
+  Sample maximum =  5
+  Sample minimum =  0
+
+TEST0235
+  For the Birthday PDF,
+  BIRTHDAY_CDF evaluates the CDF;
+  BIRTHDAY_CDF_INV inverts the CDF.
+  BIRTHDAY_PDF evaluates the PDF;
+
+       N            PDF           CDF            CDF_INV
+
+         1               0               0         0
+         2      0.00273973      0.00273973         2
+         3      0.00546444      0.00820417         3
+         4      0.00815175       0.0163559         4
+         5       0.0107797       0.0271356         5
+         6       0.0133269       0.0404625         6
+         7       0.0157732       0.0562357         7
+         8       0.0180996       0.0743353         8
+         9       0.0202885       0.0946238         9
+        10       0.0223243        0.116948        10
+        11       0.0241932        0.141141        11
+        12       0.0258834        0.167025        12
+        13       0.0273855         0.19441        13
+        14       0.0286922        0.223103        14
+        15       0.0297988        0.252901        15
+        16       0.0307027        0.283604        16
+        17       0.0314037        0.315008        17
+        18       0.0319038        0.346911        18
+        19       0.0322071        0.379119        19
+        20       0.0323199        0.411438        20
+        21         0.03225        0.443688        21
+        22        0.032007        0.475695        22
+        23       0.0316019        0.507297        23
+        24        0.031047        0.538344        24
+        25       0.0303554          0.5687        25
+        26       0.0295411        0.598241        26
+        27       0.0286185        0.626859        27
+        28       0.0276022        0.654461        28
+        29       0.0265071        0.680969        29
+        30       0.0253477        0.706316        30
+
+TEST024
+  For the Bradford PDF:
+  BRADFORD_CDF evaluates the CDF;
+  BRADFORD_CDF_INV inverts the CDF.
+  BRADFORD_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+       X            PDF           CDF            CDF_INV
+
+       1.11788       1.59869      0.218418       1.11788
+       1.92165      0.574785      0.956318       1.92165
+       1.71934      0.685254      0.829509       1.71934
+       1.39286      0.993325      0.561695       1.39286
+       1.25948       1.21682      0.415307       1.25948
+         1.032       1.97451     0.0661187         1.032
+       1.14305       1.51422      0.257578       1.14305
+       1.05489       1.85808      0.109957       1.05489
+       1.02088       2.03647      0.043829       1.02088
+       1.46939      0.898629      0.633966       1.46939
+
+TEST025
+  For the Bradford PDF:
+  BRADFORD_MEAN computes the mean;
+  BRADFORD_SAMPLE samples;
+  BRADFORD_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+  PDF mean =     1.38801
+  PDF variance = 0.0807807
+
+  Sample size =     1000
+  Sample mean =     1.3901
+  Sample variance = 0.0795644
+  Sample maximum =  1.99614
+  Sample minimum =  1.00085
+
+TEST0251
+  BUFFON_LAPLACE_PDF evaluates the Buffon-Laplace PDF, the probability
+  that, on a grid of cells of width A and height B,
+  a needle of length L, dropped at random, will cross
+  at least one grid line.
+
+      A         B         L        PDF
+
+         1         1         0               0
+         1         1       0.2        0.241916
+         1         1       0.4        0.458366
+         1         1       0.6        0.649352
+         1         1       0.8        0.814873
+         1         1         1         0.95493
+
+         1         2         0               0
+         1         2       0.2         0.18462
+         1         2       0.4        0.356507
+         1         2       0.6        0.515662
+         1         2       0.8        0.662085
+         1         2         1        0.795775
+
+         1         3         0               0
+         1         3       0.2        0.165521
+         1         3       0.4        0.322554
+         1         3       0.6        0.471099
+         1         3       0.8        0.611155
+         1         3         1        0.742723
+
+         1         4         0               0
+         1         4       0.2        0.155972
+         1         4       0.4        0.305577
+         1         4       0.6        0.448817
+         1         4       0.8         0.58569
+         1         4         1        0.716197
+
+         1         5         0               0
+         1         5       0.2        0.150242
+         1         5       0.4        0.295392
+         1         5       0.6        0.435448
+         1         5       0.8        0.570411
+         1         5         1        0.700282
+
+         2         1         0               0
+         2         1       0.2         0.18462
+         2         1       0.4        0.356507
+         2         1       0.6        0.515662
+         2         1       0.8        0.662085
+         2         1         1        0.795775
+
+         2         2         0               0
+         2         2       0.4        0.241916
+         2         2       0.8        0.458366
+         2         2       1.2        0.649352
+         2         2       1.6        0.814873
+         2         2         2         0.95493
+
+         2         3         0               0
+         2         3       0.4        0.203718
+         2         3       0.8         0.39046
+         2         3       1.2        0.560225
+         2         3       1.6        0.713014
+         2         3         2        0.848826
+
+         2         4         0               0
+         2         4       0.4         0.18462
+         2         4       0.8        0.356507
+         2         4       1.2        0.515662
+         2         4       1.6        0.662085
+         2         4         2        0.795775
+
+         2         5         0               0
+         2         5       0.4        0.173161
+         2         5       0.8        0.336135
+         2         5       1.2        0.488924
+         2         5       1.6        0.631527
+         2         5         2        0.763944
+
+         3         1         0               0
+         3         1       0.2        0.165521
+         3         1       0.4        0.322554
+         3         1       0.6        0.471099
+         3         1       0.8        0.611155
+         3         1         1        0.742723
+
+         3         2         0               0
+         3         2       0.4        0.203718
+         3         2       0.8         0.39046
+         3         2       1.2        0.560225
+         3         2       1.6        0.713014
+         3         2         2        0.848826
+
+         3         3         0               0
+         3         3       0.6        0.241916
+         3         3       1.2        0.458366
+         3         3       1.8        0.649352
+         3         3       2.4        0.814873
+         3         3         3         0.95493
+
+         3         4         0               0
+         3         4       0.6        0.213268
+         3         4       1.2        0.407437
+         3         4       1.8        0.582507
+         3         4       2.4        0.738479
+         3         4         3        0.875352
+
+         3         5         0               0
+         3         5       0.6        0.196079
+         3         5       1.2        0.376879
+         3         5       1.8          0.5424
+         3         5       2.4        0.692642
+         3         5         3        0.827606
+
+         4         1         0               0
+         4         1       0.2        0.155972
+         4         1       0.4        0.305577
+         4         1       0.6        0.448817
+         4         1       0.8         0.58569
+         4         1         1        0.716197
+
+         4         2         0               0
+         4         2       0.4         0.18462
+         4         2       0.8        0.356507
+         4         2       1.2        0.515662
+         4         2       1.6        0.662085
+         4         2         2        0.795775
+
+         4         3         0               0
+         4         3       0.6        0.213268
+         4         3       1.2        0.407437
+         4         3       1.8        0.582507
+         4         3       2.4        0.738479
+         4         3         3        0.875352
+
+         4         4         0               0
+         4         4       0.8        0.241916
+         4         4       1.6        0.458366
+         4         4       2.4        0.649352
+         4         4       3.2        0.814873
+         4         4         4         0.95493
+
+         4         5         0               0
+         4         5       0.8        0.218997
+         4         5       1.6        0.417623
+         4         5       2.4        0.595876
+         4         5       3.2        0.753758
+         4         5         4        0.891268
+
+         5         1         0               0
+         5         1       0.2        0.150242
+         5         1       0.4        0.295392
+         5         1       0.6        0.435448
+         5         1       0.8        0.570411
+         5         1         1        0.700282
+
+         5         2         0               0
+         5         2       0.4        0.173161
+         5         2       0.8        0.336135
+         5         2       1.2        0.488924
+         5         2       1.6        0.631527
+         5         2         2        0.763944
+
+         5         3         0               0
+         5         3       0.6        0.196079
+         5         3       1.2        0.376879
+         5         3       1.8          0.5424
+         5         3       2.4        0.692642
+         5         3         3        0.827606
+
+         5         4         0               0
+         5         4       0.8        0.218997
+         5         4       1.6        0.417623
+         5         4       2.4        0.595876
+         5         4       3.2        0.753758
+         5         4         4        0.891268
+
+         5         5         0               0
+         5         5         1        0.241916
+         5         5         2        0.458366
+         5         5         3        0.649352
+         5         5         4        0.814873
+         5         5         5         0.95493
+
+
+TEST0252
+  BUFFON_LAPLACE_SIMULATE simulates a Buffon-Laplace needle dropping
+  experiment.  On a grid of cells of width A and height B,
+  a needle of length L is dropped at random.  We count
+  the number of times it crosses at least one grid line,
+  and use this to estimate the value of PI.
+
+  Cell width A =    1
+  Cell height B =   1
+  Needle length L = 1
+
+    Trials      Hits          Est(Pi)     Err
+
+        10        10               3        0.141593
+       100        98         3.06122       0.0803682
+     10000      9522          3.1506      0.00900596
+   1000000    955108         3.14101      0.00058661
+
+TEST0253
+  BUFFON_PDF evaluates the Buffon PDF, the probability
+  that, on a grid of cells of width A,
+  a needle of length L, dropped at random, will cross
+  at least one grid line.
+
+      A         L        PDF
+
+         1         0               0
+         1       0.2        0.127324
+         1       0.4        0.254648
+         1       0.6        0.381972
+         1       0.8        0.509296
+         1         1         0.63662
+
+         2         0               0
+         2       0.4        0.127324
+         2       0.8        0.254648
+         2       1.2        0.381972
+         2       1.6        0.509296
+         2         2         0.63662
+
+         3         0               0
+         3       0.6        0.127324
+         3       1.2        0.254648
+         3       1.8        0.381972
+         3       2.4        0.509296
+         3         3         0.63662
+
+         4         0               0
+         4       0.8        0.127324
+         4       1.6        0.254648
+         4       2.4        0.381972
+         4       3.2        0.509296
+         4         4         0.63662
+
+         5         0               0
+         5         1        0.127324
+         5         2        0.254648
+         5         3        0.381972
+         5         4        0.509296
+         5         5         0.63662
+
+
+TEST0254
+  BUFFON_SIMULATE simulates a Buffon needle dropping
+  experiment.  On a grid of cells of width A,
+  a needle of length L is dropped at random.  We count
+  the number of times it crosses at least one grid line,
+  and use this to estimate the value of PI.
+
+  Cell width A =    1
+  Needle length L = 1
+
+    Trials      Hits          Est(Pi)     Err
+
+        10         6         3.33333        0.191741
+       100        46         4.34783         1.20623
+     10000      6375         3.13725      0.00433775
+   1000000    636855         3.14043      0.00116037
+
+TEST026
+  For the Burr PDF:
+  BURR_CDF evaluates the CDF;
+  BURR_CDF_INV inverts the CDF.
+  BURR_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+  PDF parameter D =      2
+
+       X            PDF           CDF            CDF_INV
+
+       2.91469      0.364571      0.218418       2.91469
+       8.07561     0.0179097      0.956318       8.07561
+       5.33847      0.102359      0.829509       5.33847
+       3.88175      0.292999      0.561695       3.88175
+        3.4385      0.363335      0.415307        3.4385
+       2.40426      0.209864     0.0661187       2.40426
+       3.02016      0.376757      0.257578       3.02016
+       2.58327      0.278521      0.109957       2.58327
+       2.28429      0.161895      0.043829       2.28429
+       4.15007       0.24607      0.633966       4.15007
+
+TEST027
+  For the Burr PDF:
+  BURR_MEAN computes the mean;
+  BURR_SAMPLE samples;
+  BURR_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+  PDF parameter D =      2
+
+  PDF mean =     4.22453
+  PDF variance = 5.72505
+
+  Sample size =     1000
+  Sample mean =     4.21466
+  Sample variance = 4.28559
+  Sample maximum =  20.6931
+  Sample minimum =  1.71031
+
+TEST0275
+  For the Cardioid PDF:
+  CARDIOID_CDF evaluates the CDF;
+  CARDIOID_CDF_INV inverts the CDF.
+  CARDIOID_PDF evaluates the PDF;
+
+  PDF parameter A = 0
+  PDF parameter B = 0.25
+
+       X            PDF           CDF            CDF_INV
+
+      -1.28896      0.181287      0.218419      -1.28895
+       2.61646     0.0902998      0.956317       2.61646
+       1.57037      0.159189      0.829509       1.57037
+      0.259396       0.23607      0.561695      0.259396
+     -0.357278      0.233707      0.415307     -0.357278
+      -2.38175      0.101466     0.0661188      -2.38175
+      -1.08178      0.196537      0.257578      -1.08178
+      -1.99504      0.126398      0.109957      -1.99504
+      -2.61484     0.0903646     0.0438293      -2.61484
+      0.571348      0.226093      0.633966      0.571348
+
+TEST0276
+  For the Cardioid PDF:
+  CARDIOID_MEAN computes the mean;
+  CARDIOID_SAMPLE samples;
+  CARDIOID_VARIANCE computes the variance.
+
+  PDF parameter A = 0
+  PDF parameter B = 0.25
+
+  PDF mean =                    0
+  PDF variance =                0
+
+  Sample size =     1000
+  Sample mean =     0.00991354
+  Sample variance = 2.28985
+  Sample maximum =  3.11531
+  Sample minimum =  -3.11849
+
+TEST028
+  For the Cauchy PDF:
+  CAUCHY_CDF evaluates the CDF;
+  CAUCHY_CDF_INV inverts the CDF.
+  CAUCHY_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+       X            PDF           CDF            CDF_INV
+
+      -1.66329     0.0425934      0.218418      -1.66329
+       23.7233     0.0019857      0.956318       23.7233
+       7.05492     0.0276373      0.829509       7.05492
+       2.58886      0.102167      0.561695       2.58886
+        1.1824     0.0987675      0.415307        1.1824
+      -12.2343    0.00451256     0.0661187      -12.2343
+     -0.860458     0.0555766      0.257578     -0.860458
+      -6.33637     0.0121655      0.109957      -6.33637
+      -19.6498    0.00199897      0.043829      -19.6498
+       3.34283     0.0883932      0.633966       3.34283
+
+TEST029
+  For the Cauchy PDF:
+  CAUCHY_MEAN computes the mean;
+  CAUCHY_SAMPLE samples;
+  CAUCHY_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     2
+  PDF variance = inf
+
+  Sample size =     1000
+  Sample mean =     1.66442
+  Sample variance = 1579.41
+  Sample maximum =  458.532
+  Sample minimum =  -517.438
+
+TEST030
+  For the Chi PDF:
+  CHI_CDF evaluates the CDF;
+  CHI_CDF_INV inverts the CDF.
+  CHI_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+       X            PDF           CDF            CDF_INV
+
+       4.66776      0.249667      0.661045       4.66797
+       3.69139      0.292127      0.387433       3.69141
+        5.6856      0.140774      0.860685       5.68555
+       7.01636     0.0391311      0.971355       7.01562
+       4.01933       0.29092       0.48346       4.01953
+       1.93024     0.0774572       0.02509       1.92969
+       5.38454      0.173412      0.813437       5.38477
+       5.19739      0.194258      0.779034       5.19727
+       5.11671      0.203205         0.763       5.11719
+       4.57428       0.25804      0.637312       4.57422
+
+TEST031
+  For the Chi PDF:
+  CHI_MEAN computes the mean;
+  CHI_SAMPLE samples;
+  CHI_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+  PDF mean =     4.19154
+  PDF variance = 1.81408
+
+  Sample size =     1000
+  Sample mean =     4.16297
+  Sample variance = 1.78593
+  Sample maximum =  8.34277
+  Sample minimum =  1.3536
+
+TEST032:
+  CHI_SQUARE_CDF evaluates the cumulative
+    distribution function for the chi-square central
+    probability density function.
+  CHI_SQUARE_CDF_VALUES returns some exact values.
+
+      A     X   Exact F     CHI_SQUARE_CDF(A,X)
+
+         1      0.01         0.0796557         0.0796557
+         2      0.01        0.00498752        0.00498752
+         1      0.02          0.112463          0.112463
+         2      0.02        0.00995017        0.00995017
+         1       0.4          0.472911          0.472911
+         2       0.4          0.181269          0.181269
+         3       0.4         0.0597575         0.0597575
+         4       0.4         0.0175231         0.0175231
+         1         1          0.682689          0.682689
+         2         1          0.393469          0.393469
+         3         1          0.198748          0.198748
+         4         1          0.090204          0.090204
+         5         1         0.0374342         0.0374342
+         3         2          0.427593          0.427593
+         3         3          0.608375          0.608375
+         3         4          0.738536          0.738536
+         3         5          0.828203          0.828203
+         3         6           0.88839           0.88839
+        10         1       0.000172116       0.000172116
+        10         2        0.00365985        0.00365985
+        10         3         0.0185759         0.0185759
+
+TEST033
+  For the Chi Square PDF:
+  CHI_SQUARE_CDF evaluates the CDF;
+  CHI_SQUARE_CDF_INV inverts the CDF.
+  CHI_SQUARE_PDF evaluates the PDF;
+
+  PDF parameter A =             4
+
+       X            PDF           CDF            CDF_INV
+
+       3.41653      0.154752      0.509317       3.41653
+       4.47034      0.119552      0.653921       4.47034
+        11.825    0.00799795      0.981299        11.825
+       2.27914      0.182306      0.315431       2.27914
+       4.93364       0.10466      0.705825       4.93364
+        4.4932      0.118798      0.656645        4.4932
+       7.04083     0.0520795      0.866254       7.04083
+       1.12602      0.160315      0.109878       1.12602
+      0.483101      0.094858     0.0248749      0.483101
+       5.18019     0.0971452      0.730697       5.18019
+
+TEST034
+  For the Chi Square PDF:
+  CHI_SQUARE_MEAN computes the mean;
+  CHI_SQUARE_SAMPLE samples;
+  CHI_SQUARE_VARIANCE computes the variance.
+
+  PDF parameter A =             10
+  PDF mean =                    10
+  PDF variance =                20
+
+  Sample size =     1000
+  Sample mean =     10.077
+  Sample variance = 20.2423
+  Sample maximum =  28.162
+  Sample minimum =  1.20358
+
+TEST035
+  For the Chi Square Noncentral PDF:
+  CHI_SQUARE_NONCENTRAL_MEAN computes the mean;
+  CHI_SQUARE_NONCENTRAL_SAMPLE samples;
+  CHI_SQUARE_NONCENTRAL_VARIANCE computes the variance;
+
+  PDF parameter A =      3
+  PDF parameter B =      2
+
+  PDF mean =     5
+  PDF variance = 14
+
+  Initial seed =     123456789
+  Final seed =       70876380
+  Sample size =     1000
+  Sample mean =     5.11159
+  Sample variance = 14.5293
+  Sample maximum =  21.9163
+  Sample minimum =  0.0333674
+
+TEST036
+  For the Circle PDF:
+  CIRCLE_SAMPLE samples;
+
+  PDF parameter A =      10
+  PDF parameter B =      4
+  PDF parameter C =      3
+
+  Sample size =     1000
+  Sample mean =          9.99926       4.06034
+  Sample variance =      2.28924       2.19259
+  Sample maximum =       12.9218       6.96697
+  Sample minimum =       7.04381       1.03574
+
+TEST037
+  For the Circular Normal 01 PDF:
+  CIRCULAR_NORMAL_01_MEAN computes the mean;
+  CIRCULAR_NORMAL_01_SAMPLE samples;
+  CIRCULAR_NORMAL_01_VARIANCE computes the variance.
+
+  PDF mean =                0             0
+  PDF variance =            1             1
+
+  Sample size =     1000
+  Sample mean =       0.00581875     0.0215871
+  Sample variance =     0.998375       1.00517
+  Sample maximum =       3.32858       3.02853
+  Sample minimum =      -3.02975      -2.90483
+
+TEST0375
+  For the Circular Normal PDF:
+  CIRCULAR_NORMAL_MEAN computes the mean;
+  CIRCULAR_NORMAL_SAMPLE samples;
+  CIRCULAR_NORMAL_VARIANCE computes the variance.
+
+  PDF mean =                1             5
+  PDF variance =         0.75          0.75
+
+  Sample size =     1000
+  Sample mean =          1.00436       5.01619
+  Sample variance =     0.561586      0.565407
+  Sample maximum =       3.49644        7.2714
+  Sample minimum =      -1.27232       2.82138
+
+TEST038
+  For the Cosine PDF:
+  COSINE_CDF evaluates the CDF;
+  COSINE_CDF_INV inverts the CDF.
+  COSINE_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      1
+
+       X            PDF           CDF            CDF_INV
+
+       1.04663     0.0921411      0.218496       1.04663
+       3.93128    -0.0561385      0.956298       3.93128
+       3.15509     0.0642729      0.829438       3.15509
+       2.19443      0.156156      0.561695       2.19443
+       1.73232      0.153487      0.415302       1.73232
+      0.258932    -0.0269689      0.066047      0.258932
+       1.19619      0.110449      0.257478       1.19619
+      0.542718     0.0180276      0.109936      0.542718
+     0.0702522      -0.05591     0.0438598     0.0702522
+       2.42721      0.144851      0.633937       2.42721
+
+TEST039
+  For the Cosine PDF:
+  COSINE_MEAN computes the mean;
+  COSINE_SAMPLE samples;
+  COSINE_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      1
+
+  PDF mean =     2
+  PDF variance = 1.28987
+
+  Sample size =     1000
+  Sample mean =     2.00654
+  Sample variance = 1.29547
+  Sample maximum =  4.71208
+  Sample minimum =  -0.72435
+
+TEST0395
+  COUPON_COMPLETE_PDF evaluates the coupon collector's
+  complete collection pdf.
+
+
+  Number of coupon types is 2
+
+   BOX_NUM      PDF             CDF
+
+         1               0               0
+         2             0.5             0.5
+         3            0.25            0.75
+         4           0.125           0.875
+         5          0.0625          0.9375
+         6         0.03125         0.96875
+         7        0.015625        0.984375
+         8       0.0078125        0.992188
+         9      0.00390625        0.996094
+        10      0.00195312        0.998047
+        11     0.000976562        0.999023
+        12     0.000488281        0.999512
+        13     0.000244141        0.999756
+        14      0.00012207        0.999878
+        15     6.10352e-05        0.999939
+        16     3.05176e-05        0.999969
+        17     1.52588e-05        0.999985
+        18     7.62939e-06        0.999992
+        19      3.8147e-06        0.999996
+        20     1.90735e-06        0.999998
+
+  Number of coupon types is 3
+
+   BOX_NUM      PDF             CDF
+
+         1               0               0
+         2               0               0
+         3        0.222222        0.222222
+         4        0.222222        0.444444
+         5         0.17284        0.617284
+         6        0.123457        0.740741
+         7        0.085048        0.825789
+         8       0.0576132        0.883402
+         9       0.0387136        0.922116
+        10       0.0259107        0.948026
+        11       0.0173077        0.965334
+        12       0.0115497        0.976884
+        13      0.00770358        0.984587
+        14      0.00513698        0.989724
+        15      0.00342507        0.993149
+        16      0.00228352        0.995433
+        17      0.00152239        0.996955
+        18      0.00101494         0.99797
+        19     0.000676634        0.998647
+        20     0.000451091        0.999098
+
+  Number of coupon types is 4
+
+   BOX_NUM      PDF             CDF
+
+         1               0               0
+         2               0               0
+         3               0               0
+         4         0.09375         0.09375
+         5        0.140625        0.234375
+         6        0.146484        0.380859
+         7        0.131836        0.512695
+         8        0.110229        0.622925
+         9       0.0884399        0.711365
+        10       0.0692368        0.780602
+        11       0.0533867        0.833988
+        12        0.040771        0.874759
+        13       0.0309441        0.905703
+        14       0.0233911        0.929094
+        15       0.0176349        0.946729
+        16       0.0132719        0.960001
+        17      0.00997682        0.969978
+        18      0.00749406        0.977472
+        19      0.00562627        0.983098
+        20      0.00422256        0.987321
+
+TEST040:
+  COUPON_SIMULATE simulates the couponn  collector's problem.
+
+
+  Number of coupon types is 5
+  Expected wait is about 8.04719
+
+       1      10
+       2       8
+       3      14
+       4       7
+       5      10
+       6      11
+       7      17
+       8      11
+       9       6
+      10      12
+
+  Average wait was 10.6
+
+  Number of coupon types is 10
+  Expected wait is about 23.0259
+
+       1      29
+       2      31
+       3      47
+       4      42
+       5      27
+       6      31
+       7      44
+       8      23
+       9      11
+      10      30
+
+  Average wait was 31.5
+
+  Number of coupon types is 15
+  Expected wait is about 40.6208
+
+       1      65
+       2      31
+       3      60
+       4      51
+       5      46
+       6      37
+       7      51
+       8      40
+       9      52
+      10      52
+
+  Average wait was 48.5
+
+  Number of coupon types is 20
+  Expected wait is about 59.9146
+
+       1      80
+       2      80
+       3      51
+       4      54
+       5      58
+       6      80
+       7     173
+       8      69
+       9     156
+      10      54
+
+  Average wait was 85.5
+
+  Number of coupon types is 25
+  Expected wait is about 80.4719
+
+       1     117
+       2     188
+       3      95
+       4      77
+       5     168
+       6     110
+       7     128
+       8      77
+       9     103
+      10      82
+
+  Average wait was 114.5
+
+TEST041
+  For the Deranged PDF:
+  DERANGED_CDF evaluates the CDF;
+  DERANGED_CDF_INV inverts the CDF.
+  DERANGED_PDF evaluates the PDF;
+
+  PDF parameter A =             7
+
+       X            PDF           CDF            CDF_INV
+
+             0      0.367857      0.367857             0
+             3        0.0625      0.981746             3
+             2      0.183333      0.919246             2
+             1      0.368056      0.735913             1
+             1      0.368056      0.735913             1
+             0      0.367857      0.367857             0
+             0      0.367857      0.367857             0
+             0      0.367857      0.367857             0
+             0      0.367857      0.367857             0
+             1      0.368056      0.735913             1
+
+TEST042
+  For the Deranged PDF:
+  DERANGED_CDF evaluates the CDF;
+  DERANGED_PDF evaluates the PDF;
+
+  PDF parameter A =             7
+
+       X            PDF           CDF
+
+             0      0.367857      0.367857
+             1      0.368056      0.735913
+             2      0.183333      0.919246
+             3        0.0625      0.981746
+             4     0.0138889      0.995635
+             5    0.00416667      0.999802
+             6             0      0.999802
+             7   0.000198413             1
+
+TEST043
+  For the Deranged PDF:
+  DERANGED_MEAN computes the mean;
+  DERANGED_SAMPLE samples;
+  DERANGED_VARIANCE computes the variance.
+
+  PDF parameter A =             7
+  PDF mean =                    1
+  PDF variance =                0.632143
+
+  Sample size =     1000
+  Sample mean =     1.004
+  Sample variance = 0.984969
+  Sample maximum =  5
+  Sample minimum =  0
+
+TEST044:
+  DIGAMMA evaluates the DIGAMMA or PSI function.
+  PSI_VALUES returns some exact values.
+
+      X   Exact F     DIGAMMA(X)
+
+         1         -0.577216         -0.577216
+       1.1         -0.423755         -0.423755
+       1.2          -0.28904          -0.28904
+       1.3         -0.169191         -0.169191
+       1.4        -0.0613845        -0.0613845
+       1.5           0.03649           0.03649
+       1.6          0.126047          0.126047
+       1.7          0.208548          0.208548
+       1.8          0.284991          0.284991
+       1.9          0.356184          0.356184
+         2          0.422784          0.422784
+
+TEST045
+  For the Cosine PDF:
+  DIPOLE_CDF evaluates the CDF;
+  DIPOLE_CDF_INV inverts the CDF.
+  DIPOLE_PDF evaluates the PDF;
+
+  PDF parameter A =      0
+  PDF parameter B =      1
+
+       X            PDF           CDF            CDF_INV
+
+      0.515107      0.573233      0.780988      0.515137
+      -1.28591      0.153127      0.056141      -1.28516
+      0.467924      0.589867      0.761502      0.467773
+      0.295557      0.627128      0.677995       0.29541
+      -0.16527      0.635573      0.396656     -0.165283
+     -0.219095       0.63352      0.364799     -0.219238
+     0.0507089       0.63661      0.532227     0.0507812
+      0.883735      0.374656      0.888326      0.883789
+     -0.317761      0.624268      0.310195     -0.317871
+      0.298513      0.626776      0.679584       0.29834
+
+  PDF parameter A =      0.785398
+  PDF parameter B =      0.5
+
+       X            PDF           CDF            CDF_INV
+
+      -2.00376     0.0538127      0.131477      -2.00293
+       1.90221      0.060188      0.828708       1.90332
+       9.07094    0.00368677      0.964094       9.09375
+      0.244458      0.316631      0.501226      0.244629
+      0.203988      0.317466      0.487654      0.204102
+      -10.6175    0.00288846      0.029192      -10.6211
+      -0.86502      0.226546      0.227479     -0.865234
+       2.15741     0.0463925      0.847767       2.15674
+      -4.81123     0.0129237     0.0619356      -4.81836
+      0.646407      0.273715      0.626535      0.646484
+
+  PDF parameter A =      1.5708
+  PDF parameter B =      0
+
+       X            PDF           CDF            CDF_INV
+
+     -0.904508      0.175075      0.265947     -0.904297
+     -0.843581      0.185969      0.276943      -0.84375
+      0.227018      0.302709      0.571058      0.227051
+     -0.320266      0.288698      0.401342     -0.320312
+     -0.506838      0.253253       0.35068     -0.506836
+      0.251535      0.299369      0.578439      0.251465
+     -0.177728      0.308563      0.444012     -0.177734
+     -0.386329      0.276972       0.38265      -0.38623
+    -0.0852594      0.316013      0.472927    -0.0849609
+      -1.51135     0.0969218      0.186061      -1.51074
+
+TEST046
+  For the Cosine PDF:
+  DIPOLE_SAMPLE samples;
+
+  PDF parameter A =      0
+  PDF parameter B =      1
+
+  Sample size =     1000
+  Sample mean =     0.017141
+  Sample variance = 0.728062
+  Sample maximum =  4.78718
+  Sample minimum =  -5.67547
+
+  PDF parameter A =      0.785398
+  PDF parameter B =      0.5
+
+  Sample size =     1000
+  Sample mean =     0.28364
+  Sample variance = 252.082
+  Sample maximum =  245.982
+  Sample minimum =  -245.584
+
+  PDF parameter A =      1.5708
+  PDF parameter B =      0
+
+  Sample size =     1000
+  Sample mean =     -0.179305
+  Sample variance = 242.215
+  Sample maximum =  119.648
+  Sample minimum =  -335.78
+
+TEST047
+  For the Dirichlet PDF:
+  DIRICHLET_MEAN computes the mean;
+  DIRICHLET_SAMPLE samples;
+  DIRICHLET_VARIANCE computes the variance;
+
+  Number of components N = 3
+
+  PDF parameter A:
+
+     1            0.25
+     2             0.5
+     3            1.25
+
+  PDF mean:
+
+     1           0.125
+     2            0.25
+     3           0.625
+
+  PDF variance:
+
+     1       0.0364583
+     2          0.0625
+     3        0.078125
+
+  Second moment matrix:
+
+  Col:          1             2             3       
+  Row
+  ---
+    1     0.0520833     0.0208333     0.0520833  
+    2     0.0208333         0.125      0.104167  
+    3     0.0520833      0.104167       0.46875  
+
+  Sample size =     1000
+
+  Component Mean, Variance, Min, Max:
+
+       0      0.132469     0.0392217      0.986951   1.18379e-11
+       1      0.240464     0.0567061      0.986585   1.98104e-06
+       2      0.627067     0.0745858      0.999945    0.00490504
+
+TEST048
+  For the Dirichlet PDF:
+  DIRICHLET_PDF evaluates the PDF;
+
+  Number of components N = 3
+
+  PDF parameter A:
+
+     1            0.25
+     2             0.5
+     3            1.25
+
+  PDF argument X:
+
+     1             0.5
+     2           0.125
+     3           0.375
+
+  PDF value = 0.63907
+
+TEST049
+  For the Dirichlet Mixture PDF:
+  DIRICHLET_MIX_SAMPLE samples;
+  DIRICHLET_MIX_MEAN computes the mean;
+
+  Number of elements ELEM_NUM =   3
+  Number of components COMP_NUM = 2
+
+  PDF parameters A(ELEM,COMP):
+
+  Col:          1             2       
+  Row
+  ---
+    1          0.25           1.5  
+    2           0.5           0.5  
+    3          1.25             2  
+
+  Component weights
+
+     1               1
+     2               2
+
+  PDF mean
+
+     1        0.291667
+     2        0.166667
+     3        0.541667
+
+  Sample size =     1000
+
+  Component Mean, Variance, Max, Min:
+
+       0      0.280835     0.0578972      0.915616   4.28373e-11
+       1      0.171392     0.0361454      0.924155   4.77996e-07
+       2      0.547774     0.0603173      0.999813     0.0175771
+
+TEST050
+  For the Dirichlet mixture PDF:
+  DIRICHLET_MIX_PDF evaluates the PDF.
+
+  Number of elements ELEM_NUM =   3
+  Number of components COMP_NUM = 2
+
+  PDF parameters A(ELEM,COMP):
+
+  Col:          1             2       
+  Row
+  ---
+    1          0.25           1.5  
+    2           0.5           0.5  
+    3          1.25             2  
+
+  Component weights
+
+     1               1
+     2               2
+
+  PDF argument X:
+
+     1             0.5
+     2           0.125
+     3           0.375
+
+  PDF value =           2.12288
+
+TEST051
+  BETA_PDF evaluates the Beta PDF.
+  DIRICHLET_PDF evaluates the Dirichlet PDF.
+
+  For N = 2, Dirichlet = Beta.
+
+  Number of components N = 2
+
+  PDF parameters A(1:N):
+
+     1             2.5
+     2             3.5
+
+  PDF arguments X(1:N):
+
+     1            0.25
+     2            0.75
+
+  Dirichlet PDF value =  1.65399
+  Beta PDF value =       1.65399
+
+TEST052
+  For the Discrete PDF:
+  DISCRETE_CDF evaluates the CDF;
+  DISCRETE_CDF_INV inverts the CDF.
+  DISCRETE_PDF evaluates the PDF;
+
+  PDF parameter A =      6
+
+  PDF parameter B:
+
+     1               1
+     2               2
+     3               6
+     4               2
+     5               4
+     6               1
+
+       X            PDF           CDF            CDF_INV
+
+             3         0.375        0.5625             3
+             6        0.0625             1             6
+             5          0.25        0.9375             5
+             3         0.375        0.5625             3
+             3         0.375        0.5625             3
+             2         0.125        0.1875             2
+             3         0.375        0.5625             3
+             2         0.125        0.1875             2
+             1        0.0625        0.0625             1
+             4         0.125        0.6875             4
+
+TEST053
+  For the Discrete PDF:
+  DISCRETE_MEAN computes the mean;
+  DISCRETE_SAMPLE samples;
+  DISCRETE_VARIANCE computes the variance;
+
+  PDF parameter A =      6
+
+  PDF parameter B:
+
+     1               1
+     2               2
+     3               6
+     4               2
+     5               4
+     6               1
+
+  PDF mean =     3.5625
+  PDF variance = 1.74609
+
+  Sample size =     1000
+  Sample mean =     3.559
+  Sample variance = 1.73826
+  Sample maximum =  6
+  Sample minimum =  1
+
+TEST054
+  For the Empirical Discrete PDF:
+  EMPIRICAL_DISCRETE_CDF evaluates the CDF;
+  EMPIRICAL_DISCRETE_CDF_INV inverts the CDF.
+  EMPIRICAL_DISCRETE_PDF evaluates the PDF;
+
+  PDF parameter A = 6
+
+  PDF parameter B = 
+
+     1               1
+     2               1
+     3               3
+     4               2
+     5               1
+     6               2
+
+  PDF parameter C = 
+
+     1               0
+     2               1
+     3               2
+     4             4.5
+     5               6
+     6              10
+
+       X            PDF           CDF            CDF_INV
+
+             2           0.3           0.5             2
+            10           0.2             1            10
+            10           0.2             1            10
+           4.5           0.2           0.7           4.5
+             2           0.3           0.5             2
+             0           0.1           0.1             0
+             2           0.3           0.5             2
+             1           0.1           0.2             1
+             0           0.1           0.1             0
+           4.5           0.2           0.7           4.5
+
+TEST055
+  For the Empirical Discrete PDF:
+  EMPIRICAL_DISCRETE_MEAN computes the mean;
+  EMPIRICAL_DISCRETE_SAMPLE samples;
+  EMPIRICAL_DISCRETE_VARIANCE computes the variance.
+
+  PDF parameter A = 6
+
+  PDF parameter B = 
+
+     1               1
+     2               1
+     3               3
+     4               2
+     5               1
+     6               2
+
+  PDF parameter C = 
+
+     1               0
+     2               1
+     3               2
+     4             4.5
+     5               6
+     6              10
+
+  PDF mean =     4.2
+  PDF variance = 11.31
+
+  Sample size =     1000
+  Sample mean =     4.231
+  Sample variance = 11.2023
+  Sample maximum =  10
+  Sample minimum =  0
+
+TEST056
+  For the Empirical Discrete PDF:
+  EMPIRICAL_DISCRETE_CDF evaluates the CDF;
+  EMPIRICAL_DISCRETE_PDF evaluates the PDF;
+
+  PDF parameter A = 6
+
+  PDF parameter B = 
+
+     1               1
+     2               1
+     3               3
+     4               2
+     5               1
+     6               2
+
+  PDF parameter C = 
+
+     1               0
+     2               1
+     3               2
+     4             4.5
+     5               6
+     6              10
+
+       X            PDF           CDF
+
+            -2             0             0
+            -1             0             0
+             0           0.1           0.1
+             1           0.1           0.2
+             2           0.3           0.5
+             3             0           0.5
+             4             0           0.5
+             5             0           0.7
+             6           0.1           0.8
+             7             0           0.8
+             8             0           0.8
+             9             0           0.8
+            10           0.2             1
+            11             0             1
+            12             0             1
+
+TEST0563
+  For the English Sentence Length PDF:
+  ENGLISH_SENTENCE_LENGTH_CDF evaluates the CDF;
+  ENGLISH_SENTENCE_LENGTH_CDF_INV inverts the CDF.
+  ENGLISH_SENTENCE_LENGTH_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+             9     0.0329364      0.232179             9
+            43    0.00478109      0.957141            43
+            30     0.0155962      0.840951            30
+            19     0.0333674      0.587303            19
+            14     0.0375972      0.415634            14
+             5     0.0305008     0.0965039             5
+            10     0.0354122      0.267591            10
+             6     0.0319642      0.128468             6
+             4     0.0255292     0.0660031             4
+            21     0.0287367      0.647141            21
+
+TEST0564
+  For the English Sentence Length PDF:
+  ENGLISH_SENTENCE_LENGTH_MEAN computes the mean;
+  ENGLISH_SENTENCE_LENGTH_SAMPLE samples;
+  ENGLISH_SENTENCE_LENGTH_VARIANCE computes the variance.
+
+  PDF mean =                    19.1147
+  PDF variance =                147.443
+
+  Sample size =     1000
+  Sample mean =     19.107
+  Sample variance = 144.238
+  Sample maximum =  67
+  Sample minimum =  1
+
+TEST0565
+  For the English Word Length PDF:
+  ENGLISH_WORD_LENGTH_CDF evaluates the CDF;
+  ENGLISH_WORD_LENGTH_CDF_INV inverts the CDF.
+  ENGLISH_WORD_LENGTH_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+             3      0.211926      0.413282             3
+            10     0.0276608      0.965289            10
+             7     0.0772423      0.841075             7
+             4      0.156785      0.570067             4
+             4      0.156785      0.570067             4
+             2      0.169755      0.201356             2
+             3      0.211926      0.413282             3
+             2      0.169755      0.201356             2
+             2      0.169755      0.201356             2
+             5      0.108523       0.67859             5
+
+TEST0566
+  For the English Word Length PDF:
+  ENGLISH_WORD_LENGTH_MEAN computes the mean;
+  ENGLISH_WORD_LENGTH_SAMPLE samples;
+  ENGLISH_WORD_LENGTH_VARIANCE computes the variance.
+
+  PDF mean =                    4.73912
+  PDF variance =                7.05635
+
+  Sample size =     1000
+  Sample mean =     4.74
+  Sample variance = 6.96737
+  Sample maximum =  15
+  Sample minimum =  1
+
+TEST057
+  For the Erlang PDF:
+  ERLANG_CDF evaluates the CDF;
+  ERLANG_CDF_INV inverts the CDF.
+  ERLANG_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+       X            PDF           CDF            CDF_INV
+
+       11.2926     0.0385403      0.887143        11.293
+       3.85983      0.122337      0.173777       3.85938
+       1.91828     0.0332989     0.0114788       1.91797
+       4.33148      0.131139      0.233762       4.33203
+       8.02827     0.0919195      0.681759       8.02734
+       6.42343      0.122108       0.50924       6.42383
+       5.14542      0.135161      0.342996       5.14551
+        4.9536      0.135317      0.317044       4.95312
+       6.71621      0.117176      0.544281        6.7168
+        5.9501      0.128886      0.449771        5.9502
+
+TEST058
+  For the Erlang PDF:
+  ERLANG_MEAN computes the mean;
+  ERLANG_SAMPLE samples;
+  ERLANG_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+  PDF mean =     7
+  PDF variance = 12
+
+  Sample size =     1000
+  Sample mean =     7.00341
+  Sample variance = 11.491
+  Sample maximum =  21.5166
+  Sample minimum =  1.22651
+
+TEST059
+  ERROR_F evaluates ERF(X).
+  ERROR_F_INVERSE inverts ERF(X).
+
+X   -> Y = error_F(X) -> Z = error_f_inverse(Y)
+
+         1.67904         1.67904         1.67904
+       -0.472769       -0.472769       -0.472769
+        -0.56606        -0.56606        -0.56606
+       -0.231124       -0.231124       -0.231124
+         1.21293         1.21293         1.21293
+        0.535037        0.535037        0.535037
+         1.26938         1.26938         1.26938
+         1.04954         1.04954         1.04954
+        -1.66609        -1.66609        -1.66609
+        -1.86523        -1.86523        -1.86523
+        -2.24246        -2.24246        -2.24246
+        0.735809        0.735809        0.735809
+       0.0396749       0.0396749       0.0396749
+        -1.35074        -1.35074        -1.35074
+        0.673068        0.673068        0.673068
+      0.00777484      0.00777484      0.00777484
+       -0.275127       -0.275127       -0.275127
+         0.37494         0.37494         0.37494
+           2.164           2.164           2.164
+          0.1856          0.1856          0.1856
+
+TEST060
+  For the Exponential 01 PDF:
+  EXPONENTIAL_01_CDF evaluates the CDF;
+  EXPONENTIAL_01_CDF_INV inverts the CDF.
+  EXPONENTIAL_01_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+      0.246436      0.781582      0.218418      0.246436
+       3.13081     0.0436824      0.956318       3.13081
+       1.76907      0.170491      0.829509       1.76907
+      0.824841      0.438305      0.561695      0.824841
+      0.536668      0.584693      0.415307      0.536668
+      0.068406      0.933881     0.0661187      0.068406
+      0.297837      0.742422      0.257578      0.297837
+      0.116485      0.890043      0.109957      0.116485
+     0.0448185      0.956171      0.043829     0.0448185
+       1.00503      0.366034      0.633966       1.00503
+
+TEST061
+  For the Exponential 01 PDF:
+  EXPONENTIAL_01_MEAN computes the mean;
+  EXPONENTIAL_01_SAMPLE samples;
+  EXPONENTIAL_01_VARIANCE computes the variance.
+
+  PDF mean =     1
+  PDF variance = 1
+
+  Sample size =     1000
+  Sample mean =     1.00328
+  Sample variance = 0.981133
+  Sample maximum =  6.16979
+  Sample minimum =  0.00184006
+
+TEST062
+  For the Exponential PDF:
+  EXPONENTIAL_CDF evaluates the CDF;
+  EXPONENTIAL_CDF_INV inverts the CDF.
+  EXPONENTIAL_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+       1.49287      0.390791      0.218418       1.49287
+       7.26162     0.0218412      0.956318       7.26162
+       4.53815     0.0852454      0.829509       4.53815
+       2.64968      0.219152      0.561695       2.64968
+       2.07334      0.292346      0.415307       2.07334
+       1.13681      0.466941     0.0661187       1.13681
+       1.59567      0.371211      0.257578       1.59567
+       1.23297      0.445022      0.109957       1.23297
+       1.08964      0.478086      0.043829       1.08964
+       3.01006      0.183017      0.633966       3.01006
+
+TEST063
+  For the Exponential PDF:
+  EXPONENTIAL_MEAN computes the mean;
+  EXPONENTIAL_SAMPLE samples;
+  EXPONENTIAL_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      10
+
+  PDF mean =     11
+  PDF variance = 100
+
+  Sample size =     1000
+  Sample mean =     11.0328
+  Sample variance = 98.1133
+  Sample maximum =  62.6979
+  Sample minimum =  1.0184
+
+TEST064
+  For the Extreme Values PDF:
+  EXTREME_VALUES_CDF evaluates the CDF;
+  EXTREME_VALUES_CDF_INV inverts the CDF.
+  EXTREME_VALUES_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+       X            PDF           CDF            CDF_INV
+
+      0.741219      0.110763      0.218418      0.741219
+       11.3257      0.014238      0.956318       11.3257
+       7.03121     0.0516842      0.829509       7.03121
+        3.6508      0.107994      0.561695        3.6508
+       2.38781      0.121649      0.415307       2.38781
+     -0.997815     0.0598662     0.0661187     -0.997815
+       1.08542      0.116462      0.257578       1.08542
+      -0.37581      0.080916      0.109957      -0.37581
+      -1.42066     0.0456911      0.043829      -1.42066
+       4.35736     0.0963122      0.633966       4.35736
+
+TEST065
+  For the Extreme Values PDF:
+  EXTREME_VALUES_MEAN computes the mean;
+  EXTREME_VALUES_SAMPLE samples;
+  EXTREME_VALUES_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     3.73165
+  PDF variance = 14.8044
+
+  Sample size =     1000
+  Sample mean =     3.74498
+  Sample variance = 14.6723
+  Sample maximum =  20.5062
+  Sample minimum =  -3.52111
+
+TEST066:
+  F_CDF evaluates the cumulative
+    distribution function for the F
+    probability density function.
+  F_CDF_VALUES returns some exact values.
+
+      A     B     X   Exact F     F_CDF(A,B,X)
+
+         1         1         1               0.5               0.5
+         1         5     0.528          0.499971          0.499971
+         5         1      1.89          0.499603          0.499603
+         1         5      1.69          0.749699          0.749699
+         2        10       1.6          0.750466          0.750466
+         4        20      1.47          0.751416          0.751416
+         1         5      4.06          0.899987          0.899987
+         6         6      3.05          0.899713          0.899713
+         8        16      2.09          0.900285          0.900285
+         1         5      6.61          0.950025          0.950025
+         3        10      3.71          0.950057          0.950057
+         6        12         3          0.950193          0.950193
+         1         5     10.01          0.975013          0.975013
+         1         5     16.26          0.990002          0.990002
+         1         5     22.78          0.994998          0.994998
+         1         5     47.18             0.999             0.999
+         2         5         1          0.568799          0.568799
+         3         5         1          0.535145          0.535145
+         4         5         1          0.514343          0.514343
+         5         5         1               0.5               0.5
+
+TEST067
+  For the F PDF:
+  F_CDF evaluates the CDF;
+  F_PDF evaluates the PDF;
+  F_SAMPLE samples the PDF;
+
+  PDF parameter M = 1
+  PDF parameter N = 1
+
+       X            PDF           CDF
+
+       12.6132    0.00658382       0.82527
+       5.99838      0.018571      0.753218
+       5.13933     0.0228705      0.735525
+        1.4628      0.106864      0.560173
+      0.797869       0.19821      0.464137
+       9.28796     0.0101522      0.798156
+   0.000862763       10.8275     0.0186939
+       7494.37   4.90557e-07      0.992647
+      0.538447      0.281965      0.403009
+       135.944   0.000199354      0.945532
+
+TEST068
+  For the F PDF:
+  F_MEAN computes the mean;
+  F_SAMPLE samples;
+  F_VARIANCE computes the variance;
+
+  PDF parameter M = 8
+  PDF parameter N = 6
+
+  PDF mean =     1.5
+  PDF variance = 3.375
+
+  Sample size =     1000
+  Sample mean =     1.4476
+  Sample variance = 3.10414
+  Sample maximum =  27.6769
+  Sample minimum =  0.0641745
+
+TEST069
+  FACTORIAL_LOG evaluates the log of the factorial function;
+  GAMMA_LOG_INT evaluates the log for integer argument.
+
+  I, GAMMA_LOG_INT(I+1) FACTORIAL_LOG(I)
+
+       1             0             0
+       2      0.693147      0.693147
+       3       1.79176       1.79176
+       4       3.17805       3.17805
+       5       4.78749       4.78749
+       6       6.57925       6.57925
+       7       8.52516       8.52516
+       8       10.6046       10.6046
+       9       12.8018       12.8018
+      10       15.1044       15.1044
+      11       17.5023       17.5023
+      12       19.9872       19.9872
+      13       22.5522       22.5522
+      14       25.1912       25.1912
+      15       27.8993       27.8993
+      16       30.6719       30.6719
+      17       33.5051       33.5051
+      18       36.3954       36.3954
+      19       39.3399       39.3399
+      20       42.3356       42.3356
+
+TEST070
+  FACTORIAL_STIRLING computes Stirling's
+    approximate factorial function;
+  I_FACTORIAL evaluates the factorial function;
+
+  N      Stirling     N!
+
+       0             1                     1
+       1       1.00227                     1
+       2       2.00065                     2
+       3        6.0006                     6
+       4        24.001                    24
+       5       120.003                   120
+       6       720.009                   720
+       7       5040.04                  5040
+       8       40320.2                 40320
+       9        362881                362880
+      10   3.62881e+06            3.6288e+06
+      11   3.99169e+07           3.99168e+07
+      12   4.79002e+08           4.79002e+08
+      13   6.22703e+09           6.22702e+09
+      14   8.71784e+10           8.71783e+10
+      15   1.30768e+12           1.30767e+12
+      16   2.09228e+13           2.09228e+13
+      17   3.55688e+14           3.55687e+14
+      18   6.40238e+15           6.40237e+15
+      19   1.21645e+17           1.21645e+17
+      20    2.4329e+18            2.4329e+18
+
+TEST0705
+  For the Fisher PDF:
+  FISHER_PDF evaluates the PDF.
+  FISHER_SAMPLE samples the PDF.
+
+  PDF parameters:
+    Concentration parameter KAPPA = 0
+    Direction MU(1:3) =   1  0  0
+
+      X                         PDF
+
+   -0.563163    0.312518    -0.76497       0.0795775
+    0.912635    0.127444    0.388401       0.0795775
+    0.659018     0.43708    0.612091       0.0795775
+    0.123391    -0.99193  -0.0291358       0.0795775
+   -0.169386   -0.942369    -0.28853       0.0795775
+   -0.867763  0.00574039   -0.496946       0.0795775
+   -0.484844    -0.52511   -0.699418       0.0795775
+   -0.780086    0.504435    0.370149       0.0795775
+   -0.912342    0.229164   -0.339288       0.0795775
+    0.267931   0.0823288   -0.959914       0.0795775
+
+  PDF parameters:
+    Concentration parameter KAPPA = 0.5
+    Direction MU(1:3) =   1  0  0
+
+      X                         PDF
+
+    -0.36265    0.352448   -0.862708       0.0636934
+    0.943998    0.102869    0.313505        0.122414
+    0.771936    0.369422    0.517342        0.112322
+    0.351138    -0.93592  -0.0274906       0.0910105
+   0.0772099   -0.953331   -0.291887       0.0793613
+   -0.784785  0.00715868   -0.619727       0.0515738
+   -0.267118   -0.578584   -0.770642       0.0668096
+   -0.653881    0.609991    0.447605       0.0550623
+   -0.854781    0.290486   -0.430078          0.0498
+    0.473689   0.0752579   -0.877471       0.0967616
+
+  PDF parameters:
+    Concentration parameter KAPPA = 10
+    Direction MU(1:3) =   1  0  0
+
+      X                         PDF
+
+    0.847866    0.200522   -0.490831        0.347624
+    0.995533    0.029434   0.0897036         1.52203
+    0.981308    0.111834    0.156614          1.3202
+     0.94232   -0.334568  -0.0098272        0.893966
+    0.912126   -0.391949   -0.120005        0.660982
+     0.72837  0.00791427   -0.685139        0.105231
+    0.864357   -0.301929   -0.402153        0.409948
+    0.779233    0.505291    0.370778        0.175002
+    0.687254    0.406587   -0.601971        0.069756
+    0.954424   0.0255038   -0.297363         1.00899
+
+TEST071
+  For the Fisk PDF:
+  FISK_CDF evaluates the CDF;
+  FISK_CDF_INV inverts the CDF.
+  FISK_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+       X            PDF           CDF            CDF_INV
+
+       2.30758      0.391667      0.218418       2.30758
+       6.59494     0.0223993      0.956318       6.59494
+       4.38899      0.125191      0.829509       4.38899
+       3.17239      0.339985      0.561695       3.17239
+       2.78448      0.408233      0.415307       2.78448
+       1.82738      0.223887     0.0661187       1.82738
+       2.40534      0.408224      0.257578       2.40534
+       1.99609       0.29475      0.109957       1.99609
+       1.71577      0.175649      0.043829       1.71577
+       3.40184      0.289844      0.633966       3.40184
+
+TEST072
+  For the Fisk PDF:
+  FISK_MEAN computes the mean;
+  FISK_SAMPLE samples;
+  FISK_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+  PDF mean =     3.4184
+  PDF variance = 3.82494
+
+  Sample size =     1000
+  Sample mean =     3.4112
+  Sample variance = 2.91484
+  Sample maximum =  16.6277
+  Sample minimum =  1.24516
+
+TEST073
+  For the Folded Normal PDF:
+  FOLDED_NORMAL_CDF evaluates the CDF;
+  FOLDED_NORMAL_CDF_INV inverts the CDF.
+  FOLDED_NORMAL_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+       X            PDF           CDF            CDF_INV
+
+       1.03703      0.205965      0.218421       1.03703
+       7.16445     0.0314698      0.956292       7.16364
+       4.97681     0.0901798      0.829447       4.97609
+       2.86891      0.163148      0.561656       2.86863
+       2.03443      0.186808      0.415234       2.03394
+      0.310759      0.212331     0.0661153      0.310758
+       1.22833      0.203183      0.257565       1.22824
+      0.517615      0.211208      0.109931      0.517593
+      0.206128      0.212686      0.043879      0.206146
+       3.33313      0.147866      0.633889       3.33255
+
+TEST074
+  For the Folded Normal PDF:
+  FOLDED_NORMAL_MEAN computes the mean;
+  FOLDED_NORMAL_SAMPLE samples;
+  FOLDED_NORMAL_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     2.90672
+  PDF variance = 4.55099
+
+  Sample size =     1000
+  Sample mean =     2.92096
+  Sample variance = 4.50179
+  Sample maximum =  10.6319
+  Sample minimum =  0.00881944
+
+TEST0744
+  For the Frechet PDF:
+  FRECHET_CDF evaluates the CDF;
+  FRECHET_CDF_INV inverts the CDF.
+  FRECHET_PDF evaluates the PDF;
+
+  PDF parameter ALPHA =  3
+
+       X            PDF           CDF            CDF_INV
+
+      0.869476       1.14652      0.218418      0.869476
+       2.81845     0.0454656      0.956318       2.81845
+       1.74896      0.265962      0.829509       1.74896
+       1.20132      0.809067      0.561695       1.20132
+       1.04403       1.04866      0.415307       1.04403
+      0.716705      0.751767     0.0661187      0.716705
+      0.903373       1.16028      0.257578      0.903373
+       0.76799      0.948247      0.109957       0.76799
+      0.683811      0.601365      0.043829      0.683811
+       1.29943      0.667067      0.633966       1.29943
+
+TEST0745
+  For the Frechet PDF:
+  FRECHET_MEAN computes the mean;
+  FRECHET_SAMPLE samples;
+  FRECHET_VARIANCE computes the variance;
+
+  PDF parameter ALPHA =  3
+
+  PDF mean =     1.35412
+  PDF variance = 0.845303
+
+  Sample size =     1000
+  Sample mean =     1.35005
+  Sample variance = 0.61922
+  Sample maximum =  7.81659
+  Sample minimum =  0.541476
+
+TEST075
+  GAMMA evaluates the Gamma function;
+  GAMMA_LOG evaluates the log of the Gamma function;
+  GAMMA_LOG_INT evaluates the log for integer argument;
+  D_FACTORIAL evaluates the factorial function.
+
+  X, GAMMA(X), Exp(GAMMA_LOG(X)), Exp(GAMMA_LOG_INT(X)) D_FACTORIAL(X+1)
+
+       1               1               1               1               1
+       2               1               1               1               1
+       3               2               2               2               2
+       4               6               6               6               6
+       5              24              24              24              24
+       6             120             120             120             120
+       7             720             720             720             720
+       8            5040            5040            5040            5040
+       9           40320           40320           40320           40320
+      10          362880          362880          362880          362880
+
+TEST076:
+  GAMMA_INC evaluates the normalized incomplete Gamma
+    function GAMMA_INC(A,B,X).
+  GAMMA_INC_VALUES returns some exact values.
+
+   A      X       Exact F       GAMMA_INC(A,X)
+
+       0.1      0.03          0.738235          0.738235
+       0.1       0.3          0.908358          0.908358
+       0.1       1.5          0.988656          0.988656
+       0.5     0.075          0.301465          0.301465
+       0.5      0.75          0.779329          0.779329
+       0.5       3.5          0.991849          0.991849
+         1       0.1         0.0951626         0.0951626
+         1         1          0.632121          0.632121
+         1         5          0.993262          0.993262
+       1.1       0.1         0.0720597         0.0720597
+       1.1         1          0.589181          0.589181
+       1.1         5          0.991537          0.991537
+         2      0.15         0.0101858         0.0101858
+         2       1.5          0.442175          0.442175
+         2         7          0.992705          0.992705
+         6       2.5          0.042021          0.042021
+         6        12          0.979659          0.979659
+        11        16          0.922604          0.922604
+        26        25          0.447079          0.447079
+        41        45          0.744455          0.744455
+
+TEST077
+  For the Gamma PDF:
+  GAMMA_CDF evaluates the CDF;
+  GAMMA_PDF evaluates the PDF;
+  GAMMA_SAMPLE samples the PDF;
+
+  PDF parameter A = 1
+  PDF parameter B = 1.5
+  PDF parameter B = 3
+
+       X            PDF           CDF
+
+       9.78938     0.0326457      0.931465
+       3.71255      0.178685       0.27162
+       2.87613      0.149289      0.131701
+       6.15383      0.126698      0.667132
+       8.36485     0.0592491      0.867551
+       7.65229     0.0777327      0.818961
+       7.07259     0.0953344      0.768902
+       1.63088     0.0387193     0.0090759
+        6.5162      0.113991      0.710734
+       4.76846      0.170586       0.45934
+
+TEST078
+  For the Gamma PDF:
+  GAMMA_MEAN computes the mean;
+  GAMMA_SAMPLE samples;
+  GAMMA_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      3
+  PDF parameter C =      2
+
+  PDF mean =     7
+  PDF variance = 18
+
+  Sample size =     1000
+  Sample mean =     7.03579
+  Sample variance = 19.6481
+  Sample maximum =  32.6521
+  Sample minimum =  1.19639
+
+TEST079
+  For the Genlogistic PDF:
+  GENLOGISTIC_CDF evaluates the CDF;
+  GENLOGISTIC_CDF_INV inverts the CDF.
+  GENLOGISTIC_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+       X            PDF           CDF            CDF_INV
+
+       1.82954       0.13032      0.218418       1.82954
+       9.39944     0.0211989      0.956318       9.39944
+       6.48873     0.0751605      0.829509       6.48873
+       4.10241      0.147371      0.561695       4.10241
+       3.15571      0.158177      0.415307       3.15571
+       0.22539     0.0590738     0.0661187       0.22539
+       2.11836      0.140536      0.257578       2.11836
+      0.832536     0.0859182      0.109957      0.832536
+     -0.215463     0.0425639      0.043829     -0.215463
+       4.61496       0.13403      0.633966       4.61496
+
+TEST080
+  For the Genlogistic PDF:
+  GENLOGISTIC_MEAN computes the mean;
+  GENLOGISTIC_SAMPLE samples;
+  GENLOGISTIC_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+  PDF mean =     4
+  PDF variance = 8.15947
+
+  Sample size =     1000
+  Sample mean =     4.00819
+  Sample variance = 8.13473
+  Sample maximum =  15.534
+  Sample minimum =  -2.93789
+
+TEST081
+  For the Geometric PDF:
+  GEOMETRIC_CDF evaluates the CDF;
+  GEOMETRIC_CDF_INV inverts the CDF.
+  GEOMETRIC_PDF evaluates the PDF;
+
+  PDF parameter A =             0.25
+
+       X            PDF           CDF            CDF_INV
+
+             1          0.25          0.25             2
+            11     0.0140784      0.957765            12
+             7     0.0444946      0.866516             8
+             3      0.140625      0.578125             4
+             2        0.1875        0.4375             3
+             1          0.25          0.25             2
+             2        0.1875        0.4375             3
+             1          0.25          0.25             2
+             1          0.25          0.25             2
+             4      0.105469      0.683594             5
+
+TEST082
+  For the Geometric PDF:
+  GEOMETRIC_MEAN computes the mean;
+  GEOMETRIC_SAMPLE samples;
+  GEOMETRIC_VARIANCE computes the variance.
+
+  PDF parameter A =             0.25
+  PDF mean =                    4
+  PDF variance =                12
+
+  Sample size =     1000
+  Sample mean =     4.022
+  Sample variance = 11.7413
+  Sample maximum =  22
+  Sample minimum =  1
+
+TEST083
+  For the Geometric PDF:
+  GEOMETRIC_CDF evaluates the CDF;
+  GEOMETRIC_PDF evaluates the PDF;
+
+  PDF parameter A =             0.25
+
+       X            PDF           CDF
+
+             0             0             0
+             1          0.25          0.25
+             2        0.1875        0.4375
+             3      0.140625      0.578125
+             4      0.105469      0.683594
+             5     0.0791016      0.762695
+             6     0.0593262      0.822021
+             7     0.0444946      0.866516
+             8      0.033371      0.899887
+             9     0.0250282      0.924915
+            10     0.0187712      0.943686
+
+TEST084
+  For the Gompertz PDF:
+  GOMPERTZ_CDF evaluates the CDF;
+  GOMPERTZ_CDF_INV inverts the CDF.
+  GOMPERTZ_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+       X            PDF           CDF            CDF_INV
+
+     0.0798917       2.47825      0.218418     0.0798917
+      0.785233      0.225843      0.956318      0.785233
+      0.494408      0.720533      0.829509      0.494408
+      0.251663       1.56551      0.561695      0.251663
+      0.168638       1.97158      0.415307      0.168638
+     0.0226237       2.84592     0.0661187     0.0226237
+     0.0960122       2.38054      0.257578     0.0960122
+     0.0383151       2.74199      0.109957     0.0383151
+     0.0148627       2.89822      0.043829     0.0148627
+      0.301249       1.35309      0.633966      0.301249
+
+TEST085
+  For the Gompertz PDF:
+  GOMPERTZ_MEAN computes the mean;
+  GOMPERTZ_SAMPLE samples;
+  GOMPERTZ_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  Sample size =     1000
+  Sample mean =     0.279586
+  Sample variance = 0.0569063
+  Sample maximum =  1.2783
+  Sample minimum =  0.000613224
+
+TEST086
+  For the Gumbel PDF:
+  GUMBEL_CDF evaluates the CDF;
+  GUMBEL_CDF_INV inverts the CDF.
+  GUMBEL_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+     -0.419594      0.332289      0.218418     -0.419594
+       3.10856     0.0427141      0.956318       3.10856
+       1.67707      0.155053      0.829509       1.67707
+      0.550268      0.323983      0.561695      0.550268
+       0.12927      0.364946      0.415307       0.12927
+     -0.999272      0.179599     0.0661187     -0.999272
+     -0.304859      0.349387      0.257578     -0.304859
+     -0.791937      0.242748      0.109957     -0.791937
+      -1.14022      0.137073      0.043829      -1.14022
+      0.785788      0.288936      0.633966      0.785788
+
+TEST087
+  For the Gumbel PDF:
+  GUMBEL_MEAN computes the mean;
+  GUMBEL_SAMPLE samples;
+  GUMBEL_VARIANCE computes the variance.
+
+  PDF mean =     0.577216
+  PDF variance = 1.64493
+
+  Sample size =     1000
+  Sample mean =     0.581659
+  Sample variance = 1.63026
+  Sample maximum =  6.16874
+  Sample minimum =  -1.84037
+
+TEST088
+  For the Half Normal PDF:
+  HALF_NORMAL_CDF evaluates the CDF;
+  HALF_NORMAL_CDF_INV inverts the CDF.
+  HALF_NORMAL_PDF evaluates the PDF;
+
+  PDF parameter A =      0
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+      0.554517      0.383899      0.218418      0.554517
+       4.03425     0.0521654      0.956318       4.03425
+       2.74126      0.155945      0.829509       2.74126
+       1.55012      0.295438      0.561695       1.55012
+       1.09309      0.343595      0.415307       1.09309
+      0.165925      0.397572     0.0661187      0.165925
+      0.657295      0.377969      0.257578      0.657295
+      0.276499      0.395148      0.109957      0.276499
+      0.109918       0.39834      0.043829      0.109918
+       1.80785      0.265145      0.633966       1.80785
+
+TEST089
+  For the Half Normal PDF:
+  HALF_NORMAL_MEAN computes the mean;
+  HALF_NORMAL_SAMPLE samples;
+  HALF_NORMAL_VARIANCE computes the variance;
+
+  PDF parameter A =      0
+  PDF parameter B =      10
+
+  PDF mean =     7.97885
+  PDF variance = 36.338
+
+  Sample size =     1000
+  Sample mean =     8.01612
+  Sample variance = 35.9155
+  Sample maximum =  30.769
+  Sample minimum =  0.0230406
+
+TEST090
+  For the Hypergeometric PDF:
+  HYPERGEOMETRIC_CDF evaluates the CDF.
+  HYPERGEOMETRIC_PDF evaluates the PDF.
+
+  Total number of balls L =         1000
+  Number of white balls M =         70
+  Number of balls taken N =         100
+  PDF argument X =                7
+  PDF value =                   = 0.162835
+  CDF value =                   = 0.599487
+
+TEST091
+  For the Hypergeometric PDF:
+  HYPERGEOMETRIC_MEAN computes the mean;
+  HYPERGEOMETRIC_SAMPLE samples;
+  HYPERGEOMETRIC_VARIANCE computes the variance.
+
+  Total number of balls L =         1000
+  Number of white balls M =         70
+  Number of balls taken N =         100
+  PDF mean =                    7
+  PDF variance =                1.5656
+
+THIS CALL IS TAKING FOREVER!
+
+TEST092
+  R8_CEILING rounds an R8 up.
+
+       X           R8_CEILING(X)
+
+            -1.2      -1
+              -1      -1
+            -0.8       0
+            -0.6       0
+            -0.4       0
+            -0.2       0
+               0       0
+             0.2       1
+             0.4       1
+             0.6       1
+             0.8       1
+               1       1
+             1.2       2
+
+TEST093
+  For the Inverse Gaussian PDF:
+  INVERSE_GAUSSIAN_CDF evaluates the CDF;
+  INVERSE_GAUSSIAN_PDF evaluates the PDF;
+
+  PDF parameter A =      5
+  PDF parameter B =      2
+
+       X            PDF           CDF
+
+      0.559532      0.329239     0.0861168
+       2.40685      0.135119      0.515034
+       0.90974      0.311588      0.201254
+       2.19648        0.1502      0.485064
+      0.566488      0.330272     0.0884105
+      0.471548       0.30596     0.0580219
+       5.32365     0.0458954      0.744699
+      0.780629      0.328531       0.15987
+       3.24717     0.0928392      0.609153
+       2.78698      0.113031      0.562013
+
+TEST094
+  For the Inverse Gaussian PDF:
+  INVERSE_GAUSSIAN_MEAN computes the mean;
+  INVERSE_GAUSSIAN_SAMPLE samples;
+  INVERSE_GAUSSIAN_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     2
+  PDF variance = 2.66667
+
+  Sample size =     1000
+  Sample mean =     1.98986
+  Sample variance = 2.72314
+  Sample maximum =  13.5187
+  Sample minimum =  0.215551
+
+TEST095
+  For the Laplace PDF:
+  LAPLACE_CDF evaluates the CDF;
+  LAPLACE_CDF_INV inverts the CDF.
+  LAPLACE_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+     -0.656392      0.109209      0.218418     -0.656392
+       5.87532     0.0218412      0.956318       5.87532
+       3.15185     0.0852454      0.829509       3.15185
+       1.26339      0.219152      0.561695       1.26339
+       0.62882      0.207654      0.415307       0.62882
+      -3.04631     0.0330594     0.0661187      -3.04631
+     -0.326573      0.128789      0.257578     -0.326573
+      -2.02904     0.0549784      0.109957      -2.02904
+      -3.86862     0.0219145      0.043829      -3.86862
+       1.62376      0.183017      0.633966       1.62376
+
+TEST096
+  For the Laplace PDF:
+  LAPLACE_MEAN computes the mean;
+  LAPLACE_SAMPLE samples;
+  LAPLACE_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+  PDF mean =     1
+  PDF variance = 8
+
+  Sample size =     1000
+  Sample mean =     0.994018
+  Sample variance = 8.10829
+  Sample maximum =  11.9533
+  Sample minimum =  -10.2115
+
+TEST0965
+  For the Levy PDF:
+  LEVY_CDF evaluates the CDF;
+  LEVY_CDF_INV inverts the CDF.
+  LEVY_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+       2.32036      0.174367      0.218418       2.32036
+       667.596   3.27326e-05      0.956318       667.596
+       44.1337    0.00194595      0.829509       44.1337
+       6.93865      0.032943      0.561695       6.93865
+       4.01406     0.0773762      0.415307       4.01406
+       1.59227      0.228757     0.0661187       1.59227
+       2.56039      0.152493      0.257578       2.56039
+       1.78283      0.227065      0.109957       1.78283
+       1.49223      0.214227      0.043829       1.49223
+       9.82141     0.0192259      0.633966       9.82141
+
+TEST097
+  For the Logistic PDF:
+  LOGISTIC_CDF evaluates the CDF;
+  LOGISTIC_CDF_INV inverts the CDF.
+  LOGISTIC_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+      -1.54982     0.0853559      0.218418      -1.54982
+       7.17229     0.0208871      0.956318       7.17229
+       4.16431     0.0707118      0.829509       4.16431
+       1.49609      0.123097      0.561695       1.49609
+      0.315863      0.121414      0.415307      0.315863
+      -4.29579     0.0308735     0.0661187      -4.29579
+      -1.11719     0.0956157      0.257578      -1.11719
+      -3.18237     0.0489331      0.109957      -3.18237
+      -5.16528      0.020954      0.043829      -5.16528
+       2.09854      0.116027      0.633966       2.09854
+
+TEST098
+  For the Logistic PDF:
+  LOGISTIC_MEAN computes the mean;
+  LOGISTIC_SAMPLE samples;
+  LOGISTIC_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     2
+  PDF variance = 29.6088
+
+  Sample size =     1000
+  Sample mean =     2.00703
+  Sample variance = 29.8759
+  Sample maximum =  20.5031
+  Sample minimum =  -16.8911
+
+TEST099
+  For the Log Normal PDF:
+  LOG_NORMAL_CDF evaluates the CDF;
+  LOG_NORMAL_CDF_INV inverts the CDF.
+  LOG_NORMAL_PDF evaluates the PDF;
+
+  PDF parameter A =      10
+  PDF parameter B =      2.25
+
+       X            PDF           CDF            CDF_INV
+
+       3829.62   3.42207e-05      0.218418       3829.62
+   1.03126e+06   3.98836e-08      0.956318   1.03126e+06
+        187683   6.00352e-07      0.829509        187683
+       31236.9   5.60821e-06      0.561695       31236.9
+       13611.8   1.27314e-05      0.415307       13611.8
+       744.708   7.66792e-05     0.0661187       744.708
+       5093.04    2.8169e-05      0.257578       5093.04
+       1393.81   5.99421e-05      0.109957       1393.81
+       472.134   8.73521e-05      0.043829       472.134
+       47588.4   3.51376e-06      0.633966       47588.4
+
+TEST100
+  For the LogNormal PDF:
+  LOG_NORMAL_MEAN computes the mean;
+  LOG_NORMAL_SAMPLE samples;
+  LOG_NORMAL_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+  PDF mean =     20.0855
+  PDF variance = 21623
+
+  Sample size =     1000
+  Sample mean =     18.2209
+  Sample variance = 3776.12
+  Sample maximum =  835.466
+  Sample minimum =  0.00815371
+
+TEST101
+  For the Log Series PDF:
+  LOG_SERIES_CDF evaluates the CDF;
+  LOG_SERIES_CDF_INV inverts the CDF.
+  LOG_SERIES_PDF evaluates the PDF;
+
+  PDF parameter A =             0.25
+
+       X            PDF           CDF            CDF_INV
+
+             1      0.869015      0.869015             2
+             1      0.869015      0.869015             2
+             2      0.108627      0.977642             3
+             1      0.869015      0.869015             2
+             1      0.869015      0.869015             2
+             1      0.869015      0.869015             2
+             1      0.869015      0.869015             2
+             4    0.00339459      0.999141             5
+             1      0.869015      0.869015             2
+             2      0.108627      0.977642             3
+
+TEST102
+  For the Log Series PDF:
+  LOG_SERIES_CDF evaluates the CDF;
+  LOG_SERIES_PDF evaluates the PDF;
+
+  PDF parameter A =             0.25
+
+       X            PDF           CDF
+
+             1      0.869015      0.869015
+             2      0.108627      0.977642
+             3     0.0181045      0.995746
+             4    0.00339459      0.999141
+             5   0.000678918       0.99982
+             6   0.000141441      0.999961
+             7   3.03088e-05      0.999991
+             8   6.63006e-06      0.999998
+             9   1.47335e-06             1
+            10   3.31503e-07             1
+
+TEST103
+  For the Log Series PDF:
+  LOG_SERIES_MEAN computes the mean;
+  LOG_SERIES_SAMPLE samples;
+  LOG_SERIES_VARIANCE computes the variance.
+
+  PDF parameter A =             0.25
+  PDF mean =                    1.15869
+  PDF variance =                0.202361
+
+  Sample size =     1000
+  Sample mean =     1.165
+  Sample variance = 0.213989
+  Sample maximum =  4
+  Sample minimum =  1
+
+TEST104
+  For the Log Uniform PDF:
+  LOG_UNIFORM_CDF evaluates the CDF;
+  LOG_UNIFORM_CDF_INV inverts the CDF.
+  LOG_UNIFORM_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      20
+
+       X            PDF           CDF            CDF_INV
+
+       3.30711      0.131322      0.218418       3.30711
+       18.0862     0.0240125      0.956318       18.0862
+       13.5064     0.0321547      0.829509       13.5064
+       7.28996     0.0595743      0.561695       7.28996
+         5.204      0.083454      0.415307         5.204
+       2.32889      0.186481     0.0661187       2.32889
+       3.61916      0.119999      0.257578       3.61916
+       2.57624      0.168577      0.109957       2.57624
+       2.21238      0.196302      0.043829       2.21238
+       8.60985     0.0504416      0.633966       8.60985
+
+TEST105
+  For the Log Uniform PDF:
+  LOG_UNIFORM_MEAN computes the mean;
+  LOG_UNIFORM_SAMPLE samples;
+
+  PDF parameter A =      2
+  PDF parameter B =      20
+
+  PDF mean =     7.8173
+
+  Sample size =     1000
+  Sample mean =     7.8421
+  Sample variance = 24.5202
+  Sample maximum =  19.9039
+  Sample minimum =  2.00848
+
+TEST106
+  For the Lorentz PDF:
+  LORENTZ_CDF evaluates the CDF;
+  LORENTZ_CDF_INV inverts the CDF.
+  LORENTZ_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+       -1.2211       0.12778      0.218418       -1.2211
+       7.24111    0.00595711      0.956318       7.24111
+       1.68497     0.0829119      0.829509       1.68497
+      0.196286      0.306501      0.561695      0.196286
+     -0.272532      0.296302      0.415307     -0.272532
+      -4.74478     0.0135377     0.0661187      -4.74478
+     -0.953486       0.16673      0.257578     -0.953486
+      -2.77879     0.0364964      0.109957      -2.77879
+      -7.21659     0.0059969      0.043829      -7.21659
+      0.447611       0.26518      0.633966      0.447611
+
+TEST107
+  For the Lorentz PDF:
+  LORENTZ_MEAN computes the mean;
+  LORENTZ_SAMPLE samples;
+  LORENTZ_VARIANCE computes the variance.
+
+  PDF mean =     0
+  PDF variance = inf
+
+  Sample size =     1000
+  Sample mean =     -0.111859
+  Sample variance = 175.49
+  Sample maximum =  152.177
+  Sample minimum =  -173.146
+
+TEST108
+  For the Maxwell PDF:
+  MAXWELL_CDF evaluates the CDF;
+  MAXWELL_CDF_INV inverts the CDF.
+  MAXWELL_PDF evaluates the PDF;
+
+  PDF parameter A =             2
+
+       X            PDF           CDF            CDF_INV
+
+       3.66776      0.249667      0.700353       3.66797
+       2.69139      0.292127      0.558307       2.69141
+        4.6856      0.140774      0.803679       4.68555
+       6.01636     0.0391311      0.889183       6.01562
+       3.01933       0.29092      0.611345       3.01953
+      0.930238     0.0774572      0.181875      0.930176
+       4.38454      0.173412      0.777177       4.38477
+       4.19739      0.194258      0.759077       4.19727
+       4.11671      0.203205      0.750866       4.11719
+       3.57428       0.25804      0.688745       3.57422
+
+TEST109
+  For the Maxwell PDF:
+  MAXWELL_MEAN computes the mean;
+  MAXWELL_SAMPLE samples;
+  MAXWELL_VARIANCE computes the variance.
+
+  PDF parameter A =             2
+  PDF mean =                    3.19154
+  PDF variance =                1.81408
+
+  Sample size =     1000
+  Sample mean =     3.16297
+  Sample variance = 1.78593
+  Sample maximum =  7.34277
+  Sample minimum =  0.353604
+
+TEST110
+  MULTINOMIAL_COEF1 computes multinomial
+    coefficients using the Gamma function;
+  MULTINOMIAL_COEF2 computes multinomial
+    coefficients directly.
+
+  Line 10 of the BINOMIAL table:
+
+   0  10      1      1
+   1   9     10     10
+   2   8     45     45
+   3   7    120    120
+   4   6    210    210
+   5   5    252    252
+   6   4    210    210
+   7   3    120    120
+   8   2     45     45
+   9   1     10     10
+  10   0      1      1
+
+  Level 5 of the TRINOMIAL coefficients:
+
+   0   0   5      1      1
+   0   1   4      5      5
+   0   2   3     10     10
+   0   3   2     10     10
+   0   4   1      5      5
+   0   5   0      1      1
+
+   1   0   4      5      5
+   1   1   3     20     20
+   1   2   2     30     30
+   1   3   1     20     20
+   1   4   0      5      5
+
+   2   0   3     10     10
+   2   1   2     30     30
+   2   2   1     30     30
+   2   3   0     10     10
+
+   3   0   2     10     10
+   3   1   1     20     20
+   3   2   0     10     10
+
+   4   0   1      5      5
+   4   1   0      5      5
+
+   5   0   0      1      1
+
+TEST111
+  For the Multinomial PDF:
+  MULTINOMIAL_MEAN computes the mean;
+  MULTINOMIAL_SAMPLE samples;
+  MULTINOMIAL_VARIANCE computes the variance;
+
+  PDF parameter A =      5
+  PDF parameter B =      3
+
+  PDF parameter C:
+
+     1           0.125
+     2             0.5
+     3           0.375
+
+  PDF mean:
+
+     1           0.625
+     2             2.5
+     3           1.875
+
+  PDF variance:
+
+     1        0.546875
+     2            1.25
+     3         1.17188
+
+  Sample size =     1000
+
+  Component Mean, Variance, Min, Max:
+
+       1         0.628      0.552168             0             3
+       2         2.472       1.23445             0             5
+       3           1.9       1.20721             0             5
+
+TEST112
+  For the Multinomial PDF:
+  MULTINOMIAL_PDF evaluates the PDF;
+
+  PDF parameter A =      5
+  PDF parameter B =      3
+
+  PDF parameter C:
+
+     1             0.1
+     2             0.5
+     3             0.4
+
+  PDF argument X:
+
+     0         0
+     1         2
+     2         3
+
+  PDF value = 0.16
+
+TEST113
+  For the Nakagami PDF:
+  NAKAGAMI_CDF evaluates the CDF;
+  NAKAGAMI_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+       X            PDF           CDF
+
+          1.25   0.000393121   1.65738e-05
+
+TEST114
+  For the Nakagami PDF:
+  NAKAGAMI_MEAN evaluates the mean;
+  NAKAGAMI_VARIANCE evaluates the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+  PDF parameter C =      3
+
+  PDF mean =      2.91874
+  PDF variance =  0.318446
+
+TEST1145
+  For the Negative Binomial PDF:
+  NEGATIVE_BINOMIAL_CDF evaluates the CDF;
+  NEGATIVE_BINOMIAL_CDF_INV inverts the CDF.
+  NEGATIVE_BINOMIAL_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      0.25
+
+       X            PDF           CDF            CDF_INV
+
+             6      0.098877      0.466064             6
+             3       0.09375       0.15625             3
+             7     0.0889893      0.555054             7
+             4      0.105469      0.261719             4
+             4      0.105469      0.261719             4
+            13     0.0316764      0.873295            13
+             8     0.0778656      0.632919             8
+             6      0.098877      0.466064             6
+            12     0.0387155      0.841618            12
+             6      0.098877      0.466064             6
+
+TEST1146
+  For the Negative Binomial PDF:
+  NEGATIVE_BINOMIAL_MEAN computes the mean;
+  NEGATIVE_BINOMIAL_SAMPLE samples;
+  NEGATIVE_BINOMIAL_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      0.75
+
+  PDF mean =     2.66667
+  PDF variance = 0.888889
+
+  Sample size =     1000
+  Sample mean =     2.688
+  Sample variance = 0.833489
+  Sample maximum =  8
+  Sample minimum =  2
+
+TEST115
+  For the Normal 01 PDF:
+  NORMAL_01_CDF evaluates the CDF;
+  NORMAL_01_CDF_INV inverts the CDF.
+  NORMAL_01_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+         1.679040256736491     0.0974392      0.953428         1.679040256746338
+       -0.4727688004888129      0.356759      0.318189       -0.4727688004855372
+       -0.5660598123302577      0.339884      0.285677       -0.5660598123353983
+       -0.2311241308033988      0.388428      0.408609       -0.2311241308099739
+          1.21293421737931      0.191179      0.887423         1.212934217394378
+        0.5350371373557014      0.345739      0.703688        0.5350371373577746
+         1.269380628984426      0.178244      0.897847         1.269380629005457
+         1.049542669494471      0.229993      0.853036         1.049542669511194
+        -1.666086672831968     0.0995733     0.0478481        -1.666086672843646
+        -1.865227723476435     0.0700549     0.0310747        -1.865227723463066
+
+TEST116
+  For the Normal 01 PDF:
+  NORMAL_01_MEAN computes the mean;
+  NORMAL_01_SAMPLE samples;
+  NORMAL_01_VARIANCE computes the variance;
+
+  PDF mean =     0
+  PDF variance = 1
+
+  Sample size =     1000
+  Sample mean =     -0.0169444
+  Sample variance = 0.999622
+  Sample maximum =  3.32858
+  Sample minimum =  -3.02975
+
+TEST117
+  For the Normal PDF:
+  NORMAL_CDF evaluates the CDF;
+  NORMAL_CDF_INV inverts the CDF.
+  NORMAL_PDF evaluates the PDF;
+
+  PDF parameter A =      100
+  PDF parameter B =      15
+
+       X            PDF           CDF            CDF_INV
+
+       125.186    0.00649595      0.953428       125.186
+       92.9085      0.023784      0.318189       92.9085
+       91.5091     0.0226589      0.285677       91.5091
+       96.5331     0.0258952      0.408609       96.5331
+       118.194     0.0127453      0.887423       118.194
+       108.026     0.0230493      0.703688       108.026
+       119.041     0.0118829      0.897847       119.041
+       115.743     0.0153328      0.853036       115.743
+       75.0087    0.00663822     0.0478481       75.0087
+       72.0216    0.00467033     0.0310747       72.0216
+
+TEST118
+  For the Normal PDF:
+  NORMAL_MEAN computes the mean;
+  NORMAL_SAMPLE samples;
+  NORMAL_VARIANCE computes the variance;
+
+  PDF parameter A =      100
+  PDF parameter B =      15
+
+  PDF mean =     100
+  PDF variance = 225
+
+  Sample size =     1000
+  Sample mean =     99.7458
+  Sample variance = 224.915
+  Sample maximum =  149.929
+  Sample minimum =  54.5537
+
+TEST119
+  For the Pareto PDF:
+  PARETO_CDF evaluates the CDF;
+  PARETO_CDF_INV inverts the CDF.
+  PARETO_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+       X            PDF           CDF            CDF_INV
+
+       2.17123       1.07992      0.218418       2.17123
+       5.67886     0.0230763      0.956318       5.67886
+       3.60686      0.141805      0.829509       3.60686
+       2.63292      0.499412      0.561695       2.63292
+       2.39178      0.733379      0.415307       2.39178
+       2.04613       1.36924     0.0661187       2.04613
+       2.20875       1.00838      0.257578       2.20875
+       2.07918       1.28422      0.109957       2.07918
+        2.0301       1.41299      0.043829        2.0301
+       2.79591      0.392754      0.633966       2.79591
+
+TEST120
+  For the Pareto PDF:
+  PARETO_MEAN computes the mean;
+  PARETO_SAMPLE samples;
+  PARETO_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     3
+  PDF variance = 3
+
+  Sample size =     1000
+  Sample mean =     2.99105
+  Sample variance = 2.10266
+  Sample maximum =  15.6386
+  Sample minimum =  2.00123
+
+TEST123
+  For the Pearson 05 PDF:
+  PEARSON_05_PDF evaluates the PDF.
+
+  PDF parameter A = 1
+  PDF parameter B = 2
+  PDF parameter C = 3
+
+  PDF argument X =  5
+  PDF value =       0.0758163
+
+TEST124
+  For the Planck PDF:
+  PLANCK_PDF evaluates the PDF.
+  PLANCK_SAMPLE samples the PDF.
+
+  PDF parameter A = 2
+  PDF parameter B = 3
+
+       X            PDF
+
+         3.673     0.0788188
+      0.667852      0.261867
+       4.15261     0.0436289
+       2.32528      0.298879
+        1.9615      0.375246
+       1.14325      0.416449
+         4.185     0.0418554
+      0.920753       0.36247
+       1.68781       0.41945
+       2.37886      0.287218
+
+TEST125
+  For the Planck PDF:
+  PLANCK_MEAN computes the mean;
+  PLANCK_SAMPLE samples;
+  PLANCK_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+  PDF mean =     3.83223
+  PDF variance = 0
+
+  Sample size =     1000
+  Sample mean =     1.95188
+  Sample variance = 1.08647
+  Sample maximum =  7.50765
+  Sample minimum =  0.177481
+
+TEST126:
+  POISSON_CDF evaluates the cumulative distribution
+    function for the discrete Poisson probability
+    density function.
+  POISSON_CDF_VALUES returns some exact values.
+
+  A is the expected mean number of successes per unit time;
+  X is the number of successes;
+  POISSON_CDF is the probability of having up to X
+  successes in unit time.
+
+   A          X   Exact F     POISSON_CDF(A,X)
+
+      0.02         0          0.980199          0.980199
+       0.1         0          0.904837          0.904837
+       0.1         1          0.995321          0.995321
+       0.5         0          0.606531          0.606531
+       0.5         1          0.909796          0.909796
+       0.5         2          0.985612          0.985612
+         1         0          0.367879          0.367879
+         1         1          0.735759          0.735759
+         1         2          0.919699          0.919699
+         1         3          0.981012          0.981012
+         2         0          0.135335          0.135335
+         2         1          0.406006          0.406006
+         2         2          0.676676          0.676676
+         2         3          0.857123          0.857123
+         5         0        0.00673795        0.00673795
+         5         1         0.0404277         0.0404277
+         5         2          0.124652          0.124652
+         5         3          0.265026          0.265026
+         5         4          0.440493          0.440493
+         5         5          0.615961          0.615961
+         5         6          0.762183          0.762183
+
+TEST127
+  For the Poisson PDF:
+  POISSON_CDF evaluates the CDF;
+  POISSON_CDF_INV inverts the CDF.
+  POISSON_PDF evaluates the PDF;
+
+  PDF parameter A =             10
+
+       X            PDF           CDF            CDF_INV
+
+             7     0.0900792      0.220221             7
+            16     0.0216988      0.972958            16
+            13     0.0729079      0.864464            13
+            10       0.12511       0.58304            10
+             9       0.12511       0.45793             9
+             5     0.0378333      0.067086             5
+             8      0.112599       0.33282             8
+             6     0.0630555      0.130141             6
+             5     0.0378333      0.067086             5
+            11      0.113736      0.696776            11
+
+TEST128
+  For the Poisson PDF,
+  POISSON_SAMPLE samples the Poisson PDF.
+  POISSON_SAMPLE samples the Poisson PDF.
+  POISSON_SAMPLE samples the Poisson PDF.
+
+  PDF parameter A =      10
+
+  PDF mean =     10
+  PDF variance = 10
+
+  Sample size =     1000
+  Sample mean =     10.005
+  Sample variance = 10.005
+  Sample maximum =  20
+  Sample minimum =  2
+
+TEST129
+  For the Power PDF:
+  POWER_CDF evaluates the CDF;
+  POWER_CDF_INV inverts the CDF.
+  POWER_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+       X            PDF           CDF            CDF_INV
+
+       1.40206      0.311568      0.218418       1.40206
+       2.93374      0.651943      0.956318       2.93374
+       2.73232      0.607183      0.829509       2.73232
+       2.24839      0.499642      0.561695       2.24839
+       1.93333      0.429629      0.415307       1.93333
+      0.771407      0.171424     0.0661187      0.771407
+       1.52256      0.338347      0.257578       1.52256
+      0.994792      0.221065      0.109957      0.994792
+      0.628061      0.139569      0.043829      0.628061
+       2.38866      0.530813      0.633966       2.38866
+
+TEST130
+  For the Power PDF:
+  POWER_MEAN computes the mean;
+  POWER_SAMPLE samples;
+  POWER_VARIANCE computes the variance;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+
+  PDF mean =     2
+  PDF variance = 0.5
+
+  Sample size =     1000
+  Sample mean =     2.00568
+  Sample variance = 0.505123
+  Sample maximum =  2.99686
+  Sample minimum =  0.128629
+
+TEST1304
+  For the Quasigeometric PDF:
+  QUASIGEOMETRIC_CDF evaluates the CDF;
+  QUASIGEOMETRIC_CDF_INV inverts the CDF.
+  QUASIGEOMETRIC_PDF evaluates the PDF;
+
+  PDF parameter A = 0.4825
+  PDF parameter B = 0.5893
+
+       X            PDF           CDF            CDF_INV
+
+             0        0.4825        0.4825             1
+             5     0.0256319      0.963222             6
+             3     0.0738088      0.894094             4
+             1      0.212537      0.695037             2
+             0        0.4825        0.4825             1
+             0        0.4825        0.4825             1
+             0        0.4825        0.4825             1
+             0        0.4825        0.4825             1
+             0        0.4825        0.4825             1
+             1      0.212537      0.695037             2
+
+TEST1306
+  For the Quasigeometric PDF:
+  QUASIGEOMETRIC_MEAN computes the mean;
+  QUASIGEOMETRIC_SAMPLE samples;
+  QUASIGEOMETRIC_VARIANCE computes the variance.
+
+  PDF parameter A = 0.4825
+  PDF parameter B = 0.5893
+  PDF mean =                    1.26004
+  PDF variance =                3.28832
+
+  Sample size =     1000
+  Sample mean =     1.267
+  Sample variance = 3.21693
+  Sample maximum =  11
+  Sample minimum =  0
+
+TEST131
+  For the Rayleigh PDF:
+  RAYLEIGH_CDF evaluates the CDF;
+  RAYLEIGH_CDF_INV inverts the CDF.
+  RAYLEIGH_PDF evaluates the PDF;
+
+  PDF parameter A =             2
+
+       X            PDF           CDF            CDF_INV
+
+        1.4041      0.274354      0.218418        1.4041
+       5.00465     0.0546538      0.956318       5.00465
+       3.76199      0.160346      0.829509       3.76199
+        2.5688      0.281479      0.561695        2.5688
+       2.07204      0.302877      0.415307       2.07204
+      0.739762      0.172712     0.0661187      0.739762
+        1.5436      0.286501      0.257578        1.5436
+       0.96534      0.214799      0.109957       0.96534
+      0.598789      0.143136      0.043829      0.598789
+       2.83553      0.259475      0.633966       2.83553
+
+TEST132
+  For the Rayleigh PDF:
+  RAYLEIGH_MEAN computes the mean;
+  RAYLEIGH_SAMPLE samples;
+  RAYLEIGH_VARIANCE computes the variance.
+
+  PDF parameter A =             2
+  PDF mean =                    2.50663
+  PDF variance =                1.71681
+
+  Sample size =     1000
+  Sample mean =     2.5139
+  Sample variance = 1.70827
+  Sample maximum =  7.02555
+  Sample minimum =  0.121328
+
+TEST133
+  For the Reciprocal PDF:
+  RECIPROCAL_CDF evaluates the CDF;
+  RECIPROCAL_CDF_INV inverts the CDF.
+  RECIPROCAL_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      3
+
+       X            PDF           CDF            CDF_INV
+
+       1.27119       0.71605      0.218418       1.27119
+       2.85943      0.318329      0.956318       2.85943
+       2.48758      0.365914      0.829509       2.48758
+       1.85352      0.491087      0.561695       1.85352
+       1.57816      0.576771      0.415307       1.57816
+       1.07534      0.846465     0.0661187       1.07534
+       1.32708      0.685898      0.257578       1.32708
+        1.1284      0.806664      0.109957        1.1284
+       1.04933      0.867449      0.043829       1.04933
+       2.00668      0.453604      0.633966       2.00668
+
+TEST134
+  For the Reciprocal PDF:
+  RECIPROCAL_MEAN computes the mean;
+  RECIPROCAL_SAMPLE samples;
+  RECIPROCAL_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      3
+
+  PDF mean =     1.82048
+  PDF variance = 0.326815
+
+  Sample size =     1000
+  Sample mean =     1.8251
+  Sample variance = 0.321955
+  Sample maximum =  2.99311
+  Sample minimum =  1.00202
+
+TEST1341:
+  RIBESL computes values of Bessel functions
+  of NONINTEGER order.
+  BESSEL_IX_VALUES returns selected values of the
+  Bessel function In for NONINTEGER order.
+
+      ALPHA         X             FX                        FX2
+                                  (table)                   (RIBESL)
+
+           0.5           0.2                  0.359208                  0.359208
+           0.5             1                  0.937675                  0.937675
+           0.5             2                   2.04624                   2.04624
+           0.5           2.5                   3.05309                   3.05309
+           0.5             3                   4.61482                   4.61482
+           0.5             5                   26.4775                   26.4775
+           0.5            10                   2778.78                   2778.78
+           0.5            20               4.32797e+07               4.32797e+07
+           1.5             1                  0.293525                  0.293525
+           1.5             2                   1.09947                   1.09947
+           1.5             5                   21.1844                   21.1844
+           1.5            10                   2500.91                   2500.91
+           1.5            50               2.86665e+20               2.86665e+20
+           2.5             1                 0.0570989                 0.0570989
+           2.5             2                  0.397027                  0.397027
+           2.5             5                   13.7669                   13.7669
+           2.5            10                   2028.51                   2028.51
+           2.5            50               2.75316e+20               2.75316e+20
+          1.25             1                  0.413942                  0.413942
+          1.25             2                    1.3402                    1.3402
+          1.25             5                   22.8572                   22.8572
+          1.25            10                   2593.01                   2593.01
+          1.25            50               2.88663e+20               2.88663e+20
+          2.75             1                 0.0359091                 0.0359091
+          2.75             2                  0.293111                  0.293111
+          2.75             5                    11.994                    11.994
+          2.75            10                   1894.58                   1894.58
+          2.75            50               2.71691e+20               2.71691e+20
+
+TEST1342
+  For the RUNS PDF:
+  RUNS_PDF evaluates the PDF;
+
+  M is the number of symbols of one kind,
+  N is the number of symbols of the other kind,
+  R is the number of runs (sequences of one symbol)
+
+         M         N         R      PDF
+
+
+         6         0         1               1
+         6         0         2               0
+         6                                   1
+
+         6         1         1               0
+         6         1         2        0.285714
+         6         1         3        0.714286
+         6         1         4               0
+         6                                   1
+
+         6         2         1               0
+         6         2         2       0.0714286
+         6         2         3        0.214286
+         6         2         4        0.357143
+         6         2         5        0.357143
+         6         2         6               0
+         6                                   1
+
+         6         3         1               0
+         6         3         2       0.0238095
+         6         3         3       0.0833333
+         6         3         4        0.238095
+         6         3         5        0.297619
+         6         3         6        0.238095
+         6         3         7        0.119048
+         6         3         8               0
+         6                                   1
+
+         6         4         1               0
+         6         4         2      0.00952381
+         6         4         3       0.0380952
+         6         4         4        0.142857
+         6         4         5        0.214286
+         6         4         6        0.285714
+         6         4         7        0.190476
+         6         4         8       0.0952381
+         6         4         9       0.0238095
+         6         4        10               0
+         6                                   1
+
+         6         5         1               0
+         6         5         2        0.004329
+         6         5         3       0.0194805
+         6         5         4       0.0865801
+         6         5         5        0.151515
+         6         5         6         0.25974
+         6         5         7         0.21645
+         6         5         8         0.17316
+         6         5         9       0.0649351
+         6         5        10        0.021645
+         6         5        11       0.0021645
+         6         5        12               0
+         6                                   1
+
+         6         6         1               0
+         6         6         2       0.0021645
+         6         6         3       0.0108225
+         6         6         4       0.0541126
+         6         6         5        0.108225
+         6         6         6         0.21645
+         6         6         7         0.21645
+         6         6         8         0.21645
+         6         6         9        0.108225
+         6         6        10       0.0541126
+         6         6        11       0.0108225
+         6         6        12       0.0021645
+         6         6        13               0
+         6         6        14               0
+         6                                   1
+
+         6         7         1               0
+         6         7         2       0.0011655
+         6         7         3      0.00641026
+         6         7         4        0.034965
+         6         7         5       0.0786713
+         6         7         6        0.174825
+         6         7         7        0.203963
+         6         7         8          0.2331
+         6         7         9        0.145688
+         6         7        10       0.0874126
+         6         7        11       0.0262238
+         6         7        12      0.00699301
+         6         7        13     0.000582751
+         6         7        14               0
+         6                                   1
+
+         6         8         1               0
+         6         8         2     0.000666001
+         6         8         3        0.003996
+         6         8         4         0.02331
+         6         8         5       0.0582751
+         6         8         6         0.13986
+         6         8         7         0.18648
+         6         8         8          0.2331
+         6         8         9        0.174825
+         6         8        10         0.11655
+         6         8        11         0.04662
+         6         8        12        0.013986
+         6         8        13        0.002331
+         6         8        14               0
+         6                                   1
+
+         6         9         1               0
+         6         9         2       0.0003996
+         6         9         3       0.0025974
+         6         9         4        0.015984
+         6         9         5        0.043956
+         6         9         6        0.111888
+         6         9         7        0.167832
+         6         9         8        0.223776
+         6         9         9        0.195804
+         6         9        10         0.13986
+         6         9        11       0.0699301
+         6         9        12       0.0223776
+         6         9        13      0.00559441
+         6         9        14               0
+         6                                   1
+
+TEST1344
+  For the RUNS PDF:
+  RUNS_MEAN computes the mean;
+  RUNS_VARIANCE computes the variance
+
+  PDF parameter M = 10
+  PDF parameter N = 5
+  PDF mean =        7.66667
+  PDF variance =    2.69841
+
+  Sample size =     1000
+  Sample mean =     7.65
+  Sample variance = 2.61011
+  Sample maximum =  11
+  Sample minimum =  2
+
+TEST135
+  For the Sech PDF:
+  SECH_CDF evaluates the CDF;
+  SECH_CDF_INV inverts the CDF.
+  SECH_PDF evaluates the PDF;
+
+  PDF parameter A =      3
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+      0.941182      0.100839      0.218418      0.941182
+       8.35531     0.0217727      0.956318       8.35531
+       5.58635     0.0812276      0.829509       5.58635
+       3.39009      0.156175      0.561695       3.39009
+       2.46147      0.153555      0.415307       2.46147
+      -1.52223     0.0328221     0.0661187      -1.52223
+        1.3038      0.115187      0.257578        1.3038
+     -0.492142     0.0538915      0.109957     -0.492142
+      -2.34859     0.0218453      0.043829      -2.34859
+       3.86774      0.145266      0.633966       3.86774
+
+TEST136
+  For the Sech PDF:
+  SECH_MEAN computes the mean;
+  SECH_SAMPLE samples;
+  SECH_VARIANCE computes the variance;
+
+  PDF parameter A =      3
+  PDF parameter B =      2
+
+  PDF mean =     3
+  PDF variance = 9.8696
+
+  Sample size =     1000
+  Sample mean =     2.99951
+  Sample variance = 9.97628
+  Sample maximum =  14.4364
+  Sample minimum =  -8.69458
+
+TEST137
+  For the Semicircular PDF:
+  SEMICIRCULAR_CDF evaluates the CDF;
+  SEMICIRCULAR_CDF_INV inverts the CDF.
+  SEMICIRCULAR_PDF evaluates the PDF;
+
+  PDF parameter A =      3
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+       2.07408      0.282143      0.216167       2.07422
+       2.64915      0.313374      0.388897       2.64941
+       4.26118      0.247045      0.872972       4.26123
+       3.95508       0.27967      0.792025       3.95508
+       2.82894      0.317143      0.445615        2.8291
+       3.07844      0.318065      0.524963       3.07861
+       2.09106      0.283538      0.220968       2.09082
+       4.78579      0.143324      0.979302       4.78516
+        3.8562      0.287667      0.763967       3.85645
+        3.6144      0.302918      0.692448       3.61426
+
+TEST138
+  For the Semicircular PDF:
+  SEMICIRCULAR_MEAN computes the mean;
+  SEMICIRCULAR_SAMPLE samples;
+  SEMICIRCULAR_VARIANCE computes the variance;
+
+  PDF parameter A =      3
+  PDF parameter B =      2
+
+  PDF mean =     3
+  PDF variance = 1
+
+  Sample size =     1000
+  Sample mean =     3.02688
+  Sample variance = 0.989554
+  Sample maximum =  4.96783
+  Sample minimum =  1.05174
+
+TEST139:
+  STUDENT_CDF evaluates the cumulative density function
+    for the Student's T PDF.
+  STUDENT_CDF_VALUES returns some exact values.
+
+   A      B      C     X       Exact F       STUDENT_CDF(A,B,C,X)
+
+         0         1         1     0.325          0.600023          0.600023
+         0         1         2     0.289          0.600108          0.600108
+         0         1         3     0.277          0.600115          0.600115
+         0         1         4     0.271            0.6001            0.6001
+         0         1         5     0.267          0.599934          0.599934
+         0         1         2     0.816          0.749886          0.749886
+         0         1         5     0.727          0.750088          0.750088
+         0         1         2      2.92              0.95              0.95
+         0         1         5     2.015          0.949997          0.949997
+         0         1         2     6.965          0.990001          0.990001
+         0         1         3     4.541          0.990002          0.990002
+         0         1         4     3.747              0.99              0.99
+         0         1         5     3.365          0.990001          0.990001
+
+TEST140
+  For the Student PDF:
+  STUDENT_CDF evaluates the CDF;
+  STUDENT_PDF evaluates the PDF;
+  STUDENT_SAMPLE samples the PDF;
+
+  PDF parameter A = 0.5
+  PDF parameter B = 2
+  PDF parameter C = 6
+
+       X            PDF           CDF
+
+       2.57394      0.131079      0.830139
+      0.876652      0.368348      0.571585
+       1.15653      0.340916      0.623068
+      0.297695      0.378517      0.461363
+      0.287044      0.378065      0.459337
+      0.307008      0.378894      0.463135
+       0.11283      0.367552      0.426444
+      0.253776      0.376508      0.453019
+       0.52145      0.382685      0.504105
+      0.493987      0.382729      0.498849
+
+TEST141
+  For the Student PDF:
+  STUDENT_MEAN evaluates the mean;
+  STUDENT_SAMPLE samples the PDF;
+  STUDENT_VARIANCE computes the variance;
+
+  PDF parameter A = 0.5
+  PDF parameter B = 2
+  PDF parameter C = 6
+
+  PDF mean =     0.5
+  PDF variance = 6
+
+  Sample size =     1000
+  Sample mean =     0.373969
+  Sample variance = 3.067
+  Sample maximum =  6.66826
+  Sample minimum =  -23.2899
+
+TEST142
+  For the Noncentral Student PDF:
+  STUDENT_NONCENTRAL_CDF evaluates the CDF;
+
+  PDF argument X =              0.5
+  PDF parameter IDF =           10
+  PDF parameter B =             1
+  CDF value =                   0.30528
+
+TEST1425
+  TFN evaluates Owen's T function;
+  OWEN_VALUES returns some exact values;
+
+      H             A           T(H,A)          Exact
+
+               1             0.5       0.0430647       0.0430647
+               1               1       0.0667419       0.0667419
+               1               2       0.0784682       0.0784682
+               1               3       0.0792995       0.0792995
+             0.5             0.5       0.0644886       0.0644886
+             0.5               1        0.106671        0.106671
+             0.5               2        0.141581        0.141581
+             0.5               3        0.151084        0.151084
+            0.25             0.5       0.0713466       0.0713466
+            0.25               1        0.120129        0.120129
+            0.25               2        0.166613        0.166613
+            0.25               3         0.18475         0.18475
+           0.125             0.5       0.0731727       0.0731727
+           0.125               1        0.123763        0.123763
+           0.125               2        0.173744        0.173744
+           0.125               3        0.195119        0.195119
+       0.0078125             0.5       0.0737894       0.0737894
+       0.0078125               1        0.124995        0.124995
+       0.0078125               2        0.176198        0.176198
+       0.0078125               3        0.198777        0.198777
+       0.0078125              10        0.234074        0.234089
+       0.0078125             100        0.233737        0.247946
+
+TEST143
+  For the Triangle PDF:
+  TRIANGLE_CDF evaluates the CDF;
+  TRIANGLE_CDF_INV inverts the CDF.
+  TRIANGLE_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      3
+  PDF parameter C =      10
+
+       X            PDF           CDF            CDF_INV
+
+       2.98281      0.220312      0.218418       2.98281
+       8.34109     0.0526639      0.956318       8.34109
+       6.72267      0.104042      0.829509       6.72267
+       4.74517       0.16682      0.561695       4.74517
+       3.93076      0.192674      0.415307       3.93076
+       2.09093      0.121215     0.0661187       2.09093
+       3.16095      0.217113      0.257578       3.16095
+       2.40685      0.156316      0.109957       2.40685
+       1.88821     0.0986903      0.043829       1.88821
+        5.1979      0.152448      0.633966        5.1979
+
+TEST144
+  For the Triangle PDF:
+  TRIANGLE_MEAN computes the mean;
+  TRIANGLE_SAMPLE samples;
+  TRIANGLE_VARIANCE computes the variance;
+
+  PDF parameter A =        1
+  PDF parameter B =        3
+  PDF parameter C =        10
+
+  PDF mean =     4.66667
+  PDF variance = 3.72222
+
+  Sample size =     1000
+  Sample mean =     4.67684
+  Sample variance = 3.70549
+  Sample maximum =  9.63699
+  Sample minimum =  1.18191
+
+TEST145
+  For the Triangular PDF:
+  TRIANGULAR_CDF evaluates the CDF;
+  TRIANGULAR_CDF_INV inverts the CDF.
+  TRIANGULAR_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      10
+
+       X            PDF           CDF            CDF_INV
+
+       3.97421      0.146875      0.218418       3.97421
+       8.66991     0.0656834      0.956318       8.66991
+       7.37229      0.129764      0.829509       7.37229
+       5.78677      0.208061      0.561695       5.78677
+       5.10121      0.202529      0.415307       5.10121
+        2.6364     0.0808099     0.0661187        2.6364
+       4.22985      0.159499      0.257578       4.22985
+       3.11027      0.104211      0.109957       3.11027
+       2.33232     0.0657935      0.043829       2.33232
+       6.14975      0.190136      0.633966       6.14975
+
+TEST146
+  For the Triangular PDF:
+  TRIANGULAR_MEAN computes the mean;
+  TRIANGULAR_SAMPLE samples;
+  TRIANGULAR_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      10
+
+  PDF mean =     5.5
+  PDF variance = 3.375
+
+  Sample size =     1000
+  Sample mean =     5.51035
+  Sample variance = 3.38802
+  Sample maximum =  9.70895
+  Sample minimum =  1.27286
+
+TEST147
+  For the Uniform 01 Order PDF:
+  UNIFORM_ORDER_SAMPLE samples.
+
+  Ordered sample:
+
+     1       0.0174736
+     2       0.0275623
+     3        0.131654
+     4        0.274807
+     5        0.385745
+     6        0.664103
+     7        0.768848
+     8        0.834884
+     9        0.854621
+    10        0.858873
+
+TEST148
+  For the Uniform PDF on the N-Sphere:
+  UNIFORM_NSPHERE_SAMPLE samples.
+
+  Dimension N of sphere = 3
+
+  Points on the sphere:
+
+       1      0.915568     -0.257797     -0.308668  
+       2     -0.171751      0.901345      0.397592  
+       3      0.541822      0.447986     -0.711152  
+       4     -0.620052     -0.745456      0.244603  
+       5     0.0262807     -0.894727       0.44584  
+       6     0.0167158      -0.59152      0.806117  
+       7      0.987108     0.0846611      0.135834  
+       8     -0.220974      0.974193     0.0460176  
+       9       0.67958     -0.416543     -0.603873  
+      10       0.93698    -0.0375368      0.347361  
+
+TEST1485
+  For the Uniform 01 PDF:
+  UNIFORM_01_CDF evaluates the CDF;
+  UNIFORM_01_CDF_INV inverts the CDF.
+  UNIFORM_01_PDF evaluates the PDF;
+
+       X            PDF           CDF            CDF_INV
+
+      0.218418             1      0.218418      0.218418
+      0.956318             1      0.956318      0.956318
+      0.829509             1      0.829509      0.829509
+      0.561695             1      0.561695      0.561695
+      0.415307             1      0.415307      0.415307
+     0.0661187             1     0.0661187     0.0661187
+      0.257578             1      0.257578      0.257578
+      0.109957             1      0.109957      0.109957
+      0.043829             1      0.043829      0.043829
+      0.633966             1      0.633966      0.633966
+
+TEST1486
+  For the Uniform 01 PDF:
+  UNIFORM_01_MEAN computes the mean;
+  UNIFORM_01_SAMPLE samples;
+  UNIFORM_01_VARIANCE computes the variance.
+
+  PDF mean =     0.5
+  PDF variance = 0.0833333
+
+  Sample size =     1000
+  Sample mean =     0.50304
+  Sample variance = 0.082332
+  Sample maximum =  0.997908
+  Sample minimum =  0.00183837
+
+TEST149
+  For the Uniform PDF:
+  UNIFORM_CDF evaluates the CDF;
+  UNIFORM_CDF_INV inverts the CDF.
+  UNIFORM_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      10
+
+       X            PDF           CDF            CDF_INV
+
+       2.96576      0.111111      0.218418       2.96576
+       9.60686      0.111111      0.956318       9.60686
+       8.46558      0.111111      0.829509       8.46558
+       6.05526      0.111111      0.561695       6.05526
+       4.73776      0.111111      0.415307       4.73776
+       1.59507      0.111111     0.0661187       1.59507
+        3.3182      0.111111      0.257578        3.3182
+       1.98961      0.111111      0.109957       1.98961
+       1.39446      0.111111      0.043829       1.39446
+       6.70569      0.111111      0.633966       6.70569
+
+TEST150
+  For the Uniform PDF:
+  UNIFORM_MEAN computes the mean;
+  UNIFORM_SAMPLE samples;
+  UNIFORM_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      10
+
+  PDF mean =     5.5
+  PDF variance = 6.75
+
+  Sample size =     1000
+  Sample mean =     5.52736
+  Sample variance = 6.66889
+  Sample maximum =  9.98117
+  Sample minimum =  1.01655
+
+TEST151
+  For the Uniform Discrete PDF:
+  UNIFORM_DISCRETE_CDF evaluates the CDF;
+  UNIFORM_DISCRETE_CDF_INV inverts the CDF.
+  UNIFORM_DISCRETE_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      6
+
+       X            PDF           CDF            CDF_INV
+
+             2      0.166667      0.333333             3
+             6      0.166667             1             6
+             6      0.166667             1             6
+             4      0.166667      0.666667             5
+             3      0.166667           0.5             4
+             1      0.166667      0.166667             2
+             3      0.166667           0.5             4
+             2      0.166667      0.333333             3
+             1      0.166667      0.166667             2
+             5      0.166667      0.833333             6
+
+TEST152
+  For the Uniform Discrete PDF:
+  UNIFORM_DISCRETE_MEAN computes the mean;
+  UNIFORM_DISCRETE_SAMPLE samples;
+  UNIFORM_DISCRETE_VARIANCE computes the variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      6
+
+  PDF mean =     3.5
+  PDF variance = 2.91667
+
+  Sample size =     1000
+  Sample mean =     3.945
+  Sample variance = 2.70068
+  Sample maximum =  6
+  Sample minimum =  1
+
+TEST153
+  For the Uniform Discrete PDF:
+  UNIFORM_DISCRETE_CDF evaluates the CDF;
+  UNIFORM_DISCRETE_PDF evaluates the PDF;
+
+  PDF parameter A =             1
+  PDF parameter B =             6
+
+       X            PDF           CDF
+
+             0             0             0
+             1      0.166667      0.166667
+             2      0.166667      0.333333
+             3      0.166667           0.5
+             4      0.166667      0.666667
+             5      0.166667      0.833333
+             6      0.166667             1
+             7             0             1
+             8             0             1
+             9             0             1
+            10             0             1
+
+TEST154
+  For the Von Mises PDF:
+  VON_MISES_CDF evaluates the CDF;
+  VON_MISES_CDF_INV inverts the CDF.
+  VON_MISES_PDF evaluates the PDF;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+       X            PDF           CDF            CDF_INV
+
+      0.476234      0.394559       0.25232      0.476146
+       1.12227       0.50824      0.562764       1.12233
+      0.931772       0.51349      0.464857      0.931738
+      0.575338       0.43192      0.293305      0.575471
+      0.862805      0.506281      0.429664      0.862709
+      -1.39044     0.0161849    0.00863675      -1.39301
+       2.77511     0.0465295      0.974194       2.77328
+      0.193915      0.278813      0.157223      0.193893
+      0.786199       0.49292      0.391357       0.78601
+      0.790531      0.493818      0.393494      0.790612
+
+TEST155
+  For the Von Mises PDF:
+  VON_MISES_MEAN computes the mean;
+  VON_MISES_SAMPLE samples;
+  VON_MISES_CIRCULAR_VARIANCE computes the circular variance;
+
+  PDF parameter A =      1
+  PDF parameter B =      2
+
+  PDF mean =              1
+  PDF circular variance = 0.302225
+
+  Sample size =              1000
+  Sample mean =              1.01316
+  Sample circular variance = 0.307398
+  Sample maximum =           4.0905
+  Sample minimum =           -2.04316
+
+TEST1555:
+  VON_MISES_CDF evaluates the von Mises CDF.
+  VON_MISES_CDF_VALUES returns some exact values.
+
+  A is the dominant angle;
+  B is a measure of spread;
+  X is the angle;
+
+      A     B         X   Exact F     Computed F
+
+         0         1  -2.61799         0.0253509         0.0253509
+         0         1   -1.5708          0.109754          0.109754
+         0         1         0               0.5               0.5
+         0         1    1.0472          0.804338          0.804338
+         0         1    2.0944          0.941746          0.941746
+         1         2         1               0.5               0.5
+         1         2       1.2           0.60182           0.60182
+         1         2       1.4          0.695936          0.695936
+         1         2       1.6          0.776594          0.776594
+         1         2       1.8          0.841073          0.841073
+         1         2         2          0.889578          0.889578
+        -2         3         0          0.996032          0.996032
+        -1         3         0          0.940434          0.940434
+         0         3         0               0.5               0.5
+         1         3         0         0.0595664         0.0595664
+         2         3         0        0.00396773        0.00396773
+         3         3         0       0.000232195       0.000232194
+         0         0  0.785398             0.625             0.625
+         0         1  0.785398          0.743841          0.743841
+         0         2  0.785398          0.836922          0.836922
+         0         3  0.785398          0.894171          0.894171
+         0         4  0.785398          0.929106          0.929106
+         0         5  0.785398          0.951429          0.951429
+
+TEST156
+  For the Weibull PDF:
+  WEIBULL_CDF evaluates the CDF;
+  WEIBULL_CDF_INV inverts the CDF.
+  WEIBULL_PDF evaluates the PDF;
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+  PDF parameter C =      4
+
+       X            PDF           CDF            CDF_INV
+
+       4.11372      0.364494      0.218418       4.11372
+       5.99057      0.137084      0.956318       5.99057
+       5.45985      0.348698      0.829509       5.45985
+         4.859      0.505816      0.561695         4.859
+       4.56772      0.488817      0.415307       4.56772
+       3.53425      0.166552     0.0661187       3.53425
+       4.21624      0.399093      0.257578       4.21624
+       3.75263      0.236621      0.109957       3.75263
+       3.38034      0.124184      0.043829       3.38034
+       5.00376      0.489885      0.633966       5.00376
+
+TEST157
+  For the Weibull PDF:
+  WEIBULL_MEAN computes the mean;
+  WEIBULL_SAMPLE samples;
+  WEIBULL_VARIANCE computes the variance.
+
+  PDF parameter A =      2
+  PDF parameter B =      3
+  PDF parameter C =      4
+
+  PDF mean =     4.71921
+  PDF variance = 0.581953
+
+  Sample size =     1000
+  Sample mean =     4.7225
+  Sample variance = 0.587748
+  Sample maximum =  6.72812
+  Sample minimum =  2.62134
+
+TEST158
+  For the Weibull Discrete PDF:
+  WEIBULL_DISCRETE_CDF evaluates the CDF;
+  WEIBULL_DISCRETE_CDF_INV inverts the CDF.
+  WEIBULL_DISCRETE_PDF evaluates the PDF;
+
+  PDF parameter A =      0.5
+  PDF parameter B =      1.5
+
+       X            PDF           CDF            CDF_INV
+
+             0           0.5           0.5             0
+             2      0.113508      0.972723             2
+             1      0.359214      0.859214             1
+             1      0.359214      0.859214             1
+             0           0.5           0.5             0
+             0           0.5           0.5             0
+             0           0.5           0.5             0
+             0           0.5           0.5             0
+             0           0.5           0.5             0
+             1      0.359214      0.859214             1
+
+TEST159
+  For the Weibull Discrete PDF:
+  WEIBULL_DISCRETE_CDF evaluates the CDF;
+  WEIBULL_DISCRETE_PDF evaluates the PDF;
+
+  PDF parameter A =      0.5
+  PDF parameter B =      1.5
+
+       X            PDF           CDF
+
+             0           0.5           0.5
+             1      0.359214      0.859214
+             2      0.113508      0.972723
+             3     0.0233711      0.996094
+             4    0.00347534      0.999569
+             5   0.000393254      0.999962
+             6   3.49916e-05      0.999997
+             7   2.50545e-06             1
+             8   1.46886e-07             1
+             9   7.14817e-09             1
+            10   2.91997e-10             1
+
+TEST160
+  For the Weibull Discrete PDF:
+  WEIBULL_DISCRETE_SAMPLE samples;
+
+  PDF parameter A =      0.5
+  PDF parameter B =      1.5
+
+  Sample size =     1000
+  Sample mean =     0.676
+  Sample variance = 0.621646
+  Sample maximum =  4
+  Sample minimum =  0
+
+TEST161
+  For the ZIPF PDF:
+  ZIPF_CDF evaluates the CDF;
+  ZIPF_PDF evaluates the PDF;
+
+  PDF parameter A =             2
+
+       X            PDF           CDF
+
+             1      0.607927      0.607927
+             2      0.151982      0.759909
+             3     0.0675475      0.827456
+             4     0.0379954      0.865452
+             5     0.0243171      0.889769
+             6     0.0168869      0.906656
+             7     0.0124067      0.919062
+             8    0.00949886      0.928561
+             9    0.00750527      0.936067
+            10    0.00607927      0.942146
+            11    0.00502419       0.94717
+            12    0.00422172      0.951392
+            13     0.0035972      0.954989
+            14    0.00310167      0.958091
+            15     0.0027019      0.960792
+            16    0.00237472      0.963167
+            17    0.00210355      0.965271
+            18    0.00187632      0.967147
+            19    0.00168401      0.968831
+            20    0.00151982      0.970351
+
+TEST162
+  For the Zipf PDF:
+  ZIPF_MEAN computes the mean;
+  ZIPF_SAMPLE samples;
+  ZIPF_VARIANCE computes the variance.
+
+  PDF parameter A =             4
+  PDF mean =                    1.11063
+  PDF variance =                0.286326
+
+  Sample size =     1000
+  Sample mean =     1.12
+  Sample variance = 0.197798
+  Sample maximum =  6
+  Sample minimum =  1
+
+PROB_PRB
+  Normal end of execution.
+
+03 January 2012 05:03:47 PM

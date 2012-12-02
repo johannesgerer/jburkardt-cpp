@@ -1,0 +1,36 @@
+30 September 2003 02:57:45 PM
+
+DISCRBOUND:
+  A program to estimate the discrepancy of a pointset.
+
+x = 
+{
+  {         0           0    }
+  {       0.5    0.333333    }
+  {      0.25    0.666667    }
+  {      0.75    0.111111    }
+  {     0.125    0.444444    }
+  {     0.625    0.777778    }
+  {     0.375    0.222222    }
+  {     0.875    0.555556    }
+  {    0.0625    0.888889    }
+  {    0.5625    0.037037    }
+}
+
+
+  s = 2
+  epsilon = 0.001
+  n = 10
+
+  Estimate of Discrepancy D_n^*(x):
+
+   Lower         Upper
+   bound         bound
+------------  ------------
+
+    0.266667      0.267443
+
+DISCRBOUND:
+  Normal end of execution.
+
+30 September 2003 02:57:47 PM

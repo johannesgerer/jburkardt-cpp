@@ -1,0 +1,95 @@
+29 April 2007 08:21:41 AM
+
+FEM1D
+  C++ version
+
+  Solve the two-point boundary value problem
+
+  - d/dX (P dU/dX) + Q U  =  F
+
+  on the interval [XL,XR], specifying
+  the value of U or U' at each end.
+
+  The interval [XL,XR] is broken into NSUB = 5 subintervals
+  Number of basis functions per element is NL = 2
+
+  The equation is to be solved for
+  X greater than XL = 0
+  and less than XR = 1
+
+  The boundary conditions are:
+
+  At X = XL, U = 0
+  At X = XR, U' = 1
+
+  Number of quadrature points per element is 1
+
+  Node      Location
+
+         0               0
+         1             0.2
+         2             0.4
+         3             0.6
+         4             0.8
+         5               1
+
+Subint    Length
+
+         1             0.2
+         2             0.2
+         3             0.2
+         4             0.2
+         5             0.2
+
+Subint    Quadrature point
+
+         1             0.1
+         2             0.3
+         3             0.5
+         4             0.7
+         5             0.9
+
+Subint  Left Node  Right Node
+
+         1         0         1
+         2         1         2
+         3         2         3
+         4         3         4
+         5         4         5
+
+  Number of unknowns NU = 5
+
+  Node  Unknown
+
+         0        -1
+         1         1
+         2         2
+         3         3
+         4         4
+         5         5
+
+Printout of tridiagonal linear system:
+
+Equation  ALEFT  ADIAG  ARITE  RHS
+
+         1               0              10              -5               0
+         2              -5              10              -5               0
+         3              -5              10              -5               0
+         4              -5              10              -5               0
+         5              -5               5               0               1
+
+  Computed solution coefficients:
+
+  Node    X(I)        U(X(I))
+
+         0         0               0
+         1       0.2             0.2
+         2       0.4             0.4
+         3       0.6             0.6
+         4       0.8             0.8
+         5         1               1
+
+FEM1D:
+  Normal end of execution.
+
+29 April 2007 08:21:41 AM

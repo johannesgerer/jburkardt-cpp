@@ -1,0 +1,277 @@
+<html>
+
+  <head>
+    <title>
+      ISING_2D_SIMULATION - Monte Carlo 2D Ising Model.
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      ISING_2D_SIMULATION <br> Monte Carlo 2D Ising Model
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>ISING_2D_SIMULATION</b>
+      is a C++ program which
+      carries out a Monte Carlo simulation of a 2D Ising model.
+    </p>
+
+    <p>
+      A 2D Ising model is defined on an MxN array of cells.  Each cell
+      can have a "charge" or "spin" of +1 or -1.  A neighborhood of a cell is defined to
+      be itself, and the four immediate neighbors to the north, south, east, and
+      west.  A cell may change its charge; the likelihood of doing so depends
+      on whether the charge of the neighbors agrees with the charge of the cell.
+    </p>
+
+    <p>
+      This program begins with a random assignment of charges to the cells.
+      It then computes the neighbor agreement at each cell.  It then updates 
+      the entire configuration in one step, using the neighbor agreement
+      to determine the likelihood of flipping.
+    </p>
+
+    <p>
+      Currently, the chance that a cell will "flip" is determined from a table
+      of probabilities based on the number of agreeing neighbors:
+    </p>
+
+    <p>
+      <table border="1" align="center">
+        <tr>
+          <th>Agree</th><td>1</td><td>2</td><td>3</td><td>4</td><td>4</td>
+        </tr>
+        <tr>
+          <th>Prob</th><td>0.98</td><td>0.85</td><td>0.50</td><td>0.15</td><td>0.02</td>
+        </tr>
+      </table>
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>ising_2d_simulation</b> <i>m</i> <i>n</i> <i>iterations</i> <i>thresh</i> <i>seed</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>m</i> and <i>n</i> are the number of rows and columns of cells.
+          The default values are 10.
+        </li>
+        <li>
+          <i>iterations</i> is the number of iterations to take.  The default value is 15.
+        </li>
+        <li>
+          <i>thresh</i> is a number between 0 and 1 that chooses the percentage of
+          negative (red) charges.  The default value is 0.5.
+        </li>
+        <li>
+          <i>seed</i> is a seed for the random number generator.  The default
+          value is 123456789.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Note that the user might also want to vary the transition probabilities.
+      This cannot currently be done on the command line, and requires editing
+      the program and recompiling it.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>ISING_2D_SIMULATION</b> is available in
+      <a href = "../../c_src/ising_2d_simulation/ising_2d_simulation.html">a C version</a> and
+      <a href = "../../cpp_src/ising_2d_simulation/ising_2d_simulation.html">a C++ version</a> and
+      <a href = "../../f77_src/ising_2d_simulation/ising_2d_simulation.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/ising_2d_simulation/ising_2d_simulation.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/ising_2d_simulation/ising_2d_simulation.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/brownian_motion_simulation/brownian_motion_simulation.html">
+      BROWNIAN_MOTION_SIMULATION</a>,
+      a C++ library which
+      simulates Brownian motion in an M-dimensional region.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/duel_simulation/duel_simulation.html">
+      DUEL_SIMULATION</a>,
+      a C++ program which
+      simulates N repetitions of a duel between two players, each of
+      whom has a known firing accuracy.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fair_dice_simulation/fair_dice_simulation.html">
+      FAIR_DICE_SIMULATION</a>,
+      a C++ program which
+      simulates N tosses of 2 dice, making a histogram of the results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ising_2d_simulation/ising_2d_simulation.html">
+      ISING_2D_SIMULATION</a>,
+      a C++ program which
+      carries out a Monte Carlo simulation of an Ising model.
+      a 2D array of positive and negative charges,
+      each of which is likely to "flip" to be in agreement with neighbors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/life_opengl/life_opengl.html">
+      LIFE_OPENGL</a>, 
+      a C++ program which
+      uses OpenGL to display the evolution of John Conway's "Game of Life".
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mandelbrot/mandelbrot.html">
+      MANDELBROT</a>,
+      a C++ program which
+      generates an ASCII PPM image of the Mandelbrot set;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/poisson_simulation/poisson_simulation.html">
+      POISSON_SIMULATION</a>,
+      a C++ library which
+      simulates a Poisson process in which events randomly occur with an
+      average waiting time of Lambda.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/reactor_simulation/reactor_simulation.html">
+      REACTOR_SIMULATION</a>,
+      a C++ program which
+      a simple Monte Carlo simulation of the shielding effect of a slab
+      of a certain thickness in front of a neutron source.  This program was
+      provided as an example with the book "Numerical Methods and Software."
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/three_body_simulation/three_body_simulation.html">
+      THREE_BODY_SIMULATION</a>,
+      a C++ program which
+      simulates the behavior of three planets, constrained to lie in a plane,
+      and moving under the influence of gravity,
+      by Walter Gander and Jiri Hrebicek.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ising_2d_simulation.cpp">ising_2d_simulation.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "ising_2d_simulation.sh">ising_2d_simulation.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ising_2d_output.txt">ising_2d_output.txt</a>, 
+          the output file, using the default options.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for ISING_2D_SIMULATION.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of I4 division.
+        </li>
+        <li>
+          <b>I4_WRAP</b> forces an I4 to lie between given limits by wrapping.
+        </li>
+        <li>
+          <b>ISING_2D_AGREE</b> returns the number of neighbors agreeing with each cell.
+        </li>
+        <li>
+          <b>ISING_2D_INITIALIZE</b> initializes the Ising array.
+        </li>
+        <li>
+          <b>ISING_2D_STATS</b> prints information about the current step.
+        </li>
+        <li>
+          <b>NEIGHBOR_2D_STATS</b> prints neighbor statistics about the current step.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_01</b> fills an R8MAT with unit pseudorandom values.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRANSITION</b> carries out a Monte Carlo simulation of a 3D Ising model.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 23 November 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

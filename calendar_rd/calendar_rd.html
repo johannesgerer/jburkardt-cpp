@@ -1,0 +1,199 @@
+<html>
+
+  <head>
+    <title>
+      CALENDAR_RD - Calendrical Conversions
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      CALENDAR_RD <br> Calendrical Conversions
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CALENDAR_RD</b>
+      is a C++ program which
+      returns information about a given date,
+      by Edward Reingold, Nachum Dershowitz. 
+    </p>
+
+    <p>
+      The program is interactive.  The user enters <b>y</b>, <b>m</b> and <b>d</b>,
+      which represent the year, (numeric) month, and day of a given date.  Note
+      that <b>y</b> must be positive.  Also note that all dates are implicitly
+      using the Gregorian calendar, extended backwards indefinitely.
+    </p>
+
+    <p>
+      Given <b>date</b> = (<b>y</b>,<b>m</b>,<b>d</b>), the program returns
+      <ul>
+        <li>
+          the weekday;
+        </li>
+        <li>
+          the absolute date, that is, the number of days elapsed since 
+          the Gregorian date of Sunday, December 31, 1 BC;
+        </li>
+        <li>
+          the (month/day/year) date in the Gregorian calendar
+          (this is simply (<b>m</b>,<b>d</b>,<b>y</b>);
+        </li>
+        <li>
+          the (month/day/year) date in the Julian calendar;
+        </li>
+        <li>
+          the (week/day/year) in the ISO calendar;
+        </li>
+        <li>
+          the (month/day/year) date in the Hebrew calendar;
+        </li>
+        <li>
+          the (month/day/year) date in the Islamic calendar;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The program halts when a nonpositive value of <b>y</b> is entered.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      This code is in the public domain, but any use of it should publicly
+      acknowledge its source.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../f_src/calendar_nyt/calendar_nyt.html">
+      CALENDAR_NYT</a>,
+      a FORTRAN90 library which
+      shows the correspondence between dates and the New York Times volume and
+      issue number;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/calpak/calpak.html">
+      CALPAK</a>, 
+      a C++ library which
+      converts between dates as computed on various calendars.
+    </p>
+
+    <p>
+      <a href = "../../datasets/dates/dates.html">
+      DATES</a>, 
+      a dataset directory which
+      contains lists of dates in various calendar systems.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/doomsday/doomsday.html">
+      DOOMSDAY</a>,
+      a C++ library which
+      is given the year, month and day of a date, and uses
+      John Conway's doomsday algorithm to determine the corresponding day of the week.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/weekday/weekday.html">
+      WEEKDAY</a>, 
+      a C++ library which
+      determines the day of the week for a given day.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Edward Reingold, Nachum Dershowitz.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Reingold, Nachum Dershowitz,<br>
+          Calendrical Calculations: The Millennium Edition,<br>
+          Cambridge University Press, 2001,<br>
+          ISBN: 0-521-77752-6,<br>
+          LC: CE12.R45.
+        </li>
+        <li>
+          Edward Reingold, Nachum Dershowitz,<br>
+          Calendrical Calculations I,<br>
+          Software - Practice and Experience,<br>
+          Volume 20, Number 9, September 1990, pages 899-928.<br>
+        </li>
+        <li>
+          Edward Reingold, Nachum Dershowitz, Stewart Clamen,<br>
+          Calendrical Calculations, II: Three Historical Calendars,<br>
+          Software - Practice and Experience,<br>
+          Volume 23, Number 4, pages 383-404, April 1993.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "calendar_rd.cpp">calendar_rd.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "calendar_rd.sh">calendar_rd.sh</a>, 
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "calendar_rd_input.txt">calendar_rd_input.txt</a>, 
+          the input file.
+        </li>
+        <li>
+          <a href = "calendar_rd_output.txt">calendar_rd_output.txt</a>, 
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 07 December 2008.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

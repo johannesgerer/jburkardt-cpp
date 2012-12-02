@@ -1,0 +1,307 @@
+06 January 2012 10:36:13 AM
+
+SGMG_SIZE_PRB
+  C++ version
+
+SGMG_SIZE_TESTS
+  Call SGMG_SIZE_TEST with various arguments.
+
+  All tests will use a point equality tolerance of -1
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        25        25
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        27        27
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         9         9
+         1         2        37        37
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         9         9
+         1         2        37        37
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         9         9
+         1         2        37        37
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1        11        11
+         1         2        51        51
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        29        29
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1        12        12
+         0         2        70        70
+
+SGMG_SIZE_TESTS
+  Call SGMG_SIZE_TEST with various arguments.
+
+  All tests will use a point equality tolerance of 1.49012e-08
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         5         7
+         1         2        13        25
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         5         7
+         1         2        15        27
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         9
+         1         2        23        37
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         8         9
+         1         2        29        37
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         8         9
+         1         2        29        37
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1        10        11
+         1         2        41        51
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         5         7
+         1         2        19        29
+
+SGMG_SIZE_TEST
+  SGMG_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SGMG_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         9        12
+         0         2        41        70
+
+SGMG_SIZE_PRB
+  Normal end of execution.
+
+06 January 2012 10:36:13 AM

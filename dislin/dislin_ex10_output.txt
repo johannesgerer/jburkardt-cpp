@@ -1,0 +1,15 @@
+
+DISLIN_EX10:
+  C++ version:
+  Demonstrate the use of color 3D graphics.
+
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ <<                END OF DISLIN / VERSION 10.1                  <<
+ <<  Date    : 10.04.2011  Time    : 08:24:55  Pageformat: USAP  <<
+ <<  Vectors : 5729        Warnings: 0         Fileformat:  PNG  <<
+ <<  Metafile: dislin_ex10.png                                   <<
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+DISLIN_EX10:
+  Normal end of execution.

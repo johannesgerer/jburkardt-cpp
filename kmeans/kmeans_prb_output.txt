@@ -1,0 +1,634 @@
+13 October 2011 02:13:47 PM
+
+KMEANS_PRB
+  C++ version
+  Test the KMEANS library.
+
+TEST01
+  Test the HMEANS_01 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 12
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.46903
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        22   22      0.686172   19     0.0311896
+        1        30   30      0.986954   28     0.0328985
+        2        14   14      0.387348   11     0.0276677
+        3        14   14      0.537425   15     0.0383875
+        4        20   20      0.871133   25     0.0435566
+
+    Total       100  100       3.46903  100     0.0346903
+
+  Cluster centers written to "test01_centers.txt".
+  Cluster assignments written to "test01_clusters.txt".
+
+TEST02
+  Test the HMEANS_02 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 8
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.52523
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        17   17       0.39298   11     0.0231165
+        1        30   30      0.986954   27     0.0328985
+        2        18   18       0.69886   19     0.0388255
+        3        21   21       1.05909   30     0.0504329
+        4        14   14      0.387348   10     0.0276677
+
+    Total       100  100       3.52523  100     0.0352523
+
+  Cluster centers written to "test02_centers.txt".
+  Cluster assignments written to "test02_clusters.txt".
+
+TEST03
+  Test the KMEANS_01 algorithm.
+  (Applied Statistics Algorithm #58)
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Number of iterations allowed is 20
+
+  Number of KMEANS_01 iterations taken is 6
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.48035
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        20   20      0.679602   19     0.0339801
+        1        25   25      0.634804   18     0.0253922
+        2        14   14      0.341942    9     0.0244244
+        3        22   22       1.02164   29     0.0464381
+        4        19   19      0.802368   23     0.0422299
+
+    Total       100  100       3.48035  100     0.0348035
+
+  Cluster centers written to "test03_centers.txt".
+  Cluster assignments written to "test03_clusters.txt".
+
+TEST04
+  Test the KMEANS_02 algorithm.
+  (Applied Statistics Algorithm #136)
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 2
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.47469
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        14   14      0.341942    9     0.0244244
+        1        29   29      0.905224   26     0.0312146
+        2        22   22       1.02164   29     0.0464381
+        3        15   15      0.526286   15     0.0350857
+        4        20   20      0.679602   19     0.0339801
+
+    Total       100  100       3.47469  100     0.0347469
+
+  Cluster centers written to "test04_centers.txt".
+  Cluster assignments written to "test04_clusters.txt".
+
+TEST05
+  Test the KMEANS_03 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 4
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.47816
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        14   14      0.341942    9     0.0244244
+        1        27   27      0.738345   21     0.0273461
+        2        22   22       1.02164   29     0.0464381
+        3        17   17      0.696631   20     0.0409783
+        4        20   20      0.679602   19     0.0339801
+
+    Total       100  100       3.47816  100     0.0347816
+
+  Cluster centers written to "test05_centers.txt".
+  Cluster assignments written to "test05_clusters.txt".
+
+TEST06
+  Test the HMEANS_01 + KMEANS_01 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Number of HMEANS_01 iterations allowed is 3
+  Number of KMEANS_01 iterations allowed is 20
+
+  Number of HMEANS_01 iterations taken is 3
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       4.2705
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        25   25      0.887531   20     0.0355012
+        1        16   16      0.327914    7     0.0204946
+        2        11   11      0.244227    5     0.0222025
+        3        23   23        1.8928   44     0.0822956
+        4        25   25      0.918024   21      0.036721
+
+    Total       100  100        4.2705  100      0.042705
+
+  Number of KMEANS_01 iterations taken is 5
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.4643
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        23   23      0.830362   23     0.0361027
+        1        30   30      0.986954   28     0.0328985
+        2        14   14      0.387348   11     0.0276677
+        3        14   14      0.497761   14     0.0355543
+        4        19   19      0.761873   21     0.0400986
+
+    Total       100  100        3.4643  100      0.034643
+
+  Cluster centers written to "test06_centers.txt".
+  Cluster assignments written to "test06_clusters.txt".
+
+TEST07
+  Test the HMEANS_01 + KMEANS_02 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Number of HMEANS_01 iterations allowed is 3
+  Number of KMEANS_02 iterations allowed is 20
+
+  Number of HMEANS_01 iterations taken is 3
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       4.2705
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        25   25      0.887531   20     0.0355012
+        1        16   16      0.327914    7     0.0204946
+        2        11   11      0.244227    5     0.0222025
+        3        23   23        1.8928   44     0.0822956
+        4        25   25      0.918024   21      0.036721
+
+    Total       100  100        4.2705  100      0.042705
+
+  Number of KMEANS_02 iterations taken is 3
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.4643
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        23   23      0.830362   23     0.0361027
+        1        30   30      0.986954   28     0.0328985
+        2        14   14      0.387348   11     0.0276677
+        3        14   14      0.497761   14     0.0355543
+        4        19   19      0.761873   21     0.0400986
+
+    Total       100  100        3.4643  100      0.034643
+
+  Cluster centers written to "test07_centers.txt".
+  Cluster assignments written to "test07_clusters.txt".
+
+TEST08
+  Test the HMEANS_01 + KMEANS_03 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Initialize by using a few steps of HMEANS_02:
+  Number of HMEANS_01 iterations allowed is 3
+  Number of KMEANS_03 iterations allowed is 20
+
+  Number of HMEANS_01 iterations taken is 3
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       4.2705
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        25   25      0.887531   20     0.0355012
+        1        16   16      0.327914    7     0.0204946
+        2        11   11      0.244227    5     0.0222025
+        3        23   23        1.8928   44     0.0822956
+        4        25   25      0.918024   21      0.036721
+
+    Total       100  100        4.2705  100      0.042705
+
+  Number of KMEANS_03 iterations taken is 5
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.4643
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        23   23      0.830362   23     0.0361027
+        1        30   30      0.986954   28     0.0328985
+        2        14   14      0.387348   11     0.0276677
+        3        14   14      0.497761   14     0.0355543
+        4        19   19      0.761873   21     0.0400986
+
+    Total       100  100        3.4643  100      0.034643
+
+  Cluster centers written to "test08_centers.txt".
+  Cluster assignments written to "test08_clusters.txt".
+
+TEST09
+  Test the HMEANS_W_01 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_equal_100.txt".
+
+  Number of iterations allowed is 20
+     1         64.8838
+     2         64.8838
+     3         64.8838
+     4         64.8838
+     5         64.8838
+     6         64.8838
+     7         64.8838
+     8         64.8838
+     9         64.8838
+    10         64.8838
+    11         64.8838
+
+  Number of iterations taken is 12
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.46903
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0       258  258      0.686172   19     0.0311896
+        1       255  255      0.986954   28     0.0328985
+        2       136  136      0.387348   11     0.0276677
+        3       221  221      0.537425   15     0.0383875
+        4       234  234      0.871133   25     0.0435566
+
+    Total      1104  100       3.46903  100     0.0352126
+
+  Cluster centers written to "test09_centers.txt".
+  Cluster assignments written to "test09_clusters.txt".
+
+TEST10
+  Test the HMEANS_W_02 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_equal_100.txt".
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 8
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.52523
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        17   17       0.39298   11     0.0231165
+        1        30   30      0.986954   27     0.0328985
+        2        18   18       0.69886   19     0.0388255
+        3        21   21       1.05909   30     0.0504329
+        4        14   14      0.387348   10     0.0276677
+
+    Total       100  100       3.52523  100     0.0352523
+
+  Cluster centers written to "test10_centers.txt".
+  Cluster assignments written to "test10_clusters.txt".
+
+TEST11
+  Test the KMEANS_W_01 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_equal_100.txt".
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 20
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       5.56496
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        23   23      0.912867   16     0.0396899
+        1        37   37       1.82343   32     0.0492818
+        2         5    5     0.0617514    1     0.0123503
+        3        27   27       2.51161   45     0.0930225
+        4         8    8      0.255309    4     0.0319137
+
+    Total       100  100       5.56496  100     0.0556496
+
+  Cluster centers written to "test11_centers.txt".
+  Cluster assignments written to "test11_clusters.txt".
+
+TEST12
+  Test the KMEANS_W_03 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_equal_100.txt".
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 4
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       3.47816
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        14   14      0.341942    9     0.0244244
+        1        27   27      0.738345   21     0.0273461
+        2        22   22       1.02164   29     0.0464381
+        3        17   17      0.696631   20     0.0409783
+        4        20   20      0.679602   19     0.0339801
+
+    Total       100  100       3.47816  100     0.0347816
+
+  Cluster centers written to "test12_centers.txt".
+  Cluster assignments written to "test12_clusters.txt".
+
+TEST13
+  Test the HMEANS_W_01 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_unequal_100.txt".
+
+  Number of iterations allowed is 20
+     1         246.491
+     2         246.491
+     3         246.491
+
+  Number of iterations taken is 4
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       6.18991
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        73   73      0.711415   11     0.0344254
+        1        60   60      0.134735    2     0.0134735
+        2        22   22      0.209275    3     0.0114208
+        3        95   95       3.34549   54     0.0985985
+        4        58   58       1.78899   28     0.0428508
+
+    Total       308  100       6.18991  100     0.0500809
+
+  Cluster centers written to "test13_centers.txt".
+  Cluster assignments written to "test13_clusters.txt".
+
+TEST14
+  Test the HMEANS_W_02 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_unequal_100.txt".
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 6
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       4.88278
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        20   20      0.711415   14     0.0344254
+        1        28   28       1.24878   25     0.0284279
+        2        14   14      0.466427    9     0.0333162
+        3        24   24        1.9315   39     0.0713668
+        4        14   14      0.524659   10      0.029348
+
+    Total       100  100       4.88278  100     0.0407459
+
+  Cluster centers written to "test14_centers.txt".
+  Cluster assignments written to "test14_clusters.txt".
+
+TEST15
+  Test the KMEANS_W_01 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_unequal_100.txt".
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 20
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       7.13956
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        24   24       1.05757   14     0.0421711
+        1        34   34       1.91204   26     0.0560579
+        2         7    7      0.267154    3     0.0230427
+        3        30   30       3.72933   52       0.11249
+        4         5    5      0.173467    2     0.0136611
+
+    Total       100  100       7.13956  100     0.0652239
+
+  Cluster centers written to "test15_centers.txt".
+  Cluster assignments written to "test15_clusters.txt".
+
+TEST16
+  Test the KMEANS_W_03 algorithm.
+
+  Data points will be read from "points_100.txt".
+
+  Point spatial dimension = 2
+  Number of points = 100
+
+  Weights will be read from "weights_unequal_100.txt".
+
+  Number of iterations allowed is 20
+
+  Number of iterations taken is 6
+
+  Clustering statistics:
+
+    Number of clusters is 5
+    Number of points is   100
+    Total energy is       4.82588
+
+    Cluster   Population        Energy          Variance
+    -------  -----------  -----------------  --------------
+                  #    %     value        %
+
+        0        14   14      0.524659   10      0.029348
+        1        30   30       1.37091   28     0.0307024
+        2        21   21       1.61923   33     0.0682799
+        3        16   16      0.644884   13     0.0403053
+        4        19   19      0.666206   13     0.0341865
+
+    Total       100  100       4.82588  100     0.0406025
+
+  Cluster centers written to "test16_centers.txt".
+  Cluster assignments written to "test16_clusters.txt".
+
+KMEANS_PRB
+  Normal end of execution.
+
+13 October 2011 02:13:47 PM

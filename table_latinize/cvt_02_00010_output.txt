@@ -1,0 +1,48 @@
+08 October 2004 08:08:09 AM
+
+LATINIZE (C++ version)
+  Read a dataset of N points in M dimensions,
+  modify it into a Latin hypercube,
+  write the modified dataset to a file.
+
+  Compiled on Oct  8 2004 at 08:07:39.
+
+  Read the header of "cvt_02_00010.txt".
+
+  Spatial dimension NDIM = 2
+  Number of points N  = 10
+
+  Read the data in "cvt_02_00010.txt".
+
+  Small portion of data read from file:
+
+  Row         1             2       
+  Col
+
+   1      0.168259      0.878328  
+   2      0.834417      0.833004  
+   3      0.521361      0.499896  
+   4      0.506248      0.165244  
+   5      0.180542       0.62741  
+
+
+  Latinized the data.
+
+  Small portion of Latinized data:
+
+  Row         1             2       
+  Col
+
+   1          0.05          0.95  
+   2          0.75          0.75  
+   3          0.65          0.45  
+   4          0.55          0.15  
+   5          0.35          0.65  
+
+
+  Wrote the latinized data to "cvt_02_00010.latin.txt".
+
+TABLE_LATINIZE
+  Normal end of execution.
+
+08 October 2004 08:08:09 AM

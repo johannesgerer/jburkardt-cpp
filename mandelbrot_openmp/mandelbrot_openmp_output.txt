@@ -1,0 +1,27 @@
+03 September 2012 01:53:27 PM
+
+MANDELBROT_OPENMP
+  C++/OpenMP version
+
+  Create an ASCII PPM image of the Mandelbrot set.
+
+  For each point C = X + i*Y
+  with X range [-2.25,1.25]
+  and  Y range [-1.75,1.75]
+  carry out 2000 iterations of the map
+  Z(n+1) = Z(n)^2 + C.
+  If the iterates stay bounded (norm less than 2)
+  then C is taken to be a member of the set.
+
+  An ASCII PPM image of the set is created using
+    M = 500 pixels in the X direction and
+    N = 500 pixels in the Y direction.
+
+  Time = 0.259656 seconds.
+
+  Graphics data written to "mandelbrot.ppm".
+
+MANDELBROT_OPENMP
+  Normal end of execution.
+
+03 September 2012 01:53:28 PM

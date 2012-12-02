@@ -1,0 +1,224 @@
+<html>
+
+  <head>
+    <title>
+      TIMER - Compute Elapsed Time
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TIMER <br> Compute Elapsed Time
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TIMER</b>
+      is a directory of C++ programs which
+      compute the elapsed CPU time or wall clock time of a part of a calculation.
+    </p>
+
+    <p>
+      The idea is that you want to
+      determine the amount of CPU time taken by a piece of your code, so
+      you write lines like this:
+      <pre><tt>
+        time1 = timer ( );
+        for (  i = 0; i < n; i++ )
+          ...some big calculation...
+        }
+        time2 = timer ( );
+        cout << "Elapsed CPU time = " << time2 - time1 << " seconds\n";
+      </pre></tt>
+    </p>
+
+    <p>
+      You should not trust a CPU timer.  If you run the same code
+      several times in a row, you are likely to get different results,
+      especially if you are trying to time things that don't take long.
+      The time will often also vary depending on the system load,
+      the number of other users or processes running, and other factors.
+    </p>
+
+    <p>
+      Another problem is "wrap around".  Some timers reach a maximum value,
+      and then reset themselves to zero.  If this happens to you, (it's
+      happened to me many times!) you may find that a certain procedure
+      seems to take negative time!
+    </p>
+
+    <p>
+      Some timers return CPU time, that is, the amount of elapsed computer
+      time that was used by your program; other routines return "real" time
+      or "wall clock" time, which will not account for situations in which
+      your program started, and then was paused for some reason (swapped out,
+      waiting for I/O, or other system functions), and then finished.
+    </p>
+
+    <p>
+      For parallel programming, the important thing to measure is the elapsed
+      wallclock time.  This can be found by subtracting an initial reading of
+      the wallclock time from a final one.
+    </p>
+
+    <p>
+      The OpenMP system provides a function used as follows:
+      <pre>
+        seconds = omp_get_wtime ( )
+        operations to time;
+        seconds = omp_get_wtime ( ) - seconds;
+      </pre>
+      while the MPI system provides a similar function used as:
+      <pre>
+        seconds = MPI_Wtime ( );
+        operations;
+        seconds = MPI_Wtime ( ) - seconds;
+      </pre>
+      and in MATLAB, wallclock time can be taken with "tic" and "toc":
+      <pre>
+        tic;
+        operation;
+        seconds = toc;
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TIMER</b> is available in
+      <a href = "../../c_src/timer/timer.html">a C version</a> and
+      <a href = "../../cpp_src/timer/timer.html">a C++ version</a> and
+      <a href = "../../f77_src/timer/timer.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/timer/timer.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/timer/timer.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/mpi/mpi.html">
+      MPI</a>,
+      C++ programs which
+      illustrate the use of the MPI application program interface
+      for carrying out parallel computations in a distributed memory environment.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/openmp/openmp.html">
+      OPENMP</a>,
+      C++ programs which
+      illustrate the use of the OpenMP application program interface
+      for carrying out parallel computations in a shared memory environment.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sum_million/sum_million.html">
+      SUM_MILLION</a>,
+      a C++ program which
+      sums the integers from 1 to 1,000,000, as a demonstration of how
+      to rate a computer's speed;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/timestamp/timestamp.html">
+      TIMESTAMP</a>,
+      a C++ library which
+      can display the current wall clock time.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wtime/wtime.html">
+      WTIME</a>,
+      a C++ library which
+      returns a reading of the wall clock time in seconds.
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>TIMER_CLOCK</b> uses the CLOCK routine for CPU time measurements:
+      <ul>
+        <li>
+          <a href = "timer_clock.cpp">timer_clock.cpp</a>, the test;
+        </li>
+        <li>
+          <a href = "timer_clock.sh">timer_clock.sh</a>,
+          commands to compile and run the test;
+        </li>
+        <li>
+          <a href = "timer_clock_output.txt">timer_clock_output.txt</a>,
+          output from the test;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TIMER_OMP_GET_WTIME</b> uses the OpenMP wall clock function <b>omp_get_wtime()</b>:
+      <ul>
+        <li>
+          <a href = "timer_omp_get_wtime.cpp">timer_omp_get_wtime.cpp</a>, the test;
+        </li>
+        <li>
+          <a href = "timer_omp_get_wtime.sh">timer_omp_get_wtime.sh</a>,
+          commands to compile and run the test;
+        </li>
+        <li>
+          <a href = "timer_omp_get_wtime_output.txt">timer_omp_get_wtime_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TIMER_TIME</b> uses the TIME routine for real time
+      measurements.  These are no more accurate than one second,
+      however:
+      <ul>
+        <li>
+          <a href = "timer_time.cpp">timer_time.cpp</a>, the test;
+        </li>
+        <li>
+          <a href = "timer_time.sh">timer_time.sh</a>,
+          commands to compile and run the test;
+        </li>
+        <li>
+          <a href = "timer_time_output.txt">timer_time_output.txt</a>,
+          output from the test;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 10 July 2008.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

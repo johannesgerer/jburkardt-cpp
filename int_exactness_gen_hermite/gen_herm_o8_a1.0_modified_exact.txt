@@ -1,0 +1,86 @@
+24 January 2008 12:00:53 PM
+
+INT_EXACTNESS_GEN_HERMITE
+  C++ version
+
+  Investigate the polynomial exactness of a generalized Gauss-Hermite
+  quadrature rule by integrating exponentially weighted
+  monomials up to a given degree over the (-oo,+oo) interval.
+
+INT_EXACTNESS_GEN_HERMITE: User input:
+  Quadrature rule X file = "gen_herm_o8_a1.0_modified_x.txt".
+  Quadrature rule W file = "gen_herm_o8_a1.0_modified_w.txt".
+  Quadrature rule R file = "gen_herm_o8_a1.0_modified_r.txt".
+  Maximum degree to check = 18
+  Power of |X|, ALPHA = 1
+  OPTION = 1, integrate                     f(x)
+
+  Spatial dimension = 1
+  Number of points  = 8
+
+  The quadrature rule to be tested is
+  a generalized Gauss-Hermite rule
+  ORDER = 8
+  ALPHA = 1
+
+  OPTION = 1: Modified rule:
+    Integral ( -oo < x < +oo ) f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =        1.058214197948879
+  w[ 1] =       0.8524080381127395
+  w[ 2] =       0.7750492008314336
+  w[ 3] =       0.7331317124710707
+  w[ 4] =       0.7331317124710707
+  w[ 5] =       0.7750492008314336
+  w[ 6] =       0.8524080381127395
+  w[ 7] =        1.058214197948879
+
+  Abscissas X:
+
+  x[ 0] =       -3.065137992375079
+  x[ 1] =       -2.129934340988268
+  x[ 2] =       -1.321272530993643
+  x[ 3] =      -0.5679328213965031
+  x[ 4] =       0.5679328213965031
+  x[ 5] =        1.321272530993643
+  x[ 6] =        2.129934340988268
+  x[ 7] =        3.065137992375079
+
+  Region R:
+
+  r[ 0] =                   -1e+30
+  r[ 1] =                    1e+30
+
+  A generalized Gauss-Hermite rule would be able to exactly
+  integrate monomials up to and including degree = 15
+
+          Error          Degree
+
+     4.440892098500626e-16   0
+     2.547875105340935e-17   1
+     4.440892098500626e-16   2
+     6.852157730108388e-17   3
+     6.661338147750939e-16   4
+     8.326672684688674e-17   5
+     1.036208156316813e-15   6
+     2.220446049250313e-16   7
+     8.881784197001252e-16   8
+     8.881784197001252e-16   9
+     9.473903143468002e-16  10
+                         0  11
+     7.894919286223335e-16  12
+                         0  13
+     7.218211918832764e-16  14
+                         0  15
+       0.01428571428571392  16
+                         0  17
+       0.06507936507936508  18
+
+INT_EXACTNESS_GEN_HERMITE:
+  Normal end of execution.
+
+24 January 2008 12:00:53 PM

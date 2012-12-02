@@ -1,0 +1,83 @@
+03 March 2008 08:12:40 AM
+
+INT_EXACTNESS_CHEBYSHEV2
+  C++ version
+
+  Investigate the polynomial exactness of a Gauss-Chebyshev
+  type 2 quadrature rule by integrating weighted
+  monomials up to a given degree over the [-1,+1] interval.
+
+INT_EXACTNESS_CHEBYSHEV2: User input:
+  Quadrature rule X file = "cheby2_o8_x.txt".
+  Quadrature rule W file = "cheby2_o8_w.txt".
+  Quadrature rule R file = "cheby2_o8_r.txt".
+  Maximum degree to check = 18
+
+  Spatial dimension = 1
+  Number of points  = 8
+
+  The quadrature rule to be tested is
+  a Gauss-Legendre rule
+  ORDER = 8
+
+  Standard rule:
+    Integral ( -1 <= x <= +1 ) f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =      0.04083294770910712
+  w[ 1] =       0.1442256007956728
+  w[ 2] =       0.2617993877991495
+  w[ 3] =        0.338540227093519
+  w[ 4] =        0.338540227093519
+  w[ 5] =       0.2617993877991494
+  w[ 6] =       0.1442256007956728
+  w[ 7] =      0.04083294770910708
+
+  Abscissas X:
+
+  x[ 0] =      -0.9396926207859084
+  x[ 1] =      -0.7660444431189779
+  x[ 2] =      -0.4999999999999998
+  x[ 3] =      -0.1736481776669303
+  x[ 4] =       0.1736481776669304
+  x[ 5] =       0.5000000000000001
+  x[ 6] =        0.766044443118978
+  x[ 7] =       0.9396926207859084
+
+  Region R:
+
+  r[ 0] =                       -1
+  r[ 1] =                        1
+
+  A Gauss-Chebyshev type 2 rule would be able to exactly
+  integrate monomials up to and including degree = 15
+
+          Error          Degree
+
+      1.41357985842823e-16   0
+     3.469446951953614e-17   1
+                         0   2
+     8.326672684688674e-17   3
+                         0   4
+     2.775557561562891e-17   5
+     1.130863886742584e-16   6
+     3.469446951953614e-18   7
+                         0   8
+     3.469446951953614e-18   9
+     2.154026450938255e-16  10
+     3.469446951953614e-18  11
+     2.741488210285052e-16  12
+     3.469446951953614e-18  13
+     5.061209003603172e-16  14
+     3.469446951953614e-18  15
+     0.0006993006992999631  16
+     6.938893903907228e-18  17
+      0.003290826820237859  18
+
+INT_EXACTNESS_CHEBYSHEV2:
+  Normal end of execution.
+
+03 March 2008 08:12:40 AM

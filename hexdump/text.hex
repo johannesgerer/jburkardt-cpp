@@ -1,0 +1,19 @@
+30 January 2003 07:21:26 AM
+
+HEXDUMP:
+  Produce a hexadecimal dump of a file.
+
+  Compiled on Jan 30 2003 at 07:21:20.
+
+Hexdump of "text.txt":
+
+Address               Hexadecimal values                  Printable
+-------  -----------------------------------------------  -------------
+
+      0  31 32 33 34 35 36 37 38 39 30 0a 41 42 43 44 45  1234567890.ABCDE
+     16  46 47 48 49 4a 0a 61 62 63 64 65 66 67 68 69 6a  FGHIJ.abcdefghij
+
+HEXDUMP:
+  Normal end of execution.
+
+30 January 2003 07:21:26 AM

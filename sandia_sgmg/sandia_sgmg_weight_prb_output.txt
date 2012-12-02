@@ -1,0 +1,138 @@
+13 January 2012 10:41:25 AM
+
+SGMG_WEIGHT_PRB
+  C++ version
+
+SGMG_WEIGHT_TESTS
+  Call SGMG_WEIGHT_TEST with various arguments.
+
+  All tests will use a point equality tolerance of 1.49012e-08
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0               4
+         1               4
+         2               4
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0               4
+         1               4
+         2               4
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0               4
+         1               4
+         2               4
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0               2
+         1               2
+         2               2
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0         2.65868
+         1         2.65868
+         2         2.65868
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0         3.14159
+         1         3.14159
+         2         3.14159
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0          1.5708
+         1          1.5708
+         2          1.5708
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0         7.08982
+         1         7.08982
+         2         7.08982
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0               4
+         1               4
+         2               4
+         3               4
+         4               4
+
+SGMG_WEIGHT_TEST
+  Compute the weights of a sparse grid.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+     Level      Weight sum
+
+         0               4
+         1               4
+         2               4
+         3               4
+         4               4
+
+SGMG_WEIGHT_PRB
+  Normal end of execution.
+
+13 January 2012 10:41:25 AM

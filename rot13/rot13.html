@@ -1,0 +1,224 @@
+<html>
+
+  <head>
+    <title>
+      ROT13 - Apply "ROT13" Transformation to a File
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      ROT13 <br> Apply "ROT13" Transformation to a File
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>ROT13</b>
+      is a C++ program which
+      reads a file and makes a
+      copy in which all characters have been "rotated" by 13 positions, and
+      all digits have been "rotated" by 5 positions.
+    </p>
+
+    <p>
+      Applying <b>ROT13</b> to the transformed file returns the original.
+      Thus, <b>ROT13</b> can be used as a very simply method of encoding
+      and decoding text files.  Only an idiot would be fooled by this
+      encoding, but nonetheless the encoding serves a number of useful
+      purposes.  And often, it's only idiots you have to fool, after all.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>rot13</b> <i>file1.txt</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>file1.txt</i> is the input file to be encoded.
+        </li>
+      </ul>
+      The output filename is the ROT13 transformation of the input filename.
+      In the case of "file1.txt", the output filename would be <i>svyr6.gkg</i>.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cr2lf/cr2lf.html">
+      CR2LF</a>,
+      a C++ program which
+      reads a text file and replaces carriage returns by line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/crrm/crrm.html">
+      CRRM</a>,
+      a C++ program which
+      reads a text file and writes a copy which has no carriage returns.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/deblank/deblank.html">
+      DEBLANK</a>,
+      a C++ program which
+      makes a copy of a text file in which blank lines have been removed.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/decomment/decomment.html">
+      DECOMMENT</a>,
+      a C++ program which
+      makes a copy of a text file which contains no "comment" lines
+      (that begin with "#").
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/filum/filum.html">
+      FILUM</a>,
+      a C++ library which
+      performs various operations on files.
+    </p>
+
+    <p>
+      <a href = "../../c_src/pig_latin/pig_latin.html">
+      PIG_LATIN</a>,
+      a C program which
+      makes a copy of a file, translating the text into Pig Latin.
+    </p>
+
+    <p>
+      <a href = "../../f_src/reformat/reformat.html">
+      REFORMAT</a>,
+      a FORTRAN90 program which
+      reads a file that contains only real values, and writes a copy
+      which has a fixed number of real values on each line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/reword/reword.html">
+      REWORD</a>,
+      a C++ program which
+      makes a copy of a file
+      in which each line has the same number of "words".
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uncontrol/uncontrol.html">
+      UNCONTROL</a>,
+      a C++ program which
+      makes a copy of a text file which contains no control characters.
+    </p>
+
+    <p>
+      <a href = "../../c_src/uudecode/uudecode.html">
+      UUDECODE</a>,
+      a C program which
+      reads a UU encoded text file and translates it back to its original form.
+    </p>
+
+    <p>
+      <a href = "../../c_src/uuencode/uuencode.html">
+      UUENCODE</a>,
+      a C program which
+      translates a file (possibly in binary format) to the UU encoding.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap/wrap.html">
+      WRAP</a>,
+      a C++ program which
+      makes a copy of a text file in which long lines have been wrapped.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "rot13.cpp">rot13.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "rot13.sh">rot13.sh</a>, commands to
+          compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "gettysburg.txt">gettysburg.txt</a>,
+          Lincoln's Gettysburg Address.
+        </li>
+        <li>
+          <a href = "trgglfohet.gkg">trgglfohet.gkg</a>,
+          the file, encoded by ROT13.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for ROT13.
+        </li>
+        <li>
+          <b>CH_TO_ROT13</b> converts a character to its ROT13 equivalent.
+        </li>
+        <li>
+          <b>HANDLE</b> makes a copy of a file after applying ROT13 to it.
+        </li>
+        <li>
+          <b>S_TO_ROT13</b> "rotates" the alphabetical characters in a string by 13 positions.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 21 May 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

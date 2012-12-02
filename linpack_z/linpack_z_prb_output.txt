@@ -1,0 +1,851 @@
+23 December 2011 10:55:23 AM
+
+LINPACK_Z_PRB
+  C++ version
+  Test the LINPACK_Z library.
+
+TEST01
+  For a complex Hermitian positive definite matrix,
+  ZCHDC computes the Cholesky decomposition.
+
+  The number of equations is N = 3
+
+  The matrix:
+
+            (2.5281,0)      (2.1341,-0.2147)       (2.4187,0.2932)
+       (2.1341,0.2147)            (3.0371,0)       (2.0905,1.1505)
+      (2.4187,-0.2932)      (2.0905,-1.1505)            (2.7638,0)
+
+  Decompose the matrix.
+
+  The Cholesky factor U:
+
+              (1.59,0)    (1.3422,-0.135031)    (1.52119,0.184403)
+                 (0,0)           (1.10334,0)  (0.0667521,0.632248)
+                 (0,0)                 (0,0)          (0.107555,0)
+
+  The product U^H * U:
+
+            (2.5281,0)      (2.1341,-0.2147)       (2.4187,0.2932)
+       (2.1341,0.2147)            (3.0371,0)       (2.0905,1.1505)
+      (2.4187,-0.2932)      (2.0905,-1.1505)            (2.7638,0)
+
+TEST02
+  For a complex Hermitian positive definite matrix,
+  ZCHEX can shift rows and columns in a Cholesky factorization.
+
+  The number of equations is N = 3
+
+  The matrix A:
+
+            (2.5281,0)      (2.1341,-0.2147)       (2.4187,0.2932)
+       (2.1341,0.2147)            (3.0371,0)       (2.0905,1.1505)
+      (2.4187,-0.2932)      (2.0905,-1.1505)            (2.7638,0)
+
+  The vector Z:
+
+                 (1,0)
+                 (2,0)
+                 (3,0)
+
+  Decompose the matrix.
+
+  The Cholesky factor U:
+
+              (1.59,0)    (1.3422,-0.135031)    (1.52119,0.184403)
+                 (0,0)           (1.10334,0)  (0.0667521,0.632248)
+                 (0,0)                 (0,0)          (0.107555,0)
+
+  Right circular shift rows and columns K  = 1 through L = 3
+
+  Logical matrix is now:
+
+  33 31 32
+  13 11 12
+  23 21 22
+
+  Left circular shift rows and columns K+1 = 2 through L = 3
+
+  Logical matrix is now:
+
+  33 32 31
+  23 22 21
+  13 12 11
+
+  The shifted Cholesky factor UU:
+
+    (1.65039,0.200063)   (1.33161,-0.535689)           (1.46554,0)
+                 (0,0)  (0.849985,-0.504457)  (-0.135667,-0.59052)
+                 (0,0)                 (0,0)  (-0.105082,-0.0462959)
+
+  The shifted vector ZZ:
+
+   (1.28565,-0.722065)
+   (1.47222,-0.393939)
+   (3.08193,0.0693799)
+
+  The shifted product AA = UU' * UU:
+  The rows and columns of the original matrix A reappear,
+  but in reverse order.
+
+            (2.7638,0)      (2.0905,-1.1505)      (2.4187,-0.2932)
+       (2.0905,1.1505)            (3.0371,0)       (2.1341,0.2147)
+       (2.4187,0.2932)      (2.1341,-0.2147)            (2.5281,0)
+
+TEST03
+  For a complex Hermitian matrix
+  ZCHUD updates a Cholesky decomposition.
+  ZTRSL solves a triangular linear system.
+
+  In this example, we use ZCHUD to solve a
+  least squares problem R * b = z.
+
+  The number of equations is P = 20
+
+  Solution vector # 1
+  (Should be (1,1) (2,0), (3,1) (4,0) ...)
+
+         1                 (1,1)
+         2       (2,3.61331e-15)
+         3                 (3,1)
+         4      (4,-6.10537e-15)
+         5                 (5,1)
+  ......  ..............
+        16      (16,5.36981e-15)
+        17                (17,1)
+        18      (18,1.17157e-15)
+        19                (19,1)
+        20     (20,-3.14122e-14)
+
+TEST04
+  For a complex general band storage matrix:
+  ZGBCO factors the matrix and estimates the
+  reciprocal condition number.
+
+  The matrix order is N = 3
+  The lower band is ML =  1
+  The upper band is MU =  1
+
+  The matrix:
+
+   (0.44986,-0.126667)    (0.589627,0.26009)                 (0,0)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.236066,0.0774593)
+                 (0,0)  (-0.139466,-0.156136)  (0.0185993,-0.633214)
+
+  Estimated reciprocal condition RCOND = 0.321778
+
+TEST05
+  For a complex general band storage matrix:
+  ZGBFA factors the matrix;
+  ZGBSL solves a factored linear system.
+
+  The matrix order is N = 3
+  The lower band is ML =  1
+  The upper band is MU =  1
+
+  The matrix:
+
+   (0.44986,-0.126667)    (0.589627,0.26009)                 (0,0)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.236066,0.0774593)
+                 (0,0)  (-0.139466,-0.156136)  (0.0185993,-0.633214)
+
+  The right hand side:
+
+  (-0.126158,0.196128)
+  (-1.28988,-0.181063)
+  (0.219757,-0.212515)
+
+  Computed                     Exact
+  Solution                     Solution
+
+   (0.89285,0.0103136)   (0.89285,0.0103136)
+  (-0.560465,0.763795)  (-0.560465,0.763795)
+  (0.306357,0.0262752)  (0.306357,0.0262752)
+
+TEST06
+  For a complex general band storage matrix:
+  ZGBFA factors the matrix.
+  ZGBDI computes the determinant.
+
+  The matrix order is N = 3
+  The lower band is ML =  1
+  The upper band is MU =  1
+
+  The matrix:
+
+   (0.44986,-0.126667)    (0.589627,0.26009)                 (0,0)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.236066,0.0774593)
+                 (0,0)  (-0.139466,-0.156136)  (0.0185993,-0.633214)
+
+  Determinant = (3.16224,-3.91854)  * 10^ (-1,0)
+
+TEST07
+  For a complex general storage matrix:
+  ZGECO factors the matrix and estimates the
+  reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185993,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156136)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  Estimated reciprocal condition RCOND = 0.0122936
+
+TEST08
+  For a complex general storage matrix:
+  ZGEFA factors the matrix.
+  ZGESL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185993,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156136)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  The right hand side:
+
+  (0.606261,-0.391702)
+  (-0.128146,-0.0786516)
+  (-0.0930793,0.57649)
+
+  Computed                     Exact
+  Solution                     Solution
+
+  (0.306357,0.0262752)  (0.306357,0.0262752)
+  (0.500804,-0.779931)  (0.500804,-0.779931)
+  (0.350471,0.0165551)  (0.350471,0.0165551)
+
+TEST09
+  For a complex general storage matrix:
+  ZGEFA factors the matrix.
+  ZGEDI computes the determinant or inverse.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185993,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156136)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  Determinant = (-3.63074,-5.58236) * 10^ (-2,0)
+
+  The product inv(A) * A is
+
+      (1,-4.44089e-16)  (6.66134e-16,-2.22045e-16)       (8.88178e-16,0)
+      (-8.88178e-16,0)       (1,4.44089e-16)                 (0,0)
+  (-4.44089e-16,-4.44089e-16)  (8.88178e-16,-1.11022e-16)      (1,-4.44089e-16)
+
+TEST10
+  For a complex tridiagonal matrix:
+  ZGTSL solves a linear system.
+
+  Matrix order N = 10
+
+  Computed                     Exact
+  Solution                     Solution
+
+                      (1,10)                      (1,10)
+                      (2,20)                      (2,20)
+                      (3,30)                      (3,30)
+                      (4,40)                      (4,40)
+                      (5,50)                      (5,50)
+                      (6,60)                      (6,60)
+                      (7,70)                      (7,70)
+                      (8,80)                      (8,80)
+                      (9,90)                      (9,90)
+                    (10,100)                    (10,100)
+
+TEST11
+  For a complex Hermitian matrix:
+  ZHICO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)  (0.468469,-0.858402)   (-0.64583,0.380263)
+   (0.468469,0.858402)         (0.0661187,0)      (0.39114,0.3234)
+  (-0.64583,-0.380263)     (0.39114,-0.3234)          (0.043829,0)
+
+  Estimated reciprocal condition RCOND = 0.235919
+
+TEST12
+  For a complex Hermitian matrix:
+  ZHIFA factors the matrix.
+  ZHISL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)  (0.468469,-0.858402)   (-0.64583,0.380263)
+   (0.468469,0.858402)         (0.0661187,0)      (0.39114,0.3234)
+  (-0.64583,-0.380263)     (0.39114,-0.3234)          (0.043829,0)
+
+  The right hand side:
+
+    (0.391451,1.34986)
+   (0.418849,0.556889)
+  (-0.437792,-0.182306)
+
+  Computed                     Exact
+  Solution                     Solution
+
+         (0.737082,0.301125)         (0.737082,0.301125)
+        (-0.545643,0.389631)        (-0.545643,0.389631)
+        (0.254327,-0.830657)        (0.254327,-0.830657)
+
+TEST13
+  For a complex hermitian matrix:
+  ZHIFA factors the matrix.
+  ZHIDI computes the determinant, inverse,
+  or inertia.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)  (0.468469,-0.858402)   (-0.64583,0.380263)
+   (0.468469,0.858402)         (0.0661187,0)      (0.39114,0.3234)
+  (-0.64583,-0.380263)     (0.39114,-0.3234)          (0.043829,0)
+
+  Determinant = -8.70062 * 10^ -1
+
+  The inertia:
+
+  2
+  1
+  0
+
+  The product inv(A) * A is
+
+       (1,8.32667e-17)      (-5.55112e-17,0)  (1.73472e-17,2.08167e-17)
+       (1.11022e-16,0)       (1,2.77556e-17)  (2.08167e-17,3.1225e-17)
+       (0,5.55112e-17)       (0,1.66533e-16)      (1,-1.11022e-16)
+
+TEST14
+  For a complex Hermitian matrix
+  using packed storage,
+  ZHPCO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)  (0.468469,-0.858402)    (0.589627,0.26009)
+   (0.468469,0.858402)          (0.561695,0)      (0.39114,0.3234)
+   (0.589627,-0.26009)     (0.39114,-0.3234)          (0.043829,0)
+
+  Estimated reciprocal condition RCOND = 0.0340064
+
+TEST15
+  For a complex Hermitian matrix,
+  using packed storage,
+  ZHPFA factors the matrix.
+  ZHPSL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)  (0.468469,-0.858402)    (0.589627,0.26009)
+   (0.468469,0.858402)          (0.561695,0)      (0.39114,0.3234)
+   (0.589627,-0.26009)     (0.39114,-0.3234)          (0.043829,0)
+
+  The right hand side:
+
+   (0.605839,0.293053)
+   (0.148441,0.749981)
+   (0.436654,0.278298)
+
+  Computed                     Exact
+  Solution                     Solution
+
+         (0.737082,0.301125)         (0.737082,0.301125)
+        (-0.545643,0.389631)        (-0.545643,0.389631)
+        (0.254327,-0.830657)        (0.254327,-0.830657)
+
+TEST16
+  For a complex hermitian matrix,
+  using packed storage,
+  ZHPFA factors the matrix.
+  ZHPDI computes the determinant, inverse,
+  or inertia.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)  (0.468469,-0.858402)    (0.589627,0.26009)
+   (0.468469,0.858402)          (0.561695,0)      (0.39114,0.3234)
+   (0.589627,-0.26009)     (0.39114,-0.3234)          (0.043829,0)
+
+  Determinant = 1.21535 * 10^ -1
+
+  The inertia:
+
+         1
+         2
+         0
+
+  The product inv(A) * A is
+
+                 (1,0)      (-1.11022e-16,0)  (1.31839e-16,1.11022e-16)
+  (-2.22045e-16,-8.88178e-16)       (1,4.44089e-16)  (-3.10516e-16,-1.38778e-16)
+                 (0,0)  (-8.88178e-16,4.44089e-16)      (1,-4.44089e-16)
+
+TEST17
+  For a complex positive definite hermitian band matrix,
+  ZPBCO estimates the reciprocal condition number.
+  The matrix size is N = 3
+
+  Estimate the condition.
+
+  Reciprocal condition  = 0.153588
+
+TEST18
+  For a complex positive definite hermitian band matrix,
+  ZPBDI computes the determinant as
+    det = MANTISSA * 10^EXPONENT
+
+  Determinant = 6.09571 * 10^ 1
+
+TEST19
+  For a complex positive definite hermitian band matrix,
+  ZPBFA computes the LU factors.
+  ZPBSL solves a factored linear system.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Solve the linear system.
+
+  The solution:
+  (Should be roughly (1,2,3)):
+
+       (1,1.30434e-16)
+      (2,-3.32191e-16)
+                 (3,0)
+
+TEST20
+  For a complex Hermitian positive definite matrix,
+  ZPOCO estimates the reciprocal condition number.
+  The matrix size is N = 3
+
+  Estimate the condition.
+
+  Reciprocal condition  = 0.000601906
+
+TEST21
+  For a complex Hermitian positive definite matrix,
+  ZPOFA computes the LU factors,
+  ZPODI computes the inverse or determinant.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Get the determinant and inverse.
+
+  Determinant  = 3.56019 * 10^ -2
+
+  First row of inverse:
+
+           (75.8413,0)   (-14.1736,-44.2782)    (-74.0826,31.3459)
+
+TEST22
+  For a complex Hermitian positive definite matrix,
+  ZPOFA computes the LU factors.
+  ZPOSL solves a factored linear system.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Solve the linear system.
+
+  The solution:
+  (Should be (1+2i),(3+4i),(5+6i):
+
+                 (1,2)
+                 (3,4)
+                 (5,6)
+
+TEST23
+  For a complex Hermitian
+  positive definite packed matrix,
+  ZPPCO estimates the reciprocal condition number.
+  The matrix size is N = 3
+
+  Estimate the condition number.
+
+  Reciprocal condition number = 0.000601906
+
+TEST24
+  For a complex Hermitian
+  positive definite packed matrix,
+  ZPPFA factors the matrix.
+  ZPPDI computes the inverse or determinant.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Get the determinant and inverse.
+
+  Determinant  = 3.56019 * 10^ -2
+
+  Inverse:
+
+          (75.8413,-0)   (-14.1736,-44.2782)    (-74.0826,31.3459)
+    (-14.1736,44.2782)          (29.5233,-0)   (-5.22992,-49.5357)
+   (-74.0826,-31.3459)    (-5.22992,49.5357)          (86.4451,-0)
+
+TEST25
+  For a complex Hermitian
+  positive definite packed matrix,
+  ZPPFA factors the matrix.
+  ZPPSL solves a factored linear system.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Solve the linear system.
+
+  The solution:
+  (Should be (1+2i),(3+4i),(5+6i):
+
+                 (1,2)
+                 (3,4)
+                 (5,6)
+
+TEST26
+  For a complex Hermitian
+  positive definite tridiagonal matrix,
+  ZPTSL factors and solves a linear system.
+  The matrix size is N = 3
+
+  Factor the matrix and solve the system.
+
+  The solution:
+  (Should be roughly (1,2,3)):
+
+             (1,1.83889e-16)
+            (2,-3.14301e-16)
+             (3,2.79665e-16)
+
+TEST27
+  For a complex general matrix,
+  ZQRDC computes the QR decomposition of a
+  matrix, but does not return Q and R explicitly.
+
+  Show how Q and R can be recovered using ZQRSL.
+
+  The matrix A is
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185993,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156136)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  Decompose the matrix.
+
+  The packed matrix A which describes Q and R:
+
+   (-1.16437,0.327852)  (-0.235472,-0.264983)  (0.499111,-0.666416)
+  (-0.593833,-0.462886)    (0.105287,-0.4758)    (-1.17033,0.14294)
+   (0.410919,0.339078)  (-0.378092,0.667708)  (-0.098039,0.0561285)
+
+  The QRAUX vector, containing some additional
+  information defining Q:
+
+  (1.38636,-1.38778e-17)
+           (1.64126,0)
+                 (0,0)
+
+  The R factor:
+
+   (-1.16437,0.327852)  (-0.235472,-0.264983)  (0.499111,-0.666416)
+                 (0,0)    (0.105287,-0.4758)    (-1.17033,0.14294)
+                 (0,0)                 (0,0)  (-0.098039,0.0561285)
+
+  The Q factor:
+
+  (-0.386356,-1.38778e-17)   (-0.30976,0.699406)    (0.270091,0.43893)
+   (0.593833,0.462886)  (-0.275053,-0.196159)   (0.408954,0.389517)
+  (-0.410919,-0.339078)  (0.115216,-0.536164)    (0.61396,0.196159)
+
+
+
+
+  The product Q * R:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185993,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156136)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+TEST28
+  For a complex symmetric matrix:
+  ZSICO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)    (0.589627,0.26009)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.139466,-0.156136)
+    (0.589627,0.26009)  (-0.139466,-0.156136)  (-0.236066,0.0774593)
+
+  Estimated reciprocal condition RCOND = 0.0475323
+
+TEST29
+  For a complex symmetric matrix:
+  ZSIFA factors the matrix.
+  ZSISL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)    (0.589627,0.26009)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.139466,-0.156136)
+    (0.589627,0.26009)  (-0.139466,-0.156136)  (-0.236066,0.0774593)
+
+  The right hand side:
+
+  (-1.35026,-0.298717)
+   (0.309629,0.801288)
+  (0.125892,-0.733086)
+
+  Computed                     Exact
+  Solution                     Solution
+
+  (0.0185993,-0.633214)  (0.0185993,-0.633214)
+   (0.89285,0.0103136)   (0.89285,0.0103136)
+  (-0.560465,0.763795)  (-0.560465,0.763795)
+
+TEST30
+  For a complex symmetric matrix:
+  ZSIFA factors the matrix.
+  ZSIDI computes the determinant or inverse.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)    (0.589627,0.26009)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.139466,-0.156136)
+    (0.589627,0.26009)  (-0.139466,-0.156136)  (-0.236066,0.0774593)
+
+  Determinant = (0.943843,0.996661) * 10^ (-1,0)
+
+  The product inv(A) * A is
+
+      (1,-1.11022e-16)       (2.77556e-16,0)  (5.55112e-17,-4.16334e-17)
+                 (0,0)      (1,-1.11022e-16)  (3.33067e-16,-5.55112e-17)
+                 (0,0)  (4.44089e-16,-1.11022e-16)      (1,-5.55112e-17)
+
+TEST31
+  For a complex symmetric matrix
+  in packed storage,
+  ZSPCO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)      (0.39114,0.3234)
+  (-0.843197,-0.34428)    (0.589627,0.26009)  (-0.139466,-0.156136)
+      (0.39114,0.3234)  (-0.139466,-0.156136)  (-0.236066,0.0774593)
+
+  Estimated reciprocal condition RCOND = 0.0576192
+
+TEST32
+  For a complex symmetric matrix
+  in packed storage,
+  ZSPFA factors the matrix.
+  ZSPSL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)      (0.39114,0.3234)
+  (-0.843197,-0.34428)    (0.589627,0.26009)  (-0.139466,-0.156136)
+      (0.39114,0.3234)  (-0.139466,-0.156136)  (-0.236066,0.0774593)
+
+  The right hand side:
+
+  (-1.28737,-0.485804)
+   (0.487501,0.746809)
+  (0.162289,-0.606224)
+
+  Computed                     Exact
+  Solution                     Solution
+
+  (0.0185993,-0.633214)  (0.0185993,-0.633214)
+   (0.89285,0.0103136)   (0.89285,0.0103136)
+  (-0.560465,0.763795)  (-0.560465,0.763795)
+
+TEST33
+  For a complex symmetric matrix
+  in packed storage,
+  ZSPFA factors the matrix.
+  ZSPDI computes the determinant or inverse.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)      (0.39114,0.3234)
+  (-0.843197,-0.34428)    (0.589627,0.26009)  (-0.139466,-0.156136)
+      (0.39114,0.3234)  (-0.139466,-0.156136)  (-0.236066,0.0774593)
+
+  Determinant = (0.788527,1.04145) * 10^ (-1,0)
+
+  The product inv(A) * A is
+
+      (1,-1.66533e-16)  (-4.44089e-16,-2.22045e-16)  (1.11022e-15,-2.22045e-16)
+  (1.11022e-16,2.498e-16)       (1,2.22045e-16)  (-5.55112e-16,6.66134e-16)
+  (-1.11022e-16,-6.93889e-17)  (1.11022e-16,-2.77556e-16)       (1,2.77556e-17)
+
+TEST34
+  For an MxN matrix A in complex general storage,
+  ZSVDC computes the singular value decomposition:
+    A = U * S * V^H
+
+  Matrix rows M =    4
+  Matrix columns N = 3
+
+  The matrix A:
+
+   (0.44986,-0.126667)  (-0.139466,-0.156136)  (-0.560465,0.763795)
+  (-0.843197,-0.34428)  (-0.236066,0.0774593)  (0.306357,0.0262752)
+    (0.589627,0.26009)  (0.0185993,-0.633214)  (0.500804,-0.779931)
+      (0.39114,0.3234)   (0.89285,0.0103136)  (0.350471,0.0165551)
+
+  Decompose the matrix.
+
+  Singular values:
+
+         1         (1.72997,0)
+         2         (1.30087,0)
+         3        (0.560498,0)
+
+  Left Singular Vector Matrix U:
+
+  (0.000610277,-0.345582)  (-0.646616,-0.103578)  (-0.138959,0.473898)    (0.370919,0.26507)
+  (-0.351825,-0.0920352)   (0.472598,0.309029)  (-0.397698,-0.0478032)   (0.389194,0.486806)
+   (0.612414,0.327092)   (0.187892,0.240285)   (0.343893,0.349912)  (0.0786281,0.421944)
+   (0.100854,0.506073)  (-0.398919,0.0116253)  (-0.0505478,-0.593639)  (0.461647,0.0797947)
+
+  Right Singular Vector Matrix V:
+
+          (0.590574,0)         (-0.585488,0)          (0.555362,0)
+   (0.0169575,0.54449)  (-0.373585,-0.0446885)  (-0.411883,-0.626125)
+   (-0.16138,0.573081)   (0.156257,0.700874)   (0.336346,0.129477)
+
+  The product U * S * V^H (should equal A):
+
+   (0.44986,-0.126667)  (-0.139466,-0.156136)  (-0.560465,0.763795)
+  (-0.843197,-0.34428)  (-0.236066,0.0774593)  (0.306357,0.0262752)
+    (0.589627,0.26009)  (0.0185993,-0.633214)  (0.500804,-0.779931)
+      (0.39114,0.3234)   (0.89285,0.0103136)  (0.350471,0.0165551)
+
+TEST345
+  For an MxN matrix A in double complex general storage,
+  ZSVDC computes the singular value decomposition:
+    A = U * S * V^H
+
+  Matrix rows M =    4
+  Matrix columns N = 4
+
+  The matrix A:
+
+                 (1,0)                 (1,0)                 (1,0)                 (1,0)
+               (-0,-1)                (-1,0)                 (1,0)                 (0,1)
+                (-1,0)                (-1,0)                 (1,0)                (-1,0)
+                 (0,1)                 (1,0)                 (1,0)               (-0,-1)
+
+  Decompose the matrix.
+
+  Singular values:
+
+         1         (2.82843,0)
+         2               (2,0)
+         3         (1.49071,0)
+         4               (0,0)
+
+  Left Singular Vector Matrix U:
+
+  (-0.404044,0.212132)  (0.0252453,0.424264)            (0.4,-0.3)            (-0.3,0.4)
+   (0.121201,0.404044)  (-0.590931,-0.0252453)            (0.4,-0.3)            (0.3,-0.4)
+  (-0.406317,0.145639)   (0.379935,-0.60315)            (0.4,-0.3)            (-0.3,0.4)
+  (0.212132,-0.404044)  (0.424264,0.0252453)            (0.4,-0.3)            (0.3,-0.4)
+
+  Right Singular Vector Matrix V:
+
+               (0.5,0)         (-0.707107,0)         (-0.333333,0)  (-0.474342,-0.158114)
+             (0.5,0.5)                 (0,0)   (0.333333,0.333333)   (0.158114,0.474342)
+                 (0,0)                 (0,0)  (0.596285,-0.447214)   (0.474342,0.158114)
+               (0,0.5)          (0,0.707107)  (-2.34056e-17,-0.333333)  (-0.158114,-0.474342)
+
+  The product U * S * V^H (should equal A):
+
+  (-0.805868,-0.150929)  (-0.221714,0.523572)   (0.555556,0.000000)   (1.049071,0.734464)
+   (0.808345,0.756178)   (0.792499,0.052167)   (0.555556,0.000000)   (0.684773,0.863059)
+  (-1.310690,1.208018)  (-0.318964,0.432751)   (0.555556,0.000000)  (-0.497947,0.236071)
+  (-0.498762,-0.458036)  (-0.221714,-1.219237)   (0.555556,0.000000)  (-0.386631,-0.701238)
+
+TEST35
+  For a complex triangular matrix,
+  ZTRCO estimates the condition.
+
+  Matrix order N = 3
+
+  Estimated reciprocal condition RCOND = 0.072614
+
+TEST36
+  For a complex triangular matrix,
+  ZTRDI computes the determinant or inverse.
+
+  Matrix order N = 3
+
+  Determinant = (-7.367153,1.310818) * 10^ -2.000000
+
+  The product inv(A) * A is
+
+   (1.000000,0.000000)   (0.000000,0.000000)   (0.000000,0.000000)
+  (0.000000,-0.000000)   (1.000000,0.000000)   (0.000000,0.000000)
+  (-0.000000,0.000000)  (-0.000000,0.000000)   (1.000000,0.000000)
+
+TEST37
+  For a complex triangular matrix,
+  ZTRSL solves a linear system.
+
+  Matrix order N = 10
+
+  Computed                     Exact
+  Solution                     Solution
+
+        (1.000000,10.000000)        (1.000000,10.000000)
+        (2.000000,20.000000)        (2.000000,20.000000)
+        (3.000000,30.000000)        (3.000000,30.000000)
+        (4.000000,40.000000)        (4.000000,40.000000)
+        (5.000000,50.000000)        (5.000000,50.000000)
+        (6.000000,60.000000)        (6.000000,60.000000)
+        (7.000000,70.000000)        (7.000000,70.000000)
+        (8.000000,80.000000)        (8.000000,80.000000)
+        (9.000000,90.000000)        (9.000000,90.000000)
+      (10.000000,100.000000)      (10.000000,100.000000)
+
+LINPACK_Z_PRB
+  Normal end of execution.
+
+23 December 2011 10:55:23 AM

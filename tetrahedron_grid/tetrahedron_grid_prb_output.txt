@@ -1,0 +1,49 @@
+11 November 2011 11:26:54 PM
+
+TETRAHEDRON_GRID_TEST:
+  C++ version
+  Test the TETRAHEDRON_GRID library.
+
+TEST01:
+  TETRAHEDRON_GRID can define a tetrahedral grid
+  with N+1 points on a side, based on any tetrahedron.
+  N = 10
+
+  Tetrahedron vertices:
+
+  Col:          1             2             3             4       
+  Row
+  ---
+    1             0             1             0             0  
+    2             0             0             1             0  
+    3             0             0             0             1  
+
+  Part of the grid point array:
+
+         0:              0               0               1
+         1:              0             0.1             0.9
+         2:              0             0.2             0.8
+         3:              0             0.3             0.7
+         4:              0             0.4             0.6
+         5:              0             0.5             0.5
+         6:              0             0.6             0.4
+         7:              0             0.7             0.3
+         8:              0             0.8             0.2
+         9:              0             0.9             0.1
+        10:              0               1               0
+        11:            0.1               0             0.9
+        12:            0.1             0.1             0.8
+        13:            0.1             0.2             0.7
+        14:            0.1             0.3             0.6
+        15:            0.1             0.4             0.5
+        16:            0.1             0.5             0.4
+        17:            0.1             0.6             0.3
+  ........  ..............  ..............  ..............
+       285:              0               0               0
+
+  Data written to the file "tetrahedron_grid_test01.xyz".
+
+TETRAHEDRON_GRID_TEST:
+  Normal end of execution.
+
+11 November 2011 11:26:54 PM

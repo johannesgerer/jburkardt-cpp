@@ -1,0 +1,292 @@
+04 October 2012 02:15:18 PM
+
+TEST_INTERP_PRB
+  C++ version
+  Test the TEST_INTERP library.
+  This test also requires the R8LIB library.
+
+TEST01
+  P00_STORY prints the problem "story".
+
+  Problem 1
+
+  This example is due to Hans-Joerg Wenz.
+  It is an example of good data, which is dense enough in areas
+  where the expected curvature of the interpolant is large.
+  Good results can be expected with almost any reasonable
+  interpolation method.
+
+  Problem 2
+
+  This example is due to ETY Lee of Boeing.
+  Data near the corners is more dense than in regions of small curvature.
+  A local interpolation method will produce a more plausible
+  interpolant than a nonlocal interpolation method, such as
+  cubic splines.
+
+  Problem 3
+
+  This example is due to Fred Fritsch and Ralph Carlson.
+  This data can cause problems for interpolation methods.
+  There are sudden changes in direction, and at the same time,
+  sparsely-placed data.  This can cause an interpolant to overshoot
+  the data in a way that seems implausible.
+
+  Problem 4
+
+  This example is due to Larry Irvine, Samuel Marin and Philip Smith.
+  This data can cause problems for interpolation methods.
+  There are sudden changes in direction, and at the same time,
+  sparsely-placed data.  This can cause an interpolant to overshoot
+  the data in a way that seems implausible.
+
+  Problem 5
+
+  This example is due to Larry Irvine, Samuel Marin and Philip Smith.
+  This data can cause problems for interpolation methods.
+  There are sudden changes in direction, and at the same time,
+  sparsely-placed data.  This can cause an interpolant to overshoot
+  the data in a way that seems implausible.
+
+  Problem 6
+
+  The data is due to deBoor and Rice.
+  The data represents a temperature dependent property of titanium.
+  The data has been used extensively as an example in spline
+  approximation with variably-spaced knots.
+  DeBoor considers two sets of knots:
+  (595,675,755,835,915,995,1075)
+  and
+  (595,725,850,910,975,1040,1075).
+
+  Problem 7
+
+  This data is a simple symmetric set of 4 points,
+  for which it is interesting to develop the Shepard
+  interpolants for varying values of the exponent p.
+
+  Problem 8
+
+  This is equally spaced data for y = x^2,
+  except for one extra point whose x value is
+  close to another, but whose y value is not so close.
+  A small disagreement in nearby data can be disaster.
+
+TEST02
+  P00_DATA_NUM returns N, the number of data points.
+  P00_DIM_NUM returns M, the dimension of data.
+  P00_DATA returns the actual (MxN) data.
+
+  Problem  1
+  DATA_NUM 18
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:             0             4
+    1:             1             5
+    2:             2             6
+    3:             4             6
+    4:             5             5
+    5:             6             3
+    6:             7             1
+    7:             8             1
+    8:             9             1
+    9:            10             3
+   10:            11             4
+   11:            12             4
+   12:            13             3
+   13:            14             3
+   14:            15             4
+   15:            16             4
+   16:            17             3
+   17:            18             0
+
+  Problem  2
+  DATA_NUM 18
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:          1.34             5
+    2:             5          8.66
+    3:            10            10
+    4:          10.6          10.4
+    5:          10.7            12
+    6:        10.705          28.6
+    7:          10.8          30.2
+    8:          11.4          30.6
+    9:          19.6          30.6
+   10:          20.2          30.2
+   11:        20.295          28.6
+   12:          20.3            12
+   13:          20.4          10.4
+   14:            21            10
+   15:            26          8.66
+   16:         29.66             5
+   17:            31             0
+
+  Problem  3
+  DATA_NUM 11
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:             2            10
+    2:             3            10
+    3:             5            10
+    4:             6            10
+    5:             8            10
+    6:             9          10.5
+    7:            11            15
+    8:            12            50
+    9:            14            60
+   10:            15            85
+
+  Problem  4
+  DATA_NUM 8
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:          0.05           0.7
+    2:           0.1             1
+    3:           0.2             1
+    4:           0.8           0.3
+    5:          0.85          0.05
+    6:           0.9           0.1
+    7:             1             1
+
+  Problem  5
+  DATA_NUM 9
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:           0.1           0.9
+    2:           0.2          0.95
+    3:           0.3           0.9
+    4:           0.4           0.1
+    5:           0.5          0.05
+    6:           0.6          0.05
+    7:           0.8           0.2
+    8:             1             1
+
+  Problem  6
+  DATA_NUM 49
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:           595         0.644
+    1:           605         0.622
+    2:           615         0.638
+    3:           625         0.649
+    4:           635         0.652
+    5:           645         0.639
+    6:           655         0.646
+    7:           665         0.657
+    8:           675         0.652
+    9:           685         0.655
+   10:           695         0.644
+   11:           705         0.663
+   12:           715         0.663
+   13:           725         0.668
+   14:           735         0.676
+   15:           745         0.676
+   16:           755         0.686
+   17:           765         0.679
+   18:           775         0.678
+   19:           785         0.683
+   20:           795         0.694
+   21:           805         0.699
+   22:           815          0.71
+   23:           825          0.73
+   24:           835         0.763
+   25:           845         0.812
+   26:           855         0.907
+   27:           865         1.044
+   28:           875         1.336
+   29:           885         1.881
+   30:           895         2.169
+   31:           905         2.075
+   32:           915         1.598
+   33:           925         1.211
+   34:           935         0.916
+   35:           945         0.746
+   36:           955         0.672
+   37:           965         0.627
+   38:           975         0.615
+   39:           985         0.607
+   40:           995         0.606
+   41:          1005         0.609
+   42:          1015         0.603
+   43:          1025         0.601
+   44:          1035         0.603
+   45:          1045         0.601
+   46:          1055         0.611
+   47:          1065         0.601
+   48:          1075         0.608
+
+  Problem  7
+  DATA_NUM 4
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:             0             1
+    1:             1             2
+    2:             4             2
+    3:             5             1
+
+  Problem  8
+  DATA_NUM 12
+  DIM_NUM  2
+
+  Data array:
+
+  Row:       0             1       
+  Col
+
+    0:            -1             1
+    1:          -0.8          0.64
+    2:          -0.6          0.36
+    3:          -0.4          0.16
+    4:          -0.2          0.04
+    5:             0             0
+    6:           0.2          0.04
+    7:       0.20001          0.05
+    8:           0.4          0.16
+    9:           0.6          0.36
+   10:           0.8          0.64
+   11:             1             1
+
+TEST_INTERP_PRB
+  Normal end of execution.
+
+04 October 2012 02:15:18 PM

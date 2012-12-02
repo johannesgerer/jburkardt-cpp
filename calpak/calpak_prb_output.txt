@@ -1,0 +1,110 @@
+22 October 2012 10:40:25 PM
+
+CALPAK_PRB
+  C++ version
+  Test the CALPAK library.
+
+TEST005
+  JED_TO_WEEKDAY reports the day of the week
+  for a Julian Ephemeris Date.
+
+          JED     W  Name
+
+            0     2  Monday
+            1     3  Tuesday
+       259258     1  Sunday
+       347999     3  Tuesday
+       584283     2  Monday
+       588466     6  Friday
+       758326     4  Wednesday
+      1438179     3  Tuesday
+      1446390     3  Tuesday
+      1448638     4  Wednesday
+      1448638     4  Wednesday
+      1607709     7  Saturday
+      1607739     2  Monday
+      1713263     1  Sunday
+      1721059     6  Friday
+      1721423     6  Friday
+      1721424     7  Saturday
+      1721426     2  Monday
+      1721426     2  Monday
+      1724221     4  Wednesday
+      1741960     5  Thursday
+      1749995     4  Wednesday
+      1825030     6  Friday
+      1862837     6  Friday
+      1922868     5  Thursday
+      1936748     4  Wednesday
+      1940352     3  Tuesday
+      1948321     6  Friday
+      1948439     5  Thursday
+      1948440     6  Friday
+      1952063     3  Tuesday
+      1952068     1  Sunday
+      2110701     7  Saturday
+      2114873     7  Saturday
+      2289426     1  Sunday
+      2299160     5  Thursday
+      2299161     6  Friday
+      2333270     4  Wednesday
+      2361221     4  Wednesday
+      2361222     5  Thursday
+      2372548     5  Thursday
+      2375840     7  Saturday
+      2394647     5  Thursday
+      2394711     6  Friday
+      2397384     5  Thursday
+      2400001     4  Wednesday
+      2409703     4  Wednesday
+      2415021     2  Monday
+      2429703     5  Thursday
+      2439703     2  Monday
+      2440588     5  Thursday
+      2443818     1  Sunday
+      2443819     2  Monday
+      2444245     1  Sunday
+      2449791     3  Tuesday
+      2450139     1  Sunday
+      2451545     7  Saturday
+      2456225     4  Wednesday
+      2456285     1  Sunday
+      2913943     6  Friday
+
+TEST39
+  For the Common calendar,
+  MONTH_TO_MONTH_NAME_COMMON names the months:
+
+   1  January
+   2  February
+   3  March
+   4  April
+   5  May
+   6  June
+   7  July
+   8  August
+   9  September
+  10  October
+  11  November
+  12  December
+
+TEST689
+  YMD_TO_DECIMAL converts a date to a year and decimal.
+
+  YMD                         Y.F
+
+  CE 1962/03/08          1962.1822
+  CE 1969/07/25           1969.563
+  CE 1968/04/18          1968.2964
+  CE 1965/08/13          1965.6151
+  CE 1964/02/26          1964.1544
+  CE 1960/08/29          1960.6598
+  CE 1962/07/29           1962.574
+  CE 1961/02/05          1961.0973
+  CE 1960/06/09          1960.4385
+  CE 1966/05/04          1966.3384
+
+CALPAK_PRB
+  Normal end of execution.
+
+22 October 2012 10:40:25 PM

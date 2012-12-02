@@ -1,0 +1,23 @@
+OSX> ~/bincpp/OSX/shallow_water_1d
+11 June 2012 10:27:15 PM
+
+SHALLOW_WATER_1D
+  C++ version
+
+  NX = 41
+  NT = 100
+  X_LENGTH = 1
+  T_LENGTH = 0.2
+  G = 9.8
+
+  X  values saved in file "sw1d_x.txt".
+  T  values saved in file "sw1d_t.txt".
+  H  values saved in file "sw1d_h.txt".
+  UH values saved in file "sw1d_uh.txt".
+
+SHALLOW_WATER_1D:
+  Normal end of execution.
+
+11 June 2012 10:27:15 PM
+OSX> 
+

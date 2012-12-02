@@ -1,0 +1,66 @@
+
+03 December 2010 08:16:47 AM
+
+TRIANGULATION_BOUNDARY_NODES
+  C++ version:
+  Identify triangulation nodes that lie on the boundary.
+
+* Read a node dataset of NODE_NUM points in 2 dimensions;
+
+* Read an associated triangulation dataset of 
+  triangles using 3 or 6 nodes;
+
+* Determine which nodes are on the boundary;
+
+* Write a file which is 1 for each boundary node.
+
+  Compiled on Dec  3 2010 at 08:16:22.
+
+  Read the header of "lake_nodes.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of nodes NODE_NUM  = 621
+
+  Read the data in "lake_nodes.txt".
+
+  Portion of coordinate data from file:
+
+  Row:       1             2       
+  Col
+
+    1         316.43       404.476
+    2        291.049       400.709
+    3        265.165       409.779
+    4        241.468       402.403
+    5        216.551       396.521
+
+ Read the header of "lake_elements.txt".
+
+  Triangle order TRIANGLE_ORDER = 3
+  Number of triangles TRIANGLE_NUM  = 974
+
+  Read the data in "lake_elements.txt".
+
+  Portion of data read from file:
+
+  Row:      1       2       3  
+  Col
+
+    1     619     618      39  
+    2     620     619      39  
+    3     125     126       7  
+    4     125     132     126  
+    5     143     135     150  
+
+MESH_BASE_ZERO:
+  The element indexing appears to be 1-based!
+  This will be converted to 0-based.
+
+  Number of boundary nodes is 267
+
+  Created the file "lake_boundarynodes.txt"
+
+TRIANGULATION_BOUNDARY_NODES:
+  Normal end of execution.
+
+03 December 2010 08:16:47 AM

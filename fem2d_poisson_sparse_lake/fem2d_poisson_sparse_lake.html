@@ -1,0 +1,106 @@
+<html>
+
+  <head>
+    <title>
+      FEM2D_POISSON_SPARSE_LAKE - A 2D Poisson Problem on a Lake
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM2D_POISSON_SPARSE_LAKE <br> A 2D Poisson Problem on a Lake
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM2D_POISSON_SPARSE_LAKE</b> is a C++ library which
+      sets up the geometry and data for the Poisson problem on a simulated lake
+      with an island, for solution by FEM2D_POISSON_SPARSE.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_poisson_sparse/fem2d_poisson_sparse.html">
+      FEM2D_POISSON_SPARSE</a>,
+      a C++ program which
+      solves a 2D Poisson problem, using a sparse matrix solver, and user input.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lake.cpp">lake.cpp</a>,
+          the user-supplied routines to evaluate the right hand side,
+          linear coefficient, and boundary conditions;
+        </li>
+        <li>
+          <a href = "lake.sh">lake.sh</a>,
+          commands to compile the user routines, link them with
+          the partial program, and run the program;
+        </li>
+        <li>
+          <a href = "lake_output.txt">lake_output.txt</a>,
+          output from a run of the program;
+        </li>
+        <li>
+          <a href = "lake_nodes.txt">lake_nodes.txt</a>,
+          a text file containing a list, for each node, of its X and Y
+          coordinates;
+        </li>
+        <li>
+          <a href = "lake_nodes.png">lake_nodes.png</a>,
+          a PNG image of
+          the nodes.
+        </li>
+        <li>
+          <a href = "lake_elements.txt">lake_elements.txt</a>,
+          a text file containing a list, for each element, of the three
+          nodes that compose it;
+        </li>
+        <li>
+          <a href = "lake_elements.png">lake_elements.png</a>,
+          a PNG image of
+          the nodes.
+        </li>
+        <li>
+          <a href = "lake_solution.txt">lake_solution.txt</a>,
+          a text file containing the solution U at each node (X,Y);
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source code page</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 06 December 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,135 @@
+16 October 2011 02:00:05 PM
+
+SGMG_WRITE_PRB
+  C++ version
+
+SGMG_WRITE_TESTS
+  Call SGMG_WRITE_TEST with various arguments.
+
+  All tests will use a point equality tolerance of 6.95322e-310
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_ccxcc_n.txt".
+  Wrote the P file = "sgmg_d2_l2_ccxcc_p.txt".
+  Wrote the R file = "sgmg_d2_l2_ccxcc_r.txt".
+  Wrote the W file = "sgmg_d2_l2_ccxcc_w.txt".
+  Wrote the X file = "sgmg_d2_l2_ccxcc_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l3_ccxgp_n.txt".
+  Wrote the P file = "sgmg_d2_l3_ccxgp_p.txt".
+  Wrote the R file = "sgmg_d2_l3_ccxgp_r.txt".
+  Wrote the W file = "sgmg_d2_l3_ccxgp_w.txt".
+  Wrote the X file = "sgmg_d2_l3_ccxgp_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_ccxgl_n.txt".
+  Wrote the P file = "sgmg_d2_l2_ccxgl_p.txt".
+  Wrote the R file = "sgmg_d2_l2_ccxgl_r.txt".
+  Wrote the W file = "sgmg_d2_l2_ccxgl_w.txt".
+  Wrote the X file = "sgmg_d2_l2_ccxgl_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_ccxlg_n.txt".
+  Wrote the P file = "sgmg_d2_l2_ccxlg_p.txt".
+  Wrote the R file = "sgmg_d2_l2_ccxlg_r.txt".
+  Wrote the W file = "sgmg_d2_l2_ccxlg_w.txt".
+  Wrote the X file = "sgmg_d2_l2_ccxlg_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_ccxglg_n.txt".
+  Wrote the P file = "sgmg_d2_l2_ccxglg_p.txt".
+  Wrote the R file = "sgmg_d2_l2_ccxglg_r.txt".
+  Wrote the W file = "sgmg_d2_l2_ccxglg_w.txt".
+  Wrote the X file = "sgmg_d2_l2_ccxglg_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_f2xgj_n.txt".
+  Wrote the P file = "sgmg_d2_l2_f2xgj_p.txt".
+  Wrote the R file = "sgmg_d2_l2_f2xgj_r.txt".
+  Wrote the W file = "sgmg_d2_l2_f2xgj_w.txt".
+  Wrote the X file = "sgmg_d2_l2_f2xgj_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_gghxhgk_n.txt".
+  Wrote the P file = "sgmg_d2_l2_gghxhgk_p.txt".
+  Wrote the R file = "sgmg_d2_l2_gghxhgk_r.txt".
+  Wrote the W file = "sgmg_d2_l2_gghxhgk_w.txt".
+  Wrote the X file = "sgmg_d2_l2_gghxhgk_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d3_l2_ccxglxgh_n.txt".
+  Wrote the P file = "sgmg_d3_l2_ccxglxgh_p.txt".
+  Wrote the R file = "sgmg_d3_l2_ccxglxgh_r.txt".
+  Wrote the W file = "sgmg_d3_l2_ccxglxgh_w.txt".
+  Wrote the X file = "sgmg_d3_l2_ccxglxgh_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_gpxgp_n.txt".
+  Wrote the P file = "sgmg_d2_l2_gpxgp_p.txt".
+  Wrote the R file = "sgmg_d2_l2_gpxgp_r.txt".
+  Wrote the W file = "sgmg_d2_l2_gpxgp_w.txt".
+  Wrote the X file = "sgmg_d2_l2_gpxgp_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_gpsexgpse_n.txt".
+  Wrote the P file = "sgmg_d2_l2_gpsexgpse_p.txt".
+  Wrote the R file = "sgmg_d2_l2_gpsexgpse_r.txt".
+  Wrote the W file = "sgmg_d2_l2_gpsexgpse_w.txt".
+  Wrote the X file = "sgmg_d2_l2_gpsexgpse_x.txt".
+
+SGMG_WRITE_TEST
+  SGMG_WRITE writes a sparse grid rule
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_d2_l2_gpmexgpme_n.txt".
+  Wrote the P file = "sgmg_d2_l2_gpmexgpme_p.txt".
+  Wrote the R file = "sgmg_d2_l2_gpmexgpme_r.txt".
+  Wrote the W file = "sgmg_d2_l2_gpmexgpme_w.txt".
+  Wrote the X file = "sgmg_d2_l2_gpmexgpme_x.txt".
+
+SGMG_WRITE_PRB
+  Normal end of execution.
+
+16 October 2011 02:00:05 PM

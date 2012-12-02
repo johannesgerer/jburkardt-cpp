@@ -1,0 +1,330 @@
+20 December 2011 08:22:52 AM
+
+MGMRES_PRB:
+  C++ version
+  Test the MGMRES library.
+
+TEST01
+  Test MGMRES_ST on the simple -1,2-1 matrix.
+
+  Test 1
+  Matrix order N = 20
+  Inner iteration limit = 20
+  Outer iteration limit = 1
+  Initial X_ERROR = 53.5724
+  ITR = 1  Residual = 21
+  K =   1  Residual = 9.39149
+  K =   2  Residual = 5.61249
+  K =   3  Residual = 3.83406
+  K =   4  Residual = 2.83164
+  K =   5  Residual = 2.2014
+  K =   6  Residual = 1.77482
+  K =   7  Residual = 1.47029
+  K =   8  Residual = 1.24393
+  K =   9  Residual = 1.07026
+  K =   10  Residual = 0.933564
+  K =   11  Residual = 0.823688
+  K =   12  Residual = 0.733799
+  K =   13  Residual = 0.659153
+  K =   14  Residual = 0.59636
+  K =   15  Residual = 0.542942
+  K =   16  Residual = 0.49705
+  K =   17  Residual = 0.457279
+  K =   18  Residual = 0.422543
+  K =   19  Residual = 0.391993
+  K =   20  Residual = 0
+
+MGMRES_ST
+  Number of iterations = 20
+  Final residual = 0
+  Final X_ERROR = 3.76207e-14
+
+  Test 2
+  Matrix order N = 20
+  Inner iteration limit = 10
+  Outer iteration limit = 2
+  Initial X_ERROR = 53.5724
+  ITR = 1  Residual = 21
+  K =   1  Residual = 9.39149
+  K =   2  Residual = 5.61249
+  K =   3  Residual = 3.83406
+  K =   4  Residual = 2.83164
+  K =   5  Residual = 2.2014
+  K =   6  Residual = 1.77482
+  K =   7  Residual = 1.47029
+  K =   8  Residual = 1.24393
+  K =   9  Residual = 1.07026
+  K =   10  Residual = 0.933564
+  ITR = 2  Residual = 0.933564
+  K =   1  Residual = 0.870799
+  K =   2  Residual = 0.805248
+  K =   3  Residual = 0.738292
+  K =   4  Residual = 0.671495
+  K =   5  Residual = 0.606584
+  K =   6  Residual = 0.545422
+  K =   7  Residual = 0.489961
+  K =   8  Residual = 0.442132
+  K =   9  Residual = 0.403607
+  K =   10  Residual = 0.352454
+
+MGMRES_ST
+  Number of iterations = 20
+  Final residual = 0.352454
+  Final X_ERROR = 12.2128
+
+  Test 3
+  Matrix order N = 20
+  Inner iteration limit = 4
+  Outer iteration limit = 5
+  Initial X_ERROR = 53.5724
+  ITR = 1  Residual = 21
+  K =   1  Residual = 9.39149
+  K =   2  Residual = 5.61249
+  K =   3  Residual = 3.83406
+  K =   4  Residual = 2.83164
+  ITR = 2  Residual = 2.83164
+  K =   1  Residual = 2.42224
+  K =   2  Residual = 1.99652
+  K =   3  Residual = 1.60097
+  K =   4  Residual = 1.28892
+  ITR = 3  Residual = 1.28892
+  K =   1  Residual = 1.16868
+  K =   2  Residual = 1.06683
+  K =   3  Residual = 0.949296
+  K =   4  Residual = 0.851935
+  ITR = 4  Residual = 0.851935
+  K =   1  Residual = 0.792114
+  K =   2  Residual = 0.740289
+  K =   3  Residual = 0.693
+  K =   4  Residual = 0.645403
+  ITR = 5  Residual = 0.645403
+  K =   1  Residual = 0.612411
+  K =   2  Residual = 0.584505
+  K =   3  Residual = 0.552767
+  K =   4  Residual = 0.522552
+
+MGMRES_ST
+  Number of iterations = 20
+  Final residual = 0.522552
+  Final X_ERROR = 21.7238
+
+TEST02
+  Test MGMRES_ST on matrix that is not quite the -1,2,-1 matrix,
+  of order N = 9
+
+  First try, use zero initial vector:
+
+  Before solving, X_ERROR = 16.5831
+  ITR = 1  Residual = 3
+  K =   1  Residual = 2.23607
+  K =   2  Residual = 1.91485
+  K =   3  Residual = 1.29099
+  K =   4  Residual = 0.377964
+  K =   5  Residual = 2.64365e-16
+
+MGMRES_ST
+  Number of iterations = 5
+  Final residual = 2.64365e-16
+  After solving, X_ERROR = 3.01605e-15
+
+  Final solution estimate:
+
+         0           3.5
+         1             1
+         2             1
+         3             6
+         4           7.5
+         5             8
+         6           7.5
+         7             6
+         8           3.5
+
+  Second try, use random initial vector:
+
+  Before solving, X_ERROR = 15.8935
+  ITR = 1  Residual = 2.69846
+  K =   1  Residual = 2.29822
+  K =   2  Residual = 1.76549
+  K =   3  Residual = 1.11318
+  K =   4  Residual = 0.3694
+  K =   5  Residual = 0.168095
+  K =   6  Residual = 0.0623144
+  K =   7  Residual = 0.0227188
+  K =   8  Residual = 0.00504869
+  ITR = 2  Residual = 0.00504869
+  K =   1  Residual = 0.00112195
+  K =   2  Residual = 0.000409042
+  K =   3  Residual = 0.000151636
+  K =   4  Residual = 6.90017e-05
+  K =   5  Residual = 2.28977e-05
+  K =   6  Residual = 1.44375e-05
+  K =   7  Residual = 1.10909e-05
+  K =   8  Residual = 9.44583e-06
+  ITR = 3  Residual = 9.44583e-06
+  K =   1  Residual = 8.04479e-06
+  K =   2  Residual = 6.17999e-06
+  K =   3  Residual = 3.89663e-06
+  K =   4  Residual = 1.29307e-06
+  K =   5  Residual = 5.88408e-07
+  K =   6  Residual = 2.18128e-07
+  K =   7  Residual = 7.95259e-08
+  K =   8  Residual = 1.76727e-08
+  ITR = 4  Residual = 1.76727e-08
+  K =   1  Residual = 3.92731e-09
+
+MGMRES_ST
+  Number of iterations = 25
+  Final residual = 3.92731e-09
+  After solving, X_ERROR = 4.39551e-09
+
+  Final solution estimate:
+
+         0           3.5
+         1             1
+         2             1
+         3             6
+         4           7.5
+         5             8
+         6           7.5
+         7             6
+         8           3.5
+
+TEST03
+  Test PMGMRES_ILU_CR on the simple -1,2-1 matrix.
+
+  ia[0] = 0
+  ia[1] = 2
+  ia[2] = 5
+  ia[3] = 8
+  ia[4] = 11
+  ia[5] = 14
+  ia[6] = 17
+  ia[7] = 20
+  ia[8] = 23
+  ia[9] = 26
+  ia[10] = 29
+  ia[11] = 32
+  ia[12] = 35
+  ia[13] = 38
+  ia[14] = 41
+  ia[15] = 44
+  ia[16] = 47
+  ia[17] = 50
+  ia[18] = 53
+  ia[19] = 56
+  ia[20] = 58
+
+  Test 1
+  Matrix order N = 20
+  Inner iteration limit = 20
+  Outer iteration limit = 1
+  Initial X_ERROR = 53.5724
+
+PMGMRES_ILU_CR
+  Number of unknowns = 20
+  ITR = 0  Residual = 53.5724
+  K   = 0  Residual = 1.26434e-14
+
+PMGMRES_ILU_CR:
+  Iterations = 1
+  Final residual = 1.26434e-14
+  Final X_ERROR = 8.29924e-15
+
+  Test 2
+  Matrix order N = 20
+  Inner iteration limit = 10
+  Outer iteration limit = 2
+  Initial X_ERROR = 53.5724
+
+PMGMRES_ILU_CR
+  Number of unknowns = 20
+  ITR = 0  Residual = 53.5724
+  K   = 0  Residual = 1.26434e-14
+
+PMGMRES_ILU_CR:
+  Iterations = 1
+  Final residual = 1.26434e-14
+  Final X_ERROR = 8.29924e-15
+
+  Test 3
+  Matrix order N = 20
+  Inner iteration limit = 4
+  Outer iteration limit = 5
+  Initial X_ERROR = 53.5724
+
+PMGMRES_ILU_CR
+  Number of unknowns = 20
+  ITR = 0  Residual = 53.5724
+  K   = 0  Residual = 1.26434e-14
+
+PMGMRES_ILU_CR:
+  Iterations = 1
+  Final residual = 1.26434e-14
+  Final X_ERROR = 8.29924e-15
+
+TEST04
+  Test PMGMRES_ILU_CR on a simple 5 x 5 matrix.
+
+  ia[0] = 0
+  ia[1] = 3
+  ia[2] = 4
+  ia[3] = 6
+  ia[4] = 7
+  ia[5] = 9
+  ia[6] = -500134854
+
+  Test 1
+  Matrix order N = 5
+  Inner iteration limit = 20
+  Outer iteration limit = 1
+  Initial X_ERROR = 7.4162
+
+PMGMRES_ILU_CR
+  Number of unknowns = 5
+  ITR = 0  Residual = 12.083
+  K   = 0  Residual = 3.67696
+  K   = 1  Residual = 2.46137e-15
+
+PMGMRES_ILU_CR:
+  Iterations = 2
+  Final residual = 2.46137e-15
+  Final X_ERROR = 1.9984e-15
+
+  Test 2
+  Matrix order N = 5
+  Inner iteration limit = 10
+  Outer iteration limit = 2
+  Initial X_ERROR = 7.4162
+
+PMGMRES_ILU_CR
+  Number of unknowns = 5
+  ITR = 0  Residual = 12.083
+  K   = 0  Residual = 3.67696
+  K   = 1  Residual = 2.46137e-15
+
+PMGMRES_ILU_CR:
+  Iterations = 2
+  Final residual = 2.46137e-15
+  Final X_ERROR = 1.9984e-15
+
+  Test 3
+  Matrix order N = 5
+  Inner iteration limit = 4
+  Outer iteration limit = 5
+  Initial X_ERROR = 7.4162
+
+PMGMRES_ILU_CR
+  Number of unknowns = 5
+  ITR = 0  Residual = 12.083
+  K   = 0  Residual = 3.67696
+  K   = 1  Residual = 2.46137e-15
+
+PMGMRES_ILU_CR:
+  Iterations = 2
+  Final residual = 2.46137e-15
+  Final X_ERROR = 1.9984e-15
+
+MGMRES_PRB:
+  Normal end of execution.
+
+20 December 2011 08:22:52 AM

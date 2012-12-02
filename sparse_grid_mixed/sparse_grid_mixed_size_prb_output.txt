@@ -1,0 +1,555 @@
+07 March 2011 10:38:05 AM
+
+SPARSE_GRID_MIXED_SIZE_PRB
+  C++ version
+
+SPARSE_GRID_MIXED_SIZE_TESTS
+  Call SPARSE_GRID_MIXED_SIZE_TEST with various arguments.
+  All tests will use a point equality tolerance of -1
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         1
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        25        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        27        27
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        25        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         7
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        25        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         8             1.5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        25        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         2
+         1         9             0.5             1.5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        27        27
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         6               2
+         1         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7         7
+         1         2        25        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         2
+         2         5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1        10        10
+         0         2        54        54
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         3
+         1         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4       273       273
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0        13
+         1        13
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4        97        97
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0        16
+         1        16
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4       241       241
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0        17
+         1        17
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4       129       129
+
+SPARSE_GRID_MIXED_SIZE_TESTS
+  Call SPARSE_GRID_MIXED_SIZE_TEST with various arguments.
+  All tests will use a point equality tolerance of 1.49012e-08
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         1
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         5         7
+         1         2        13        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         5         7
+         1         2        15        27
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         5         7
+         1         2        15        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         7
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         6         7
+         1         2        19        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         8             1.5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         6         7
+         1         2        19        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         2
+         1         9             0.5             1.5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         6         7
+         1         2        21        27
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         6               2
+         1         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         5         7
+         1         2        17        25
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         1
+         1         2
+         2         5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+         0         1         7        10
+         0         2        29        54
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0         3
+         1         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4       129       273
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0        13
+         1        13
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4        33        97
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0        16
+         1        16
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4        97       241
+
+SPARSE_GRID_MIXED_SIZE_TEST
+  SPARSE_GRID_MIXED_SIZE returns the number of distinct
+  points in a multidimensional sparse grid with mixed factors.
+
+  SPARSE_GRID_MIXED_SIZE_TOTAL returns the TOTAL number of
+  points in a multidimensional sparse grid with mixed factors,
+  without checking for duplication.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+ Dimension      Rule     Alpha          Beta
+
+         0        17
+         1        17
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4        36       129
+
+SPARSE_GRID_MIXED_SIZE_PRB
+  Normal end of execution.
+
+07 March 2011 10:38:05 AM

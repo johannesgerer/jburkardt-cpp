@@ -1,0 +1,185 @@
+<html>
+
+  <head>
+    <title>
+      MAKEFILES - Examples of the use of Makefiles
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MAKEFILES <br> Examples of the use of Makefiles
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MAKEFILES</b> 
+      is a directory of C++ programs which 
+      illustrate how a "makefile" can
+      be used to manage the compilation and loading of a C++ program.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      A makefile is usually stored in a file named <i>makefile</i>.
+    </p>
+
+    <p>
+      The purpose of a makefile is to record or infer the commands
+      necessary to compile and load a program (or, more generally,
+      to "build" a program or object that depends on objects),
+      to intelligently automate this task, and to efficiently
+      update all objects that depend on an object that has itself
+      just been updated.
+    </p>
+
+    <p>
+      The most natural example for which a makefile is useful would
+      involve the relationship between several text files containing
+      C++ routines (with extension ".C"),
+      the object files created by compiling separately each C++ file
+      (with extension ".o"), and the executable program that can be
+      created by loading them all together (which, by default, is
+      called "a.out", but which we will rename to "cpp_simple".
+    </p>
+
+    <p>
+      We suppose we start with the C++ source code files <i>cpp_simple.C</i>,
+      <i>midpoint.C</i>, and <i>f.C</i>, as well as an include file,
+      <i>cpp_simple.H</i>.  If we wished to build the 
+      executable <i>cpp_simple</i>, we need to create <i>cpp_simple.o</i>,
+      <i>midpoint.o</i>, <i>f.o</i>, and then load them together,
+      and rename the result to <i>cpp_simple</i>.
+    </p>
+
+    <p>
+      The "dependencies" or relationships between these files can
+      be thought of as follows:
+      <pre>
+        <b>cpp_simple</b> needs <i>cpp_simple.o</i>, <i>midpoint.o</i> and <i>f.o</i>.
+          The commands to create <b>cpp_simple</b> are
+          g++ cpp_simple.o midpoint.o sub2.o
+          mv a.out cpp_simple
+     
+        <b>cpp_simple.o</b> needs <i>cpp_simple.C</i> and <i>cpp_simple.H</i>.
+          The command to create <b>cpp_simple.o</b> is
+          g++ -c cpp_simple.C
+
+        <b>midpoint.o</b> needs <i>midpoint.C</i> and <i>cpp_simple.H</i>..
+          The command to create <b>midpoint.o</b> is
+          g++ -c midpoint.C
+
+        <b>f.o</b> needs <i>f.C</i> and <i>cpp_simple.H</i>..
+          The command to create <b>f.o</b> is
+          g++ -c f.C
+      </pre>
+    </p>
+
+    <p>
+      The corresponding makefile records these relationships.  Each 
+      <i>dependency line</i> lists a "target" (something you want to make), 
+      followed by a colon, and then a list of the components on which that 
+      target depends.  There follow one or more <i>command lines</i> that 
+      tell how to put the components together to make the target.  Note 
+      that each command line must begin with a TAB character.  We will
+      use the symbol <b>--TAB--&gt;</b> to suggest this.  Here is what the 
+      makefile would look like
+      <pre>
+        <b>cpp_simple</b> : <i>cpp_simple.o</i> <i>midpoint.o</i> <i>f.o</i>
+        <i>--TAB--&gt;</i> g++ cpp_simple.o midpoint.o f.o
+        <i>--TAB--&gt;</i> mv a.out cpp_simple
+        <b>cpp_simple.o</b> : <i>cpp_simple.C</i> <i>cpp_simple.H</i>
+        <i>--TAB--&gt;</i> g++ -c cpp_simple.C
+        <b>midpoint.o</b> : <i>midpoint.C</i> <i>cpp_simple.H</i>
+        <i>--TAB--&gt;</i> g++ -c midpoint.C
+        <b>f.o</b> : <i>f.C</i> <i>cpp_simple.H</i>
+        <i>--TAB--&gt;</i> g++ -c f.C
+      </pre>
+    </p>
+
+    <p>
+      To create the program, type <i>make cpp_simple</i>.  If you just 
+      edited <b>midpoint.C</b> and want only to recompile it, type 
+      <i>make midpoint.o</i>.  But if you just edited <b>midpoint.C</b>, 
+      and you want to recompile it, and then also recreate the program, 
+      then type <i>make cpp_simple</i>.  The <b>make</b> program will notice 
+      that <i>midpoint.C</i> has been updated, and automatically 
+      recompile it, and then rebuild <b>cpp_simple</b>.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>MAKEFILES</b> is available in
+      <a href = "../../c_src/makefiles/makefiles.html">a C version</a>,
+      <a href = "../../cpp_src/makefiles/makefiles.html">a C++ version</a> and
+      <a href = "../../f77_src/makefiles/makefiles.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/makefiles/makefiles.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Robert Mecklenburg,<br>
+          Managing Projects with GNU Make,<br>
+          O'Reilly, 2004,<br>
+          ISBN: 0596006101.
+        </li>
+        <li>
+          Steve Talbot,<br>
+          Managing Projects with Make,<br>
+          O'Reilly, 1990,<br>
+          ISBN: 0-937-175-18-8.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "cpp_simple/cpp_simple.html">a simple C++ example</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ page</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 04 December 2006.
+    </i>
+
+    <!-- John Burkardt -->
+ 
+  </body>
+
+</html>

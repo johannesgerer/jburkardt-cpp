@@ -1,0 +1,202 @@
+21 July 2011 03:34:35 PM
+
+SANDIA_SGMGA_ANISO_NORMALIZE_PRB:
+  C++ version
+  Test the SANDIA_SGMGA_ANISO_NORMALIZE and
+  SANDIA_SGMGA_IMPORTANCE_TO_ANISO functions.
+
+SANDIA_SGMGA_ANISO_BALANCE_TESTS
+  Call SANDIA_SGMGA_ANISO_BALANCE_TEST with various arguments.
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 10
+  Input weight sum: 29.8125
+       2.18418       9.56318       8.29509       5.61695       4.15307
+  Output weight sum: 13.6493
+             1       4.37838        3.7978       2.57165       1.90143
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 10
+  Input weight sum: 11.1145
+      0.661187       2.57578       1.09957       0.43829       6.33966
+  Output weight sum: 20.8942
+       1.50856       5.87688       2.50877             1            10
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 10
+  Input weight sum: 24.6453
+      0.617272       4.49539       4.01306       7.54673       7.97287
+  Output weight sum: 34.784
+             1       7.28267       6.50128            10            10
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 10
+  Input weight sum: 13.5826
+     0.0183837       8.97504       3.50752      0.945448      0.136169
+  Output weight sum: 38.407
+             1            10            10            10       7.40704
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 10
+  Input weight sum: 20.9086
+       8.59097       8.40847       1.23104     0.0751236       2.60303
+  Output weight sum: 41
+            10            10            10             1            10
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 5
+  Input weight sum: 29.8125
+       2.18418       9.56318       8.29509       5.61695       4.15307
+  Output weight sum: 13.6493
+             1       4.37838        3.7978       2.57165       1.90143
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 5
+  Input weight sum: 11.1145
+      0.661187       2.57578       1.09957       0.43829       6.33966
+  Output weight sum: 15.0173
+       1.50856             5       2.50877             1             5
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 5
+  Input weight sum: 24.6453
+      0.617272       4.49539       4.01306       7.54673       7.97287
+  Output weight sum: 21
+             1             5             5             5             5
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 5
+  Input weight sum: 13.5826
+     0.0183837       8.97504       3.50752      0.945448      0.136169
+  Output weight sum: 21
+             1             5             5             5             5
+
+SANDIA_SGMGA_ANISO_BALANCE_TEST
+  ALPHA_MAX = 5
+  Input weight sum: 20.9086
+       8.59097       8.40847       1.23104     0.0751236       2.60303
+  Output weight sum: 21
+             5             5             5             1             5
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TESTS
+  Call SANDIA_SGMGA_ANISO_NORMALIZE_TEST with various arguments.
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TEST
+  Input weight sum: 2
+             1             1
+  For OPTION = 0  Normalized weight sum: 2
+             1             1
+  For OPTION = 1  Normalized weight sum: 2
+             1             1
+  For OPTION = 2  Normalized weight sum: 2
+             1             1
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TEST
+  Input weight sum: 20
+            10            10
+  For OPTION = 0  Normalized weight sum: 20
+            10            10
+  For OPTION = 1  Normalized weight sum: 2
+             1             1
+  For OPTION = 2  Normalized weight sum: 2
+             1             1
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TEST
+  Input weight sum: 12
+            10             2
+  For OPTION = 0  Normalized weight sum: 12
+            10             2
+  For OPTION = 1  Normalized weight sum: 6
+             5             1
+  For OPTION = 2  Normalized weight sum: 2
+       1.66667      0.333333
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TEST
+  Input weight sum: 3
+             1             2
+  For OPTION = 0  Normalized weight sum: 3
+             1             2
+  For OPTION = 1  Normalized weight sum: 3
+             1             2
+  For OPTION = 2  Normalized weight sum: 2
+      0.666667       1.33333
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TEST
+  Input weight sum: 6
+             1             2             3
+  For OPTION = 0  Normalized weight sum: 6
+             1             2             3
+  For OPTION = 1  Normalized weight sum: 6
+             1             2             3
+  For OPTION = 2  Normalized weight sum: 3
+           0.5             1           1.5
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TEST
+  Input weight sum: 3.5
+             2             0           1.5
+  For OPTION = 0  Normalized weight sum: 3.5
+             2             0           1.5
+  For OPTION = 1  Normalized weight sum: 2.33333
+       1.33333             0             1
+  For OPTION = 2  Normalized weight sum: 3
+       1.71429             0       1.28571
+
+SANDIA_SGMGA_ANISO_NORMALIZE_TEST
+  Input weight sum: 10
+             1             2             3             4
+  For OPTION = 0  Normalized weight sum: 10
+             1             2             3             4
+  For OPTION = 1  Normalized weight sum: 10
+             1             2             3             4
+  For OPTION = 2  Normalized weight sum: 4
+           0.4           0.8           1.2           1.6
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TESTS
+  Call SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST with various arguments.
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST
+  Importances:
+             1             1
+  Anisotropic coefficients:
+             1             1
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST
+  Importances:
+            10            10
+  Anisotropic coefficients:
+           0.1           0.1
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST
+  Importances:
+            10             2
+  Anisotropic coefficients:
+           0.1           0.5
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST
+  Importances:
+             1             2
+  Anisotropic coefficients:
+             1           0.5
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST
+  Importances:
+             1             2             3
+  Anisotropic coefficients:
+             1           0.5      0.333333
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST
+  Importances:
+             2             0           1.5
+  Anisotropic coefficients:
+           0.5             0      0.666667
+
+SANDIA_SGMGA_IMPORTANCE_TO_ANISO_TEST
+  Importances:
+             1             2             3             4
+  Anisotropic coefficients:
+             1           0.5      0.333333          0.25
+
+SANDIA_SGMGA_ANISO_NORMALIZE_PRB:
+  Normal end of execution.
+
+21 July 2011 03:34:35 PM

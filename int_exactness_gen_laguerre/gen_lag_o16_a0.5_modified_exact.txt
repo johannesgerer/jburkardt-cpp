@@ -1,0 +1,123 @@
+03 February 2008 11:43:48 AM
+
+INT_EXACTNESS_GEN_LAGUERRE
+  C++ version
+
+  Investigate the polynomial exactness of a generalized Gauss-Laguerre
+  quadrature rule by integrating exponentially weighted
+  monomials up to a given degree over the [0,+oo) interval.
+
+  The rule may be defined on another interval [A,+oo)
+  in which case it is adjusted to the [0,+oo) interval.
+
+INT_EXACTNESS_GEN_LAGUERRE: User input:
+  Quadrature rule X file = "gen_lag_o16_a0.5_modified_x.txt".
+  Quadrature rule W file = "gen_lag_o16_a0.5_modified_w.txt".
+  Quadrature rule R file = "gen_lag_o16_a0.5_modified_r.txt".
+  Maximum degree to check = 35
+  Weighting exponent ALPHA = 0.5
+  OPTION = 1, integrate                 f(x)
+
+  Spatial dimension = 1
+  Number of points  = 16
+
+  The quadrature rule to be tested is
+  a generalized Gauss-Laguerre rule
+  ORDER = 16
+  with A =     0
+  and  ALPHA = 0.5
+
+  Modified rule:
+    Integral ( A <= x < +oo )         f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =       0.2950148257926292
+  w[ 1] =       0.5926504061509453
+  w[ 2] =       0.8956575998744516
+  w[ 3] =        1.207063433953284
+  w[ 4] =        1.530352787791976
+  w[ 5] =        1.869714179339352
+  w[ 6] =        2.230395748423061
+  w[ 7] =        2.619252244761896
+  w[ 8] =        3.045634801992271
+  w[ 9] =         3.52292968201735
+  w[10] =        4.071417057880741
+  w[11] =        4.724080738693911
+  w[12] =        5.539909876059123
+  w[13] =        6.639993574123777
+  w[14] =        8.335658835078922
+  w[15] =        11.89633502881635
+
+  Abscissas X:
+
+  x[ 0] =        0.147399184616311
+  x[ 1] =       0.5909018112431889
+  x[ 2] =        1.334487511614577
+  x[ 3] =        2.385011552004654
+  x[ 4] =        3.752567873874769
+  x[ 5] =        5.451062939568397
+  x[ 6] =        7.499085532907372
+  x[ 7] =         9.92121913607243
+  x[ 8] =        12.75005546011707
+  x[ 9] =        16.02938636037513
+  x[10] =        19.81951287710202
+  x[11] =        24.20668064346831
+  x[12] =        29.32145610335233
+  x[13] =        35.37955078717556
+  x[14] =        42.79325597075464
+  x[15] =        52.61836625575324
+
+  Region R:
+
+  r[ 0] =                        0
+  r[ 1] =                    1e+30
+
+  A generalized Gauss-Laguerre rule would be able to exactly
+  integrate monomials up to and including degree = 31
+
+          Error          Degree
+
+     6.263762659083974e-16   0
+     8.351683545445299e-16   1
+     1.202642430544123e-15   2
+     6.108659964668561e-16   3
+     1.357479992148569e-16   4
+       1.9745163522161e-16   5
+     1.215086985979139e-16   6
+                         0   7
+     1.219852032982979e-16   8
+                         0   9
+     1.565323911998208e-16  10
+     2.395626160971164e-15  11
+     8.362913143753911e-16  12
+     4.625413689384855e-15  13
+     4.192493196289756e-15  14
+     3.386922974842773e-15  15
+     1.277223478728582e-15  16
+     2.835957438483067e-15  17
+     3.462663454300472e-15  18
+     9.470532524582465e-16  19
+     5.358935477324679e-15  20
+     3.162932246440234e-15  21
+     3.911645676757019e-16  22
+     8.921881203156351e-15  23
+     3.304601749326304e-15  24
+     5.019993575859987e-15  25
+     2.767379559456837e-15  26
+     1.686783731478461e-15  27
+     2.926986762118911e-15  28
+     7.844207793196006e-15  29
+     5.682611110137386e-15  30
+     2.985936872321772e-15  31
+     1.189840681881813e-09  32
+     1.994308862397206e-08  33
+     1.720073246770339e-07  34
+     1.017043578067322e-06  35
+
+INT_EXACTNESS_GEN_LAGUERRE:
+  Normal end of execution.
+
+03 February 2008 11:43:48 AM

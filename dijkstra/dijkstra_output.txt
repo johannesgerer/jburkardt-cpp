@@ -1,0 +1,30 @@
+01 July 2010 04:06:21 PM
+
+DIJKSTRA
+  C++ version
+  Use Dijkstra's algorithm to determine the minimum
+  distance from node 0 to each node in a graph,
+  given the distances between each pair of nodes.
+
+  Distance matrix:
+
+    0   40   15  Inf  Inf  Inf
+   40    0   20   10   25    6
+   15   20    0  100  Inf  Inf
+  Inf   10  100    0  Inf  Inf
+  Inf   25  Inf  Inf    0    8
+  Inf    6  Inf  Inf    8    0
+
+  Minimum distances from node 0:
+
+   0   0
+   1  35
+   2  15
+   3  45
+   4  49
+   5  41
+
+DIJKSTRA
+  Normal end of execution.
+
+01 July 2010 04:06:21 PM

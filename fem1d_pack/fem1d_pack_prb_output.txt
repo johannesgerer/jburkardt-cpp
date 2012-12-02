@@ -1,0 +1,46 @@
+22 December 2011 08:59:03 AM
+
+FEM1D_PACK_PRB
+  C++ version
+  Test the FEM1D_PACK library.
+
+TEST01:
+  LOCAL_BASIS_1D evaluates the local basis functions
+  for a 1D element.
+
+  Test that the basis functions, evaluated at the nodes,
+  form the identity matrix.
+
+  Number of nodes = 4
+
+  Node coordinates:
+
+         0        1
+         1        2
+         2        4
+         3      4.5
+
+  A(I,J) = PHI(I) at node (J):
+
+  Col:          0             1             2             3       
+  Row
+
+    0:            1            -0             0            -0  
+    1:            0             1            -0             0  
+    2:           -0             0             1            -0  
+    3:            0            -0             0             1  
+
+  The PHI functions should sum to 1 at random X values:
+
+       X        Sum ( PHI(:)(X) )
+
+         1.76446               1
+         4.34711               1
+         3.90328               1
+         2.96593               1
+         2.45357               1
+
+FEM1D_PACK_PRB
+  Normal end of execution.
+
+22 December 2011 08:59:03 AM

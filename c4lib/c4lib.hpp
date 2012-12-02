@@ -1,0 +1,47 @@
+float c4_abs ( complex <float> x );
+float c4_argument ( complex <float> x );
+complex <float> c4_cube_root ( complex <float> x );
+complex <float> c4_i ( );
+bool c4_le_l1 ( complex <float> x, complex <float> y );
+bool c4_le_l2 ( complex <float> x, complex <float> y );
+bool c4_le_li ( complex <float> x, complex <float> y );
+float c4_magnitude ( complex <float> x );
+float c4_norm_l1 ( complex <float> x );
+float c4_norm_l2 ( complex <float> x );
+float c4_norm_li ( complex <float> x );
+complex <float> c4_normal_01 ( int *seed );
+complex <float> c4_one ( );
+void c4_print ( complex <float> a, string title );
+complex <float> c4_sqrt ( complex <float> x );
+void c4_swap ( complex <float> *x, complex <float> *y );
+complex <float> c4_uniform_01 ( int *seed );
+complex <float> c4_zero ( );
+void c4mat_copy ( int m, int n, complex <float> a1[], complex <float> a2[] );
+complex <float> *c4mat_copy_new ( int m, int n, complex <float> a1[] );
+complex <float> *c4mat_identity ( int n );
+complex <float> *c4mat_indicator_new ( int m, int n );
+void c4mat_nint ( int m, int n, complex <float> a[] );
+void c4mat_print ( int m, int n, complex <float> a[], string title );
+void c4mat_print_some ( int m, int n, complex <float> a[], int ilo, int jlo, 
+  int ihi, int jhi, string title );
+void c4mat_uniform_01 ( int m, int n, int *seed, complex <float> c[] );
+complex <float> *c4mat_uniform_01_new ( int m, int n, int *seed );
+void c4vec_copy ( int n, complex <float> a1[], complex <float> a2[] );
+complex <float> *c4vec_copy_new ( int n, complex <float> a1[] );
+complex <float> *c4vec_indicator_new ( int n );
+float c4vec_norm_l2 ( int n, complex <float> a[] );
+void c4vec_print ( int n, complex <float> a[], string title );
+void c4vec_print_part ( int n, complex <float> a[], int max_print, 
+  string title );
+void c4vec_print_some ( int n, complex <float> a[], int i_lo, int i_hi, 
+  string title );
+void c4vec_uniform_01 ( int n, int *seed, complex <float> c[] );
+complex <float> *c4vec_uniform_01_new ( int n, int *seed );
+int i4_max ( int i1, int i2 );
+int i4_min ( int i1, int i2 );
+float r4_abs ( float x );
+float r4_max ( float x, float y );
+int r4_nint ( float x );
+float r4_uniform_01 ( int *seed );
+void sort_heap_external ( int n, int *indx, int *i, int *j, int isgn );
+void timestamp ( );

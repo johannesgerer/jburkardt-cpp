@@ -1,0 +1,85 @@
+03 March 2008 09:12:46 AM
+
+INT_EXACTNESS_GEGENBAUER
+  C++ version
+
+  Investigate the polynomial exactness of a Gauss-Gegenbauer
+  quadrature rule by integrating exponentially weighted
+  monomials up to a given degree over the (-oo,+oo) interval.
+
+INT_EXACTNESS_GEGENBAUER: User input:
+  Quadrature rule X file = "gegen_o8_a0.5_x.txt".
+  Quadrature rule W file = "gegen_o8_a0.5_w.txt".
+  Quadrature rule R file = "gegen_o8_a0.5_r.txt".
+  Maximum degree to check = 18
+  Exponent of (1-x^2), ALPHA = 0.5
+
+  Spatial dimension = 1
+  Number of points  = 8
+
+  The quadrature rule to be tested is
+  a Gauss-Gegenbauer rule
+  ORDER = 8
+  ALPHA = 0.5
+
+  Standard rule:
+    Integral ( -1 <= x <= +1 ) (1-x^2)^alpha f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =      0.04083294770910693
+  w[ 1] =       0.1442256007956728
+  w[ 2] =       0.2617993877991495
+  w[ 3] =       0.3385402270935191
+  w[ 4] =       0.3385402270935191
+  w[ 5] =       0.2617993877991495
+  w[ 6] =       0.1442256007956728
+  w[ 7] =      0.04083294770910754
+
+  Abscissas X:
+
+  x[ 0] =      -0.9396926207859084
+  x[ 1] =       -0.766044443118978
+  x[ 2] =                     -0.5
+  x[ 3] =      -0.1736481776669303
+  x[ 4] =       0.1736481776669303
+  x[ 5] =                      0.5
+  x[ 6] =        0.766044443118978
+  x[ 7] =       0.9396926207859084
+
+  Region R:
+
+  r[ 0] =                       -1
+  r[ 1] =                        1
+
+  A Gauss-Gegenbauer rule would be able to exactly
+  integrate monomials up to and including degree = 15
+
+          Error          Degree
+
+     2.827159716856457e-16   0
+     6.106226635438361e-16   1
+     8.481479150569377e-16   2
+     5.204170427930421e-16   3
+     9.895059008997603e-16   4
+      4.40619762898109e-16   5
+     1.583209441439617e-15   6
+      3.95516952522712e-16   7
+     2.100175789664798e-15   8
+     3.469446951953614e-16   9
+     5.169663482251825e-15  10
+     3.087807787238717e-16  11
+     1.261084576731136e-14  12
+     2.706168622523819e-16  13
+     2.193190568228038e-15  14
+     2.393918396847994e-16  15
+      0.000699300699301984  16
+     2.133709875451473e-16  17
+      0.003290826820234406  18
+
+INT_EXACTNESS_GEGENBAUER:
+  Normal end of execution.
+
+03 March 2008 09:12:46 AM

@@ -1,0 +1,289 @@
+<html>
+
+  <head>
+    <title>
+      BMP_IO - Read/write Microsoft BMP bitmap files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      BMP_IO <br> Microsoft BMP bitmap files <br> Read and Write Utilities
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>BMP_IO</b>
+      is a C++ library which
+      reads or writes the graphics information in
+      <a href = "../../data/bmp/bmp.html">
+      a Microsoft BMP file</a>.
+    </p>
+
+    <p>
+      A user program can employ these routines to read a BMP file
+      and extract and return the graphics information (RGB pixel arrays),
+      or to write internal RGB pixel arrays into a properly formatted BMP file.
+      The BMP file format is used for many of the icons seen
+      cluttering up the desktop of a Windows machine, for instance.
+    </p>
+
+    <p>
+      Of course, another interesting application is to read in a BMP file,
+      and write out the RGB information to a file in another format.
+    </p>
+
+    <p>
+      Since some of the data is multibyte, the format of the file can
+      depend on whether such data is written with the bytes in
+      "little-endian" or "big-endian" order.  The program maintains a
+      variable called <b>BMP_BYTE_SWAP</b> which controls how the program
+      assumes the bytes are ordered.  Setting this variable to
+      <b>true</b> show be the appropriate value for little-endian ordering,
+      while <b>false</b> is for big-endian.  This variable can be read
+      by calling the function <b>bmp_byte_swap_get</b>, or set by calling
+      <b>bmp_byte_swap_set</b>.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/bmp/bmp.html">
+      BMP</a>,
+      a data directory which
+      contains example BMP files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_to_ppma/bmp_to_ppma.html">
+      BMP_TO_PPMA</a>,
+      a C++ program which
+      converts BMP files to ASCII PPM format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_to_ppmb/bmp_to_ppmb.html">
+      BMP_TO_PPMB</a>,
+      a C++ program which
+      converts BMP files to binary PPM format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppma_to_bmp/ppma_to_bmp.html">
+      PPMA_TO_BMP</a>,
+      a C++ program which
+      converts ASCII PPM files to BMP format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_to_bmp/ppmb_to_bmp.html">
+      PPMB_TO_BMP</a>,
+      a C++ program which
+      converts binary PPM files to BMP format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          David Kay and John Levine,<br>
+          Graphics File Formats,<br>
+          Second Edition,<br>
+          McGraw Hill, 1995.
+        </li>
+        <li>
+          John Miano,<br>
+          Compressed Image File Formats,<br>
+          Addison Wesley, 1999.
+        </li>
+        <li>
+          Microsoft Corporation,<br>
+          Microsoft Windows Programmer's Reference,<br>
+          Volume 5; Messages, Structures, and Macros,<br>
+          Microsoft Press, 1993.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "bmp_io.cpp">
+          bmp_io.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "bmp_io.sh">
+          bmp_io.sh</a>,
+          commands to compile the source code;
+        </li>
+        <li>
+          <a href = "bmp_io.hpp">
+          bmp_io.hpp</a>, the include file;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "bmp_io_prb.cpp">
+          bmp_io_prb.cpp</a>, a calling program;
+        </li>
+        <li>
+          <a href = "bmp_io_prb.sh">
+          bmp_io_prb.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "bmp_io_prb_output.txt">
+          bmp_io_prb_output.txt</a>,
+          output from a run of the calling program;
+        </li>
+        <li>
+          <a href = "../../data/bmp/bmp_08.bmp">
+          bmp_08.bmp</a>,
+          a monochrome (8 bits per pixel) BMP file created by the
+          calling program;
+        </li>
+        <li>
+          <a href = "../../data/bmp/bmp_24.bmp">bmp_24.bmp</a>,
+          a three color (24 bits per pixel) BMP file created by the
+          calling program;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>BMP_BYTE_SWAP_GET</b> returns the internal value of BMP_BYTE_SWAP.
+        </li>
+        <li>
+          <b>BMP_BYTE_SWAP_SET</b> sets the internal value of BMP_BYTE_SWAP.
+        </li>
+        <li>
+          <b>BMP_08_DATA_READ</b> reads 8 bit image data of the BMP file.
+        </li>
+        <li>
+          <b>BMP_08_DATA_WRITE</b> writes 8 bit image data to a BMP file.
+        </li>
+        <li>
+          <b>BMP_24_DATA_READ</b> reads 24 bit image data of the BMP file.
+        </li>
+        <li>
+          <b>BMP_24_DATA_WRITE</b> writes 24 bit image data to the BMP file.
+        </li>
+        <li>
+          <b>BMP_HEADER1_PRINT</b> prints the header information of a BMP file.
+        </li>
+        <li>
+          <b>BMP_HEADER1_READ</b> reads the header information of a BMP file.
+        </li>
+        <li>
+          <b>BMP_HEADER1_WRITE</b> writes the header information to a BMP file.
+        </li>
+        <li>
+          <b>BMP_HEADER2_PRINT</b> prints the bitmap header information of a BMP file.
+        </li>
+        <li>
+          <b>BMP_HEADER2_READ</b> reads the bitmap header information of a BMP file.
+        </li>
+        <li>
+          <b>BMP_HEADER2_WRITE</b> writes the bitmap header information to a BMP file.
+        </li>
+        <li>
+          <b>BMP_PALETTE_PRINT</b> prints the palette data in a BMP file.
+        </li>
+        <li>
+          <b>BMP_PALETTE_READ</b> reads the palette information of a BMP file.
+        </li>
+        <li>
+          <b>BMP_PALETTE_WRITE</b> writes the palette data to the BMP file.
+        </li>
+        <li>
+          <b>BMP_PRINT_TEST</b> tests the BMP print routines.
+        </li>
+        <li>
+          <b>BMP_READ</b> reads the header and data of a BMP file.
+        </li>
+        <li>
+          <b>BMP_READ_TEST</b> tests the BMP read routines.
+        </li>
+        <li>
+          <b>BMP_08_WRITE</b> writes the header and data for a monochrome BMP file.
+        </li>
+        <li>
+          <b>BMP_08_WRITE_TEST</b> tests the BMP write routines.
+        </li>
+        <li>
+          <b>BMP_24_WRITE</b> writes the header and data for a BMP file using three colors.
+        </li>
+        <li>
+          <b>BMP_24_WRITE_TEST</b> tests the BMP write routines.
+        </li>
+        <li>
+          <b>LONG_INT_READ</b> reads a long int from a file.
+        </li>
+        <li>
+          <b>LONG_INT_WRITE</b> writes a long int to a file.
+        </li>
+        <li>
+          <b>U_LONG_INT_READ</b> reads an unsigned long int from a file.
+        </li>
+        <li>
+          <b>U_LONG_INT_WRITE</b> writes an unsigned long int to a file.
+        </li>
+        <li>
+          <b>U_SHORT_INT_READ</b> reads an unsigned short int from a file.
+        </li>
+        <li>
+          <b>U_SHORT_INT_WRITE</b> writes an unsigned short int to a file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 December 2005.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

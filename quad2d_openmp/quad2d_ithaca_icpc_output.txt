@@ -1,0 +1,64 @@
+
+QUAD2D_OPEN_MP:
+  C++/OpenMP version
+  Estimate the integral of f(x,y) over [0,1]x[0,1].
+  f(x,y) = 1 / ( 1 - x * y ).
+
+  A        = 0
+  B        = 1
+  NX       = 32768
+  NY       = 32768
+  N        = 1073741824
+  Exact    =        1.644934066848226
+
+  Estimate =        1.644918809014074
+  Error    = 1.525783415234905e-05
+  Time     = 6.338241100311279
+
+QUAD2D_OPEN_MP:
+  C++/OpenMP version
+  Estimate the integral of f(x,y) over [0,1]x[0,1].
+  f(x,y) = 1 / ( 1 - x * y ).
+
+  A        = 0
+  B        = 1
+  NX       = 32768
+  NY       = 32768
+  N        = 1073741824
+  Exact    =        1.644934066848226
+
+  Estimate =        1.644918809014445
+  Error    = 1.525783378109047e-05
+  Time     = 3.289131879806519
+
+QUAD2D_OPEN_MP:
+  C++/OpenMP version
+  Estimate the integral of f(x,y) over [0,1]x[0,1].
+  f(x,y) = 1 / ( 1 - x * y ).
+
+  A        = 0
+  B        = 1
+  NX       = 32768
+  NY       = 32768
+  N        = 1073741824
+  Exact    =        1.644934066848226
+
+  Estimate =          1.6449188090143
+  Error    = 1.525783392630764e-05
+  Time     = 1.634701013565063
+
+QUAD2D_OPEN_MP:
+  C++/OpenMP version
+  Estimate the integral of f(x,y) over [0,1]x[0,1].
+  f(x,y) = 1 / ( 1 - x * y ).
+
+  A        = 0
+  B        = 1
+  NX       = 32768
+  NY       = 32768
+  N        = 1073741824
+  Exact    =        1.644934066848226
+
+  Estimate =        1.644918809014334
+  Error    = 1.525783389211277e-05
+  Time     = 1.016758918762207

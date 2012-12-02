@@ -1,0 +1,24 @@
+16 September 2007 03:32:34 PM
+
+GFARIT:
+  C++ version
+
+  A program which computes a set of arithmetic
+  tables, and writes them to a file.
+
+  Tables will be created for fields of prime or prime power order
+  Q between 2 and 50.
+
+  GFTAB computing table for Q = 4  with characteristic P = 2.
+  GFTAB computing table for Q = 8  with characteristic P = 2.
+  GFTAB computing table for Q = 9  with characteristic P = 3.
+  GFTAB computing table for Q = 16  with characteristic P = 2.
+  GFTAB computing table for Q = 25  with characteristic P = 5.
+  GFTAB computing table for Q = 27  with characteristic P = 3.
+  GFTAB computing table for Q = 32  with characteristic P = 2.
+  GFTAB computing table for Q = 49  with characteristic P = 7.
+
+GFARIT:
+  Normal end of execution.
+
+16 September 2007 03:32:34 PM

@@ -1,0 +1,190 @@
+19 December 2011 04:34:30 PM
+
+COLORED_NOISE_PRB
+  C++ version
+  Test the COLORED_NOISE library.
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 0
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:      -0.472769
+         2:       -0.56606
+         3:      -0.231124
+         4:        1.21293
+         5:       0.535037
+         6:        1.26938
+         7:        1.04954
+  ......  ..............
+       127:     -0.0660599
+  Data written to file "alpha_0.00.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 0.25
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:      -0.262889
+         2:      -0.507098
+         3:      -0.251499
+         4:        1.18603
+         5:       0.677714
+         6:        1.41887
+         7:         1.3064
+  ......  ..............
+       127:     -0.0679857
+  Data written to file "alpha_0.25.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 0.5
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:     -0.0530087
+         2:      -0.421902
+         3:      -0.249747
+         4:        1.17117
+         5:       0.826697
+         6:        1.59232
+         7:        1.59749
+  ......  ..............
+       127:     -0.0239724
+  Data written to file "alpha_0.50.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 0.75
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:       0.156871
+         2:      -0.310471
+         3:      -0.222588
+         4:        1.17298
+         5:       0.986356
+         6:        1.79349
+         7:        1.92856
+  ......  ..............
+       127:       0.100291
+  Data written to file "alpha_0.75.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 1
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:       0.366751
+         2:      -0.172804
+         3:      -0.166742
+         4:        1.19647
+         5:        1.16187
+         6:        2.02716
+         7:        2.30648
+  ......  ..............
+       127:       0.358878
+  Data written to file "alpha_1.00.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 1.25
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:       0.576631
+         2:    -0.00890268
+         3:     -0.0789315
+         4:        1.24708
+         5:        1.35926
+         6:        2.29931
+         7:        2.73946
+  ......  ..............
+       127:       0.837794
+  Data written to file "alpha_1.25.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 1.5
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:       0.786511
+         2:       0.181234
+         3:      0.0441241
+         4:        1.33063
+         5:        1.58549
+         6:        2.61717
+         7:        3.23729
+  ......  ..............
+       127:        1.67441
+  Data written to file "alpha_1.50.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 1.75
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:       0.996391
+         2:       0.397605
+         3:       0.205704
+         4:         1.4534
+         5:        1.84845
+         6:        2.98945
+         7:        3.81157
+  ......  ..............
+       127:        3.08837
+  Data written to file "alpha_1.75.txt"
+
+TEST01:
+  Generating 128 sample points.
+  1/F^ALPHA noise has ALPHA = 2
+  Variance is 1
+  Initial random number seed = 123456789
+
+  Noise sample:
+
+         0:        1.67904
+         1:        1.20627
+         2:       0.640212
+         3:       0.409088
+         4:        1.62202
+         5:        2.15706
+         6:        3.42644
+         7:        4.47598
+  ......  ..............
+       127:        5.43047
+  Data written to file "alpha_2.00.txt"
+
+COLORED_NOISE_PRB:
+  Normal end of execution.
+
+19 December 2011 04:34:30 PM

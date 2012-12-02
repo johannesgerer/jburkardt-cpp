@@ -1,0 +1,130 @@
+<html>
+
+  <head>
+    <title>
+      PNG_CRC - The PNG Cyclic Redundancy Checksum
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PNG_CRC <br> The PNG Cyclic Redundancy Checksum
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PNG_CRC</b>
+      is a C++ program which
+      computes the PNG CRC
+      (cyclic redundancy checksum) for one or more files.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>png_crc</b> <i>files</i>
+        </dt>
+        <dd>
+          computs the cyclic redundancy checksum for the given
+          list of files.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/crc/crc.html">
+      CRC</a>,
+      a C++ library which
+      computes the cyclic redundancy checksum (CRC) as used by the
+      PNG data format.
+    </p>
+
+    <p>
+      <a href = "../../data/png/png.html">
+      PNG</a>,
+      a data directory which
+      contains information and examples of PNG files.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          David Duce, editor,<br>
+          Portable Network Graphics (PNG) Specification,<br>
+          Second Edition.<br>
+          Technical Report REC-PNG-20031110,<br>
+          World Wide Web Consortium, 2003.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "png_crc.cpp">png_crc.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "png_crc.sh">png_crc.sh</a>, commands to compile
+          and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>PNG_CRC</b> computes the PNG CRC of a file.
+        </li>
+        <li>
+          <b>HANDLE</b> computes the PNG CRC of a single file.
+        </li>
+        <li>
+          <b>MAKE_CRC_TABLE</b> makes the table for a fast CRC computation.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>UPDATE_CRC_C</b> updates a running CRC with one more character.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 02 May 2007.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

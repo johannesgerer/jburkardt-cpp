@@ -1,0 +1,28 @@
+24 October 2011 10:50:57 AM
+
+BONES:
+  C++ version
+  An MPI example program.
+  The number of processes available is 8
+
+P:7 - MPI has no work for me!
+
+P:1 - setting up data to send to process 0.
+
+P:2 - MPI has no work for me!
+
+P:3 - MPI has no work for me!
+P:0 Got data from process 1
+P:0 Got 100 elements.
+P:0 value[5] = 5
+
+P:6 - MPI has no work for me!
+
+P:4 - MPI has no work for me!
+
+P:5 - MPI has no work for me!
+
+BONES:
+  Normal end of execution.
+
+24 October 2011 10:50:57 AM

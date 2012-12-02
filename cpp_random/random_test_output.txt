@@ -1,0 +1,56 @@
+15 September 2012 04:17:44 PM
+
+RANDOM_TEST:
+  C++ version
+  Generate random numbers using
+  SRANDOM to set the seed, and
+  RANDOM to return the random values.
+
+  Compiled on Sep 15 2012 at 16:17:44
+
+TEST01
+  Call SRANDOM to initialize the seed.
+  Call RANDOM to generate some values.
+
+  Initial SEED = 123456789
+
+      Step    RANDOM()
+
+         0    1965102536
+         1    1639725855
+         2     706684578
+         3    1926601937
+         4      71238646
+         5    1147998030
+         6    1038816544
+         7     940714160
+         8     789063065
+         9     464968134
+
+TEST02
+  Call SRANDOM to initialize the seed.
+  Call RANDOM to generate some values.
+  Set X = ( double ) RANDOM ( ) / ( double ) RAND_MAX
+  so that X is a random real in [0,1].
+
+  RAND_MAX = 2147483647
+
+  Initial SEED = 123456789
+
+      Step    RANDOM()      RANDOM()/RAND_MAX
+
+         0    1965102536      0.915072
+         1    1639725855      0.763557
+         2     706684578      0.329076
+         3    1926601937      0.897144
+         4      71238646     0.0331731
+         5    1147998030      0.534578
+         6    1038816544      0.483737
+         7     940714160      0.438054
+         8     789063065      0.367436
+         9     464968134      0.216518
+
+RANDOM_TEST:
+  Normal end of execution.
+
+15 September 2012 04:17:44 PM

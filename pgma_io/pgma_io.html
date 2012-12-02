@@ -1,0 +1,209 @@
+<html>
+
+  <head>
+    <title>
+      PGMA_IO - Read and Write ASCII Portable Gray Map (PGM) Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PGMA_IO <br> ASCII Portable Gray Map (PGM) Files <br> Read and Write Utilities
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PGMA_IO</b> 
+      is a C++ library which 
+      reads and writes files in the 
+      ASCII Portable Gray Map (PGM) format for 2D grayscale graphics information.
+    </p>
+
+    <p>
+      There are many graphics programs, such as XV and GIMP, that can
+      display images in this format, or translate them to other formats
+      such as BMP, GIF, JPEG, MacPaint, X Window, and so on.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>PGMA_IO</b> is available in
+      <a href = "../../c_src/pgma_io/pgma_io.html">a C version</a> and
+      <a href = "../../cpp_src/pgma_io/pgma_io.html">a C++ version</a> and
+      <a href = "../../f77_src/pgma_io/pgma_io.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/pgma_io/pgma_io.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/pgma_io/pgma_io.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/pbma_io/pbma_io.html">
+      PBMA_IO<a>,
+      a C++ library which 
+      handles the ASCII Portable Bit Map (PBM) format.
+    </p>
+
+    <p>
+      <a href = "../../data/pgma/pgma.html">
+      PGMA</a>,
+      a data directory which
+      contains examples of ASCII Portable Gray Map (PGM) files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgma_to_pgmb/pgma_to_pgmb.html">
+      PGMA_TO_PGMB<a>,
+      a C++ program which
+      converts an ASCII Portable Gray Map (PGM) file to a binary PGM file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgmb_io/pgmb_io.html">
+      PGMB_IO<a>,
+      a C++ library which
+      handles the binary Portable Gray Map (PGM) format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgmb_to_pgma/pgmb_to_pgma.html">
+      PGMB_TO_PGMA<a>,
+      a C++ program which 
+      converts a binary Portable Gray Map (PGM) file to an ASCII PGM file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppma_io/ppma_io.html">
+      PPMA_IO<a>,
+      a C++ library which 
+      handles the ASCII Portable Pixel Map (PPM) format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">the NETPBM homepage</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pgma_io.cpp">pgma_io.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "pgma_io.hpp">pgma_io.hpp</a>, 
+          the include file;
+        </li>
+        <li>
+          <a href = "pgma_io.sh">pgma_io.sh</a>, 
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pgma_io_prb.cpp">pgma_io_prb.cpp</a>, 
+          the sample calling program.
+        </li>
+        <li>
+          <a href = "pgma_io_prb.sh">pgma_io_prb.sh</a>, 
+          commands to compile, link and run the sample calling program.
+        </li>
+        <li>
+          <a href = "pgma_io_prb_output.txt">pgma_io_prb_output.txt</a>, 
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two integers.
+        </li>
+        <li>
+          <b>PGMA_CHECK_DATA</b> checks the data for an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_EXAMPLE</b> sets up some data for an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_READ</b> reads the header and data from an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_READ_DATA</b> reads the data in an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_READ_HEADER</b> reads the header of an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_READ_TEST</b> tests the ASCII portable gray map read routines.
+        </li>
+        <li>
+          <b>PGMA_WRITE</b> writes the header and data for an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_WRITE_DATA</b> writes the data for an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_WRITE_HEADER</b> writes the header of an ASCII portable gray map file.
+        </li>
+        <li>
+          <b>PGMA_WRITE_TEST</b> tests the ASCII portable gray map write routines.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 31 August 2005.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

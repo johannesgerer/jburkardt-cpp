@@ -1,0 +1,13 @@
+30 October 2011 12:38:41 PM
+
+MXM_SERIAL:
+  C++ version
+  Compute matrix product C = A * B.
+
+  The matrix order N                 = 500
+  C(100,100) = C[99][99] = 1
+
+MXM_SERIAL:
+  Normal end of execution.
+
+30 October 2011 12:38:41 PM

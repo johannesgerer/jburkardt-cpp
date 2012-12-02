@@ -1,0 +1,23 @@
+
+RING_MPI:
+  C++/MPI version
+  Measure time required to transmit data around
+  a ring of processes
+
+  The number of processes is 8
+
+  Timings based on 10 experiments
+  N double precision values were sent
+  in a ring transmission starting and ending at process 0
+  and using a total of 8 processes.
+
+         N           T min           T ave           T max
+
+       100      2.7895e-05     5.79357e-05     0.000250101
+      1000     0.000155926     0.000213528     0.000441074
+     10000     0.000573874     0.000804591      0.00250506
+    100000       0.0130582       0.0159674       0.0252919
+   1000000        0.133587        0.148366        0.217711
+
+RING_MPI:
+  Normal end of execution.

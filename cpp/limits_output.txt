@@ -1,0 +1,63 @@
+11 September 2011 01:29:54 PM
+
+LIMITS
+  C++ version
+  Return the limits on various data types.
+
+  Compiled on Sep 11 2011 at 13:29:54
+
+TEST01:
+  Information about the FLOAT data type:
+
+  min =            1.17549e-38
+  max =            3.40282e+38
+  epsilon =        1.19209e-07
+  max_exponent10 = 38
+  min_exponent10 = -37
+  max_exponent =   128
+  min_exponent =   -125
+
+TEST02:
+  Information about the DOUBLE data type:
+
+  min =            2.22507e-308
+  max =            1.79769e+308
+  epsilon =        2.22045e-16
+  max_exponent10 = 308
+  min_exponent10 = -307
+  max_exponent =   1024
+  min_exponent =   -1021
+
+TEST03:
+  Information about the LONG DOUBLE data type:
+
+  min =            3.3621e-4932
+  max =            1.18973e+4932
+  epsilon =        1.0842e-19
+  max_exponent10 = 4932
+  min_exponent10 = -4931
+  max_exponent =   16384
+  min_exponent =   -16381
+
+TEST04:
+  Information about the SHORT data type:
+
+  min =            -32768
+  max =            32767
+
+TEST05:
+  Information about the INT data type:
+
+  min =            -2147483648
+  max =            2147483647
+
+TEST06:
+  Information about the LONG data type:
+
+  min =            -9223372036854775808
+  max =            9223372036854775807
+
+LIMITS
+  Normal end of execution.
+
+11 September 2011 01:29:54 PM

@@ -1,0 +1,231 @@
+<html>
+
+  <head>
+    <title>
+      HTMLINDEX - HTML Skeleton Page For A Routine Library
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      HTMLINDEX <br> HTML Skeleton Page For a Routine Library
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>HTMLINDEX</b> 
+      is a C++ program which 
+      builds a "skeleton" HTML page for
+      a C, C++, FORTRAN77 or FORTRAN90 source code file, documenting every
+      routine in the file...<b>if</b> each routine has been appropriately
+      marked.  The information after the marker is usually a one line
+      explanations of what the routine does.
+    </p>
+
+    <p>
+      For a C file, the special marker line has the form
+      <pre>
+        Purpose:
+
+          ROUTINE has this purpose.
+      </pre> 
+    </p>
+
+    <p>
+      For a C++ file, the special marker line has the form
+      <pre>
+      // Purpose:
+      //
+      //    ROUTINE has this purpose.
+      </pre> 
+    </p>
+
+    <p>
+      For a FORTRAN77 file, the special marker line has the form
+      <pre>
+      cc ROUTINE has this purpose.
+      </pre>
+    </p>
+
+    <p>
+      For a FORTRAN90 file, the special marker line has the form
+      <pre>
+      !! ROUTINE has this purpose.
+      </pre>
+    </p>
+
+    <p>
+      After a little editing, the page is ready for posting.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>htmlindex</b> <i>myprog.c</i> &gt; <i>myprog.html</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>myprog.c</i> is a C file to be processed.
+        </li>
+      </ul>
+      Similar commands work for C++, FORTRAN77 or FORTRAN90 files.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/catalog/catalog.html">
+      CATALOG</a>,
+      a C++ program which
+      reads a C, C++, FORTRAN77 or FORTRAN90 program and prints every line 
+      that begins with a special index tag.  If the program has been marked
+      up expecting this convention, it is a handy way of making a table
+      of contents of a program file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/extract/extract.html">
+      EXTRACT</a>,
+      a FORTRAN90 program which 
+      extracts a subroutine, function or module by name from a FORTRAN77 or FORTRAN90 file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f77_cleanup/f77_cleanup.html">
+      F77_CLEANUP</a>,
+      a FORTRAN90 program which
+      makes a copy of a FORTRAN77 file in which some minor cleanups have
+      been made.
+    </p>
+
+    <p>
+      <a href = "../../c_src/f77split/f77split.html">
+      F77SPLIT</a>,
+      a C program which 
+      reads a FORTRAN77 file and creates 
+      individual files for every subroutine or function in the file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90split/f90split.html">
+      F90SPLIT</a>,
+      a FORTRAN90 program which 
+      reads a FORTRAN90 file and creates 
+      individual files for every subroutine or function in the file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/fixcon/fixcon.html">
+      FIXCON</a>,
+      a FORTRAN90 program which 
+      reads a FORTRAN file that uses 
+      FORTRAN77 continuation statements,
+      and makes a copy that uses FORTRAN90 continuation instead.
+    </p>
+
+    <p>
+      <a href = "../../f_src/include_files/include_files.html">
+      INCLUDE_FILES</a>,
+      a FORTRAN90 program which 
+      reads a FORTRAN program with INCLUDE
+      statements, and makes a copy with the indicated files included.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "htmlindex.cpp">htmlindex.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "htmlindex.sh">htmlindex.sh</a>, BASH commands
+          to compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for HTMLINDEX.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_INDEX_FIRST</b> finds the first occurrence of a character in a string.
+        </li>
+        <li>
+          <b>GET_FILE_TYPE</b> determines the type of a file.
+        </li>
+        <li>
+          <b>HANDLE_C</b> processes a single C file.
+        </li>
+        <li>
+          <b>HANDLE_CC</b> processes a single C++ file.
+        </li>
+        <li>
+          <b>HANDLE_F77</b> processes a single FORTRAN77 file.
+        </li>
+        <li>
+          <b>HANDLE_F90</b> processes a single FORTRAN90 file.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>S_BEGIN</b> reports whether string 1 begins with string 2.
+        </li>
+        <li>
+          <b>S_CAP</b> capitalizes all the characters in a string.
+        </li>
+        <li>
+          <b>S_LAST_CH</b> points to the last occurrence of a character in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 12 September 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

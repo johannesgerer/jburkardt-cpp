@@ -1,0 +1,30 @@
+24 October 2011 03:10:52 PM
+
+QUAD_MPI
+  C++/MPI version
+  Estimate an integral of f(x) from A to B.
+  f(x) = 50 / (pi * ( 2500 * x * x + 1 ) )
+
+  A = 0
+  B = 10
+  N = 9999997
+  EXACT =       0.4993633810764567
+
+  Use MPI to divide the computation among
+  multiple processes.
+  Process 1 contributed MY_TOTAL = 0.495552
+  Process 5 contributed MY_TOTAL = 0.000222815
+  Process 3 contributed MY_TOTAL = 0.000742698
+  Process 6 contributed MY_TOTAL = 0.000148544
+  Process 7 contributed MY_TOTAL = 0.000106103
+  Process 4 contributed MY_TOTAL = 0.000371355
+
+  Estimate =       0.4993709939550049
+  Error = 7.612878548224344e-06
+  Time = 0.112205982208252
+  Process 2 contributed MY_TOTAL = 0.00222791
+
+QUAD_MPI:
+  Normal end of execution.
+
+24 October 2011 03:10:52 PM

@@ -1,0 +1,32 @@
+18 December 2011 11:58:33 AM
+
+PPMB_IO_PRB:
+  C++ version
+  Test the PPMB_IO library.
+
+TEST01:
+  PPM_EXAMPLE sets up PPM data.
+  PPMB_WRITE writes a binary PPM file.
+
+  PPM_EXAMPLE has set up the data.
+  PPMB_WRITE was successful.
+
+TEST02
+  PPMB_READ_HEADER reads the header of a PPMB file.
+  PPMB_READ_DATA reads the data in a PPMB file.
+
+  Reading the file ppmb_io_prb.ppmb.
+
+  The file ppmb_io_prb.ppmb has been opened.
+
+  The header was read successfully.
+  Number of rows of data    = 300
+  Number of columns of data = 300
+  Maximum data value =        255
+
+  The data was read successfully.
+
+PPMB_IO_PRB:
+  Normal end of execution.
+
+18 December 2011 11:58:33 AM

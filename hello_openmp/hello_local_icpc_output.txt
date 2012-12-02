@@ -1,0 +1,40 @@
+
+HELLO
+  C++/OpenMP version
+
+  Number of processors available = 16
+  Number of threads =              1
+  This is process 0
+
+HELLO
+  Normal end of execution.
+
+  Elapsed wall clock time = 1.81198e-05
+
+HELLO
+  C++/OpenMP version
+
+  Number of processors available = 16
+  Number of threads =              2
+  This is process 0
+  This is process 1
+
+HELLO
+  Normal end of execution.
+
+  Elapsed wall clock time = 0.000119925
+
+HELLO
+  C++/OpenMP version
+
+  Number of processors available = 16
+  Number of threads =              4
+  This is process   This is process 0
+3
+  This is process 2
+  This is process 1
+
+HELLO
+  Normal end of execution.
+
+  Elapsed wall clock time = 0.000273943

@@ -1,0 +1,87 @@
+09 February 2008 05:12:59 PM
+
+INT_EXACTNESS_JACOBI
+  C++ version
+
+  Investigate the polynomial exactness of a Gauss-Jacobi
+  quadrature rule by integrating exponentially weighted
+  monomials up to a given degree over the (-oo,+oo) interval.
+
+INT_EXACTNESS_JACOBI: User input:
+  Quadrature rule X file = "jac_o8_a0.5_b1.5_x.txt".
+  Quadrature rule W file = "jac_o8_a0.5_b1.5_w.txt".
+  Quadrature rule R file = "jac_o8_a0.5_b1.5_r.txt".
+  Maximum degree to check = 18
+  Exponent of (1-x), ALPHA = 0.5
+  Exponent of (1+x), BETA  = 1.5
+
+  Spatial dimension = 1
+  Number of points  = 8
+
+  The quadrature rule to be tested is
+  a Gauss-Jacobi rule
+  ORDER = 8
+  ALPHA = 0.5
+  BETA  = 1.5
+
+  Standard rule:
+    Integral ( -1 <= x <= +1 ) (1-x)^alplha (1+x)^beta f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =     0.007943251383316998
+  w[ 1] =      0.05574150057932281
+  w[ 2] =       0.1640573457854426
+  w[ 3] =       0.3008492695346398
+  w[ 4] =       0.3883180543538824
+  w[ 5] =       0.3606436566318294
+  w[ 6] =       0.2248513392666373
+  w[ 7] =       0.0683919092594677
+
+  Abscissas X:
+
+  x[ 0] =      -0.8900098006603341
+  x[ 1] =      -0.6866356906720188
+  x[ 2] =      -0.4095019972429185
+  x[ 3] =     -0.08860534544266939
+  x[ 4] =       0.2412867334092741
+  x[ 5] =       0.5444273641737976
+  x[ 6] =       0.7879673764819101
+  x[ 7] =       0.9455158043974036
+
+  Region R:
+
+  r[ 0] =                       -1
+  r[ 1] =                        1
+
+  A Gauss-Jacobi rule would be able to exactly
+  integrate monomials up to and including degree = 15
+
+          Error          Degree
+
+     2.273036412352594e-13   0
+     2.274449992211022e-13   1
+     2.270209252635738e-13   2
+     2.263141353343597e-13   3
+     2.263141353343597e-13   4
+      2.26285863737191e-13   5
+     2.262858637371911e-13   6
+     2.256881213970557e-13   7
+     2.258496733808761e-13   8
+     2.259573747034229e-13   9
+     2.231571403172038e-13  10
+     2.263098517590307e-13  11
+     2.163034197914925e-13  12
+     2.264047494278482e-13  13
+     2.260673354942748e-13  14
+     2.208711609172432e-13  15
+     0.0003885003887300939  16
+     0.0004088141345338994  17
+      0.001921059655487914  18
+
+INT_EXACTNESS_JACOBI:
+  Normal end of execution.
+
+09 February 2008 05:12:59 PM

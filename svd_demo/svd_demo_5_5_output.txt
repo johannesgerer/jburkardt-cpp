@@ -1,0 +1,275 @@
+19 June 2012 07:33:33 AM
+
+SVD_DEMO:
+  C++ version
+
+  Compiled on Jun 19 2012 at 07:32:53.
+
+  Demonstrate the singular value decomposition (SVD)
+
+  A real MxN matrix A can be factored as:
+
+    A = U * S * V'
+
+  where
+
+    U = MxM orthogonal,
+    S = MxN zero except for diagonal,
+    V = NxN orthogonal.
+
+  The diagonal of S contains only nonnegative numbers
+  and these are arranged in descending order.
+
+  Matrix row order    M = 5
+  Matrix column order N = 5
+  Random number SEED    = 123456789
+  (Chosen by the user.)
+
+  We choose a "random" matrix A, with integral
+  values between 0 and 10.
+
+  The matrix A:
+
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            2             1             1             0             9  
+    1:           10             3             4             9             8  
+    2:            8             1             4             4             1  
+    3:            6             0             8             1             0  
+    4:            4             6             8             0             3  
+
+  The orthogonal factor U:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:    -0.256248      0.569696     -0.552868      -0.50563      0.220133  
+    1:    -0.695099      0.412897      0.343245      0.270593       -0.3941  
+    2:    -0.405979     -0.190643      0.396041    -0.0957635      0.795498  
+    3:    -0.355915     -0.564787      0.003267     -0.631351     -0.394621  
+    4:      -0.3996     -0.386825     -0.647812       0.51317     0.0876542  
+
+  The diagonal factor S:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:      22.5226             0             0             0             0  
+    1:            0       9.77824             0             0             0  
+    2:            0             0       7.83216             0             0  
+    3:            0             0             0       3.86563             0  
+    4:            0             0             0             0       1.35337  
+
+  The orthogonal factor V:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:    -0.641364     -0.121985      0.373256     -0.208728      0.625207  
+    1:    -0.228442    -0.0719152     -0.384819      0.850936      0.265452  
+    2:    -0.475285     -0.629375     -0.351382     -0.194473     -0.465513  
+    3:    -0.365665      0.244289      0.597107      0.367581     -0.561213  
+    4:    -0.420546      0.723988     -0.482274     -0.243732    -0.0836036  
+
+  The product U * S * V':
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            2             1             1   5.27356e-16             9  
+    1:           10             3             4             9             8  
+    2:            8             1             4             4             1  
+    3:            6   6.10623e-16             8             1  -2.60209e-15  
+    4:            4             6             8   1.66533e-16             3  
+
+  Frobenius Norm of A, A_NORM = 26.096
+
+  ABSOLUTE ERROR for A = U*S*V'
+  Frobenius norm of difference A-U*S*V' = 2.65444e-14
+
+  RELATIVE ERROR for A = U*S*V':
+  Ratio of DIF_NORM / A_NORM = 1.01718e-15
+
+RANK_ONE_TEST:
+  Compare A to the sum of R rank one matrices.
+
+         R    Absolute      Relative
+              Error         Error
+
+         0          26.096               1
+         1         13.1807        0.505086
+         2         8.83841        0.338689
+         3          4.0957        0.156947
+         4         1.35337       0.0518614
+         5     2.65444e-14     1.01718e-15
+
+RANK_ONE_PRINT_TEST:
+  Print the sums of R rank one matrices.
+
+  Rank R = 0
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            0             0             0             0             0  
+    1:            0             0             0             0             0  
+    2:            0             0             0             0             0  
+    3:            0             0             0             0             0  
+    4:            0             0             0             0             0  
+
+  Rank R = 1
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:      3.70155       1.31843       2.74305       2.11039       2.42713  
+    1:      10.0409       3.57637       7.44081       5.72465       6.58384  
+    2:      5.86444       2.08881       4.34587       3.34353       3.84535  
+    3:      5.14126       1.83123       3.80995       2.93122       3.37115  
+    4:       5.7723       2.05599       4.27759       3.29099       3.78493  
+
+  Rank R = 2
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:      3.02202      0.917813     -0.762964       3.47123        6.4602  
+    1:      9.54835       3.28602       4.89977       6.71094       9.50688  
+    2:      6.09184       2.22287       5.51912       2.88814       2.49573  
+    3:      5.81494       2.22839       7.28575        1.5821     -0.627154  
+    4:       6.2337       2.32801       6.65817       2.36698       1.04647  
+
+  Rank R = 3
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:      1.40576       2.58414      0.758573      0.885663       8.54851  
+    1:      10.5518       2.25149       3.95513       8.31617       8.21036  
+    2:      7.24963       1.02922       4.42918       4.74028      0.999782  
+    3:      5.82449       2.21854       7.27676       1.59738     -0.639494  
+    4:      4.33989       4.28049         8.441     -0.662603       3.49341  
+
+  Rank R = 4
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:      1.81374      0.920916       1.13869      0.167197       9.02491  
+    1:      10.3335       3.14158       3.75171       8.70067       7.95541  
+    2:       7.3269      0.714213       4.50117        4.6042       1.09001  
+    3:       6.3339       0.14177       7.75138      0.700273    -0.0446501  
+    4:      3.92583       5.96851       8.05522     0.0665759       3.00992  
+
+  Rank R = 5
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            2             1             1   5.27356e-16             9  
+    1:           10             3             4             9             8  
+    2:            8             1             4             4             1  
+    3:            6   6.10623e-16             8             1  -2.60209e-15  
+    4:            4             6             8   1.66533e-16             3  
+
+  Original matrix A:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            2             1             1             0             9  
+    1:           10             3             4             9             8  
+    2:            8             1             4             4             1  
+    3:            6             0             8             1             0  
+    4:            4             6             8             0             3  
+
+  The pseudoinverse of A:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:     0.102837     -0.165669      0.405474     -0.130873   -0.00188387  
+    1:   -0.0425532    -0.0305851      0.121011     -0.208777      0.168883  
+    2:   -0.0567376     0.0946365     -0.265736      0.211215     0.0064273  
+    3:    -0.163121      0.236924     -0.306959      0.095523    -0.0401152  
+    4:    0.0992908     0.0296986    -0.0740248     0.0288121    -0.0190603  
+
+PSEUDO_PRODUCT_TEST
+
+  The following relations MUST hold:
+
+   A  * A+ * A  = A
+   A+ * A  * A+ = A+
+ ( A  * A+ ) is MxM symmetric;
+ ( A+ * A  ) is NxN symmetric
+
+  Here are the Frobenius norms of the errors
+  in these relationships:
+
+   A  * A+ * A  = A            1.45e-14
+   A+ * A  * A+ = A+           9.52902e-16
+ ( A  * A+ ) is MxM symmetric; 3.43958e-15
+ ( A+ * A  ) is NxN symmetric; 3.02329e-15
+
+  In some cases, the matrix A * A+
+  may be interesting (if M <= N, then
+  it MIGHT look like the identity.)
+
+
+  A * A+:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            1  -3.33067e-16   1.44329e-15  -9.99201e-16  -5.82867e-16  
+    1:  8.88178e-16             1  -3.33067e-16   1.11022e-16  -8.32667e-16  
+    2:  5.55112e-17   5.20417e-17             1  -3.33067e-16  -4.02456e-16  
+    3: -5.27356e-16   3.88578e-16   2.22045e-16             1  -7.63278e-17  
+    4: -2.77556e-16     3.747e-16  -5.55112e-16   3.33067e-16             1  
+
+  In some cases, the matrix A+ * A
+  may be interesting (if N <= M, then
+  it MIGHT look like the identity.)
+
+
+  A+ * A
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            1  -9.71445e-17  -1.16573e-15   7.77156e-16     6.245e-17  
+    1: -5.55112e-16             1  -2.22045e-16  -3.33067e-16  -2.22045e-16  
+    2: -1.52656e-16   1.04083e-16             1  -8.32667e-17  -2.81025e-16  
+    3: -4.71845e-16  -1.66533e-16   1.16573e-15             1   8.32667e-17  
+    4:  1.11022e-16  -1.80411e-16  -5.55112e-16   5.55112e-17             1  
+
+PSEUDO_LINEAR_SOLVE_TEST
+
+  Given:
+    b = A * x1
+  so that b is in the range of A, solve
+    A * x = b
+  using the pseudoinverse:
+    x2 = A+ * b.
+
+  Norm of x1 = 13.0767
+  Norm of x2 = 13.0767
+  Norm of residual = 6.195e-14
+
+  Given:
+    b = A' * x1
+  so that b is in the range of A', solve
+    A' * x = b
+  using the pseudoinverse:
+    x2 = A+' * b.
+
+  Norm of x1 = 16.4924
+  Norm of x2 = 16.4924
+  Norm of residual = 2.71521e-13
+
+SVD_DEMO:
+  Normal end of execution.
+
+19 June 2012 07:33:33 AM

@@ -1,0 +1,379 @@
+<html>
+
+  <head>
+    <title>
+      FFT_OPENMP - Fast Fourier Transform Using OpenMP
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FFT_OPENMP <br> Fast Fourier Transform Using OpenMP
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FFT_OPENMP</b> 
+      is a C++ program which 
+      demonstrates the computation of a Fast Fourier Transform
+      in parallel, using OpenMP.
+    </p>
+
+    <p>
+      On an Apple PowerPC G5 with two processors, the following results were
+      observed:
+      <table border="1" align="center">
+        <tr>
+          <th>Threads</th><th>N</th><th>Time</th><th>MegaFLOPS</th>
+        </tr>
+        <tr>
+          <td>1</td><td>33,554,432</td><td>32.06</td><td>130.8</td>
+        </tr>
+        <tr>
+          <td>2</td><td>33,554,432</td><td>19.70</td><td>212.8</td>
+        </tr>
+        <tr>
+          <td>4</td><td>33,554,432</td><td>20.10</td><td>208.6</td>
+        </tr>
+      </table> 
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      In the BASH shell, the program could be run with 2 threads using the commands:
+      <pre>
+        export OMP_NUM_THREADS=2
+        ./fft_openmp
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>FFT_OPENMP</b> is available in
+      <a href = "../../c_src/fft_openmp/fft_openmp.html">a C version</a> and
+      <a href = "../../cpp_src/fft_openmp/fft_openmp.html">a C++ version</a> and
+      <a href = "../../f77_src/fft_openmp/fft_openmp.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/fft_openmp/fft_openmp.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/dijkstra_openmp/dijkstra_openmp.html">
+      DIJKSTRA_OPENMP</a>, 
+      a C++ program which
+      uses OpenMP to parallelize a simple example of Dijkstra's 
+      minimum distance algorithm for graphs.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fft_serial/fft_serial.html">
+      FFT_SERIAL</a>,
+      a C++ program which
+      demonstrates the computation of a Fast Fourier Transform,
+      and is intended as a starting point for implementing a parallel version 
+      using OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/heated_plate_openmp/heated_plate_openmp.html">
+      HEATED_PLATE_OPENMP</a>,
+      a C++ program which 
+      solves the steady (time independent) heat equation in a 2D
+      rectangular region, using OpenMP to run in parallel.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hello_openmp/hello_openmp.html">
+      HELLO_OPENMP</a>,
+      a C++ program which 
+      prints out "Hello, world!" using the OpenMP parallel programming environment. 
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/md_openmp/md_openmp.html">
+      MD_OPENMP</a>,
+      a C++ program which
+      carries out a molecular dynamics simulation using OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/multitask_openmp/multitask_openmp.html">
+      MULTITASK_OPENMP</a>,
+      a C++ program which
+      demonstrates how to "multitask", that is, to execute several unrelated
+      and distinct tasks simultaneously, using OpenMP for parallel execution.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mxv_openmp/mxv_openmp.html">
+      MXM_OPENMP</a>,
+      a C++ program which
+      computes a dense matrix product C=A*B,
+      using OpenMP for parallel execution.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/mxv_openmp/mxv_openmp.html">
+      MXV_OPENMP</a>,
+      a C++ program which
+      compares the performance of plain vanilla Fortran and the FORTRAN90
+      intrinsic routine MATMUL, for the matrix multiplication problem
+      y=A*x, with and without parallelization by OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/openmp/openmp.html">
+      OPENMP</a>,
+      C++ programs which
+      illustrate the use of the OpenMP application program interface
+      for carrying out parallel computations in a shared memory environment.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/poisson_openmp/poisson_openmp.html">
+      POISSON_OPENMP</a>,
+      a C++ program which
+      computes an approximate solution to the Poisson equation in a rectangle,
+      using the Jacobi iteration to solve the linear system, and OpenMP to
+      carry out the Jacobi iteration in parallel.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/prime_openmp/prime_openmp.html">
+      PRIME_OPENMP</a>,
+      a C++ program which 
+      counts the number of primes between 1 and N, using OpenMP for parallel execution.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quad_openmp/quad_openmp.html">
+      QUAD_OPENMP</a>,
+      a C++ program which
+      approximates an integral using a quadrature rule, and carries out the
+      computation in parallel using OpenMP.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/random_openmp/random_openmp.html">
+      RANDOM_OPENMP</a>,
+      a C++ program which
+      illustrates how a parallel program using OpenMP can generate multiple
+      distinct streams of random numbers.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/satisfy_openmp/satisfy_openmp.html">
+      SATISFY_OPENMP</a>,
+      a C++ program which
+      demonstrates, for a particular circuit, an exhaustive search
+      for solutions of the circuit satisfy problem,
+      using OpenMP for parallel execution.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/schedule_openmp/schedule_openmp.html">
+      SCHEDULE_OPENMP</a>,
+      a C++ program which
+      demonstrates the default, static, and dynamic methods of "scheduling"
+      loop iterations in OpenMP to avoid work imbalance.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/sftpack/sftpack.html">
+      SFTPACK</a>,
+      a C++ library which
+      implements the "slow" Fourier transform, intended as a teaching
+      tool and comparison with the fast Fourier transform.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgefa_openmp/sgefa_openmp.html">
+      SGEFA_OPENMP</a>,
+      a C++ program which
+      solves a linear system by Gaussian elimination, using OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/ziggurat_openmp/ziggurat_openmp.html">
+      ZIGGURAT_OPENMP</a>, 
+      a C++ program which
+      demonstrates how the ZIGGURAT library can be used to generate random numbers
+      in an OpenMP parallel program.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Wesley Petersen, Peter Arbenz, <br>
+          Introduction to Parallel Computing - A practical guide with examples in C,<br>
+          Oxford University Press,<br>
+          ISBN: 0-19-851576-6,<br>
+          LC: QA76.58.P47.
+        </li>
+        <li>
+          Rohit Chandra, Leonardo Dagum, Dave Kohr, Dror Maydan,
+          Jeff McDonald, Ramesh Menon,<br>
+          Parallel Programming in OpenMP,<br>
+          Morgan Kaufmann, 2001,<br>
+          ISBN: 1-55860-671-8,<br>
+          LC: QA76.642.P32.
+        </li>
+        <li>
+          Barbara Chapman, Gabriele Jost, Ruud vanderPas, David Kuck,<br>
+          Using OpenMP: Portable Shared Memory Parallel Processing,<br>
+          MIT Press, 2007,<br>
+          ISBN13: 978-0262533027,<br>
+          LC: QA76.642.C49.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fft_openmp.cpp">fft_openmp.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "fft_openmp.sh">fft_openmp.sh</a>,
+          commands to compile, link and load the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>FFT_LOCAL_G++</b> compiles, links, loads and runs the program
+      using 1, 2 and 4 threads, the local interactive environment, 
+      and the G++ C++ compiler.
+      <ul>
+        <li>
+          <a href = "fft_local_g++.sh">hello_local_g++.sh</a>, 
+          BASH commands.
+        </li>
+        <li>
+          <a href = "fft_local_g++_output.txt">hello_local_g++_output.txt</a>, 
+          the output file;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>FFT_LOCAL_ICPC</b> compiles, links, loads and runs the program
+      using 1, 2 and 4 threads, the local interactive environment, 
+      and the ICPC C++ compiler.
+      <ul>
+        <li>
+          <a href = "fft_local_icpc.sh">hello_local_icpc.sh</a>, 
+          BASH commands.
+        </li>
+        <li>
+          <a href = "fft_local_icpc_output.txt">hello_local_icpc_output.txt</a>, 
+          the output file;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>FFT_ITHACA_G++</b> compiles, links, loads and runs the program
+      using 1, 2 and 4 threads, using the PBS queueing system on Virginia
+      Tech's Ithaca cluster, and the G++ C++ compiler.
+      <ul>
+        <li>
+          <a href = "fft_ithaca_g++.sh">hello_ithaca_g++.sh</a>, 
+          BASH commands.
+        </li>
+        <li>
+          <a href = "fft_ithaca_g++_output.txt">hello_ithaca_g++_output.txt</a>, 
+          the output file;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>FFT_ITHACA_ICPC</b> compiles, links, loads and runs the program
+      using 1, 2 and 4 threads, using the PBS queueing system on Virginia
+      Tech's Ithaca cluster,
+      and the ICPC C++ compiler.
+      <ul>
+        <li>
+          <a href = "fft_ithaca_icpc.sh">hello_ithaca_icpc.sh</a>, 
+          BASH commands.
+        </li>
+        <li>
+          <a href = "fft_ithaca_icpc_output.txt">hello_ithaca_icpc_output.txt</a>, 
+          the output file;
+        </li>
+      </ul>
+    </p>
+
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for FFT_OPENMP.
+        </li>
+        <li>
+          <b>CCOPY</b> copies a complex vector.
+        </li>
+        <li>
+          <b>CFFT2</b> performs a complex Fast Fourier Transform.
+        </li>
+        <li>
+          <b>CFFTI</b> sets up sine and cosine tables needed for the FFT calculation.
+        </li>
+        <li>
+          <b>GGL</b> generates u(0,1) distributed random numbers. 
+        </li>
+        <li>
+          <b>STEP</b> carries out one step of the workspace version of CFFT2.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the YMDHMS date as a timestamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 20 March 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

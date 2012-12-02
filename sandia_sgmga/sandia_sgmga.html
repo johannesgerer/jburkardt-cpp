@@ -1,0 +1,714 @@
+<html>
+
+  <head>
+    <title>
+      SANDIA_SGMGA - Sparse Grid Mixed Growth Anisotropic Rules.
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SANDIA_SGMGA <br> Sparse Grid Mixed Growth Anisotropic Rules.
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SANDIA_SGMGA</b>
+      is a C++ library which
+      implements a family of sparse grid rules.  These rules are "mixed",
+      in that a different 1D quadrature rule can be specified for each dimension.
+      Moreover, each 1D quadrature rule comes in a family of increasing size
+      whose growth rate (typically linear or exponential) is chosen by the user.
+      Finally, the user may also specify different weights for each dimension,
+      resulting in anisotropic rules.
+    </p>
+
+    <p>
+      <b>SANDIA_SGMGA</b> is a variant of the
+      <b>SGMGA</b> library.  It has the same capabilities as
+      that library, but it uses a different interface to the SANDIA_RULES routines
+      which compute points and weights of quadrater rules.  Instead of passing
+      the parameters needed by some of those rules as function arguments, these
+      values are made available indirectly.  This library implements that
+      indirect storage using a function called <b>parameter</b>, which must
+      therefore be supplied by the user as part of every program that calls
+      the library.  Refer to the source code of the example programs to see
+      how <b>parameter</b> is defined and used.
+    </p>
+
+    <p>
+      <b>SANDIA_SGMGA</b> calls routines from the <b>SANDIA_RULES</b>
+      and <b>SANDIA_RULES2</b> libraries. Source code or compiled copies
+      of those libraries must be available when a program wishes to use
+      the <b>SANDIA_SGMGA</b> library.
+    </p>
+
+    <p>
+      <table border=1>
+        <tr>
+          <th>Name</th>
+          <th>Abbreviation</th>
+          <th>Interval</th>
+          <th>Weight function</th>
+        </tr>
+        <tr>
+          <td>Clenshaw-Curtis</td>
+          <td>CC</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Fejer Type 2</td>
+          <td>F2</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Gauss Patterson</td>
+          <td>GP</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Gauss-Legendre</td>
+          <td>GL</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Gauss-Hermite</td>
+          <td>GH</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>Generalized Gauss-Hermite</td>
+          <td>GGH</td>
+          <td>(-oo,+oo)</td>
+          <td>|x|<sup>alpha</sup> e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>Gauss-Laguerre</td>
+          <td>LG</td>
+          <td>[0,+oo)</td>
+          <td>e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>Generalized Gauss-Laguerre</td>
+          <td>GLG</td>
+          <td>[0,+oo)</td>
+          <td>x<sup>alpha</sup> e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>Gauss-Jacobi</td>
+          <td>GJ</td>
+          <td>[-1,+1]</td>
+          <td>(1-x)<sup>alpha</sup> (1+x)<sup>beta</sup></td>
+        </tr>
+        <tr>
+          <td>Hermite Genz-Keister</td>
+          <td>HGK</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+      </table>
+    </p>
+
+    <p>
+      In the sparse grid setting, for any 1D quadrature rule, it is necessary to 
+      select a sequence of rules of increasing order (number of points), indexed 
+      by a variable we will call the "level".  Thus, although the Clenshaw Curtis 
+      rule can be set up for any, a common procedure in sparse grids is to choose
+      select the rules of order 1, 3, 5, 9, 17, 33, ..., assigning these the
+      levels 0, 1, 2, 3, 4, 5 and so forth.  The relationship between level (L) 
+      and order (O) will be called the <i>growth rule</i>.
+    </p>
+
+    <p>
+      The details of growth rules vary somewhat, depending on whether there is
+      nesting to take advantage of, whether the user wants to economize as much
+      as possible in the number of points added, and so on.  For each dimension,
+      the user must specify a growth rule appropriate for the chosen quadrature rule.
+      We provide a number of predefined growth rules that are suitable.    
+    </p>
+
+    <p>
+      Here are the names of the growth rule functions, with a brief comment on
+      their behavior and use.  These growth rule functions are available in
+      the <b>sandia_rules</b> library where their details may be examined.
+      <table border=1>
+        <tr>
+          <th>Growth Rule</th>
+          <th>Discussion</th>
+        </tr>
+        <tr>
+          <td>level_to_order_exp_cc()</td>
+          <td>Clenshaw Curtis rule.  Fast growth is exponential</td>
+        </tr>
+        <tr>
+          <td>level_to_order_exp_f2()</td>
+          <td>Fejer Type 2 rule.  Fast growth is exponential</td>
+        </tr>
+        <tr>
+          <td>level_to_order_exp_gauss()</td>
+          <td>Gaussian rules.  Fast growth is exponential, O=2^(L+1)-1</td>
+        </tr>
+        <tr>
+          <td>level_to_order_exp_hgk()</td>
+          <td>Genz-Keister rules for Hermite weight;</td>
+        </tr>
+        <tr>
+          <td>level_to_order_linear_nn()</td>
+          <td>Linear growth for a non-nested rule;</td>
+        </tr>
+        <tr>
+          <td>level_to_order_linear_wn()</td>
+          <td>Linear growth for a weakly-nested rule (typically, an abscissas at 0 is common);</td>
+        </tr>
+      </table>
+    </p>
+
+    <p>
+      Each growth
+      rule has "slow", "moderate" and "fast" settings.
+      A scalar quantity GROWTH selects the rule order O for level L
+      from the three growth options for each 1D rule.  In the case of exponentially
+      growing rules, the slow and moderate growth rules choose O indirectly,
+      by imposing a requirement on P, the degree of precision of the rule.
+      <table border=1>
+        <tr>
+          <th>Value</th>
+          <th>Name</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>Slow</td>
+          <td>O=L+1 for linear rules, P=2*L+1 for exponential</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Moderate</td>
+          <td>O=2*L+1 for linear rules, P=4*L+1 for exponential</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Full</td>
+          <td>O=2*L+1 for linear rules, O = next rule in sequence for exponential</td>
+        </tr>
+      </table>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/nint_exactness_mixed/nint_exactness_mixed.html">
+      NINT_EXACTNESS_MIXED</a>,
+      a C++ program which
+      measures the polynomial exactness of a multidimensional quadrature rule
+      based on a mixture of 1D quadrature rule factors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule/quadrule.html">
+      QUADRULE</a>,
+      a C++ library which
+      defines quadrature rules for various intervals and weight functions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_rules/sandia_rules.html">
+      SANDIA_RULES</a>,
+      a C++ library which
+      produces 1D quadrature rules of
+      Chebyshev, Clenshaw Curtis, Fejer 2, Gegenbauer, generalized Hermite,
+      generalized Laguerre, Hermite, Jacobi, Laguerre, Legendre and Patterson types.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_rules2/sandia_rules2.html">
+      SANDIA_RULES2</a>,
+      a C++ library which
+      contains a very small selection of functions which serve as an interface
+      between SANDIA_SGMG or SANDIA_SGMGA and SANDIA_RULES.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_sgmg/sandia_sgmg.html">
+      SANDIA_SGMG</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules,
+      and experiments with the use of a linear growth rate for the quadrature rules.
+      This is a version of SPARSE_GRID_MIXED_GROWTH that uses a different procedure
+      for supplying the parameters needed to evaluate certain quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_sparse/sandia_sparse.html">
+      SANDIA_SPARSE</a>,
+      a C++ library which
+      computes the points and weights of a Smolyak sparse
+      grid, based on a variety of 1-dimensional quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgmg/sgmg.html">
+      SGMG</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules,
+      and experiments with the use of a linear growth rate for the quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgmga/sgmga.html">
+      SGMGA</a>,
+      a C++ library which
+      creates sparse grids based on a mixture of 1D quadrature rules,
+      allowing anisotropic weights for each dimension.
+    </p>
+
+    <p>
+      <a href = "../../c_src/smolpack/smolpack.html">
+      SMOLPACK</a>,
+      a C library which
+      implements Novak and Ritter's method for estimating the integral
+      of a function over a multidimensional hypercube using sparse grids,
+      by Knut Petras.
+    </p>
+
+    <p>
+      <a href = "../../m_src/sparse_grid_display/sparse_grid_display.html">
+      SPARSE_GRID_DISPLAY</a>,
+      a MATLAB program which
+      can display a 2D or 3D sparse grid.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_grid_mixed/sparse_grid_mixed.html">
+      SPARSE_GRID_MIXED</a>,
+      a C++ library which
+      creates sparse grids based on a mix of 1D rules.
+    </p>
+
+    <p>
+      <a href = "../../m_src/toms847/toms847.html">
+      TOMS847</a>,
+      a MATLAB program which
+      uses sparse grids to carry out multilinear hierarchical interpolation.
+      It is commonly known as SPINTERP, and is by Andreas Klimke.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Milton Abramowitz, Irene Stegun,<br>
+          Handbook of Mathematical Functions,<br>
+          National Bureau of Standards, 1964,<br>
+          ISBN: 0-486-61272-4,<br>
+          LC: QA47.A34.
+        </li>
+        <li>
+          Charles Clenshaw, Alan Curtis,<br>
+          A Method for Numerical Integration on an Automatic Computer,<br>
+          Numerische Mathematik,<br>
+          Volume 2, Number 1, December 1960, pages 197-205.
+        </li>
+        <li>
+          Philip Davis, Philip Rabinowitz,<br>
+          Methods of Numerical Integration,<br>
+          Second Edition,<br>
+          Dover, 2007,<br>
+          ISBN: 0486453391,<br>
+          LC: QA299.3.D28.
+        </li>
+        <li>
+          Michael Eldred, John Burkardt,<br>
+          Comparison of Non-Intrusive Polynomial Chaos and Stochastic
+          Collocation Methods for Uncertainty Quantification,<br>
+          American Institute of Aeronautics and Astronautics,<br>
+          Paper 2009-0976,<br>
+          47th AIAA Aerospace Sciences Meeting Including The New Horizons Forum and Aerospace Exposition,<br>
+          5 - 8 January 2009, Orlando, Florida.
+        </li>
+        <li>
+          Walter Gautschi,<br>
+          Numerical Quadrature in the Presence of a Singularity,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 4, Number 3, September 1967, pages 357-362.
+        </li>
+        <li>
+          Thomas Gerstner, Michael Griebel,<br>
+          Numerical Integration Using Sparse Grids,<br>
+          Numerical Algorithms,<br>
+          Volume 18, Number 3-4, 1998, pages 209-232.
+        </li>
+        <li>
+          Gene Golub, John Welsch,<br>
+          Calculation of Gaussian Quadrature Rules,<br>
+          Mathematics of Computation,<br>
+          Volume 23, Number 106, April 1969, pages 221-230.
+        </li>
+        <li>
+          Prem Kythe, Michael Schaeferkotter,<br>
+          Handbook of Computational Methods for Integration,<br>
+          Chapman and Hall, 2004,<br>
+          ISBN: 1-58488-428-2,<br>
+          LC: QA299.3.K98.
+        </li>
+        <li>
+          Albert Nijenhuis, Herbert Wilf,<br>
+          Combinatorial Algorithms for Computers and Calculators,<br>
+          Second Edition,<br>
+          Academic Press, 1978,<br>
+          ISBN: 0-12-519260-6,<br>
+          LC: QA164.N54.
+        </li>
+        <li>
+          Fabio Nobile, Raul Tempone, Clayton Webster,<br>
+          A Sparse Grid Stochastic Collocation Method for Partial Differential
+          Equations with Random Input Data,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 46, Number 5, 2008, pages 2309-2345.
+        </li>
+        <li>
+          Fabio Nobile, Raul Tempone, Clayton Webster,<br>
+          An Anisotropic Sparse Grid Stochastic Collocation Method for Partial Differential
+          Equations with Random Input Data,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 46, Number 5, 2008, pages 2411-2442.
+        </li>
+        <li>
+          Thomas Patterson,<br>
+          The Optimal Addition of Points to Quadrature Formulae,<br>
+          Mathematics of Computation,<br>
+          Volume 22, Number 104, October 1968, pages 847-856.
+        </li>
+        <li>
+          Knut Petras,<br>
+          Smolyak Cubature of Given Polynomial Degree with Few Nodes
+          for Increasing Dimension,<br>
+          Numerische Mathematik,<br>
+          Volume 93, Number 4, February 2003, pages 729-753.
+        </li>
+        <li>
+          Sergey Smolyak,<br>
+          Quadrature and Interpolation Formulas for Tensor Products of
+          Certain Classes of Functions,<br>
+          Doklady Akademii Nauk SSSR,<br>
+          Volume 4, 1963, pages 240-243.
+        </li>
+        <li>
+          Arthur Stroud, Don Secrest,<br>
+          Gaussian Quadrature Formulas,<br>
+          Prentice Hall, 1966,<br>
+          LC: QA299.4G3S7.
+        </li>
+        <li>
+          Joerg Waldvogel,<br>
+          Fast Construction of the Fejer and Clenshaw-Curtis
+          Quadrature Rules,<br>
+          BIT Numerical Mathematics,<br>
+          Volume 43, Number 1, 2003, pages 1-18.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sandia_sgmga.cpp">sandia_sgmga.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "sandia_sgmga.hpp">sandia_sgmga.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "sandia_sgmga.sh">sandia_sgmga.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>SANDIA_SGMGA_ANISO_NORMALIZE_PRB</b> tests <b>SANDIA_SGMGA_ANISO_BALANCE</b>,
+      <b>SANDIA_SGMGA_ANISO_NORMALIZE</b> and <b>SANDIA_SGMGA_IMPORTANCE_TO_ANISO</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_aniso_normalize_prb.cpp">sandia_sgmga_aniso_normalize_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_aniso_normalize_prb.sh">sandia_sgmga_aniso_normalize_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_aniso_normalize_prb_output.txt">sandia_sgmga_aniso_normalize_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      <b>SANDIA_SGMGA_INDEX_PRB</b> tests <b>SANDIA_SGMGA_INDEX</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_index_prb.cpp">sandia_sgmga_index_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_index_prb.sh">sandia_sgmga_index_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_index_prb_output.txt">sandia_sgmga_index_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      <b>SANDIA_SGMGA_POINT_PRB</b> tests <b>SANDIA_SGMGA_POINT</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_point_prb.cpp">sandia_sgmga_point_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_point_prb.sh">sandia_sgmga_point_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_point_prb_output.txt">sandia_sgmga_point_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      <b>SANDIA_SGMGA_PRODUCT_WEIGHT_PRB</b> tests <b>SANDIA_SGMGA_PRODUCT_WEIGHT</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_product_weight_prb.cpp">sandia_sgmga_product_weight_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_product_weight_prb.sh">sandia_sgmga_product_weight_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_product_weight_prb_output.txt">sandia_sgmga_product_weight_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMGA_SIZE_PRB</b> tests <b>SANDIA_SGMGA_SIZE</b>
+      and <b>SANDIA_SGMGA_SIZE_TOTAL</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_size_prb.cpp">sandia_sgmga_size_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_size_prb.sh">sandia_sgmga_size_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_size_prb_output.txt">sandia_sgmga_size_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      <b>SANDIA_SGMGA_SIZE_TABLE</b> tabulates the point counts from <b>SANDIA_SGMGA_SIZE</b>
+      for an isotropic rule over a range of dimensions and levels.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_size_table.cpp">sandia_sgmga_size_table.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_size_table.sh">sandia_sgmga_size_table.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_size_table_output.txt">sandia_sgmga_size_table_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      <b>SANDIA_SGMGA_UNIQUE_INDEX_PRB</b> tests <b>SANDIA_SGMGA_UNIQUE_INDEX</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_unique_index_prb.cpp">sandia_sgmga_unique_index_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_unique_index_prb.sh">sandia_sgmga_unique_index_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_unique_index_prb_output.txt">sgmgav_index_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      <b>SANDIA_SGMGA_VCN_PRB</b> tests <b>SANDIA_SGMGA_VCN</b> and <b>SANDIA_SGMGA_VCN_ORDERED</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_vcn_prb.cpp">sandia_sgmga_vcn_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_vcn_prb.sh">sandia_sgmga_vcn_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_vcn_prb_output.txt">sandia_sgmga_vcn_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMGA_VCN_COEF_PRB</b> tests <b>SANDIA_SGMGA_VCN_COEF</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_vcn_coef_prb.cpp">sandia_sgmga_vcn_coef_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_vcn_coef_prb.sh">sandia_sgmga_vcn_coef_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_vcn_coef_prb_output.txt">sandia_sgmga_vcn_coef_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      <b>SANDIA_SGMGA_WEIGHT_PRB</b> tests <b>SANDIA_SGMGA_WEIGHT</b>.
+      <ul>
+        <li>
+          <a href = "sandia_sgmga_weight_prb.cpp">sandia_sgmga_weight_prb.cpp</a>,
+          the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_weight_prb.sh">sandia_sgmga_weight_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "sandia_sgmga_weight_prb_output.txt">sandia_sgmga_weight_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    <p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>SANDIA_SGMGA_ANISO_BALANCE</b> "balances" an anisotropic weight vector.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_ANISO_NORMALIZE</b> normalizes the SANDIA_SGMGA anisotropic weight vector.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_IMPORTANCE_TO_ANISO:</b> importance vector to anisotropic weight vector.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_INDEX</b> indexes an SANDIA_SGMGA grid.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_POINT</b> computes the points of an SANDIA_SGMGA rule.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_PRODUCT_WEIGHT</b> computes the weights of a mixed product rule.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_SIZE</b> sizes an SANDIA_SGMGA grid, discounting duplicates.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_SIZE_TOTAL</b> sizes an SANDIA_SGMGA grid, counting duplicates.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_UNIQUE_INDEX</b> maps nonunique to unique points.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_VCN</b> returns the next constrained vector.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_VCN_COEF</b> returns the "next" constrained vector's coefficient.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_VCN_COEF_NAIVE:</b> "next" constrained vector's coefficient.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_VCN_NAIVE</b> returns the next constrained vector.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_VCN_ORDERED</b> returns the "next" constrained vector, with ordering.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_VCN_ORDERED_NAIVE</b> returns the "next" constrained vector, with ordering.
+        </li>
+        <li>
+          <b>SANDIA_SGMGA_WEIGHT</b> computes weights for an SANDIA_SGMGA grid.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 23 January 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

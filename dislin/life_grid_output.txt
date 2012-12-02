@@ -1,0 +1,15 @@
+
+LIFE_GRID:
+  C++ version:
+  Use DISLIN routines to plot a grid for Life..
+
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ <<                END OF DISLIN / VERSION 10.1                  <<
+ <<  Date    : 21.04.2011  Time    : 21:49:03  Pageformat: USAP  <<
+ <<  Vectors : 561         Warnings: 0         Fileformat:  PNG  <<
+ <<  Metafile: life_grid.png                                     <<
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+LIFE_GRID:
+  Normal end of execution.

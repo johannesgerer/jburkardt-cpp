@@ -1,0 +1,58 @@
+03 March 2008 08:12:31 AM
+
+INT_EXACTNESS_CHEBYSHEV2
+  C++ version
+
+  Investigate the polynomial exactness of a Gauss-Chebyshev
+  type 2 quadrature rule by integrating weighted
+  monomials up to a given degree over the [-1,+1] interval.
+
+INT_EXACTNESS_CHEBYSHEV2: User input:
+  Quadrature rule X file = "cheby2_o2_x.txt".
+  Quadrature rule W file = "cheby2_o2_w.txt".
+  Quadrature rule R file = "cheby2_o2_r.txt".
+  Maximum degree to check = 5
+
+  Spatial dimension = 1
+  Number of points  = 2
+
+  The quadrature rule to be tested is
+  a Gauss-Legendre rule
+  ORDER = 2
+
+  Standard rule:
+    Integral ( -1 <= x <= +1 ) f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =       0.7853981633974484
+  w[ 1] =       0.7853981633974481
+
+  Abscissas X:
+
+  x[ 0] =      -0.4999999999999998
+  x[ 1] =       0.5000000000000001
+
+  Region R:
+
+  r[ 0] =                       -1
+  r[ 1] =                        1
+
+  A Gauss-Chebyshev type 2 rule would be able to exactly
+  integrate monomials up to and including degree = 3
+
+          Error          Degree
+
+                         0   0
+     1.110223024625157e-16   1
+     2.827159716856459e-16   2
+      1.52655665885959e-16   3
+        0.5000000000000003   4
+      7.28583859910259e-17   5
+
+INT_EXACTNESS_CHEBYSHEV2:
+  Normal end of execution.
+
+03 March 2008 08:12:31 AM

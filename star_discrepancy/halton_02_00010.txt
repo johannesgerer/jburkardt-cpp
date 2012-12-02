@@ -1,0 +1,20 @@
+#  halton_02_00010.txt
+#  created by HALTON_DATASET.
+#
+#  File generated on March 16 2003   9:25:10.385 AM
+#
+#  Spatial dimension M =      2
+#  Number of points N =     10
+#  Bases:      2     3
+#  Initial values skipped =      0
+#
+  0.000000  0.000000
+  0.500000  0.333333
+  0.250000  0.666667
+  0.750000  0.111111
+  0.125000  0.444444
+  0.625000  0.777778
+  0.375000  0.222222
+  0.875000  0.555556
+  0.062500  0.888889
+  0.562500  0.037037

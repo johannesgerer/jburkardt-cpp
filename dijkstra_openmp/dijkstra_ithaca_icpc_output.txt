@@ -1,0 +1,139 @@
+02 July 2010 10:13:38 AM
+
+DIJKSTRA_OPEN_MP
+  C++ version
+  Use Dijkstra's algorithm to determine the minimum
+  distance from node 0 to each node in a graph,
+  given the distances between each pair of nodes.
+
+  Although a very small example is considered, we
+  demonstrate the use of OpenMP directives for
+  parallel execution.
+
+  Distance matrix:
+
+    0   40   15  Inf  Inf  Inf
+   40    0   20   10   25    6
+   15   20    0  100  Inf  Inf
+  Inf   10  100    0  Inf  Inf
+  Inf   25  Inf  Inf    0    8
+  Inf    6  Inf  Inf    8    0
+
+  P0: Parallel region begins with 1 threads.
+
+  P0:  First=0  Last=5
+  P0: Connecting node 2
+  P0: Connecting node 1
+  P0: Connecting node 5
+  P0: Connecting node 3
+  P0: Connecting node 4
+
+  P0: Exiting parallel region.
+
+  Minimum distances from node 0:
+
+   0   0
+   1  35
+   2  15
+   3  45
+   4  49
+   5  41
+
+DIJKSTRA_OPEN_MP
+  Normal end of execution.
+
+02 July 2010 10:13:38 AM
+02 July 2010 10:13:38 AM
+
+DIJKSTRA_OPEN_MP
+  C++ version
+  Use Dijkstra's algorithm to determine the minimum
+  distance from node 0 to each node in a graph,
+  given the distances between each pair of nodes.
+
+  Although a very small example is considered, we
+  demonstrate the use of OpenMP directives for
+  parallel execution.
+
+  Distance matrix:
+
+    0   40   15  Inf  Inf  Inf
+   40    0   20   10   25    6
+   15   20    0  100  Inf  Inf
+  Inf   10  100    0  Inf  Inf
+  Inf   25  Inf  Inf    0    8
+  Inf    6  Inf  Inf    8    0
+
+  P0: Parallel region begins with 2 threads.
+
+  P0:  First=0  Last=2
+  P1:  First=3  Last=5
+  P0: Connecting node 2
+  P0: Connecting node 1
+  P0: Connecting node 5
+  P0: Connecting node 3
+  P0: Connecting node 4
+
+  P0: Exiting parallel region.
+
+  Minimum distances from node 0:
+
+   0   0
+   1  35
+   2  15
+   3  45
+   4  49
+   5  41
+
+DIJKSTRA_OPEN_MP
+  Normal end of execution.
+
+02 July 2010 10:13:38 AM
+02 July 2010 10:13:38 AM
+
+DIJKSTRA_OPEN_MP
+  C++ version
+  Use Dijkstra's algorithm to determine the minimum
+  distance from node 0 to each node in a graph,
+  given the distances between each pair of nodes.
+
+  Although a very small example is considered, we
+  demonstrate the use of OpenMP directives for
+  parallel execution.
+
+  Distance matrix:
+
+    0   40   15  Inf  Inf  Inf
+   40    0   20   10   25    6
+   15   20    0  100  Inf  Inf
+  Inf   10  100    0  Inf  Inf
+  Inf   25  Inf  Inf    0    8
+  Inf    6  Inf  Inf    8    0
+
+  P0: Parallel region begins with 4 threads.
+
+  P0:  First=  P0  Last=  P2:  First=  P3  Last=133:  First=04
+
+:  First=  Last=15  Last=2
+
+  P0: Connecting node 2
+  P2: Connecting node 1
+  P3: Connecting node 5
+  P3: Connecting node 3
+  P3: Connecting node 4
+
+  P0: Exiting parallel region.
+
+  Minimum distances from node 0:
+
+   0   0
+   1  35
+   2  15
+   3  45
+   4  49
+   5  41
+
+DIJKSTRA_OPEN_MP
+  Normal end of execution.
+
+02 July 2010 10:13:38 AM

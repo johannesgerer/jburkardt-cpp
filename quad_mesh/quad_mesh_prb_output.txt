@@ -1,0 +1,446 @@
+30 September 2009 02:55:28 PM
+
+QUAD_MESH_PRB
+  C++ version
+
+  Tests for the routines in the QUAD_MESH library.
+
+TEST01
+  ADJ_SIZE counts the node adjacencies.
+
+  Number of adjacency entries is 186
+
+  Adjacency pointers:
+
+         0         0         3
+         1         4         9
+         2        10        15
+         3        16        21
+         4        22        25
+         5        26        31
+         6        32        40
+         7        41        49
+         8        50        58
+         9        59        66
+        10        67        70
+        11        71        76
+        12        77        84
+        13        85        92
+        14        93       101
+        15       102       110
+        16       111       116
+        17       117       122
+        18       123       130
+        19       131       138
+        20       139       147
+        21       148       155
+        22       156       159
+        23       160       163
+        24       164       169
+        25       170       175
+        26       176       181
+        27       182       185
+
+TEST02
+  AREA_Q4_MESH computes the area of each element
+  in a Q4 mesh.
+
+  Element areas:
+
+         0               1
+         1               1
+         2               1
+         3               1
+         4               1
+         5               1
+         6               1
+         7               1
+         8               1
+         9               1
+        10               1
+        11               1
+        12               1
+        13               1
+        14               1
+        15               1
+        16               1
+
+   Mesh =   17
+
+TEST03
+  AREA_QUAD computes the area of a quadrilateral.
+
+  Area = 4.5
+
+TEST04
+  BOUNDARY_EDGE_COUNT_Q4_MESH counts the
+    boundary edges.
+
+  Number of boundary edges = 22
+  Correct number =           22
+
+TEST05
+  BOUNDARY_EDGE_COUNT_EULER_Q4_MESH counts the
+    boundary edges using Euler's formula.
+
+  Number of boundary edges = 22
+  Correct number =           22
+
+TEST06
+  EXAMPLE1_Q4_MESH sets up example #1 Q4 mesh.
+
+  Number of nodes =    28
+  Number of elements = 17
+  Number of holes =    1
+
+  Node coordinates:
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              1             0
+    3              2             0
+    4              3             0
+    5              4             0
+    6              0             1
+    7              1             1
+    8              2             1
+    9              3             1
+   10              4             1
+   11              5             1
+   12              0             2
+   13              1             2
+   14              2             2
+   15              3             2
+   16              4             2
+   17              5             2
+   18              0             3
+   19              1             3
+   20              2             3
+   21              3             3
+   22              4             3
+   23              5             3
+   24              0             4
+   25              1             4
+   26              2             4
+   27              3             4
+   28              4             4
+
+  Elements:
+
+  Row:      1       2       3       4  
+  Col
+
+    1       0       1       6       5  
+    2       1       2       7       6  
+    3       2       3       8       7  
+    4       3       4       9       8  
+    5       5       6      12      11  
+    6       6       7      13      12  
+    7       7       8      14      13  
+    8       8       9      15      14  
+    9       9      10      16      15  
+   10      11      12      18      17  
+   11      13      14      20      19  
+   12      14      15      21      20  
+   13      15      16      22      21  
+   14      17      18      24      23  
+   15      18      19      25      24  
+   16      19      20      26      25  
+   17      20      21      27      26  
+
+  Element neighbors
+
+  Row:      1       2       3       4  
+  Col
+
+    1      -1       1       4      -1  
+    2      -1       2       5       0  
+    3      -1       3       6       1  
+    4      -1      -1       7       2  
+    5       0       5       9      -1  
+    6       1       6      -2       4  
+    7       2       7      10       5  
+    8       3       8      11       6  
+    9      -1      -1      12       7  
+   10       4      -2      13      -1  
+   11       6      11      15      -2  
+   12       7      12      16      10  
+   13       8      -1      -1      11  
+   14       9      14      -1      -1  
+   15      -2      15      -1      13  
+   16      10      16      -1      14  
+   17      11      -1      -1      15  
+
+TEST062
+  EXAMPLE1_Q4_MESH sets up example #1 Q4 mesh.
+  PLOT_Q4_MESH plots it.
+
+  Number of nodes =    28
+  Number of elements = 17
+  Number of holes =    1
+
+TEST07
+  EXAMPLE2_Q4_MESH sets up example #2 Q4 mesh.
+
+  Number of nodes =    37
+  Number of elements = 32
+  Number of holes =    0
+
+  Node coordinates:
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2             -1   1.22465e-16
+    3       -0.92388      0.382683
+    4      -0.707107      0.707107
+    5      -0.382683       0.92388
+    6    6.12323e-17             1
+    7       0.382683       0.92388
+    8       0.707107      0.707107
+    9        0.92388      0.382683
+   10              1             0
+   11             -2   2.44929e-16
+   12       -1.84776      0.765367
+   13       -1.41421       1.41421
+   14      -0.765367       1.84776
+   15    1.22465e-16             2
+   16       0.765367       1.84776
+   17        1.41421       1.41421
+   18        1.84776      0.765367
+   19              2             0
+   20             -3   3.67394e-16
+   21       -2.77164       1.14805
+   22       -2.12132       2.12132
+   23       -1.14805       2.77164
+   24    1.83697e-16             3
+   25        1.14805       2.77164
+   26        2.12132       2.12132
+   27        2.77164       1.14805
+   28              3             0
+   29             -4   4.89859e-16
+   30       -3.69552       1.53073
+   31       -2.82843       2.82843
+   32       -1.53073       3.69552
+   33    2.44929e-16             4
+   34        1.53073       3.69552
+   35        2.82843       2.82843
+   36        3.69552       1.53073
+   37              4             0
+
+  Elements:
+
+  Row:      1       2       3       4  
+  Col
+
+    1       1       1       3       2  
+    2       1       1       4       3  
+    3       1       1       5       4  
+    4       1       1       6       5  
+    5       1       1       7       6  
+    6       1       1       8       7  
+    7       1       1       9       8  
+    8       1       1      10       9  
+    9       2       3      12      11  
+   10       3       4      13      12  
+   11       4       5      14      13  
+   12       5       6      15      14  
+   13       6       7      16      15  
+   14       7       8      17      16  
+   15       8       9      18      17  
+   16       9      10      19      18  
+   17      11      12      21      20  
+   18      12      13      22      21  
+   19      13      14      23      22  
+   20      14      15      24      23  
+   21      15      16      25      24  
+   22      16      17      26      25  
+   23      17      18      27      26  
+   24      18      19      28      27  
+   25      20      21      30      29  
+   26      21      22      31      30  
+   27      22      23      32      31  
+   28      23      24      33      32  
+   29      24      25      34      33  
+   30      25      26      35      34  
+   31      26      27      36      35  
+   32      27      28      37      36  
+
+  Element neighbors
+
+  Row:      1       2       3       4  
+  Col
+
+    1      -1       1       8      -1  
+    2      -1       2       9       0  
+    3      -1       3      10       1  
+    4      -1       4      11       2  
+    5      -1       5      12       3  
+    6      -1       6      13       4  
+    7      -1       7      14       5  
+    8      -1      -1      15       6  
+    9       0       9      16      -1  
+   10       1      10      17       8  
+   11       2      11      18       9  
+   12       3      12      19      10  
+   13       4      13      20      11  
+   14       5      14      21      12  
+   15       6      15      22      13  
+   16       7      -1      23      14  
+   17       8      17      24      -1  
+   18       9      18      25      16  
+   19      10      19      26      17  
+   20      11      20      27      18  
+   21      12      21      28      19  
+   22      13      22      29      20  
+   23      14      23      30      21  
+   24      15      -1      31      22  
+   25      16      25      -1      -1  
+   26      17      26      -1      24  
+   27      18      27      -1      25  
+   28      19      28      -1      26  
+   29      20      29      -1      27  
+   30      21      30      -1      28  
+   31      22      31      -1      29  
+   32      23      -1      -1      30  
+
+TEST072
+  EXAMPLE2_Q4_MESH sets up example #2 Q4 mesh.
+  PLOT_Q4_MESH plots it.
+
+  Number of nodes =    37
+  Number of elements = 32
+  Number of holes =    0
+
+TEST08
+  NEIGHBOR_ELEMENTS_Q4_MESH determines the
+  adjacency relationships between elements.
+
+  Element neighbors as reported by EXAMPLE1_Q4_MESH:
+
+  Row:      1       2       3       4  
+  Col
+
+    1      -1       1       4      -1  
+    2      -1       2       5       0  
+    3      -1       3       6       1  
+    4      -1      -1       7       2  
+    5       0       5       9      -1  
+    6       1       6      -2       4  
+    7       2       7      10       5  
+    8       3       8      11       6  
+    9      -1      -1      12       7  
+   10       4      -2      13      -1  
+   11       6      11      15      -2  
+   12       7      12      16      10  
+   13       8      -1      -1      11  
+   14       9      14      -1      -1  
+   15      -2      15      -1      13  
+   16      10      16      -1      14  
+   17      11      -1      -1      15  
+
+  Element neighbors computed by NEIGHBOR_ELEMENTS_Q4_MESH:
+
+  Row:      1       2       3       4  
+  Col
+
+    1      -1       1       4      -1  
+    2      -1       2       5       0  
+    3      -1       3       6       1  
+    4      -1      -1       7       2  
+    5       0       5       9      -1  
+    6       1       6      -1       4  
+    7       2       7      10       5  
+    8       3       8      11       6  
+    9      -1      -1      12       7  
+   10       4      -1      13      -1  
+   11       6      11      15      -1  
+   12       7      12      16      10  
+   13       8      -1      -1      11  
+   14       9      14      -1      -1  
+   15      -1      15      -1      13  
+   16      10      16      -1      14  
+   17      11      -1      -1      15  
+
+TEST09
+  Write Q4 Mesh Example #1 to files.
+
+  Element neighbors written to "q4_mesh_ex2_element_neighbors.txt".
+  Elements written to "q4_mesh_ex2_elements.txt".
+  Node coordinates written to "q4_mesh_ex2_xy.txt".
+
+TEST10
+  NODE_ORDER_4_MESH computes the order
+  of the nodes in a Q4 mesh.
+
+      NODE         ORDER
+
+         0         1
+         1         2
+         2         2
+         3         2
+         4         1
+         5         2
+         6         4
+         7         4
+         8         4
+         9         3
+        10         1
+        11         2
+        12         3
+        13         3
+        14         4
+        15         4
+        16         2
+        17         2
+        18         3
+        19         3
+        20         4
+        21         3
+        22         1
+        23         1
+        24         2
+        25         2
+        26         2
+        27         1
+
+TEST105
+  SAMPLE_Q4_MESH returns uniform sample points from
+  a Q4 mesh.
+
+             X        Y     Element
+
+         0   3.08923  0.488422         4
+         1   3.50752   1.05581         8
+         2   0.75155  0.888312         1
+         3   2.10709   1.99836         7
+         4   2.30748   3.00419        16
+         5   1.64914   3.99736        15
+         6  0.662859   1.88145         5
+         7  0.831905   3.46725        14
+         8   1.95497     3.571        15
+         9   3.36993  0.883239         4
+        10  0.785624   2.28403        10
+        11   3.65692  0.897305         4
+        12   1.75128   3.82321        15
+        13   1.13669  0.733518         2
+        14   2.12723   3.64481        16
+        15   2.86651   3.93311        16
+        16  0.521271  0.447549         1
+        17  0.390364  0.0446259         1
+        18   2.45459   1.09679         7
+        19   2.23378   2.83489        11
+
+TEST11
+  SAMPLE_QUAD computes N random points in a quadrilateral.
+  Write them to a file.
+
+  Point coordinates written to "sample_quad.txt".
+
+QUAD_MESH_PRB
+  Normal end of execution.
+
+30 September 2009 02:55:28 PM

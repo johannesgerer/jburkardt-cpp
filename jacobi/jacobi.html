@@ -1,0 +1,175 @@
+<html>
+
+  <head>
+    <title>
+      JACOBI - The Jacobi Iteration for Linear Systems
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      JACOBI <br> The Jacobi Iteration for Linear Systems
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>JACOBI</b>
+      is a C++ library which
+      sets up the Jacobi iteration for linear systems.
+    </p>
+
+    <p>
+      The program uses the GNUPLOT_I interface program to create plots
+      of the residual and the "motion" of the solution over the iteration.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>JACOBI</b> is available in
+      <a href = "../../cpp_src/jacobi/jacobi.html">a C++ version</a> and
+      <a href = "../../m_src/jacobi/jacobi.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/gnuplot_i/gnuplot_i.html">
+      GNUPLOT_I</a>,
+      a C library which
+      allows an executing C, C++, FORTRAN77 or FORTRAN90 program 
+      to interact with the GNUPLOT graphics program, by Nicholas Devillard.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_mat/test_mat.html">
+      TEST_MAT</a>,
+      a C++ library which
+      defines test matrices.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Tim Kelley,<br>
+          Iterative Methods for Linear and Nonlinear Equations,<br>
+          SIAM, 2004,<br>
+          ISBN: 0898713528,<br>
+          LC: QA297.8.K45.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "jacobi.cpp">jacobi.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "jacobi.hpp">jacobi.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "jacobi.sh">jacobi.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "jacobi_prb.cpp">jacobi_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "jacobi_prb.sh">jacobi_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "jacobi_prb_output.txt">jacobi_prb_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "motion.png">motion.png</a>,
+          a plot of the motion, or change in the solution, as the iteration progresses.
+        </li>
+        <li>
+          <a href = "residual.png">residual.png</a>,
+          a plot of the residual as the iteration progresses.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>DIF2</b> returns the DIF2 matrix.
+        </li>
+        <li>
+          <b>R8MAT_MV</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_RESIDUAL_NORM</b> returns the norm of A*x-b.
+        </li>
+        <li>
+          <b>R8VEC_COPY</b> copies an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_DIFF_NORM_SQUARED:</b> square of the L2 norm of the difference of R8VEC's.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 25 June 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

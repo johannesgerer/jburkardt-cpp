@@ -1,0 +1,44 @@
+13 March 2009 02:35:18 PM
+
+FUNCTION_POINTER
+  C++ version
+
+  Examples of function pointers.
+  We define a variable FUNC which can point to a function.
+  Our declaration indicates only that FUNC has two inputs
+  of type double, and returns a double as its value.
+
+  We will now set FUNC to a MIN, a MAX and a SUM function
+  successively, and invoke it with 5 random sets of input.
+
+  FUNC = R8_MIN
+  -----A----  -----B----  C = FUNC ( A, B )
+
+    0.621921    0.624163    0.621921
+    0.314565    0.888536    0.314565
+     0.62248   0.0180997   0.0180997
+    0.200908    0.667529    0.200908
+    0.165277    0.803795    0.165277
+
+  FUNC = R8_MAX
+  -----A----  -----B----  C = FUNC ( A, B )
+
+    0.621921    0.624163    0.624163
+    0.314565    0.888536    0.888536
+     0.62248   0.0180997     0.62248
+    0.200908    0.667529    0.667529
+    0.165277    0.803795    0.803795
+
+  FUNC = R8_SUM
+  -----A----  -----B----  C = FUNC ( A, B )
+
+    0.218418    0.956318     1.17474
+    0.829509    0.561695      1.3912
+    0.415307   0.0661187    0.481426
+    0.257578    0.109957    0.367535
+    0.043829    0.633966    0.677795
+
+FUNCTION_PONTER:
+  Normal end of execution.
+
+13 March 2009 02:35:18 PM

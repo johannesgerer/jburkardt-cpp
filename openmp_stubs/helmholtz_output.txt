@@ -1,0 +1,54 @@
+20 November 2007 03:12:41 PM
+
+HELMHOLTZ
+  C++ version
+
+  A program which solves the 2D Helmholtz equation.
+
+  This program includes Open MP directives, so that
+  it can be run sequentially, or in parallel.
+
+  This program is being run in parallel.
+
+  The number of processors available:
+  OMP_GET_NUM_PROCS () = 1
+
+  The number of threads available:
+  OMP_GET_NUM_THREADS () = 1
+
+  The region is [-1,1] x [-1,1].
+  The number of nodes in the X direction is M = 5
+  The number of nodes in the Y direction is N = 5
+  Number of variables in linear system M * N  = 25
+  The scalar coefficient in the Helmholtz equation is ALPHA = 0.25
+  The relaxation value is OMEGA = 1.1
+  The error tolerance is TOL = 0.0001
+  The maximum number of Jacobi iterations is IT_MAX = 20
+
+  Right hand side l2 norm = 10.5786
+     1  Residual RMS 0.0260397
+     2  Residual RMS 0.0171818
+     3  Residual RMS 0.0114383
+     4  Residual RMS 0.00761634
+     5  Residual RMS 0.00507154
+     6  Residual RMS 0.00337712
+     7  Residual RMS 0.00224891
+     8  Residual RMS 0.00149772
+     9  Residual RMS 0.000997577
+    10  Residual RMS 0.000664596
+    11  Residual RMS 0.000442925
+    12  Residual RMS 0.000295376
+    13  Residual RMS 0.000197186
+    14  Residual RMS 0.000131868
+    15  Residual RMS 8.84447e-05
+
+  Total number of iterations 15
+
+  Computed U l2 norm :       2.12024
+  Computed U_EXACT l2 norm : 2.125
+  Error l2 norm:             0.00476507
+
+HELMHOLTZ
+  Normal end of execution.
+
+20 November 2007 03:12:41 PM

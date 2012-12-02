@@ -1,0 +1,6834 @@
+25 December 2011 11:04:09 AM
+
+SANDIA_SPARSE_PRB
+  C++ version
+  Test the SANDIA_SPARSE library.
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 1
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1
+   LEVEL_MAX
+   ---------
+       0         1
+       1         3
+       2         5
+       3         9
+       4        17
+       5        33
+       6        65
+       7       129
+       8       257
+       9       513
+      10      1025
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 1
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1         2         3         4         5         6
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1         1
+       1         3         5         7         9        11        13
+       2         5        13        25        41        61        85
+       3         9        29        69       137       241       389
+       4        17        65       177       401       801      1457
+       5        33       145       441      1105      2433      4865
+       6        65       321      1073      2929      6993     15121
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 1
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          6         7         8         9        10
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1
+       1        13        15        17        19        21
+       2        85       113       145       181       221
+       3       389       589       849      1177      1581
+       4      1457      2465      3937      6001      8801
+       5      4865      9017     15713     26017     41265
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 1
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:        100
+   LEVEL_MAX
+   ---------
+       0         1
+       1       201
+       2     20201
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 2
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1
+   LEVEL_MAX
+   ---------
+       0         1
+       1         3
+       2         7
+       3        15
+       4        31
+       5        63
+       6       127
+       7       255
+       8       511
+       9      1023
+      10      2047
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 2
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1         2         3         4         5         6
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1         1
+       1         3         5         7         9        11        13
+       2         7        17        31        49        71        97
+       3        15        49       111       209       351       545
+       4        31       129       351       769      1471      2561
+       5        63       321      1023      2561      5503     10625
+       6       127       769      2815      7937     18943     40193
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 2
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          6         7         8         9        10
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1
+       1        13        15        17        19        21
+       2        97       127       161       199       241
+       3       545       799      1121      1519      2001
+       4      2561      4159      6401      9439     13441
+       5     10625     18943     31745     50623     77505
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 2
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:        100
+   LEVEL_MAX
+   ---------
+       0         1
+       1       201
+       2     20401
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 5
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1
+   LEVEL_MAX
+   ---------
+       0         1
+       1         3
+       2         7
+       3        15
+       4        31
+       5        63
+       6       127
+       7       255
+       8       511
+       9      1023
+      10      2047
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 5
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1         2         3         4         5         6
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1         1
+       1         3         5         7         9        11        13
+       2         7        21        37        57        81       109
+       3        15        73       159       289       471       713
+       4        31       225       597      1265      2341      3953
+       5        63       637      2031      4969     10363     19397
+       6       127      1693      6405     17945     41913     86517
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 5
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          6         7         8         9        10
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1
+       1        13        15        17        19        21
+       2       109       141       177       217       261
+       3       713      1023      1409      1879      2441
+       4      3953      6245      9377     13525     18881
+       5     19397     33559     54673     84931    126925
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 5
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:        100
+   LEVEL_MAX
+   ---------
+       0         1
+       1       201
+       2     20601
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 7
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1
+   LEVEL_MAX
+   ---------
+       0         1
+       1         3
+       2         7
+       3        15
+       4        31
+       5        63
+       6       127
+       7       255
+       8       511
+       9      1023
+      10      2047
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 7
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          1         2         3         4         5         6
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1         1
+       1         3         7        10        13        16        19
+       2         7        29        58        95       141       196
+       3        15        95       255       515       906      1456
+       4        31       273       945      2309      4746      8722
+       5        63       723      3120      9065     21503     44758
+       6       127      1813      9484     32259     87358    204203
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 7
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:          6         7         8         9        10
+   LEVEL_MAX
+   ---------
+       0         1         1         1         1         1
+       1        19        22        25        28        31
+       2       196       260       333       415       506
+       3      1456      2192      3141      4330      5786
+       4      8722     14778     23535     35695     52041
+       5     44758     84708    149031    247456    392007
+
+LEVELS_INDEX_SIZE_TEST
+  LEVELS_INDEX_SIZE returns the number of distinct
+  points in a sparse grid derived from a 1D rule.
+
+  We are looking at rules like rule 7
+
+  Each sparse grid is of spatial dimension DIM,
+  and is made up of product grids such that
+  LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+
+   DIM:        100
+   LEVEL_MAX
+   ---------
+       0         1
+       1       301
+       2     45551
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  Unique points in the grid = 5
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       1     1
+             1     1
+     1       0     1
+             3     1
+     2       2     1
+             3     1
+     3       1     0
+             1     3
+     4       1     2
+             1     3
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  Unique points in the grid = 29
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       4     4
+             1     1
+     1       0     4
+             3     1
+     2       8     4
+             3     1
+     3       4     0
+             1     3
+     4       4     8
+             1     3
+     5       2     4
+             5     1
+     6       6     4
+             5     1
+     7       0     0
+             3     3
+     8       8     0
+             3     3
+     9       0     8
+             3     3
+    10       8     8
+             3     3
+    11       4     2
+             1     5
+    12       4     6
+             1     5
+    13       1     4
+             9     1
+    14       3     4
+             9     1
+    15       5     4
+             9     1
+    16       7     4
+             9     1
+    17       2     0
+             5     3
+    18       6     0
+             5     3
+    19       2     8
+             5     3
+    20       6     8
+             5     3
+    21       0     2
+             3     5
+    22       8     2
+             3     5
+    23       0     6
+             3     5
+    24       8     6
+             3     5
+    25       4     1
+             1     9
+    26       4     3
+             1     9
+    27       4     5
+             1     9
+    28       4     7
+             1     9
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  Unique points in the grid = 1
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       0     0     0
+             1     1     1
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 25
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       2     2     2
+             1     1     1
+     1       0     2     2
+             3     1     1
+     2       4     2     2
+             3     1     1
+     3       2     0     2
+             1     3     1
+     4       2     4     2
+             1     3     1
+     5       2     2     0
+             1     1     3
+     6       2     2     4
+             1     1     3
+     7       1     2     2
+             5     1     1
+     8       3     2     2
+             5     1     1
+     9       0     0     2
+             3     3     1
+    10       4     0     2
+             3     3     1
+    11       0     4     2
+             3     3     1
+    12       4     4     2
+             3     3     1
+    13       2     1     2
+             1     5     1
+    14       2     3     2
+             1     5     1
+    15       0     2     0
+             3     1     3
+    16       4     2     0
+             3     1     3
+    17       0     2     4
+             3     1     3
+    18       4     2     4
+             3     1     3
+    19       2     0     0
+             1     3     3
+    20       2     4     0
+             1     3     3
+    21       2     0     4
+             1     3     3
+    22       2     4     4
+             1     3     3
+    23       2     2     1
+             1     1     5
+    24       2     2     3
+             1     1     5
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 1
+
+  Spatial dimension DIM_NUM = 6
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 85
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       2     2     2     2     2     2
+             1     1     1     1     1     1
+     1       0     2     2     2     2     2
+             3     1     1     1     1     1
+     2       4     2     2     2     2     2
+             3     1     1     1     1     1
+     3       2     0     2     2     2     2
+             1     3     1     1     1     1
+     4       2     4     2     2     2     2
+             1     3     1     1     1     1
+     5       2     2     0     2     2     2
+             1     1     3     1     1     1
+     6       2     2     4     2     2     2
+             1     1     3     1     1     1
+     7       2     2     2     0     2     2
+             1     1     1     3     1     1
+     8       2     2     2     4     2     2
+             1     1     1     3     1     1
+     9       2     2     2     2     0     2
+             1     1     1     1     3     1
+    10       2     2     2     2     4     2
+             1     1     1     1     3     1
+    11       2     2     2     2     2     0
+             1     1     1     1     1     3
+    12       2     2     2     2     2     4
+             1     1     1     1     1     3
+    13       1     2     2     2     2     2
+             5     1     1     1     1     1
+    14       3     2     2     2     2     2
+             5     1     1     1     1     1
+    15       0     0     2     2     2     2
+             3     3     1     1     1     1
+    16       4     0     2     2     2     2
+             3     3     1     1     1     1
+    17       0     4     2     2     2     2
+             3     3     1     1     1     1
+    18       4     4     2     2     2     2
+             3     3     1     1     1     1
+    19       2     1     2     2     2     2
+             1     5     1     1     1     1
+    20       2     3     2     2     2     2
+             1     5     1     1     1     1
+    21       0     2     0     2     2     2
+             3     1     3     1     1     1
+    22       4     2     0     2     2     2
+             3     1     3     1     1     1
+    23       0     2     4     2     2     2
+             3     1     3     1     1     1
+    24       4     2     4     2     2     2
+             3     1     3     1     1     1
+    25       2     0     0     2     2     2
+             1     3     3     1     1     1
+    26       2     4     0     2     2     2
+             1     3     3     1     1     1
+    27       2     0     4     2     2     2
+             1     3     3     1     1     1
+    28       2     4     4     2     2     2
+             1     3     3     1     1     1
+    29       2     2     1     2     2     2
+             1     1     5     1     1     1
+    30       2     2     3     2     2     2
+             1     1     5     1     1     1
+    31       0     2     2     0     2     2
+             3     1     1     3     1     1
+    32       4     2     2     0     2     2
+             3     1     1     3     1     1
+    33       0     2     2     4     2     2
+             3     1     1     3     1     1
+    34       4     2     2     4     2     2
+             3     1     1     3     1     1
+    35       2     0     2     0     2     2
+             1     3     1     3     1     1
+    36       2     4     2     0     2     2
+             1     3     1     3     1     1
+    37       2     0     2     4     2     2
+             1     3     1     3     1     1
+    38       2     4     2     4     2     2
+             1     3     1     3     1     1
+    39       2     2     0     0     2     2
+             1     1     3     3     1     1
+    40       2     2     4     0     2     2
+             1     1     3     3     1     1
+    41       2     2     0     4     2     2
+             1     1     3     3     1     1
+    42       2     2     4     4     2     2
+             1     1     3     3     1     1
+    43       2     2     2     1     2     2
+             1     1     1     5     1     1
+    44       2     2     2     3     2     2
+             1     1     1     5     1     1
+    45       0     2     2     2     0     2
+             3     1     1     1     3     1
+    46       4     2     2     2     0     2
+             3     1     1     1     3     1
+    47       0     2     2     2     4     2
+             3     1     1     1     3     1
+    48       4     2     2     2     4     2
+             3     1     1     1     3     1
+    49       2     0     2     2     0     2
+             1     3     1     1     3     1
+    50       2     4     2     2     0     2
+             1     3     1     1     3     1
+    51       2     0     2     2     4     2
+             1     3     1     1     3     1
+    52       2     4     2     2     4     2
+             1     3     1     1     3     1
+    53       2     2     0     2     0     2
+             1     1     3     1     3     1
+    54       2     2     4     2     0     2
+             1     1     3     1     3     1
+    55       2     2     0     2     4     2
+             1     1     3     1     3     1
+    56       2     2     4     2     4     2
+             1     1     3     1     3     1
+    57       2     2     2     0     0     2
+             1     1     1     3     3     1
+    58       2     2     2     4     0     2
+             1     1     1     3     3     1
+    59       2     2     2     0     4     2
+             1     1     1     3     3     1
+    60       2     2     2     4     4     2
+             1     1     1     3     3     1
+    61       2     2     2     2     1     2
+             1     1     1     1     5     1
+    62       2     2     2     2     3     2
+             1     1     1     1     5     1
+    63       0     2     2     2     2     0
+             3     1     1     1     1     3
+    64       4     2     2     2     2     0
+             3     1     1     1     1     3
+    65       0     2     2     2     2     4
+             3     1     1     1     1     3
+    66       4     2     2     2     2     4
+             3     1     1     1     1     3
+    67       2     0     2     2     2     0
+             1     3     1     1     1     3
+    68       2     4     2     2     2     0
+             1     3     1     1     1     3
+    69       2     0     2     2     2     4
+             1     3     1     1     1     3
+    70       2     4     2     2     2     4
+             1     3     1     1     1     3
+    71       2     2     0     2     2     0
+             1     1     3     1     1     3
+    72       2     2     4     2     2     0
+             1     1     3     1     1     3
+    73       2     2     0     2     2     4
+             1     1     3     1     1     3
+    74       2     2     4     2     2     4
+             1     1     3     1     1     3
+    75       2     2     2     0     2     0
+             1     1     1     3     1     3
+    76       2     2     2     4     2     0
+             1     1     1     3     1     3
+    77       2     2     2     0     2     4
+             1     1     1     3     1     3
+    78       2     2     2     4     2     4
+             1     1     1     3     1     3
+    79       2     2     2     2     0     0
+             1     1     1     1     3     3
+    80       2     2     2     2     4     0
+             1     1     1     1     3     3
+    81       2     2     2     2     0     4
+             1     1     1     1     3     3
+    82       2     2     2     2     4     4
+             1     1     1     1     3     3
+    83       2     2     2     2     2     1
+             1     1     1     1     1     5
+    84       2     2     2     2     2     3
+             1     1     1     1     1     5
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 2
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  Unique points in the grid = 5
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       2     2
+             1     1
+     1       1     2
+             3     1
+     2       3     2
+             3     1
+     3       2     1
+             1     3
+     4       2     3
+             1     3
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 2
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  Unique points in the grid = 49
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       8     8
+             1     1
+     1       4     8
+             3     1
+     2      12     8
+             3     1
+     3       8     4
+             1     3
+     4       8    12
+             1     3
+     5       2     8
+             7     1
+     6       6     8
+             7     1
+     7      10     8
+             7     1
+     8      14     8
+             7     1
+     9       4     4
+             3     3
+    10      12     4
+             3     3
+    11       4    12
+             3     3
+    12      12    12
+             3     3
+    13       8     2
+             1     7
+    14       8     6
+             1     7
+    15       8    10
+             1     7
+    16       8    14
+             1     7
+    17       1     8
+            15     1
+    18       3     8
+            15     1
+    19       5     8
+            15     1
+    20       7     8
+            15     1
+    21       9     8
+            15     1
+    22      11     8
+            15     1
+    23      13     8
+            15     1
+    24      15     8
+            15     1
+    25       2     4
+             7     3
+    26       6     4
+             7     3
+    27      10     4
+             7     3
+    28      14     4
+             7     3
+    29       2    12
+             7     3
+    30       6    12
+             7     3
+    31      10    12
+             7     3
+    32      14    12
+             7     3
+    33       4     2
+             3     7
+    34      12     2
+             3     7
+    35       4     6
+             3     7
+    36      12     6
+             3     7
+    37       4    10
+             3     7
+    38      12    10
+             3     7
+    39       4    14
+             3     7
+    40      12    14
+             3     7
+    41       8     1
+             1    15
+    42       8     3
+             1    15
+    43       8     5
+             1    15
+    44       8     7
+             1    15
+    45       8     9
+             1    15
+    46       8    11
+             1    15
+    47       8    13
+             1    15
+    48       8    15
+             1    15
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 2
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  Unique points in the grid = 1
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       1     1     1
+             1     1     1
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 2
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 31
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       4     4     4
+             1     1     1
+     1       2     4     4
+             3     1     1
+     2       6     4     4
+             3     1     1
+     3       4     2     4
+             1     3     1
+     4       4     6     4
+             1     3     1
+     5       4     4     2
+             1     1     3
+     6       4     4     6
+             1     1     3
+     7       1     4     4
+             7     1     1
+     8       3     4     4
+             7     1     1
+     9       5     4     4
+             7     1     1
+    10       7     4     4
+             7     1     1
+    11       2     2     4
+             3     3     1
+    12       6     2     4
+             3     3     1
+    13       2     6     4
+             3     3     1
+    14       6     6     4
+             3     3     1
+    15       4     1     4
+             1     7     1
+    16       4     3     4
+             1     7     1
+    17       4     5     4
+             1     7     1
+    18       4     7     4
+             1     7     1
+    19       2     4     2
+             3     1     3
+    20       6     4     2
+             3     1     3
+    21       2     4     6
+             3     1     3
+    22       6     4     6
+             3     1     3
+    23       4     2     2
+             1     3     3
+    24       4     6     2
+             1     3     3
+    25       4     2     6
+             1     3     3
+    26       4     6     6
+             1     3     3
+    27       4     4     1
+             1     1     7
+    28       4     4     3
+             1     1     7
+    29       4     4     5
+             1     1     7
+    30       4     4     7
+             1     1     7
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 2
+
+  Spatial dimension DIM_NUM = 6
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 97
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       4     4     4     4     4     4
+             1     1     1     1     1     1
+     1       2     4     4     4     4     4
+             3     1     1     1     1     1
+     2       6     4     4     4     4     4
+             3     1     1     1     1     1
+     3       4     2     4     4     4     4
+             1     3     1     1     1     1
+     4       4     6     4     4     4     4
+             1     3     1     1     1     1
+     5       4     4     2     4     4     4
+             1     1     3     1     1     1
+     6       4     4     6     4     4     4
+             1     1     3     1     1     1
+     7       4     4     4     2     4     4
+             1     1     1     3     1     1
+     8       4     4     4     6     4     4
+             1     1     1     3     1     1
+     9       4     4     4     4     2     4
+             1     1     1     1     3     1
+    10       4     4     4     4     6     4
+             1     1     1     1     3     1
+    11       4     4     4     4     4     2
+             1     1     1     1     1     3
+    12       4     4     4     4     4     6
+             1     1     1     1     1     3
+    13       1     4     4     4     4     4
+             7     1     1     1     1     1
+    14       3     4     4     4     4     4
+             7     1     1     1     1     1
+    15       5     4     4     4     4     4
+             7     1     1     1     1     1
+    16       7     4     4     4     4     4
+             7     1     1     1     1     1
+    17       2     2     4     4     4     4
+             3     3     1     1     1     1
+    18       6     2     4     4     4     4
+             3     3     1     1     1     1
+    19       2     6     4     4     4     4
+             3     3     1     1     1     1
+    20       6     6     4     4     4     4
+             3     3     1     1     1     1
+    21       4     1     4     4     4     4
+             1     7     1     1     1     1
+    22       4     3     4     4     4     4
+             1     7     1     1     1     1
+    23       4     5     4     4     4     4
+             1     7     1     1     1     1
+    24       4     7     4     4     4     4
+             1     7     1     1     1     1
+    25       2     4     2     4     4     4
+             3     1     3     1     1     1
+    26       6     4     2     4     4     4
+             3     1     3     1     1     1
+    27       2     4     6     4     4     4
+             3     1     3     1     1     1
+    28       6     4     6     4     4     4
+             3     1     3     1     1     1
+    29       4     2     2     4     4     4
+             1     3     3     1     1     1
+    30       4     6     2     4     4     4
+             1     3     3     1     1     1
+    31       4     2     6     4     4     4
+             1     3     3     1     1     1
+    32       4     6     6     4     4     4
+             1     3     3     1     1     1
+    33       4     4     1     4     4     4
+             1     1     7     1     1     1
+    34       4     4     3     4     4     4
+             1     1     7     1     1     1
+    35       4     4     5     4     4     4
+             1     1     7     1     1     1
+    36       4     4     7     4     4     4
+             1     1     7     1     1     1
+    37       2     4     4     2     4     4
+             3     1     1     3     1     1
+    38       6     4     4     2     4     4
+             3     1     1     3     1     1
+    39       2     4     4     6     4     4
+             3     1     1     3     1     1
+    40       6     4     4     6     4     4
+             3     1     1     3     1     1
+    41       4     2     4     2     4     4
+             1     3     1     3     1     1
+    42       4     6     4     2     4     4
+             1     3     1     3     1     1
+    43       4     2     4     6     4     4
+             1     3     1     3     1     1
+    44       4     6     4     6     4     4
+             1     3     1     3     1     1
+    45       4     4     2     2     4     4
+             1     1     3     3     1     1
+    46       4     4     6     2     4     4
+             1     1     3     3     1     1
+    47       4     4     2     6     4     4
+             1     1     3     3     1     1
+    48       4     4     6     6     4     4
+             1     1     3     3     1     1
+    49       4     4     4     1     4     4
+             1     1     1     7     1     1
+    50       4     4     4     3     4     4
+             1     1     1     7     1     1
+    51       4     4     4     5     4     4
+             1     1     1     7     1     1
+    52       4     4     4     7     4     4
+             1     1     1     7     1     1
+    53       2     4     4     4     2     4
+             3     1     1     1     3     1
+    54       6     4     4     4     2     4
+             3     1     1     1     3     1
+    55       2     4     4     4     6     4
+             3     1     1     1     3     1
+    56       6     4     4     4     6     4
+             3     1     1     1     3     1
+    57       4     2     4     4     2     4
+             1     3     1     1     3     1
+    58       4     6     4     4     2     4
+             1     3     1     1     3     1
+    59       4     2     4     4     6     4
+             1     3     1     1     3     1
+    60       4     6     4     4     6     4
+             1     3     1     1     3     1
+    61       4     4     2     4     2     4
+             1     1     3     1     3     1
+    62       4     4     6     4     2     4
+             1     1     3     1     3     1
+    63       4     4     2     4     6     4
+             1     1     3     1     3     1
+    64       4     4     6     4     6     4
+             1     1     3     1     3     1
+    65       4     4     4     2     2     4
+             1     1     1     3     3     1
+    66       4     4     4     6     2     4
+             1     1     1     3     3     1
+    67       4     4     4     2     6     4
+             1     1     1     3     3     1
+    68       4     4     4     6     6     4
+             1     1     1     3     3     1
+    69       4     4     4     4     1     4
+             1     1     1     1     7     1
+    70       4     4     4     4     3     4
+             1     1     1     1     7     1
+    71       4     4     4     4     5     4
+             1     1     1     1     7     1
+    72       4     4     4     4     7     4
+             1     1     1     1     7     1
+    73       2     4     4     4     4     2
+             3     1     1     1     1     3
+    74       6     4     4     4     4     2
+             3     1     1     1     1     3
+    75       2     4     4     4     4     6
+             3     1     1     1     1     3
+    76       6     4     4     4     4     6
+             3     1     1     1     1     3
+    77       4     2     4     4     4     2
+             1     3     1     1     1     3
+    78       4     6     4     4     4     2
+             1     3     1     1     1     3
+    79       4     2     4     4     4     6
+             1     3     1     1     1     3
+    80       4     6     4     4     4     6
+             1     3     1     1     1     3
+    81       4     4     2     4     4     2
+             1     1     3     1     1     3
+    82       4     4     6     4     4     2
+             1     1     3     1     1     3
+    83       4     4     2     4     4     6
+             1     1     3     1     1     3
+    84       4     4     6     4     4     6
+             1     1     3     1     1     3
+    85       4     4     4     2     4     2
+             1     1     1     3     1     3
+    86       4     4     4     6     4     2
+             1     1     1     3     1     3
+    87       4     4     4     2     4     6
+             1     1     1     3     1     3
+    88       4     4     4     6     4     6
+             1     1     1     3     1     3
+    89       4     4     4     4     2     2
+             1     1     1     1     3     3
+    90       4     4     4     4     6     2
+             1     1     1     1     3     3
+    91       4     4     4     4     2     6
+             1     1     1     1     3     3
+    92       4     4     4     4     6     6
+             1     1     1     1     3     3
+    93       4     4     4     4     4     1
+             1     1     1     1     1     7
+    94       4     4     4     4     4     3
+             1     1     1     1     1     7
+    95       4     4     4     4     4     5
+             1     1     1     1     1     7
+    96       4     4     4     4     4     7
+             1     1     1     1     1     7
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  Unique points in the grid = 5
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       0     0
+             0     0
+     1      -1     0
+             1     0
+     2       1     0
+             1     0
+     3       0    -1
+             0     1
+     4       0     1
+             0     1
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  Unique points in the grid = 73
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       0     0
+             0     0
+     1      -1     0
+             1     0
+     2       1     0
+             1     0
+     3       0    -1
+             0     1
+     4       0     1
+             0     1
+     5      -3     0
+             3     0
+     6      -2     0
+             3     0
+     7      -1     0
+             3     0
+     8       1     0
+             3     0
+     9       2     0
+             3     0
+    10       3     0
+             3     0
+    11      -1    -1
+             1     1
+    12       1    -1
+             1     1
+    13      -1     1
+             1     1
+    14       1     1
+             1     1
+    15       0    -3
+             0     3
+    16       0    -2
+             0     3
+    17       0    -1
+             0     3
+    18       0     1
+             0     3
+    19       0     2
+             0     3
+    20       0     3
+             0     3
+    21      -7     0
+             7     0
+    22      -6     0
+             7     0
+    23      -5     0
+             7     0
+    24      -4     0
+             7     0
+    25      -3     0
+             7     0
+    26      -2     0
+             7     0
+    27      -1     0
+             7     0
+    28       1     0
+             7     0
+    29       2     0
+             7     0
+    30       3     0
+             7     0
+    31       4     0
+             7     0
+    32       5     0
+             7     0
+    33       6     0
+             7     0
+    34       7     0
+             7     0
+    35      -3    -1
+             3     1
+    36      -2    -1
+             3     1
+    37      -1    -1
+             3     1
+    38       1    -1
+             3     1
+    39       2    -1
+             3     1
+    40       3    -1
+             3     1
+    41      -3     1
+             3     1
+    42      -2     1
+             3     1
+    43      -1     1
+             3     1
+    44       1     1
+             3     1
+    45       2     1
+             3     1
+    46       3     1
+             3     1
+    47      -1    -3
+             1     3
+    48       1    -3
+             1     3
+    49      -1    -2
+             1     3
+    50       1    -2
+             1     3
+    51      -1    -1
+             1     3
+    52       1    -1
+             1     3
+    53      -1     1
+             1     3
+    54       1     1
+             1     3
+    55      -1     2
+             1     3
+    56       1     2
+             1     3
+    57      -1     3
+             1     3
+    58       1     3
+             1     3
+    59       0    -7
+             0     7
+    60       0    -6
+             0     7
+    61       0    -5
+             0     7
+    62       0    -4
+             0     7
+    63       0    -3
+             0     7
+    64       0    -2
+             0     7
+    65       0    -1
+             0     7
+    66       0     1
+             0     7
+    67       0     2
+             0     7
+    68       0     3
+             0     7
+    69       0     4
+             0     7
+    70       0     5
+             0     7
+    71       0     6
+             0     7
+    72       0     7
+             0     7
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  Unique points in the grid = 1
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       0     0     0
+             0     0     0
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 37
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       0     0     0
+             0     0     0
+     1      -1     0     0
+             1     0     0
+     2       1     0     0
+             1     0     0
+     3       0    -1     0
+             0     1     0
+     4       0     1     0
+             0     1     0
+     5       0     0    -1
+             0     0     1
+     6       0     0     1
+             0     0     1
+     7      -3     0     0
+             3     0     0
+     8      -2     0     0
+             3     0     0
+     9      -1     0     0
+             3     0     0
+    10       1     0     0
+             3     0     0
+    11       2     0     0
+             3     0     0
+    12       3     0     0
+             3     0     0
+    13      -1    -1     0
+             1     1     0
+    14       1    -1     0
+             1     1     0
+    15      -1     1     0
+             1     1     0
+    16       1     1     0
+             1     1     0
+    17       0    -3     0
+             0     3     0
+    18       0    -2     0
+             0     3     0
+    19       0    -1     0
+             0     3     0
+    20       0     1     0
+             0     3     0
+    21       0     2     0
+             0     3     0
+    22       0     3     0
+             0     3     0
+    23      -1     0    -1
+             1     0     1
+    24       1     0    -1
+             1     0     1
+    25      -1     0     1
+             1     0     1
+    26       1     0     1
+             1     0     1
+    27       0    -1    -1
+             0     1     1
+    28       0     1    -1
+             0     1     1
+    29       0    -1     1
+             0     1     1
+    30       0     1     1
+             0     1     1
+    31       0     0    -3
+             0     0     3
+    32       0     0    -2
+             0     0     3
+    33       0     0    -1
+             0     0     3
+    34       0     0     1
+             0     0     3
+    35       0     0     2
+             0     0     3
+    36       0     0     3
+             0     0     3
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 5
+
+  Spatial dimension DIM_NUM = 6
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 109
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       0     0     0     0     0     0
+             0     0     0     0     0     0
+     1      -1     0     0     0     0     0
+             1     0     0     0     0     0
+     2       1     0     0     0     0     0
+             1     0     0     0     0     0
+     3       0    -1     0     0     0     0
+             0     1     0     0     0     0
+     4       0     1     0     0     0     0
+             0     1     0     0     0     0
+     5       0     0    -1     0     0     0
+             0     0     1     0     0     0
+     6       0     0     1     0     0     0
+             0     0     1     0     0     0
+     7       0     0     0    -1     0     0
+             0     0     0     1     0     0
+     8       0     0     0     1     0     0
+             0     0     0     1     0     0
+     9       0     0     0     0    -1     0
+             0     0     0     0     1     0
+    10       0     0     0     0     1     0
+             0     0     0     0     1     0
+    11       0     0     0     0     0    -1
+             0     0     0     0     0     1
+    12       0     0     0     0     0     1
+             0     0     0     0     0     1
+    13      -3     0     0     0     0     0
+             3     0     0     0     0     0
+    14      -2     0     0     0     0     0
+             3     0     0     0     0     0
+    15      -1     0     0     0     0     0
+             3     0     0     0     0     0
+    16       1     0     0     0     0     0
+             3     0     0     0     0     0
+    17       2     0     0     0     0     0
+             3     0     0     0     0     0
+    18       3     0     0     0     0     0
+             3     0     0     0     0     0
+    19      -1    -1     0     0     0     0
+             1     1     0     0     0     0
+    20       1    -1     0     0     0     0
+             1     1     0     0     0     0
+    21      -1     1     0     0     0     0
+             1     1     0     0     0     0
+    22       1     1     0     0     0     0
+             1     1     0     0     0     0
+    23       0    -3     0     0     0     0
+             0     3     0     0     0     0
+    24       0    -2     0     0     0     0
+             0     3     0     0     0     0
+    25       0    -1     0     0     0     0
+             0     3     0     0     0     0
+    26       0     1     0     0     0     0
+             0     3     0     0     0     0
+    27       0     2     0     0     0     0
+             0     3     0     0     0     0
+    28       0     3     0     0     0     0
+             0     3     0     0     0     0
+    29      -1     0    -1     0     0     0
+             1     0     1     0     0     0
+    30       1     0    -1     0     0     0
+             1     0     1     0     0     0
+    31      -1     0     1     0     0     0
+             1     0     1     0     0     0
+    32       1     0     1     0     0     0
+             1     0     1     0     0     0
+    33       0    -1    -1     0     0     0
+             0     1     1     0     0     0
+    34       0     1    -1     0     0     0
+             0     1     1     0     0     0
+    35       0    -1     1     0     0     0
+             0     1     1     0     0     0
+    36       0     1     1     0     0     0
+             0     1     1     0     0     0
+    37       0     0    -3     0     0     0
+             0     0     3     0     0     0
+    38       0     0    -2     0     0     0
+             0     0     3     0     0     0
+    39       0     0    -1     0     0     0
+             0     0     3     0     0     0
+    40       0     0     1     0     0     0
+             0     0     3     0     0     0
+    41       0     0     2     0     0     0
+             0     0     3     0     0     0
+    42       0     0     3     0     0     0
+             0     0     3     0     0     0
+    43      -1     0     0    -1     0     0
+             1     0     0     1     0     0
+    44       1     0     0    -1     0     0
+             1     0     0     1     0     0
+    45      -1     0     0     1     0     0
+             1     0     0     1     0     0
+    46       1     0     0     1     0     0
+             1     0     0     1     0     0
+    47       0    -1     0    -1     0     0
+             0     1     0     1     0     0
+    48       0     1     0    -1     0     0
+             0     1     0     1     0     0
+    49       0    -1     0     1     0     0
+             0     1     0     1     0     0
+    50       0     1     0     1     0     0
+             0     1     0     1     0     0
+    51       0     0    -1    -1     0     0
+             0     0     1     1     0     0
+    52       0     0     1    -1     0     0
+             0     0     1     1     0     0
+    53       0     0    -1     1     0     0
+             0     0     1     1     0     0
+    54       0     0     1     1     0     0
+             0     0     1     1     0     0
+    55       0     0     0    -3     0     0
+             0     0     0     3     0     0
+    56       0     0     0    -2     0     0
+             0     0     0     3     0     0
+    57       0     0     0    -1     0     0
+             0     0     0     3     0     0
+    58       0     0     0     1     0     0
+             0     0     0     3     0     0
+    59       0     0     0     2     0     0
+             0     0     0     3     0     0
+    60       0     0     0     3     0     0
+             0     0     0     3     0     0
+    61      -1     0     0     0    -1     0
+             1     0     0     0     1     0
+    62       1     0     0     0    -1     0
+             1     0     0     0     1     0
+    63      -1     0     0     0     1     0
+             1     0     0     0     1     0
+    64       1     0     0     0     1     0
+             1     0     0     0     1     0
+    65       0    -1     0     0    -1     0
+             0     1     0     0     1     0
+    66       0     1     0     0    -1     0
+             0     1     0     0     1     0
+    67       0    -1     0     0     1     0
+             0     1     0     0     1     0
+    68       0     1     0     0     1     0
+             0     1     0     0     1     0
+    69       0     0    -1     0    -1     0
+             0     0     1     0     1     0
+    70       0     0     1     0    -1     0
+             0     0     1     0     1     0
+    71       0     0    -1     0     1     0
+             0     0     1     0     1     0
+    72       0     0     1     0     1     0
+             0     0     1     0     1     0
+    73       0     0     0    -1    -1     0
+             0     0     0     1     1     0
+    74       0     0     0     1    -1     0
+             0     0     0     1     1     0
+    75       0     0     0    -1     1     0
+             0     0     0     1     1     0
+    76       0     0     0     1     1     0
+             0     0     0     1     1     0
+    77       0     0     0     0    -3     0
+             0     0     0     0     3     0
+    78       0     0     0     0    -2     0
+             0     0     0     0     3     0
+    79       0     0     0     0    -1     0
+             0     0     0     0     3     0
+    80       0     0     0     0     1     0
+             0     0     0     0     3     0
+    81       0     0     0     0     2     0
+             0     0     0     0     3     0
+    82       0     0     0     0     3     0
+             0     0     0     0     3     0
+    83      -1     0     0     0     0    -1
+             1     0     0     0     0     1
+    84       1     0     0     0     0    -1
+             1     0     0     0     0     1
+    85      -1     0     0     0     0     1
+             1     0     0     0     0     1
+    86       1     0     0     0     0     1
+             1     0     0     0     0     1
+    87       0    -1     0     0     0    -1
+             0     1     0     0     0     1
+    88       0     1     0     0     0    -1
+             0     1     0     0     0     1
+    89       0    -1     0     0     0     1
+             0     1     0     0     0     1
+    90       0     1     0     0     0     1
+             0     1     0     0     0     1
+    91       0     0    -1     0     0    -1
+             0     0     1     0     0     1
+    92       0     0     1     0     0    -1
+             0     0     1     0     0     1
+    93       0     0    -1     0     0     1
+             0     0     1     0     0     1
+    94       0     0     1     0     0     1
+             0     0     1     0     0     1
+    95       0     0     0    -1     0    -1
+             0     0     0     1     0     1
+    96       0     0     0     1     0    -1
+             0     0     0     1     0     1
+    97       0     0     0    -1     0     1
+             0     0     0     1     0     1
+    98       0     0     0     1     0     1
+             0     0     0     1     0     1
+    99       0     0     0     0    -1    -1
+             0     0     0     0     1     1
+   100       0     0     0     0     1    -1
+             0     0     0     0     1     1
+   101       0     0     0     0    -1     1
+             0     0     0     0     1     1
+   102       0     0     0     0     1     1
+             0     0     0     0     1     1
+   103       0     0     0     0     0    -3
+             0     0     0     0     0     3
+   104       0     0     0     0     0    -2
+             0     0     0     0     0     3
+   105       0     0     0     0     0    -1
+             0     0     0     0     0     3
+   106       0     0     0     0     0     1
+             0     0     0     0     0     3
+   107       0     0     0     0     0     2
+             0     0     0     0     0     3
+   108       0     0     0     0     0     3
+             0     0     0     0     0     3
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  Unique points in the grid = 7
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       1     1
+             1     1
+     1       1     1
+             3     1
+     2       2     1
+             3     1
+     3       3     1
+             3     1
+     4       1     1
+             1     3
+     5       1     2
+             1     3
+     6       1     3
+             1     3
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  Unique points in the grid = 95
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       1     1
+             7     1
+     1       2     1
+             7     1
+     2       3     1
+             7     1
+     3       4     1
+             7     1
+     4       5     1
+             7     1
+     5       6     1
+             7     1
+     6       7     1
+             7     1
+     7       1     1
+             3     3
+     8       2     1
+             3     3
+     9       3     1
+             3     3
+    10       1     2
+             3     3
+    11       2     2
+             3     3
+    12       3     2
+             3     3
+    13       1     3
+             3     3
+    14       2     3
+             3     3
+    15       3     3
+             3     3
+    16       1     1
+             1     7
+    17       1     2
+             1     7
+    18       1     3
+             1     7
+    19       1     4
+             1     7
+    20       1     5
+             1     7
+    21       1     6
+             1     7
+    22       1     7
+             1     7
+    23       1     1
+            15     1
+    24       2     1
+            15     1
+    25       3     1
+            15     1
+    26       4     1
+            15     1
+    27       5     1
+            15     1
+    28       6     1
+            15     1
+    29       7     1
+            15     1
+    30       8     1
+            15     1
+    31       9     1
+            15     1
+    32      10     1
+            15     1
+    33      11     1
+            15     1
+    34      12     1
+            15     1
+    35      13     1
+            15     1
+    36      14     1
+            15     1
+    37      15     1
+            15     1
+    38       1     1
+             7     3
+    39       2     1
+             7     3
+    40       3     1
+             7     3
+    41       4     1
+             7     3
+    42       5     1
+             7     3
+    43       6     1
+             7     3
+    44       7     1
+             7     3
+    45       1     2
+             7     3
+    46       2     2
+             7     3
+    47       3     2
+             7     3
+    48       4     2
+             7     3
+    49       5     2
+             7     3
+    50       6     2
+             7     3
+    51       7     2
+             7     3
+    52       1     3
+             7     3
+    53       2     3
+             7     3
+    54       3     3
+             7     3
+    55       4     3
+             7     3
+    56       5     3
+             7     3
+    57       6     3
+             7     3
+    58       7     3
+             7     3
+    59       1     1
+             3     7
+    60       2     1
+             3     7
+    61       3     1
+             3     7
+    62       1     2
+             3     7
+    63       2     2
+             3     7
+    64       3     2
+             3     7
+    65       1     3
+             3     7
+    66       2     3
+             3     7
+    67       3     3
+             3     7
+    68       1     4
+             3     7
+    69       2     4
+             3     7
+    70       3     4
+             3     7
+    71       1     5
+             3     7
+    72       2     5
+             3     7
+    73       3     5
+             3     7
+    74       1     6
+             3     7
+    75       2     6
+             3     7
+    76       3     6
+             3     7
+    77       1     7
+             3     7
+    78       2     7
+             3     7
+    79       3     7
+             3     7
+    80       1     1
+             1    15
+    81       1     2
+             1    15
+    82       1     3
+             1    15
+    83       1     4
+             1    15
+    84       1     5
+             1    15
+    85       1     6
+             1    15
+    86       1     7
+             1    15
+    87       1     8
+             1    15
+    88       1     9
+             1    15
+    89       1    10
+             1    15
+    90       1    11
+             1    15
+    91       1    12
+             1    15
+    92       1    13
+             1    15
+    93       1    14
+             1    15
+    94       1    15
+             1    15
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 7
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  Unique points in the grid = 1
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       1     1     1
+             1     1     1
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 7
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 58
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       1     1     1
+             1     1     1
+     1       1     1     1
+             3     1     1
+     2       2     1     1
+             3     1     1
+     3       3     1     1
+             3     1     1
+     4       1     1     1
+             1     3     1
+     5       1     2     1
+             1     3     1
+     6       1     3     1
+             1     3     1
+     7       1     1     1
+             1     1     3
+     8       1     1     2
+             1     1     3
+     9       1     1     3
+             1     1     3
+    10       1     1     1
+             7     1     1
+    11       2     1     1
+             7     1     1
+    12       3     1     1
+             7     1     1
+    13       4     1     1
+             7     1     1
+    14       5     1     1
+             7     1     1
+    15       6     1     1
+             7     1     1
+    16       7     1     1
+             7     1     1
+    17       1     1     1
+             3     3     1
+    18       2     1     1
+             3     3     1
+    19       3     1     1
+             3     3     1
+    20       1     2     1
+             3     3     1
+    21       2     2     1
+             3     3     1
+    22       3     2     1
+             3     3     1
+    23       1     3     1
+             3     3     1
+    24       2     3     1
+             3     3     1
+    25       3     3     1
+             3     3     1
+    26       1     1     1
+             1     7     1
+    27       1     2     1
+             1     7     1
+    28       1     3     1
+             1     7     1
+    29       1     4     1
+             1     7     1
+    30       1     5     1
+             1     7     1
+    31       1     6     1
+             1     7     1
+    32       1     7     1
+             1     7     1
+    33       1     1     1
+             3     1     3
+    34       2     1     1
+             3     1     3
+    35       3     1     1
+             3     1     3
+    36       1     1     2
+             3     1     3
+    37       2     1     2
+             3     1     3
+    38       3     1     2
+             3     1     3
+    39       1     1     3
+             3     1     3
+    40       2     1     3
+             3     1     3
+    41       3     1     3
+             3     1     3
+    42       1     1     1
+             1     3     3
+    43       1     2     1
+             1     3     3
+    44       1     3     1
+             1     3     3
+    45       1     1     2
+             1     3     3
+    46       1     2     2
+             1     3     3
+    47       1     3     2
+             1     3     3
+    48       1     1     3
+             1     3     3
+    49       1     2     3
+             1     3     3
+    50       1     3     3
+             1     3     3
+    51       1     1     1
+             1     1     7
+    52       1     1     2
+             1     1     7
+    53       1     1     3
+             1     1     7
+    54       1     1     4
+             1     1     7
+    55       1     1     5
+             1     1     7
+    56       1     1     6
+             1     1     7
+    57       1     1     7
+             1     1     7
+
+LEVELS_INDEX_TEST
+  LEVELS_INDEX returns all grid indexes
+  whose level value satisfies
+    LEVEL_MIN <= LEVEL <= LEVEL_MAX.
+  Here, LEVEL is the sum of the levels of the 1D rules,
+  and the order of the rule is 2^LEVEL + 1.
+
+  We are looking at rules like rule 7
+
+  Spatial dimension DIM_NUM = 6
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  Unique points in the grid = 196
+
+ Point     Grid indices:
+           Grid bases:
+
+     0       1     1     1     1     1     1
+             1     1     1     1     1     1
+     1       1     1     1     1     1     1
+             3     1     1     1     1     1
+     2       2     1     1     1     1     1
+             3     1     1     1     1     1
+     3       3     1     1     1     1     1
+             3     1     1     1     1     1
+     4       1     1     1     1     1     1
+             1     3     1     1     1     1
+     5       1     2     1     1     1     1
+             1     3     1     1     1     1
+     6       1     3     1     1     1     1
+             1     3     1     1     1     1
+     7       1     1     1     1     1     1
+             1     1     3     1     1     1
+     8       1     1     2     1     1     1
+             1     1     3     1     1     1
+     9       1     1     3     1     1     1
+             1     1     3     1     1     1
+    10       1     1     1     1     1     1
+             1     1     1     3     1     1
+    11       1     1     1     2     1     1
+             1     1     1     3     1     1
+    12       1     1     1     3     1     1
+             1     1     1     3     1     1
+    13       1     1     1     1     1     1
+             1     1     1     1     3     1
+    14       1     1     1     1     2     1
+             1     1     1     1     3     1
+    15       1     1     1     1     3     1
+             1     1     1     1     3     1
+    16       1     1     1     1     1     1
+             1     1     1     1     1     3
+    17       1     1     1     1     1     2
+             1     1     1     1     1     3
+    18       1     1     1     1     1     3
+             1     1     1     1     1     3
+    19       1     1     1     1     1     1
+             7     1     1     1     1     1
+    20       2     1     1     1     1     1
+             7     1     1     1     1     1
+    21       3     1     1     1     1     1
+             7     1     1     1     1     1
+    22       4     1     1     1     1     1
+             7     1     1     1     1     1
+    23       5     1     1     1     1     1
+             7     1     1     1     1     1
+    24       6     1     1     1     1     1
+             7     1     1     1     1     1
+    25       7     1     1     1     1     1
+             7     1     1     1     1     1
+    26       1     1     1     1     1     1
+             3     3     1     1     1     1
+    27       2     1     1     1     1     1
+             3     3     1     1     1     1
+    28       3     1     1     1     1     1
+             3     3     1     1     1     1
+    29       1     2     1     1     1     1
+             3     3     1     1     1     1
+    30       2     2     1     1     1     1
+             3     3     1     1     1     1
+    31       3     2     1     1     1     1
+             3     3     1     1     1     1
+    32       1     3     1     1     1     1
+             3     3     1     1     1     1
+    33       2     3     1     1     1     1
+             3     3     1     1     1     1
+    34       3     3     1     1     1     1
+             3     3     1     1     1     1
+    35       1     1     1     1     1     1
+             1     7     1     1     1     1
+    36       1     2     1     1     1     1
+             1     7     1     1     1     1
+    37       1     3     1     1     1     1
+             1     7     1     1     1     1
+    38       1     4     1     1     1     1
+             1     7     1     1     1     1
+    39       1     5     1     1     1     1
+             1     7     1     1     1     1
+    40       1     6     1     1     1     1
+             1     7     1     1     1     1
+    41       1     7     1     1     1     1
+             1     7     1     1     1     1
+    42       1     1     1     1     1     1
+             3     1     3     1     1     1
+    43       2     1     1     1     1     1
+             3     1     3     1     1     1
+    44       3     1     1     1     1     1
+             3     1     3     1     1     1
+    45       1     1     2     1     1     1
+             3     1     3     1     1     1
+    46       2     1     2     1     1     1
+             3     1     3     1     1     1
+    47       3     1     2     1     1     1
+             3     1     3     1     1     1
+    48       1     1     3     1     1     1
+             3     1     3     1     1     1
+    49       2     1     3     1     1     1
+             3     1     3     1     1     1
+    50       3     1     3     1     1     1
+             3     1     3     1     1     1
+    51       1     1     1     1     1     1
+             1     3     3     1     1     1
+    52       1     2     1     1     1     1
+             1     3     3     1     1     1
+    53       1     3     1     1     1     1
+             1     3     3     1     1     1
+    54       1     1     2     1     1     1
+             1     3     3     1     1     1
+    55       1     2     2     1     1     1
+             1     3     3     1     1     1
+    56       1     3     2     1     1     1
+             1     3     3     1     1     1
+    57       1     1     3     1     1     1
+             1     3     3     1     1     1
+    58       1     2     3     1     1     1
+             1     3     3     1     1     1
+    59       1     3     3     1     1     1
+             1     3     3     1     1     1
+    60       1     1     1     1     1     1
+             1     1     7     1     1     1
+    61       1     1     2     1     1     1
+             1     1     7     1     1     1
+    62       1     1     3     1     1     1
+             1     1     7     1     1     1
+    63       1     1     4     1     1     1
+             1     1     7     1     1     1
+    64       1     1     5     1     1     1
+             1     1     7     1     1     1
+    65       1     1     6     1     1     1
+             1     1     7     1     1     1
+    66       1     1     7     1     1     1
+             1     1     7     1     1     1
+    67       1     1     1     1     1     1
+             3     1     1     3     1     1
+    68       2     1     1     1     1     1
+             3     1     1     3     1     1
+    69       3     1     1     1     1     1
+             3     1     1     3     1     1
+    70       1     1     1     2     1     1
+             3     1     1     3     1     1
+    71       2     1     1     2     1     1
+             3     1     1     3     1     1
+    72       3     1     1     2     1     1
+             3     1     1     3     1     1
+    73       1     1     1     3     1     1
+             3     1     1     3     1     1
+    74       2     1     1     3     1     1
+             3     1     1     3     1     1
+    75       3     1     1     3     1     1
+             3     1     1     3     1     1
+    76       1     1     1     1     1     1
+             1     3     1     3     1     1
+    77       1     2     1     1     1     1
+             1     3     1     3     1     1
+    78       1     3     1     1     1     1
+             1     3     1     3     1     1
+    79       1     1     1     2     1     1
+             1     3     1     3     1     1
+    80       1     2     1     2     1     1
+             1     3     1     3     1     1
+    81       1     3     1     2     1     1
+             1     3     1     3     1     1
+    82       1     1     1     3     1     1
+             1     3     1     3     1     1
+    83       1     2     1     3     1     1
+             1     3     1     3     1     1
+    84       1     3     1     3     1     1
+             1     3     1     3     1     1
+    85       1     1     1     1     1     1
+             1     1     3     3     1     1
+    86       1     1     2     1     1     1
+             1     1     3     3     1     1
+    87       1     1     3     1     1     1
+             1     1     3     3     1     1
+    88       1     1     1     2     1     1
+             1     1     3     3     1     1
+    89       1     1     2     2     1     1
+             1     1     3     3     1     1
+    90       1     1     3     2     1     1
+             1     1     3     3     1     1
+    91       1     1     1     3     1     1
+             1     1     3     3     1     1
+    92       1     1     2     3     1     1
+             1     1     3     3     1     1
+    93       1     1     3     3     1     1
+             1     1     3     3     1     1
+    94       1     1     1     1     1     1
+             1     1     1     7     1     1
+    95       1     1     1     2     1     1
+             1     1     1     7     1     1
+    96       1     1     1     3     1     1
+             1     1     1     7     1     1
+    97       1     1     1     4     1     1
+             1     1     1     7     1     1
+    98       1     1     1     5     1     1
+             1     1     1     7     1     1
+    99       1     1     1     6     1     1
+             1     1     1     7     1     1
+   100       1     1     1     7     1     1
+             1     1     1     7     1     1
+   101       1     1     1     1     1     1
+             3     1     1     1     3     1
+   102       2     1     1     1     1     1
+             3     1     1     1     3     1
+   103       3     1     1     1     1     1
+             3     1     1     1     3     1
+   104       1     1     1     1     2     1
+             3     1     1     1     3     1
+   105       2     1     1     1     2     1
+             3     1     1     1     3     1
+   106       3     1     1     1     2     1
+             3     1     1     1     3     1
+   107       1     1     1     1     3     1
+             3     1     1     1     3     1
+   108       2     1     1     1     3     1
+             3     1     1     1     3     1
+   109       3     1     1     1     3     1
+             3     1     1     1     3     1
+   110       1     1     1     1     1     1
+             1     3     1     1     3     1
+   111       1     2     1     1     1     1
+             1     3     1     1     3     1
+   112       1     3     1     1     1     1
+             1     3     1     1     3     1
+   113       1     1     1     1     2     1
+             1     3     1     1     3     1
+   114       1     2     1     1     2     1
+             1     3     1     1     3     1
+   115       1     3     1     1     2     1
+             1     3     1     1     3     1
+   116       1     1     1     1     3     1
+             1     3     1     1     3     1
+   117       1     2     1     1     3     1
+             1     3     1     1     3     1
+   118       1     3     1     1     3     1
+             1     3     1     1     3     1
+   119       1     1     1     1     1     1
+             1     1     3     1     3     1
+   120       1     1     2     1     1     1
+             1     1     3     1     3     1
+   121       1     1     3     1     1     1
+             1     1     3     1     3     1
+   122       1     1     1     1     2     1
+             1     1     3     1     3     1
+   123       1     1     2     1     2     1
+             1     1     3     1     3     1
+   124       1     1     3     1     2     1
+             1     1     3     1     3     1
+   125       1     1     1     1     3     1
+             1     1     3     1     3     1
+   126       1     1     2     1     3     1
+             1     1     3     1     3     1
+   127       1     1     3     1     3     1
+             1     1     3     1     3     1
+   128       1     1     1     1     1     1
+             1     1     1     3     3     1
+   129       1     1     1     2     1     1
+             1     1     1     3     3     1
+   130       1     1     1     3     1     1
+             1     1     1     3     3     1
+   131       1     1     1     1     2     1
+             1     1     1     3     3     1
+   132       1     1     1     2     2     1
+             1     1     1     3     3     1
+   133       1     1     1     3     2     1
+             1     1     1     3     3     1
+   134       1     1     1     1     3     1
+             1     1     1     3     3     1
+   135       1     1     1     2     3     1
+             1     1     1     3     3     1
+   136       1     1     1     3     3     1
+             1     1     1     3     3     1
+   137       1     1     1     1     1     1
+             1     1     1     1     7     1
+   138       1     1     1     1     2     1
+             1     1     1     1     7     1
+   139       1     1     1     1     3     1
+             1     1     1     1     7     1
+   140       1     1     1     1     4     1
+             1     1     1     1     7     1
+   141       1     1     1     1     5     1
+             1     1     1     1     7     1
+   142       1     1     1     1     6     1
+             1     1     1     1     7     1
+   143       1     1     1     1     7     1
+             1     1     1     1     7     1
+   144       1     1     1     1     1     1
+             3     1     1     1     1     3
+   145       2     1     1     1     1     1
+             3     1     1     1     1     3
+   146       3     1     1     1     1     1
+             3     1     1     1     1     3
+   147       1     1     1     1     1     2
+             3     1     1     1     1     3
+   148       2     1     1     1     1     2
+             3     1     1     1     1     3
+   149       3     1     1     1     1     2
+             3     1     1     1     1     3
+   150       1     1     1     1     1     3
+             3     1     1     1     1     3
+   151       2     1     1     1     1     3
+             3     1     1     1     1     3
+   152       3     1     1     1     1     3
+             3     1     1     1     1     3
+   153       1     1     1     1     1     1
+             1     3     1     1     1     3
+   154       1     2     1     1     1     1
+             1     3     1     1     1     3
+   155       1     3     1     1     1     1
+             1     3     1     1     1     3
+   156       1     1     1     1     1     2
+             1     3     1     1     1     3
+   157       1     2     1     1     1     2
+             1     3     1     1     1     3
+   158       1     3     1     1     1     2
+             1     3     1     1     1     3
+   159       1     1     1     1     1     3
+             1     3     1     1     1     3
+   160       1     2     1     1     1     3
+             1     3     1     1     1     3
+   161       1     3     1     1     1     3
+             1     3     1     1     1     3
+   162       1     1     1     1     1     1
+             1     1     3     1     1     3
+   163       1     1     2     1     1     1
+             1     1     3     1     1     3
+   164       1     1     3     1     1     1
+             1     1     3     1     1     3
+   165       1     1     1     1     1     2
+             1     1     3     1     1     3
+   166       1     1     2     1     1     2
+             1     1     3     1     1     3
+   167       1     1     3     1     1     2
+             1     1     3     1     1     3
+   168       1     1     1     1     1     3
+             1     1     3     1     1     3
+   169       1     1     2     1     1     3
+             1     1     3     1     1     3
+   170       1     1     3     1     1     3
+             1     1     3     1     1     3
+   171       1     1     1     1     1     1
+             1     1     1     3     1     3
+   172       1     1     1     2     1     1
+             1     1     1     3     1     3
+   173       1     1     1     3     1     1
+             1     1     1     3     1     3
+   174       1     1     1     1     1     2
+             1     1     1     3     1     3
+   175       1     1     1     2     1     2
+             1     1     1     3     1     3
+   176       1     1     1     3     1     2
+             1     1     1     3     1     3
+   177       1     1     1     1     1     3
+             1     1     1     3     1     3
+   178       1     1     1     2     1     3
+             1     1     1     3     1     3
+   179       1     1     1     3     1     3
+             1     1     1     3     1     3
+   180       1     1     1     1     1     1
+             1     1     1     1     3     3
+   181       1     1     1     1     2     1
+             1     1     1     1     3     3
+   182       1     1     1     1     3     1
+             1     1     1     1     3     3
+   183       1     1     1     1     1     2
+             1     1     1     1     3     3
+   184       1     1     1     1     2     2
+             1     1     1     1     3     3
+   185       1     1     1     1     3     2
+             1     1     1     1     3     3
+   186       1     1     1     1     1     3
+             1     1     1     1     3     3
+   187       1     1     1     1     2     3
+             1     1     1     1     3     3
+   188       1     1     1     1     3     3
+             1     1     1     1     3     3
+   189       1     1     1     1     1     1
+             1     1     1     1     1     7
+   190       1     1     1     1     1     2
+             1     1     1     1     1     7
+   191       1     1     1     1     1     3
+             1     1     1     1     1     7
+   192       1     1     1     1     1     4
+             1     1     1     1     1     7
+   193       1     1     1     1     1     5
+             1     1     1     1     1     7
+   194       1     1     1     1     1     6
+             1     1     1     1     1     7
+   195       1     1     1     1     1     7
+             1     1     1     1     1     7
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  1
+  Unique points in the grid = 5
+
+  Grid weights:
+
+     0         1.33333
+     1        0.666667
+     2        0.666667
+     3        0.666667
+     4        0.666667
+
+  Grid points:
+
+  0               0             0
+  1              -1             0
+  2               1             0
+  3               0            -1
+  4               0             1
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  1
+  Unique points in the grid = 13
+
+  Grid weights:
+
+     0       -0.355556
+     1      -0.0888889
+     2      -0.0888889
+     3      -0.0888889
+     4      -0.0888889
+     5         1.06667
+     6         1.06667
+     7        0.111111
+     8        0.111111
+     9        0.111111
+    10        0.111111
+    11         1.06667
+    12         1.06667
+
+  Grid points:
+
+  0               0             0
+  1              -1             0
+  2               1             0
+  3               0            -1
+  4               0             1
+  5       -0.707107             0
+  6        0.707107             0
+  7              -1            -1
+  8               1            -1
+  9              -1             1
+  10               1             1
+  11               0     -0.707107
+  12               0      0.707107
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  1
+  Unique points in the grid = 7
+
+  Grid weights:
+
+     0    -1.77636e-15
+     1         1.33333
+     2         1.33333
+     3         1.33333
+     4         1.33333
+     5         1.33333
+     6         1.33333
+
+  Grid points:
+
+  0               0             0             0
+  1              -1             0             0
+  2               1             0             0
+  3               0            -1             0
+  4               0             1             0
+  5               0             0            -1
+  6               0             0             1
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  2
+  Unique points in the grid = 5
+
+  Grid weights:
+
+     0        0.444444
+     1        0.888889
+     2        0.888889
+     3        0.888889
+     4        0.888889
+
+  Grid points:
+
+  0               0             0
+  1       -0.866025             0
+  2        0.866025             0
+  3               0     -0.866025
+  4               0      0.866025
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  2
+  Unique points in the grid = 17
+
+  Grid weights:
+
+     0        -1.39219
+     1        0.180601
+     2        0.180601
+     3        0.180601
+     4        0.180601
+     5        0.173432
+     6        0.796483
+     7        0.796483
+     8        0.173432
+     9        0.197531
+    10        0.197531
+    11        0.197531
+    12        0.197531
+    13        0.173432
+    14        0.796483
+    15        0.796483
+    16        0.173432
+
+  Grid points:
+
+  0               0             0
+  1       -0.781831             0
+  2        0.781831             0
+  3               0     -0.781831
+  4               0      0.781831
+  5       -0.974928             0
+  6       -0.433884             0
+  7        0.433884             0
+  8        0.974928             0
+  9       -0.781831     -0.781831
+  10        0.781831     -0.781831
+  11       -0.781831      0.781831
+  12        0.781831      0.781831
+  13               0     -0.974928
+  14               0     -0.433884
+  15               0      0.433884
+  16               0      0.974928
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  2
+  Unique points in the grid = 7
+
+  Grid weights:
+
+     0        -2.66667
+     1         1.77778
+     2         1.77778
+     3         1.77778
+     4         1.77778
+     5         1.77778
+     6         1.77778
+
+  Grid points:
+
+  0               0             0             0
+  1       -0.866025             0             0
+  2        0.866025             0             0
+  3               0     -0.866025             0
+  4               0      0.866025             0
+  5               0             0     -0.866025
+  6               0             0      0.866025
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  3
+  Unique points in the grid = 5
+
+  Grid weights:
+
+     0        -1.33333
+     1         1.33333
+     2         1.33333
+     3         1.33333
+     4         1.33333
+
+  Grid points:
+
+  0               0             0
+  1       -0.707107             0
+  2        0.707107             0
+  3               0     -0.707107
+  4               0      0.707107
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  3
+  Unique points in the grid = 17
+
+  Grid weights:
+
+     0       -0.774603
+     1       -0.393651
+     2       -0.393651
+     3       -0.393651
+     4       -0.393651
+     5        0.355929
+     6        0.786928
+     7        0.786928
+     8        0.355929
+     9        0.444444
+    10        0.444444
+    11        0.444444
+    12        0.444444
+    13        0.355929
+    14        0.786928
+    15        0.786928
+    16        0.355929
+
+  Grid points:
+
+  0               0             0
+  1       -0.707107             0
+  2        0.707107             0
+  3               0     -0.707107
+  4               0      0.707107
+  5        -0.92388             0
+  6       -0.382683             0
+  7        0.382683             0
+  8         0.92388             0
+  9       -0.707107     -0.707107
+  10        0.707107     -0.707107
+  11       -0.707107      0.707107
+  12        0.707107      0.707107
+  13               0      -0.92388
+  14               0     -0.382683
+  15               0      0.382683
+  16               0       0.92388
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  3
+  Unique points in the grid = 7
+
+  Grid weights:
+
+     0              -8
+     1         2.66667
+     2         2.66667
+     3         2.66667
+     4         2.66667
+     5         2.66667
+     6         2.66667
+
+  Grid points:
+
+  0               0             0             0
+  1       -0.707107             0             0
+  2        0.707107             0             0
+  3               0     -0.707107             0
+  4               0      0.707107             0
+  5               0             0     -0.707107
+  6               0             0      0.707107
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  4
+  Unique points in the grid = 5
+
+  Grid weights:
+
+     0       -0.444444
+     1         1.11111
+     2         1.11111
+     3         1.11111
+     4         1.11111
+
+  Grid points:
+
+  0       -0.960491     -0.960491
+  1       -0.993832     -0.960491
+  2       -0.888459     -0.960491
+  3       -0.960491     -0.993832
+  4       -0.960491     -0.888459
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  4
+  Unique points in the grid = 17
+
+  Grid weights:
+
+     0       -0.961766
+     1      -0.0803078
+     2      -0.0803078
+     3      -0.0803078
+     4      -0.0803078
+     5        0.209312
+     6        0.802795
+     7        0.802795
+     8        0.209312
+     9        0.308642
+    10        0.308642
+    11        0.308642
+    12        0.308642
+    13        0.209312
+    14        0.802795
+    15        0.802795
+    16        0.209312
+
+  Grid points:
+
+  0       -0.999873     -0.999873
+  1       -0.999982     -0.999873
+  2       -0.999599     -0.999873
+  3       -0.999873     -0.999982
+  4       -0.999873     -0.999599
+  5       -0.999998     -0.999873
+  6       -0.999944     -0.999873
+  7        -0.99976     -0.999873
+  8        -0.99938     -0.999873
+  9       -0.999982     -0.999982
+  10       -0.999599     -0.999982
+  11       -0.999982     -0.999599
+  12       -0.999599     -0.999599
+  13       -0.999873     -0.999998
+  14       -0.999873     -0.999944
+  15       -0.999873      -0.99976
+  16       -0.999873      -0.99938
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  4
+  Unique points in the grid = 7
+
+  Grid weights:
+
+     0        -5.33333
+     1         2.22222
+     2         2.22222
+     3         2.22222
+     4         2.22222
+     5         2.22222
+     6         2.22222
+
+  Grid points:
+
+  0       -0.960491     -0.960491     -0.960491
+  1       -0.993832     -0.960491     -0.960491
+  2       -0.888459     -0.960491     -0.960491
+  3       -0.960491     -0.993832     -0.960491
+  4       -0.960491     -0.888459     -0.960491
+  5       -0.960491     -0.960491     -0.993832
+  6       -0.960491     -0.960491     -0.888459
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  5
+  Unique points in the grid = 5
+
+  Grid weights:
+
+     0       -0.444444
+     1         1.11111
+     2         1.11111
+     3         1.11111
+     4         1.11111
+
+  Grid points:
+
+  0               0             0
+  1       -0.774597             0
+  2        0.774597             0
+  3               0     -0.774597
+  4               0      0.774597
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  5
+  Unique points in the grid = 21
+
+  Grid weights:
+
+     0         -1.0936
+     1       -0.617284
+     2       -0.617284
+     3       -0.617284
+     4       -0.617284
+     5         0.25897
+     6        0.559411
+     7         0.76366
+     8         0.76366
+     9        0.559411
+    10         0.25897
+    11        0.308642
+    12        0.308642
+    13        0.308642
+    14        0.308642
+    15         0.25897
+    16        0.559411
+    17         0.76366
+    18         0.76366
+    19        0.559411
+    20         0.25897
+
+  Grid points:
+
+  0               0             0
+  1       -0.774597             0
+  2        0.774597             0
+  3               0     -0.774597
+  4               0      0.774597
+  5       -0.949108             0
+  6       -0.741531             0
+  7       -0.405845             0
+  8        0.405845             0
+  9        0.741531             0
+  10        0.949108             0
+  11       -0.774597     -0.774597
+  12        0.774597     -0.774597
+  13       -0.774597      0.774597
+  14        0.774597      0.774597
+  15               0     -0.949108
+  16               0     -0.741531
+  17               0     -0.405845
+  18               0      0.405845
+  19               0      0.741531
+  20               0      0.949108
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  5
+  Unique points in the grid = 7
+
+  Grid weights:
+
+     0        -5.33333
+     1         2.22222
+     2         2.22222
+     3         2.22222
+     4         2.22222
+     5         2.22222
+     6         2.22222
+
+  Grid points:
+
+  0               0             0             0
+  1       -0.774597             0             0
+  2        0.774597             0             0
+  3               0     -0.774597             0
+  4               0      0.774597             0
+  5               0             0     -0.774597
+  6               0             0      0.774597
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  6
+  Unique points in the grid = 5
+
+  Grid weights:
+
+     0          1.0472
+     1        0.523599
+     2        0.523599
+     3        0.523599
+     4        0.523599
+
+  Grid points:
+
+  0               0             0
+  1        -1.22474             0
+  2         1.22474             0
+  3               0      -1.22474
+  4               0       1.22474
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  6
+  Unique points in the grid = 21
+
+  Grid weights:
+
+     0       0.0797865
+     1       -0.174533
+     2       -0.174533
+     3       -0.174533
+     4       -0.174533
+     5      0.00172244
+     6       0.0966264
+     7        0.754369
+     8        0.754369
+     9       0.0966264
+    10      0.00172244
+    11       0.0872665
+    12       0.0872665
+    13       0.0872665
+    14       0.0872665
+    15      0.00172244
+    16       0.0966264
+    17        0.754369
+    18        0.754369
+    19       0.0966264
+    20      0.00172244
+
+  Grid points:
+
+  0               0             0
+  1        -1.22474             0
+  2         1.22474             0
+  3               0      -1.22474
+  4               0       1.22474
+  5        -2.65196             0
+  6        -1.67355             0
+  7       -0.816288             0
+  8        0.816288             0
+  9         1.67355             0
+  10         2.65196             0
+  11        -1.22474      -1.22474
+  12         1.22474      -1.22474
+  13        -1.22474       1.22474
+  14         1.22474       1.22474
+  15               0      -2.65196
+  16               0      -1.67355
+  17               0     -0.816288
+  18               0      0.816288
+  19               0       1.67355
+  20               0       2.65196
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  6
+  Unique points in the grid = 7
+
+  Grid weights:
+
+     0    -8.88178e-16
+     1        0.928055
+     2        0.928055
+     3        0.928055
+     4        0.928055
+     5        0.928055
+     6        0.928055
+
+  Grid points:
+
+  0               0             0             0
+  1        -1.22474             0             0
+  2         1.22474             0             0
+  3               0      -1.22474             0
+  4               0       1.22474             0
+  5               0             0      -1.22474
+  6               0             0       1.22474
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  7
+  Unique points in the grid = 7
+
+  Grid weights:
+
+     0              -1
+     1        0.711093
+     2        0.278518
+     3       0.0103893
+     4        0.711093
+     5        0.278518
+     6       0.0103893
+
+  Grid points:
+
+  0               1             1
+  1        0.415775             1
+  2         2.29428             1
+  3         6.28995             1
+  4               1      0.415775
+  5               1       2.29428
+  6               1       6.28995
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  7
+  Unique points in the grid = 29
+
+  Grid weights:
+
+     0       -0.711093
+     1       -0.278518
+     2      -0.0103893
+     3       -0.711093
+     4       -0.278518
+     5      -0.0103893
+     6        0.409319
+     7        0.421831
+     8        0.147126
+     9       0.0206335
+    10      0.00107401
+    11     1.58655e-05
+    12     3.17032e-08
+    13        0.505653
+    14        0.198052
+    15      0.00738773
+    16        0.198052
+    17       0.0775721
+    18      0.00289359
+    19      0.00738773
+    20      0.00289359
+    21     0.000107937
+    22        0.409319
+    23        0.421831
+    24        0.147126
+    25       0.0206335
+    26      0.00107401
+    27     1.58655e-05
+    28     3.17032e-08
+
+  Grid points:
+
+  0        0.415775             1
+  1         2.29428             1
+  2         6.28995             1
+  3               1      0.415775
+  4               1       2.29428
+  5               1       6.28995
+  6        0.193044             1
+  7         1.02666             1
+  8         2.56788             1
+  9         4.90035             1
+  10         8.18215             1
+  11         12.7342             1
+  12         19.3957             1
+  13        0.415775      0.415775
+  14         2.29428      0.415775
+  15         6.28995      0.415775
+  16        0.415775       2.29428
+  17         2.29428       2.29428
+  18         6.28995       2.29428
+  19        0.415775       6.28995
+  20         2.29428       6.28995
+  21         6.28995       6.28995
+  22               1      0.193044
+  23               1       1.02666
+  24               1       2.56788
+  25               1       4.90035
+  26               1       8.18215
+  27               1       12.7342
+  28               1       19.3957
+
+SPARSE_GRID_COMPUTE_TEST:
+  SPARSE_GRID can make a sparse grid.
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  7
+  Unique points in the grid = 10
+
+  Grid weights:
+
+     0              -2
+     1        0.711093
+     2        0.278518
+     3       0.0103893
+     4        0.711093
+     5        0.278518
+     6       0.0103893
+     7        0.711093
+     8        0.278518
+     9       0.0103893
+
+  Grid points:
+
+  0               1             1             1
+  1        0.415775             1             1
+  2         2.29428             1             1
+  3         6.28995             1             1
+  4               1      0.415775             1
+  5               1       2.29428             1
+  6               1       6.28995             1
+  7               1             1      0.415775
+  8               1             1       2.29428
+  9               1             1       6.28995
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 4
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 3
+  LEVEL_MAX =                 4
+  1D quadrature index RULE =  1
+  Unique points in the grid = 65
+
+    Weight sum  Expected sum    Difference
+
+               4               4               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  1
+  Unique points in the grid = 1
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  1
+  Unique points in the grid = 7
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 4
+  LEVEL_MAX =                 6
+  1D quadrature index RULE =  1
+  Unique points in the grid = 1073
+
+    Weight sum  Expected sum    Difference
+
+               8               8     9.76996e-15
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1024
+
+  Spatial dimension DIM_NUM = 10
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  1
+  Unique points in the grid = 1581
+
+    Weight sum  Expected sum    Difference
+
+            1024            1024     3.63798e-11
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 4
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 3
+  LEVEL_MAX =                 4
+  1D quadrature index RULE =  2
+  Unique points in the grid = 129
+
+    Weight sum  Expected sum    Difference
+
+               4               4               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  2
+  Unique points in the grid = 1
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  2
+  Unique points in the grid = 7
+
+    Weight sum  Expected sum    Difference
+
+               8               8     3.55271e-15
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 4
+  LEVEL_MAX =                 6
+  1D quadrature index RULE =  2
+  Unique points in the grid = 2815
+
+    Weight sum  Expected sum    Difference
+
+               8               8     2.30926e-14
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1024
+
+  Spatial dimension DIM_NUM = 10
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  2
+  Unique points in the grid = 2001
+
+    Weight sum  Expected sum    Difference
+
+            1024            1024     4.26326e-11
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 4
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 3
+  LEVEL_MAX =                 4
+  1D quadrature index RULE =  3
+  Unique points in the grid = 129
+
+    Weight sum  Expected sum    Difference
+
+               4               4     3.55271e-15
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  3
+  Unique points in the grid = 1
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  3
+  Unique points in the grid = 7
+
+    Weight sum  Expected sum    Difference
+
+               8               8     1.77636e-15
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 4
+  LEVEL_MAX =                 6
+  1D quadrature index RULE =  3
+  Unique points in the grid = 2815
+
+    Weight sum  Expected sum    Difference
+
+               8               8     1.98952e-13
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1024
+
+  Spatial dimension DIM_NUM = 10
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  3
+  Unique points in the grid = 2001
+
+    Weight sum  Expected sum    Difference
+
+            1024            1024      1.2235e-09
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 4
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 3
+  LEVEL_MAX =                 4
+  1D quadrature index RULE =  4
+  Unique points in the grid = 129
+
+    Weight sum  Expected sum    Difference
+
+               4               4     8.88178e-16
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  4
+  Unique points in the grid = 1
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  4
+  Unique points in the grid = 7
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 4
+  LEVEL_MAX =                 6
+  1D quadrature index RULE =  4
+  Unique points in the grid = 2815
+
+    Weight sum  Expected sum    Difference
+
+               8               8     2.34479e-13
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1024
+
+  Spatial dimension DIM_NUM = 10
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  4
+  Unique points in the grid = 2001
+
+    Weight sum  Expected sum    Difference
+
+            1024            1024     1.22782e-09
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 4
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 3
+  LEVEL_MAX =                 4
+  1D quadrature index RULE =  5
+  Unique points in the grid = 225
+
+    Weight sum  Expected sum    Difference
+
+               4               4     8.88178e-15
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  5
+  Unique points in the grid = 1
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  5
+  Unique points in the grid = 7
+
+    Weight sum  Expected sum    Difference
+
+               8               8               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 8
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 4
+  LEVEL_MAX =                 6
+  1D quadrature index RULE =  5
+  Unique points in the grid = 6405
+
+    Weight sum  Expected sum    Difference
+
+               8               8     8.44658e-13
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1024
+
+  Spatial dimension DIM_NUM = 10
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  5
+  Unique points in the grid = 2441
+
+    Weight sum  Expected sum    Difference
+
+            1024            1024      1.5466e-09
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 3.14159
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 3
+  LEVEL_MAX =                 4
+  1D quadrature index RULE =  6
+  Unique points in the grid = 225
+
+    Weight sum  Expected sum    Difference
+
+         3.14159         3.14159     1.95497e-11
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 5.56833
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  6
+  Unique points in the grid = 1
+
+    Weight sum  Expected sum    Difference
+
+         5.56833         5.56833     8.88178e-16
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 5.56833
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  6
+  Unique points in the grid = 7
+
+    Weight sum  Expected sum    Difference
+
+         5.56833         5.56833               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 5.56833
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 4
+  LEVEL_MAX =                 6
+  1D quadrature index RULE =  6
+  Unique points in the grid = 6405
+
+    Weight sum  Expected sum    Difference
+
+         5.56833         5.56833     5.19442e-11
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 306.02
+
+  Spatial dimension DIM_NUM = 10
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  6
+  Unique points in the grid = 2441
+
+    Weight sum  Expected sum    Difference
+
+          306.02          306.02     8.10019e-11
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 3
+  LEVEL_MAX =                 4
+  1D quadrature index RULE =  7
+  Unique points in the grid = 273
+
+    Weight sum  Expected sum    Difference
+
+               1               1     1.33227e-15
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  7
+  Unique points in the grid = 1
+
+    Weight sum  Expected sum    Difference
+
+               1               1               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  7
+  Unique points in the grid = 10
+
+    Weight sum  Expected sum    Difference
+
+               1               1               0
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 4
+  LEVEL_MAX =                 6
+  1D quadrature index RULE =  7
+  Unique points in the grid = 9484
+
+    Weight sum  Expected sum    Difference
+
+               1               1        1.39e-13
+
+SPARSE_GRID_WEIGHT_TEST:
+  Compute the weights of a sparse grid.
+
+  As a simple test, sum these weights.
+  They should sum to exactly 1
+
+  Spatial dimension DIM_NUM = 10
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  7
+  Unique points in the grid = 5786
+
+    Weight sum  Expected sum    Difference
+
+               1               1     1.53055e-12
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  1
+  Check up to DEGREE_MAX =    3
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+               1   2   2 0
+               0   2   1 1
+               1   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  1
+  Check up to DEGREE_MAX =    5
+  Unique points in the grid = 5
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+        0.666667   4   4 0
+               0   4   3 1
+               1   4   2 2
+               0   4   1 3
+        0.666667   4   0 4
+
+               0   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+               0   5   0 5
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  1
+  Check up to DEGREE_MAX =    7
+  Unique points in the grid = 13
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+     3.33067e-16   1   1 0
+     3.33067e-16   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+     2.77556e-16   3   3 0
+               0   3   2 1
+               0   3   1 2
+     2.77556e-16   3   0 3
+
+               0   4   4 0
+               0   4   3 1
+       2.498e-16   4   2 2
+               0   4   1 3
+               0   4   0 4
+
+       2.498e-16   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+       2.498e-16   5   0 5
+
+       0.0666667   6   6 0
+               0   6   5 1
+        0.666667   6   4 2
+               0   6   3 3
+        0.666667   6   2 4
+               0   6   1 5
+       0.0666667   6   0 6
+
+     1.52656e-16   7   7 0
+               0   7   6 1
+               0   7   5 2
+               0   7   4 3
+               0   7   3 4
+               0   7   2 5
+               0   7   1 6
+     1.52656e-16   7   0 7
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  1
+  Check up to DEGREE_MAX =    9
+  Unique points in the grid = 29
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     1.11022e-16   0   0 0
+
+     5.55112e-16   1   1 0
+     6.10623e-16   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+     3.88578e-16   3   3 0
+     1.66533e-16   3   2 1
+     1.66533e-16   3   1 2
+     4.16334e-16   3   0 3
+
+     1.38778e-16   4   4 0
+               0   4   3 1
+       2.498e-16   4   2 2
+               0   4   1 3
+     2.77556e-16   4   0 4
+
+     3.05311e-16   5   5 0
+     1.66533e-16   5   4 1
+     8.32667e-17   5   3 2
+     8.32667e-17   5   2 3
+     1.66533e-16   5   1 4
+     2.77556e-16   5   0 5
+
+     1.94289e-16   6   6 0
+               0   6   5 1
+     2.08167e-16   6   4 2
+               0   6   3 3
+     2.08167e-16   6   2 4
+               0   6   1 5
+     5.82867e-16   6   0 6
+
+     2.22045e-16   7   7 0
+     1.66533e-16   7   6 1
+     9.71445e-17   7   5 2
+     8.32667e-17   7   4 3
+     8.32667e-17   7   3 4
+     9.71445e-17   7   2 5
+     1.66533e-16   7   1 6
+     1.94289e-16   7   0 7
+
+       4.996e-16   8   8 0
+               0   8   7 1
+       0.0666667   8   6 2
+               0   8   5 3
+        0.444444   8   4 4
+               0   8   3 5
+       0.0666667   8   2 6
+               0   8   1 7
+       4.996e-16   8   0 8
+
+     1.66533e-16   9   9 0
+     1.66533e-16   9   8 1
+     5.55112e-17   9   7 2
+     8.32667e-17   9   6 3
+     9.71445e-17   9   5 4
+     9.71445e-17   9   4 5
+     8.32667e-17   9   3 6
+     4.85723e-17   9   2 7
+     1.66533e-16   9   1 8
+     1.38778e-16   9   0 9
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  1
+  Check up to DEGREE_MAX =    2
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+               1   2   2 0 0
+               0   2   1 1 0
+               1   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+               1   2   0 0 2
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  1
+  Check up to DEGREE_MAX =    4
+  Unique points in the grid = 7
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+     1.66533e-16   2   2 0 0
+               0   2   1 1 0
+     1.66533e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     1.66533e-16   2   0 0 2
+
+               0   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+               0   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+               0   3   0 0 3
+
+        0.666667   4   4 0 0
+               0   4   3 1 0
+               1   4   2 2 0
+               0   4   1 3 0
+        0.666667   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+               1   4   2 0 2
+               0   4   1 1 2
+               1   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+        0.666667   4   0 0 4
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  1
+  Check up to DEGREE_MAX =    6
+  Unique points in the grid = 25
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     4.44089e-16   0   0 0 0
+
+     6.66134e-16   1   1 0 0
+     6.66134e-16   1   0 1 0
+     6.66134e-16   1   0 0 1
+
+     1.66533e-16   2   2 0 0
+               0   2   1 1 0
+     1.66533e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     1.66533e-16   2   0 0 2
+
+     5.55112e-16   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+     5.55112e-16   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+     5.55112e-16   3   0 0 3
+
+     1.38778e-16   4   4 0 0
+               0   4   3 1 0
+       2.498e-16   4   2 2 0
+               0   4   1 3 0
+               0   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+       2.498e-16   4   2 0 2
+               0   4   1 1 2
+       2.498e-16   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+               0   4   0 0 4
+
+       4.996e-16   5   5 0 0
+               0   5   4 1 0
+               0   5   3 2 0
+               0   5   2 3 0
+               0   5   1 4 0
+       4.996e-16   5   0 5 0
+               0   5   4 0 1
+               0   5   3 1 1
+               0   5   2 2 1
+               0   5   1 3 1
+               0   5   0 4 1
+               0   5   3 0 2
+               0   5   2 1 2
+               0   5   1 2 2
+               0   5   0 3 2
+               0   5   2 0 3
+               0   5   1 1 3
+               0   5   0 2 3
+               0   5   1 0 4
+               0   5   0 1 4
+       4.996e-16   5   0 0 5
+
+       0.0666667   6   6 0 0
+               0   6   5 1 0
+        0.666667   6   4 2 0
+               0   6   3 3 0
+        0.666667   6   2 4 0
+               0   6   1 5 0
+       0.0666667   6   0 6 0
+               0   6   5 0 1
+               0   6   4 1 1
+               0   6   3 2 1
+               0   6   2 3 1
+               0   6   1 4 1
+               0   6   0 5 1
+        0.666667   6   4 0 2
+               0   6   3 1 2
+               1   6   2 2 2
+               0   6   1 3 2
+        0.666667   6   0 4 2
+               0   6   3 0 3
+               0   6   2 1 3
+               0   6   1 2 3
+               0   6   0 3 3
+        0.666667   6   2 0 4
+               0   6   1 1 4
+        0.666667   6   0 2 4
+               0   6   1 0 5
+               0   6   0 1 5
+       0.0666667   6   0 0 6
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  2
+  Check up to DEGREE_MAX =    3
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+               1   2   2 0
+               0   2   1 1
+               1   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  2
+  Check up to DEGREE_MAX =    5
+  Unique points in the grid = 5
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     2.22045e-16   0   0 0
+
+     2.22045e-16   1   1 0
+     2.22045e-16   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+     2.22045e-16   3   3 0
+               0   3   2 1
+               0   3   1 2
+     2.22045e-16   3   0 3
+
+            0.25   4   4 0
+               0   4   3 1
+               1   4   2 2
+               0   4   1 3
+            0.25   4   0 4
+
+     1.11022e-16   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+     1.11022e-16   5   0 5
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  2
+  Check up to DEGREE_MAX =    7
+  Unique points in the grid = 17
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     1.11022e-16   0   0 0
+
+     3.05311e-16   1   1 0
+     2.22045e-16   1   0 1
+
+     3.33067e-16   2   2 0
+     1.38778e-17   2   1 1
+     3.33067e-16   2   0 2
+
+     4.30211e-16   3   3 0
+     4.16334e-17   3   2 1
+     4.16334e-17   3   1 2
+     4.16334e-16   3   0 3
+
+     5.55112e-16   4   4 0
+     1.38778e-17   4   3 1
+        0.335752   4   2 2
+     1.38778e-17   4   1 3
+     5.55112e-16   4   0 4
+
+     4.23273e-16   5   5 0
+     2.08167e-17   5   4 1
+     1.17961e-16   5   3 2
+       1.249e-16   5   2 3
+     2.08167e-17   5   1 4
+     4.16334e-16   5   0 5
+
+     5.82867e-16   6   6 0
+               0   6   5 1
+        0.323286   6   4 2
+               0   6   3 3
+        0.323286   6   2 4
+               0   6   1 5
+     5.82867e-16   6   0 6
+
+     3.40006e-16   7   7 0
+     1.38778e-17   7   6 1
+     1.17961e-16   7   5 2
+     6.93889e-17   7   4 3
+       6.245e-17   7   3 4
+       1.249e-16   7   2 5
+     1.38778e-17   7   1 6
+     3.60822e-16   7   0 7
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  2
+  Check up to DEGREE_MAX =    9
+  Unique points in the grid = 49
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     3.33067e-16   0   0 0
+
+      3.1225e-17   1   1 0
+       6.245e-17   1   0 1
+
+     1.66533e-16   2   2 0
+     6.59195e-17   2   1 1
+     1.66533e-16   2   0 2
+
+     9.36751e-17   3   3 0
+     5.89806e-17   3   2 1
+     5.55112e-17   3   1 2
+     1.04083e-16   3   0 3
+
+     1.38778e-16   4   4 0
+     2.08167e-17   4   3 1
+          0.2023   4   2 2
+     2.77556e-17   4   1 3
+               0   4   0 4
+
+     6.41848e-17   5   5 0
+     5.20417e-17   5   4 1
+     1.04083e-16   5   3 2
+     1.00614e-16   5   2 3
+     3.81639e-17   5   1 4
+     8.32667e-17   5   0 5
+
+               0   6   6 0
+     1.38778e-17   6   5 1
+        0.257875   6   4 2
+     1.56125e-17   6   3 3
+        0.257875   6   2 4
+     1.38778e-17   6   1 5
+     3.88578e-16   6   0 6
+
+      3.1225e-17   7   7 0
+     2.77556e-17   7   6 1
+     1.00614e-16   7   5 2
+     6.41848e-17   7   4 3
+     5.89806e-17   7   3 4
+     1.04083e-16   7   2 5
+     2.77556e-17   7   1 6
+     5.55112e-17   7   0 7
+
+       2.498e-16   8   8 0
+     9.54098e-18   8   7 1
+        0.319132   8   6 2
+     8.67362e-18   8   5 3
+        0.309656   8   4 4
+     8.67362e-18   8   3 5
+        0.319132   8   2 6
+     1.04083e-17   8   1 7
+       2.498e-16   8   0 8
+
+     2.12504e-17   9   9 0
+     1.34441e-17   9   8 1
+     8.41341e-17   9   7 2
+      4.0766e-17   9   6 3
+     5.37764e-17   9   5 4
+     5.72459e-17   9   4 5
+     3.98986e-17   9   3 6
+     9.19403e-17   9   2 7
+     1.38778e-17   9   1 8
+     2.77556e-17   9   0 9
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  2
+  Check up to DEGREE_MAX =    2
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+               1   2   2 0 0
+               0   2   1 1 0
+               1   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+               1   2   0 0 2
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  2
+  Check up to DEGREE_MAX =    4
+  Unique points in the grid = 7
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     4.44089e-16   0   0 0 0
+
+     4.44089e-16   1   1 0 0
+     4.44089e-16   1   0 1 0
+     4.44089e-16   1   0 0 1
+
+     1.66533e-16   2   2 0 0
+               0   2   1 1 0
+     1.66533e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     1.66533e-16   2   0 0 2
+
+     4.44089e-16   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+     4.44089e-16   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+     4.44089e-16   3   0 0 3
+
+            0.25   4   4 0 0
+               0   4   3 1 0
+               1   4   2 2 0
+               0   4   1 3 0
+            0.25   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+               1   4   2 0 2
+               0   4   1 1 2
+               1   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+            0.25   4   0 0 4
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  2
+  Check up to DEGREE_MAX =    6
+  Unique points in the grid = 31
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+     5.55112e-16   1   1 0 0
+     3.88578e-16   1   0 1 0
+     4.44089e-16   1   0 0 1
+
+       4.996e-16   2   2 0 0
+     2.77556e-17   2   1 1 0
+     3.33067e-16   2   0 2 0
+     2.77556e-17   2   1 0 1
+     2.77556e-17   2   0 1 1
+     3.33067e-16   2   0 0 2
+
+     8.88178e-16   3   3 0 0
+     8.32667e-17   3   2 1 0
+     8.32667e-17   3   1 2 0
+     7.49401e-16   3   0 3 0
+     8.32667e-17   3   2 0 1
+               0   3   1 1 1
+     8.32667e-17   3   0 2 1
+     8.32667e-17   3   1 0 2
+     8.32667e-17   3   0 1 2
+     7.21645e-16   3   0 0 3
+
+     8.32667e-16   4   4 0 0
+     2.77556e-17   4   3 1 0
+        0.335752   4   2 2 0
+     2.77556e-17   4   1 3 0
+     5.55112e-16   4   0 4 0
+     2.77556e-17   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+     2.77556e-17   4   0 3 1
+        0.335752   4   2 0 2
+               0   4   1 1 2
+        0.335752   4   0 2 2
+     2.77556e-17   4   1 0 3
+     2.77556e-17   4   0 1 3
+     5.55112e-16   4   0 0 4
+
+     8.60423e-16   5   5 0 0
+     4.16334e-17   5   4 1 0
+     2.35922e-16   5   3 2 0
+       2.498e-16   5   2 3 0
+     4.16334e-17   5   1 4 0
+     7.91034e-16   5   0 5 0
+     4.16334e-17   5   4 0 1
+               0   5   3 1 1
+               0   5   2 2 1
+               0   5   1 3 1
+     4.16334e-17   5   0 4 1
+     2.35922e-16   5   3 0 2
+               0   5   2 1 2
+               0   5   1 2 2
+     2.35922e-16   5   0 3 2
+       2.498e-16   5   2 0 3
+               0   5   1 1 3
+       2.498e-16   5   0 2 3
+     4.16334e-17   5   1 0 4
+     4.16334e-17   5   0 1 4
+     7.77156e-16   5   0 0 5
+
+     7.77156e-16   6   6 0 0
+               0   6   5 1 0
+        0.323286   6   4 2 0
+               0   6   3 3 0
+        0.323286   6   2 4 0
+               0   6   1 5 0
+     5.82867e-16   6   0 6 0
+               0   6   5 0 1
+               0   6   4 1 1
+               0   6   3 2 1
+               0   6   2 3 1
+               0   6   1 4 1
+               0   6   0 5 1
+        0.323286   6   4 0 2
+               0   6   3 1 2
+               1   6   2 2 2
+               0   6   1 3 2
+        0.323286   6   0 4 2
+               0   6   3 0 3
+               0   6   2 1 3
+               0   6   1 2 3
+               0   6   0 3 3
+        0.323286   6   2 0 4
+               0   6   1 1 4
+        0.323286   6   0 2 4
+               0   6   1 0 5
+               0   6   0 1 5
+     7.77156e-16   6   0 0 6
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  3
+  Check up to DEGREE_MAX =    3
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+               1   2   2 0
+               0   2   1 1
+               1   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  3
+  Check up to DEGREE_MAX =    5
+  Unique points in the grid = 5
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+     1.66533e-16   3   3 0
+               0   3   2 1
+               0   3   1 2
+     1.66533e-16   3   0 3
+
+        0.166667   4   4 0
+               0   4   3 1
+               1   4   2 2
+               0   4   1 3
+        0.166667   4   0 4
+
+     2.22045e-16   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+     2.22045e-16   5   0 5
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  3
+  Check up to DEGREE_MAX =    7
+  Unique points in the grid = 17
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+     2.22045e-16   1   1 0
+     2.22045e-16   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+     1.11022e-16   3   3 0
+     2.77556e-17   3   2 1
+               0   3   1 2
+     1.11022e-16   3   0 3
+
+               0   4   4 0
+     1.38778e-17   4   3 1
+       1.249e-16   4   2 2
+     1.38778e-17   4   1 3
+               0   4   0 4
+
+     4.16334e-17   5   5 0
+               0   5   4 1
+     5.55112e-17   5   3 2
+     6.93889e-17   5   2 3
+     1.38778e-17   5   1 4
+     2.77556e-17   5   0 5
+
+     1.94289e-16   6   6 0
+               0   6   5 1
+        0.166667   6   4 2
+               0   6   3 3
+        0.166667   6   2 4
+               0   6   1 5
+               0   6   0 6
+
+       6.245e-17   7   7 0
+               0   7   6 1
+     7.63278e-17   7   5 2
+     3.46945e-17   7   4 3
+     2.77556e-17   7   3 4
+     7.63278e-17   7   2 5
+     6.93889e-18   7   1 6
+     5.55112e-17   7   0 7
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  3
+  Check up to DEGREE_MAX =    9
+  Unique points in the grid = 49
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     2.22045e-16   0   0 0
+
+     1.94289e-16   1   1 0
+     5.55112e-17   1   0 1
+
+     3.33067e-16   2   2 0
+     1.38778e-17   2   1 1
+               0   2   0 2
+
+     2.08167e-16   3   3 0
+     6.93889e-17   3   2 1
+     1.11022e-16   3   1 2
+     1.52656e-16   3   0 3
+
+     2.77556e-16   4   4 0
+     2.08167e-17   4   3 1
+       2.498e-16   4   2 2
+     1.38778e-17   4   1 3
+     2.77556e-16   4   0 4
+
+     2.01228e-16   5   5 0
+     2.08167e-17   5   4 1
+     5.55112e-17   5   3 2
+     4.85723e-17   5   2 3
+     2.77556e-17   5   1 4
+     2.22045e-16   5   0 5
+
+     5.82867e-16   6   6 0
+     3.46945e-18   6   5 1
+     2.08167e-16   6   4 2
+     1.38778e-17   6   3 3
+     2.08167e-16   6   2 4
+     6.93889e-18   6   1 5
+     3.88578e-16   6   0 6
+
+     1.83881e-16   7   7 0
+     1.04083e-17   7   6 1
+     4.16334e-17   7   5 2
+     3.46945e-18   7   4 3
+     6.93889e-18   7   3 4
+     3.46945e-17   7   2 5
+     6.93889e-18   7   1 6
+     1.52656e-16   7   0 7
+
+       3.747e-16   8   8 0
+     6.93889e-18   8   7 1
+     1.45717e-16   8   6 2
+     3.46945e-18   8   5 3
+       0.0277778   8   4 4
+     3.46945e-18   8   3 5
+               0   8   2 6
+     6.93889e-18   8   1 7
+       4.996e-16   8   0 8
+
+     2.05565e-16   9   9 0
+     1.21431e-17   9   8 1
+     2.60209e-17   9   7 2
+     5.20417e-18   9   6 3
+     1.04083e-17   9   5 4
+     1.04083e-17   9   4 5
+               0   9   3 6
+     2.08167e-17   9   2 7
+     6.93889e-18   9   1 8
+     2.08167e-16   9   0 9
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  3
+  Check up to DEGREE_MAX =    2
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+               1   2   2 0 0
+               0   2   1 1 0
+               1   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+               1   2   0 0 2
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  3
+  Check up to DEGREE_MAX =    4
+  Unique points in the grid = 7
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     2.22045e-16   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+     1.66533e-16   2   2 0 0
+               0   2   1 1 0
+     1.66533e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     1.66533e-16   2   0 0 2
+
+     3.33067e-16   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+     3.33067e-16   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+     3.33067e-16   3   0 0 3
+
+        0.166667   4   4 0 0
+               0   4   3 1 0
+               1   4   2 2 0
+               0   4   1 3 0
+        0.166667   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+               1   4   2 0 2
+               0   4   1 1 2
+               1   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+        0.166667   4   0 0 4
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  3
+  Check up to DEGREE_MAX =    6
+  Unique points in the grid = 31
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     8.88178e-16   0   0 0 0
+
+               0   1   1 0 0
+     8.88178e-16   1   0 1 0
+     8.88178e-16   1   0 0 1
+
+     1.66533e-16   2   2 0 0
+               0   2   1 1 0
+     1.66533e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+       4.996e-16   2   0 0 2
+
+               0   3   3 0 0
+     5.55112e-17   3   2 1 0
+               0   3   1 2 0
+     2.22045e-16   3   0 3 0
+     5.55112e-17   3   2 0 1
+               0   3   1 1 1
+     5.55112e-17   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+     4.44089e-16   3   0 0 3
+
+               0   4   4 0 0
+     2.77556e-17   4   3 1 0
+       1.249e-16   4   2 2 0
+     2.77556e-17   4   1 3 0
+     1.38778e-16   4   0 4 0
+     2.77556e-17   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+     2.77556e-17   4   0 3 1
+       1.249e-16   4   2 0 2
+               0   4   1 1 2
+       1.249e-16   4   0 2 2
+     2.77556e-17   4   1 0 3
+     2.77556e-17   4   0 1 3
+               0   4   0 0 4
+
+               0   5   5 0 0
+               0   5   4 1 0
+     1.11022e-16   5   3 2 0
+     1.38778e-16   5   2 3 0
+     2.77556e-17   5   1 4 0
+     1.94289e-16   5   0 5 0
+               0   5   4 0 1
+               0   5   3 1 1
+               0   5   2 2 1
+               0   5   1 3 1
+               0   5   0 4 1
+     1.11022e-16   5   3 0 2
+               0   5   2 1 2
+               0   5   1 2 2
+     1.11022e-16   5   0 3 2
+     1.38778e-16   5   2 0 3
+               0   5   1 1 3
+     1.38778e-16   5   0 2 3
+     2.77556e-17   5   1 0 4
+     2.77556e-17   5   0 1 4
+     2.77556e-16   5   0 0 5
+
+               0   6   6 0 0
+               0   6   5 1 0
+        0.166667   6   4 2 0
+               0   6   3 3 0
+        0.166667   6   2 4 0
+               0   6   1 5 0
+               0   6   0 6 0
+               0   6   5 0 1
+               0   6   4 1 1
+               0   6   3 2 1
+               0   6   2 3 1
+               0   6   1 4 1
+               0   6   0 5 1
+        0.166667   6   4 0 2
+               0   6   3 1 2
+               1   6   2 2 2
+               0   6   1 3 2
+        0.166667   6   0 4 2
+               0   6   3 0 3
+               0   6   2 1 3
+               0   6   1 2 3
+               0   6   0 3 3
+        0.166667   6   2 0 4
+               0   6   1 1 4
+        0.166667   6   0 2 4
+               0   6   1 0 5
+               0   6   0 1 5
+     1.94289e-16   6   0 0 6
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  4
+  Check up to DEGREE_MAX =    3
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+         3.09839   1   1 0
+         3.09839   1   0 1
+
+             0.8   2   2 0
+             2.4   2   1 1
+             0.8   2   0 2
+
+         1.85903   3   3 0
+         1.85903   3   2 1
+         1.85903   3   1 2
+         1.85903   3   0 3
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  4
+  Check up to DEGREE_MAX =    5
+  Unique points in the grid = 5
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+         3.79897   1   1 0
+         3.79897   1   0 1
+
+         1.71094   2   2 0
+         3.60759   2   1 1
+         1.71094   2   0 2
+
+          3.4452   3   3 0
+         3.43212   3   2 1
+         3.43212   3   1 2
+          3.4452   3   0 3
+
+         3.11164   4   4 0
+         3.27099   4   3 1
+           6.346   4   2 2
+         3.27099   4   1 3
+         3.11164   4   0 4
+
+         3.14563   5   5 0
+         3.12277   5   4 1
+         3.11137   5   3 2
+         3.11137   5   2 3
+         3.12277   5   1 4
+         3.14563   5   0 5
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  4
+  Check up to DEGREE_MAX =    7
+  Unique points in the grid = 17
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     2.22045e-16   0   0 0
+
+         3.99929   1   1 0
+         3.99929   1   0 1
+
+         1.99894   2   2 0
+         3.99859   2   1 1
+         1.99894   2   0 2
+
+         3.99788   3   3 0
+         3.99788   3   2 1
+         3.99788   3   1 2
+         3.99788   3   0 3
+
+         3.99647   4   4 0
+         3.99717   4   3 1
+         7.99364   4   2 2
+         3.99717   4   1 3
+         3.99647   4   0 4
+
+         3.99647   5   5 0
+         3.99647   5   4 1
+         3.99647   5   3 2
+         3.99647   5   2 3
+         3.99647   5   1 4
+         3.99647   5   0 5
+
+         5.99258   6   6 0
+         3.99576   6   5 1
+         13.9841   6   4 2
+         3.99576   6   3 3
+         13.9841   6   2 4
+         3.99576   6   1 5
+         5.99258   6   0 6
+
+         3.99506   7   7 0
+         3.99506   7   6 1
+         3.99506   7   5 2
+         3.99505   7   4 3
+         3.99505   7   3 4
+         3.99506   7   2 5
+         3.99506   7   1 6
+         3.99506   7   0 7
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  4
+  Check up to DEGREE_MAX =    9
+  Unique points in the grid = 49
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     2.22045e-16   0   0 0
+
+           4e+30   1   1 0
+           4e+30   1   0 1
+
+           3e+60   2   2 0
+           4e+60   2   1 1
+           3e+60   2   0 2
+
+           4e+90   3   3 0
+           4e+90   3   2 1
+           4e+90   3   1 2
+           4e+90   3   0 3
+
+          5e+120   4   4 0
+          4e+120   4   3 1
+          9e+120   4   2 2
+          4e+120   4   1 3
+          5e+120   4   0 4
+
+          4e+150   5   5 0
+          4e+150   5   4 1
+          4e+150   5   3 2
+          4e+150   5   2 3
+          4e+150   5   1 4
+          4e+150   5   0 5
+
+          7e+180   6   6 0
+          4e+180   6   5 1
+        1.5e+181   6   4 2
+          4e+180   6   3 3
+        1.5e+181   6   2 4
+          4e+180   6   1 5
+          7e+180   6   0 6
+
+          4e+210   7   7 0
+          4e+210   7   6 1
+          4e+210   7   5 2
+          4e+210   7   4 3
+          4e+210   7   3 4
+          4e+210   7   2 5
+          4e+210   7   1 6
+          4e+210   7   0 7
+
+          9e+240   8   8 0
+          4e+240   8   7 1
+        2.1e+241   8   6 2
+          4e+240   8   5 3
+        2.5e+241   8   4 4
+          4e+240   8   3 5
+        2.1e+241   8   2 6
+          4e+240   8   1 7
+          9e+240   8   0 8
+
+          4e+270   9   9 0
+          4e+270   9   8 1
+          4e+270   9   7 2
+          4e+270   9   6 3
+          4e+270   9   5 4
+          4e+270   9   4 5
+          4e+270   9   3 6
+          4e+270   9   2 7
+          4e+270   9   1 8
+          4e+270   9   0 9
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  4
+  Check up to DEGREE_MAX =    2
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+         6.19677   1   1 0 0
+         6.19677   1   0 1 0
+         6.19677   1   0 0 1
+
+             0.8   2   2 0 0
+             4.8   2   1 1 0
+             0.8   2   0 2 0
+             4.8   2   1 0 1
+             4.8   2   0 1 1
+             0.8   2   0 0 2
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  4
+  Check up to DEGREE_MAX =    4
+  Unique points in the grid = 7
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+         7.59795   1   1 0 0
+         7.59795   1   0 1 0
+         7.59795   1   0 0 1
+
+         1.71094   2   2 0 0
+         7.21518   2   1 1 0
+         1.71094   2   0 2 0
+         7.21518   2   1 0 1
+         7.21518   2   0 1 1
+         1.71094   2   0 0 2
+
+         6.89039   3   3 0 0
+         6.86424   3   2 1 0
+         6.86424   3   1 2 0
+         6.89039   3   0 3 0
+         6.86424   3   2 0 1
+          6.8508   3   1 1 1
+         6.86424   3   0 2 1
+         6.86424   3   1 0 2
+         6.86424   3   0 1 2
+         6.89039   3   0 0 3
+
+         3.11164   4   4 0 0
+         6.54197   4   3 1 0
+           6.346   4   2 2 0
+         6.54197   4   1 3 0
+         3.11164   4   0 4 0
+         6.54197   4   3 0 1
+         6.51686   4   2 1 1
+         6.51686   4   1 2 1
+         6.54197   4   0 3 1
+           6.346   4   2 0 2
+         6.51686   4   1 1 2
+           6.346   4   0 2 2
+         6.54197   4   1 0 3
+         6.54197   4   0 1 3
+         3.11164   4   0 0 4
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  4
+  Check up to DEGREE_MAX =    6
+  Unique points in the grid = 31
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     1.11022e-16   0   0 0 0
+
+         7.99859   1   1 0 0
+         7.99859   1   0 1 0
+         7.99859   1   0 0 1
+
+         1.99894   2   2 0 0
+         7.99717   2   1 1 0
+         1.99894   2   0 2 0
+         7.99717   2   1 0 1
+         7.99717   2   0 1 1
+         1.99894   2   0 0 2
+
+         7.99576   3   3 0 0
+         7.99576   3   2 1 0
+         7.99576   3   1 2 0
+         7.99576   3   0 3 0
+         7.99576   3   2 0 1
+         7.99576   3   1 1 1
+         7.99576   3   0 2 1
+         7.99576   3   1 0 2
+         7.99576   3   0 1 2
+         7.99576   3   0 0 3
+
+         3.99647   4   4 0 0
+         7.99435   4   3 1 0
+         7.99364   4   2 2 0
+         7.99435   4   1 3 0
+         3.99647   4   0 4 0
+         7.99435   4   3 0 1
+         7.99435   4   2 1 1
+         7.99435   4   1 2 1
+         7.99435   4   0 3 1
+         7.99364   4   2 0 2
+         7.99435   4   1 1 2
+         7.99364   4   0 2 2
+         7.99435   4   1 0 3
+         7.99435   4   0 1 3
+         3.99647   4   0 0 4
+
+         7.99294   5   5 0 0
+         7.99293   5   4 1 0
+         7.99293   5   3 2 0
+         7.99293   5   2 3 0
+         7.99293   5   1 4 0
+         7.99294   5   0 5 0
+         7.99293   5   4 0 1
+         7.99293   5   3 1 1
+         7.99293   5   2 2 1
+         7.99293   5   1 3 1
+         7.99293   5   0 4 1
+         7.99293   5   3 0 2
+         7.99293   5   2 1 2
+         7.99293   5   1 2 2
+         7.99293   5   0 3 2
+         7.99293   5   2 0 3
+         7.99293   5   1 1 3
+         7.99293   5   0 2 3
+         7.99293   5   1 0 4
+         7.99293   5   0 1 4
+         7.99294   5   0 0 5
+
+         5.99258   6   6 0 0
+         7.99152   6   5 1 0
+         13.9841   6   4 2 0
+         7.99152   6   3 3 0
+         13.9841   6   2 4 0
+         7.99152   6   1 5 0
+         5.99258   6   0 6 0
+         7.99152   6   5 0 1
+         7.99152   6   4 1 1
+         7.99152   6   3 2 1
+         7.99152   6   2 3 1
+         7.99152   6   1 4 1
+         7.99152   6   0 5 1
+         13.9841   6   4 0 2
+         7.99152   6   3 1 2
+         25.9714   6   2 2 2
+         7.99152   6   1 3 2
+         13.9841   6   0 4 2
+         7.99152   6   3 0 3
+         7.99152   6   2 1 3
+         7.99152   6   1 2 3
+         7.99152   6   0 3 3
+         13.9841   6   2 0 4
+         7.99152   6   1 1 4
+         13.9841   6   0 2 4
+         7.99152   6   1 0 5
+         7.99152   6   0 1 5
+         5.99258   6   0 0 6
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  5
+  Check up to DEGREE_MAX =    3
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+               1   2   2 0
+               0   2   1 1
+               1   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  5
+  Check up to DEGREE_MAX =    5
+  Unique points in the grid = 5
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+     2.77556e-16   4   4 0
+               0   4   3 1
+               1   4   2 2
+               0   4   1 3
+     2.77556e-16   4   0 4
+
+               0   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+               0   5   0 5
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  5
+  Check up to DEGREE_MAX =    7
+  Unique points in the grid = 21
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+     2.77556e-17   1   1 0
+     2.77556e-17   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+               0   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+     2.77556e-16   4   4 0
+               0   4   3 1
+       4.996e-16   4   2 2
+               0   4   1 3
+     2.77556e-16   4   0 4
+
+     2.77556e-17   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+     2.77556e-17   5   0 5
+
+     1.94289e-16   6   6 0
+               0   6   5 1
+     4.16334e-16   6   4 2
+               0   6   3 3
+     4.16334e-16   6   2 4
+               0   6   1 5
+               0   6   0 6
+
+     2.77556e-17   7   7 0
+               0   7   6 1
+               0   7   5 2
+               0   7   4 3
+               0   7   3 4
+               0   7   2 5
+               0   7   1 6
+     2.77556e-17   7   0 7
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  5
+  Check up to DEGREE_MAX =    9
+  Unique points in the grid = 73
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     9.99201e-16   0   0 0
+
+     5.55112e-17   1   1 0
+     2.77556e-17   1   0 1
+
+     1.66533e-16   2   2 0
+               0   2   1 1
+     1.66533e-16   2   0 2
+
+     5.55112e-17   3   3 0
+     2.77556e-17   3   2 1
+     1.38778e-17   3   1 2
+       6.245e-17   3   0 3
+
+     4.16334e-16   4   4 0
+     6.93889e-18   4   3 1
+               0   4   2 2
+     1.38778e-17   4   1 3
+               0   4   0 4
+
+     3.46945e-17   5   5 0
+     6.93889e-18   5   4 1
+     6.93889e-18   5   3 2
+     1.38778e-17   5   2 3
+     6.93889e-18   5   1 4
+     3.46945e-17   5   0 5
+
+     3.88578e-16   6   6 0
+               0   6   5 1
+     2.08167e-16   6   4 2
+     6.93889e-18   6   3 3
+     2.08167e-16   6   2 4
+     6.93889e-18   6   1 5
+     3.88578e-16   6   0 6
+
+     2.08167e-17   7   7 0
+     1.04083e-17   7   6 1
+               0   7   5 2
+               0   7   4 3
+     3.46945e-18   7   3 4
+     1.38778e-17   7   2 5
+               0   7   1 6
+     2.08167e-17   7   0 7
+
+       3.747e-16   8   8 0
+     6.93889e-18   8   7 1
+               0   8   6 2
+     3.46945e-18   8   5 3
+               0   8   4 4
+               0   8   3 5
+               0   8   2 6
+               0   8   1 7
+       1.249e-16   8   0 8
+
+               0   9   9 0
+     6.93889e-18   9   8 1
+               0   9   7 2
+     3.46945e-18   9   6 3
+     3.46945e-18   9   5 4
+     6.93889e-18   9   4 5
+               0   9   3 6
+               0   9   2 7
+               0   9   1 8
+               0   9   0 9
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  5
+  Check up to DEGREE_MAX =    2
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+               1   2   2 0 0
+               0   2   1 1 0
+               1   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+               1   2   0 0 2
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  5
+  Check up to DEGREE_MAX =    4
+  Unique points in the grid = 7
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+     1.66533e-16   2   2 0 0
+               0   2   1 1 0
+     1.66533e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     1.66533e-16   2   0 0 2
+
+               0   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+               0   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+               0   3   0 0 3
+
+     2.77556e-16   4   4 0 0
+               0   4   3 1 0
+               1   4   2 2 0
+               0   4   1 3 0
+     2.77556e-16   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+               1   4   2 0 2
+               0   4   1 1 2
+               1   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+     2.77556e-16   4   0 0 4
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  5
+  Check up to DEGREE_MAX =    6
+  Unique points in the grid = 37
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     1.11022e-16   0   0 0 0
+
+     5.55112e-17   1   1 0 0
+     5.55112e-17   1   0 1 0
+     5.55112e-17   1   0 0 1
+
+     1.66533e-16   2   2 0 0
+               0   2   1 1 0
+     1.66533e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     1.66533e-16   2   0 0 2
+
+               0   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+               0   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+               0   3   0 0 3
+
+     2.77556e-16   4   4 0 0
+               0   4   3 1 0
+       4.996e-16   4   2 2 0
+               0   4   1 3 0
+     2.77556e-16   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+       4.996e-16   4   2 0 2
+               0   4   1 1 2
+       4.996e-16   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+     2.77556e-16   4   0 0 4
+
+     5.55112e-17   5   5 0 0
+               0   5   4 1 0
+               0   5   3 2 0
+               0   5   2 3 0
+               0   5   1 4 0
+     5.55112e-17   5   0 5 0
+               0   5   4 0 1
+               0   5   3 1 1
+               0   5   2 2 1
+               0   5   1 3 1
+               0   5   0 4 1
+               0   5   3 0 2
+               0   5   2 1 2
+               0   5   1 2 2
+               0   5   0 3 2
+               0   5   2 0 3
+               0   5   1 1 3
+               0   5   0 2 3
+               0   5   1 0 4
+               0   5   0 1 4
+     5.55112e-17   5   0 0 5
+
+     1.94289e-16   6   6 0 0
+               0   6   5 1 0
+     4.16334e-16   6   4 2 0
+               0   6   3 3 0
+     4.16334e-16   6   2 4 0
+               0   6   1 5 0
+               0   6   0 6 0
+               0   6   5 0 1
+               0   6   4 1 1
+               0   6   3 2 1
+               0   6   2 3 1
+               0   6   1 4 1
+               0   6   0 5 1
+     4.16334e-16   6   4 0 2
+               0   6   3 1 2
+               1   6   2 2 2
+               0   6   1 3 2
+     4.16334e-16   6   0 4 2
+               0   6   3 0 3
+               0   6   2 1 3
+               0   6   1 2 3
+               0   6   0 3 3
+     4.16334e-16   6   2 0 4
+               0   6   1 1 4
+     4.16334e-16   6   0 2 4
+               0   6   1 0 5
+               0   6   0 1 5
+               0   6   0 0 6
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  6
+  Check up to DEGREE_MAX =    3
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     2.82716e-16   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+               1   2   2 0
+               0   2   1 1
+               1   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  6
+  Check up to DEGREE_MAX =    5
+  Unique points in the grid = 5
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     4.24074e-16   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+     1.41358e-16   2   2 0
+               0   2   1 1
+     1.41358e-16   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+               0   4   4 0
+               0   4   3 1
+               1   4   2 2
+               0   4   1 3
+               0   4   0 4
+
+               0   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+               0   5   0 5
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  6
+  Check up to DEGREE_MAX =    7
+  Unique points in the grid = 21
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+     2.77556e-17   1   1 0
+     2.08167e-17   1   0 1
+
+     4.24074e-16   2   2 0
+               0   2   1 1
+     1.41358e-16   2   0 2
+
+     8.32667e-17   3   3 0
+               0   3   2 1
+               0   3   1 2
+     6.93889e-17   3   0 3
+
+               0   4   4 0
+               0   4   3 1
+     1.41358e-16   4   2 2
+               0   4   1 3
+               0   4   0 4
+
+     5.55112e-17   5   5 0
+               0   5   4 1
+               0   5   3 2
+               0   5   2 3
+               0   5   1 4
+     5.55112e-17   5   0 5
+
+     1.50782e-16   6   6 0
+               0   6   5 1
+     1.88477e-16   6   4 2
+               0   6   3 3
+     1.88477e-16   6   2 4
+               0   6   1 5
+     1.50782e-16   6   0 6
+
+     4.44089e-16   7   7 0
+               0   7   6 1
+               0   7   5 2
+               0   7   4 3
+               0   7   3 4
+               0   7   2 5
+               0   7   1 6
+     4.44089e-16   7   0 7
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  6
+  Check up to DEGREE_MAX =    9
+  Unique points in the grid = 73
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     4.24074e-16   0   0 0
+
+     5.55112e-17   1   1 0
+     8.36334e-17   1   0 1
+
+     1.41358e-16   2   2 0
+               0   2   1 1
+               0   2   0 2
+
+     8.32667e-17   3   3 0
+     3.85976e-17   3   2 1
+               0   3   1 2
+     2.79672e-17   3   0 3
+
+     1.88477e-16   4   4 0
+     2.77556e-17   4   3 1
+     1.41358e-16   4   2 2
+     1.38778e-17   4   1 3
+     1.88477e-16   4   0 4
+
+     5.55112e-17   5   5 0
+     6.02816e-17   5   4 1
+               0   5   3 2
+     2.08167e-17   5   2 3
+     2.77556e-17   5   1 4
+     7.56604e-17   5   0 5
+
+     4.52346e-16   6   6 0
+               0   6   5 1
+     3.76955e-16   6   4 2
+               0   6   3 3
+     1.88477e-16   6   2 4
+               0   6   1 5
+     4.52346e-16   6   0 6
+
+     1.11022e-16   7   7 0
+     1.15359e-16   7   6 1
+     2.77556e-17   7   5 2
+     6.93889e-18   7   4 3
+               0   7   3 4
+     5.55112e-17   7   2 5
+               0   7   1 6
+     1.84152e-16   7   0 7
+
+     3.44644e-16   8   8 0
+     1.66533e-16   8   7 1
+     3.01564e-16   8   6 2
+     5.55112e-17   8   5 3
+     1.25652e-16   8   4 4
+     5.55112e-17   8   3 5
+               0   8   2 6
+               0   8   1 7
+     1.72322e-16   8   0 8
+
+     8.88178e-16   9   9 0
+     7.63278e-17   9   8 1
+               0   9   7 2
+     1.52656e-16   9   6 3
+               0   9   5 4
+     8.32667e-17   9   4 5
+     1.11022e-16   9   3 6
+     4.44089e-16   9   2 7
+               0   9   1 8
+     9.30679e-16   9   0 9
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  6
+  Check up to DEGREE_MAX =    2
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     4.78516e-16   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+               1   2   2 0 0
+               0   2   1 1 0
+               1   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+               1   2   0 0 2
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  6
+  Check up to DEGREE_MAX =    4
+  Unique points in the grid = 7
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     3.19011e-16   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+     3.19011e-16   2   2 0 0
+               0   2   1 1 0
+     3.19011e-16   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     3.19011e-16   2   0 0 2
+
+               0   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+               0   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+               0   3   0 0 3
+
+               0   4   4 0 0
+               0   4   3 1 0
+               1   4   2 2 0
+               0   4   1 3 0
+               0   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+               1   4   2 0 2
+               0   4   1 1 2
+               1   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+     2.12674e-16   4   0 0 4
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  6
+  Check up to DEGREE_MAX =    6
+  Unique points in the grid = 37
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     3.19011e-16   0   0 0 0
+
+     8.32667e-17   1   1 0 0
+     8.32667e-17   1   0 1 0
+      8.1532e-17   1   0 0 1
+
+               0   2   2 0 0
+               0   2   1 1 0
+               0   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+     1.59505e-16   2   0 0 2
+
+     5.55112e-17   3   3 0 0
+               0   3   2 1 0
+               0   3   1 2 0
+     5.55112e-17   3   0 3 0
+               0   3   2 0 1
+               0   3   1 1 1
+               0   3   0 2 1
+               0   3   1 0 2
+               0   3   0 1 2
+     4.85723e-17   3   0 0 3
+
+     2.12674e-16   4   4 0 0
+               0   4   3 1 0
+     1.59505e-16   4   2 2 0
+               0   4   1 3 0
+     2.12674e-16   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+               0   4   1 2 1
+               0   4   0 3 1
+     1.59505e-16   4   2 0 2
+               0   4   1 1 2
+     1.59505e-16   4   0 2 2
+               0   4   1 0 3
+               0   4   0 1 3
+               0   4   0 0 4
+
+     1.11022e-16   5   5 0 0
+               0   5   4 1 0
+               0   5   3 2 0
+               0   5   2 3 0
+               0   5   1 4 0
+     1.11022e-16   5   0 5 0
+               0   5   4 0 1
+               0   5   3 1 1
+               0   5   2 2 1
+               0   5   1 3 1
+               0   5   0 4 1
+               0   5   3 0 2
+               0   5   2 1 2
+               0   5   1 2 2
+               0   5   0 3 2
+               0   5   2 0 3
+               0   5   1 1 3
+               0   5   0 2 3
+               0   5   1 0 4
+               0   5   0 1 4
+     1.11022e-16   5   0 0 5
+
+     3.40278e-16   6   6 0 0
+               0   6   5 1 0
+     2.12674e-16   6   4 2 0
+               0   6   3 3 0
+     2.12674e-16   6   2 4 0
+               0   6   1 5 0
+     3.40278e-16   6   0 6 0
+               0   6   5 0 1
+               0   6   4 1 1
+               0   6   3 2 1
+               0   6   2 3 1
+               0   6   1 4 1
+               0   6   0 5 1
+     2.12674e-16   6   4 0 2
+               0   6   3 1 2
+               1   6   2 2 2
+               0   6   1 3 2
+     2.12674e-16   6   0 4 2
+               0   6   3 0 3
+               0   6   2 1 3
+               0   6   1 2 3
+               0   6   0 3 3
+               0   6   2 0 4
+               0   6   1 1 4
+               0   6   0 2 4
+               0   6   1 0 5
+               0   6   0 1 5
+     3.40278e-16   6   0 0 6
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  7
+  Check up to DEGREE_MAX =    3
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+               0   1   1 0
+               0   1   0 1
+
+             0.5   2   2 0
+               0   2   1 1
+             0.5   2   0 2
+
+        0.833333   3   3 0
+             0.5   3   2 1
+             0.5   3   1 2
+        0.833333   3   0 3
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  7
+  Check up to DEGREE_MAX =    5
+  Unique points in the grid = 7
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0
+
+     2.22045e-16   1   1 0
+               0   1   0 1
+
+               0   2   2 0
+     2.22045e-16   2   1 1
+               0   2   0 2
+
+               0   3   3 0
+               0   3   2 1
+               0   3   1 2
+               0   3   0 3
+
+      1.4803e-16   4   4 0
+               0   4   3 1
+            0.25   4   2 2
+               0   4   1 3
+      1.4803e-16   4   0 4
+
+     2.36848e-16   5   5 0
+      1.4803e-16   5   4 1
+        0.416667   5   3 2
+        0.416667   5   2 3
+      1.4803e-16   5   1 4
+     2.36848e-16   5   0 5
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 1
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  7
+  Check up to DEGREE_MAX =    7
+  Unique points in the grid = 29
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     3.33067e-16   0   0 0
+
+     2.22045e-16   1   1 0
+     5.55112e-16   1   0 1
+
+     2.22045e-16   2   2 0
+     4.44089e-16   2   1 1
+               0   2   0 2
+
+               0   3   3 0
+     4.44089e-16   3   2 1
+     2.22045e-16   3   1 2
+      1.4803e-16   3   0 3
+
+      1.4803e-16   4   4 0
+     4.44089e-16   4   3 1
+     2.22045e-16   4   2 2
+     2.96059e-16   4   1 3
+               0   4   0 4
+
+               0   5   5 0
+     2.96059e-16   5   4 1
+      1.4803e-16   5   3 2
+      1.4803e-16   5   2 3
+      1.4803e-16   5   1 4
+               0   5   0 5
+
+     4.73695e-16   6   6 0
+     2.36848e-16   6   5 1
+      1.4803e-16   6   4 2
+               0   6   3 3
+      1.4803e-16   6   2 4
+     2.36848e-16   6   1 5
+     1.57898e-16   6   0 6
+
+     5.41366e-16   7   7 0
+               0   7   6 1
+     2.36848e-16   7   5 2
+     3.94746e-16   7   4 3
+     3.94746e-16   7   3 4
+     1.18424e-16   7   2 5
+     3.15797e-16   7   1 6
+     3.60911e-16   7   0 7
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   7
+
+  Spatial dimension DIM_NUM = 2
+  LEVEL_MIN =                 2
+  LEVEL_MAX =                 3
+  1D quadrature index RULE =  7
+  Check up to DEGREE_MAX =    9
+  Unique points in the grid = 95
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     1.11022e-15   0   0 0
+
+     9.99201e-16   1   1 0
+     1.11022e-15   1   0 1
+
+     2.22045e-16   2   2 0
+     1.33227e-15   2   1 1
+     3.33067e-16   2   0 2
+
+     2.96059e-16   3   3 0
+     4.44089e-16   3   2 1
+     8.88178e-16   3   1 2
+      1.4803e-16   3   0 3
+
+     2.96059e-16   4   4 0
+     1.18424e-15   4   3 1
+     1.11022e-16   4   2 2
+     8.88178e-16   4   1 3
+     2.96059e-16   4   0 4
+
+     3.55271e-16   5   5 0
+     2.96059e-16   5   4 1
+     4.44089e-16   5   3 2
+     5.92119e-16   5   2 3
+               0   5   1 4
+     1.18424e-16   5   0 5
+
+     1.26319e-15   6   6 0
+     5.92119e-16   6   5 1
+     7.40149e-16   6   4 2
+     7.89492e-16   6   3 3
+     2.96059e-16   6   2 4
+               0   6   1 5
+     6.31594e-16   6   0 6
+
+     3.60911e-16   7   7 0
+     1.57898e-16   7   6 1
+     1.18424e-16   7   5 2
+     9.86865e-16   7   4 3
+     9.86865e-16   7   3 4
+               0   7   2 5
+     6.31594e-16   7   1 6
+     7.21821e-16   7   0 7
+
+     3.60911e-16   8   8 0
+     7.21821e-16   8   7 1
+     4.73695e-16   8   6 2
+     1.57898e-16   8   5 3
+     9.86865e-16   8   4 4
+     7.89492e-16   8   3 5
+     1.57898e-16   8   2 6
+     7.21821e-16   8   1 7
+     5.41366e-16   8   0 8
+
+               0   9   9 0
+     3.60911e-16   9   8 1
+     1.80455e-16   9   7 2
+     8.42125e-16   9   6 3
+     3.15797e-16   9   5 4
+     3.15797e-16   9   4 5
+     4.21062e-16   9   3 6
+     5.41366e-16   9   2 7
+     5.41366e-16   9   1 8
+     4.81214e-16   9   0 9
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   1
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 0
+  1D quadrature index RULE =  7
+  Check up to DEGREE_MAX =    2
+  Unique points in the grid = 1
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+               0   1   1 0 0
+               0   1   0 1 0
+               0   1   0 0 1
+
+             0.5   2   2 0 0
+               0   2   1 1 0
+             0.5   2   0 2 0
+               0   2   1 0 1
+               0   2   0 1 1
+             0.5   2   0 0 2
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   3
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 1
+  1D quadrature index RULE =  7
+  Check up to DEGREE_MAX =    4
+  Unique points in the grid = 10
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+               0   0   0 0 0
+
+     2.22045e-16   1   1 0 0
+     2.22045e-16   1   0 1 0
+               0   1   0 0 1
+
+               0   2   2 0 0
+     4.44089e-16   2   1 1 0
+               0   2   0 2 0
+     2.22045e-16   2   1 0 1
+     2.22045e-16   2   0 1 1
+               0   2   0 0 2
+
+               0   3   3 0 0
+               0   3   2 1 0
+     2.22045e-16   3   1 2 0
+               0   3   0 3 0
+               0   3   2 0 1
+     4.44089e-16   3   1 1 1
+               0   3   0 2 1
+     2.22045e-16   3   1 0 2
+               0   3   0 1 2
+               0   3   0 0 3
+
+      1.4803e-16   4   4 0 0
+               0   4   3 1 0
+            0.25   4   2 2 0
+      1.4803e-16   4   1 3 0
+      1.4803e-16   4   0 4 0
+               0   4   3 0 1
+               0   4   2 1 1
+     2.22045e-16   4   1 2 1
+               0   4   0 3 1
+            0.25   4   2 0 2
+     2.22045e-16   4   1 1 2
+            0.25   4   0 2 2
+      1.4803e-16   4   1 0 3
+               0   4   0 1 3
+      1.4803e-16   4   0 0 4
+
+
+SPARSE_GRID_MONOMIAL_TEST
+  Check the exactness of a sparse grid quadrature rule,
+  applied to all monomials of orders 0 to DEGREE_MAX.
+
+  For cases where the dimension is greater than 1,
+  many sparse grid of this level have accuracy through
+  monomials of total degree   5
+
+  Spatial dimension DIM_NUM = 3
+  LEVEL_MIN =                 0
+  LEVEL_MAX =                 2
+  1D quadrature index RULE =  7
+  Check up to DEGREE_MAX =    6
+  Unique points in the grid = 58
+
+      Error      Total   Monomial
+                 Degree  Exponents
+
+     2.22045e-16   0   0 0 0
+
+     1.22125e-15   1   1 0 0
+     6.66134e-16   1   0 1 0
+     1.11022e-16   1   0 0 1
+
+     2.22045e-16   2   2 0 0
+     1.11022e-15   2   1 1 0
+     2.22045e-16   2   0 2 0
+     1.22125e-15   2   1 0 1
+     6.66134e-16   2   0 1 1
+     2.22045e-16   2   0 0 2
+
+     2.96059e-16   3   3 0 0
+               0   3   2 1 0
+     1.11022e-15   3   1 2 0
+     2.96059e-16   3   0 3 0
+     2.22045e-16   3   2 0 1
+     9.99201e-16   3   1 1 1
+     4.44089e-16   3   0 2 1
+     8.88178e-16   3   1 0 2
+     1.33227e-15   3   0 1 2
+     5.92119e-16   3   0 0 3
+
+     2.96059e-16   4   4 0 0
+               0   4   3 1 0
+     7.77156e-16   4   2 2 0
+     2.96059e-16   4   1 3 0
+      1.4803e-16   4   0 4 0
+               0   4   3 0 1
+     4.44089e-16   4   2 1 1
+     3.33067e-16   4   1 2 1
+      1.4803e-16   4   0 3 1
+     1.11022e-16   4   2 0 2
+     2.44249e-15   4   1 1 2
+     2.22045e-16   4   0 2 2
+     4.44089e-16   4   1 0 3
+      1.4803e-16   4   0 1 3
+     2.96059e-16   4   0 0 4
+
+     1.18424e-16   5   5 0 0
+      1.4803e-16   5   4 1 0
+      1.4803e-16   5   3 2 0
+               0   5   2 3 0
+      1.4803e-16   5   1 4 0
+     1.18424e-16   5   0 5 0
+     2.96059e-16   5   4 0 1
+     4.44089e-16   5   3 1 1
+               0   5   2 2 1
+     5.92119e-16   5   1 3 1
+     2.96059e-16   5   0 4 1
+     2.96059e-16   5   3 0 2
+     7.77156e-16   5   2 1 2
+     1.11022e-16   5   1 2 2
+     2.96059e-16   5   0 3 2
+     4.44089e-16   5   2 0 3
+     5.92119e-16   5   1 1 3
+     4.44089e-16   5   0 2 3
+      1.4803e-16   5   1 0 4
+      1.4803e-16   5   0 1 4
+     2.36848e-16   5   0 0 5
+
+     1.10529e-15   6   6 0 0
+     1.18424e-16   6   5 1 0
+     2.96059e-16   6   4 2 0
+               0   6   3 3 0
+               0   6   2 4 0
+               0   6   1 5 0
+               0   6   0 6 0
+     3.55271e-16   6   5 0 1
+      1.4803e-16   6   4 1 1
+     2.96059e-16   6   3 2 1
+      1.4803e-16   6   2 3 1
+               0   6   1 4 1
+     2.36848e-16   6   0 5 1
+      1.4803e-16   6   4 0 2
+      1.4803e-16   6   3 1 2
+           0.125   6   2 2 2
+               0   6   1 3 2
+      1.4803e-16   6   0 4 2
+               0   6   3 0 3
+      1.4803e-16   6   2 1 3
+     2.96059e-16   6   1 2 3
+               0   6   0 3 3
+               0   6   2 0 4
+     7.40149e-16   6   1 1 4
+      1.4803e-16   6   0 2 4
+     2.36848e-16   6   1 0 5
+               0   6   0 1 5
+     7.89492e-16   6   0 0 6
+
+
+SANDIA_SPARSE_PRB
+  Normal end of execution.
+
+25 December 2011 11:04:09 AM

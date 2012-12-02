@@ -1,0 +1,26 @@
+
+PRECISION_OUTPUT:
+  C++ version.
+  Demonstrate the precision() function for controlling the default
+  precision of floating point output.
+
+  Save prec = cout.precision() = 6
+
+  Sqrt ( 2.0 ) = 1.41421
+  Sqrt ( 3.0 ) = 1.73205
+
+  Use setprecision(16), but only on the Sqrt ( 2.0 ) statement.
+  However, all floating point output will now have the new precision.
+
+  Sqrt ( 2.0 ) = 1.414213562373095
+  Sqrt ( 3.0 ) = 1.732050807568877
+
+  Use cout.precision(10) to request 10 digits of precision.
+
+  Sqrt ( 2.0 ) = 1.414213562
+  Sqrt ( 3.0 ) = 1.732050808
+
+  Use cout.precision(prec) to restore default precision.
+
+  Sqrt ( 2.0 ) = 1.41421
+  Sqrt ( 3.0 ) = 1.73205

@@ -1,0 +1,33 @@
+08 November 2011 07:26:45 AM
+
+DYNAMIC_ARRAY_2D:
+  C++ version
+
+  This program illustrates one way to create a dynamic 2D array
+  in C++, that is, an array whose size and shape can be specified
+  at run time, and whose entries can then be addressed using the
+  notation "a[i][j]".
+
+  Allocating memory for array A of size 4 by 5.
+
+  Assigning values to A.
+
+  Dynamically allocated matrix A:
+
+   0   1   2   3   4
+  10  11  12  13  14
+  20  21  22  23  24
+  30  31  32  33  34
+
+  Dynamically allocated matrix B = A' * A:
+
+  1400  1460  1520  1580  1640
+  1460  1524  1588  1652  1716
+  1520  1588  1656  1724  1792
+  1580  1652  1724  1796  1868
+  1640  1716  1792  1868  1944
+
+DYNAMIC_ARRAY_2D:
+  Normal end of execution.
+
+08 November 2011 07:26:45 AM

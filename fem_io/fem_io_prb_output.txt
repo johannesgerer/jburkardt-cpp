@@ -1,0 +1,120 @@
+22 December 2011 03:18:41 PM
+
+FEM_IO_PRB:
+  C++ version
+  Test the FEM_IO library.
+
+TEST01
+  FEM_READ reads finite element data from files.
+
+  The node coordinate file name is "ell_nodes.txt".
+  The element file name is "ell_elements.txt".
+  The node data file name is "ell_values.txt".
+
+  Spatial dimension         = 2
+  Number of nodes           = 65
+  Number of elements        = 3
+  Element order             = 96
+  Number of node data items = 1
+
+  First 10 node coordindates:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:             0           0.5
+    2:           0.5             0
+    3:             0             1
+    4:           0.5           0.5
+    5:             1             0
+    6:             0           1.5
+    7:           0.5             1
+    8:             1           0.5
+    9:           1.5             0
+
+  First 10 elements
+
+  Row:      0       1       2  
+  Col
+
+    0:     1       3       2  
+    1:     6       5       3  
+    2:     4       2       5  
+    3:     3       5       2  
+    4:    23      22      10  
+    5:    21       9      22  
+    6:     6      10       9  
+    7:    22       9      10  
+    8:    19       7      20  
+    9:     4       8       7  
+
+  First 10 node data sets:
+
+  Row:       0       
+  Col
+
+    0:             0
+    1:          0.25
+    2:          0.25
+    3:             1
+    4:      0.484936
+    5:             1
+    6:          2.25
+    7:       1.22891
+    8:       1.22891
+    9:          2.25
+
+FEM_TEST02
+  Demonstrate the use of FEM_WRITE to write finite
+  element data to files.
+
+  The node coordinate file name is "tiny_nodes.txt".
+  The element file name is "tiny_elements.txt".
+  The node data file name is "tiny_values.txt".
+
+  Spatial dimension         = 2
+  Number of nodes           = 5
+  Number of elements        = 3
+  Element order             = 3
+  Number of node data items = 2
+
+  Node coordindates:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:             1             0
+    2:             2             0
+    3:             0             1
+    4:             1             1
+
+  Elements
+
+  Row:      0       1       2  
+  Col
+
+    0:     1       2       4  
+    1:     5       4       2  
+    2:     2       3       5  
+
+  Node data sets:
+
+  Row:       0             1       
+  Col
+
+    0:             1             0
+    1:           0.8           0.2
+    2:           0.6           0.4
+    3:           0.9           0.1
+    4:           0.5           0.5
+
+FEM_WRITE wrote node coordinates to "tiny_nodes.txt".
+
+FEM_WRITE wrote node data to "tiny_values.txt".
+
+FEM_IO_PRB:
+  Normal end of execution.
+
+22 December 2011 03:18:41 PM

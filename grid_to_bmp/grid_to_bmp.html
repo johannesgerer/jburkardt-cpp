@@ -1,0 +1,226 @@
+<html>
+
+  <head>
+    <title>
+      GRID_TO_BMP - Microsoft BMP Image of 2D Grid Data
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      GRID_TO_BMP <br> Microsoft BMP Image of 2D Grid Data
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>GRID_TO_BMP</b>
+      is a C++ program which
+      creates a Microsoft BMP color image file that represents
+      scalar data read from a text file.
+    </p>
+
+    <p>
+      The text file should contain the values of a quantity on an M by N
+      grid, stored as an M by N array, which we will call "U".
+    </p>
+
+    <p>
+      The first two records of the text file should contain the values of
+      M and N, respectively.
+    </p>
+
+    <p>
+      There should follow M records, each of length N, containing, in order,
+      the rows of U.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>grid_to_bmp</b> <i>input_file</i> <i>output_file</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>input_file</i> is the text file whose first two lines record the values of M and N,
+          with each succeeding line containing the N values of the next row of data.
+        </li>
+        <li>
+          <i>output_file</i> is the name of the output file, a BMP graphics file containing an image of
+          the data.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/bmp/bmp.html">
+      BMP</a>,
+      a data directory which
+      contains a few BMP files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_io/bmp_io.html">
+      BMP_IO</a>,
+      a C++ library which
+      reads or writes BMP graphics files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_to_ppma/bmp_to_ppma.html">
+      BMP_TO_PPMA</a>,
+      a C++ program which
+      converts BMP files to ASCII Portable Pixel Map (PPM) format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_to_ppmb/bmp_to_ppmb.html">
+      BMP_TO_PPMB</a>,
+      a C++ program which
+      converts BMP files to binary Portable Pixel Map (PPM) format.
+    </p>
+
+    <p>
+      <a href = "../../c_src/heated_plate/heated_plate.html">
+      HEATED_PLATE</a>,
+      a C program which
+      solves the steady state heat equation in a 2D
+      rectangular region, and writes the data to a file suitable for input
+      to GRID_TO_BMP.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppma_to_bmp/ppma_to_bmp.html">
+      PPMA_TO_BMP</a>,
+      a C++ program which
+      converts ASCII Portable Pixel Map (PPM) files to BMP format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_to_bmp/ppmb_to_bmp.html">
+      PPMB_TO_BMP</a>,
+      a C++ program
+      which converts binary Portable Pixel Map (PPM) files to BMP format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          David Kay and John Levine,<br>
+          Graphics File Formats,<br>
+          Second Edition,<br>
+          McGraw Hill, 1995.
+        </li>
+        <li>
+          John Miano,<br>
+          Compressed Image File Formats,<br>
+          Addison Wesley, 1999.
+        </li>
+        <li>
+          Microsoft Corporation,<br>
+          Microsoft Windows Programmer's Reference,<br>
+          Volume 5; Messages, Structures, and Macros,<br>
+          Microsoft Press, 1993.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "grid_to_bmp.cpp">grid_to_bmp.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "grid_to_bmp.sh">grid_to_bmp.sh</a>, commands to
+          compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>SOL_100x500</b> is a solution of the steady state heat equation on a 100x500 grid,
+      computed by the HEATED_PLATE program.
+      <ul>
+        <li>
+          <a href = "sol_100x500.txt">sol_100x500.txt</a>,
+        </li>
+        <li>
+          <a href = "sol_100x500.bmp">sol_100x500.bmp</a>,
+          the BMP image file.
+        </li>
+        <li>
+          <a href = "sol_100x500.png">sol_100x500.png</a>,
+          the PNG image file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SOL_200x500</b> is a solution of the steady state heat equation on a 200x500 grid,
+      computed by the HEATED_PLATE program.
+      <ul>
+        <li>
+          <a href = "sol_200x500.txt">sol_200x500.txt</a>,
+        </li>
+        <li>
+          <a href = "sol_200x500.bmp">sol_200x500.bmp</a>,
+          the BMP image file.
+        </li>
+        <li>
+          <a href = "sol_200x500.png">sol_200x500.png</a>,
+          the PNG image file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SOL_500x500</b> is a solution of the steady state heat equation on a 500x500 grid,
+      computed by the HEATED_PLATE program.
+      <ul>
+        <li>
+          <a href = "sol_500x500.txt">sol_500x500.txt</a>,
+        </li>
+        <li>
+          <a href = "sol_500x500.bmp">sol_500x500.bmp</a>,
+          the BMP image file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 14 September 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

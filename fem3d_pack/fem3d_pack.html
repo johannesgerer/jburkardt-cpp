@@ -1,0 +1,297 @@
+<html>
+
+  <head>
+    <title>
+      FEM3D_PACK - 3D Finite Element Method Utility Library
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM3D_PACK <br> 3D Finite Element Method Utility Library
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM3D_PACK</b>
+      is a C++ library which
+      contains utility routines for 3D finite element calculations.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>FEM3D_PACK</b> is available in
+      <a href = "../../cpp_src/fem3d_pack/fem3d_pack.html">a C++ version</a> and
+      <a href = "../../f_src/fem3d_pack/fem3d_pack.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/fem3d_pack/fem3d_pack.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem_basis/fem_basis.html">
+      FEM_BASIS</a>,
+      a C++ library which
+      can define and evaluate basis functions for any degree
+      in an M-dimensional simplex (1D interval, 2D triangle,
+      3D tetrahedron, and higher dimensional generalizations.)
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem1d_pack/fem1d_pack.html">
+      FEM1D_PACK</a>,
+      a C++ library which
+      contains utilities for 1D finite element calculations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_pack/fem2d_pack.html">
+      FEM2D_PACK</a>,
+      a C++ library which
+      contains utilities for finite element calculations.
+    </p>
+
+    <p>
+      <a href = "../../data/fem3d/fem3d.html">
+      FEM3D</a>,
+      a data directory which
+      contains examples of 3D FEM files,
+      three text files that describe a 3D finite element geometry;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem3d_project/fem3d_project.html">
+      FEM3D_PROJECT</a>,
+      a C++ program which
+      projects a function F(X,Y,Z), given as a data, into a given finite element space
+      of piecewise linear tetrahedral elements.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem3d_sample/fem3d_sample.html">
+      FEM3D_SAMPLE</a>,
+      a C++ program which
+      evaluates a finite element function defined on 3D tetrahedral mesh.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Claudio Rocchini, Paolo Cignoni,<br>
+          Generating Random Points in a Tetrahedron,<br>
+          Journal of Graphics Tools,<br>
+          Volume 5, Number 4, 2000, pages 9-12.
+        </li>
+        <li>
+          Reuven Rubinstein,<br>
+          Monte Carlo Optimization, Simulation and Sensitivity of
+          Queueing Networks,<br>
+          Krieger, 1992,<br>
+          ISBN: 0894647644,<br>
+          LC: QA298.R79.
+        </li>
+        <li>
+          Gilbert Strang, George Fix,<br>
+          An Analysis of the Finite Element Method,<br>
+          Cambridge, 1973,<br>
+          ISBN: 096140888X,<br>
+          LC: TA335.S77.
+        </li>
+        <li>
+          Olgierd Zienkiewicz,<br>
+          The Finite Element Method,<br>
+          Sixth Edition,<br>
+          Butterworth-Heinemann, 2005,<br>
+          ISBN: 0750663200,<br>
+          LC: TA640.2.Z54.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fem3d_pack.cpp">fem3d_pack.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "fem3d_pack.hpp">fem3d_pack.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "fem3d_pack.sh">fem3d_pack.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fem3d_pack_prb.cpp">fem3d_pack_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "fem3d_pack_prb.sh">fem3d_pack_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "fem3d_pack_prb_output.txt">fem3d_pack_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>BANDWIDTH_MESH</b> determines the bandwidth of the coefficient matrix.
+        </li>
+        <li>
+          <b>BANDWIDTH_VAR</b> determines the bandwidth for finite element variables.
+        </li>
+        <li>
+          <b>BASIS_BRICK8:</b> BRICK8 basis functions at natural coordinates.
+        </li>
+        <li>
+          <b>BASIS_BRICK8_TEST</b> verifies BASIS_BRICK8.
+        </li>
+        <li>
+          <b>BASIS_BRICK20:</b> BRICK20 basis functions at natural coordinates.
+        </li>
+        <li>
+          <b>BASIS_BRICK20_TEST</b> verifies BASIS_BRICK20.
+        </li>
+        <li>
+          <b>BASIS_BRICK20:</b> BRICK20 basis functions at natural coordinates.
+        </li>
+        <li>
+          <b>BASIS_BRICK27_TEST</b> verifies BASIS_BRICK27.
+        </li>
+        <li>
+          <b>BASIS_MN_TET4:</b> all bases at N points for a TET4 element.
+        </li>
+        <li>
+          <b>BASIS_MN_T4_TEST</b> verifies BASIS_MN_TET4.
+        </li>
+        <li>
+          <b>BASIS_MN_TET10:</b> all bases at N points for a TET10 element.
+        </li>
+        <li>
+          <b>BASIS_MN_TET10_TEST</b> verifies BASIS_MN_TET10.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>NODES_BRICK8</b> returns the natural coordinates of the BRICK8 element.
+        </li>
+        <li>
+          <b>NODES_BRICK20</b> returns the natural coordinates of the BRICK20 element.
+        </li>
+        <li>
+          <b>NODES_BRICK27</b> returns the natural coordinates of the BRICK27 element.
+        </li>
+        <li>
+          <b>PHYSICAL_TO_REFERENCE_TET4</b> maps physical points to reference points.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8GE_FSS</b> factors and solves multiple R8GE systems.
+        </li>
+        <li>
+          <b>R8MAT_COPY_NEW</b> copies one R8MAT to a "new" R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_DET_4D</b> computes the determinant of a 4 by 4 R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_MV</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_SOLVE</b> uses Gauss-Jordan elimination to solve an N by N linear system.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_01_NEW</b> returns a new unit pseudorandom R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_SUM</b> returns the sum of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01_NEW</b> returns a new unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>REFERENCE_TET4_SAMPLE:</b> sample points in the reference tetrahedron.
+        </li>
+        <li>
+          <b>REFERENCE_TET4_UNIFORM:</b> uniform sample points in the reference tetrahedron.
+        </li>
+        <li>
+          <b>REFERENCE_TET4_UNIFORM2:</b> uniform sample points in the reference tetrahedron.
+        </li>
+        <li>
+          <b>REFERENCE_TO_PHYSICAL_TET4</b> maps TET4 reference points to physical points.
+        </li>
+        <li>
+          <b>TETRAHEDRON_BARYCENTRIC</b> returns the barycentric coordinates of a point.
+        </li>
+        <li>
+          <b>TETRAHEDRON_VOLUME</b> computes the volume of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 02 March 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

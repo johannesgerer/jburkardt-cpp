@@ -1,0 +1,33 @@
+15 September 2012 04:26:53 PM
+
+DRAND48_TEST:
+  C++ version
+  Generate random numbers using
+  SRAND48 to set the seed, and
+  DRAND48 to return the random values.
+
+  Compiled on Sep 15 2012 at 16:26:52
+
+TEST01
+  Call SRAND48 to initialize the seed.
+  Call DRAND48 to generate some values.
+
+  Initial SEED = 123456789
+
+      Step    DRAND48()
+
+         0     0.0524685
+         1     0.0254442
+         2      0.099272
+         3       0.43613
+         4       0.32774
+         5      0.821202
+         6      0.560493
+         7     0.0181571
+         8      0.872758
+         9      0.652496
+
+DRAND48_TEST:
+  Normal end of execution.
+
+15 September 2012 04:26:53 PM

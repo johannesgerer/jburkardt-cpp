@@ -1,0 +1,837 @@
+22 December 2011 04:44:45 PM
+
+LINPACK_C_PRB
+  C++ version
+  Test the LINPACK_C library.
+
+TEST01
+  For a complex Hermitian positive definite matrix,
+  CCHDC computes the Cholesky decomposition.
+
+  The number of equations is N = 3
+
+  The matrix:
+
+            (2.5281,0)      (2.1341,-0.2147)       (2.4187,0.2932)
+       (2.1341,0.2147)            (3.0371,0)       (2.0905,1.1505)
+      (2.4187,-0.2932)      (2.0905,-1.1505)            (2.7638,0)
+
+  Decompose the matrix.
+
+  The Cholesky factor U:
+
+              (1.59,0)    (1.3422,-0.135031)     (1.5212,0.184403)
+                 (0,0)           (1.10334,0)  (0.0667521,0.632248)
+                 (0,0)                 (0,0)          (0.107553,0)
+
+  The product U^H * U:
+
+            (2.5281,0)      (2.1341,-0.2147)       (2.4187,0.2932)
+       (2.1341,0.2147)            (3.0371,0)       (2.0905,1.1505)
+      (2.4187,-0.2932)      (2.0905,-1.1505)            (2.7638,0)
+
+TEST02
+  For a complex Hermitian positive definite matrix,
+  CCHEX can shift columns in a Cholesky factorization.
+
+  The number of equations is N = 3
+
+  The matrix:
+
+            (2.5281,0)      (2.1341,-0.2147)       (2.4187,0.2932)
+       (2.1341,0.2147)            (3.0371,0)       (2.0905,1.1505)
+      (2.4187,-0.2932)      (2.0905,-1.1505)            (2.7638,0)
+
+  The vector Z:
+
+                 (1,0)
+                 (2,0)
+                 (3,0)
+
+  Decompose the matrix.
+
+  The Cholesky factor U:
+
+              (1.59,0)    (1.3422,-0.135031)     (1.5212,0.184403)
+                 (0,0)           (1.10334,0)  (0.0667521,0.632248)
+                 (0,0)                 (0,0)          (0.107553,0)
+
+  Right circular shift columns K  = 1 through L = 3
+
+  Left circular shift columns K = 2 through L = 3
+
+  The shifted Cholesky factor U:
+
+    (1.65039,0.200063)   (1.33161,-0.535689)           (1.46554,0)
+                 (0,0)  (0.849985,-0.504456)  (-0.135667,-0.59052)
+                 (0,0)                 (0,0)  (-0.10508,-0.0462952)
+
+  The shifted vector Z:
+
+   (1.28565,-0.722066)
+   (1.47223,-0.393938)
+   (3.08193,0.0693784)
+
+  The shifted product U' * U:
+
+            (2.7638,0)      (2.0905,-1.1505)      (2.4187,-0.2932)
+       (2.0905,1.1505)            (3.0371,0)       (2.1341,0.2147)
+       (2.4187,0.2932)      (2.1341,-0.2147)            (2.5281,0)
+
+TEST03
+  For a complex Hermitian matrix
+  CCHUD updates a Cholesky decomposition.
+  CTRSL solves a triangular linear system.
+
+  In this example, we use CCHUD to solve a
+  least squares problem R * b = z.
+
+  The number of equations is P = 20
+
+  Solution vector # 1
+  (Should be (1,1) (2,0), (3,1) (4,0) ...)
+
+         1    (1.00001,0.999988)
+         2  (2.00001,-7.21816e-06)
+         3    (2.99999,0.999998)
+         4      (4,-8.75006e-06)
+         5           (5,0.99998)
+  ......  ..............
+        16      (16,3.60362e-06)
+        17         (17,0.999985)
+        18      (18,1.63536e-05)
+        19          (19,1.00001)
+        20      (20,1.34914e-05)
+
+TEST04
+  For a complex general band storage matrix:
+  CGBCO factors the matrix and estimates the
+  reciprocal condition number.
+
+  The matrix order is N = 3
+  The lower band is ML =  1
+  The upper band is MU =  1
+
+  The matrix:
+
+   (0.44986,-0.126667)    (0.589627,0.26009)                 (0,0)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.236066,0.0774594)
+                 (0,0)  (-0.139466,-0.156136)  (0.0185991,-0.633214)
+
+  Estimated reciprocal condition RCOND = 0.321778
+
+TEST05
+  For a complex general band storage matrix:
+  CGBFA factors the matrix;
+  CGBSL solves a factored linear system.
+
+  The matrix order is N = 3
+  The lower band is ML =  1
+  The upper band is MU =  1
+
+  The matrix:
+
+   (0.44986,-0.126667)    (0.589627,0.26009)                 (0,0)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.236066,0.0774594)
+                 (0,0)  (-0.139466,-0.156136)  (0.0185991,-0.633214)
+
+  The right hand side:
+
+  (-0.126158,0.196127)
+  (-1.28988,-0.181063)
+  (0.219757,-0.212515)
+
+  Computed                     Exact
+  Solution                     Solution
+
+   (0.89285,0.0103136)   (0.89285,0.0103136)
+  (-0.560465,0.763795)  (-0.560465,0.763795)
+  (0.306357,0.0262752)  (0.306357,0.0262752)
+
+TEST06
+  For a complex general band storage matrix:
+  CGBFA factors the matrix.
+  CGBDI computes the determinant.
+
+  The matrix order is N = 3
+  The lower band is ML =  1
+  The upper band is MU =  1
+
+  The matrix:
+
+   (0.44986,-0.126667)    (0.589627,0.26009)                 (0,0)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.236066,0.0774594)
+                 (0,0)  (-0.139466,-0.156136)  (0.0185991,-0.633214)
+
+  Determinant = (3.16224,-3.91854)  * 10^ (-1,0)
+
+TEST07
+  For a complex general storage matrix:
+  CGECO factors the matrix and estimates the
+  reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185991,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156135)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  Estimated reciprocal condition RCOND = 0.0122937
+
+TEST08
+  For a complex general storage matrix:
+  CGEFA factors the matrix.
+  CGESL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185991,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156135)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  The right hand side:
+
+  (0.606261,-0.391702)
+  (-0.128146,-0.0786515)
+  (-0.0930793,0.57649)
+
+  Computed                     Exact
+  Solution                     Solution
+
+  (0.306357,0.0262754)  (0.306357,0.0262752)
+  (0.500804,-0.779931)  (0.500804,-0.779931)
+  (0.350471,0.0165553)  (0.350471,0.0165551)
+
+TEST09
+  For a complex general storage matrix:
+  CGEFA factors the matrix.
+  CGEDI computes the determinant or inverse.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185991,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156135)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  Determinant = (-3.63075,-5.58237) * 10^ (-2,0)
+
+  The product inv(A) * A is
+
+  (0.999999,-1.19209e-07)  (-3.57628e-07,1.19209e-07)       (2.38419e-07,0)
+                 (0,0)      (1,-4.76837e-07)                 (0,0)
+  (-4.76837e-07,-2.38419e-07)       (0,-8.9407e-08)       (1,2.38419e-07)
+
+TEST10
+  For a complex tridiagonal matrix:
+  CGTSL solves a linear system.
+
+  Matrix order N = 10
+
+  Computed                     Exact
+  Solution                     Solution
+
+                      (1,10)                      (1,10)
+                      (2,20)                      (2,20)
+                      (3,30)                      (3,30)
+                      (4,40)                      (4,40)
+                      (5,50)                      (5,50)
+                      (6,60)                      (6,60)
+                      (7,70)                      (7,70)
+                      (8,80)                      (8,80)
+                      (9,90)                      (9,90)
+                    (10,100)                    (10,100)
+
+TEST11
+  For a complex Hermitian matrix:
+  CHICO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)   (0.46847,-0.858402)   (-0.64583,0.380263)
+    (0.46847,0.858402)         (0.0661187,0)      (0.39114,0.3234)
+  (-0.64583,-0.380263)     (0.39114,-0.3234)          (0.043829,0)
+
+  Estimated reciprocal condition RCOND = 0.235918
+
+TEST12
+  For a complex Hermitian matrix:
+  CHIFA factors the matrix.
+  CHISL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)   (0.46847,-0.858402)   (-0.64583,0.380263)
+    (0.46847,0.858402)         (0.0661187,0)      (0.39114,0.3234)
+  (-0.64583,-0.380263)     (0.39114,-0.3234)          (0.043829,0)
+
+  The right hand side:
+
+    (0.391451,1.34986)
+   (0.418849,0.556888)
+  (-0.437792,-0.182306)
+
+  Computed                     Exact
+  Solution                     Solution
+
+         (0.737082,0.301125)         (0.737082,0.301125)
+        (-0.545643,0.389631)        (-0.545643,0.389631)
+        (0.254327,-0.830657)        (0.254327,-0.830657)
+
+TEST13
+  For a complex hermitian matrix:
+  CHIFA factors the matrix.
+  CHIDI computes the determinant, inverse,
+  or inertia.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)   (0.46847,-0.858402)   (-0.64583,0.380263)
+    (0.46847,0.858402)         (0.0661187,0)      (0.39114,0.3234)
+  (-0.64583,-0.380263)     (0.39114,-0.3234)          (0.043829,0)
+
+  Determinant = -8.70062 * 10^ -1
+
+  The inertia:
+
+  2
+  1
+  0
+
+  The product inv(A) * A is
+
+      (1,-2.98023e-08)                 (0,0)  (1.86265e-09,-2.32831e-08)
+  (5.96046e-08,5.96046e-08)       (1,4.47035e-08)  (2.98023e-08,-1.11759e-08)
+  (5.96046e-08,-2.98023e-08)      (0,-2.98023e-08)      (1,-1.49012e-08)
+
+TEST14
+  For a complex Hermitian matrix
+  using packed storage,
+  CHPCO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)   (0.46847,-0.858402)    (0.589627,0.26009)
+    (0.46847,0.858402)          (0.561695,0)      (0.39114,0.3234)
+   (0.589627,-0.26009)     (0.39114,-0.3234)          (0.043829,0)
+
+  Estimated reciprocal condition RCOND = 0.0340064
+
+TEST15
+  For a complex Hermitian matrix,
+  using packed storage,
+  CHPFA factors the matrix.
+  CHPSL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)   (0.46847,-0.858402)    (0.589627,0.26009)
+    (0.46847,0.858402)          (0.561695,0)      (0.39114,0.3234)
+   (0.589627,-0.26009)     (0.39114,-0.3234)          (0.043829,0)
+
+  The right hand side:
+
+   (0.605839,0.293053)
+   (0.148441,0.749981)
+   (0.436654,0.278298)
+
+  Computed                     Exact
+  Solution                     Solution
+
+         (0.737082,0.301125)         (0.737082,0.301125)
+        (-0.545643,0.389631)        (-0.545643,0.389631)
+        (0.254327,-0.830657)        (0.254327,-0.830657)
+
+TEST16
+  For a complex hermitian matrix,
+  using packed storage,
+  CHPFA factors the matrix.
+  CHPDI computes the determinant, inverse,
+  or inertia.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+          (0.218418,0)   (0.46847,-0.858402)    (0.589627,0.26009)
+    (0.46847,0.858402)          (0.561695,0)      (0.39114,0.3234)
+   (0.589627,-0.26009)     (0.39114,-0.3234)          (0.043829,0)
+
+  Determinant = 1.21535 * 10^ -1
+
+  The inertia:
+
+         1
+         2
+         0
+
+  The product inv(A) * A is
+
+                 (1,0)       (5.96046e-08,0)  (4.09782e-08,4.47035e-08)
+       (1.19209e-07,0)       (1,2.38419e-07)  (-1.72295e-07,-7.45058e-08)
+      (0,-1.19209e-07)      (-4.76837e-07,0)      (1,-2.38419e-07)
+
+TEST17
+  For a complex positive definite hermitian band matrix,
+  CPBCO estimates the reciprocal condition number.
+  The matrix size is N = 3
+
+  Estimate the condition.
+
+  Reciprocal condition  = 0.153588
+
+TEST18
+  For a complex positive definite hermitian band matrix,
+  CPBDI computes the determinant as
+    det = MANTISSA * 10^EXPONENT
+
+  Determinant = 6.0957 * 10^ 1
+
+TEST19
+  For a complex positive definite hermitian band matrix,
+  CPBFA computes the LU factors.
+  CPBSL solves a factored linear system.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Solve the linear system.
+
+  The solution:
+  (Should be roughly (1,2,3)):
+
+      (1,-7.00265e-08)
+       (2,1.18896e-07)
+      (3,-1.42432e-07)
+
+TEST20
+  For a complex Hermitian positive definite matrix,
+  CPOCO estimates the reciprocal condition number.
+  The matrix size is N = 3
+
+  Estimate the condition.
+
+  Reciprocal condition  = 0.000601896
+
+TEST21
+  For a complex Hermitian positive definite matrix,
+  CPOFA computes the LU factors,
+  CPODI computes the inverse or determinant.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Get the determinant and inverse.
+
+  Determinant  = 3.56013 * 10^ -2
+
+  First row of inverse:
+
+           (75.8426,0)    (-14.1738,-44.279)    (-74.0839,31.3464)
+
+TEST22
+  For a complex Hermitian positive definite matrix,
+  CPOFA computes the LU factors.
+  CPOSL solves a factored linear system.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Solve the linear system.
+
+  The solution:
+  (Should be (1+2i),(3+4i),(5+6i):
+
+     (1.00007,2.00001)
+     (2.99998,4.00004)
+     (4.99994,5.99996)
+
+TEST23
+  For a complex Hermitian
+  positive definite packed matrix,
+  CPPCO estimates the reciprocal condition number.
+  The matrix size is N = 3
+
+  Estimate the condition number.
+
+  Reciprocal condition number = 0.000601896
+
+TEST24
+  For a complex Hermitian
+  positive definite packed matrix,
+  CPPFA factors the matrix.
+  CPPDI computes the inverse or determinant.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Get the determinant and inverse.
+
+  Determinant  = 3.56013 * 10^ -2
+
+  Inverse:
+
+          (75.8426,-0)    (-14.1738,-44.279)    (-74.0839,31.3464)
+     (-14.1738,44.279)          (29.5238,-0)   (-5.23002,-49.5365)
+   (-74.0839,-31.3464)    (-5.23002,49.5365)          (86.4466,-0)
+
+TEST25
+  For a complex Hermitian
+  positive definite packed matrix,
+  CPPFA factors the matrix.
+  CPPSL solves a factored linear system.
+  The matrix size is N = 3
+
+  Factor the matrix.
+
+  Solve the linear system.
+
+  The solution:
+  (Should be (1+2i),(3+4i),(5+6i):
+
+    (0.999988,2.00022)
+     (2.99988,3.99995)
+      (5.0001,5.99979)
+
+TEST26
+  For a complex Hermitian
+  positive definite tridiagonal matrix,
+  CPTSL factors and solves a linear system.
+  The matrix size is N = 3
+
+  Factor the matrix and solve the system.
+
+  The solution:
+  (Should be roughly (1,2,3)):
+
+             (1,3.94898e-08)
+            (2,-8.43695e-08)
+              (3,5.0048e-08)
+
+TEST27
+  For a complex general matrix,
+  CQRDC computes the QR decomposition of a
+  matrix, but does not return Q and R explicitly.
+
+  Show how Q and R can be recovered using CQRSL.
+
+  The matrix A is
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.0185991,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156135)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+  Decompose the matrix.
+
+  The packed matrix A which describes Q and R:
+
+   (-1.16437,0.327852)  (-0.235472,-0.264983)  (0.499111,-0.666416)
+  (-0.593833,-0.462886)    (0.105287,-0.4758)    (-1.17033,0.14294)
+   (0.410919,0.339078)  (-0.378092,0.667708)  (-0.0980392,0.0561288)
+
+  The QRAUX vector, containing some additional
+  information defining Q:
+
+           (1.38636,0)
+           (1.64126,0)
+                 (0,0)
+
+  The R factor:
+
+   (-1.16437,0.327852)  (-0.235472,-0.264983)  (0.499111,-0.666416)
+                 (0,0)    (0.105287,-0.4758)    (-1.17033,0.14294)
+                 (0,0)                 (0,0)  (-0.0980392,0.0561288)
+
+  The Q factor:
+
+         (-0.386356,0)   (-0.30976,0.699406)    (0.270091,0.43893)
+   (0.593833,0.462886)  (-0.275053,-0.196159)   (0.408954,0.389517)
+  (-0.410919,-0.339078)  (0.115216,-0.536164)    (0.61396,0.196159)
+
+
+
+
+  The product Q * R:
+
+   (0.44986,-0.126667)      (0.39114,0.3234)  (0.018599,-0.633214)
+  (-0.843197,-0.34428)  (-0.139466,-0.156135)   (0.89285,0.0103136)
+    (0.589627,0.26009)  (-0.236066,0.0774593)  (-0.560465,0.763795)
+
+TEST28
+  For a complex symmetric matrix:
+  CSICO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)    (0.589627,0.26009)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.139466,-0.156136)
+    (0.589627,0.26009)  (-0.139466,-0.156136)  (-0.236066,0.0774594)
+
+  Estimated reciprocal condition RCOND = 0.0475323
+
+TEST29
+  For a complex symmetric matrix:
+  CSIFA factors the matrix.
+  CSISL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)    (0.589627,0.26009)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.139466,-0.156136)
+    (0.589627,0.26009)  (-0.139466,-0.156136)  (-0.236066,0.0774594)
+
+  The right hand side:
+
+  (-1.35026,-0.298717)
+   (0.309629,0.801288)
+  (0.125892,-0.733086)
+
+  Computed                     Exact
+  Solution                     Solution
+
+  (0.018599,-0.633214)  (0.0185991,-0.633214)
+  (0.892849,0.0103141)   (0.89285,0.0103136)
+  (-0.560465,0.763796)  (-0.560465,0.763795)
+
+TEST30
+  For a complex symmetric matrix:
+  CSIFA factors the matrix.
+  CSIDI computes the determinant or inverse.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)    (0.589627,0.26009)
+  (-0.843197,-0.34428)      (0.39114,0.3234)  (-0.139466,-0.156136)
+    (0.589627,0.26009)  (-0.139466,-0.156136)  (-0.236066,0.0774594)
+
+  Determinant = (0.943843,0.996661) * 10^ (-1,0)
+
+  The product inv(A) * A is
+
+                 (1,0)  (-1.04308e-07,-1.3411e-07)  (1.04308e-07,7.45058e-09)
+      (0,-1.19209e-07)       (1,5.96046e-08)  (5.96046e-08,-4.47035e-08)
+      (0,-1.19209e-07)      (-5.96046e-08,0)       (1,1.19209e-07)
+
+TEST31
+  For a complex symmetric matrix
+  in packed storage,
+  CSPCO factors the matrix and estimates
+  the reciprocal condition number.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)      (0.39114,0.3234)
+  (-0.843197,-0.34428)    (0.589627,0.26009)  (-0.139466,-0.156136)
+      (0.39114,0.3234)  (-0.139466,-0.156136)  (-0.236066,0.0774594)
+
+  Estimated reciprocal condition RCOND = 0.0576192
+
+TEST32
+  For a complex symmetric matrix
+  in packed storage,
+  CSPFA factors the matrix.
+  CSPSL solves a linear system.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)      (0.39114,0.3234)
+  (-0.843197,-0.34428)    (0.589627,0.26009)  (-0.139466,-0.156136)
+      (0.39114,0.3234)  (-0.139466,-0.156136)  (-0.236066,0.0774594)
+
+  The right hand side:
+
+  (-1.28737,-0.485804)
+   (0.487501,0.746809)
+  (0.162289,-0.606224)
+
+  Computed                     Exact
+  Solution                     Solution
+
+  (0.0185992,-0.633214)  (0.0185991,-0.633214)
+   (0.89285,0.0103135)   (0.89285,0.0103136)
+  (-0.560465,0.763795)  (-0.560465,0.763795)
+
+TEST33
+  For a complex symmetric matrix
+  in packed storage,
+  CSPFA factors the matrix.
+  CSPDI computes the determinant or inverse.
+
+  The matrix order is N = 3
+
+  The matrix:
+
+   (0.44986,-0.126667)  (-0.843197,-0.34428)      (0.39114,0.3234)
+  (-0.843197,-0.34428)    (0.589627,0.26009)  (-0.139466,-0.156136)
+      (0.39114,0.3234)  (-0.139466,-0.156136)  (-0.236066,0.0774594)
+
+  Determinant = (0.788527,1.04145) * 10^ (-1,0)
+
+  The product inv(A) * A is
+
+      (1,-5.96046e-08)  (5.96046e-08,2.38419e-07)  (2.38419e-07,2.38419e-07)
+  (-7.45058e-08,1.49012e-07)                 (1,0)  (-2.98023e-07,1.78814e-07)
+  (2.98023e-08,4.47035e-08)       (0,1.04308e-07)       (1,1.04308e-07)
+
+TEST34
+  For an MxN matrix A in complex general storage,
+  CSVDC computes the singular value decomposition:
+    A = U * S * V^H
+
+  Matrix rows M =    4
+  Matrix columns N = 3
+
+  The matrix A:
+
+   (0.44986,-0.126667)  (-0.139466,-0.156135)  (-0.560465,0.763795)
+  (-0.843197,-0.34428)  (-0.236066,0.0774593)  (0.306357,0.0262752)
+    (0.589627,0.26009)  (0.0185991,-0.633214)  (0.500804,-0.779931)
+      (0.39114,0.3234)   (0.89285,0.0103136)  (0.350471,0.0165551)
+
+  Decompose the matrix.
+
+  Singular values:
+
+         1         (1.72997,0)
+         2         (1.30087,0)
+         3        (0.560498,0)
+
+  Left Singular Vector Matrix U:
+
+  (0.000610493,-0.345582)  (-0.646616,-0.103579)  (-0.138958,0.473898)     (0.37092,0.26507)
+  (-0.351825,-0.0920352)   (0.472598,0.309029)  (-0.397698,-0.0478031)   (0.389194,0.486806)
+   (0.612414,0.327092)   (0.187892,0.240285)   (0.343893,0.349912)  (0.0786282,0.421944)
+   (0.100855,0.506073)  (-0.398919,0.0116256)  (-0.0505478,-0.593639)  (0.461647,0.0797947)
+
+  Right Singular Vector Matrix V:
+
+          (0.590574,0)         (-0.585488,0)          (0.555362,0)
+   (0.0169575,0.54449)  (-0.373585,-0.0446883)  (-0.411883,-0.626125)
+   (-0.16138,0.573081)   (0.156258,0.700874)   (0.336346,0.129477)
+
+  The product U * S * V^H (should equal A):
+
+   (0.44986,-0.126667)  (-0.139466,-0.156136)  (-0.560465,0.763795)
+  (-0.843197,-0.34428)  (-0.236066,0.0774595)  (0.306356,0.0262752)
+    (0.589627,0.26009)  (0.0185993,-0.633214)  (0.500804,-0.779931)
+      (0.39114,0.3234)   (0.89285,0.0103136)   (0.350471,0.016555)
+
+TEST345
+  For an MxN matrix A in complex general storage,
+  CSVDC computes the singular value decomposition:
+    A = U * S * V^H
+
+  Matrix rows M =    4
+  Matrix columns N = 4
+
+  The matrix A:
+
+                 (1,0)                 (1,0)                 (1,0)                 (1,0)
+               (-0,-1)                (-1,0)                 (1,0)                 (0,1)
+                (-1,0)                (-1,0)                 (1,0)                (-1,0)
+                 (0,1)                 (1,0)                 (1,0)               (-0,-1)
+
+  Decompose the matrix.
+
+  Singular values:
+
+         1         (2.82843,0)
+         2               (2,0)
+         3               (2,0)
+         4               (0,0)
+
+  Left Singular Vector Matrix U:
+
+   (0.353553,0.353553)  (-0.353553,0.353553)  (-0.0707107,0.494975)  (0.0707107,0.494975)
+  (-0.353553,-0.353553)  (-0.353553,0.353553)  (-0.0707107,0.494975)  (-0.0707107,-0.494975)
+  (-0.353553,-0.353553)  (0.353553,-0.353553)  (-0.0707107,0.494975)  (0.0707107,0.494975)
+   (0.353553,0.353553)  (0.353553,-0.353553)  (-0.0707107,0.494975)  (-0.0707107,-0.494975)
+
+  Right Singular Vector Matrix V:
+
+               (0.5,0)         (-0.707107,0)                 (0,0)               (0.5,0)
+             (0.5,0.5)  (1.49012e-08,1.49012e-08)                 (0,0)           (-0.5,-0.5)
+                 (0,0)                 (0,0)  (-0.141421,0.989949)                 (0,0)
+     (1.61064e-08,0.5)  (2.27779e-08,0.707107)                 (0,0)     (1.61064e-08,0.5)
+
+  The product U * S * V^H (should equal A):
+
+   (1.000000,0.000000)  (1.000000,-0.000000)   (1.000000,0.000000)   (1.000000,0.000000)
+  (0.000000,-1.000000)  (-1.000000,0.000000)  (1.000000,-0.000000)  (-0.000000,1.000000)
+  (-1.000000,-0.000000)  (-1.000000,0.000000)   (1.000000,0.000000)  (-1.000000,-0.000000)
+   (0.000000,1.000000)   (1.000000,0.000000)  (1.000000,-0.000000)  (0.000000,-1.000000)
+
+TEST35
+  For a complex triangular matrix,
+  CTRCO estimates the condition.
+
+  Matrix order N = 3
+
+  Estimated reciprocal condition RCOND = 0.072614
+
+TEST36
+  For a complex triangular matrix,
+  CTRDI computes the determinant or inverse.
+
+  Matrix order N = 3
+
+  Determinant = (-7.367152,1.310821) * 10^ -2.000000
+
+  The product inv(A) * A is
+
+   (1.000000,0.000000)   (0.000000,0.000000)   (0.000000,0.000000)
+  (-0.000000,0.000000)   (1.000000,0.000000)   (0.000000,0.000000)
+   (0.000000,0.000000)   (0.000000,0.000000)  (1.000000,-0.000000)
+
+TEST37
+  For a complex triangular matrix,
+  CTRSL solves a linear system.
+
+  Matrix order N = 10
+
+  Computed                     Exact
+  Solution                     Solution
+
+        (1.000000,10.000000)        (1.000000,10.000000)
+        (2.000000,20.000000)        (2.000000,20.000000)
+        (3.000001,29.999998)        (3.000000,30.000000)
+        (3.999994,39.999992)        (4.000000,40.000000)
+        (4.999999,50.000004)        (5.000000,50.000000)
+        (5.999985,59.999996)        (6.000000,60.000000)
+        (6.999993,70.000000)        (7.000000,70.000000)
+        (8.000005,79.999969)        (8.000000,80.000000)
+        (9.000027,90.000015)        (9.000000,90.000000)
+       (10.000054,99.999962)      (10.000000,100.000000)
+
+LINPACK_C_PRB
+  Normal end of execution.
+
+22 December 2011 04:44:45 PM

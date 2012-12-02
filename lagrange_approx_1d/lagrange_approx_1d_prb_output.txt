@@ -1,0 +1,2365 @@
+09 October 2012 11:53:57 AM
+
+LAGRANGE_APPROX_1D_TEST:
+  C++ version
+  Test the LAGRANGE_APPROX_1D library.
+  The R8LIB library is needed.
+  The QR_SOLVE library is needed.
+  These tests need the TEST_INTERP_1D library.
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.339102
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.166452
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0419666
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.240598
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.123596
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.031449
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.185693
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0887418
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0220189
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.152878
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0797787
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.020121
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.123213
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0615409
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0155226
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0967979
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0539803
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0136472
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 8.08511e-08
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.035519
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00922048
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.310855
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.150322
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.037663
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.148928
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.069537
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.017237
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0596755
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0281495
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0070326
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0303801
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0134775
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00331813
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0290094
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.01302
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00322334
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0102938
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0042149
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00102749
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 5.62001e-09
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00178635
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.000420427
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.177248
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0922974
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0235056
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.177
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0922593
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0234966
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.149408
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0741944
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.018702
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.130175
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0585046
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.014142
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.130135
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0572512
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0134738
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 3.38887e-14
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 2.08012e-14
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 1.38752e-14
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.45017e-14
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 2.19273e-14
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 1.71131e-14
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.340274
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.168469
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0425116
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.155149
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0763902
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0193
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.128058
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0619788
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0155615
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.103655
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0503747
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0127081
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0759665
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.036264
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00909271
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0440258
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0207858
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00523983
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.80098e-08
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00822645
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00208625
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.43702
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.912461
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.225184
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.42567
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.905658
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.22345
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.36481
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.901398
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.22333
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.34275
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.881055
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.217365
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.08849
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.807521
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.203694
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.74483
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.683562
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.173257
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.76526e-07
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.545176
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.139144
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0921699
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.046545
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0118098
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0556998
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0259941
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00642064
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0521267
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0247449
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00614395
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.019907
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00951932
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00236086
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0138423
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00624733
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00150203
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0004099
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.000229333
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 5.48379e-05
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.02977e-13
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 1.25779e-07
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 3.10301e-08
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.494804
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.253188
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0643879
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.441869
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.224636
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.056963
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.395849
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.202045
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0512808
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.332983
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.170909
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0433248
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.320653
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.165044
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.041867
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.228126
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.124149
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0315679
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.76617e-07
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0888552
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0228763
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0703311
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.035513
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00900535
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0703311
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.035513
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00900535
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0484293
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0241573
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00609318
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0484293
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0241573
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00609318
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0327928
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0163536
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00410558
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0137692
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00744795
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00185906
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.04444e-09
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00150129
+
+TEST02:
+  Approximate evenly spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.000380259
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.318305
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.160822
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0407328
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.230506
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.113552
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0287151
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.14805
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0796243
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0203639
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.140191
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0715261
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.018193
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0955066
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0522266
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0133735
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.076757
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0456383
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0116871
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 8.54396e-10
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.029605
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #1
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0077606
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.34057
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.16792
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0423124
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.154471
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0759758
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0191486
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0543997
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0268106
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00679881
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.027061
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0128587
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00326353
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.025076
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0119402
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00303726
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.00841292
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0035533
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.000916116
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 8.049e-11
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00136302
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #2
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.000364291
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.177223
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0907263
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0231162
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.176219
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0901604
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0229676
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.137846
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0693248
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0175505
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.12512
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0616308
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0154744
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.124111
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0614471
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0154485
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.5021e-14
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 1.41623e-14
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 1.81615e-14
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 5.24957e-15
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 1.54227e-14
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #3
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 1.2419e-14
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.356674
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.176934
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0447012
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.136798
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0689368
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0175008
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.116671
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0573157
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.014535
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.08792
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0440168
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0111852
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0665821
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0319644
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00811682
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0355498
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.017511
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00445076
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 3.56019e-10
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00706498
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #4
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00178664
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.25184
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 1.03734
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.259468
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.22633
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 1.02421
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.256098
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.39124
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.939476
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.23708
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.38146
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.934329
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.235678
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.05544
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.763755
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.194242
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.560417
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.601717
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.153004
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 5.27061e-09
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.477063
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #5
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.121421
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0875275
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0442992
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0112476
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0561389
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0278538
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00702225
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0501106
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0250774
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00633981
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0180685
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00910691
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00230689
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0129296
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00644693
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00162578
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.000437963
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.000220659
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 5.58002e-05
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 4.60987e-14
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 1.32704e-07
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #6
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 3.34887e-08
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.42038
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.217436
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0553576
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.375603
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.194947
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0496105
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.326203
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.170254
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0433771
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.267661
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.142739
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0364144
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.256093
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.136782
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0349068
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.169738
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.100825
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0258736
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.39053e-09
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0706409
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #7
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.0185153
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 0
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0601819
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 0
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.031315
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 0
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00795798
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 1
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0601819
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 1
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.031315
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 1
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00795798
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.039565
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0210442
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 2
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00534839
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 3
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.039565
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 3
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0210442
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 3
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00534839
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0255343
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0141421
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 4
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00359453
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.00922841
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00638682
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 8
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.00162361
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 1.58229e-11
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00130271
+
+TEST03:
+  Approximate Chebyshev-spaced data from TEST_INTERP_1D problem #8
+  Use polynomial approximant of degree 16
+  Number of data points = 1000
+
+  L2 approximation error averaged per data node = 0.000331254
+
+LAGRANGE_APPROX_1D_TEST:
+  Normal end of execution.
+
+09 October 2012 11:53:58 AM

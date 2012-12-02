@@ -1,0 +1,1260 @@
+14 October 2012 10:16:27 AM
+
+LAGRANGE_INTERP_1D_TEST:
+  C++ version
+  Test the LAGRANGE_INTERP_1D library.
+  The R8LIB library is needed.
+  These tests need the TEST_INTERP_1D library.
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0              -1
+     1:       0.333333              -1
+     2:       0.666667               2
+     3:              1               1
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.85883
+  Normalized length of polynomial interpolant       = 2.48638
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0              -1
+     1:       0.142857              -1
+     2:       0.285714              -1
+     3:       0.428571               2
+     4:       0.571429               2
+     5:       0.714286               2
+     6:       0.857143               1
+     7:              1               1
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.08709
+  Normalized length of polynomial interpolant       = 5.83892
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.20882
+  Normalized length of polynomial interpolant       = 147.79
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.27089
+  Normalized length of polynomial interpolant       = 796416
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.30209
+  Normalized length of polynomial interpolant       = 1.9413e+14
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.32552
+  Normalized length of polynomial interpolant       = 6.49646e+65
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0               1
+     1:       0.333333               0
+     2:       0.666667               2
+     3:              1               4
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61852
+  Normalized length of polynomial interpolant       = 1.70739
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0               1
+     1:       0.142857        0.571429
+     2:       0.285714        0.142857
+     3:       0.428571        0.571429
+     4:       0.571429         1.42857
+     5:       0.714286         2.28571
+     6:       0.857143         3.14286
+     7:              1               4
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.59966
+  Normalized length of polynomial interpolant       = 1.63623
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61852
+  Normalized length of polynomial interpolant       = 9.25225
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61449
+  Normalized length of polynomial interpolant       = 1183.02
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61852
+  Normalized length of polynomial interpolant       = 2.38644e+12
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61852
+  Normalized length of polynomial interpolant       = 1.92585e+63
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0              -0
+     1:       0.333333        0.119067
+     2:       0.666667          1.6417
+     3:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.38078
+  Normalized length of polynomial interpolant       = 2.86543
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0              -0
+     1:       0.142857        0.245377
+     2:       0.285714        0.279339
+     3:       0.428571       0.0276823
+     4:       0.571429        0.945157
+     5:       0.714286         1.68054
+     6:       0.857143       -0.138391
+     7:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.66447
+  Normalized length of polynomial interpolant       = 4.21154
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.74314
+  Normalized length of polynomial interpolant       = 2.83918
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.77246
+  Normalized length of polynomial interpolant       = 2.79515
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.77759
+  Normalized length of polynomial interpolant       = 8.33123
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.78044
+  Normalized length of polynomial interpolant       = 5.83284e+56
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0        -1.50423
+     1:       0.333333        -1.03038
+     2:       0.666667         1.48529
+     3:              1         1.53082
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.59514
+  Normalized length of polynomial interpolant       = 1.96499
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0        -1.50423
+     1:       0.142857        -1.46352
+     2:       0.285714        -1.29779
+     3:       0.428571         1.13417
+     4:       0.571429          1.4442
+     5:       0.714286         1.49725
+     6:       0.857143         1.51899
+     7:              1         1.53082
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.71584
+  Normalized length of polynomial interpolant       = 3.72616
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.72771
+  Normalized length of polynomial interpolant       = 50.5551
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.73362
+  Normalized length of polynomial interpolant       = 115373
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.73515
+  Normalized length of polynomial interpolant       = 1.72013e+12
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.73562
+  Normalized length of polynomial interpolant       = 8.18788e+59
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0              16
+     1:       0.333333         -10.961
+     2:       0.666667        -1.70409
+     3:              1         13.3791
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.18385
+  Normalized length of polynomial interpolant       = 2.2424
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0              16
+     1:       0.142857        -6.20529
+     2:       0.285714        -4.03377
+     3:       0.428571        -1.54321
+     4:       0.571429         7.00912
+     5:       0.714286        0.545036
+     6:       0.857143        -12.9168
+     7:              1         13.3791
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 3.1105
+  Normalized length of polynomial interpolant       = 3.3572
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 7.14285
+  Normalized length of polynomial interpolant       = 56.0722
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 9.2907
+  Normalized length of polynomial interpolant       = 41714.4
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 9.61503
+  Normalized length of polynomial interpolant       = 13.924
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 9.80647
+  Normalized length of polynomial interpolant       = 1.38267e+57
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0        0.367879
+     1:       0.333333        0.894839
+     2:       0.666667       0.0621765
+     3:              1      0.00012341
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.00577
+  Normalized length of polynomial interpolant       = 2.52253
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0        0.367879
+     1:       0.142857        0.832208
+     2:       0.285714        0.979799
+     3:       0.428571        0.600373
+     4:       0.571429        0.191463
+     5:       0.714286        0.031778
+     6:       0.857143      0.00274504
+     7:              1      0.00012341
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.06213
+  Normalized length of polynomial interpolant       = 2.14003
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.07905
+  Normalized length of polynomial interpolant       = 2.09102
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.0832
+  Normalized length of polynomial interpolant       = 2.086
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.08417
+  Normalized length of polynomial interpolant       = 11.9029
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.08447
+  Normalized length of polynomial interpolant       = 2.00056e+57
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0               1
+     1:       0.333333         3.79367
+     2:       0.666667               0
+     3:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.19576
+  Normalized length of polynomial interpolant       = 2.78067
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0               1
+     1:       0.142857         1.77079
+     2:       0.285714         3.13571
+     3:       0.428571         5.55271
+     4:       0.571429               0
+     5:       0.714286               0
+     6:       0.857143               0
+     7:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.38035
+  Normalized length of polynomial interpolant       = 7.29847
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.45783
+  Normalized length of polynomial interpolant       = 252.074
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.49372
+  Normalized length of polynomial interpolant       = 3.90874e+06
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.51103
+  Normalized length of polynomial interpolant       = 4.52691e+15
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.52373
+  Normalized length of polynomial interpolant       = 7.71921e+71
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use even spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0       0.0384615
+     1:       0.333333        0.264706
+     2:       0.666667        0.264706
+     3:              1       0.0384615
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.44152
+  Normalized length of polynomial interpolant       = 2.55037
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use even spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0       0.0384615
+     1:       0.142857       0.0727003
+     2:       0.285714        0.178832
+     3:       0.428571        0.662162
+     4:       0.571429        0.662162
+     5:       0.714286        0.178832
+     6:       0.857143       0.0727003
+     7:              1       0.0384615
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.4693
+  Normalized length of polynomial interpolant       = 3.75446
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use even spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.46673
+  Normalized length of polynomial interpolant       = 13.4716
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use even spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.45344
+  Normalized length of polynomial interpolant       = 3158.62
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use even spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.44457
+  Normalized length of polynomial interpolant       = 6.08771e+08
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use even spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.43931
+  Normalized length of polynomial interpolant       = 4.56614e+57
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0              -1
+     1:           0.25              -1
+     2:           0.75               2
+     3:              1               1
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.7847
+  Normalized length of polynomial interpolant       = 1.95045
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0              -1
+     1:      0.0495156              -1
+     2:       0.188255              -1
+     3:        0.38874               2
+     4:        0.61126               2
+     5:       0.811745               1
+     6:       0.950484               1
+     7:              1               1
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.00791
+  Normalized length of polynomial interpolant       = 2.40029
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.16839
+  Normalized length of polynomial interpolant       = 2.96052
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.24719
+  Normalized length of polynomial interpolant       = 3.5266
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.2909
+  Normalized length of polynomial interpolant       = 4.23538
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #1
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.32265
+  Normalized length of polynomial interpolant       = 5.27686
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0               1
+     1:           0.25            0.25
+     2:           0.75             2.5
+     3:              1               4
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.57288
+  Normalized length of polynomial interpolant       = 1.61239
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0               1
+     1:      0.0495156        0.851453
+     2:       0.188255        0.435235
+     3:        0.38874        0.332437
+     4:        0.61126         1.66756
+     5:       0.811745         2.87047
+     6:       0.950484         3.70291
+     7:              1               4
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61767
+  Normalized length of polynomial interpolant       = 1.64485
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61535
+  Normalized length of polynomial interpolant       = 1.62787
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61493
+  Normalized length of polynomial interpolant       = 1.61988
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61947
+  Normalized length of polynomial interpolant       = 1.62215
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #2
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.61837
+  Normalized length of polynomial interpolant       = 1.61902
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0              -0
+     1:           0.25        0.379687
+     2:           0.75         1.49297
+     3:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.28519
+  Normalized length of polynomial interpolant       = 2.43035
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0              -0
+     1:      0.0495156       -0.233633
+     2:       0.188255         0.40015
+     3:        0.38874      0.00401283
+     4:        0.61126         1.29446
+     5:       0.811745        0.705402
+     6:       0.950484        -1.21883
+     7:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.78176
+  Normalized length of polynomial interpolant       = 3.17146
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.78384
+  Normalized length of polynomial interpolant       = 2.93189
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.78797
+  Normalized length of polynomial interpolant       = 2.81159
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.77963
+  Normalized length of polynomial interpolant       = 2.78531
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #3
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.78074
+  Normalized length of polynomial interpolant       = 2.78099
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0        -1.50423
+     1:           0.25         -1.3734
+     2:           0.75         1.50423
+     3:              1         1.53082
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.57574
+  Normalized length of polynomial interpolant       = 1.70206
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0        -1.50423
+     1:      0.0495156        -1.49414
+     2:       0.188255        -1.43772
+     3:        0.38874        0.502522
+     4:        0.61126         1.46537
+     5:       0.811745         1.51362
+     6:       0.950484         1.52738
+     7:              1         1.53082
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.63654
+  Normalized length of polynomial interpolant       = 1.7088
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.72032
+  Normalized length of polynomial interpolant       = 1.93553
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.7311
+  Normalized length of polynomial interpolant       = 1.74357
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.73453
+  Normalized length of polynomial interpolant       = 1.73798
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #4
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 1.73558
+  Normalized length of polynomial interpolant       = 1.73565
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0              16
+     1:           0.25        -10.1153
+     2:           0.75        -7.76263
+     3:              1         13.3791
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.3861
+  Normalized length of polynomial interpolant       = 2.70631
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0              16
+     1:      0.0495156        -3.29024
+     2:       0.188255         9.45586
+     3:        0.38874         6.34917
+     4:        0.61126         14.5226
+     5:       0.811745         4.39835
+     6:       0.950484        -8.65807
+     7:              1         13.3791
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 3.85448
+  Normalized length of polynomial interpolant       = 4.76505
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 3.30304
+  Normalized length of polynomial interpolant       = 3.98729
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 6.43086
+  Normalized length of polynomial interpolant       = 7.97188
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 9.42538
+  Normalized length of polynomial interpolant       = 10.2614
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #5
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 9.81407
+  Normalized length of polynomial interpolant       = 9.84141
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0        0.367879
+     1:           0.25               1
+     2:           0.75       0.0183156
+     3:              1      0.00012341
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.03229
+  Normalized length of polynomial interpolant       = 2.19579
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0        0.367879
+     1:      0.0495156        0.525658
+     2:       0.188255        0.940824
+     3:        0.38874        0.734931
+     4:        0.61126        0.123917
+     5:       0.811745      0.00641628
+     6:       0.950484     0.000389419
+     7:              1      0.00012341
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.04553
+  Normalized length of polynomial interpolant       = 2.15454
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.06863
+  Normalized length of polynomial interpolant       = 2.08447
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.08401
+  Normalized length of polynomial interpolant       = 2.08941
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.08321
+  Normalized length of polynomial interpolant       = 2.08447
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #6
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.08441
+  Normalized length of polynomial interpolant       = 2.08447
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0               1
+     1:           0.25         2.71828
+     2:           0.75               0
+     3:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.0478
+  Normalized length of polynomial interpolant       = 2.21752
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0               1
+     1:      0.0495156         1.21904
+     2:       0.188255          2.1234
+     3:        0.38874         4.73489
+     4:        0.61126               0
+     5:       0.811745               0
+     6:       0.950484               0
+     7:              1               0
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.30388
+  Normalized length of polynomial interpolant       = 2.71904
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.41941
+  Normalized length of polynomial interpolant       = 3.09866
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.47456
+  Normalized length of polynomial interpolant       = 3.45165
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.50147
+  Normalized length of polynomial interpolant       = 3.8185
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #7
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.52135
+  Normalized length of polynomial interpolant       = 4.52052
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use Chebyshev spacing for data points.
+  Number of data points = 4
+
+  Data array:
+
+     0:              0       0.0384615
+     1:           0.25        0.137931
+     2:           0.75        0.137931
+     3:              1       0.0384615
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.56155
+  Normalized length of polynomial interpolant       = 2.93586
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use Chebyshev spacing for data points.
+  Number of data points = 8
+
+  Data array:
+
+     0:              0       0.0384615
+     1:      0.0495156       0.0469624
+     2:       0.188255       0.0932967
+     3:        0.38874         0.44685
+     4:        0.61126         0.44685
+     5:       0.811745       0.0932967
+     6:       0.950484       0.0469624
+     7:              1       0.0384615
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.46567
+  Normalized length of polynomial interpolant       = 2.84243
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use Chebyshev spacing for data points.
+  Number of data points = 16
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.47348
+  Normalized length of polynomial interpolant       = 2.72006
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use Chebyshev spacing for data points.
+  Number of data points = 32
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.46203
+  Normalized length of polynomial interpolant       = 2.55161
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use Chebyshev spacing for data points.
+  Number of data points = 64
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.44965
+  Normalized length of polynomial interpolant       = 2.468
+
+TEST02:
+  Interpolate data from TEST_INTERP_1D problem #8
+  Use Chebyshev spacing for data points.
+  Number of data points = 256
+
+  L2 interpolation error averaged per interpolant node = 0
+
+  Normalized length of piecewise linear interpolant = 2.43996
+  Normalized length of polynomial interpolant       = 2.44057
+
+LAGRANGE_INTERP_1D_TEST:
+  Normal end of execution.
+
+14 October 2012 10:16:34 AM

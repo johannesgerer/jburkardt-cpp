@@ -1,0 +1,346 @@
+<html>
+
+  <head>
+    <title>
+      STAR_DISCREPANCY - The Star Discrepancy of a Pointset
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      STAR_DISCREPANCY <br> The Star Discrepancy of a Pointset
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>STAR_DISCREPANCY</b>
+      is a C++ program which
+      computes bounds on the star discrepancy of an M-dimensional set of N points contained
+      in the unit hypercube,
+      by Eric Thiemard.
+    </p>
+
+    <p>
+      The pointset is stored in a file, in the TABLE format.
+    </p>
+
+    <p>
+      The star discrepancy is a commonly cited statistic for
+      determining how uniformly a pointset is distributed over a
+      region.  For convenience, this region is usually taken as
+      the unit hypercube; <b>STAR_DISCREPANCY</b> will assume that
+      datasets under investigation are meant to fill up the unit
+      hypercube.
+    </p>
+
+    <p>
+      If the pointset to be investigated actually
+      lies in some other hypercube, a simply translation and rescaling
+      may be enough to transform the data.  This will probably NOT
+      be satisfactory if the original region is rectangular, but
+      has sides of different length, or if the region is not rectangular.
+    </p>
+
+     <p>
+      The discrepancy measures the worst error
+      that would be made in estimating the area of a subregion of
+      the hypercube by simply noting the fraction of the pointset
+      contained in the subregion.  If arbitrary subregions were allowed,
+      then it would always be possible to make this error equal to 1
+      (just take the region consisting of the hypercube minus the
+      pointset.)  Since any "reasonable" area can be arbitrarily well
+      approximated by rectangles, the star discrepancy calculation
+      uses only rectangular subregions, whose sides are aligned with
+      coordinates directions, and one of whose corners is at the origin.
+    </p>
+
+    <p>
+      Formally, the star discrepancy of a pointset of <b>n</b> points
+      is symbolized by <b>D<sub>n</sub><sup>*</sup></b> and defined as
+      <blockquote><b>
+        D<sub>n</sub><sup>*</sup> = supremum ( P in I* )
+          | ( A(P,x) / n ) - lambda ( P ) |
+      </b></blockquote>
+      Here, <b>I*</b> is the set of all M-dimensional subintervals of the
+      form [0,p1] x [0,p2] x ... x [0,ps] where every <b>p</b> is between
+      0 and 1; <b>P</b> is any such subinterval; <b>lambda(P)</b> is the
+      volume of the subinterval, <b>A(P,x)</b> is the number of points of
+      the point set <b>x</b> that occur in <b>P</b>, and <b>n</b>
+      is the number of points in <b>x</b>.
+    </p>
+
+    <p>
+      Clearly, the star discrepancy is measuring how badly the pointset
+      estimates the volume of a subinterval.  This worst error is somewhere
+      between 0 (absolutely no error ever) and 1 (totally missing the
+      volume of the unit hypercube).  A value of 0.25, for instance,
+      means that there is a subinterval in the unit hypercube for which
+      the difference between its true and estimated volumes is 0.25.
+      (It might have a volume of 0.80, and be estimated at 0.55, for
+      instance, or a volume of 0.05 that is estimated at 0.30.)
+    </p>
+
+    <p>
+      The original program is by Eric Thiemard.  Changes have been
+      made to the program so that it compiles under C++, uses a simpler
+      datafile format, and infers the dimensionality of the data from
+      the information in the datafile.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>star_discrepancy</b> <i>epsilon n table_file</i>
+        </dt>
+        <dd>
+          <ul>
+            <li>
+              <i>epsilon</i> is an error tolerance between 0 and 1,
+              and indicates the allowable error in the estimate;
+            </li>
+            <li>
+              <i>n</i> is the number of points to be read from the file;
+            </li>
+            <li>
+              <i>table_file</i> is a file in
+              <a href =
+              "../../data/table/table.html">
+              table format</a> containing at least <i>n</i> points.
+              The dimensionality of the pointset is inferred from the
+              file.
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          <b>star_discrepancy</b> <i>epsilon n table_file num den</i>
+        </dt>
+        <dd>
+          where the two extra arguments are:
+          <ul>
+            <li>
+              <i>num</i> the optional balance numerator;
+            </li>
+            <li>
+              <i>den</i> the optional balance denominator;
+            </li>
+          </ul>
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>STAR_DISCREPANCY</b> is available in
+      <a href = "../../c_src/star_discrepancy/star_discrepancy.html">a C version</a> and
+      <a href = "../../cpp_src/star_discrepancy/star_discrepancy.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/diaphony/diaphony.html">
+      DIAPHONY</a>,
+      a C++ program which
+      reads a file of N points in M dimensions and computes its diaphony, a measure
+      of point dispersion.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_latinize/table_latinize.html">
+      TABLE_LATINIZE</a>,
+      a C++ program which
+      can read a TABLE file
+      and write out a "latinized" version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_quality/table_quality.html">
+      TABLE_QUALITY</a>,
+      a C++ program which
+      can read a TABLE file
+      and print out measures of the quality of dispersion of the points.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Eric Thiemard
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://rosowww.epfl.ch/papers/discrbound2/">
+          http://rosowww.epfl.ch/papers/discrbound2/</a>,
+          the source code web site.
+        </li>
+        <li>
+          Eric Thiemard,<br>
+          An Algorithm to Compute Bounds for the Star Discrepancy,<br>
+          Journal of Complexity,<br>
+          Volume 17, pages 850-880, 2001.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "star_discrepancy.cpp">star_discrepancy.cpp</a>,
+          the source code.
+        </li>
+        <li>
+          <a href = "star_discrepancy.sh">star_discrepancy.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "halton_02_00010.txt">
+          halton_02_00010.txt</a>,
+          10 Halton points in 2D.
+        </li>
+        <li>
+          <a href = "halton_02_00010_output.txt">
+          halton_02_00010_output.txt</a>,
+          the result of the command
+          <blockquote><b>
+            star_discrepancy 0.001 10 halton_02_00010.txt
+          </b></blockquote>
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for the star discrepancy bound computation.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DATA_READ</b> reads coordinate data from a file.
+        </li>
+        <li>
+          <b>DECOMPOSITION</b> carries out the decomposition of a subinterval.
+        </li>
+        <li>
+          <b>EXPLORE</b> ???
+        </li>
+        <li>
+          <b>FASTEXPLORE</b> ???
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>FILE_USAGE</b> lists the legal input file format.
+        </li>
+        <li>
+          <b>FREETREE</b> frees storage associated with a tree.
+        </li>
+        <li>
+          <b>INITLEX</b> ???
+        </li>
+        <li>
+          <b>INITPARAMETERS</b> sets program parameters based on user input and defaults.
+        </li>
+        <li>
+          <b>INSERTLEX</b> ???
+        </li>
+        <li>
+          <b>LOWBOUND</b> ???
+        </li>
+        <li>
+          <b>MEMORY</b> prints a message and terminates on memory allocation errors.
+        </li>
+        <li>
+          <b>QUICKSORT</b> uses Quicksort to sort an array.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>SUBTREE</b> ???
+        </li>
+        <li>
+          <b>SUPERTREE</b> ???
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRAITER</b> ???
+        </li>
+        <li>
+          <b>USAGE</b> prints usage information for the program.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 12 November 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

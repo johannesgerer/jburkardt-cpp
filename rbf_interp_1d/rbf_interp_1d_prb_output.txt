@@ -1,0 +1,332 @@
+15 October 2012 09:30:13 AM
+
+RBF_INTERP_1D_TEST:
+  C++ version
+  Test the RBF_INTERP_1D library.
+  The R8LIB library is needed.
+  The test needs the TEST_INTERP library.
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #1
+  using radial basis function "phi1".
+  Scale factor R0 = 1.05882
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 1.46196e-14
+  Normalized length of piecewise linear interpolant = 3.13553
+  Normalized length of polynomial interpolant       = 3.30163
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #1
+  using radial basis function "phi2".
+  Scale factor R0 = 1.05882
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 9.21643e-16
+  Normalized length of piecewise linear interpolant = 3.13553
+  Normalized length of polynomial interpolant       = 3.27743
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #1
+  using radial basis function "phi3".
+  Scale factor R0 = 1.05882
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 6.96958e-14
+  Normalized length of piecewise linear interpolant = 3.13553
+  Normalized length of polynomial interpolant       = 3.27966
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #1
+  using radial basis function "phi4".
+  Scale factor R0 = 1.05882
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 1.63844e-15
+  Normalized length of piecewise linear interpolant = 3.13553
+  Normalized length of polynomial interpolant       = 3.28618
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #2
+  using radial basis function "phi1".
+  Scale factor R0 = 1.82353
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 0.0056087
+  Normalized length of piecewise linear interpolant = 2.66086
+  Normalized length of polynomial interpolant       = 420448
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #2
+  using radial basis function "phi2".
+  Scale factor R0 = 1.82353
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 7.22225e-05
+  Normalized length of piecewise linear interpolant = 2.66086
+  Normalized length of polynomial interpolant       = 143170
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #2
+  using radial basis function "phi3".
+  Scale factor R0 = 1.82353
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 7.90553e-09
+  Normalized length of piecewise linear interpolant = 2.66086
+  Normalized length of polynomial interpolant       = 15.5421
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #2
+  using radial basis function "phi4".
+  Scale factor R0 = 1.82353
+  Number of data points = 18
+
+  L2 interpolation error averaged per interpolant node = 0.19386
+  Normalized length of piecewise linear interpolant = 2.66086
+  Normalized length of polynomial interpolant       = 1.40385e+07
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #3
+  using radial basis function "phi1".
+  Scale factor R0 = 1.5
+  Number of data points = 11
+
+  L2 interpolation error averaged per interpolant node = 7.9091e-14
+  Normalized length of piecewise linear interpolant = 1.68472
+  Normalized length of polynomial interpolant       = 1.88165
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #3
+  using radial basis function "phi2".
+  Scale factor R0 = 1.5
+  Number of data points = 11
+
+  L2 interpolation error averaged per interpolant node = 1.79323e-14
+  Normalized length of piecewise linear interpolant = 1.68472
+  Normalized length of polynomial interpolant       = 1.84919
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #3
+  using radial basis function "phi3".
+  Scale factor R0 = 1.5
+  Number of data points = 11
+
+  L2 interpolation error averaged per interpolant node = 4.59317e-13
+  Normalized length of piecewise linear interpolant = 1.68472
+  Normalized length of polynomial interpolant       = 1.76283
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #3
+  using radial basis function "phi4".
+  Scale factor R0 = 1.5
+  Number of data points = 11
+
+  L2 interpolation error averaged per interpolant node = 2.19205e-14
+  Normalized length of piecewise linear interpolant = 1.68472
+  Normalized length of polynomial interpolant       = 1.99582
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #4
+  using radial basis function "phi1".
+  Scale factor R0 = 0.142857
+  Number of data points = 8
+
+  L2 interpolation error averaged per interpolant node = 4.91446e-14
+  Normalized length of piecewise linear interpolant = 3.25908
+  Normalized length of polynomial interpolant       = 3.57598
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #4
+  using radial basis function "phi2".
+  Scale factor R0 = 0.142857
+  Number of data points = 8
+
+  L2 interpolation error averaged per interpolant node = 3.23256e-15
+  Normalized length of piecewise linear interpolant = 3.25908
+  Normalized length of polynomial interpolant       = 3.46533
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #4
+  using radial basis function "phi3".
+  Scale factor R0 = 0.142857
+  Number of data points = 8
+
+  L2 interpolation error averaged per interpolant node = 1.0073e-14
+  Normalized length of piecewise linear interpolant = 3.25908
+  Normalized length of polynomial interpolant       = 3.48487
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #4
+  using radial basis function "phi4".
+  Scale factor R0 = 0.142857
+  Number of data points = 8
+
+  L2 interpolation error averaged per interpolant node = 1.8524e-14
+  Normalized length of piecewise linear interpolant = 3.25908
+  Normalized length of polynomial interpolant       = 4.08924
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #5
+  using radial basis function "phi1".
+  Scale factor R0 = 0.125
+  Number of data points = 9
+
+  L2 interpolation error averaged per interpolant node = 3.31093e-15
+  Normalized length of piecewise linear interpolant = 3.2218
+  Normalized length of polynomial interpolant       = 3.557
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #5
+  using radial basis function "phi2".
+  Scale factor R0 = 0.125
+  Number of data points = 9
+
+  L2 interpolation error averaged per interpolant node = 2.22782e-16
+  Normalized length of piecewise linear interpolant = 3.2218
+  Normalized length of polynomial interpolant       = 3.4901
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #5
+  using radial basis function "phi3".
+  Scale factor R0 = 0.125
+  Number of data points = 9
+
+  L2 interpolation error averaged per interpolant node = 3.26131e-15
+  Normalized length of piecewise linear interpolant = 3.2218
+  Normalized length of polynomial interpolant       = 3.40139
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #5
+  using radial basis function "phi4".
+  Scale factor R0 = 0.125
+  Number of data points = 9
+
+  L2 interpolation error averaged per interpolant node = 1.288e-15
+  Normalized length of piecewise linear interpolant = 3.2218
+  Normalized length of polynomial interpolant       = 4.18483
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #6
+  using radial basis function "phi1".
+  Scale factor R0 = 10
+  Number of data points = 49
+
+  L2 interpolation error averaged per interpolant node = 1.07502e-14
+  Normalized length of piecewise linear interpolant = 2.68209
+  Normalized length of polynomial interpolant       = 2.71105
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #6
+  using radial basis function "phi2".
+  Scale factor R0 = 10
+  Number of data points = 49
+
+  L2 interpolation error averaged per interpolant node = 1.85488e-16
+  Normalized length of piecewise linear interpolant = 2.68209
+  Normalized length of polynomial interpolant       = 2.71456
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #6
+  using radial basis function "phi3".
+  Scale factor R0 = 10
+  Number of data points = 49
+
+  L2 interpolation error averaged per interpolant node = 2.94328e-13
+  Normalized length of piecewise linear interpolant = 2.68209
+  Normalized length of polynomial interpolant       = 2.70318
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #6
+  using radial basis function "phi4".
+  Scale factor R0 = 10
+  Number of data points = 49
+
+  L2 interpolation error averaged per interpolant node = 2.95558e-16
+  Normalized length of piecewise linear interpolant = 2.68209
+  Normalized length of polynomial interpolant       = 2.75474
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #7
+  using radial basis function "phi1".
+  Scale factor R0 = 1.66667
+  Number of data points = 4
+
+  L2 interpolation error averaged per interpolant node = 1.83439e-15
+  Normalized length of piecewise linear interpolant = 2.63961
+  Normalized length of polynomial interpolant       = 3.5492
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #7
+  using radial basis function "phi2".
+  Scale factor R0 = 1.66667
+  Number of data points = 4
+
+  L2 interpolation error averaged per interpolant node = 7.1089e-16
+  Normalized length of piecewise linear interpolant = 2.63961
+  Normalized length of polynomial interpolant       = 3.04052
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #7
+  using radial basis function "phi3".
+  Scale factor R0 = 1.66667
+  Number of data points = 4
+
+  L2 interpolation error averaged per interpolant node = 3.36198e-15
+  Normalized length of piecewise linear interpolant = 2.63961
+  Normalized length of polynomial interpolant       = 5.18776
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #7
+  using radial basis function "phi4".
+  Scale factor R0 = 1.66667
+  Number of data points = 4
+
+  L2 interpolation error averaged per interpolant node = 5.11788e-16
+  Normalized length of piecewise linear interpolant = 2.63961
+  Normalized length of polynomial interpolant       = 3.63017
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #8
+  using radial basis function "phi1".
+  Scale factor R0 = 0.181818
+  Number of data points = 12
+
+  L2 interpolation error averaged per interpolant node = 1.36326e-08
+  Normalized length of piecewise linear interpolant = 2.31939
+  Normalized length of polynomial interpolant       = 341.084
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #8
+  using radial basis function "phi2".
+  Scale factor R0 = 0.181818
+  Number of data points = 12
+
+  L2 interpolation error averaged per interpolant node = 5.07442e-10
+  Normalized length of piecewise linear interpolant = 2.31939
+  Normalized length of polynomial interpolant       = 272.133
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #8
+  using radial basis function "phi3".
+  Scale factor R0 = 0.181818
+  Number of data points = 12
+
+  L2 interpolation error averaged per interpolant node = 9.348e-10
+  Normalized length of piecewise linear interpolant = 2.31939
+  Normalized length of polynomial interpolant       = 28.0957
+
+TEST01:
+  Interpolate data from TEST_INTERP problem #8
+  using radial basis function "phi4".
+  Scale factor R0 = 0.181818
+  Number of data points = 12
+
+  L2 interpolation error averaged per interpolant node = 5.48514e-09
+  Normalized length of piecewise linear interpolant = 2.31939
+  Normalized length of polynomial interpolant       = 709.805
+
+RBF_INTERP_1D_TEST:
+  Normal end of execution.
+
+15 October 2012 09:30:14 AM

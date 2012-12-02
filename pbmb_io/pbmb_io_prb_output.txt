@@ -1,0 +1,31 @@
+22 July 2011 02:53:41 PM
+
+PBMB_IO_PRB:
+  C++ version
+  Test the PBMB_IO library.
+
+TEST01:
+  PBMB_EXAMPLE sets up PBMB data.
+  PBMB_WRITE writes a PBMB file.
+
+  Writing the file "pbmb_io_prb_01.pbmb".
+
+  PBMB_EXAMPLE has set up the data.
+
+  PBMB_WRITE was successful.
+
+  PBMB_CHECK_DATA passes the data from the file.
+
+TEST02
+  PBMB_READ reads the header and data of a PBMB file.
+
+  Reading the file "pbmb_io_prb_02.pbmb".
+
+  PBMB_WRITE_TEST created some test data.
+
+  PBMB_READ read the test data successfully.
+
+PBMB_IO_PRB:
+  Normal end of execution.
+
+22 July 2011 02:53:41 PM

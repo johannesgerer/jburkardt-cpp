@@ -1,0 +1,560 @@
+25 April 2012 08:25:05 AM
+
+CHEBYSHEV_POLYNOMIAL_PRB
+  C++ version
+  Test the CHEBYSHEV_POLYNOMIAL library.
+
+CHEBYSHEV_POLYNOMIAL_TEST01:
+  T_PROJECT_COEFFICIENTS_DATA estimates the Chebyshev polynomial
+  coefficients for a function given as data (x,fx).
+
+  Here, we use fx = f(x) = x^2 for the data.
+
+  Since T(0,x) = 1 and T(2,x) = 2*x^2 - 1, the correct expansion is
+  f(x) = 1/2 T(0,x) + 0 T(1,x) + 1/2 T(2,x) + 0 * all other polys.
+
+  Data ( X, D ):
+
+     0:       0.218418       0.0477066
+     1:       0.956318        0.914543
+     2:       0.829509        0.688086
+     3:       0.561695        0.315502
+     4:       0.415307         0.17248
+     5:      0.0661187      0.00437169
+     6:       0.257578       0.0663463
+     7:       0.109957       0.0120905
+     8:       0.043829      0.00192098
+     9:       0.633966        0.401913
+    10:      0.0617272      0.00381025
+    11:       0.449539        0.202085
+    12:       0.401306        0.161047
+    13:       0.754673        0.569532
+    14:       0.797287        0.635666
+    15:     0.00183837     3.37961e-06
+    16:       0.897504        0.805514
+    17:       0.350752        0.123027
+    18:      0.0945448      0.00893871
+    19:      0.0136169      0.00018542
+
+  Coefficients of Chebyshev expansion of degree 4.
+
+         0:            0.5
+         1:   -1.29341e-14
+         2:            0.5
+         3:   -3.94129e-15
+
+   I      X(I)     Data(I)      Chebyshev(X(I))
+
+   0      0.218418     0.0477066     0.0477066
+   1      0.956318      0.914543      0.914543
+   2      0.829509      0.688086      0.688086
+   3      0.561695      0.315502      0.315502
+   4      0.415307       0.17248       0.17248
+   5     0.0661187    0.00437169    0.00437169
+   6      0.257578     0.0663463     0.0663463
+   7      0.109957     0.0120905     0.0120905
+   8      0.043829    0.00192098    0.00192098
+   9      0.633966      0.401913      0.401913
+  10     0.0617272    0.00381025    0.00381025
+  11      0.449539      0.202085      0.202085
+  12      0.401306      0.161047      0.161047
+  13      0.754673      0.569532      0.569532
+  14      0.797287      0.635666      0.635666
+  15    0.00183837   3.37961e-06   3.37961e-06
+  16      0.897504      0.805514      0.805514
+  17      0.350752      0.123027      0.123027
+  18     0.0945448    0.00893871    0.00893871
+  19     0.0136169    0.00018542    0.00018542
+
+TEST02
+  T_POLYNOMIAL_COEFFICIENTS determines the polynomial coefficients 
+  ot T(n,x).
+
+  T(0,x)
+
+             1
+
+  T(1,x)
+
+             1 * x
+
+  T(2,x)
+
+             2 * x^2
+            -1
+
+  T(3,x)
+
+             4 * x^3
+            -3 * x
+
+  T(4,x)
+
+             8 * x^4
+            -8 * x^2
+             1
+
+  T(5,x)
+
+            16 * x^5
+           -20 * x^3
+             5 * x
+
+TEST03:
+  T_POLYNOMIAL evaluates the Chebyshev polynomial T(n,x).
+
+                   Tabulated      Computed
+     N      X        T(n,x)        T(n,x)
+
+         0       0.8               1               1
+         1       0.8             0.8             0.8
+         2       0.8            0.28            0.28
+         3       0.8          -0.352          -0.352
+         4       0.8         -0.8432         -0.8432
+         5       0.8        -0.99712        -0.99712
+         6       0.8       -0.752192       -0.752192
+         7       0.8       -0.206387       -0.206387
+         8       0.8        0.421972        0.421972
+         9       0.8        0.881543        0.881543
+        10       0.8        0.988497        0.988497
+        11       0.8        0.700051        0.700051
+        12       0.8        0.131586        0.131586
+
+TEST04:
+  T_POLYNOMIAL_ZEROS returns zeroes of T(n,x).
+
+       N      X        T(n,x)
+
+         1  6.12323e-17     6.12323e-17
+
+         2  0.707107     2.22045e-16
+         2  -0.707107    -2.22045e-16
+
+         3  0.866025     3.33067e-16
+         3  6.12323e-17    -1.83697e-16
+         3  -0.866025    -3.33067e-16
+
+         4   0.92388    -2.22045e-16
+         4  0.382683    -2.22045e-16
+         4  -0.382683     1.11022e-16
+         4  -0.92388    -2.22045e-16
+
+         5  0.951057    -4.44089e-16
+         5  0.587785    -7.77156e-16
+         5  6.12323e-17     3.06162e-16
+         5  -0.587785    -7.77156e-16
+         5  -0.951057     4.44089e-16
+
+
+TEST05:
+  T_QUADRATURE_RULE computes the quadrature rule
+  associated with T(n,x);
+
+    N      X            W
+
+     0:      -0.974928        0.448799
+     1:      -0.781831        0.448799
+     2:      -0.433884        0.448799
+     3:    2.19909e-16        0.448799
+     4:       0.433884        0.448799
+     5:       0.781831        0.448799
+     6:       0.974928        0.448799
+
+  Use the quadrature rule to estimate:
+
+    Q = Integral ( -1 <= X <= +1 ) X^E / sqrt ( 1-x^2) dx
+
+   E       Q_Estimate      Q_Exact
+
+   0         3.14159         3.14159
+   1    -1.11022e-16               0
+   2          1.5708          1.5708
+   3    -1.11022e-16               0
+   4          1.1781          1.1781
+   5               0               0
+   6        0.981748        0.981748
+   7     5.55112e-17               0
+   8        0.859029        0.859029
+   9     1.11022e-16               0
+  10        0.773126        0.773126
+  11     1.66533e-16               0
+  12        0.708699        0.708699
+  13     2.77556e-16               0
+
+TEST06:
+  As a sanity check, make sure that the projection of:
+  T(i,x) onto T(j,x) is:
+  0 if i is not equal to j;
+  pi if i = j = 0;
+  pi/2 if i = j =/= 0.
+
+  Chebyshev expansion coefficients for T(0,x)
+
+         0:        3.14159
+         1:    7.77156e-16
+         2:   -5.55112e-16
+         3:   -2.22045e-16
+
+  Chebyshev expansion coefficients for T(1,x)
+
+         0:    7.77156e-16
+         1:         1.5708
+         2:    3.33067e-16
+         3:    3.33067e-16
+
+  Chebyshev expansion coefficients for T(2,x)
+
+         0:   -5.55112e-16
+         1:    1.11022e-16
+         2:         1.5708
+         3:    6.38378e-16
+
+  Chebyshev expansion coefficients for T(3,x)
+
+         0:   -2.22045e-16
+         1:    3.33067e-16
+         2:    6.10623e-16
+         3:         1.5708
+
+CHEBYSHEV_POLYNOMIAL_TEST07:
+  T_PROJECT_COEFFICIENTS computes the Chebyshev coefficients
+  of a function defined over [-1,+1].
+  T_PROJECT_COEFFICIENTS_AB works in [A,B].
+
+  Chebyshev coefficients for exp(x) in [-1,+1]
+
+         0:        1.26607
+         1:        1.13031
+         2:        0.27145
+         3:      0.0437939
+
+  Chebyshev coefficients for exp(x) in [-1,+1]
+
+         0:        1.26607
+         1:        1.13032
+         2:       0.271495
+         3:      0.0443368
+         4:     0.00547404
+         5:    0.000539728
+
+  Chebyshev coefficients for sin(x) in [-1,+1]
+
+         0:    1.85037e-17
+         1:       0.880101
+         2:    1.11022e-16
+         3:     -0.0391267
+         4:    2.77556e-16
+         5:     0.00050252
+
+  Chebyshev coefficients for sin(x) in [-1,+1]
+
+         0:    1.85037e-17
+         1:       0.880101
+         2:    1.11022e-16
+         3:     -0.0391267
+         4:    2.96059e-16
+         5:     0.00050252
+
+  Chebyshev coefficients for sqrt(x) in [0,+1]
+
+         0:       0.638441
+         1:       0.420681
+         2:     -0.0808705
+         3:      0.0318506
+         4:       -0.01484
+         5:     0.00614694
+
+TEST08:
+  T_PROJECT_COEFFICIENTS_DATA computes the Chebyshev
+  coefficients of a function defined by data.
+
+  We are looking for an approximation that is good in [-1,+1].
+
+  Begin by using equally spaced points in [-1,+1].
+
+  Chebyshev coefficients for exp(x) on [-1,+1]
+
+         0:        1.26667
+         1:        1.13052
+         2:       0.271785
+         3:      0.0443939
+
+  Chebyshev coefficients for exp(x) on [-1,+1]
+
+         0:        1.26608
+         1:        1.13032
+         2:       0.271515
+         3:      0.0443381
+         4:     0.00547599
+         5:    0.000542394
+
+  Chebyshev coefficients for sin(x) on [-1,+1]
+
+         0:    2.68626e-17
+         1:       0.880099
+         2:    9.84823e-17
+         3:     -0.0391279
+         4:    1.78496e-17
+         5:    0.000500014
+
+  Now sample equally spaced points in [0,+1].
+  The approximation still applies to the interval [-1,+1].
+
+  Chebyshev coefficients for sin(x) on [0,+1]
+
+         0:    0.000726991
+         1:       0.878798
+         2:    0.000930442
+         3:     -0.0396401
+         4:     0.00020353
+         5:    0.000452446
+
+  Chebyshev coefficients for sqrt(x) on [0,+1]
+
+         0:       -14.6903
+         1:        26.9799
+         2:       -17.4287
+         3:        8.41285
+         4:       -2.73608
+         5:       0.463969
+
+  Now random points in [-1,+1].
+
+  Chebyshev coefficients for sin(x) on [-1,+1]
+
+         0:   -2.30327e-07
+         1:       0.880106
+         2:   -8.76709e-07
+         3:     -0.0391223
+         4:    2.87075e-09
+         5:    0.000503295
+
+TEST09:
+  T_PROJECT_COEFFICIENTS computes the Chebyshev interpolant C(F)(n,x)
+  of a function F(x) defined over [-1,+1].
+  T_PROJECT_VALUE evaluates that projection.
+
+  Compute projections of order N to exp(x) over [-1,+1],
+
+   N   Max||F(x)-C(F)(n,x)||
+
+   0         1.71828
+   1        0.372248
+   2       0.0564679
+   3      0.00665687
+   4     0.000639699
+   5     5.17958e-05
+   6     3.62009e-06
+   7     2.22439e-07
+   8     1.21901e-08
+   9     6.02709e-10
+  10     2.71396e-11
+
+TEST10:
+  T_PROJECT_COEFFICIENTS_AB computes the Chebyshev interpolant C(F)(n,x)
+  of a function F(x) defined over [A,B].
+  T_PROJECT_VALUE_AB evaluates that projection.
+
+  Compute projections of order N to exp(x) over [0,1.5]
+
+   N   Max||F(x)-C(F)(n,x)||
+
+   0         2.36469
+   1        0.396713
+   2       0.0462866
+   3      0.00415892
+   4     0.000303087
+   5      1.8555e-05
+   6      9.7862e-07
+   7     4.53171e-08
+   8     1.86984e-09
+   9     6.95577e-11
+  10     2.35367e-12
+
+TEST11
+  U_POLYNOMIAL_COEFFICIENTS determines the polynomial coefficients 
+  of U(n,x).
+
+  U(0,x)
+
+             1
+
+  U(1,x)
+
+             2 * x
+
+  U(2,x)
+
+             4 * x^2
+            -1
+
+  U(3,x)
+
+             8 * x^3
+            -4 * x
+
+  U(4,x)
+
+            16 * x^4
+           -12 * x^2
+             1
+
+  U(5,x)
+
+            32 * x^5
+           -32 * x^3
+             6 * x
+
+TEST12:
+  U_POLYNOMIAL evaluates the Chebyshev polynomial U(n,x).
+
+                   Tabulated      Computed
+     N      X        U(n,x)        U(n,x)
+
+         0       0.8               1               1
+         1       0.8             1.6             1.6
+         2       0.8            1.56            1.56
+         3       0.8           0.896           0.896
+         4       0.8         -0.1264         -0.1264
+         5       0.8        -1.09824        -1.09824
+         6       0.8        -1.63078        -1.63078
+         7       0.8        -1.51101        -1.51101
+         8       0.8       -0.786839       -0.786839
+         9       0.8        0.252072        0.252072
+        10       0.8         1.19015         1.19015
+        11       0.8         1.65217         1.65217
+        12       0.8         1.45333         1.45333
+
+TEST13:
+  U_POLYNOMIAL_ZEROS returns zeroes of U(n,x).
+
+       N      X        U(n,x)
+
+         1  6.12323e-17     1.22465e-16
+
+         2       0.5     4.44089e-16
+         2      -0.5    -8.88178e-16
+
+         3  0.707107     6.66134e-16
+         3  6.12323e-17    -2.44929e-16
+         3  -0.707107     6.66134e-16
+
+         4  0.809017               0
+         4  0.309017    -1.11022e-16
+         4  -0.309017     5.55112e-16
+         4  -0.809017    -8.88178e-16
+
+         5  0.866025     1.33227e-15
+         5       0.5    -8.88178e-16
+         5  6.12323e-17     3.67394e-16
+         5      -0.5    -1.77636e-15
+         5  -0.866025    -1.33227e-15
+
+
+TEST14:
+  U_QUADRATURE_RULE computes the quadrature rule
+  associated with U(n,x);
+
+    N      X            W
+
+     0:       -0.92388       0.0575094
+     1:      -0.707107         0.19635
+     2:      -0.382683         0.33519
+     3:    7.90193e-18        0.392699
+     4:       0.382683         0.33519
+     5:       0.707107         0.19635
+     6:        0.92388       0.0575094
+
+  Use the quadrature rule to estimate:
+
+    Q = Integral ( -1 <= X <= +1 ) X^E * sqrt ( 1-x^2) dx
+
+   E       Q_Estimate      Q_Exact
+
+   0          1.5708          1.5708
+   1     8.32667e-17               0
+   2        0.392699        0.392699
+   3    -5.55112e-17               0
+   4         0.19635         0.19635
+   5    -1.38778e-16               0
+   6        0.122718        0.122718
+   7    -1.66533e-16               0
+   8       0.0859029       0.0859029
+   9    -1.73472e-16               0
+  10       0.0644272       0.0644272
+  11    -1.73472e-16               0
+  12       0.0506214       0.0506214
+  13    -1.73472e-16               0
+
+TEST15:
+  V_POLYNOMIAL evaluates the Chebyshev polynomial V(n,x).
+
+                   Tabulated      Computed
+     N      X        V(n,x)        V(n,x)
+
+         0       0.8               1               1
+         1       0.8             0.6             0.6
+         2       0.8           -0.04           -0.04
+         3       0.8          -0.664          -0.664
+         4       0.8         -1.0224         -1.0224
+         5       0.8        -0.97184        -0.97184
+         6       0.8       -0.532544       -0.532544
+         7       0.8         0.11977         0.11977
+         8       0.8        0.724175        0.724175
+         9       0.8         1.03891         1.03891
+        10       0.8        0.938082        0.938082
+        11       0.8        0.462021        0.462021
+        12       0.8       -0.198849       -0.198849
+
+TEST16:
+  W_POLYNOMIAL evaluates the Chebyshev polynomial W(n,x).
+
+                   Tabulated      Computed
+     N      X        W(n,x)        W(n,x)
+
+         0       0.8               1               1
+         1       0.8             2.6             2.6
+         2       0.8            3.16            3.16
+         3       0.8           2.456           2.456
+         4       0.8          0.7696          0.7696
+         5       0.8        -1.22464        -1.22464
+         6       0.8        -2.72902        -2.72902
+         7       0.8         -3.1418         -3.1418
+         8       0.8        -2.29785        -2.29785
+         9       0.8       -0.534767       -0.534767
+        10       0.8         1.44223         1.44223
+        11       0.8         2.84233         2.84233
+        12       0.8          3.1055          3.1055
+
+TEST17:
+  T_TRIPLE_PRODUCT_INTEGRAL computes the triple integral
+  Tijk = integral ( -1 <= x <= 1 ) T(i,x) T(j,x) T(k,x) / sqrt ( 1-x^2) dx
+
+   I   J   K     Tijk           Tijk
+                 computed       exact
+
+   3   3   4               0    -6.27276e-15
+   4   2   0               0    -4.60743e-15
+   3   1   0               0     -4.2466e-15
+   5   1   2               0    -5.55112e-15
+   4   3   3               0    -6.27276e-15
+   2   3   1        0.785398        0.785398
+   2   1   4               0    -3.91354e-15
+   6   1   0               0    -6.68909e-15
+   3   3   0          1.5708          1.5708
+   3   3   1               0     -2.7478e-15
+   5   2   4               0    -4.38538e-15
+   4   3   2               0    -3.21965e-15
+   2   3   1        0.785398        0.785398
+   2   2   1               0    -1.77636e-15
+   5   2   1               0    -5.55112e-15
+   5   1   1               0    -5.66214e-15
+   6   3   0               0    -4.02456e-15
+   5   1   3               0    -3.66374e-15
+   5   1   4        0.785398        0.785398
+   5   3   2        0.785398        0.785398
+
+CHEBYSHEV_POLYNOMIAL_PRB
+  Normal end of execution.
+
+25 April 2012 08:25:05 AM

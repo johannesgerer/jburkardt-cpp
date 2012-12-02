@@ -1,0 +1,28 @@
+31 March 2011 10:21:53 PM
+
+OBJ_IO_PRB:
+  C++ version
+  Test the OBJ_IO library.
+
+TEST01
+  OBJ_SIZE determines the size of various objects
+  in an OBJ file.
+
+  Read 33 lines from "cube.obj".
+
+  Object sizes for OBJ file "cube.obj".
+
+  Nodes              = 8
+  Faces              = 12
+  Maximum face order = 3
+  Normal vectors     = 6
+
+TEST03
+  OBJ_WRITE writes an ASCII OBJ file.
+
+  Graphics data was written to the OBJ file "cube_normals.obj".
+
+OBJ_IO_PRB:
+  Normal end of execution.
+
+31 March 2011 10:21:53 PM

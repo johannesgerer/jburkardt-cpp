@@ -1,0 +1,43 @@
+#  v_03.txt
+#  created by DTABLE_WRITE in TABLE_IO.CC
+#  at 02 May 2005 01:38:36 PM
+#
+#  Spatial dimension M = 1
+#  Number of points N =  35
+#  EPSILON (unit roundoff) = 2.22045e-16
+#
+         0  
+         0  
+         0  
+         0  
+         0  
+         0  
+       311  
+       321  
+       331  
+         0  
+         0  
+       312  
+       322  
+       332  
+         0  
+         0  
+       313  
+       323  
+       333  
+         0  
+         0  
+       314  
+       324  
+       334  
+         0  
+         0  
+       315  
+       325  
+       335  
+         0  
+         0  
+         0  
+         0  
+         0  
+         0  

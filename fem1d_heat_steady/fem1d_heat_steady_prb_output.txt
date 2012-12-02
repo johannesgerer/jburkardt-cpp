@@ -1,0 +1,35 @@
+21 December 2011 08:22:49 AM
+
+FEM1D_BVP_LINEAR_PRB
+  C++ version
+  Test the FEM1D_HEAT_STEADY library.
+
+FEM1D_HEAT_STEADY_TEST01
+  K1(X)  = 1.0
+  F1(X)  = X * ( X + 3 ) * exp ( X )
+  U1(X)  = X * ( 1 - X ) * exp ( X )
+
+  Number of nodes = 11
+  Left endpoint A = 0
+  Right endpoint B = 1
+  Prescribed U(A) = 0
+  Prescribed U(B) = 0
+
+     I         X          U                Uexact      Error
+
+     0         0       4.996e-16               0       4.996e-16
+     1       0.1       0.0994655       0.0994654     1.33423e-07
+     2       0.2        0.195425        0.195424     2.47563e-07
+     3       0.3        0.283471         0.28347     3.39433e-07
+     4       0.4        0.358038        0.358038     4.05613e-07
+     5       0.5        0.412181         0.41218     4.42187e-07
+     6       0.6        0.437309        0.437309     4.44681e-07
+     7       0.7        0.422888        0.422888     4.07976e-07
+     8       0.8        0.356087        0.356087     3.26231e-07
+     9       0.9        0.221364        0.221364     1.92775e-07
+    10         1               0               0               0
+
+FEM1D_HEAT_STEADY_PRB
+  Normal end of execution.
+
+21 December 2011 08:22:49 AM

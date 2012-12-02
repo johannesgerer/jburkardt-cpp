@@ -1,0 +1,51 @@
+30 August 2008 09:59:00 PM
+
+POWER_METHOD_PRB
+  C++ version:
+  Test the routines in the POWER_METHOD library.
+
+TEST01
+  Use POWER_METHOD on the Fibonacci2 matrix.
+
+  Matrix order N       = 50
+  Maximum iterations   = 300
+  Error tolerance      = 1e-06
+
+  Number of iterations = 193
+  CPU time             = 0.011023
+  Estimated eigenvalue = 1.6180381955877
+  Correct value        = 1.6180339887499
+  Error                = 4.2068378527382e-06
+
+  Sine of angle between true and estimated vectors = 4.4361935636769e-06
+
+TEST02
+  Use POWER_METHOD2 on the Fibonacci2 matrix.
+
+  Matrix order N       = 50
+  Maximum iterations   = 300
+  Error tolerance      = 1e-06
+
+  Number of iterations = 194
+  CPU time             = 0.011316
+  Estimated eigenvalue =   1.6180374001665  0
+  Correct value        = 1.6180339887499
+  Error                = 3.41141655813e-06
+
+TEST03
+  Use POWER_METHOD2 on the TRIS (tridiagonal scalar) matrix.
+
+  Matrix order N         = 50
+  Maximum iterations     = 4000
+  Error tolerance        = 1e-06
+
+  Number of iterations   = 2867
+  CPU time               = 0.165901
+  Estimated eigenvalue   = 10.001818146128  5.6479742734762
+  Correct max eigenvalue = 10  5.6461250565986
+  Error                  = 0.0025933103173949
+
+POWER_METHOD_PRB:
+  Normal end of execution.
+
+30 August 2008 09:59:01 PM

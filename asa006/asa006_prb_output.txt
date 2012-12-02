@@ -1,0 +1,236 @@
+14 December 2011 04:05:35 PM
+
+ASA006_PRB:
+  C++ version
+  Test the ASA006 library.
+
+TEST01:
+  CHOLESKY computes the Cholesky factorization
+  of a positive definite symmetric matrix.
+  A compressed storage format is used
+
+  Here we look at the matrix A which is
+  N+1 on the diagonal and
+  N   on the off diagonals.
+
+  Matrix order N = 1
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 4.44089e-16
+
+  Matrix order N = 2
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 4.44089e-16
+
+  Matrix order N = 3
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 4
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 8.88178e-16
+
+  Matrix order N = 5
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 8.88178e-16
+
+  Matrix order N = 6
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 8.88178e-16
+
+  Matrix order N = 7
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 2.80867e-15
+
+  Matrix order N = 8
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 3.76822e-15
+
+  Matrix order N = 9
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 7.32411e-15
+
+  Matrix order N = 10
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 5.61733e-15
+
+  Matrix order N = 11
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 5.61733e-15
+
+  Matrix order N = 12
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 1.05091e-14
+
+  Matrix order N = 13
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 8.51911e-15
+
+  Matrix order N = 14
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 1.36445e-14
+
+  Matrix order N = 15
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 1.74951e-14
+
+TEST02:
+  CHOLESKY computes the Cholesky factorization
+  of a positive definite symmetric matrix.
+  A compressed storage format is used
+
+  Here we look at the Hilbert matrix
+  A(I,J) = 1/(I+J-1)
+
+  For this matrix, we expect errors to grow quickly.
+
+  Matrix order N = 1
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 2
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 3
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 4
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 5
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 1.38778e-17
+
+  Matrix order N = 6
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 1.38778e-17
+
+  Matrix order N = 7
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 2.4037e-17
+
+  Matrix order N = 8
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 3.10317e-17
+
+  Matrix order N = 9
+  Maxtrix nullity NULLTY = 0
+  RMS ( A - U'*U ) = 3.80059e-17
+
+  Matrix order N = 10
+  Maxtrix nullity NULLTY = 1
+  RMS ( A - U'*U ) = 2.22673e-11
+
+  Matrix order N = 11
+  Maxtrix nullity NULLTY = 1
+  RMS ( A - U'*U ) = 0.453629
+
+  Matrix order N = 12
+  Maxtrix nullity NULLTY = 1
+  RMS ( A - U'*U ) = 15.5368
+
+  Matrix order N = 13
+  Maxtrix nullity NULLTY = 1
+  RMS ( A - U'*U ) = 15.7068
+
+  Matrix order N = 14
+  Maxtrix nullity NULLTY = 1
+  RMS ( A - U'*U ) = 22.5311
+
+  Matrix order N = 15
+  Maxtrix nullity NULLTY = 1
+  RMS ( A - U'*U ) = 3277.17
+
+TEST03:
+  SUBCHL computes the Cholesky factor
+  of a submatrix
+  of a positive definite symmetric matrix.
+  A compressed storage format is used.
+
+  Here we look at the Hilbert matrix
+  A(I,J) = 1/(I+J-1).
+
+  For this particular matrix, we expect the
+  errors to grow rapidly.
+
+  Matrix order N = 1
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 1
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 2
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 0.0833333
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 3
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 0.000462963
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 4
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 1.65344e-07
+  RMS ( A - U'*U ) = 0
+
+  Matrix order N = 5
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 3.7493e-12
+  RMS ( A - U'*U ) = 1.38778e-17
+
+  Matrix order N = 6
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 5.3673e-18
+  RMS ( A - U'*U ) = 1.38778e-17
+
+  Matrix order N = 7
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 4.8358e-25
+  RMS ( A - U'*U ) = 2.4037e-17
+
+  Matrix order N = 8
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 2.73705e-33
+  RMS ( A - U'*U ) = 3.10317e-17
+
+  Matrix order N = 9
+  Maxtrix nullity NULLTY = 0
+  Matrix determinant DET = 9.72027e-43
+  RMS ( A - U'*U ) = 3.80059e-17
+
+  Matrix order N = 10
+  Maxtrix nullity NULLTY = 1
+  Matrix determinant DET = 0
+  RMS ( A - U'*U ) = 2.22673e-11
+
+  Matrix order N = 11
+  Maxtrix nullity NULLTY = 1
+  Matrix determinant DET = 0
+  RMS ( A - U'*U ) = 0.0309714
+
+  Matrix order N = 12
+  Maxtrix nullity NULLTY = 1
+  Matrix determinant DET = 0
+  RMS ( A - U'*U ) = 0.745285
+
+  Matrix order N = 13
+  Maxtrix nullity NULLTY = 1
+  Matrix determinant DET = 0
+  RMS ( A - U'*U ) = 16.2549
+
+  Matrix order N = 14
+  Maxtrix nullity NULLTY = 1
+  Matrix determinant DET = 0
+  RMS ( A - U'*U ) = 23.9722
+
+  Matrix order N = 15
+  Maxtrix nullity NULLTY = 1
+  Matrix determinant DET = 0
+  RMS ( A - U'*U ) = 1444.83
+
+ASA006_PRB:
+  Normal end of execution.
+
+14 December 2011 04:05:35 PM

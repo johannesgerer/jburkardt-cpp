@@ -1,0 +1,274 @@
+<html>
+
+  <head>
+    <title>
+      CATALOG - List routines in a Fortran or C++ file
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055" >
+
+    <h1 align = "center">
+      CATALOG <br> List marked routines in a Fortran or C++ file
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CATALOG</b> 
+      is a C++ program which 
+      produces a table of contents of
+      a file containing C, C++, FORTRAN77, FORTRAN90, or MATLAB routines.
+    </p>
+
+    <p>
+      <b>CATALOG</b> only works if each routine has been marked in the 
+      appropriate way.
+    </p>
+
+    <p>
+      For C programs, the necessary marker is '  Purpose:'.  <b>CATALOG</b>
+      will print the line that comes two lines later, and assumes
+      that the first 4 characters of that line are blank.
+      <pre>
+        void doodah ( int a, int b, int *c )
+        
+        /**********************************************************
+        
+          Purpose:
+        
+            DOODAH computes the mangletude of A hepcatted to B.
+        
+        ...(further text of the routine follows)
+      </pre>
+    </p>
+
+    <p>
+      For C++ programs, the necessary marker is '//  Purpose:'.  <b>CATALOG</b>
+      will print the line that comes two lines later, and assumes
+      that the first 6 characters of that line are to be ignored.
+      <pre>
+        void doodah ( int a, int b, int *c )
+        
+        //*********************************************************
+        //
+        //  Purpose:
+        //
+        //    DOODAH computes the mangletude of A hepcatted to B.
+        //
+        ...(further text of the routine follows)
+      </pre>
+    </p>
+ 
+    <p>
+      For FORTRAN77 programs, the necessary marker is 'cc'.  <b>CATALOG</b>
+      will print the remainder of any such line.  This marker must
+      begin in column 1, and INDEX assumes that the third character
+      is a blank, and ignores it.  I use the marker as follows:
+      <pre>
+              subroutine doodah ( a, b, c )
+        
+        c**********************************************************
+        c
+        cc DOODAH computes the mangletude of A hepcatted to B.
+        c
+        ...(further text of the routine follows)
+      </pre>
+    </p>
+
+    <p>
+      For FORTRAN90 programs, the necessary marker is '!!'.  <b>CATALOG</b>
+      will print the remainder of any such line.  This marker must
+      begin in column 1, and INDEX assumes that the third character
+      is a blank, and ignores it.  I use the marker as follows:
+      <pre>
+        subroutine doodah ( a, b, c )
+        
+        !**********************************************************
+        !
+        !! DOODAH computes the mangletude of A hepcatted to B.
+        !
+        ...(further text of the routine follows)
+      </pre>
+    </p>
+
+    <p>
+      For MATLAB programs, the necessary marker is '%%'.  <b>CATALOG</b>
+      will print the remainder of any such line.  This marker must
+      begin in column 1, and INDEX assumes that the third character
+      is a blank, and ignores it.  I use the marker as follows:
+      <pre>
+        function [ x, y ] = doodah ( a, b, c )
+        
+        %**********************************************************
+        %
+        %% DOODAH computes the mangletude of A hepcatted to B.
+        %
+        ...(further text of the routine follows)
+      </pre>
+    </p>
+
+    <p>
+      In each of the above cases, <b>CATALOG</b> will extract and print the line
+      <blockquote>
+         DOODAH computes the mangletude of A hepcatted to B.
+      </blockquote>
+    </p>
+
+    <p>
+      Sample output of the program looks like this:
+      <pre>
+
+        The file is of FORTRAN type.
+
+        Index of column.f90:
+
+        COLUMN extracts a given column from a file.
+        CHRCTI reads an integer from a string.
+        CHRDB1 removes blanks from a string, left justifying the remainder.
+        DIGTEN returns the integer value of a base 10 digit.
+        WRDFND finds the word of a given index in a string.
+        WRDNEXRD "reads" words from a string, one at a time.
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../f_src/extract/extract.html">
+      EXTRACT</a>,
+      a FORTRAN90 program which 
+      extracts a subroutine, function 
+      or module by name from a FORTRAN77 or FORTRAN90 file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f77_cleanup/f77_cleanup.html">
+      F77_CLEANUP</a>,
+      a FORTRAN90 program which
+      makes a copy of a FORTRAN77 file in which some minor cleanups have
+      been made.
+    </p>
+
+    <p>
+      <a href = "../../c_src/f77split/f77split.html">
+      F77SPLIT</a>,
+      a C program which 
+      reads a FORTRAN77 file and creates 
+      individual files for every subroutine or function in the file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90split/f90split.html">
+      F90SPLIT</a>,
+      a FORTRAN90 program which 
+      reads a FORTRAN90 file and creates 
+      individual files for every subroutine or function in the file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/fixcon/fixcon.html">
+      FIXCON</a>,
+      a FORTRAN90 program which 
+      reads a FORTRAN file that uses 
+      FORTRAN77 continuation statements,
+      and makes a copy that uses FORTRAN90 continuation instead.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/htmlindex/htmlindex.html">
+      HTMLINDEX</a>,
+      a C++ program which 
+      can create a web page for a piece of C, 
+      C++, FORTRAN77 or FORTRAN90 software, if it has been marked up 
+      in the same way that <b>INDEX</b> requires.
+    </p>
+
+    <p>
+      <a href = "../../f_src/include_files/include_files.html">
+      INCLUDE_FILES</a>,
+      a FORTRAN90 program which 
+      reads a FORTRAN program with INCLUDE
+      statements, and makes a copy with the indicated files included.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "catalog.cpp">catalog.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "catalog.sh">catalog.sh</a>, 
+          commands to compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for CATALOG.
+        </li>
+        <li>
+          <b>GET_FILE_TYPE</b> determines the type of a file.
+        </li>
+        <li>
+          <b>HANDLE_C</b> searches a single C file for lines beginning with '  Purpose:'.
+        </li>
+        <li>
+          <b>HANDLE_CC</b> searches a single C++ file for lines beginning with '//  Purpose:'.
+        </li>
+        <li>
+          <b>HANDLE_M</b> searches a single MATLAB file for lines beginning with '%%'.
+        </li>
+        <li>
+          <b>HANDLE_F</b> searches a single FORTRAN file for lines beginning with '!!'.
+        </li>
+        <li>
+          <b>S_BEGIN</b> reports whether string 1 begins with string 2.
+        </li>
+        <li>
+          <b>S_LAST_CH</b> returns a pointer to the last occurrence of a character in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 August 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,64 @@
+13 October 2011 11:28:19 AM
+
+MXM_OPENMP:
+  C++/OpenMP version
+  Compute matrix product C = A * B.
+
+  The number of processors available = 8
+  The number of threads available    = 1
+  The matrix order N                 = 500
+  Elapsed seconds = 1.20506
+  C(100,100)  = 1
+
+MXM_OPENMP:
+  Normal end of execution.
+
+13 October 2011 11:28:20 AM
+13 October 2011 11:28:20 AM
+
+MXM_OPENMP:
+  C++/OpenMP version
+  Compute matrix product C = A * B.
+
+  The number of processors available = 8
+  The number of threads available    = 2
+  The matrix order N                 = 500
+  Elapsed seconds = 0.625404
+  C(100,100)  = 1
+
+MXM_OPENMP:
+  Normal end of execution.
+
+13 October 2011 11:28:21 AM
+13 October 2011 11:28:21 AM
+
+MXM_OPENMP:
+  C++/OpenMP version
+  Compute matrix product C = A * B.
+
+  The number of processors available = 8
+  The number of threads available    = 4
+  The matrix order N                 = 500
+  Elapsed seconds = 0.362242
+  C(100,100)  = 1
+
+MXM_OPENMP:
+  Normal end of execution.
+
+13 October 2011 11:28:21 AM
+13 October 2011 11:28:21 AM
+
+MXM_OPENMP:
+  C++/OpenMP version
+  Compute matrix product C = A * B.
+
+  The number of processors available = 8
+  The number of threads available    = 8
+  The matrix order N                 = 500
+  Elapsed seconds = 0.323604
+  C(100,100)  = 1
+
+MXM_OPENMP:
+  Normal end of execution.
+
+13 October 2011 11:28:21 AM

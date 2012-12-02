@@ -1,0 +1,669 @@
+<html>
+
+  <head>
+    <title>
+      SANDIA_SGMG - Sparse Grids, Mixed Factors, Growth Rules
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SANDIA_SGMG <br> Sparse Grids, Mixed Factors, Growth Rules
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SANDIA_SGMG</b>
+      is a C++ library which
+      constructs a sparse grid whose factors are
+      possibly distinct 1D quadrature rules.
+    </p>
+
+    <p>
+      <b>SANDIA_SGMG</b> is a variant of the
+      SPARSE_GRID_MIXED_GROWTH library.  It has the same capabilities as
+      that library, but it uses a different interface to the SANDIA_RULES routines
+      which compute points and weights of quadrature rules.  This interface is
+      supplied by a small number of functions in the SANDIA_RULES2 library.
+    </p>
+
+    <p>
+      Instead of passing
+      the parameters needed by some of those rules as function arguments, these
+      values are made available indirectly.  This library implements that
+      indirect storage using a function called <b>parameter</b>, which must
+      therefore be supplied by the user as part of every program that calls
+      the library.  Refer to the source code of the example programs to see
+      how <b>parameter</b> is defined and used.
+    </p>
+
+    <p>
+      For each spatial dimension, the user controls the routines that determine
+      the order of the 1D quadrature rule, and that evaluate
+      the quadrature points and weights.  This information is supplied in arrays
+      of pointers to functions.  Many common functions for determining the
+      order, points and weights are available in the SANDIA_RULES library.
+    </p>
+
+    <p>
+      The 1D quadrature rules are designed to approximate an integral
+      of the form:
+      <blockquote><b>
+        Integral ( A < X < B ) F(X) W(X) dX
+      </b></blockquote>
+      where <b>W(X)</b> is a weight function, by the quadrature sum:
+      <blockquote><b>
+        Sum ( 1 <= I <= ORDER) F(X(I)) * W(I)
+      </b></blockquote>
+      where the set of <b>X</b> values are known as <i>abscissas</i> and
+      the set of <b>W</b> values are known as <i>weights</i>.
+    </p>
+
+    <p>
+      Note that the letter <b>W</b>, unfortunately, is used to denote both the
+      weight function in the original integral, and the vector of weight
+      values in the quadrature sum.
+    </p>
+
+    <p>
+      <table border=1>
+        <tr>
+          <th>Name</th>
+          <th>Abbreviation</th>
+          <th>Interval</th>
+          <th>Weight function</th>
+        </tr>
+        <tr>
+          <td>Clenshaw-Curtis</td>
+          <td>CC</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Fejer Type 2</td>
+          <td>F2</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Gauss Patterson</td>
+          <td>GP</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Gauss-Legendre</td>
+          <td>GL</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Gauss-Hermite</td>
+          <td>GH</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>Generalized Gauss-Hermite</td>
+          <td>GGH</td>
+          <td>(-oo,+oo)</td>
+          <td>|x|<sup>alpha</sup> e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>Gauss-Laguerre</td>
+          <td>LG</td>
+          <td>[0,+oo)</td>
+          <td>e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>Generalized Gauss-Laguerre</td>
+          <td>GLG</td>
+          <td>[0,+oo)</td>
+          <td>x<sup>alpha</sup> e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>Gauss-Jacobi</td>
+          <td>GJ</td>
+          <td>[-1,+1]</td>
+          <td>(1-x)<sup>alpha</sup> (1+x)<sup>beta</sup></td>
+        </tr>
+        <tr>
+          <td>Hermite Genz-Keister</td>
+          <td>HGK</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+      </table>
+    </p>
+
+    <p>
+      A sparse grid is a quadrature rule for a multidimensional integral.
+      It is formed by taking a certain linear combination of lower-order
+      product rules.  The product rules, in turn, are formed as direct products
+      of 1D quadrature rules.  It is common to form a sparse grid in which the
+      1D component quadrature rules are the same.  This package, however,
+      is intended to produce sparse grids based on sums of product rules for
+      which the rule chosen for each spatial dimension may be freely chosen
+      from the set listed above.
+    </p>
+
+    <p>
+      These sparse grids are still indexed by a number known as <b>level</b>,
+      and assembled as a sum of low order product rules.  As the value of
+      <b>level</b> increases, the point growth becomes more complicated.
+      This is because the 1D rules have somewhat varying point growth patterns
+      to begin with, and the varying levels of nestedness have a dramatic
+      effect on the sparsity of the total grid.
+    </p>
+
+    <p>
+      Since a sparse grid is made up of a combination of product grids,
+      it is frequently the case that many of the product grids include the
+      same point.  For efficiency, it is usually desirable to merge or
+      consolidate such duplicate points when expressing the resulting
+      sparse grid rule.  It is possible to "logically" determine when
+      a duplicate point will be generated; however, this logic changes
+      depending on the specific 1-dimensional rules being used, and the
+      tests can become quite elaborate.  Moreover, for rules which include
+      real parameters, the determination of duplication can require
+      a numerical tolerance.
+    </p>
+
+    <p>
+      In order to simplify the matter of the detection of duplicate points,
+      the codes presented begin by generating the entire "naive" set of
+      points.  Then a user-specified tolerance <b>TOL</b> is used to determine when
+      two points are equal.  If the maximum difference between any two components
+      is less than or equal to <b>TOL</b>, the points are declared to be equal.
+    </p>
+
+    <p>
+      A reasonable value for <b>TOL</b> might be the square root of the machine
+      precision.  Setting <b>TOL</b> to zero means that only points which are
+      identical to the last significant digit are taken to be duplicates.  Setting
+      <b>TOL</b> to a negative value means that no duplicate points will be eliminated -
+      in other words, this choice produces the full or "naive" grid.
+    </p>
+
+    <p>
+      A scalar quantity GROWTH selects the rule order O for level L
+      from the three growth options for each 1D rule.  In the case of exponentially
+      growing rules, the slow and moderate growth rules choose O indirectly,
+      by imposing a requirement on P, the degree of precision of the rule.
+      <table border=1>
+        <tr>
+          <th>Value</th>
+          <th>Name</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>Slow</td>
+          <td>O=L+1 for linear rules, P=2*L+1 for exponential</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Moderate</td>
+          <td>O=2*L+1 for linear rules, P=4*L+1 for exponential</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Full</td>
+          <td>O=2*L+1 for linear rules, O = next rule in sequence</td>
+        </tr>
+      </table>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The code described and made available on this web page is distributed
+      under the
+      <a href = "gnu_lgpl.txt">GNU LGPL</a> license.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/nint_exactness_mixed/nint_exactness_mixed.html">
+      NINT_EXACTNESS_MIXED</a>,
+      a C++ program which
+      measures the polynomial exactness of a multidimensional quadrature rule
+      based on a mixture of 1D quadrature rule factors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule/quadrule.html">
+      QUADRULE</a>,
+      a C++ library which
+      defines quadrature rules for various intervals and weight functions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_rules/sandia_rules.html">
+      SANDIA_RULES</a>,
+      a C++ library which
+      produces 1D quadrature rules of
+      Chebyshev, Clenshaw Curtis, Fejer 2, Gegenbauer, generalized Hermite,
+      generalized Laguerre, Hermite, Jacobi, Laguerre, Legendre and Patterson types.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_rules2/sandia_rules2.html">
+      SANDIA_RULES2</a>,
+      a C++ library which
+      contains a very small selection of functions which serve as an interface
+      between SANDIA_SGMG or SANDIA_SGMGA and SANDIA_RULES.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_sparse/sandia_sparse.html">
+      SANDIA_SPARSE</a>,
+      a C++ library which
+      computes the points and weights of a Smolyak sparse
+      grid, based on a variety of 1-dimensional quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../datasets/sgmg/sgmg.html">
+      SGMG</a>,
+      a dataset directory which
+      contains multidimensional Smolyak sparse grids
+      based on a mixed set of 1D factor rules and a choice of growth rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgmg/sgmg.html">
+      SGMG</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules,
+      and experiments with the use of a linear growth rate for the quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgmga/sgmga.html">
+      SGMGA</a>,
+      a C++ library which
+      creates sparse grids based on a mixture of 1D quadrature rules,
+      allowing anisotropic weights for each dimension.
+    </p>
+
+    <p>
+      <a href = "../../c_src/smolpack/smolpack.html">
+      SMOLPACK</a>,
+      a C library which
+      implements Novak and Ritter's method for estimating the integral
+      of a function over a multidimensional hypercube using sparse grids,
+      by Knut Petras.
+    </p>
+
+    <p>
+      <a href = "../../m_src/sparse_grid_display/sparse_grid_display.html">
+      SPARSE_GRID_DISPLAY</a>,
+      a MATLAB program which
+      can display a 2D or 3D sparse grid.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_grid_mixed/sparse_grid_mixed.html">
+      SPARSE_GRID_MIXED</a>,
+      a C++ library which
+      creates sparse grids based on a mix of 1D rules.
+    </p>
+
+    <p>
+      <a href = "../../m_src/toms847/toms847.html">
+      TOMS847</a>,
+      a MATLAB program which
+      uses sparse grids to carry out multilinear hierarchical interpolation.
+      It is commonly known as SPINTERP, and is by Andreas Klimke.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Milton Abramowitz, Irene Stegun,<br>
+          Handbook of Mathematical Functions,<br>
+          National Bureau of Standards, 1964,<br>
+          ISBN: 0-486-61272-4,<br>
+          LC: QA47.A34.
+        </li>
+        <li>
+          Charles Clenshaw, Alan Curtis,<br>
+          A Method for Numerical Integration on an Automatic Computer,<br>
+          Numerische Mathematik,<br>
+          Volume 2, Number 1, December 1960, pages 197-205.
+        </li>
+        <li>
+          Philip Davis, Philip Rabinowitz,<br>
+          Methods of Numerical Integration,<br>
+          Second Edition,<br>
+          Dover, 2007,<br>
+          ISBN: 0486453391,<br>
+          LC: QA299.3.D28.
+        </li>
+        <li>
+          Michael Eldred, John Burkardt,<br>
+          Comparison of Non-Intrusive Polynomial Chaos and Stochastic
+          Collocation Methods for Uncertainty Quantification,<br>
+          American Institute of Aeronautics and Astronautics,<br>
+          Paper 2009-0976,<br>
+          47th AIAA Aerospace Sciences Meeting Including The New Horizons Forum and Aerospace Exposition,<br>
+          5 - 8 January 2009, Orlando, Florida.
+        </li>
+        <li>
+          Walter Gautschi,<br>
+          Numerical Quadrature in the Presence of a Singularity,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 4, Number 3, September 1967, pages 357-362.
+        </li>
+        <li>
+          Thomas Gerstner, Michael Griebel,<br>
+          Numerical Integration Using Sparse Grids,<br>
+          Numerical Algorithms,<br>
+          Volume 18, Number 3-4, 1998, pages 209-232.
+        </li>
+        <li>
+          Gene Golub, John Welsch,<br>
+          Calculation of Gaussian Quadrature Rules,<br>
+          Mathematics of Computation,<br>
+          Volume 23, Number 106, April 1969, pages 221-230.
+        </li>
+        <li>
+          Prem Kythe, Michael Schaeferkotter,<br>
+          Handbook of Computational Methods for Integration,<br>
+          Chapman and Hall, 2004,<br>
+          ISBN: 1-58488-428-2,<br>
+          LC: QA299.3.K98.
+        </li>
+        <li>
+          Albert Nijenhuis, Herbert Wilf,<br>
+          Combinatorial Algorithms for Computers and Calculators,<br>
+          Second Edition,<br>
+          Academic Press, 1978,<br>
+          ISBN: 0-12-519260-6,<br>
+          LC: QA164.N54.
+        </li>
+        <li>
+          Fabio Nobile, Raul Tempone, Clayton Webster,<br>
+          A Sparse Grid Stochastic Collocation Method for Partial Differential
+          Equations with Random Input Data,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 46, Number 5, 2008, pages 2309-2345.
+        </li>
+        <li>
+          Thomas Patterson,<br>
+          The Optimal Addition of Points to Quadrature Formulae,<br>
+          Mathematics of Computation,<br>
+          Volume 22, Number 104, October 1968, pages 847-856.
+        </li>
+        <li>
+          Sergey Smolyak,<br>
+          Quadrature and Interpolation Formulas for Tensor Products of
+          Certain Classes of Functions,<br>
+          Doklady Akademii Nauk SSSR,<br>
+          Volume 4, 1963, pages 240-243.
+        </li>
+        <li>
+          Arthur Stroud, Don Secrest,<br>
+          Gaussian Quadrature Formulas,<br>
+          Prentice Hall, 1966,<br>
+          LC: QA299.4G3S7.
+        </li>
+        <li>
+          Joerg Waldvogel,<br>
+          Fast Construction of the Fejer and Clenshaw-Curtis
+          Quadrature Rules,<br>
+          BIT Numerical Mathematics,<br>
+          Volume 43, Number 1, 2003, pages 1-18.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sandia_sgmg.cpp">sandia_sgmg.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "sandia_sgmg.hpp">sandia_sgmg.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "sandia_sgmg.sh">sandia_sgmg.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sandia_sgmg_prb.cpp">sandia_sgmg_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_prb.sh">sandia_sgmg_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>COMP_NEXT_PRB</b> tests COMP_NEXT.
+      <ul>
+        <li>
+          <a href = "comp_next_prb.cpp">comp_next_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "comp_next_prb.sh">comp_next_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "comp_next_prb_output.txt">
+                     comp_next_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PRODUCT_MIXED_GROWTH_WEIGHT_PRB</b> tests PRODUCT_MIXED_GROWTH_WEIGHT.
+      <ul>
+        <li>
+          <a href = "product_mixed_growth_weight_prb.cpp">product_mixed_growth_weight_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "product_mixed_growth_weight_prb.sh">product_mixed_growth_weight_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "product_mixed_growth_weight_prb_output.txt">
+                     product_mixed_growth_weight_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMG_INDEX_PRB</b> tests SANDIA_SGMG_INDEX.
+      <ul>
+        <li>
+          <a href = "sandia_sgmg_index_prb.cpp">sandia_sgmg_index_prb.cpp</a>,
+          tests SANDIA_SGMG_INDEX.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_index_prb.sh">sandia_sgmg_index_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_index_prb_output.txt">
+                     sandia_sgmg_index_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMG_POINT_PRB</b> tests SANDIA_SGMG_POINT.
+      <ul>
+        <li>
+          <a href = "sandia_sgmg_point_prb.cpp">sandia_sgmg_point_prb.cpp</a>,
+          tests SANDIA_SGMG_POINT.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_point_prb.sh">sandia_sgmg_point_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_point_prb_output.txt">
+                     sandia_sgmg_point_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMG_SIZE_PRB</b> tests SANDIA_SGMG_SIZE and
+      SANDIA_SGMG_SIZE_TOTAL.
+      <ul>
+        <li>
+          <a href = "sandia_sgmg_size_prb.cpp">sandia_sgmg_size_prb.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_size_prb.sh">sandia_sgmg_size_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_size_prb_output.txt">
+                     sandia_sgmg_size_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMG_SIZE_TABLE</b> makes a point count table.
+      <ul>
+        <li>
+          <a href = "sandia_sgmg_size_table.cpp">sandia_sgmg_size_table.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_size_table.sh">sandia_sgmg_size_table.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_size_table_output.txt">
+                     sandia_sgmg_size_table_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMG_UNIQUE_INDEX_PRB</b> tests SANDIA_SGMG_UNIQUE_INDEX.
+      <ul>
+        <li>
+          <a href = "sandia_sgmg_unique_index_prb.cpp">sandia_sgmg_unique_index_prb.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_unique_index_prb.sh">sandia_sgmg_unique_index_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_unique_index_prb_output.txt">
+                     sandia_sgmg_unique_index_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SANDIA_SGMG_WEIGHT_PRB</b> tests SANDIA_SGMG_WEIGHT.
+      <ul>
+        <li>
+          <a href = "sandia_sgmg_weight_prb.cpp">sandia_sgmg_weight_prb.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_weight_prb.sh">sandia_sgmg_weight_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sandia_sgmg_weight_prb_output.txt">
+                     sandia_sgmg_weight_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>PRODUCT_MIXED_GROWTH_WEIGHT</b> computes the weights of a mixed product rule.
+        </li>
+        <li>
+          <b>SANDIA_SGMG_INDEX</b> indexes a sparse grid of mixed 1D rules.
+        </li>
+        <li>
+          <b>SANDIA_SGMG_POINT</b> computes the points of a sparse grid rule.
+        </li>
+        <li>
+          <b>SANDIA_SGMG_SIZE</b> sizes a sparse grid, discounting duplicates.
+        </li>
+        <li>
+          <b>SANDIA_SGMG_SIZE_TOTAL</b> sizes a sparse grid, counting duplicates.
+        </li>
+        <li>
+          <b>SANDIA_SGMG_UNIQUE_INDEX</b> maps nonunique to unique points.
+        </li>
+        <li>
+          <b>SANDIA_SGMG_WEIGHT:</b> sparse grid weights for a mix of 1D rules.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 January 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

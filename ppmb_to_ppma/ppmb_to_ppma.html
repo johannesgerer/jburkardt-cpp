@@ -1,0 +1,180 @@
+<html>
+
+  <head>
+    <title>
+      PPMB_TO_PPMA - PPMB => PPMA (binary to ASCII) conversion
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PPMB_TO_PPMA <br> PPMB => PPMA <br> (binary to ASCII) conversion
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PPMB_TO_PPMA</b>
+      is a C++ program which
+      converts a binary Portable Pixel Map (PPM) file
+      to an ASCII PPM file.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>ppmb_to_ppma</b> <i>file.ppmb</i> <i>file.ppma</i>
+        </dt>
+        <dd>
+          reads the information in the binary PPM file <i>file.ppmb</i>
+          and rewrites it to the ASCII PPM file <i>file.ppma</i>.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/i2_binary_to_ascii/i2_binary_to_ascii.html">
+      I2_BINARY_TO_ASCII</a>
+      a C++ program which
+      converts a file of short int (I2) data from binary to ASCII format.
+    </p>
+
+    <p>
+      <a href = "../../data/ppma/ppma.html">
+      PPMA</a>,
+      a data directory which
+      contains a description and examples of the ASCII PPM format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppma_io/ppma_io.html">
+      PPMA_IO</a>,
+      a C++ library which
+      reads and writes files in the ASCII PPM format.
+    </p>
+
+    <p>
+      <a href = "../../data/ppmb/ppmb.html">
+      PPMB</a>,
+      a data directory which
+      contains a description and examples of the binary PPM format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_io/ppmb_io.html">
+      PPMB_IO</a>,
+      a C++ library which
+      reads and writes files
+      in the binary PPM format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">
+                     http://netpbm/sourceforge.net/</a> <br>
+          the NETPBM homepage.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ppmb_to_ppma.cpp">ppmb_to_ppma.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "ppmb_to_ppma.sh">ppmb_to_ppma.sh</a>,
+          commands to compile and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for PPMB_TO_PPMA.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two integers.
+        </li>
+        <li>
+          <b>PPMA_WRITE</b> writes the header and data for an ASCII portable pixel map file.
+        </li>
+        <li>
+          <b>PPMA_WRITE_DATA</b> writes the data for an ASCII portable pixel map file.
+        </li>
+        <li>
+          <b>PPMA_WRITE_HEADER</b> writes the header of an ASCII portable pixel map file.
+        </li>
+        <li>
+          <b>PPMB_CHECK_DATA</b> checks the data for a binary portable pixel map file.
+        </li>
+        <li>
+          <b>PPMB_READ</b> reads the header and data from a binary portable pixel map file.
+        </li>
+        <li>
+          <b>PPMB_READ_DATA</b> reads the data in a binary portable pixel map file.
+        </li>
+        <li>
+          <b>PPMB_READ_HEADER</b> reads the header of a binary portable pixel map file.
+        </li>
+        <li>
+          <b>PPMB_TO_PPMA</b> converts one PPMB file to PPMA format.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>UCMAT_TO_I4MAT</b> converts a UCMAT to an I4MAT.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 31 August 2005.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

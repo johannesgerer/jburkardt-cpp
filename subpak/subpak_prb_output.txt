@@ -1,0 +1,1308 @@
+03 November 2011 02:51:30 PM
+
+SUBPAK_PRB
+  C++ version
+  Test the SUBPAK library.
+
+TEST01
+  ANGLE_SHIFT shifts an angle by multiples of
+  2 Pi until it lies between BETA and BETA+2Pi.
+
+     ALPHA      BETA     GAMMA   BETA+2Pi
+
+  -7.07692   11.4685   11.7726   17.7517
+   8.28147   1.55058   1.99829   7.83376
+  -2.12857  -10.9046  -8.41175  -4.62144
+  -6.09273  -9.80285  -6.09273  -3.51967
+  -11.4648   3.36693   7.38473   9.65011
+   -11.015  -1.26822   1.55137   5.01496
+  -2.48044   6.40064   10.0859   12.6838
+   7.47164  -12.5202  -11.3779  -6.23698
+   9.99037    -3.751    -2.576   2.53218
+  -10.1902  -12.2241  -10.1902  -5.94096
+
+TEST02
+  ANGLE_SHIFT_DEG shifts an angle by multiples of
+  360 until it lies between BETA and BETA+360.
+
+     ALPHA      BETA     GAMMA   BETA+360
+
+  -405.478   657.097   674.522    1017.1
+   474.493   88.8414   114.493   448.841
+  -121.958  -624.789  -481.958  -264.789
+  -349.088  -561.662  -349.088  -201.662
+  -656.886   192.911   423.114   552.911
+  -631.113  -72.6639   88.8872   287.336
+  -142.119    366.73   577.881    726.73
+   428.093  -717.353  -651.907  -357.353
+   572.406  -214.917  -147.594   145.083
+  -583.856  -700.392  -583.856  -340.392
+
+TEST03
+  ANGLE_TO_RGB converts an angle into an RGB color.
+
+     ANGLE         R         G         B
+
+   78.6306  0.601504         1         0
+   344.274         1         0  0.208806
+   298.623  0.964593         0         1
+    202.21         0  0.539396         1
+   149.511         0         1  0.406727
+   23.8027         1  0.322067         0
+    92.728   0.37297         1         0
+   39.5844         1   0.57012         0
+   15.7784         1  0.209527         0
+   228.228         0  0.155331         1
+
+TEST04
+  AXIS_LIMITS adjusts plot limits to "nicer" values.
+
+  Input XMIN =    67.3
+  Input XMAX =    114.7
+  Input NDIVS =   6
+
+  Output PXMIN =  60
+  Output PXMAX =  120
+  Output PXDIV =  10
+  Output NTICKS = 5
+
+  Input XMIN =    -26
+  Input XMAX =    26
+  Input NDIVS =   10
+
+  Output PXMIN =  -50
+  Output PXMAX =  50
+  Output PXDIV =  10
+  Output NTICKS = 5
+
+TEST05
+  AXIS_LIMITS computes "nice" limits for a graph
+  that must include a given range.
+
+  All tests use NDIVS = 5
+
+          XMIN          XMAX         PXMIN         PXMAX         PXDIV  NTICKS
+
+             1             9             0            10             2       4
+         1.003         4.125             1             6             1       5
+        101.25        193.75           100           200            20       4
+       2000.12       2000.25       2000.12       2000.32          0.04       4
+            -7            12            -8            12             4       4
+
+TEST06
+  BAR_CHECK checks digits for a barcode;
+  BAR_CODE computes the barcode for a string of 11 digits;
+  BAR_DIGIT_CODE_LEFT returns the left digit code.
+  BAR_DIGIT_CODE_RIGHT returns the right digit code.
+
+  The check digit is 5
+
+  The left and right digit codes:
+
+   0  0001101  1110010
+   1  0011001  1100110
+   2  0010011  1101100
+   3  0111101  1000010
+   4  0100011  1011100
+   5  0110001  1001110
+   6  0101111  1010000
+   7  0111011  1000100
+   8  0110111  1001000
+   9  0001011  1110100
+
+  Bar code:
+
+000000000
+101
+0001101
+0011001
+10100110010010011
+0111101
+0100011
+0110001
+01010
+1010000
+1000100
+1001000
+1110100
+1110010
+1001110
+101
+000000000
+
+TEST07
+  BMI_ENGLISH computes the Body Mass Index
+  given body measurements in English Units.
+
+      Weight               Height            BMI
+       (LB)          (FT          IN)
+
+     132.763           6           7     14.9562
+     224.426           5           6      36.223
+     162.296           4           2     45.6422
+     138.637           4           3     37.4745
+     106.574           5           8     16.2044
+     109.259           5           2     19.9835
+     160.196           6           0     21.7263
+     219.593           4           0     67.0092
+     234.626           4          11     47.3881
+     114.182           4           0     34.8427
+
+TEST08
+  For products of prime factors:
+  FAC_DIV computes a quotient;
+  FAC_MUL multiplies;
+  FAC_LCM computes the LCM;
+  FAC_GCD computes the GCD;
+  I4_TO_FAC converts an integer;
+  FAC_TO_I4 converts to an integer.
+  FAC_TO_RAT converts to a ratio.
+
+  Representation of I1 = 720
+
+
+   Prime     Power
+
+         2         4
+         3         2
+         5         1
+
+  Representation of I2 = 42
+
+
+   Prime     Power
+
+         2         1
+         3         1
+         7         1
+
+  LCM of I1, I2:
+
+
+   Prime     Power
+
+         2         4
+         3         2
+         5         1
+         7         1
+
+  GCD of I1, I2:
+
+
+   Prime     Power
+
+         2         1
+         3         1
+
+  Product of I1, I2:
+
+
+   Prime     Power
+
+         2         5
+         3         3
+         5         1
+         7         1
+
+  Quotient of I2 / I1:
+
+
+   Prime     Power
+
+         2        -3
+         3        -1
+         5        -1
+         7         1
+
+  Quotient as a rational: 7 / 120
+
+TEST09
+  GAUSS_SUM evaluates a function which is the sum of
+  Gaussian functions.
+
+  Number of component Gaussians = 3
+
+          Center    Amplitude  Width
+        X       Y
+
+   0       2       3      10       1
+   1       5       8       5       2
+   2       7       5      -3       4
+
+      X       Y        Gauss_Sum(X,Y)
+
+       0       0      -0.0293884
+       0       1      -0.0482632
+       0       2      -0.0125666
+       0       3          0.0739
+       0       4      -0.0642545
+       0       5        -0.13594
+       0       6       -0.128237
+       0       7       -0.101758
+       0       8       -0.070295
+       0       9      -0.0441007
+       0      10      -0.0258601
+       1       0      -0.0658246
+       1       1      -0.0489427
+       1       2          1.1732
+       1       3         3.43272
+       1       4         1.05799
+       1       5       -0.239166
+       1       6       -0.262896
+       1       7       -0.174933
+       1       8      -0.0885858
+       1       9      -0.0450015
+       1      10      -0.0325889
+       2       0       -0.130577
+       2       1      -0.0481762
+       2       2         3.32056
+       2       3         9.51128
+       2       4         3.09771
+       2       5       -0.390133
+       2       6        -0.39563
+       2       7      -0.0793104
+       2       8        0.168697
+       2       9         0.17909
+       2      10       0.0620602
+       3       0       -0.230881
+       3       1       -0.338618
+       3       2        0.724746
+       3       3         2.82283
+       3       4         0.35027
+       3       5       -0.842388
+       3       6       -0.359642
+       3       7         0.57301
+       3       8         1.21056
+       3       9         1.02652
+       3      10        0.445341
+       4       0       -0.358276
+       4       1       -0.625461
+       4       2       -0.906097
+       4       3        -1.14057
+       4       4        -1.46708
+       4       5        -1.29557
+       4       6       -0.173238
+       4       7         1.70141
+       4       8         2.92005
+       4       9         2.40382
+       4      10         1.07423
+       5       0       -0.489736
+       5       1       -0.859468
+       5       2        -1.33017
+       5       3        -1.80871
+       5       4        -2.10281
+       5       5        -1.80938
+       5       6        -0.35545
+       5       7         2.07441
+       5       8         3.66876
+       5       9         3.03449
+       5      10         1.34966
+       6       0       -0.590735
+       6       1        -1.03675
+       6       2         -1.6053
+       6       3        -2.18733
+       6       4        -2.57617
+       6       5        -2.40781
+       6       6        -1.21497
+       6       7        0.837806
+       6       8         2.28822
+       6       9         1.99588
+       6      10        0.841789
+       7       0       -0.628834
+       7       1        -1.10363
+       7       2        -1.70912
+       7       3        -2.33285
+       7       4        -2.78455
+       7       5        -2.80613
+       7       6        -2.14156
+       7       7       -0.903878
+       7       8        0.130049
+       7       9        0.328886
+       7      10       0.0478423
+       8       0       -0.590735
+       8       1        -1.03677
+       8       2        -1.60572
+       8       3        -2.19383
+       8       4        -2.63784
+       8       5        -2.76269
+       8       6        -2.45362
+       8       7        -1.78442
+       8       8        -1.07879
+       8       9       -0.626347
+       8      10       -0.396864
+       9       0       -0.489737
+       9       1       -0.859514
+       9       2        -1.33123
+       9       3        -1.81942
+       9       4        -2.19317
+       9       5        -2.32675
+       9       6        -2.16116
+       9       7        -1.74827
+       9       8        -1.23966
+       9       9       -0.788193
+       9      10       -0.456047
+      10       0       -0.358299
+      10       1       -0.628834
+      10       2       -0.973956
+      10       3        -1.33122
+      10       4        -1.60561
+      10       5        -1.70833
+      10       6        -1.60223
+      10       7        -1.32372
+      10       8       -0.964305
+      10       9       -0.621317
+      10      10       -0.354748
+
+TEST10
+  GET_SEED gets a seed for the random number
+  generator.  These values are computed from
+  the time and date.  Values computed nearby
+  in time will be near to each other, and
+  should be passed through a random number
+  generator a few times before use.
+
+     I	     R(I)	 R2(I)        R3(I)
+
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+     665222828     600203914     896492639     606516321
+
+TEST11
+  GRID1 computes a 1D grid between
+  two DIM_NUM dimensional points X1 and X2.
+
+  Here, we will use 11 steps
+  going from: 
+             1             0            20            -5             1
+  to:
+             1            10             0             5             2
+
+
+  The grid matrix:
+
+  Row:       1             2             3             4             5       
+  Col
+
+    1:             1             0            20            -5             1
+    2:             1             1            18            -4           1.1
+    3:             1             2            16            -3           1.2
+    4:             1             3            14            -2           1.3
+    5:             1             4            12            -1           1.4
+    6:             1             5            10             0           1.5
+    7:             1             6             8             1           1.6
+    8:             1             7             6             2           1.7
+    9:             1             8             4             3           1.8
+   10:             1             9             2             4           1.9
+   11:             1            10             0             5             2
+
+TEST12
+  GRID1N computes a 1D grid between
+  two DIM_NUM dimensional points X1 and X2,
+  one point at a time.
+
+  Here, we will use 11 steps
+  going from 
+             1             0            20            -5             1
+  to
+             1            10             0             5             2
+
+       1               1             0            20            -5             1
+       2               1             1            18            -4           1.1
+       3               1             2            16            -3           1.2
+       4               1             3            14            -2           1.3
+       5               1             4            12            -1           1.4
+       6               1             5            10             0           1.5
+       7               1             6             8             1           1.6
+       8               1             7             6             2           1.7
+       9               1             8             4             3           1.8
+      10               1             9             2             4           1.9
+      11               1            10             0             5             2
+
+TEST13
+  GRID2 computes a 1 D grid between
+  two DIM_NUM dimensional points X1 and X2,
+  computing X1 and X2 at user specified times.
+
+  Here, we will use 20 steps.
+  and on step 3 we will compute
+           1           0          20          -5           1
+  and on step 13 we will compute
+           1          10           0           5           2
+
+
+  The grid matrix:
+
+  Col:          1             2             3             4             5       
+  Row
+
+    1:            1             1             1             1             1  
+    2:           -2            -1             0             1             2  
+    3:           24            22            20            18            16  
+    4:           -7            -6            -5            -4            -3  
+    5:          0.8           0.9             1           1.1           1.2  
+
+  Col:          6             7             8             9            10       
+  Row
+
+    1:            1             1             1             1             1  
+    2:            3             4             5             6             7  
+    3:           14            12            10             8             6  
+    4:           -2            -1             0             1             2  
+    5:          1.3           1.4           1.5           1.6           1.7  
+
+  Col:         11            12            13            14            15       
+  Row
+
+    1:            1             1             1             1             1  
+    2:            8             9            10            11            12  
+    3:            4             2             0            -2            -4  
+    4:            3             4             5             6             7  
+    5:          1.8           1.9             2           2.1           2.2  
+
+  Col:         16            17            18            19            20       
+  Row
+
+    1:            1             1             1             1             1  
+    2:           13            14            15            16            17  
+    3:           -6            -8           -10           -12           -14  
+    4:            8             9            10            11            12  
+    5:          2.3           2.4           2.5           2.6           2.7  
+
+TEST14
+  GRID2N computes points from a 1D grid
+  between two DIM_NUM dimensional points
+  X1 and X2, one at a time, with X1 and X2
+  having user specified J coordinates.
+
+  On step 3 we will compute
+           1           0          20          -5           1
+  and on step 13 we will compute
+           1          10           0           5           2
+
+       1           1          -2          24          -7         0.8
+       2           1          -1          22          -6         0.9
+       3           1           0          20          -5           1
+       4           1           1          18          -4         1.1
+       5           1           2          16          -3         1.2
+       6           1           3          14          -2         1.3
+       7           1           4          12          -1         1.4
+       8           1           5          10           0         1.5
+       9           1           6           8           1         1.6
+      10           1           7           6           2         1.7
+      11           1           8           4           3         1.8
+      12           1           9           2           4         1.9
+      13           1          10           0           5           2
+      14           1          11          -2           6         2.1
+      15           1          12          -4           7         2.2
+      16           1          13          -6           8         2.3
+      17           1          14          -8           9         2.4
+      18           1          15         -10          10         2.5
+      19           1          16         -12          11         2.6
+      20           1          17         -14          12         2.7
+
+TEST15
+  GRID3 computes a 2D grid in the plane
+  containing the DIM_NUM-dimensional
+  points X1, X2 and X3.
+
+  Here, we will use 3 steps
+  going from 
+           1           0          20          -5           1
+  to
+           1          10           0           5           2
+  and 6 steps going to 
+           1           5           0           0           3
+
+    1    1           1           0          20          -5           1
+    1    2           1           0          20          -5           1
+    1    3           1           0          20          -5           1
+    1    4           1           0          20          -5           1
+    1    5           1           0          20          -5           1
+    1    6           1           0          20          -5           1
+
+    2    1           1           5          10           0         1.5
+    2    2           1           6           6           1         1.9
+    2    3           1           7           2           2         2.3
+    2    4           1           8          -2           3         2.7
+    2    5           1           9          -6           4         3.1
+    2    6           1          10         -10           5         3.5
+
+    3    1           1          10           0           5           2
+    3    2           1          12          -8           7         2.8
+    3    3           1          14         -16           9         3.6
+    3    4          -2         1.3           1           4          12
+    3    5           4         1.9           1          10           0
+    3    6          10         2.5           1          16         -12
+
+TEST16
+  GRID3N computes a point from a 2D
+  grid in the plane containing the 
+  DIM_NUM-dimensional points X1, X2 and X3.
+
+  We use 3 steps from 
+           1           0          20          -5           1
+  to
+           1          10           0           5           2
+  and 6 steps going to 
+           1           5           0           0           3
+
+    1    1           1           0          20          -5           1
+    1    2           1           1          16          -4         1.4
+    1    3           1           2          12          -3         1.8
+    1    4           1           3           8          -2         2.2
+    1    5           1           4           4          -1         2.6
+    1    6           1           5           0           0           3
+
+    2    1           1           5          10           0         1.5
+    2    2           1           6           6           1         1.9
+    2    3           1           7           2           2         2.3
+    2    4           1           8          -2           3         2.7
+    2    5           1           9          -6           4         3.1
+    2    6           1          10         -10           5         3.5
+
+    3    1           1          10           0           5           2
+    3    2           1          11          -4           6         2.4
+    3    3           1          12          -8           7         2.8
+    3    4           1          13         -12           8         3.2
+    3    5           1          14         -16           9         3.6
+    3    6           1          15         -20          10           4
+
+TEST17
+  GRID4 computes a 2D planar grid
+  containing the DIM_NUM-dimensional
+  points X1, X2 and X3.
+
+  We compute the points on the following steps:
+
+  X1 on step 2  3
+  X2 on step 5  3
+  X3 on step 2  9
+
+  We use 6 steps in the J direction
+  and 10 steps in the K direction.
+
+  The points X1, X2 and X3 are:
+
+           1           0          20          -5           1
+
+           1          10           0           5           2
+
+           1           5           0           0           3
+
+    1    1           1   -0.833333     23.3333    -5.83333    0.666667
+    1    2           1           0          20          -5           1
+    1    3           1    0.833333     16.6667    -4.16667     1.33333
+    1    4           1     1.66667     13.3333    -3.33333     1.66667
+    1    5           1         2.5          10        -2.5           2
+    1    6           1     3.33333     6.66667    -1.66667     2.33333
+    1    7           1     4.16667     3.33333   -0.833333     2.66667
+    1    8           1           5           0           0           3
+    1    9           1     5.83333    -3.33333    0.833333     3.33333
+    1   10           0           0           0           0           0
+
+    2    1           1         2.5     16.6667        -2.5           1
+    2    2           1     3.33333     13.3333    -1.66667     1.33333
+    2    3           1     4.16667          10   -0.833333     1.66667
+    2    4           1           5     6.66667  -6.66134e-16           2
+    2    5           1     5.83333     3.33333    0.833333     2.33333
+    2    6           1     6.66667  2.22045e-15     1.66667     2.66667
+    2    7           1         7.5    -3.33333         2.5           3
+    2    8           1     8.33333    -6.66667     3.33333     3.33333
+    2    9           1     9.16667         -10     4.16667     3.66667
+    2   10           0           0           0           0           0
+
+    3    1           1     5.83333          10    0.833333     1.33333
+    3    2           1     6.66667     6.66667     1.66667     1.66667
+    3    3           1         7.5     3.33333         2.5           2
+    3    4           1     8.33333  1.11022e-15     3.33333     2.33333
+    3    5           1     9.16667    -3.33333     4.16667     2.66667
+    3    6           1          10    -6.66667           5           3
+    3    7           1     10.8333         -10     5.83333     3.33333
+    3    8           1     11.6667    -13.3333     6.66667     3.66667
+    3    9           1        12.5    -16.6667         7.5           4
+    3   10           0           0           0           0           0
+
+    4    1           1     9.16667     3.33333     4.16667     1.66667
+    4    2           1          10           0           5           2
+    4    3           1     10.8333    -3.33333     5.83333     2.33333
+    4    4           1     11.6667    -6.66667     6.66667     2.66667
+    4    5           1        12.5         -10         7.5           3
+    4    6           1     13.3333    -13.3333     8.33333     3.33333
+    4    7           1     14.1667    -16.6667     9.16667     3.66667
+    4    8           1          15         -20          10           4
+    4    9           1     15.8333    -23.3333     10.8333     4.33333
+    4   10           0           0           0           0           0
+
+    5    1           1        12.5    -3.33333         7.5           2
+    5    2           1     13.3333    -6.66667     8.33333     2.33333
+    5    3           1     14.1667         -10     9.16667     2.66667
+    5    4           1          15    -13.3333          10           3
+    5    5           1     15.8333    -16.6667     10.8333     3.33333
+    5    6           1     16.6667         -20     11.6667     3.66667
+    5    7           1        17.5    -23.3333        12.5           4
+    5    8           1     18.3333    -26.6667     13.3333     4.33333
+    5    9           1     19.1667         -30     14.1667     4.66667
+    5   10           0           0           0           0           0
+
+    6    1           1    -3.33333     26.6667    -8.33333    0.666667
+    6    2           1        -2.5     23.3333        -7.5           1
+    6    3           1    -1.66667          20    -6.66667     1.33333
+    6    4           1   -0.833333     16.6667    -5.83333     1.66667
+    6    5           1           0     13.3333          -5           2
+    6    6           1    0.833333          10    -4.16667     2.33333
+    6    7           1     1.66667     6.66667    -3.33333     2.66667
+    6    8           1         2.5     3.33333        -2.5           3
+    6    9           0           0           0           0           0
+    6   10           0           0           0           0           0
+
+TEST18
+  GRID4N computes, one at a time, points
+  on a 2D grid in the plane containing
+  the DIM_NUM-dimensional points X1, X2 and X3.
+
+  We compute the points on the following steps:
+
+  X1 on step 2  3
+  X2 on step 5  3
+  X3 on step 2  9
+
+  We use 6 steps in the J direction
+  and 10 steps in the K direction.
+
+  The points X1, X2 and X3 are:
+
+           1           0          20          -5           1
+
+           1          10           0           5           2
+
+           1           5           0           0           3
+
+       1       1           1          -5     33.3333         -10  -1.11022e-16
+       1       2           1    -4.16667          30    -9.16667    0.333333
+       1       3           1    -3.33333     26.6667    -8.33333    0.666667
+       1       4           1        -2.5     23.3333        -7.5           1
+       1       5           1    -1.66667          20    -6.66667     1.33333
+       1       6           1   -0.833333     16.6667    -5.83333     1.66667
+       1       7           1           0     13.3333          -5           2
+       1       8           1    0.833333          10    -4.16667     2.33333
+       1       9           1     1.66667     6.66667    -3.33333     2.66667
+       1      10           1         2.5     3.33333        -2.5           3
+
+       2       1           1    -1.66667     26.6667    -6.66667    0.333333
+       2       2           1   -0.833333     23.3333    -5.83333    0.666667
+       2       3           1           0          20          -5           1
+       2       4           1    0.833333     16.6667    -4.16667     1.33333
+       2       5           1     1.66667     13.3333    -3.33333     1.66667
+       2       6           1         2.5          10        -2.5           2
+       2       7           1     3.33333     6.66667    -1.66667     2.33333
+       2       8           1     4.16667     3.33333   -0.833333     2.66667
+       2       9           1           5           0           0           3
+       2      10           1     5.83333    -3.33333    0.833333     3.33333
+
+       3       1           1     1.66667          20    -3.33333    0.666667
+       3       2           1         2.5     16.6667        -2.5           1
+       3       3           1     3.33333     13.3333    -1.66667     1.33333
+       3       4           1     4.16667          10   -0.833333     1.66667
+       3       5           1           5     6.66667  -6.66134e-16           2
+       3       6           1     5.83333     3.33333    0.833333     2.33333
+       3       7           1     6.66667  2.22045e-15     1.66667     2.66667
+       3       8           1         7.5    -3.33333         2.5           3
+       3       9           1     8.33333    -6.66667     3.33333     3.33333
+       3      10           1     9.16667         -10     4.16667     3.66667
+
+       4       1           1           5     13.3333  -8.88178e-16           1
+       4       2           1     5.83333          10    0.833333     1.33333
+       4       3           1     6.66667     6.66667     1.66667     1.66667
+       4       4           1         7.5     3.33333         2.5           2
+       4       5           1     8.33333  1.11022e-15     3.33333     2.33333
+       4       6           1     9.16667    -3.33333     4.16667     2.66667
+       4       7           1          10    -6.66667           5           3
+       4       8           1     10.8333         -10     5.83333     3.33333
+       4       9           1     11.6667    -13.3333     6.66667     3.66667
+       4      10           1        12.5    -16.6667         7.5           4
+
+       5       1           1     8.33333     6.66667     3.33333     1.33333
+       5       2           1     9.16667     3.33333     4.16667     1.66667
+       5       3           1          10           0           5           2
+       5       4           1     10.8333    -3.33333     5.83333     2.33333
+       5       5           1     11.6667    -6.66667     6.66667     2.66667
+       5       6           1        12.5         -10         7.5           3
+       5       7           1     13.3333    -13.3333     8.33333     3.33333
+       5       8           1     14.1667    -16.6667     9.16667     3.66667
+       5       9           1          15         -20          10           4
+       5      10           1     15.8333    -23.3333     10.8333     4.33333
+
+       6       1           1     11.6667  1.11022e-15     6.66667     1.66667
+       6       2           1        12.5    -3.33333         7.5           2
+       6       3           1     13.3333    -6.66667     8.33333     2.33333
+       6       4           1     14.1667         -10     9.16667     2.66667
+       6       5           1          15    -13.3333          10           3
+       6       6           1     15.8333    -16.6667     10.8333     3.33333
+       6       7           1     16.6667         -20     11.6667     3.66667
+       6       8           1        17.5    -23.3333        12.5           4
+       6       9           1     18.3333    -26.6667     13.3333     4.33333
+       6      10           1     19.1667         -30     14.1667     4.66667
+
+TEST19
+  INDEX1_COL column indexes a 1D array,
+  INDEX1_ROW row indexes a 1D array,
+  and there are several more versions of these functions.
+
+  By COLS:
+
+  Imin     I  Imax  Xmin Index
+
+
+     1   3   5
+        INDEX1_COL     0     2
+        INDEXN_COL     0     2
+
+     1   3   5
+     1   2   4
+        INDEX2_COL     0     7
+        INDEXN_COL     0     7
+
+     1   3   5
+     1   2   4
+     1   1   3
+        INDEX3_COL     0     7
+        INDEXN_COL     0     7
+
+     1   3   5
+     1   2   4
+     1   1   3
+     1   2   2
+        INDEX4_COL     0    67
+        INDEXN_COL     0    67
+
+  By ROWS:
+
+  Imin     I  Imax  Xmin Index
+
+
+     1   3   5
+        INDEX1_ROW     0     2
+        INDEXN_ROW     0     2
+
+     1   3   5
+     1   2   4
+        INDEX2_ROW     0     9
+        INDEXN_ROW     0     9
+
+     1   3   5
+     1   2   4
+     1   1   3
+        INDEX3_ROW     0    27
+        INDEXN_ROW     0    27
+
+     1   3   5
+     1   2   4
+     1   1   3
+     1   2   2
+        INDEX4_ROW     0    55
+        INDEXN_ROW     0    55
+
+TEST20
+  ISBN_CHECK checks ISBN's.
+
+  A correct ISBN has a checksum of 0.
+
+  0-8493-9640-9  8
+  0-201-54275-7  0
+  0-521-35796-9  3
+  0-07-034025-0  10
+  0-7493-9640-9  9
+  0-201-54275-X  6
+  0-521-X5796-9  -1
+  0-37-034025-0  7
+
+TEST21
+  ISBN_FILL can fill in a single missing digit
+  in an ISBN.
+
+  0-?493-9640-9  0-?493-9640-9  -1
+  0-201-5427?-7  0-201-5427?-7  -1
+  0-521-35796-?  0-521-35796-?  -1
+  ?-07-034025-0  ?-07-034025-0  -1
+  0-07-05?489-2  0-07-05?489-2  -1
+
+TEST22
+  LCM_12N computes the least common multiple of the
+  integers 1 through N.
+
+  N     LCM_12N ( N )
+
+    1  1
+    2  2
+    3  6
+    4  12
+    5  60
+    6  60
+    7  420
+    8  420
+    9  1260
+   10  1260
+   11  13860
+   12  13860
+
+TEST225
+  LMAT_PRINT prints a logical matrix.
+
+  A(I,J) = I+1 is divisible by J+1
+
+       0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 3 3 3 3 3
+  Col  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4
+  Row
+
+    0: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    1: 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    2: 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    3: 1 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    4: 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    5: 1 1 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    6: 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    7: 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    8: 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    9: 1 1 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   10: 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   11: 1 1 1 1 0 1 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   12: 1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   13: 1 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   14: 1 0 1 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   15: 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   16: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   17: 1 1 1 0 0 1 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   18: 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   19: 1 1 0 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+       3 3 3 3 3 4 4 4 4 4 4 4 4 4 4
+  Col  5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
+  Row
+
+    0: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    1: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    2: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    3: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    4: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    5: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    6: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    7: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    8: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    9: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   10: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   11: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   12: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   13: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   14: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   15: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   16: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   17: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   18: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   19: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+TEST23
+  LUHN_CHECK computes the Luhn checksum
+  for a string of digits.
+
+  A correct string has a checksum divisible by 10.
+
+  Test number 0
+  Number of digits = 4
+  Digits = 1111
+  Computed check sum = 6
+  Correct check sum =  6
+
+  Test number 1
+  Number of digits = 4
+  Digits = 8763
+  Computed check sum = 20
+  Correct check sum =  20
+
+  Test number 2
+  Number of digits = 9
+  Digits = 446667651
+  Computed check sum = 40
+  Correct check sum =  40
+
+  Test number 3
+  Number of digits = 15
+  Digits = 377956570944726
+  Computed check sum = 80
+  Correct check sum =  80
+
+TEST24
+  PERM_INVERSE inverts a permutation in place;
+
+
+  The original permutation:
+
+   1   2   3   4   5   6   7
+   4   3   5   1   7   6   2
+
+  The inverted permutation:
+
+   1   2   3   4   5   6   7
+   4   7   2   1   3   6   5
+
+TEST25
+  PRIME_GE returns the smallest prime number greater
+  than or equal to N.
+
+  N   PRIME_GE
+
+       1       2
+       2       2
+       3       3
+       4       5
+       5       5
+       6       7
+       7       7
+       8      11
+       9      11
+      10      11
+
+TEST26
+  RANDOM_INITIALIZE can make up a seed for the C
+  random number generator RANDOM, or use a
+  single SEED value from the user.
+
+  Calling RANDOM_INITIALIZE with a zero input value of SEED
+  tells the routine to make up a seed.  And, at least for
+  calls a few milliseconds apart, the output SEED should
+  be different.
+
+  In any case, if RANDOM is restarted by calling
+  RANDOM_INITIALIZE with a nonzero input SEED, then
+  the random number sequence should repeat.
+
+  Call RANDOM_INITIALIZE 10 times, with a zero input SEED.
+  Also, get the first three real random values.
+
+    SEED_IN         SEED_OUT     Random 1, 2, 3
+
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+             0     665222828      0.204153      0.609777      0.320644
+
+  Now call RANDOM_INITIALIZE with SEED = 5, 95, 5, 95.
+  We promise the random numbers will repeat the second time.
+
+    SEED_IN         SEED_OUT     Random 1, 2, 3
+
+             5             5      0.274746     0.0464678      0.992755
+            95            95      0.525153       0.22024      0.227755
+             5             5      0.274746     0.0464678      0.992755
+            95            95      0.525153       0.22024      0.227755
+
+TEST27
+  RANDOM is an intrinsic C routine
+  to computer uniform random numbers.
+  Using initial random number seed = 0
+
+  Test #1: Call 5 times, 1 value each time.
+
+       1      0.915072
+       2      0.763557
+       3      0.329076
+       4      0.897144
+       5     0.0331731
+
+  Test #2: Restore the random number seed.
+  Call 5 times, 1 value each time.
+  The results should be identical.
+
+       1      0.915072
+       2      0.763557
+       3      0.329076
+       4      0.897144
+       5     0.0331731
+
+  Test #5:
+  Number of samples was 1000
+  Minimum value was 7.73389e-05
+  Maximum value was 0.998093
+  Average value was 0.502692
+  Variance was      0.0782686
+  Expected average  0.5
+  Expected variance 0.0833333
+
+TEST29
+  RAT_FACTOR factors a rational value.
+
+  Rational value is 1638 / 12
+
+  Prime representation:
+
+  I, FACTOR(I), POWER(I)
+
+       1       2         -1
+       2       3          1
+       3       7          1
+       4      13          1
+
+TEST30
+  ROOTS_TO_R8POLY computes the coefficients of
+  a polynomial from its roots.
+  R8POLY_PRINT prints a polynomial.
+
+  Roots:
+
+         0:              1
+         1:              2
+         2:              3
+         3:              4
+
+  The polynomial
+
+  p(x) =               1 * x ^ 4
+         -            10 * x ^ 3
+         +            35 * x ^ 2
+         -            50 * x
+         +            24
+
+TEST31
+  SORT_HEAP_EXTERNAL sorts objects externally.
+
+  Unsorted array:
+
+         0:        5
+         1:       20
+         2:       17
+         3:       12
+         4:        9
+         5:        2
+         6:        6
+         7:        3
+         8:        1
+         9:       13
+        10:        2
+        11:        9
+        12:        9
+        13:       16
+        14:       16
+        15:        1
+        16:       18
+        17:        8
+        18:        2
+        19:        1
+
+  Sorted array:
+
+         0:        5
+         1:        1
+         2:        1
+         3:        1
+         4:        2
+         5:        2
+         6:        2
+         7:        3
+         8:        6
+         9:        8
+        10:        9
+        11:        9
+        12:        9
+        13:       12
+        14:       13
+        15:       16
+        16:       16
+        17:       17
+        18:       18
+        19:       20
+
+TEST32
+  For evenly spaced angles between 0 and 2*PI:
+  TVEC_EVEN
+  TVEC_EVEN2
+  TVEC_EVEN3
+
+  TVEC_EVEN
+
+         0:              0
+         1:         1.5708
+         2:        3.14159
+         3:        4.71239
+
+  TVEC_EVEN2
+
+         0:       0.785398
+         1:        2.35619
+         2:        3.92699
+         3:        5.49779
+
+  TVEC_EVEN3
+
+         0:              0
+         1:         2.0944
+         2:        4.18879
+         3:        6.28319
+
+TEST33
+  For evenly spaced angles between THETA1 and THETA2:
+  TVEC_EVEN_BRACKET
+  TVEC_EVEN_BRACKET2.
+  TVEC_EVEN_BRACKET3.
+
+    NT = 4
+    THETA1 = 30
+    THETA2 = 90
+
+  TVEC_BRACKET
+
+         0:             30
+         1:             50
+         2:             70
+         3:             90
+
+    NT = 5
+    THETA1 = 30
+    THETA2 = 90
+
+  TVEC_EVEN_BRACKET2
+
+         0:             40
+         1:             50
+         2:             60
+         3:             70
+         4:             80
+
+    NT = 3
+    THETA1 = 30
+    THETA2 = 90
+
+  TVEC_EVEN_BRACKET3
+
+         0:             40
+         1:             60
+         2:             80
+
+TEST34
+  UPC_CHECK_DIGIT determines the check digit for a UPC.
+
+  P-LLLLL-RRRRR-C
+
+  0-72890-00011-8
+  0-12345-67890-5
+
+TEST35
+  VERSINE_PULSE adds a versine pulse to a constant signal.
+
+  0000  0000000000  0000000001
+  0001  00000000.1  0000000001
+  0002  00000000.2  0000000001
+  0003  00000000.3  0000000001
+  0004  00000000.4  0000000001
+  0005  00000000.5  0000000001
+  0006  00000000.6  0000000001
+  0007  00000000.7  0000000001
+  0008  00000000.8  0000000001
+  0009  00000000.9  0000000001
+  0010  0000000001  0000000001
+  0011  00000001.1  0000000001
+  0012  00000001.2  0000000001
+  0013  00000001.3  0000000001
+  0014  00000001.4  0000000001
+  0015  00000001.5  0000000001
+  0016  00000001.6  0000000001
+  0017  00000001.7  0000000001
+  0018  00000001.8  0000000001
+  0019  00000001.9  0000000001
+  0020  0000000002  0000000001
+  0021  00000002.1  0001.07342
+  0022  00000002.2  0001.28647
+  0023  00000002.3  0001.61832
+  0024  00000002.4  0002.03647
+  0025  00000002.5  00000002.5
+  0026  00000002.6  0002.96353
+  0027  00000002.7  0003.38168
+  0028  00000002.8  0003.71353
+  0029  00000002.9  0003.92658
+  0030  0000000003  0000000004
+  0031  00000003.1  0003.92658
+  0032  00000003.2  0003.71353
+  0033  00000003.3  0003.38168
+  0034  00000003.4  0002.96353
+  0035  00000003.5  00000002.5
+  0036  00000003.6  0002.03647
+  0037  00000003.7  0001.61832
+  0038  00000003.8  0001.28647
+  0039  00000003.9  0001.07342
+  0040  0000000004  0000000001
+  0041  00000004.1  0000000001
+  0042  00000004.2  0000000001
+  0043  00000004.3  0000000001
+  0044  00000004.4  0000000001
+  0045  00000004.5  0000000001
+  0046  00000004.6  0000000001
+  0047  00000004.7  0000000001
+  0048  00000004.8  0000000001
+  0049  00000004.9  0000000001
+  0050  0000000005  0000000001
+  0051  00000005.1  0000000001
+  0052  00000005.2  0000000001
+  0053  00000005.3  0000000001
+  0054  00000005.4  0000000001
+  0055  00000005.5  0000000001
+  0056  00000005.6  0000000001
+  0057  00000005.7  0000000001
+  0058  00000005.8  0000000001
+  0059  00000005.9  0000000001
+  0060  0000000006  0000000001
+  0061  00000006.1  0000000001
+  0062  00000006.2  0000000001
+  0063  00000006.3  0000000001
+  0064  00000006.4  0000000001
+  0065  00000006.5  0000000001
+  0066  00000006.6  0000000001
+  0067  00000006.7  0000000001
+  0068  00000006.8  0000000001
+  0069  00000006.9  0000000001
+  0070  0000000007  0000000001
+  0071  00000007.1  0000000001
+  0072  00000007.2  0000000001
+  0073  00000007.3  0000000001
+  0074  00000007.4  0000000001
+  0075  00000007.5  0000000001
+  0076  00000007.6  0000000001
+  0077  00000007.7  0000000001
+  0078  00000007.8  0000000001
+  0079  00000007.9  0000000001
+  0080  0000000008  0000000001
+  0081  00000008.1  0000000001
+  0082  00000008.2  0000000001
+  0083  00000008.3  0000000001
+  0084  00000008.4  0000000001
+  0085  00000008.5  0000000001
+  0086  00000008.6  0000000001
+  0087  00000008.7  0000000001
+  0088  00000008.8  0000000001
+  0089  00000008.9  0000000001
+  0090  0000000009  0000000001
+  0091  00000009.1  0000000001
+  0092  00000009.2  0000000001
+  0093  00000009.3  0000000001
+  0094  00000009.4  0000000001
+  0095  00000009.5  0000000001
+  0096  00000009.6  0000000001
+  0097  00000009.7  0000000001
+  0098  00000009.8  0000000001
+  0099  00000009.9  0000000001
+  0100  0000000010  0000000001
+
+SUBPAK_PRB
+  Normal end of execution.
+
+03 November 2011 02:51:30 PM

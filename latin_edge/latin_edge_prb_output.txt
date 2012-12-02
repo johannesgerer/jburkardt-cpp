@@ -1,0 +1,88 @@
+21 December 2011 01:37:37 PM
+
+LATIN_EDGE_PRB:
+  C++ version
+  Test the LATIN_EDGE library.
+
+TEST00
+  GET_SEED returns a seed for the random number
+  generator, based on the current time.
+
+  GET_SEED returns SEED = 112245788
+
+TEST01
+  LATIN_EDGE chooses a Latin cell arrangement,
+  which includes the edge points.
+
+  Spatial dimension = 2
+  Number of points =  11
+  Initial seed for UNIFORM = 112245788
+
+  The Latin Edge Square points:
+
+       0.5           1  
+       0.7         0.1  
+       0.9         0.9  
+       0.6         0.5  
+       0.3         0.8  
+       0.1         0.7  
+       0.4           0  
+         0         0.6  
+       0.2         0.2  
+         1         0.4  
+       0.8         0.3  
+
+LATIN_EDGE_PRB:
+  Repeat TEST01, but with different seed from first run.
+
+TEST01
+  LATIN_EDGE chooses a Latin cell arrangement,
+  which includes the edge points.
+
+  Spatial dimension = 2
+  Number of points =  11
+  Initial seed for UNIFORM = 592278604
+
+  The Latin Edge Square points:
+
+       0.4         0.8  
+       0.6         0.2  
+       0.5         0.5  
+       0.9         0.7  
+       0.8         0.4  
+       0.1         0.6  
+       0.3           1  
+         1           0  
+       0.7         0.3  
+         0         0.9  
+       0.2         0.1  
+
+LATIN_EDGE_PRB:
+  Repeat TEST01 with same seed as first run.
+
+TEST01
+  LATIN_EDGE chooses a Latin cell arrangement,
+  which includes the edge points.
+
+  Spatial dimension = 2
+  Number of points =  11
+  Initial seed for UNIFORM = 112245788
+
+  The Latin Edge Square points:
+
+       0.5           1  
+       0.7         0.1  
+       0.9         0.9  
+       0.6         0.5  
+       0.3         0.8  
+       0.1         0.7  
+       0.4           0  
+         0         0.6  
+       0.2         0.2  
+         1         0.4  
+       0.8         0.3  
+
+LATIN_EDGE_PRB:
+  Normal end of execution.
+
+21 December 2011 01:37:37 PM

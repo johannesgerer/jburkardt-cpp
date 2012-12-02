@@ -1,0 +1,430 @@
+total 82
+-rw-r--r--    1 burkardt faculty      7301 Jun  6 17:32 gmon.out
+-rw-r--r--    1 burkardt faculty      3105 Jun  6 17:11 gprof.html
+-rwxr--r--    1 burkardt faculty     44946 Jun  6 17:32 linpack_bench
+-rw-r--r--    1 burkardt faculty     23564 Jun  6 17:11 linpack_bench.C
+-rwxr--r--    1 burkardt faculty       687 Jun  6 17:32 linpack_bench_gprof.csh
+-rw-r--r--    1 burkardt faculty         0 Jun  6 17:32 linpack_bench_gprof.out
+-rw-r--r--    1 burkardt faculty       601 Jun  6 17:32 linpack_bench.out
+Flat profile:
+
+Each sample counts as 0.000976562 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 91.21     11.13    11.13   501499     0.00     0.00  daxpy(int, double, double*, int, double*, int)
+  4.76     11.71     0.58                             main
+  1.50     11.89     0.18  2000000     0.00     0.00  d_random(int*)
+  1.13     12.03     0.14        1     0.14    11.25  dgefa(double*, int, int, int*)
+  0.60     12.10     0.07  1003000     0.00     0.00  d_max(double, double)
+  0.52     12.16     0.06        2     0.03     0.12  d_matgen(int, int)
+  0.15     12.18     0.02   509110     0.00     0.00  d_abs(double)
+  0.08     12.19     0.01      999     0.00     0.00  dscal(int, double, double*, int)
+  0.06     12.20     0.01      999     0.00     0.00  idamax(int, double*, int)
+  0.00     12.20     0.00       11     0.00     0.00  std::setw(int)
+  0.00     12.20     0.00        4     0.00     0.00  cpu_time()
+  0.00     12.20     0.00        2     0.00     0.00  timestamp()
+  0.00     12.20     0.00        1     0.00     0.00  _GLOBAL__I_main
+  0.00     12.20     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     12.20     0.00        1     0.00     0.04  dgesl(double*, int, int, int*, double*, int)
+  0.00     12.20     0.00        1     0.00     0.00  d_epsilon()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.01% of 12.20 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.58   11.62                 main [1]
+                0.14   11.12       1/1           dgefa(double*, int, int, int*) [2]
+                0.06    0.18       2/2           d_matgen(int, int) [4]
+                0.07    0.00 1003000/1003000     d_max(double, double) [6]
+                0.00    0.04       1/1           dgesl(double*, int, int, int*, double*, int) [7]
+                0.00    0.00    3000/509110      d_abs(double) [9]
+                0.00    0.00      11/11          std::setw(int) [16]
+                0.00    0.00       4/4           cpu_time() [17]
+                0.00    0.00       2/2           timestamp() [18]
+                0.00    0.00       1/1           d_epsilon() [21]
+-----------------------------------------------
+                0.14   11.12       1/1           main [1]
+[2]     92.3    0.14   11.12       1         dgefa(double*, int, int, int*) [2]
+               11.08    0.00  499500/501499      daxpy(int, double, double*, int, double*, int) [3]
+                0.01    0.02     999/999         idamax(int, double*, int) [8]
+                0.01    0.00     999/999         dscal(int, double, double*, int) [10]
+-----------------------------------------------
+                0.04    0.00    1999/501499      dgesl(double*, int, int, int*, double*, int) [7]
+               11.08    0.00  499500/501499      dgefa(double*, int, int, int*) [2]
+[3]     91.2   11.13    0.00  501499         daxpy(int, double, double*, int, double*, int) [3]
+-----------------------------------------------
+                0.06    0.18       2/2           main [1]
+[4]      2.0    0.06    0.18       2         d_matgen(int, int) [4]
+                0.18    0.00 2000000/2000000     d_random(int*) [5]
+-----------------------------------------------
+                0.18    0.00 2000000/2000000     d_matgen(int, int) [4]
+[5]      1.5    0.18    0.00 2000000         d_random(int*) [5]
+-----------------------------------------------
+                0.07    0.00 1003000/1003000     main [1]
+[6]      0.6    0.07    0.00 1003000         d_max(double, double) [6]
+-----------------------------------------------
+                0.00    0.04       1/1           main [1]
+[7]      0.4    0.00    0.04       1         dgesl(double*, int, int, int*, double*, int) [7]
+                0.04    0.00    1999/501499      daxpy(int, double, double*, int, double*, int) [3]
+-----------------------------------------------
+                0.01    0.02     999/999         dgefa(double*, int, int, int*) [2]
+[8]      0.2    0.01    0.02     999         idamax(int, double*, int) [8]
+                0.02    0.00  506110/509110      d_abs(double) [9]
+-----------------------------------------------
+                0.00    0.00    3000/509110      main [1]
+                0.02    0.00  506110/509110      idamax(int, double*, int) [8]
+[9]      0.2    0.02    0.00  509110         d_abs(double) [9]
+-----------------------------------------------
+                0.01    0.00     999/999         dgefa(double*, int, int, int*) [2]
+[10]     0.1    0.01    0.00     999         dscal(int, double, double*, int) [10]
+-----------------------------------------------
+                0.00    0.00      11/11          main [1]
+[16]     0.0    0.00    0.00      11         std::setw(int) [16]
+-----------------------------------------------
+                0.00    0.00       4/4           main [1]
+[17]     0.0    0.00    0.00       4         cpu_time() [17]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[18]     0.0    0.00    0.00       2         timestamp() [18]
+-----------------------------------------------
+                0.00    0.00       1/1           __do_global_ctors_aux [24]
+[19]     0.0    0.00    0.00       1         _GLOBAL__I_main [19]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [20]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__I_main [19]
+[20]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[21]     0.0    0.00    0.00       1         d_epsilon() [21]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Index by function name
+
+  [19] _GLOBAL__I_main         [7] dgesl(double*, int, int, int*, double*, int) [21] d_epsilon()
+  [20] __static_initialization_and_destruction_0(int, int) [10] dscal(int, double, double*, int) [18] timestamp()
+   [9] d_abs(double)           [8] idamax(int, double*, int) [16] std::setw(int)
+   [6] d_max(double, double)  [17] cpu_time()              [1] main
+   [3] daxpy(int, double, double*, int, double*, int) [4] d_matgen(int, int)
+   [2] dgefa(double*, int, int, int*) [5] d_random(int*)
+
+
+
+call graph profile:
+          The sum of self and descendents is the major sort
+          for this listing.
+
+          function entries:
+
+index     the index of the function in the call graph
+          listing, as an aid to locating it (see below).
+
+%time     the percentage of the total time of the program
+          accounted for by this function and its
+          descendents.
+
+self      the number of seconds spent in this function
+          itself.
+
+descendents
+          the number of seconds spent in the descendents of
+          this function on behalf of this function.
+
+called    the number of times this function is called (other
+          than recursive calls).
+
+self      the number of times this function calls itself
+          recursively.
+
+name      the name of the function, with an indication of
+          its membership in a cycle, if any.
+
+index     the index of the function in the call graph
+          listing, as an aid to locating it.
+
+
+
+          parent listings:
+
+self*     the number of seconds of this function's self time
+          which is due to calls from this parent.
+
+descendents*
+          the number of seconds of this function's
+          descendent time which is due to calls from this
+          parent.
+
+called**  the number of times this function is called by
+          this parent.  This is the numerator of the
+          fraction which divides up the function's time to
+          its parents.
+
+total*    the number of times this function was called by
+          all of its parents.  This is the denominator of
+          the propagation fraction.
+
+parents   the name of this parent, with an indication of the
+          parent's membership in a cycle, if any.
+
+index     the index of this parent in the call graph
+          listing, as an aid in locating it.
+
+
+
+          children listings:
+
+self*     the number of seconds of this child's self time
+          which is due to being called by this function.
+
+descendent*
+          the number of seconds of this child's descendent's
+          time which is due to being called by this
+          function.
+
+called**  the number of times this child is called by this
+          function.  This is the numerator of the
+          propagation fraction for this child.
+
+total*    the number of times this child is called by all
+          functions.  This is the denominator of the
+          propagation fraction.
+
+children  the name of this child, and an indication of its
+          membership in a cycle, if any.
+
+index     the index of this child in the call graph listing,
+          as an aid to locating it.
+
+
+
+          * these fields are omitted for parents (or
+          children) in the same cycle as the function.  If
+          the function (or child) is a member of a cycle,
+          the propagated times and propagation denominator
+          represent the self time and descendent time of the
+          cycle as a whole.
+
+          ** static-only parents and children are indicated
+          by a call count of 0.
+
+
+
+          cycle listings:
+          the cycle as a whole is listed with the same
+          fields as a function entry.  Below it are listed
+          the members of the cycle, and their contributions
+          to the time and call counts of the cycle.
+
+
+granularity: each sample hit covers 4 byte(s) no time propagated
+
+                                  called/total       parents 
+index  %time    self descendents  called+self    name    	index
+                                  called/total       children
+
+                0.00        0.00 2000000/2000000     __Z9r8_randomPi [493]
+[81]     0.0    0.00        0.00 2000000         __Z9r8_matgenii [81]
+                0.00        0.00       2/1006022     _main [82]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1006022     __Z10r8_epsilonv [481]
+                0.00        0.00       1/1006022     __Z5dgefaPdiiPi [84]
+                0.00        0.00       1/1006022     __Z5dgeslPdiiPiS_i [85]
+                0.00        0.00       2/1006022     __Z9r8_matgenii [81]
+                0.00        0.00       2/1006022     __Z9timestampv [494]
+                0.00        0.00       4/1006022     __Z8cpu_timev [492]
+                0.00        0.00      11/1006022     __ZSt4setwi [2976]
+                0.00        0.00    3000/1006022     __Z6r8_absd [490]
+                0.00        0.00 1003000/1006022     __Z6r8_maxdd [491]
+[82]     0.0    0.00        0.00 1006022         _main [82]
+                0.00        0.00       1/1           __start [86]
+
+-----------------------------------------------
+
+                0.00        0.00  506110/506110      __Z6r8_absd [490]
+[83]     0.0    0.00        0.00  506110         __Z6idamaxiPdi [83]
+                0.00        0.00     999/501498      __Z5dgefaPdiiPi [84]
+
+-----------------------------------------------
+
+                0.00        0.00     999/501498      __Z5dscalidPdi [489]
+                0.00        0.00     999/501498      __Z6idamaxiPdi [83]
+                0.00        0.00  499500/501498      __Z5daxpyidPdiS_i [488]
+[84]     0.0    0.00        0.00  501498         __Z5dgefaPdiiPi [84]
+                0.00        0.00       1/1006022     _main [82]
+
+-----------------------------------------------
+
+                0.00        0.00    1999/1999        __Z5daxpyidPdiS_i [488]
+[85]     0.0    0.00        0.00    1999         __Z5dgeslPdiiPiS_i [85]
+                0.00        0.00       1/1006022     _main [82]
+
+-----------------------------------------------
+
+                0.00        0.00       1/1           _main [82]
+[86]     0.0    0.00        0.00       1         __start [86]
+
+-----------------------------------------------
+
+
+
+
+
+flat profile:
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+
+granularity: each sample hit covers 4 byte(s) no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+  0.0       0.00     0.00  2000000     0.00     0.00  __Z9r8_matgenii [81]
+  0.0       0.00     0.00  1006022     0.00     0.00  _main [82]
+  0.0       0.00     0.00   506110     0.00     0.00  __Z6idamaxiPdi [83]
+  0.0       0.00     0.00   501498     0.00     0.00  __Z5dgefaPdiiPi [84]
+  0.0       0.00     0.00     1999     0.00     0.00  __Z5dgeslPdiiPiS_i [85]
+  0.0       0.00     0.00        1     0.00     0.00  __start [86]
+
+Index by function name
+
+  [84] __Z5dgefaPdiiPi      [83] __Z6idamaxiPdi       [86] __start            
+  [85] __Z5dgeslPdiiPiS_i   [81] __Z9r8_matgenii      [82] _main              

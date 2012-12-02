@@ -1,0 +1,29 @@
+
+INTERVALS - Master process:
+  A C++ program using MPI.
+  A quadrature over an interval is done by
+  assigning subintervals to processes.
+
+  Compiled on Mar 19 2006 at 10:03:30
+
+  The number of processes is 4
+
+Process 0: Active!
+
+INTERVALS - Master process:
+  Subintervals have been assigned.
+
+INTERVALS - Master process:
+  Estimate for PI is 3.14159
+  Error is           9.25926e-07
+
+  Elapsed wall clock seconds = 0.008952
+
+INTERVALS - Master process:
+  Normal end of execution.
+
+Process 1: Active!
+
+Process 2: Active!
+
+Process 3: Active!

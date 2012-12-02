@@ -1,0 +1,225 @@
+Enter year (>0): Enter month (1..12): Enter day (1..30): 9/24/70 = 25469 = Wednesday
+    = Gregorian date 9/24/70 = absolute date 25469
+    = Julian date 9/26/70 = absolute date 25469
+    = ISO date 39/3/70 = absolute date 25469
+    = Hebrew date 7/3/3831 = absolute date 25469
+    = Islamic date 0/0/0 = absolute date 226631
+    = JED           1948055.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 10/2/135 = 49217 = Sunday
+    = Gregorian date 10/2/135 = absolute date 49217
+    = Julian date 10/3/135 = absolute date 49217
+    = ISO date 39/7/135 = absolute date 49217
+    = Hebrew date 7/9/3896 = absolute date 49217
+    = Islamic date 0/0/0 = absolute date 226631
+    = JED           1948055.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 5/12/330 = 120296 = Monday
+    = Gregorian date 5/12/330 = absolute date 120296
+    = Julian date 5/11/330 = absolute date 120296
+    = ISO date 20/1/330 = absolute date 120296
+    = Hebrew date 3/7/4090 = absolute date 120296
+    = Islamic date 0/0/0 = absolute date 226631
+    = JED           1948055.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 1/8/470 = 171307 = Wednesday
+    = Gregorian date 1/8/470 = absolute date 171307
+    = Julian date 1/7/470 = absolute date 171307
+    = ISO date 2/3/470 = absolute date 171307
+    = Hebrew date 10/18/4230 = absolute date 171307
+    = Islamic date 0/0/0 = absolute date 226631
+    = JED           1948055.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 5/20/576 = 210155 = Monday
+    = Gregorian date 5/20/576 = absolute date 210155
+    = Julian date 5/18/576 = absolute date 210155
+    = ISO date 21/1/576 = absolute date 210155
+    = Hebrew date 3/4/4336 = absolute date 210155
+    = Islamic date 0/0/0 = absolute date 226631
+    = JED           1948055.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 11/10/694 = 253427 = Saturday
+    = Gregorian date 11/10/694 = absolute date 253427
+    = Julian date 11/7/694 = absolute date 253427
+    = ISO date 45/6/694 = absolute date 253427
+    = Hebrew date 8/13/4455 = absolute date 253427
+    = Islamic date 7/13/75 = absolute date 253427
+    = JED           1974851.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 4/25/1013 = 369740 = Sunday
+    = Gregorian date 4/25/1013 = absolute date 369740
+    = Julian date 4/19/1013 = absolute date 369740
+    = ISO date 16/7/1013 = absolute date 369740
+    = Hebrew date 2/6/4773 = absolute date 369740
+    = Islamic date 10/5/403 = absolute date 369740
+    = JED           2091164.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 5/24/1096 = 400085 = Sunday
+    = Gregorian date 5/24/1096 = absolute date 400085
+    = Julian date 5/18/1096 = absolute date 400085
+    = ISO date 21/7/1096 = absolute date 400085
+    = Hebrew date 2/23/4856 = absolute date 400085
+    = Islamic date 5/22/489 = absolute date 400085
+    = JED           2121509.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 3/23/1190 = 434355 = Friday
+    = Gregorian date 3/23/1190 = absolute date 434355
+    = Julian date 3/16/1190 = absolute date 434355
+    = ISO date 12/5/1190 = absolute date 434355
+    = Hebrew date 1/7/4950 = absolute date 434355
+    = Islamic date 2/7/586 = absolute date 434355
+    = JED           2155779.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 3/10/1240 = 452605 = Saturday
+    = Gregorian date 3/10/1240 = absolute date 452605
+    = Julian date 3/3/1240 = absolute date 452605
+    = ISO date 10/6/1240 = absolute date 452605
+    = Hebrew date 13/8/5000 = absolute date 452605
+    = Islamic date 8/7/637 = absolute date 452605
+    = JED           2174029.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 4/2/1288 = 470160 = Friday
+    = Gregorian date 4/2/1288 = absolute date 470160
+    = Julian date 3/26/1288 = absolute date 470160
+    = ISO date 14/5/1288 = absolute date 470160
+    = Hebrew date 1/21/5048 = absolute date 470160
+    = Islamic date 2/20/687 = absolute date 470160
+    = JED           2191584.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 4/27/1298 = 473837 = Sunday
+    = Gregorian date 4/27/1298 = absolute date 473837
+    = Julian date 4/20/1298 = absolute date 473837
+    = ISO date 17/7/1298 = absolute date 473837
+    = Hebrew date 2/7/5058 = absolute date 473837
+    = Islamic date 7/7/697 = absolute date 473837
+    = JED           2195261.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 6/12/1391 = 507850 = Sunday
+    = Gregorian date 6/12/1391 = absolute date 507850
+    = Julian date 6/4/1391 = absolute date 507850
+    = ISO date 23/7/1391 = absolute date 507850
+    = Hebrew date 4/1/5151 = absolute date 507850
+    = Islamic date 7/1/793 = absolute date 507850
+    = JED           2229274.50
+Enter year (>0): Enter month (1..12): Enter day (1..29): 2/3/1436 = 524156 = Wednesday
+    = Gregorian date 2/3/1436 = absolute date 524156
+    = Julian date 1/25/1436 = absolute date 524156
+    = ISO date 5/3/1436 = absolute date 524156
+    = Hebrew date 11/7/5196 = absolute date 524156
+    = Islamic date 7/6/839 = absolute date 524156
+    = JED           2245580.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 4/9/1492 = 544676 = Saturday
+    = Gregorian date 4/9/1492 = absolute date 544676
+    = Julian date 3/31/1492 = absolute date 544676
+    = ISO date 14/6/1492 = absolute date 544676
+    = Hebrew date 1/3/5252 = absolute date 544676
+    = Islamic date 6/1/897 = absolute date 544676
+    = JED           2266100.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 9/19/1553 = 567118 = Saturday
+    = Gregorian date 9/19/1553 = absolute date 567118
+    = Julian date 9/9/1553 = absolute date 567118
+    = ISO date 38/6/1553 = absolute date 567118
+    = Hebrew date 7/1/5314 = absolute date 567118
+    = Islamic date 9/30/960 = absolute date 567118
+    = JED           2288542.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 3/5/1560 = 569477 = Saturday
+    = Gregorian date 3/5/1560 = absolute date 569477
+    = Julian date 2/24/1560 = absolute date 569477
+    = ISO date 9/6/1560 = absolute date 569477
+    = Hebrew date 12/27/5320 = absolute date 569477
+    = Islamic date 5/27/967 = absolute date 569477
+    = JED           2290901.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 6/10/1648 = 601716 = Wednesday
+    = Gregorian date 6/10/1648 = absolute date 601716
+    = Julian date 5/31/1648 = absolute date 601716
+    = ISO date 24/3/1648 = absolute date 601716
+    = Hebrew date 3/20/5408 = absolute date 601716
+    = Islamic date 5/18/1058 = absolute date 601716
+    = JED           2323140.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 6/30/1680 = 613424 = Sunday
+    = Gregorian date 6/30/1680 = absolute date 613424
+    = Julian date 6/20/1680 = absolute date 613424
+    = ISO date 26/7/1680 = absolute date 613424
+    = Hebrew date 4/3/5440 = absolute date 613424
+    = Islamic date 6/2/1091 = absolute date 613424
+    = JED           2334848.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 7/24/1716 = 626596 = Friday
+    = Gregorian date 7/24/1716 = absolute date 626596
+    = Julian date 7/13/1716 = absolute date 626596
+    = ISO date 30/5/1716 = absolute date 626596
+    = Hebrew date 5/5/5476 = absolute date 626596
+    = Islamic date 8/4/1128 = absolute date 626596
+    = JED           2348020.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 6/19/1768 = 645554 = Sunday
+    = Gregorian date 6/19/1768 = absolute date 645554
+    = Julian date 6/8/1768 = absolute date 645554
+    = ISO date 24/7/1768 = absolute date 645554
+    = Hebrew date 4/4/5528 = absolute date 645554
+    = Islamic date 2/3/1182 = absolute date 645554
+    = JED           2366978.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 8/2/1819 = 664224 = Monday
+    = Gregorian date 8/2/1819 = absolute date 664224
+    = Julian date 7/21/1819 = absolute date 664224
+    = ISO date 31/1/1819 = absolute date 664224
+    = Hebrew date 5/11/5579 = absolute date 664224
+    = Islamic date 10/10/1234 = absolute date 664224
+    = JED           2385648.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 3/27/1839 = 671401 = Wednesday
+    = Gregorian date 3/27/1839 = absolute date 671401
+    = Julian date 3/15/1839 = absolute date 671401
+    = ISO date 13/3/1839 = absolute date 671401
+    = Hebrew date 1/12/5599 = absolute date 671401
+    = Islamic date 1/11/1255 = absolute date 671401
+    = JED           2392825.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 4/19/1903 = 694799 = Sunday
+    = Gregorian date 4/19/1903 = absolute date 694799
+    = Julian date 4/6/1903 = absolute date 694799
+    = ISO date 16/7/1903 = absolute date 694799
+    = Hebrew date 1/22/5663 = absolute date 694799
+    = Islamic date 1/21/1321 = absolute date 694799
+    = JED           2416223.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 8/25/1929 = 704424 = Sunday
+    = Gregorian date 8/25/1929 = absolute date 704424
+    = Julian date 8/12/1929 = absolute date 704424
+    = ISO date 34/7/1929 = absolute date 704424
+    = Hebrew date 5/19/5689 = absolute date 704424
+    = Islamic date 3/19/1348 = absolute date 704424
+    = JED           2425848.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 9/29/1941 = 708842 = Monday
+    = Gregorian date 9/29/1941 = absolute date 708842
+    = Julian date 9/16/1941 = absolute date 708842
+    = ISO date 40/1/1941 = absolute date 708842
+    = Hebrew date 7/8/5702 = absolute date 708842
+    = Islamic date 9/8/1360 = absolute date 708842
+    = JED           2430266.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 4/19/1943 = 709409 = Monday
+    = Gregorian date 4/19/1943 = absolute date 709409
+    = Julian date 4/6/1943 = absolute date 709409
+    = ISO date 16/1/1943 = absolute date 709409
+    = Hebrew date 1/14/5703 = absolute date 709409
+    = Islamic date 4/13/1362 = absolute date 709409
+    = JED           2430833.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 10/7/1943 = 709580 = Thursday
+    = Gregorian date 10/7/1943 = absolute date 709580
+    = Julian date 9/24/1943 = absolute date 709580
+    = ISO date 40/4/1943 = absolute date 709580
+    = Hebrew date 7/8/5704 = absolute date 709580
+    = Islamic date 10/7/1362 = absolute date 709580
+    = JED           2431004.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 3/17/1992 = 727274 = Tuesday
+    = Gregorian date 3/17/1992 = absolute date 727274
+    = Julian date 3/4/1992 = absolute date 727274
+    = ISO date 12/2/1992 = absolute date 727274
+    = Hebrew date 13/12/5752 = absolute date 727274
+    = Islamic date 9/13/1412 = absolute date 727274
+    = JED           2448698.50
+Enter year (>0): Enter month (1..12): Enter day (1..29): 2/25/1996 = 728714 = Sunday
+    = Gregorian date 2/25/1996 = absolute date 728714
+    = Julian date 2/12/1996 = absolute date 728714
+    = ISO date 8/7/1996 = absolute date 728714
+    = Hebrew date 12/5/5756 = absolute date 728714
+    = Islamic date 10/5/1416 = absolute date 728714
+    = JED           2450138.50
+Enter year (>0): Enter month (1..12): Enter day (1..30): 11/10/2038 = 744313 = Wednesday
+    = Gregorian date 11/10/2038 = absolute date 744313
+    = Julian date 10/28/2038 = absolute date 744313
+    = ISO date 45/3/2038 = absolute date 744313
+    = Hebrew date 8/12/5799 = absolute date 744313
+    = Islamic date 10/12/1460 = absolute date 744313
+    = JED           2465737.50
+Enter year (>0): Enter month (1..12): Enter day (1..31): 7/18/2094 = 764652 = Sunday
+    = Gregorian date 7/18/2094 = absolute date 764652
+    = Julian date 7/5/2094 = absolute date 764652
+    = ISO date 28/7/2094 = absolute date 764652
+    = Hebrew date 5/5/5854 = absolute date 764652
+    = Islamic date 3/5/1518 = absolute date 764652
+    = JED           2486076.50
+Enter year (>0): 

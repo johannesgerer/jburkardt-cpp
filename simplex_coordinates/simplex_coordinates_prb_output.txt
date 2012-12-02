@@ -1,0 +1,122 @@
+24 December 2011 11:52:49 AM
+
+SIMPLEX_COORDINATES_PRB
+  C++ version
+  Test the SIMPLEX_COORDINATES library.
+
+TEST01
+  Call SIMPLEX_COORDINATES1
+
+  Simplex vertex coordinates:
+
+  Row:       0             1             2       
+  Col
+
+    0:             1             0             0
+    1:     -0.333333      0.942809             0
+    2:     -0.333333     -0.471405      0.816497
+    3:     -0.333333     -0.471405     -0.816497
+
+  Side length =     1.63299
+  Volume =          0.5132
+  Expected volume = 0.5132
+
+  Dot product matrix:
+
+  Row:       0             1             2             3       
+  Col
+
+    0:             1     -0.333333     -0.333333     -0.333333
+    1:     -0.333333             1     -0.333333     -0.333333
+    2:     -0.333333     -0.333333             1     -0.333333
+    3:     -0.333333     -0.333333     -0.333333             1
+
+TEST02
+  Call SIMPLEX_COORDINATES2
+
+  Simplex vertex coordinates:
+
+  Row:       0             1             2       
+  Col
+
+    0:       0.96225      -0.19245      -0.19245
+    1:      -0.19245       0.96225      -0.19245
+    2:      -0.19245      -0.19245       0.96225
+    3:      -0.57735      -0.57735      -0.57735
+
+  Side length =     1.63299
+  Volume =          0.5132
+  Expected volume = 0.5132
+
+  Dot product matrix:
+
+  Row:       0             1             2             3       
+  Col
+
+    0:             1     -0.333333     -0.333333     -0.333333
+    1:     -0.333333             1     -0.333333     -0.333333
+    2:     -0.333333     -0.333333             1     -0.333333
+    3:     -0.333333     -0.333333     -0.333333             1
+
+TEST01
+  Call SIMPLEX_COORDINATES1
+
+  Simplex vertex coordinates:
+
+  Row:       0             1             2             3       
+  Col
+
+    0:             1             0             0             0
+    1:         -0.25      0.968246             0             0
+    2:         -0.25     -0.322749      0.912871             0
+    3:         -0.25     -0.322749     -0.456435      0.790569
+    4:         -0.25     -0.322749     -0.456435     -0.790569
+
+  Side length =     1.58114
+  Volume =          0.145577
+  Expected volume = 0.145577
+
+  Dot product matrix:
+
+  Row:       0             1             2             3             4       
+  Col
+
+    0:             1         -0.25         -0.25         -0.25         -0.25
+    1:         -0.25             1         -0.25         -0.25         -0.25
+    2:         -0.25         -0.25             1         -0.25         -0.25
+    3:         -0.25         -0.25         -0.25             1         -0.25
+    4:         -0.25         -0.25         -0.25         -0.25             1
+
+TEST02
+  Call SIMPLEX_COORDINATES2
+
+  Simplex vertex coordinates:
+
+  Row:       0             1             2             3       
+  Col
+
+    0:      0.963525     -0.154508     -0.154508     -0.154508
+    1:     -0.154508      0.963525     -0.154508     -0.154508
+    2:     -0.154508     -0.154508      0.963525     -0.154508
+    3:     -0.154508     -0.154508     -0.154508      0.963525
+    4:          -0.5          -0.5          -0.5          -0.5
+
+  Side length =     1.58114
+  Volume =          0.145577
+  Expected volume = 0.145577
+
+  Dot product matrix:
+
+  Row:       0             1             2             3             4       
+  Col
+
+    0:             1         -0.25         -0.25         -0.25         -0.25
+    1:         -0.25             1         -0.25         -0.25         -0.25
+    2:         -0.25         -0.25             1         -0.25         -0.25
+    3:         -0.25         -0.25         -0.25             1         -0.25
+    4:         -0.25         -0.25         -0.25         -0.25             1
+
+SIMPLEX_COORDINATES_PRB
+  Normal end of execution.
+
+24 December 2011 11:52:49 AM

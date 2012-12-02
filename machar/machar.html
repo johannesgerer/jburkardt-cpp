@@ -1,0 +1,216 @@
+<html>
+
+  <head>
+    <title>
+      MACHAR - Dynamically Compute Machine Constants
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MACHAR <br> Dynamically Compute Machine Constants
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MACHAR</b> 
+      is a C++ library which 
+      dynamically computes constants that 
+      characterize the floating point arithmetic system on a computer,
+      by William Cody. 
+    </p>
+
+    <p>
+      This includes
+      the value of the "machine epsilon", the smallest number that can
+      be added to 1 and make a difference.  However, it includes many
+      other quantities of interest, including the arithmetic base,
+      the largest and smallest magnitudes, and so on.
+    </p>
+
+    <p>
+      The FORTRAN77 version of these routines was supplied as part of ACM 
+      TOMS algorithm 665.
+    </p>
+
+    <p>
+      A C version of these routines was supplied as part of ACM 
+      TOMS algorithm 722.
+    </p>
+
+    <p>
+      Note that "Numerical Recipes" includes a listing and discussion
+      of MACHAR.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>MACHAR</b> is available in
+      <a href = "../../c_src/machar/machar.html">a C version</a> and
+      <a href = "../../cpp_src/machar/machar.html">a C++ version</a> and
+      <a href = "../../f77_src/machar/machar.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/machar/machar.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/machar/machar.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/machine/machine.html">
+      MACHINE</a>,
+      a C++ library which 
+      stores the appropriate values
+      of machine constants for a given machine.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Original FORTRAN77 version by William Cody.
+      C++ version by John Burkardt.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          William Cody,<br>
+          Algorithm 665:
+          MACHAR, a subroutine to dynamically determine 
+          machine parameters,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 14, Number 4, December 1988, pages 303-311.
+        </li>
+        <li>
+          William Cody, William Waite,<br>
+          Software Manual for the Elementary Functions,<br>
+          Prentice Hall, 1980,<br>
+          ISBN: 0138220646,<br>
+          LC: QA331.C635.
+        </li>
+        <li>
+          Morven Gentleman, Scott Marovich,<br>
+          More on Algorithms that Reveal Properties of Floating Point
+          Arithmetic Units,<br>
+          Communications of the ACM,<br>
+          Volume 17, Number 5, May 1974, pages 276-277.
+        </li>
+        <li>
+          Michael Malcolm,<br>
+          Algorithms to Reveal Properties of Floating Point Arithmetic,<br>
+          Communications of the ACM,<br>
+          Volume 15, Number 11, November 1972, pages 949-951.
+        </li>
+        <li>
+          William Press, Brian Flannery, Saul Teukolsky, William Vetterling,<br>
+          Numerical Recipes in FORTRAN: The Art of Scientific Computing,<br>
+          Second Edition,<br>
+          Cambridge University Press, 1992,<br>
+          ISBN: 0-521-43064-X,<br>
+          LC: QA297.N866.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "machar.cpp">machar.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "machar.hpp">machar.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "machar.sh">machar.sh</a>, 
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "machar_prb.cpp">machar_prb.cpp</a>, a sample problem.
+        </li>
+        <li>
+          <a href = "machar_prb.sh">machar_prb.sh</a>, 
+          commands to compile, link and run the sample problem.
+        </li>
+        <li>
+          <a href = "machar_prb_output.txt">machar_prb_output.txt</a>, 
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>R4_ABS</b> returns the absolute value of an R4.
+        </li>
+        <li>
+          <b>R4_MACHAR</b> computes machine constants for floating point arithmetic.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of a double precision number.
+        </li>
+        <li>
+          <b>R8_MACHAR</b> computes machine constants for double floating point arithmetic.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 11 November 2006.
+    </i>
+
+    <!-- John Burkardt -->
+ 
+  </body>
+
+</html>
+

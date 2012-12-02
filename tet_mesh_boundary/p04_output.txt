@@ -1,0 +1,66 @@
+
+22 December 2010 03:55:14 PM
+
+TET_MESH_BOUNDARY
+  C++ version
+  Read files defining a tet mesh dataset.
+
+  Determine the faces that form the boundary;
+  write a boundary node mask file;
+  write a boundary node file;
+  write a boundary element file,
+  defining the boundary as a TRI_SURFACE.
+
+  Compiled on Dec 22 2010 at 15:55:07.
+
+  Read the header of "p04_nodes.txt".
+
+  Spatial dimension = 3
+  Number of nodes   = 587
+
+  Read the data in "p04_nodes.txt".
+
+  First 5 nodes:
+
+  Row:       1             2             3       
+  Col
+    1      -0.031955     -0.229643      -0.97275
+    2      -0.163439     -0.030536     -0.986081
+    3        0.02751      0.025921     -0.999285
+    4        0.27895     -0.000778     -0.960305
+    5       -0.01288      0.270451     -0.962648
+
+  Read the header of "p04_elements.txt".
+
+  Element order = 4
+  Number of tetras  = 2775
+
+  Read the data in "p04_elements.txt".
+
+  First 5 elements:
+
+  Row:      1       2       3       4  
+  Col
+
+    1     460     522     459     514  
+    2     460     451     459     514  
+    3     460     451     459     375  
+    4     410     482     483     474  
+    5     410     482     400     474  
+
+MESH_BASE_ZERO:
+  The element indexing appears to be 1-based.
+  This will be converted to 0-based.
+
+  Number of faces is 11100
+  Number of boundary faces is 490
+  Number of boundary nodes is 247
+
+  Wrote the boundary node coordinates to "p04_boundary_nodes.txt".
+  Wrote the boundary node mask to "p04_boundary_node_mask.txt".
+  Wrote the boundary face coordinates to "p04_boundary_elements.txt".
+
+TET_MESH_BOUNDARY:
+  Normal end of execution.
+
+22 December 2010 03:55:14 PM

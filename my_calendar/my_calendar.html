@@ -1,0 +1,141 @@
+<html>
+
+  <head>
+    <title>
+      MY_CALENDAR - Simple calendar reminder utility
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MY_CALENDAR <br> Simple calendar reminder utility
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MY_CALENDAR</b>
+      is a C++ program which
+      carries out a simple calendar reminder service.
+    </p>
+
+    <p>
+      It reads the file "calendar" stored
+      in the user's home directory.  It prints every
+      line that contains a string suggesting today's date, or
+      "nearby" dates.  On Sunday through Thursday, a nearby date
+      is today or tomorrow.  On Friday and Saturday a nearby date
+      includes today through Monday.
+      Most reasonable combinations of dates are recognized.
+    </p>
+
+    <p>
+      Some things happen every Monday or Thursday, and it is
+      natural to record in your calendar file a single entry
+      that reads:
+      <pre>
+        Mondays - Pay blackmailer
+      </pre>
+      <b>MY_CALENDAR</b> will recognize such a line, and
+      print it every Monday, ensuring prompt payment.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>my_calendar</b>
+        </dt>
+        <dd>
+          will read the file <i>calendar</i> in your home directory,
+          and print out lines referring to today or tomorrow.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "my_calendar.cpp">my_calendar.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "my_calendar.sh">my_calendar.sh</a>,
+          commands to compile and load the program;
+        </li>
+        <li>
+          <a href = "my_calendar.txt">my_calendar.txt</a>,
+          a sample set of data that could go into a calendar file;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for MY_CALENDAR.
+        </li>
+        <li>
+          <b>CH_IS_DIGIT</b> returns TRUE if a character is a decimal digit.
+        </li>
+        <li>
+          <b>INCLUDES_DATE</b> reports if a line contains a given date.
+        </li>
+        <li>
+          <b>INCLUDES_WEEKDAY</b> checks if a line refers to a "generic" weekday.
+        </li>
+        <li>
+          <b>IS_LEAP_YEAR</b> determines if a given year was a leap year.
+        </li>
+        <li>
+          <b>MONTH_LENGTH</b> returns the number of days in a given month.
+        </li>
+        <li>
+          <b>NEXT_DAY</b> increments the date by one day;
+        </li>
+        <li>
+          <b>PARSE_COMMAND_LINE</b> parses the command line.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 31 August 2005.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

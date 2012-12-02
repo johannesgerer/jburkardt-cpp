@@ -1,0 +1,244 @@
+<html>
+
+  <head>
+    <title>
+      RECOMMENT - Convert comments from C to C++ form
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      RECOMMENT <br> Convert comments from C to C++ form
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>RECOMMENT</b>
+      is a C++ program which
+      converts C style comments to C++ style comments.
+    </p>
+
+    <p>
+      Recall that C style comments begin (anywhere) with the
+      marker <b>/*</b> and end (anywhere) with the marker <b>*/</b>.
+      C++ comments begin anywhere with the string <b>//</b> and
+      continue to the end of the current line.
+    </p>
+
+    <p>
+      This code incorporates suggestions and coding provided on 28 April 2005
+      by Steven Martin of JDS Uniphase, Melbourne Florida.  These
+      suggestions allow the program to ignore the internal contents
+      of strings, (which might otherwise seem to begin or end comments),
+      to handle lines of code with trailing comments, and to handle
+      comments with trailing bits of code.
+    </p>
+
+    <p>
+      Warning: a number of operating systems pretend to honor the
+      difference between capital and lowercase letters but for
+      various reasons of "convenience" do not actually do a proper job.
+      My current complaint is about Macintosh OSX; when you set up your hard
+      drive, you have one chance to choose whether it is "case sensitive"
+      or not.  After that, you can't change the option without wiping
+      the disk.  A consequence is that, although you can name a file
+      "fred.c" or "Fred.C" and see the letters in the case you chose,
+      at certain points, the operating system makes no distinction
+      between upper and lower case.  In particular, it is common to
+      use "fred.c" to denote a C file and "fred.C" to denote a C++ file.
+      On a Macintosh OSX system without strict case sensitivity, this
+      means that a disaster will occur should you issue the command
+      <blockquote>
+        recomment fred.c fred.C
+      </blockquote>
+      As far as the operating system is concerned, you have asked it
+      to read and write using the same file.  And so...it doesn't create
+      the output file, and <i>it overwrites the input file</i>...yes,
+      it's gone!  For this reason, the program has been modified to
+      refuse to accept an output file which is identical to the input
+      file except for case.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>recomment</b> <i>old.c</i> <i>new.c</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>old.c</i> is the file to be recommented.
+        </li>
+        <li>
+          <i>new.c</i> is the new file, to be created from <i>old.c</i>,
+          but using C++ style comments.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cr2lf/cr2lf.html">
+      CR2LF</a>,
+      a C++ program which
+      reads a text file and replaces carriage returns by line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/crrm/crrm.html">
+      CRRM</a>,
+      a C++ program which
+      reads a text file and removes carriage returns.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/deblank/deblank.html">
+      DEBLANK</a>,
+      a C++ program which
+      makes a copy of a text file which contains no blank lines.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/decomment/decomment.html">
+      DECOMMENT</a>,
+      a C++ program which
+      removes every comment line (beginning with a "#") from a file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/filum/filum.html">
+      FILUM</a>,
+      a C++ library which
+      performs various operations on files.
+    </p>
+
+    <p>
+      <a href = "../../f_src/reformat/reformat.html">
+      REFORMAT</a>,
+      a FORTRAN90 program which
+      reads a text file that contains only real values, and writes a copy
+      which has a fixed number of real values on each line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/reword/reword.html">
+      REWORD</a>,
+      a C++ program which
+      reads a text file and writes a copy which has a fixed number of "words"
+      per line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uncontrol/uncontrol.html">
+      UNCONTROL</a>,
+      a C++ program which
+      makes a copy of a text file which contains no control
+      characters
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap/wrap.html">
+      WRAP</a>,
+      a C++ program which
+      makes a copy of a text file in which no line is longer than a
+      user-specified wrap length.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap2/wrap2.html">
+      WRAP2</a>,
+      a C++ program which
+      wraps long lines in a text file, but
+      wraps some lines "early", so as to avoid breaking words.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "recomment.cpp">recomment.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "recomment.sh">recomment.sh</a>, commands to compile
+          and link the code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "mandelbrot.c">mandelbrot.c</a>, a file with C style comments;
+        </li>
+        <li>
+          <a href = "mandelbrot.cpp">mandelbrot.cpp</a>, a copy of the file, with
+          C++ style comments;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>RECOMMENT</b> makes a copy of a C file, converting to C++ comment style.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>HANDLE</b> recomments a single C file.
+        </li>
+        <li>
+          <b>S_EQI</b> reports whether two strings are equal, ignoring case.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 October 2007.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,209 @@
+<html>
+
+  <head>
+    <title>
+      PBMB_IO - Read and Write Portable Bit Map (PBM) binary Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PBMB_IO <br> Portable Bit Map (PBM) binary Files <br> Read and Write Utilities
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PBMB_IO</b> 
+      is a C++ library which 
+      reads and writes files in the 
+      binary Portable Bit Map (PBM)
+      format for 2D bit map graphics information.
+    </p>
+
+    <p>
+      There are many graphics programs, such as XV and GIMP, that can
+      display images in this format, or translate them to other formats
+      such as BMP, GIF, JPEG, MacPaint, X Window, and so on.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>PBMB_IO</b> is available in
+      <a href = "../../c_src/pbmb_io/pbmb_io.html">a C version</a> and
+      <a href = "../../cpp_src/pbmb_io/pbmb_io.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/pbma_io/pbma_io.html">
+      PBMA_IO<a>,
+      a C++ library which 
+      handles the ASCII Portable Bit Map (PBM) format.
+    </p>
+
+    <p>
+      <a href = "../../data/pbmb/pbmb.html">
+      PBMB</a>,
+      a data directory which
+      contains some example binary Portable Bit Map (PBM) files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgmb_io/pgmb_io.html">
+      PGMB_IO<a>,
+      a C++ library which 
+      handles the binary Portable Gray Map (PGM) format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_io/ppmb_io.html">
+      PPMB_IO<a>,
+      a C++ library which 
+      handles the binary Portable Pixel Map (PPM) format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">the NETPBM homepage</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pbmb_io.cpp">pbmb_io.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "pbmb_io.hpp">pbmb_io.hpp</a>, the include file;
+        </li>
+        <li>
+          <a href = "pbmb_io.sh">pbmb_io.sh</a>, 
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pbmb_io_prb.cpp">pbmb_io_prb.cpp</a>, 
+          the sample calling program.
+        </li>
+        <li>
+          <a href = "pbmb_io_prb.sh">pbmb_io_prb.sh</a>, 
+          commands to compile, link and run the sample calling program.
+        </li>
+        <li>
+          <a href = "pbmb_io_prb_output.txt">pbmb_io_prb_output.txt</a>, 
+          the output file.
+        </li>
+        <li>
+          <a href = "pbmb_io_prb_01.pbm">pbmb_io_prb_01.pbm</a>, 
+          a binary PBM file created by the program.
+        </li>
+        <li>
+          <a href = "pbmb_io_prb_02.pbm">pbmb_io_prb_02.pbm</a>, 
+          a binary PBM file created by the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>PBMB_CHECK_DATA</b> checks the data for a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_EXAMPLE</b> sets up some sample PBMB data.
+        </li>
+        <li>
+          <b>PBMB_READ</b> reads the header and data from a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_READ_DATA</b> reads the data in a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_READ_HEADER</b> reads the header of a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_READ_TEST</b> tests the binary portable bit map read routines.
+        </li>
+        <li>
+          <b>PBMB_WRITE</b> writes the header and data for a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_WRITE_DATA</b> writes the data for a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_WRITE_HEADER</b> writes the header of a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_WRITE_TEST</b> tests the binary portable bit map write routines.
+        </li>
+        <li>
+          <b>S_EQI</b> reports whether two strings are equal, ignoring case.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_WORD_EXTRACT_FIRST</b> extracts the first word from a string.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 16 June 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

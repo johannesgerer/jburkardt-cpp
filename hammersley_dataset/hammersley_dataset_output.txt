@@ -1,0 +1,165 @@
+23 September 2004 02:37:05 PM
+
+HAMMERSLEY_DATASET (C++ version)
+  Generate a Hammersley dataset.
+
+  This program is meant to be used interactively.
+  It is also possible to prepare a simple input
+  file beforehand and use it in batch mode.
+
+  The program requests input values from the user:
+
+  * NDIM, the spatial dimension,
+  * N, the number of points to generate,
+  * STEP, the index of the first subsequence element.
+  * SEED(1:NDIM),the sequence element corresponding to STEP = 0
+  * LEAP(1:NDIM), the succesive jumps in the sequence.
+  * BASE(1:NDIM), the bases, usually distinct primes
+    or -N (to generate values like I/N).
+
+  The program generates the data, writes it to the file
+
+    hammersley_NDIM_N.txt
+
+  where NDIM and N are the numeric values specified
+  by the user, and then asks the user for more input.
+
+  To indicate that no further computations are
+  desired, it is enough to input a nonsensical value,
+  such as -1.
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you have no preference.)
+  (0 or any negative value terminates execution).
+
+  Enter N, the number of points to generate:
+  (Try '25' if you have no preference.)
+  (0 or any negative value terminates execution).
+
+  Enter STEP, the index of the first subsequence element:
+  (Try '0' or '1' if you have no preference.)
+  (Any negative value terminates execution).
+
+  Enter SEED(1:NDIM), the starting element index
+  for each coordinate
+  (Try '0 0 ... 0' if you have no preference.)
+  (a negative value terminates execution.)
+  User input:           1           0
+
+  Enter LEAP(1:NDIM), the leaping multiplier
+  for each coordinate
+  (Try '1 1 ... 1' if you have no preference.)
+  (another choice is any prime larger than all the bases).
+  (any value of 0 or less terminates execution.)
+  User input:           1           1
+
+  Enter BASE(1:NDIM), the bases, usually distinct 
+  primes, but any NEGATIVE base generates
+  values I/BASE.  (Try '-N 2 3 5 7 11 ...' if you have no preference.)
+  (any value of 0 or 1 terminates execution.)
+  User input:         -10           2
+
+  The data was written to the file "hammersley_2_20.txt".
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you have no preference.)
+  (0 or any negative value terminates execution).
+
+  Enter N, the number of points to generate:
+  (Try '25' if you have no preference.)
+  (0 or any negative value terminates execution).
+
+  Enter STEP, the index of the first subsequence element:
+  (Try '0' or '1' if you have no preference.)
+  (Any negative value terminates execution).
+
+  Enter SEED(1:NDIM), the starting element index
+  for each coordinate
+  (Try '0 0 ... 0' if you have no preference.)
+  (a negative value terminates execution.)
+  User input:           0           0           0
+
+  Enter LEAP(1:NDIM), the leaping multiplier
+  for each coordinate
+  (Try '1 1 ... 1' if you have no preference.)
+  (another choice is any prime larger than all the bases).
+  (any value of 0 or less terminates execution.)
+  User input:           1           5           1
+
+  Enter BASE(1:NDIM), the bases, usually distinct 
+  primes, but any NEGATIVE base generates
+  values I/BASE.  (Try '-N 2 3 5 7 11 ...' if you have no preference.)
+  (any value of 0 or 1 terminates execution.)
+  User input:           2        -100           3
+
+  The data was written to the file "hammersley_3_10.txt".
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you have no preference.)
+  (0 or any negative value terminates execution).
+
+  Enter N, the number of points to generate:
+  (Try '25' if you have no preference.)
+  (0 or any negative value terminates execution).
+
+  Enter STEP, the index of the first subsequence element:
+  (Try '0' or '1' if you have no preference.)
+  (Any negative value terminates execution).
+
+  Enter SEED(1:NDIM), the starting element index
+  for each coordinate
+  (Try '0 0 ... 0' if you have no preference.)
+  (a negative value terminates execution.)
+  User input:           0           0           0           0           3
+                        0           0
+
+  Enter LEAP(1:NDIM), the leaping multiplier
+  for each coordinate
+  (Try '1 1 ... 1' if you have no preference.)
+  (another choice is any prime larger than all the bases).
+  (any value of 0 or less terminates execution.)
+  User input:           1           1           1           1           1
+                        1           2
+
+  Enter BASE(1:NDIM), the bases, usually distinct 
+  primes, but any NEGATIVE base generates
+  values I/BASE.  (Try '-N 2 3 5 7 11 ...' if you have no preference.)
+  (any value of 0 or 1 terminates execution.)
+  User input:           2          -1           4          -2           2
+                      -20           2
+
+  The data was written to the file "hammersley_7_10.txt".
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you have no preference.)
+  (0 or any negative value terminates execution).
+
+HALHAM_NDIM_CHECK - Fatal error!
+  NDIM < 0.  NDIM = -1
+
+HAMMERSLEY_DATASET
+  The input value of NDIM = -1
+  is interpreted as a request for termination.
+  Normal end of execution.
+
+23 September 2004 02:37:05 PM

@@ -1,0 +1,50 @@
+14 March 2012 01:24:59 PM
+
+RKF45_PRB2
+  C++ version
+  Test the RKF45 library.
+
+TEST07
+  Solve a scalar equation using R8_RKF:
+
+  There are three parameters, ALPHA, BETA, GAMMA
+
+  Y' = ALPHA * BETA * cos ( BETA * T + GAMMA )
+
+  ALPHA = 1
+  BETA  = 2
+  GAMMA = 3
+
+FLAG             T          Y         Y'          Y_Exact         Error
+
+   1             0       0.14112      -1.97998       0.14112             0
+   8             0       0.14112      -1.97998       0.14112             0
+   8             4       0.14112      -1.97998      -0.99999       1.14111
+   8             8       0.14112      -1.97998      0.149877    -0.0087572
+   8            12       0.14112      -1.97998      0.956376     -0.815256
+   8            16       0.14112      -1.97998     -0.428183      0.569303
+
+TEST07
+  Solve a scalar equation using R8_RKF:
+
+  There are three parameters, ALPHA, BETA, GAMMA
+
+  Y' = ALPHA * BETA * cos ( BETA * T + GAMMA )
+
+  ALPHA = 1
+  BETA  = 0.5
+  GAMMA = 0
+
+FLAG             T          Y         Y'          Y_Exact         Error
+
+   1             0             0           0.5             0             0
+   8             0             0           0.5             0             0
+   8             4             0           0.5      0.909297     -0.909297
+   8             8             0           0.5     -0.756802      0.756802
+   8            12             0           0.5     -0.279415      0.279415
+   8            16             0           0.5      0.989358     -0.989358
+
+RKF45_PRB2
+  Normal end of execution.
+
+14 March 2012 01:24:59 PM

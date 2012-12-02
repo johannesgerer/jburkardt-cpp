@@ -1,0 +1,59 @@
+25 December 2011 04:19:19 PM
+
+PGMA_IO_PRB:
+  C++ version
+  Test the PGMA_IO library.
+
+TEST01:
+  PGMA_EXAMPLE sets up ASCII PGM data.
+  PGMA_WRITE writes an ASCII PGM file.
+
+  Writing the file "pgma_io_prb_01.ascii.pgm".
+
+  PGMA_EXAMPLE has set up the data.
+
+  PGMA_WRITE was successful.
+
+PGMA_READ_TEST:
+  PGMA_READ was able to read "pgma_io_prb_01.ascii.pgm".
+
+PGMA_READ_TEST:
+  PGMA_CHECK_DATA has approved the data from the file.
+
+  PGMA_READ_TEST was able to read our file.
+
+TEST02
+  PGMA_READ reads the header and data of an ASCII PGM file.
+
+  Reading the file "pgma_io_prb_02.ascii.pgm".
+
+  PGMA_WRITE_TEST created some test data.
+
+  PGMA_READ read the test data successfully.
+
+  Sample data:
+
+   0     0      60
+  33    33      73
+  66    66      34
+  99    99      45
+ 132   132      60
+ 166   166      20
+ 199   199      32
+ 232   232      46
+ 265   265       7
+ 299   299      19
+
+TEST03:
+  PGMA_WRITE writes an ASCII PGM file.
+
+  In this example, we make a sort of grayscale
+  checkerboard.
+  Writing the file "pgma_io_prb_03.ascii.pgm".
+
+  PGMA_WRITE was successful.
+
+PGMA_IO_PRB:
+  Normal end of execution.
+
+25 December 2011 04:19:19 PM

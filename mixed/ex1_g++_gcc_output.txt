@@ -1,0 +1,55 @@
+
+MAIN
+
+  Demonstrate how a C++ main program
+  may call a C routine, and live!
+
+  The C++ main program will now call the C routine.
+
+MAIN:
+  Set integers I1 and I2, then call the C routine 
+  INT_ADD_SUB to compute I3 = I1 + I2.
+
+  I1 = 42
+  I2 = 22
+
+INT_ADD_SUB:
+  Input I1 = 42.
+  Input I2 = 22.
+  Output I3 = 64.
+
+  INT_ADD_SUB returned I3 = 64
+
+  Now repeat, but using a C function.
+
+  INT_ADD_FUNC returned I3 = 64
+
+MAIN:
+  Set floats R1 and R2, then call the C routine 
+  REAL_ADD_SUB to compute R3 = R1 + R2.
+
+REAL_ADD_SUB:
+  Input R1 = 42.000000.
+  Input R2 = 22.000000.
+  Output R3 = 64.000000.
+
+  REAL_ADD_SUB returned R3 = 64
+
+  Now repeat, but using a C function.
+
+  REAL_ADD_FUNC returned R3 = 64
+
+MAIN:
+  Set doubles D1 and D2, then call the C routine 
+  DOUBLE_ADD_SUB to compute D3 = D1 + D2.
+
+DOUBLE_ADD_SUB:
+  Input R1 = 42.000000.
+  Input R2 = 22.000000.
+  Output R3 = 64.000000.
+
+  DOUBLE_ADD_SUB returned D3 = 64
+
+  Now repeat, but using a C function.
+
+  REAL_ADD_FUNC returned R3 = 64

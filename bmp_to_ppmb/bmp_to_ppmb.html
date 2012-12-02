@@ -1,0 +1,177 @@
+<html>
+
+  <head>
+    <title>
+      BMP_TO_PPMB - BMP => binary Portable Pixel Map (PPM) Conversion
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      BMP_TO_PPMB <br> BMP => binary Portable Pixel Map (PPM) Conversion
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>BMP_TO_PPMB</b>
+      is a C++ program which
+      converts a Microsoft BMP file to a binary Portable Pixel Map (PPM) file.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>bmp_to_ppmb</b> <i>file.bmp</i> <i>file.ppm</i>
+        </dt>
+        <dd>
+          reads data from <i>file.bmp</i> and creates an equivalent
+          graphics file in <i>file.ppm</i>.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/bmp/bmp.html">
+      BMP</a>,
+      a data directory which
+      contains a description and examples of BMP files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_io/bmp_io.html">
+      BMP_IO</a>,
+      a C++ library which
+      reads or writes BMP graphics files.
+    </p>
+
+    <p>
+      <a href = "../../data/ppmb/ppmb.html">
+      PPMB</a>,
+      a data directory which
+      contains a description and examples of binary Portable Pixel Map (PPM) files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_to_bmp/ppmb_to_bmp.html">
+      PPMB_TO_BMP</a>,
+      a C++ program which
+      converts binary Portable Pixel Map (PPM) files to BMP files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_io/ppmb_io.html">
+      PPMB_IO</a>,
+      a C++ library which
+      reads or writes binary Portable Pixel Map (PPM) files.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Microsoft Corporation,<br>
+          Microsoft Windows Programmer's Reference,<br>
+          Volume 5; Messages, Structures, and Macros,<br>
+          Microsoft Press, 1993.
+        </li>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">
+                     http://netpbm.sourceforge.net</a> <br>
+          the NETPBM homepage.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "bmp_to_ppmb.cpp">bmp_to_ppmb.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "bmp_to_ppmb.sh">bmp_to_ppmb.sh</a>,
+          commands to compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "../../data/bmp/blackbuck.bmp">blackbuck.bmp</a>,
+          a sample BMP file (a BINARY file!);
+        </li>
+        <li>
+          <a href = "../../data/ppmb/blackbuck.ppm">blackbuck.ppm</a>,
+          the converted binary PPM file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for BMP_TO_PPMB.
+        </li>
+        <li>
+          <b>BMP_TO_PPMB</b> reads a BMP file and writes a PPMB file.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>UCMAT_VERT_FLIP</b> swaps rows of a UCMAT, to flip it vertically.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 January 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,240 @@
+
+19 February 2005 11:28:50 AM
+
+TABLE_VORONOI (C++ version):
+  This program is given the coordinates of a set of
+  points in the plane, calls GEOMPACK to determine the
+  Delaunay triangulation of those points, and then
+  digests that data to produce information defining
+  the Voronoi diagram.
+
+  The input file contains the following data:
+
+    G_NUM:    the number of generators;
+    G_XY:     the (X,Y) coordinates of the generators.
+
+  The computed Voronoi information includes:
+
+    G_DEGREE: the degree of each Voronoi cell;
+    G_START:  the index of the first Voronoi vertex;
+    G_FACE:   the list of all Voronoi vertices;
+
+    V_NUM:    the number of (finite) Voronoi vertices;
+    V_XY:     the (X,Y) coordinates of the Voronoi vertices;
+
+    I_NUM:    the number of Voronoi vertices at infinity;
+    I_XY:     the directions associated with the Voronoi
+              vertices at infinity.
+
+  Compiled on Feb 19 2005 at 11:28:35.
+
+HANDLE_FILE
+  Read the TABLE file "diamond_02_00009.xy".
+
+  DTABLE_HEADER_READ has read the header.
+
+  The spatial dimension of the data M = 2
+  The number of generators, G_NUM = 9
+
+  DTABLE_DATA_READ has read the data.
+
+  The generators
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              0             1
+    3            0.2           0.5
+    4            0.3           0.6
+    5            0.4           0.5
+    6            0.6           0.3
+    7            0.6           0.5
+    8              1             0
+    9              1             1
+
+
+TRI_AUGMENT:
+  Number of boundary triangles = 4
+
+  The generators that form each Delaunay triangle:
+  (Negative values are fictitious nodes at infinity.)
+
+
+  Triangle nodes:
+
+  Row:          1             2             3       
+  Col
+
+    1       2       1       3  
+    2       3       1       6  
+    3       2       3       4  
+    4       4       3       5  
+    5       7       4       5  
+    6       5       3       6  
+    7       7       5       6  
+    8       9       4       7  
+    9       6       1       8  
+   10       7       6       8  
+   11       7       8       9  
+   12       2       4       9  
+   13      -1       1       2  
+   14      -2       8       1  
+   15      -3       9       8  
+   16      -4       2       9  
+
+
+  Neighboring triangles of each Delaunay triangle:
+  Negative values indicate no finite neighbor.
+
+
+  Neighbor triangles:
+
+  Row:          1             2             3       
+  Col
+
+    1      -1       2       3  
+    2       1       9       6  
+    3       1       4      12  
+    4       3       6       5  
+    5       8       4       7  
+    6       4       2       7  
+    7       5       6      10  
+    8      12       5      11  
+    9       2      -2      10  
+   10       7       9      11  
+   11      10      -3       8  
+   12       3       8      -4  
+
+
+  Voronoi cell degrees:
+
+     1         5
+     2         5
+     3         5
+     4         5
+     5         4
+     6         5
+     7         5
+     8         5
+     9         5
+
+  The Voronoi vertices:
+
+  Row:       1             2       
+  Col
+
+    1         -0.525           0.5
+    2         0.2875         0.175
+    3      0.0642857      0.735714
+    4            0.3           0.5
+    5            0.5           0.7
+    6            0.3           0.2
+    7            0.5           0.4
+    8       0.576316      0.928947
+    9            0.5         -0.25
+   10         0.9875           0.4
+   11         1.1125           0.5
+   12            0.5        1.0625
+
+
+  G_START: The index of the first Voronoi vertex
+  G_FACE: The Voronoi vertices
+
+   G  G_START  G_FACE
+
+
+     1     1   -14
+                 9
+                 2
+                 1
+               -13
+
+     2     6   -13
+                 1
+                 3
+                12
+               -16
+
+     3    11     1
+                 3
+                 4
+                 6
+                 2
+
+     4    16     3
+                12
+                 8
+                 5
+                 4
+
+     5    21     4
+                 5
+                 7
+                 6
+
+     6    25     2
+                 6
+                 7
+                10
+                 9
+
+     7    30     5
+                 8
+                11
+                10
+                 7
+
+     8    35   -15
+                11
+                10
+                 9
+               -14
+
+     9    40   -16
+                12
+                 8
+                11
+               -15
+
+  V_NUM: Number of Voronoi vertices = 12
+
+  Voronoi vertices:
+
+  Row:       1             2       
+  Col
+
+    1         -0.525           0.5
+    2         0.2875         0.175
+    3      0.0642857      0.735714
+    4            0.3           0.5
+    5            0.5           0.7
+    6            0.3           0.2
+    7            0.5           0.4
+    8       0.576316      0.928947
+    9            0.5         -0.25
+   10         0.9875           0.4
+   11         1.1125           0.5
+   12            0.5        1.0625
+
+
+  I_NUM: Number of Voronoi vertices at infinity = 4
+
+  I_XY, the directions of the Voronoi vertices at infinity:
+
+
+  Directions at infinity:
+
+  Row:       1             2       
+  Col
+
+    1             -1            -0
+    2              0            -1
+    3              1            -0
+    4              0             1
+
+
+TABLE_VORONOI:
+  Normal end of execution.
+
+19 February 2005 11:28:50 AM

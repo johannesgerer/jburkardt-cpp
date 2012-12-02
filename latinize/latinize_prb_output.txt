@@ -1,0 +1,146 @@
+04 February 2012 10:45:07 PM
+
+LATINIZE_PRB
+  C++ version
+  Test the LATINIZE library.
+
+  Read a dataset of N points in M dimensions,
+  modify it into a Latin hypercube,
+  write the modified dataset to a file.
+
+  Read the header of "cvt_02_00010.txt".
+
+  Spatial dimension M = 2
+  Number of points N  = 10
+
+  Read the data in "cvt_02_00010.txt".
+
+  Small portion of data read from file:
+
+  Row:       0             1       
+  Col
+
+    0:       1.16826       4.87833
+    1:       1.83442         4.833
+    2:       1.52136        4.4999
+    3:       1.50625       4.16524
+    4:       1.18054       4.62741
+
+  Latinized the data.
+
+  Small portion of Latinized data:
+
+  Row:       0             1       
+  Col
+
+    0:       1.16826       4.87833
+    1:       1.69215       4.71033
+    2:       1.61731       4.45834
+    3:       1.54247       4.20634
+    4:       1.39278       4.62633
+
+  Wrote the latinized data to "cvt_02_00010.latin.txt".
+
+  Read the header of "cvt_03_00007.txt".
+
+  Spatial dimension M = 3
+  Number of points N  = 7
+
+  Read the data in "cvt_03_00007.txt".
+
+  Small portion of data read from file:
+
+  Row:       0             1             2       
+  Col
+
+    0:       0.21299      0.213929      0.402974
+    1:      0.744165      0.743684      0.745185
+    2:      0.227863      0.653331      0.777152
+    3:      0.651481      0.226915      0.776689
+    4:      0.251554      0.728295      0.251023
+
+  Latinized the data.
+
+  Small portion of Latinized data:
+
+  Row:       0             1             2       
+  Col
+
+    0:       0.21299      0.213929      0.512856
+    1:      0.663068       0.66337      0.600955
+    2:      0.303006      0.483594      0.777152
+    3:      0.483037      0.303817      0.689053
+    4:      0.393021      0.573482      0.336659
+
+  Wrote the latinized data to "cvt_03_00007.latin.txt".
+
+  Read the header of "cvt_03_00056.txt".
+
+  Spatial dimension M = 3
+  Number of points N  = 56
+
+  Read the data in "cvt_03_00056.txt".
+
+  Small portion of data read from file:
+
+  Row:       0             1             2       
+  Col
+
+    0:      0.117583      0.135099      0.386415
+    1:      0.642257      0.867248      0.644473
+    2:       0.36725      0.875752      0.844107
+    3:       0.86411      0.362716      0.885397
+    4:      0.123844      0.880777      0.647162
+
+  Latinized the data.
+
+  Small portion of Latinized data:
+
+  Row:       0             1             2       
+  Col
+
+    0:      0.148226      0.206614      0.452516
+    1:      0.649521      0.762207      0.637237
+    2:      0.391712      0.776453      0.722494
+    3:      0.764103      0.377566      0.850378
+    4:       0.21984      0.819191      0.651447
+
+  Wrote the latinized data to "cvt_03_00056.latin.txt".
+
+  Read the header of "cvt_07_00100.txt".
+
+  Spatial dimension M = 7
+  Number of points N  = 100
+
+  Read the data in "cvt_07_00100.txt".
+
+  Small portion of data read from file:
+
+  Row:       0             1             2             3             4       
+  Col
+
+    0:      0.257803      0.743793      0.745747      0.761368       0.27348
+    1:      0.280192      0.237158      0.713337      0.199911      0.748151
+    2:      0.764661      0.235842      0.770266       0.57125      0.243116
+    3:      0.748951      0.255669      0.251137      0.208805      0.743281
+    4:      0.745628      0.230294      0.751181      0.727216      0.711423
+
+  Latinized the data.
+
+  Small portion of Latinized data:
+
+  Row:       0             1             2             3             4       
+  Col
+
+    0:      0.387167      0.578883      0.615002      0.649032      0.452162
+    1:      0.433357      0.323164      0.513236      0.199911       0.62335
+    2:      0.704726      0.306116      0.750691      0.530514      0.375422
+    3:       0.58925      0.408404      0.394508      0.237338      0.605641
+    4:      0.577703      0.249289      0.626309      0.592892      0.534804
+
+  Wrote the latinized data to "cvt_07_00100.latin.txt".
+
+LATINIZE_PRB
+  Normal end of execution.
+
+04 February 2012 10:45:07 PM

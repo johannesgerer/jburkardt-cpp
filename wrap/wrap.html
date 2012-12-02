@@ -1,0 +1,224 @@
+<html>
+
+  <head>
+    <title>
+      WRAP - Break Up Long Lines in a File
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      WRAP <br> Break Up Long Lines in a File
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>WRAP</b> 
+      is a C++ program which
+      reads a file and makes a
+      copy in which long lines have been broken up. 
+    </p>
+
+    <p>
+      The user specifies a maximum allowable line length.  Any line of
+      text in the input file that is longer than this length is
+      broken into two or more lines, with all but the last of these
+      pieces being exactly the maximum length.
+    <p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>wrap</b> <i>old</i> <i>new</i> <i>wrap_length</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>old</i> is the file to be modified;
+        </li>
+        <li>
+          <i>new</i> is the modified copy of the old file.
+        </li>
+        <li>
+          <i>wrap_length</i> is the maximum line length, after which
+          a new line should be forced.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cr2crlf/cr2crlf.html">
+      CR2CRLF</a>,
+      a C++ program which
+      reads a text file and replaces carriage returns by carriage returns + line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cr2lf/cr2lf.html">
+      CR2LF</a>, 
+      a C++ program which 
+      reads a text file and replaces 
+      carriage returns by line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/crrm/crrm.html">
+      CRRM</a>, 
+      a C++ program which
+      reads a text file and writes a copy which has no carriage returns.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/deblank/deblank.html">
+      DEBLANK</a>,
+      a C++ program which
+      makes a copy
+      of a text file in which blank lines have been removed.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/decomment/decomment.html">
+      DECOMMENT</a>, 
+      a C++ program which
+      makes a copy of a text file which contains no "comment" lines
+      (that begin with "#").
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/detroff/detroff.html">
+      DETROFF</a>, 
+      a C++ program which 
+      removes from a file every occurrence of the TROFF overprint
+      pair character+backspace, which can make a MAN page printable;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/filum/filum.html">
+      FILUM</a>, 
+      a C++ library which
+      performs various operations
+      on files.
+    </p>
+
+    <p>
+      <a href = "../../f_src/reformat/reformat.html">
+      REFORMAT</a>, 
+      a FORTRAN90 program which
+      reads a file that contains only real values, and writes a copy
+      which has a fixed number of real values on each line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/reword/reword.html">
+      REWORD</a>, 
+      a C++ program which
+      makes a copy of a file
+      in which each line has the same number of "words".
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uncontrol/uncontrol.html">
+      UNCONTROL</a>, 
+      a C++ program which
+      makes a copy of a text file which contains no control characters.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap2/wrap2.html">
+      WRAP2</a>, 
+      a C++ program which 
+      wraps long lines in a text file,
+      but which wraps some lines "early", so as to avoid breaking words.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "wrap.cpp">wrap.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "wrap.sh">wrap.sh</a>, commands to
+          compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "runon.xgl">runon.xgl</a>, an XGL file contained in a 
+          single LONG line;
+        </li>
+        <li>
+          <a href = "wrapped.xgl">wrapped.xgl</a>, the "wrapped" file.;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for WRAP.
+        </li>
+        <li>
+          <b>HANDLE</b> makes a copy of a file in which no line exceeds a given length.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an integer value from a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 02 December 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

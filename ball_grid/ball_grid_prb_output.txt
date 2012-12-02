@@ -1,0 +1,46 @@
+17 December 2011 11:25:24 AM
+
+BALL_GRID_TEST:
+  C++ version
+  Test the BALL_GRID library.
+
+TEST01:
+  BALL_GRID can define a grid of points
+  with N+1 points on a horizontal or vertical radius,
+  based on any ball.
+
+  We use N = 10
+  Radius R = 2
+  Center C = (1,5,2)
+
+  Number of grid points will be 4945
+
+  Part of the grid point array:
+
+         0:              1               5               2
+         1:              1               5         2.19048
+         2:              1               5         1.80952
+         3:              1               5         2.38095
+         4:              1               5         1.61905
+         5:              1               5         2.57143
+         6:              1               5         1.42857
+         7:              1               5          2.7619
+         8:              1               5          1.2381
+         9:              1               5         2.95238
+        10:              1               5         1.04762
+        11:              1               5         3.14286
+        12:              1               5        0.857143
+        13:              1               5         3.33333
+        14:              1               5        0.666667
+        15:              1               5         3.52381
+        16:              1               5         0.47619
+        17:              1               5         3.71429
+  ........  ..............  ..............  ..............
+      4944:      -0.904762         4.42857         1.80952
+
+  Data written to the file "ball_grid_test01.xyz".
+
+BALL_GRID_TEST:
+  Normal end of execution.
+
+17 December 2011 11:25:24 AM

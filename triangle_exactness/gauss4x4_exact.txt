@@ -1,0 +1,81 @@
+04 July 2007 10:49:08 AM
+
+NINT_EXACTNESS_TRI
+  C++ version
+
+  Investigate the polynomial exactness of a quadrature
+  rule for the triangle by integrating all monomials
+  of a given degree.
+
+  The rule will be adjusted to the unit triangle.
+
+NINT_EXACTNESS_TRI: User input:
+  Quadrature rule X file = "gauss4x4_x.txt".
+  Quadrature rule W file = "gauss4x4_w.txt".
+  Quadrature rule R file = "gauss4x4_r.txt".
+  Maximum total degree to check = 8
+
+  Spatial dimension = 2
+  Number of points  = 16
+
+      Error    Degree  Exponents
+
+         2e-10      0   0 0
+
+   3.40727e-10      1   1 0
+   1.29636e-10      1   0 1
+
+   4.57924e-10      2   2 0
+   2.23531e-10      2   1 1
+   9.83383e-11      2   0 2
+
+    5.6686e-10      3   3 0
+   2.94521e-10      3   2 1
+   1.76203e-10      3   1 2
+   7.88724e-11      3   0 3
+
+   6.71277e-10      4   4 0
+   3.58026e-10      4   3 1
+   2.31016e-10      4   2 2
+   1.48797e-10      4   1 3
+   6.48874e-11      4   0 4
+
+   7.67815e-10      5   5 0
+   4.29929e-10      5   4 1
+   2.62156e-10      5   3 2
+    2.0766e-10      5   2 3
+   1.25252e-10      5   1 4
+   5.48268e-11      5   0 5
+
+   8.49704e-10      6   6 0
+   5.22148e-10      6   5 1
+   2.76231e-10      6   4 2
+   2.48082e-10      6   3 3
+   1.83407e-10      6   2 4
+   1.05867e-10      6   1 5
+   4.75355e-11      6   0 6
+
+   9.11534e-10      7   7 0
+   6.33302e-10      7   6 1
+   2.99839e-10      7   5 2
+   2.46722e-10      7   4 3
+   2.49171e-10      7   3 4
+   1.50525e-10      7   2 5
+   9.31066e-11      7   1 6
+   4.18393e-11      7   0 7
+
+   0.000566894      8   8 0
+    0.00226757      8   7 1
+    0.00529101      8   6 2
+    0.00793651      8   5 3
+    0.00793651      8   4 4
+    0.00529101      8   3 5
+    0.00226757      8   2 6
+   0.000566893      8   1 7
+   0.000267057      8   0 8
+
+
+'NINT_EXACTNESS_TRI:
+  Normal end of execution.
+
+04 July 2007 10:49:08 AM

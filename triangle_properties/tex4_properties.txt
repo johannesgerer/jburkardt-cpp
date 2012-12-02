@@ -1,0 +1,61 @@
+
+18 July 2009 11:08:17 PM
+
+TRIANGLE_PROPERTIES:
+  C++ version:
+  Determine properties of a triangle.
+
+  Read the header of "tex4.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of points NODE_NUM = 3
+
+  Read the data in "tex4.txt".
+
+  Node coordinates:
+
+  Row:       1             2       
+  Col
+
+    1              4             0
+    2              3             4
+    3              0             1
+
+  ANGLES (radians)
+
+         0         1.08084
+         1         1.03038
+         2         1.03038
+
+  ANGLES (degrees)
+
+         0         61.9275
+         1         59.0362
+         2         59.0362
+
+  AREA = 7.5
+
+  CENTROID:          2.33333         1.66667
+
+  CIRCUM_RADIUS = 2.40416
+  CIRCUM_CENTER:              2.3             1.7
+
+  EDGE_LENGTHS
+
+         0         4.12311
+         1         4.24264
+         2         4.12311
+
+  IN_RADIUS = 2.34929
+  IN_CENTER:          1.20107               0
+
+  ORIENTATION: CounterClockwise.
+
+  ORTHO_CENTER:              2.4             1.6
+
+  QUALITY = 0.999159
+
+TRIANGLE_PROPERTIES:
+  Normal end of execution.
+
+18 July 2009 11:08:17 PM

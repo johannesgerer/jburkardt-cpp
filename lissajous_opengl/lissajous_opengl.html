@@ -1,0 +1,375 @@
+<html>
+
+  <head>
+    <title>
+      LISSAJOUS_OPENGL - Display a Lissajous Figure using OpenGL
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      LISSAJOUS_OPENGL <br> Display a Lissajous Figure using OpenGL
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>LISSAJOUS_OPENGL</b>
+      is a C++ program which
+      computes a Lissajous figure based on user input, and uses OpenGL to display it.
+    </p>
+
+    <p>
+      The user specifies information about the number of points, and the form of the
+      two sine curves involved.  Depending on these parameters, the resulting shape
+      may or may not be a closed curve.  The user also specifies a range for the
+      underlying T parameter.  Again, depending on the parameters, this value
+      may result in a closed curve being drawn several times, or a closed curve
+      being only partially drawn.
+    </p>
+
+    <p>
+      The program plots <b>N</b> points along the curve
+      <blockquote>
+        t(i) = i * T2 / ( N - 1 )<br>
+        x(i) = R1 * sin ( ( A1 * t(i) + B1 ) * 2 * pi )<br>
+        y(i) = R2 * sin ( ( A2 * t(i) + B2 ) * 2 * pi )
+      </blockquote>
+      for 0 <= I <= N - 1.
+    </p>
+
+    <p>
+      The user specifies N, T2, A1, B1, A2 and B2.  The parameters R1 and
+      R2 are currently fixed at 1.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>lissajous_opengl</b> <i>n</i> <i>t2</i> <i>a1</i> <i>b1</i> <i>a2</i> <i>b2</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>n</i> the number of points to plot;
+        </li>
+        <li>
+          <i>t2</i> the final value of T.
+        </li>
+        <li>
+          <i>a1</i>, <i>b1</i> defines x(i)=sin((a1*t(i)+b1)*2*pi);
+        </li>
+        <li>
+          <i>a2</i>,<i>b2</i> defines y(i)=sin((a2*t(i)+b2)*2*pi);
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      OpenGL on Macintosh OS X
+    </h3>
+
+    <p>
+      <b>OpenGL</b> ships with OS X for the Macintosh.  You can obtain
+      the latest software version on
+      <a href = "http://www.apple.com/opengl/">the Apple OpenGL web site</a>.
+    </p>
+
+    <p>
+      Note that this source code and compilation script have been adapted for
+      use on a Macintosh running OS X.
+    </p>
+
+    <p>
+      For that reason, the include file references have been changed from:
+      <pre><code>
+        # include &lt;GL/glut.h&gt;
+      </code></pre>
+      to:
+      <pre><code>
+        # include &lt;GLUT/glut.h&gt;
+      </code></pre>
+    </p>
+
+    <p>
+      The compilation statement, which might ordinarily be
+      <pre><code>
+        g++ lissajous_opengl.C -m -lGL -lGLU -lglut
+      </code></pre>
+      was modified to:
+      <pre><code>
+        g++ lissajous_opengl.C -m -framework OpenGL -framework GLUT
+      </code></pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/caustic_opengl/caustic_opengl.html">
+      CAUSTIC_OPENGL</a>,
+      a C++ program which
+      computes a caustic curve and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fern_opengl/fern_opengl.html">
+      FERN_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the Barnsley fractal fern.
+    </p>
+
+    <p>
+      <a href = "../../c_src/flood_opengl/flood_opengl.html">
+      FLOOD_OPENGL</a>,
+      a C program which
+      allows a user to select a region and flood it with color,
+      using OpenGL, by Art Wetzel.
+    </p>
+
+    <p>
+      <a href = "../../c_src/life_opengl/life_opengl.html">
+      LIFE_OPENGL</a>,
+      a C program which
+      simulates a version of John Conway's "Game of Life", displaying the
+      results using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lights_out_opengl/lights_out_opengl.html">
+      LIGHTS_OUT_OPENGL</a>,
+      a C++ program which
+      sets up a "Lights Out" game and allows the user to solve it,
+      using the OpenGL graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/opengl/opengl.html">
+      OPENGL</a>,
+      C++ programs which
+      illustrate the use of the OpenGL graphics library;
+    </p>
+
+    <p>
+      <a href = "../../pl_src/obj2opengl/obj2opengl.html">
+      OBJ2OPENGL</a>,
+      a PERL script which
+      converts OBJ files of 3D data
+      into C include files, which can then be used in an OpenGL
+      program to display the object.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygonal_surface_display_opengl/polygonal_surface_display_opengl.html">
+      POLYGONAL_SURFACE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a surface in 3D described as a set of polygons, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rotating_cube_display_opengl/rotating_cube_display_opengl.html">
+      ROTATING_CUBE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a rotating color cube in 3D, using OpenGL;
+    </p>
+
+    <p>
+      <a href = "../../data/ppma/ppma.html">
+      PPMA</a>,
+      a data directory which
+      describes the ASCII Portable Pixel Map (PPM) format,
+      which is a possible means of storing the
+      graphics information displayed by <b>OpenGL</b>.  One of the example
+      programs shows how this can be done.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_xyz_display_opengl/sphere_xyz_display_opengl.html">
+      SPHERE_XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYZ information defining points in 3D,
+      and displays a unit sphere and the points, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_display_opengl/tet_mesh_display_opengl.html">
+      TET_MESH_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads a pair of files defining
+      a tetrahedral mesh and displays an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tri_surface_display_opengl/tri_surface_display_opengl.html">
+      TRI_SURFACE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays the 3D graphics information
+      in a TRI_SURFACE file
+      using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_display_opengl/triangulation_display_opengl.html">
+      TRIANGULATION_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads a pair of files defining
+      a triangulation and displays an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xy_display_opengl/xy_display_opengl.html">
+      XY_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XY file of 2D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyl_display_opengl/xyl_display_opengl.html">
+      XYL_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYL information defining points and lines in 2D, and displays
+      an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyz_display_opengl/xyz_display_opengl.html">
+      XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XYZ file of 3D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics,
+          a Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000,<br>
+          ISBN: 0-201-38597-X,<br>
+          LC: T385.A514.
+        </li>
+        <li>
+          Renate Kempf, Chris Frazier, editors,<br>
+          OpenGL Reference Manual,<br>
+          Fourth Edition,<br>
+          Addison-Wesley, 2004,<br>
+          ISBN: 032117383X,<br>
+          LC: T385.O642.
+        </li>
+        <li>
+          Mason Woo, Jackie Neider, Tom Davis,<br>
+          OpenGL Programming Guide,<br>
+          Addison-Wesley, 1997,<br>
+          ISBN: 0-201-46138-2,<br>
+          LC: T385.N435.
+        </li>
+        <li>
+          Richard Wright, Michael Sweet,<br>
+          OpenGL Superbible,<br>
+          Third Edition,<br>
+          Sams, 2004,<br>
+          ISBN: 0672326019,<br>
+          LC: T385.W73.
+        </li>
+        <li>
+          <a href = "http://www.opengl.org/">
+                     http://www.opengl.org/ </a> <br>
+          The official OpenGL site.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lissajous_opengl.cpp">lissajous_opengl.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "lissajous_opengl.sh">lissajous_opengl.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "figure1.png">figure1.png</a>,
+          the output from "lissajous_opengl 1000 1.0 5.0 0.5 6.0 0.0".
+        </li>
+        <li>
+          <a href = "figure2.png">figure2.png</a>,
+          the output from "lissajous_opengl 1000 2.0 7.0 0.5 8.1 0.0".
+        </li>
+        <li>
+          <a href = "figure3.png">figure3.png</a>,
+          the output from "lissajous_opengl 1000 1.0 7.0 0.2 8.0 0.0".
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for LISSAJOUS_OPENGL.
+        </li>
+        <li>
+          <b>DISPLAY</b> generates the graphics output.
+        </li>
+        <li>
+          <b>MYINIT</b> initializes OpenGL state variables dealing with viewing and attributes.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 December 2008.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

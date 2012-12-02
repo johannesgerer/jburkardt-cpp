@@ -1,0 +1,365 @@
+<html>
+
+  <head>
+    <title>
+      XYF_DISPLAY_OPENGL - Display 2D Points and Faces Using OpenGL
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      XYF_DISPLAY_OPENGL<br> Display 2D Points and Faces Using OpenGL
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>XYF_DISPLAY_OPENGL</b> 
+      is a C++ program which 
+      reads XYF information defining points and faces in 2D,
+      and draws a picture using <b>OPENGL</b>.
+    </p>
+
+    <p>
+      The point and face information is stored in a pair of files,
+      called the <b>XYF</b> format.  Essentially, the first file
+      stores a list of point coordinates, and the second lists point indices
+      which can be connected to form faces.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>xyf_display_opengl</b> <i>prefix</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>prefix</i> is the common prefix for the point coordinate data in
+          <i>prefix</i>.<b>xy</b> and the
+          point index lists in <i>prefix</i>.<b>xyf</b>.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../m_src/box_plot/box_plot.html">
+      BOX_PLOT</a>,
+      a MATLAB program which
+      can color in specified entries of
+      a checkerboard, corresponding to pairs of integer data.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/caustic_opengl/caustic_opengl.html">
+      CAUSTIC_OPENGL</a>, 
+      a C++ program which
+      computes a caustic curve and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fern_opengl/fern_opengl.html">
+      FERN_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the Barnsley fractal fern.
+    </p>
+
+    <p>
+      <a href = "../../c_src/flood_opengl/flood_opengl.html">
+      FLOOD_OPENGL</a>,
+      a C program which
+      allows a user to select a region and flood it with color,
+      using OpenGL, by Art Wetzel.
+    </p>
+
+    <p>
+      <a href = "../../c_src/life_opengl/life_opengl.html">
+      LIFE_OPENGL</a>,
+      a C program which
+      plays John Conway's "Game of Life", using OpenGL to display the results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lissajous_opengl/lissajous_opengl.html">
+      LISSAJOUS_OPENGL</a>, 
+      a C++ program which 
+      computes a Lissajous figure and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/opengl/opengl.html">
+      OPENGL</a>, 
+      C++ programs which
+      illustrate the use of the OpenGL graphics library;
+    </p>
+
+    <p>
+      <a href = "../../f_src/plot_points/plot_points.html">
+      PLOT_POINTS</a>,
+      a FORTRAN90 program which
+      reads a file of point coordinates and makes a PostScript image of them.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygonal_surface_display_opengl/polygonal_surface_display_opengl.html">
+      POLYGONAL_SURFACE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a surface in 3D described as a set of polygons, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rotating_cube_display_opengl/rotating_cube_display_opengl.html">
+      ROTATING_CUBE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a rotating color cube in 3D, using OpenGL;
+    </p>
+
+    <p> 
+      <a href = "../../cpp_src/sphere_xyz_display_opengl/sphere_xyz_display_opengl.html">
+      SPHERE_XYZ_DISPLAY_OPENGL</a>, 
+      a C++ program which
+      reads XYZ information defining points in 3D, 
+      and displays a unit sphere and the points, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../f_src/table_delaunay/table_delaunay.html">
+      TABLE_DELAUNAY</a>,
+      a FORTRAN90 program which 
+      computes the Delaunay triangulation of a set of points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_voronoi/table_voronoi.html">
+      TABLE_VORONOI</a>,
+      a C++ program which 
+      computes information about the Voronoi diagram of the points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_display_opengl/triangulation_display_opengl.html">
+      TRIANGULATION_DISPLAY_OPENGL</a>, 
+      a C++ program which
+      reads files defining a triangulation and displays an image
+      using Open GL.
+    </p>
+
+    <p> 
+      <a href = "../../cpp_src/xy_display_opengl/xy_display_opengl.html">
+      XY_DISPLAY_OPENGL</a>, 
+      a C++ program which
+      reads an XY file of 2D point coordinates, 
+      and displays an image of those points using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../data/xyf/xyf.html">
+      XYF</a>, 
+      a data directory which
+      contains examples of XYF files,
+      a simple 2D graphics point and face format;
+    </p>
+
+    <p> 
+      <a href = "../../m_src/xyl_display/xyl_display.html">
+      XYL_DISPLAY</a>, 
+      a MATLAB program which
+      reads XYL information defining points and lines in 2D, 
+      and displays an image in a MATLAB graphics window.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics, 
+          a Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000,<br>
+          ISBN: 0-201-38597-X,<br>
+          LC: T385.A514.
+        </li>
+        <li>
+          Renate Kempf, Chris Frazier, editors,<br>
+          OpenGL Reference Manual,<br>
+          Fourth Edition,<br>
+          Addison-Wesley, 2004,<br>
+          ISBN: 032117383X,<br>
+          LC: T385.O642
+        </li>
+        <li>
+          Mason Woo, Jackie Neider, Tom Davis,<br>
+          OpenGL Programming Guide,<br>
+          Addison-Wesley, 1997,<br>
+          ISBN: 0-201-46138-2,<br>
+          LC: T385.N435
+        </li>
+        <li>
+          Richard Wright, Michael Sweet,<br>
+          OpenGL Superbible,<br>
+          Third Edition,<br>
+          Sams, 2004,<br>
+          ISBN: 0672326019,<br>
+          LC: T385.W73
+        </li>
+        <li>
+          <a href = "http://www.opengl.org/">
+                     http://www.opengl.org/ </a> <br>
+          The official OpenGL site.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "xyf_display_opengl.cpp">
+          xyf_display_opengl.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "xyf_display_opengl.sh">xyf_display_opengl.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "annulus.xy">annulus.xy</a>,
+          point coordinates.
+        </li>
+        <li>
+          <a href = "annulus.xyf">annulus.xyf</a>,
+          point indices to be connected as faces.
+        </li>
+        <li>
+          <a href = "annulus.png">annulus.png</a>,
+          a PNG image of
+          the screen generated by Open GL. 
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for XYF_DISPLAY_OPENGL.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DISPLAY</b> generates the graphics output.
+        </li>
+        <li>
+          <b>I4VEC_MAX</b> returns the value of the maximum element in an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_MIN</b> returns the value of the minimum element in an I4VEC.
+        </li>
+        <li>
+          <b>MYINIT</b> initializes OpenGL state variables dealing with viewing and attributes.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8.
+        </li>
+        <li>
+          <b>R82VEC_MAX</b> returns the maximum value in a R82VEC.
+        </li>
+        <li>
+          <b>R82VEC_MIN</b> returns the minimum value in a R82VEC.
+        </li>
+        <li>
+          <b>S_CAT</b> concatenates two strings to make a third string.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>XY_DATA_READ</b> reads the data in an XY file.
+        </li>
+        <li>
+          <b>XY_HEADER_READ</b> reads the header of an XY file.
+        </li>
+        <li>
+          <b>XYF_DATA_READ</b> reads the data in an XYF file.
+        </li>
+        <li>
+          <b>XYF_HEADER_READ</b> determines the number of face items in an XYF file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 07 January 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

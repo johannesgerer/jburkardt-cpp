@@ -1,0 +1,1520 @@
+15 October 2012 09:49:08 PM
+
+PWL_INTERP_2D_TEST:
+  C++ version
+  Test the PWL_INTERP_2D library.
+  The R8LIB library is needed.
+  The test needs the TEST_INTERP_2D library.
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 1
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0    0.766421
+   1:          1           0    0.107558
+   2:          0           1    0.270337
+   3:          1           1   0.0358696
+
+  X, Y, Z interpolation:
+
+   0:          0           0    0.766421
+   1:          1           0    0.107558
+   2:          0           1    0.270337
+   3:          1           1   0.0358696
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.136815
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 1
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0    0.766421
+   1:        0.5           0    0.434914
+   2:          1           0    0.107558
+   3:          0         0.5    0.481806
+   4:        0.5         0.5    0.325762
+   5:          1         0.5    0.161026
+   6:          0           1    0.270337
+   7:        0.5           1    0.145979
+   8:          1           1   0.0358696
+
+  X, Y, Z interpolation:
+
+   0:          0           0    0.766421
+   1:        0.5           0    0.434914
+   2:          1           0    0.107558
+   3:          0         0.5    0.481806
+   4:        0.5         0.5    0.325762
+   5:          1         0.5    0.161026
+   6:          0           1    0.270337
+   7:        0.5           1    0.145979
+   8:          1           1   0.0358696
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.200111
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 1
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0    0.766421
+   1:   0.333333           0    0.705421
+   2:   0.666667           0    0.295749
+   3:          1           0    0.107558
+   4:          0    0.333333    0.707465
+   5:   0.333333    0.333333    0.826744
+   6:   0.666667    0.333333    0.585046
+   7:          1    0.333333     0.24926
+   8:          0    0.666667    0.369969
+   9:   0.333333    0.666667    0.253282
+  10:   0.666667    0.666667    0.176959
+  11:          1    0.666667   0.0677754
+  12:          0           1    0.270337
+  13:   0.333333           1    0.197704
+  14:   0.666667           1    0.101482
+  15:          1           1   0.0358696
+
+  X, Y, Z interpolation:
+
+   0:          0           0    0.766421
+   1:   0.333333           0    0.705421
+   2:   0.666667           0    0.295749
+   3:          1           0    0.107558
+   4:          0    0.333333    0.707465
+   5:   0.333333    0.333333    0.826744
+   6:   0.666667    0.333333    0.585046
+   7:          1    0.333333     0.24926
+   8:          0    0.666667    0.369969
+   9:   0.333333    0.666667    0.253282
+  10:   0.666667    0.666667    0.176959
+  11:          1    0.666667   0.0677754
+  12:          0           1    0.270337
+  13:   0.333333           1    0.197704
+  14:   0.666667           1    0.101482
+  15:          1           1   0.0358696
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0589109
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 1
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0216356
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 1
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00398124
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 2
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0    0.111111
+   1:          1           0  3.38444e-09
+   2:          0           1    0.222222
+   3:          1           1    0.111111
+
+  X, Y, Z interpolation:
+
+   0:          0           0    0.111111
+   1:          1           0  3.38444e-09
+   2:          0           1    0.222222
+   3:          1           1    0.111111
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 1.38778e-17
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 2
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0    0.111111
+   1:        0.5           0  2.7421e-05
+   2:          1           0  3.38444e-09
+   3:          0         0.5    0.222195
+   4:        0.5         0.5    0.111111
+   5:          1         0.5  2.7421e-05
+   6:          0           1    0.222222
+   7:        0.5           1    0.222195
+   8:          1           1    0.111111
+
+  X, Y, Z interpolation:
+
+   0:          0           0    0.111111
+   1:        0.5           0  2.7421e-05
+   2:          1           0  3.38444e-09
+   3:          0         0.5    0.222195
+   4:        0.5         0.5    0.111111
+   5:          1         0.5  2.7421e-05
+   6:          0           1    0.222222
+   7:        0.5           1    0.222195
+   8:          1           1    0.111111
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0196322
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 2
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0    0.111111
+   1:   0.333333           0  0.000549472
+   2:   0.666667           0  1.36537e-06
+   3:          1           0  3.38444e-09
+   4:          0    0.333333    0.221673
+   5:   0.333333    0.333333    0.111111
+   6:   0.666667    0.333333  0.000549472
+   7:          1    0.333333  1.36537e-06
+   8:          0    0.666667    0.222221
+   9:   0.333333    0.666667    0.221673
+  10:   0.666667    0.666667    0.111111
+  11:          1    0.666667  0.000549472
+  12:          0           1    0.222222
+  13:   0.333333           1    0.222221
+  14:   0.666667           1    0.221673
+  15:          1           1    0.111111
+
+  X, Y, Z interpolation:
+
+   0:          0           0    0.111111
+   1:   0.333333           0  0.000549472
+   2:   0.666667           0  1.36537e-06
+   3:          1           0  3.38444e-09
+   4:          0    0.333333    0.221673
+   5:   0.333333    0.333333    0.111111
+   6:   0.666667    0.333333  0.000549472
+   7:          1    0.333333  1.36537e-06
+   8:          0    0.666667    0.222221
+   9:   0.333333    0.666667    0.221673
+  10:   0.666667    0.666667    0.111111
+  11:          1    0.666667  0.000549472
+  12:          0           1    0.222222
+  13:   0.333333           1    0.222221
+  14:   0.666667           1    0.221673
+  15:          1           1    0.111111
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0122238
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 2
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00813486
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 2
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00212887
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 3
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0      0.1875
+   1:          1           0       0.075
+   2:          0           1    0.157058
+   3:          1           1   0.0628231
+
+  X, Y, Z interpolation:
+
+   0:          0           0      0.1875
+   1:          1           0       0.075
+   2:          0           1    0.157058
+   3:          1           1   0.0628231
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0699052
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 3
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0      0.1875
+   1:        0.5           0         0.3
+   2:          1           0       0.075
+   3:          0         0.5   0.0288273
+   4:        0.5         0.5   0.0461237
+   5:          1         0.5   0.0115309
+   6:          0           1    0.157058
+   7:        0.5           1    0.251292
+   8:          1           1   0.0628231
+
+  X, Y, Z interpolation:
+
+   0:          0           0      0.1875
+   1:        0.5           0         0.3
+   2:          1           0       0.075
+   3:          0         0.5   0.0288273
+   4:        0.5         0.5   0.0461237
+   5:          1         0.5   0.0115309
+   6:          0           1    0.157058
+   7:        0.5           1    0.251292
+   8:          1           1   0.0628231
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0292684
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 3
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0      0.1875
+   1:   0.333333           0       0.375
+   2:   0.666667           0      0.1875
+   3:          1           0       0.075
+   4:          0    0.333333   0.0852332
+   5:   0.333333    0.333333    0.170466
+   6:   0.666667    0.333333   0.0852332
+   7:          1    0.333333   0.0340933
+   8:          0    0.666667   0.0294368
+   9:   0.333333    0.666667   0.0588736
+  10:   0.666667    0.666667   0.0294368
+  11:          1    0.666667   0.0117747
+  12:          0           1    0.157058
+  13:   0.333333           1    0.314115
+  14:   0.666667           1    0.157058
+  15:          1           1   0.0628231
+
+  X, Y, Z interpolation:
+
+   0:          0           0      0.1875
+   1:   0.333333           0       0.375
+   2:   0.666667           0      0.1875
+   3:          1           0       0.075
+   4:          0    0.333333   0.0852332
+   5:   0.333333    0.333333    0.170466
+   6:   0.666667    0.333333   0.0852332
+   7:          1    0.333333   0.0340933
+   8:          0    0.666667   0.0294368
+   9:   0.333333    0.666667   0.0588736
+  10:   0.666667    0.666667   0.0294368
+  11:          1    0.666667   0.0117747
+  12:          0           1    0.157058
+  13:   0.333333           1    0.314115
+  14:   0.666667           1    0.157058
+  15:          1           1   0.0628231
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0123644
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 3
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00629711
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 3
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.000838877
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 4
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0   0.0265198
+   1:          1           0   0.0265198
+   2:          0           1   0.0265198
+   3:          1           1   0.0265198
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0265198
+   1:          1           0   0.0265198
+   2:          0           1   0.0265198
+   3:          1           1   0.0265198
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.306813
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 4
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0   0.0265198
+   1:        0.5           0    0.094021
+   2:          1           0   0.0265198
+   3:          0         0.5    0.094021
+   4:        0.5         0.5    0.333333
+   5:          1         0.5    0.094021
+   6:          0           1   0.0265198
+   7:        0.5           1    0.094021
+   8:          1           1   0.0265198
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0265198
+   1:        0.5           0    0.094021
+   2:          1           0   0.0265198
+   3:          0         0.5    0.094021
+   4:        0.5         0.5    0.333333
+   5:          1         0.5    0.094021
+   6:          0           1   0.0265198
+   7:        0.5           1    0.094021
+   8:          1           1   0.0265198
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0293667
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 4
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0   0.0265198
+   1:   0.333333           0   0.0816868
+   2:   0.666667           0   0.0816868
+   3:          1           0   0.0265198
+   4:          0    0.333333   0.0816868
+   5:   0.333333    0.333333    0.251613
+   6:   0.666667    0.333333    0.251613
+   7:          1    0.333333   0.0816868
+   8:          0    0.666667   0.0816868
+   9:   0.333333    0.666667    0.251613
+  10:   0.666667    0.666667    0.251613
+  11:          1    0.666667   0.0816868
+  12:          0           1   0.0265198
+  13:   0.333333           1   0.0816868
+  14:   0.666667           1   0.0816868
+  15:          1           1   0.0265198
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0265198
+   1:   0.333333           0   0.0816868
+   2:   0.666667           0   0.0816868
+   3:          1           0   0.0265198
+   4:          0    0.333333   0.0816868
+   5:   0.333333    0.333333    0.251613
+   6:   0.666667    0.333333    0.251613
+   7:          1    0.333333   0.0816868
+   8:          0    0.666667   0.0816868
+   9:   0.333333    0.666667    0.251613
+  10:   0.666667    0.666667    0.251613
+  11:          1    0.666667   0.0816868
+  12:          0           1   0.0265198
+  13:   0.333333           1   0.0816868
+  14:   0.666667           1   0.0816868
+  15:          1           1   0.0265198
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0122508
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 4
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00539557
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 4
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.000708519
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 5
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0  1.33551e-05
+   1:          1           0  1.33551e-05
+   2:          0           1  1.33551e-05
+   3:          1           1  1.33551e-05
+
+  X, Y, Z interpolation:
+
+   0:          0           0  1.33551e-05
+   1:          1           0  1.33551e-05
+   2:          0           1  1.33551e-05
+   3:          1           1  1.33551e-05
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.33332
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 5
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0  1.33551e-05
+   1:        0.5           0  0.00210991
+   2:          1           0  1.33551e-05
+   3:          0         0.5  0.00210991
+   4:        0.5         0.5    0.333333
+   5:          1         0.5  0.00210991
+   6:          0           1  1.33551e-05
+   7:        0.5           1  0.00210991
+   8:          1           1  1.33551e-05
+
+  X, Y, Z interpolation:
+
+   0:          0           0  1.33551e-05
+   1:        0.5           0  0.00210991
+   2:          1           0  1.33551e-05
+   3:          0         0.5  0.00210991
+   4:        0.5         0.5    0.333333
+   5:          1         0.5  0.00210991
+   6:          0           1  1.33551e-05
+   7:        0.5           1  0.00210991
+   8:          1           1  1.33551e-05
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0502977
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 5
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0  1.33551e-05
+   1:   0.333333           0  0.00120219
+   2:   0.666667           0  0.00120219
+   3:          1           0  1.33551e-05
+   4:          0    0.333333  0.00120219
+   5:   0.333333    0.333333    0.108217
+   6:   0.666667    0.333333    0.108217
+   7:          1    0.333333  0.00120219
+   8:          0    0.666667  0.00120219
+   9:   0.333333    0.666667    0.108217
+  10:   0.666667    0.666667    0.108217
+  11:          1    0.666667  0.00120219
+  12:          0           1  1.33551e-05
+  13:   0.333333           1  0.00120219
+  14:   0.666667           1  0.00120219
+  15:          1           1  1.33551e-05
+
+  X, Y, Z interpolation:
+
+   0:          0           0  1.33551e-05
+   1:   0.333333           0  0.00120219
+   2:   0.666667           0  0.00120219
+   3:          1           0  1.33551e-05
+   4:          0    0.333333  0.00120219
+   5:   0.333333    0.333333    0.108217
+   6:   0.666667    0.333333    0.108217
+   7:          1    0.333333  0.00120219
+   8:          0    0.666667  0.00120219
+   9:   0.333333    0.666667    0.108217
+  10:   0.666667    0.666667    0.108217
+  11:          1    0.666667  0.00120219
+  12:          0           1  1.33551e-05
+  13:   0.333333           1  0.00120219
+  14:   0.666667           1  0.00120219
+  15:          1           1  1.33551e-05
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0265984
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 5
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00850308
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 5
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0014899
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 6
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0   0.0386311
+   1:          1           0   0.0386311
+   2:          0           1   0.0386311
+   3:          1           1   0.0386311
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0386311
+   1:          1           0   0.0386311
+   2:          0           1   0.0386311
+   3:          1           1   0.0386311
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.350258
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 6
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0   0.0386311
+   1:        0.5           0    0.234931
+   2:          1           0   0.0386311
+   3:          0         0.5    0.234931
+   4:        0.5         0.5    0.388889
+   5:          1         0.5    0.234931
+   6:          0           1   0.0386311
+   7:        0.5           1    0.234931
+   8:          1           1   0.0386311
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0386311
+   1:        0.5           0    0.234931
+   2:          1           0   0.0386311
+   3:          0         0.5    0.234931
+   4:        0.5         0.5    0.388889
+   5:          1         0.5    0.234931
+   6:          0           1   0.0386311
+   7:        0.5           1    0.234931
+   8:          1           1   0.0386311
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0459089
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 6
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0   0.0386311
+   1:   0.333333           0    0.215783
+   2:   0.666667           0    0.215783
+   3:          1           0   0.0386311
+   4:          0    0.333333    0.215783
+   5:   0.333333    0.333333    0.357069
+   6:   0.666667    0.333333    0.357069
+   7:          1    0.333333    0.215783
+   8:          0    0.666667    0.215783
+   9:   0.333333    0.666667    0.357069
+  10:   0.666667    0.666667    0.357069
+  11:          1    0.666667    0.215783
+  12:          0           1   0.0386311
+  13:   0.333333           1    0.215783
+  14:   0.666667           1    0.215783
+  15:          1           1   0.0386311
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0386311
+   1:   0.333333           0    0.215783
+   2:   0.666667           0    0.215783
+   3:          1           0   0.0386311
+   4:          0    0.333333    0.215783
+   5:   0.333333    0.333333    0.357069
+   6:   0.666667    0.333333    0.357069
+   7:          1    0.333333    0.215783
+   8:          0    0.666667    0.215783
+   9:   0.333333    0.666667    0.357069
+  10:   0.666667    0.666667    0.357069
+  11:          1    0.666667    0.215783
+  12:          0           1   0.0386311
+  13:   0.333333           1    0.215783
+  14:   0.666667           1    0.215783
+  15:          1           1   0.0386311
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0139397
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 6
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00595153
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 6
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.000755043
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 7
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:          1           0           0
+   2:          0           1    -1.08804
+   3:          1           1    0.368924
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:          1           0           0
+   2:          0           1    -1.08804
+   3:          1           1    0.368924
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.598472
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 7
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:        0.5           0           0
+   2:          1           0           0
+   3:          0         0.5    -1.91785
+   4:        0.5         0.5    0.054451
+   5:          1         0.5    0.650288
+   6:          0           1    -1.08804
+   7:        0.5           1    -1.26756
+   8:          1           1    0.368924
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:        0.5           0           0
+   2:          1           0           0
+   3:          0         0.5    -1.91785
+   4:        0.5         0.5    0.054451
+   5:          1         0.5    0.650288
+   6:          0           1    -1.08804
+   7:        0.5           1    -1.26756
+   8:          1           1    0.368924
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.376188
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 7
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:   0.333333           0           0
+   2:   0.666667           0           0
+   3:          1           0           0
+   4:          0    0.333333   -0.381136
+   5:   0.333333    0.333333     1.27034
+   6:   0.666667    0.333333    0.441767
+   7:          1    0.333333    0.129232
+   8:          0    0.666667    0.748302
+   9:   0.333333    0.666667    0.060631
+  10:   0.666667    0.666667   -0.270366
+  11:          1    0.666667   -0.253728
+  12:          0           1    -1.08804
+  13:   0.333333           1    0.877535
+  14:   0.666667           1   -0.634864
+  15:          1           1    0.368924
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:   0.333333           0           0
+   2:   0.666667           0           0
+   3:          1           0           0
+   4:          0    0.333333   -0.381136
+   5:   0.333333    0.333333     1.27034
+   6:   0.666667    0.333333    0.441767
+   7:          1    0.333333    0.129232
+   8:          0    0.666667    0.748302
+   9:   0.333333    0.666667    0.060631
+  10:   0.666667    0.666667   -0.270366
+  11:          1    0.666667   -0.253728
+  12:          0           1    -1.08804
+  13:   0.333333           1    0.877535
+  14:   0.666667           1   -0.634864
+  15:          1           1    0.368924
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.187656
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 7
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.313809
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 7
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0606468
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 8
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0  6.52165e-06
+   1:          1           0  6.52165e-06
+   2:          0           1  6.52165e-06
+   3:          1           1  6.52165e-06
+
+  X, Y, Z interpolation:
+
+   0:          0           0  6.52165e-06
+   1:          1           0  6.52165e-06
+   2:          0           1  6.52165e-06
+   3:          1           1  6.52165e-06
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 2.49999
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 8
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0  6.52165e-06
+   1:        0.5           0     1.00001
+   2:          1           0  6.52165e-06
+   3:          0         0.5    0.750007
+   4:        0.5         0.5         2.5
+   5:          1         0.5    0.750007
+   6:          0           1  6.52165e-06
+   7:        0.5           1     1.00001
+   8:          1           1  6.52165e-06
+
+  X, Y, Z interpolation:
+
+   0:          0           0  6.52165e-06
+   1:        0.5           0     1.00001
+   2:          1           0  6.52165e-06
+   3:          0         0.5    0.750007
+   4:        0.5         0.5         2.5
+   5:          1         0.5    0.750007
+   6:          0           1  6.52165e-06
+   7:        0.5           1     1.00001
+   8:          1           1  6.52165e-06
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.500934
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 8
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0  6.52165e-06
+   1:   0.333333           0    0.249356
+   2:   0.666667           0    0.249356
+   3:          1           0  6.52165e-06
+   4:          0    0.333333    0.187019
+   5:   0.333333    0.333333    0.482999
+   6:   0.666667    0.333333    0.482999
+   7:          1    0.333333    0.187019
+   8:          0    0.666667    0.187019
+   9:   0.333333    0.666667    0.482999
+  10:   0.666667    0.666667    0.482999
+  11:          1    0.666667    0.187019
+  12:          0           1  6.52165e-06
+  13:   0.333333           1    0.249356
+  14:   0.666667           1    0.249356
+  15:          1           1  6.52165e-06
+
+  X, Y, Z interpolation:
+
+   0:          0           0  6.52165e-06
+   1:   0.333333           0    0.249356
+   2:   0.666667           0    0.249356
+   3:          1           0  6.52165e-06
+   4:          0    0.333333    0.187019
+   5:   0.333333    0.333333    0.482999
+   6:   0.666667    0.333333    0.482999
+   7:          1    0.333333    0.187019
+   8:          0    0.666667    0.187019
+   9:   0.333333    0.666667    0.482999
+  10:   0.666667    0.666667    0.482999
+  11:          1    0.666667    0.187019
+  12:          0           1  6.52165e-06
+  13:   0.333333           1    0.249356
+  14:   0.666667           1    0.249356
+  15:          1           1  6.52165e-06
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.259198
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 8
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0330896
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 8
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0123725
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 9
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0   0.0996532
+   1:          1           0   -0.189352
+   2:          0           1   -0.189352
+   3:          1           1    0.359788
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0996532
+   1:          1           0   -0.189352
+   2:          0           1   -0.189352
+   3:          1           1    0.359788
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.189352
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 9
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0   0.0996532
+   1:        0.5           0           0
+   2:          1           0   -0.189352
+   3:          0         0.5           0
+   4:        0.5         0.5           0
+   5:          1         0.5          -0
+   6:          0           1   -0.189352
+   7:        0.5           1          -0
+   8:          1           1    0.359788
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0996532
+   1:        0.5           0           0
+   2:          1           0   -0.189352
+   3:          0         0.5           0
+   4:        0.5         0.5           0
+   5:          1         0.5           0
+   6:          0           1   -0.189352
+   7:        0.5           1           0
+   8:          1           1    0.359788
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 15.3964
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 9
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0   0.0996532
+   1:   0.333333           0     2.04469
+   2:   0.666667           0    -2.87176
+   3:          1           0   -0.189352
+   4:          0    0.333333     2.04469
+   5:   0.333333    0.333333     41.9532
+   6:   0.666667    0.333333     -58.923
+   7:          1    0.333333    -3.88513
+   8:          0    0.666667    -2.87176
+   9:   0.333333    0.666667     -58.923
+  10:   0.666667    0.666667     82.7569
+  11:          1    0.666667     5.45664
+  12:          0           1   -0.189352
+  13:   0.333333           1    -3.88513
+  14:   0.666667           1     5.45664
+  15:          1           1    0.359788
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0996532
+   1:   0.333333           0     2.04469
+   2:   0.666667           0    -2.87176
+   3:          1           0   -0.189352
+   4:          0    0.333333     2.04469
+   5:   0.333333    0.333333     41.9532
+   6:   0.666667    0.333333     -58.923
+   7:          1    0.333333    -3.88513
+   8:          0    0.666667    -2.87176
+   9:   0.333333    0.666667     -58.923
+  10:   0.666667    0.666667     82.7569
+  11:          1    0.666667     5.45664
+  12:          0           1   -0.189352
+  13:   0.333333           1    -3.88513
+  14:   0.666667           1     5.45664
+  15:          1           1    0.359788
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 10.1837
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 9
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 7.22707
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 9
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 1.03289
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 10
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0  -0.0830877
+   1:          1           0  -0.0830877
+   2:          0           1  -0.0830877
+   3:          1           1  -0.0830877
+
+  X, Y, Z interpolation:
+
+   0:          0           0  -0.0830877
+   1:          1           0  -0.0830877
+   2:          0           1  -0.0830877
+   3:          1           1  -0.0830877
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 1.08309
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 10
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0  -0.0830877
+   1:        0.5           0    0.147613
+   2:          1           0  -0.0830877
+   3:          0         0.5    0.193855
+   4:        0.5         0.5           1
+   5:          1         0.5    0.193855
+   6:          0           1  -0.0830877
+   7:        0.5           1    0.147613
+   8:          1           1  -0.0830877
+
+  X, Y, Z interpolation:
+
+   0:          0           0  -0.0830877
+   1:        0.5           0    0.147613
+   2:          1           0  -0.0830877
+   3:          0         0.5    0.193855
+   4:        0.5         0.5           1
+   5:          1         0.5    0.193855
+   6:          0           1  -0.0830877
+   7:        0.5           1    0.147613
+   8:          1           1  -0.0830877
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.200003
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 10
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0  -0.0830877
+   1:   0.333333           0    0.111225
+   2:   0.666667           0    0.111225
+   3:          1           0  -0.0830877
+   4:          0    0.333333    0.179674
+   5:   0.333333    0.333333   -0.444234
+   6:   0.666667    0.333333   -0.444234
+   7:          1    0.333333    0.179674
+   8:          0    0.666667    0.179674
+   9:   0.333333    0.666667   -0.444234
+  10:   0.666667    0.666667   -0.444234
+  11:          1    0.666667    0.179674
+  12:          0           1  -0.0830877
+  13:   0.333333           1    0.111225
+  14:   0.666667           1    0.111225
+  15:          1           1  -0.0830877
+
+  X, Y, Z interpolation:
+
+   0:          0           0  -0.0830877
+   1:   0.333333           0    0.111225
+   2:   0.666667           0    0.111225
+   3:          1           0  -0.0830877
+   4:          0    0.333333    0.179674
+   5:   0.333333    0.333333   -0.444234
+   6:   0.666667    0.333333   -0.444234
+   7:          1    0.333333    0.179674
+   8:          0    0.666667    0.179674
+   9:   0.333333    0.666667   -0.444234
+  10:   0.666667    0.666667   -0.444234
+  11:          1    0.666667    0.179674
+  12:          0           1  -0.0830877
+  13:   0.333333           1    0.111225
+  14:   0.666667           1    0.111225
+  15:          1           1  -0.0830877
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.177348
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 10
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0817147
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 10
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0128289
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 11
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:          1           0           1
+   2:          0           1           0
+   3:          1           1           2
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:          1           0           1
+   2:          0           1           0
+   3:          1           1           2
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.25
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 11
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:        0.5           0         0.5
+   2:          1           0           1
+   3:          0         0.5           0
+   4:        0.5         0.5        0.75
+   5:          1         0.5         1.5
+   6:          0           1           0
+   7:        0.5           1           1
+   8:          1           1           2
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:        0.5           0         0.5
+   2:          1           0           1
+   3:          0         0.5           0
+   4:        0.5         0.5        0.75
+   5:          1         0.5         1.5
+   6:          0           1           0
+   7:        0.5           1           1
+   8:          1           1           2
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.03125
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 11
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:   0.333333           0    0.333333
+   2:   0.666667           0    0.666667
+   3:          1           0           1
+   4:          0    0.333333           0
+   5:   0.333333    0.333333    0.444444
+   6:   0.666667    0.333333    0.888889
+   7:          1    0.333333     1.33333
+   8:          0    0.666667           0
+   9:   0.333333    0.666667    0.555556
+  10:   0.666667    0.666667     1.11111
+  11:          1    0.666667     1.66667
+  12:          0           1           0
+  13:   0.333333           1    0.666667
+  14:   0.666667           1     1.33333
+  15:          1           1           2
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:   0.333333           0    0.333333
+   2:   0.666667           0    0.666667
+   3:          1           0           1
+   4:          0    0.333333           0
+   5:   0.333333    0.333333    0.444444
+   6:   0.666667    0.333333    0.888889
+   7:          1    0.333333     1.33333
+   8:          0    0.666667           0
+   9:   0.333333    0.666667    0.555556
+  10:   0.666667    0.666667     1.11111
+  11:          1    0.666667     1.66667
+  12:          0           1           0
+  13:   0.333333           1    0.666667
+  14:   0.666667           1     1.33333
+  15:          1           1           2
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00925926
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 11
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00390625
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 11
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.000488281
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 12
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:          1           0           0
+   2:          0           1    0.688241
+   3:          1           1     1.87271
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:          1           0           0
+   2:          0           1    0.688241
+   3:          1           1     1.87271
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.116255
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 12
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:        0.5           0           0
+   2:          1           0           0
+   3:          0         0.5    0.748896
+   4:        0.5         0.5    0.460375
+   5:          1         0.5    0.666271
+   6:          0           1    0.688241
+   7:        0.5           1     1.16513
+   8:          1           1     1.87271
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:        0.5           0           0
+   2:          1           0           0
+   3:          0         0.5    0.748896
+   4:        0.5         0.5    0.460375
+   5:          1         0.5    0.666271
+   6:          0           1    0.688241
+   7:        0.5           1     1.16513
+   8:          1           1     1.87271
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.108418
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 12
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0           0
+   1:   0.333333           0           0
+   2:   0.666667           0           0
+   3:          1           0           0
+   4:          0    0.333333    0.814257
+   5:   0.333333    0.333333     0.74544
+   6:   0.666667    0.333333    0.286978
+   7:          1    0.333333    0.382482
+   8:          0    0.666667    0.525181
+   9:   0.333333    0.666667    0.501849
+  10:   0.666667    0.666667    0.538925
+  11:          1    0.666667     1.04327
+  12:          0           1    0.688241
+  13:   0.333333           1    0.940324
+  14:   0.666667           1     1.44307
+  15:          1           1     1.87271
+
+  X, Y, Z interpolation:
+
+   0:          0           0           0
+   1:   0.333333           0           0
+   2:   0.666667           0           0
+   3:          1           0           0
+   4:          0    0.333333    0.814257
+   5:   0.333333    0.333333     0.74544
+   6:   0.666667    0.333333    0.286978
+   7:          1    0.333333    0.382482
+   8:          0    0.666667    0.525181
+   9:   0.333333    0.666667    0.501849
+  10:   0.666667    0.666667    0.538925
+  11:          1    0.666667     1.04327
+  12:          0           1    0.688241
+  13:   0.333333           1    0.940324
+  14:   0.666667           1     1.44307
+  15:          1           1     1.87271
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0381489
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 12
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.01764
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 12
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00251502
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 13
+  Using polynomial interpolant of product degree 2 x 2
+  Number of data points = 4
+
+  X, Y, Z data:
+
+   0:          0           0   0.0196078
+   1:          1           0   0.0196078
+   2:          0           1   0.0196078
+   3:          1           1   0.0196078
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0196078
+   1:          1           0   0.0196078
+   2:          0           1   0.0196078
+   3:          1           1   0.0196078
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.980392
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 13
+  Using polynomial interpolant of product degree 3 x 3
+  Number of data points = 9
+
+  X, Y, Z data:
+
+   0:          0           0   0.0196078
+   1:        0.5           0   0.0384615
+   2:          1           0   0.0196078
+   3:          0         0.5   0.0384615
+   4:        0.5         0.5           1
+   5:          1         0.5   0.0384615
+   6:          0           1   0.0196078
+   7:        0.5           1   0.0384615
+   8:          1           1   0.0196078
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0196078
+   1:        0.5           0   0.0384615
+   2:          1           0   0.0196078
+   3:          0         0.5   0.0384615
+   4:        0.5         0.5           1
+   5:          1         0.5   0.0384615
+   6:          0           1   0.0196078
+   7:        0.5           1   0.0384615
+   8:          1           1   0.0196078
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.154567
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 13
+  Using polynomial interpolant of product degree 4 x 4
+  Number of data points = 16
+
+  X, Y, Z data:
+
+   0:          0           0   0.0196078
+   1:   0.333333           0    0.034749
+   2:   0.666667           0    0.034749
+   3:          1           0   0.0196078
+   4:          0    0.333333    0.034749
+   5:   0.333333    0.333333    0.152542
+   6:   0.666667    0.333333    0.152542
+   7:          1    0.333333    0.034749
+   8:          0    0.666667    0.034749
+   9:   0.333333    0.666667    0.152542
+  10:   0.666667    0.666667    0.152542
+  11:          1    0.666667    0.034749
+  12:          0           1   0.0196078
+  13:   0.333333           1    0.034749
+  14:   0.666667           1    0.034749
+  15:          1           1   0.0196078
+
+  X, Y, Z interpolation:
+
+   0:          0           0   0.0196078
+   1:   0.333333           0    0.034749
+   2:   0.666667           0    0.034749
+   3:          1           0   0.0196078
+   4:          0    0.333333    0.034749
+   5:   0.333333    0.333333    0.152542
+   6:   0.666667    0.333333    0.152542
+   7:          1    0.333333    0.034749
+   8:          0    0.666667    0.034749
+   9:   0.333333    0.666667    0.152542
+  10:   0.666667    0.666667    0.152542
+  11:          1    0.666667    0.034749
+  12:          0           1   0.0196078
+  13:   0.333333           1    0.034749
+  14:   0.666667           1    0.034749
+  15:          1           1   0.0196078
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0944453
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 13
+  Using polynomial interpolant of product degree 5 x 5
+  Number of data points = 25
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.0278242
+
+PWL_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem # 13
+  Using polynomial interpolant of product degree 9 x 9
+  Number of data points = 81
+
+  RMS data interpolation error = 0
+  RMS data approximation error = 0.00439773
+
+PWL_INTERP_2D_TEST:
+  Normal end of execution.
+
+15 October 2012 09:49:08 PM

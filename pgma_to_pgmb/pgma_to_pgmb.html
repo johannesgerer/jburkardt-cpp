@@ -1,0 +1,183 @@
+<html>
+
+  <head>
+    <title>
+      PGMA_TO_PGMB - convert ASCII PGM to binary PGM graphics file
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PGMA_TO_PGMB <br> convert ASCII PGM to binary PGM graphics file
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PGMA_TO_PGMB</b>
+      is a C++ program which
+      converts ASCII PGM files to binary PGM format.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>pgma_to_pgmb</b> <i>file1</i> <i>file2</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>file1</i> is the name of an existing PGM file in ASCII format;
+        </li>
+        <li>
+          <i>file2</i> is the name of the PGM file in binary format to
+          be created.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/pgma/pgma.html">
+      PGMA</a>,
+      a data directory which
+      contains sample ASCII PGM files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgma_io/pgma_io.html">
+      PGMA_IO</a>,
+      a C++ library which
+      is used by <b>PGMA_TO_PGMB</b> to read in the ASCII PGM file.
+    </p>
+
+    <p>
+      <a href = "../../data/pgmb/pgmb.html">
+      PGMB</a>,
+      a data directory which
+      contains sample binary PGM files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgmb_io/pgmb_io.html">
+      PGMB_IO</a>,
+      a C++ library which
+      is used by PGMA_TO_PGMB to write out the binary PGM file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgmb_to_pgma/pgmb_to_pgma.html">
+      PGMB_TO_PGMA</a>,
+      a C++ program which
+      converts a binary PGM file to ASCII PGM format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">the NETPBM homepage</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pgma_to_pgmb.cpp">pgma_to_pgmb.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "pgma_to_pgmb.sh">pgma_to_pgmb.sh</a>,
+           commands to compile, link and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for PGMA_TO_PGMB.
+        </li>
+        <li>
+          <b>I4VEC_TO_UCVEC</b> converts an I4VEC into UNSIGNED CHAR's.
+        </li>
+        <li>
+          <b>PGMA_CHECK_DATA</b> checks the data for an ASCII PGM file.
+        </li>
+        <li>
+          <b>PGMA_READ</b> reads the header and data from an ASCII PGM file.
+        </li>
+        <li>
+          <b>PGMA_READ_DATA</b> reads the data in an ASCII PGM file.
+        </li>
+        <li>
+          <b>PGMA_READ_HEADER</b> reads the header of an ASCII PGM file.
+        </li>
+        <li>
+          <b>PGMA_TO_PGMB</b> converts an ASCII PGM file to binary PGM format.
+        </li>
+        <li>
+          <b>PGMB_WRITE</b> writes the header and data for a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_WRITE_DATA</b> writes the data for a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_WRITE_HEADER</b> writes the header of a binary portable gray map file.
+        </li>
+        <li>
+          <b>S_LEN_TRIM2</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_WORD_EXTRACT_FIRST2</b> extracts the first word from a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 30 March 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

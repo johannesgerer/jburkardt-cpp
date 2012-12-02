@@ -1,0 +1,64 @@
+==60127== Memcheck, a memory error detector
+==60127== Copyright (C) 2002-2010, and GNU GPL'd, by Julian Seward et al.
+==60127== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info
+==60127== Command: test01
+==60127== 
+--60127-- run: /usr/bin/dsymutil "./test01"
+==60127== Invalid write of size 4
+==60127==    at 0x100000D8F: f(int) (test01.C:85)
+==60127==    by 0x100000C22: main (test01.C:40)
+==60127==  Address 0x10042c148 is 0 bytes after a block of size 40 alloc'd
+==60127==    at 0x1000161EF: malloc (vg_replace_malloc.c:236)
+==60127==    by 0x100000C88: f(int) (test01.C:75)
+==60127==    by 0x100000C22: main (test01.C:40)
+==60127== 
+==60127== Invalid read of size 4
+==60127==    at 0x100000D9E: f(int) (test01.C:86)
+==60127==    by 0x100000C22: main (test01.C:40)
+==60127==  Address 0x10042c148 is 0 bytes after a block of size 40 alloc'd
+==60127==    at 0x1000161EF: malloc (vg_replace_malloc.c:236)
+==60127==    by 0x100000C88: f(int) (test01.C:75)
+==60127==    by 0x100000C22: main (test01.C:40)
+==60127== 
+==60127== Mismatched free() / delete / delete []
+==60127==    at 0x10001542C: operator delete[](void*) (vg_replace_malloc.c:409)
+==60127==    by 0x100000E12: f(int) (test01.C:89)
+==60127==    by 0x100000C22: main (test01.C:40)
+==60127==  Address 0x10042c120 is 0 bytes inside a block of size 40 alloc'd
+==60127==    at 0x1000161EF: malloc (vg_replace_malloc.c:236)
+==60127==    by 0x100000C88: f(int) (test01.C:75)
+==60127==    by 0x100000C22: main (test01.C:40)
+==60127== 
+
+TEST01
+  C++ version.
+  A sample code for analysis by VALGRIND.
+  0  1
+  1  1
+  2  2
+  3  3
+  4  5
+  5  8
+  6  13
+  7  21
+  8  34
+  9  55
+  10  89
+
+TEST01
+  Normal end of execution.
+==60127== 
+==60127== HEAP SUMMARY:
+==60127==     in use at exit: 4,184 bytes in 2 blocks
+==60127==   total heap usage: 3 allocs, 1 frees, 4,224 bytes allocated
+==60127== 
+==60127== LEAK SUMMARY:
+==60127==    definitely lost: 0 bytes in 0 blocks
+==60127==    indirectly lost: 0 bytes in 0 blocks
+==60127==      possibly lost: 0 bytes in 0 blocks
+==60127==    still reachable: 4,184 bytes in 2 blocks
+==60127==         suppressed: 0 bytes in 0 blocks
+==60127== Rerun with --leak-check=full to see details of leaked memory
+==60127== 
+==60127== For counts of detected and suppressed errors, rerun with: -v
+==60127== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)

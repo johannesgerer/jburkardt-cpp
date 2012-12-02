@@ -1,0 +1,443 @@
+05 January 2012 11:27:34 PM
+
+COMPASS_SEARCH_TEST
+  C++ version.
+  Test the COMPASS_SEARCH library.
+
+BEALE_TEST:
+  Test COMPASS_SEARCH with the Beale function.
+
+  Initial point X0:
+
+         0:              1
+         1:              1
+
+  F(X0) = 14.2031
+
+  Estimated minimizer X1:
+
+         0:        3.00013
+         1:       0.500037
+
+  F(X1) = 3.14079e-09 number of steps = 10685
+
+  Initial point X0:
+
+         0:              1
+         1:              4
+
+  F(X0) = 4624.45
+
+  Estimated minimizer X1:
+
+         0:       -15.6686
+         1:        1.05996
+
+  F(X1) = 0.547042 number of steps = 20000
+
+  Correct minimizer X*:
+
+         0:              3
+         1:            0.5
+
+  F(X*) = 0
+
+BOHACH1_TEST:
+  Test COMPASS_SEARCH with the Bohachevsky function #1.
+
+  Initial point X0:
+
+         0:            0.5
+         1:              1
+
+  F(X0) = 2.55
+
+  Estimated minimizer X1:
+
+         0:   -6.10352e-06
+         1:    6.10352e-06
+
+  F(X1) = 1.78466e-09 number of steps = 48
+
+  Correct minimizer X*:
+
+         0:              0
+         1:              0
+
+  F(X*) = 0
+
+BOHACH2_TEST:
+  Test COMPASS_SEARCH with the Bohachevsky function #2.
+
+  Initial point X0:
+
+         0:            0.6
+         1:            1.3
+
+  F(X0) = 4.23635
+
+  Estimated minimizer X1:
+
+         0:              0
+         1:    6.10352e-06
+
+  F(X1) = 9.56917e-10 number of steps = 37
+
+  Correct minimizer X*:
+
+         0:              0
+         1:              0
+
+  F(X*) = 0
+
+BROYDEN_TEST:
+  Test COMPASS_SEARCH with the Broyden function.
+
+  Initial point X0:
+
+         0:           -0.9
+         1:             -1
+
+  F(X0) = 2.37332
+
+  Estimated minimizer X1:
+
+         0:       -0.51156
+         1:      -0.398187
+
+  F(X1) = 0.0221649 number of steps = 32
+
+  Correct minimizer X*:
+
+         0:      -0.511547
+         1:      -0.398161
+
+  F(X*) = 0.000144114
+
+EXTENDED_ROSENBROCK_TEST:
+  Test COMPASS_SEARCH with the extended Rosenbrock function.
+
+  Initial point X0:
+
+         0:           -1.2
+         1:              1
+         2:           -1.5
+         3:            1.2
+
+  F(X0) = 140.7
+
+  Estimated minimizer X1:
+
+         0:        0.99538
+         1:       0.990771
+         2:       0.996094
+         3:       0.992194
+
+  F(X1) = 3.66233e-05 number of steps = 10154
+
+  Correct minimizer X*:
+
+         0:              1
+         1:              1
+         2:              1
+         3:              1
+
+  F(X*) = 0
+
+GOLDSTEIN_PRICE_TEST:
+  Test COMPASS_SEARCH with the Goldstein-Price function.
+
+  Initial point X0:
+
+         0:           -0.5
+         1:           0.25
+
+  F(X0) = 2738.74
+
+  Estimated minimizer X1:
+
+         0:      -0.600031
+         1:      -0.399969
+
+  F(X1) = 30 number of steps = 67
+
+  Initial point X0:
+
+         0:             -4
+         1:              5
+
+  F(X0) = 3.44437e+07
+
+  Estimated minimizer X1:
+
+         0:        1.19999
+         1:            0.8
+
+  F(X1) = 840 number of steps = 72
+
+  Correct minimizer X*:
+
+         0:              0
+         1:             -1
+
+  F(X*) = 3
+
+HIMMELBLAU_TEST:
+  Test COMPASS_SEARCH with the Himmelblau function.
+
+  Initial point X0:
+
+         0:              1
+         1:              1
+
+  F(X0) = 106
+
+  Estimated minimizer X1:
+
+         0:        3.00001
+         1:        1.99999
+
+  F(X1) = 1.2666e-09 number of steps = 39
+
+  Initial point X0:
+
+         0:             -1
+         1:              1
+
+  F(X0) = 130
+
+  Estimated minimizer X1:
+
+         0:       -2.80513
+         1:        3.13131
+
+  F(X1) = 2.65844e-09 number of steps = 41
+
+  Initial point X0:
+
+         0:             -1
+         1:             -1
+
+  F(X0) = 170
+
+  Estimated minimizer X1:
+
+         0:        -3.7793
+         1:       -3.28318
+
+  F(X1) = 3.91873e-09 number of steps = 48
+
+  Initial point X0:
+
+         0:              1
+         1:             -1
+
+  F(X0) = 146
+
+  Estimated minimizer X1:
+
+         0:        3.58442
+         1:       -1.84813
+
+  F(X1) = 1.05849e-09 number of steps = 44
+
+  Correct Himmelblau minimizer X1*:
+
+         0:              3
+         1:              2
+
+  F(X*) = 0
+
+  Correct Himmelblau minimizer X2*:
+
+         0:        3.58439
+         1:       -1.84813
+
+  F(X*) = 7.81168e-08
+
+  Correct Himmelblau minimizer X3*:
+
+         0:       -3.77934
+         1:       -3.28317
+
+  F(X*) = 7.61596e-08
+
+  Correct Himmelblau minimizer X4*:
+
+         0:       -2.80512
+         1:        3.13134
+
+  F(X*) = 3.04269e-08
+
+LOCAL_TEST:
+  Test COMPASS_SEARCH with the Local function.
+
+  Initial point X0:
+
+         0:              1
+         1:              1
+
+  F(X0) = 3.33077e+06
+
+  Estimated minimizer X1:
+
+         0:       0.789813
+         1:           0.25
+
+  F(X1) = 6.88507 number of steps = 44
+
+  Correct local minimizer X*:
+
+         0:       0.285805
+         1:       0.279326
+
+  F(X*) = 5.92256
+
+  Initial point X0:
+
+         0:            -15
+         1:            -35
+
+  F(X0) = 1.49636e+08
+
+  Estimated minimizer X1:
+
+         0:       -21.0423
+         1:       -36.7357
+
+  F(X1) = 0.90452 number of steps = 13385
+
+  Correct global minimizer X*:
+
+         0:       -21.0267
+         1:         -36.76
+
+  F(X*) = 1.42426e-06
+
+MCKINNON_TEST:
+  Test COMPASS_SEARCH with the McKinnon function.
+
+  Initial point X0:
+
+         0:        0.84307
+         1:       -0.59307
+  PHI = 10 TAU = 1 THETA = 15
+
+  F(X0) = 12.4047
+
+  Estimated minimizer X1:
+
+         0:    1.61316e-05
+         1:      -0.499998
+
+  F(X1) = -0.249758 number of steps = 35
+
+  Correct minimizer X*:
+
+         0:              0
+         1:           -0.5
+
+  F(X*) = -0.25
+
+  Initial point X0:
+
+         0:        0.84307
+         1:       -0.59307
+  PHI = 60 TAU = 2 THETA = 6
+
+  F(X0) = 4.02327
+
+  Estimated minimizer X1:
+
+         0:    1.61316e-05
+         1:      -0.499998
+
+  F(X1) = -0.25 number of steps = 35
+
+  Correct minimizer X*:
+
+         0:              0
+         1:           -0.5
+
+  F(X*) = -0.25
+
+  Initial point X0:
+
+         0:        0.84307
+         1:       -0.59307
+  PHI = 4000 TAU = 3 THETA = 6
+
+  F(X0) = 3.35402
+
+  Estimated minimizer X1:
+
+         0:    1.61316e-05
+         1:      -0.499998
+
+  F(X1) = -0.25 number of steps = 36
+
+  Correct minimizer X*:
+
+         0:              0
+         1:           -0.5
+
+  F(X*) = -0.25
+
+POWELL_TEST:
+  Test COMPASS_SEARCH with the Powell function.
+
+  Initial point X0:
+
+         0:              3
+         1:             -1
+         2:              0
+         3:              1
+
+  F(X0) = 55
+
+  Estimated minimizer X1:
+
+         0:    0.000164795
+         1:   -2.44141e-05
+         2:    1.83105e-05
+         3:    9.76563e-05
+
+  F(X1) = 2.08244e-08 number of steps = 289
+
+  Correct minimizer X*:
+
+         0:              0
+         1:              0
+         2:              0
+         3:              0
+
+  F(X*) = 0
+
+ROSENBROCK_TEST:
+  Test COMPASS_SEARCH with the Rosenbrock function.
+
+  Initial point X0:
+
+         0:           -1.2
+         1:              1
+
+  F(X0) = 24.2
+
+  Estimated minimizer X1:
+
+         0:        0.99538
+         1:       0.990771
+
+  F(X1) = 2.13561e-05 number of steps = 4981
+
+  Correct minimizer X*:
+
+         0:              1
+         1:              1
+
+  F(X*) = 0
+
+COMPASS_SEARCH_TEST
+  Normal end of execution.
+
+05 January 2012 11:27:34 PM

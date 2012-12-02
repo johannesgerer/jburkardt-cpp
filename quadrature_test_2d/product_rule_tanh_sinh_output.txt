@@ -1,0 +1,224 @@
+30 January 2009 09:37:18 AM
+
+QUADRATURE_TEST_2D
+  C++ version
+
+  Compiled on Jan 30 2009 at 09:35:30.
+
+  Investigate the accuracy of a 2D quadrature
+  rule by integrating test functions.
+
+QUADRATURE_TEST_2D: User input:
+  Quadrature rule X file = "ts_d2_1x1_x.txt".
+  Quadrature rule W file = "ts_d2_1x1_w.txt".
+  Quadrature rule R file = "ts_d2_1x1_r.txt".
+
+  Spatial dimension = 2
+  Number of points  = 1
+
+  Prob   Dim      Points       Approx          Exact           Error
+
+     1     2           1         1.33333         1.64493        0.311601
+     2     2           1               4         4.35517        0.355172
+     3     2           1         2.82843         3.12419        0.295767
+     4     2           1          2.3094         2.57901        0.269606
+     5     2           1             0.5        0.444444       0.0555556
+     6     2           1               1         1.86302        0.863016
+     7     2           1               0        0.533333        0.533333
+
+QUADRATURE_2D_TEST:
+  Normal end of execution.
+
+30 January 2009 09:37:18 AM
+30 January 2009 09:37:27 AM
+
+QUADRATURE_TEST_2D
+  C++ version
+
+  Compiled on Jan 30 2009 at 09:35:30.
+
+  Investigate the accuracy of a 2D quadrature
+  rule by integrating test functions.
+
+QUADRATURE_TEST_2D: User input:
+  Quadrature rule X file = "ts_d2_3x3_x.txt".
+  Quadrature rule W file = "ts_d2_3x3_w.txt".
+  Quadrature rule R file = "ts_d2_3x3_r.txt".
+
+  Spatial dimension = 2
+  Number of points  = 9
+
+  Prob   Dim      Points       Approx          Exact           Error
+
+     1     2           9         1.62331         1.64493         0.02162
+     2     2           9         4.27748         4.35517       0.0776883
+     3     2           9         3.04758         3.12419       0.0766118
+     4     2           9         2.51276         2.57901       0.0662511
+     5     2           9        0.457608        0.444444       0.0131639
+     6     2           9         1.83677         1.86302       0.0262477
+     7     2           9        0.266715        0.533333        0.266618
+
+QUADRATURE_2D_TEST:
+  Normal end of execution.
+
+30 January 2009 09:37:27 AM
+30 January 2009 09:37:33 AM
+
+QUADRATURE_TEST_2D
+  C++ version
+
+  Compiled on Jan 30 2009 at 09:35:30.
+
+  Investigate the accuracy of a 2D quadrature
+  rule by integrating test functions.
+
+QUADRATURE_TEST_2D: User input:
+  Quadrature rule X file = "ts_d2_7x7_x.txt".
+  Quadrature rule W file = "ts_d2_7x7_w.txt".
+  Quadrature rule R file = "ts_d2_7x7_r.txt".
+
+  Spatial dimension = 2
+  Number of points  = 49
+
+  Prob   Dim      Points       Approx          Exact           Error
+
+     1     2          49         1.64446         1.64493     0.000471252
+     2     2          49         4.35487         4.35517     0.000302407
+     3     2          49         3.12401         3.12419      0.00018488
+     4     2          49         2.57879         2.57901     0.000222054
+     5     2          49        0.444482        0.444444     3.70964e-05
+     6     2          49         1.97133         1.86302        0.108312
+     7     2          49        0.467825        0.533333       0.0655081
+
+QUADRATURE_2D_TEST:
+  Normal end of execution.
+
+30 January 2009 09:37:33 AM
+30 January 2009 09:37:41 AM
+
+QUADRATURE_TEST_2D
+  C++ version
+
+  Compiled on Jan 30 2009 at 09:35:30.
+
+  Investigate the accuracy of a 2D quadrature
+  rule by integrating test functions.
+
+QUADRATURE_TEST_2D: User input:
+  Quadrature rule X file = "ts_d2_15x15_x.txt".
+  Quadrature rule W file = "ts_d2_15x15_w.txt".
+  Quadrature rule R file = "ts_d2_15x15_r.txt".
+
+  Spatial dimension = 2
+  Number of points  = 225
+
+  Prob   Dim      Points       Approx          Exact           Error
+
+     1     2         225         1.64435         1.64493     0.000581545
+     2     2         225         4.35491         4.35517      0.00026256
+     3     2         225         3.12407         3.12419     0.000119856
+     4     2         225          2.5789         2.57901       0.0001099
+     5     2         225         0.44446        0.444444     1.53179e-05
+     6     2         225         1.86099         1.86302       0.0020295
+     7     2         225        0.510411        0.533333       0.0229225
+
+QUADRATURE_2D_TEST:
+  Normal end of execution.
+
+30 January 2009 09:37:41 AM
+30 January 2009 09:37:48 AM
+
+QUADRATURE_TEST_2D
+  C++ version
+
+  Compiled on Jan 30 2009 at 09:35:30.
+
+  Investigate the accuracy of a 2D quadrature
+  rule by integrating test functions.
+
+QUADRATURE_TEST_2D: User input:
+  Quadrature rule X file = "ts_d2_31x31_x.txt".
+  Quadrature rule W file = "ts_d2_31x31_w.txt".
+  Quadrature rule R file = "ts_d2_31x31_r.txt".
+
+  Spatial dimension = 2
+  Number of points  = 961
+
+  Prob   Dim      Points       Approx          Exact           Error
+
+     1     2         961         1.64456         1.64493     0.000377287
+     2     2         961         4.35501         4.35517     0.000162319
+     3     2         961         3.12412         3.12419     7.40223e-05
+     4     2         961         2.57894         2.57901     6.78133e-05
+     5     2         961        0.444454        0.444444     9.43771e-06
+     6     2         961         1.86621         1.86302      0.00319106
+     7     2         961        0.525241        0.533333      0.00809281
+
+QUADRATURE_2D_TEST:
+  Normal end of execution.
+
+30 January 2009 09:37:48 AM
+30 January 2009 09:37:56 AM
+
+QUADRATURE_TEST_2D
+  C++ version
+
+  Compiled on Jan 30 2009 at 09:35:30.
+
+  Investigate the accuracy of a 2D quadrature
+  rule by integrating test functions.
+
+QUADRATURE_TEST_2D: User input:
+  Quadrature rule X file = "ts_d2_63x63_x.txt".
+  Quadrature rule W file = "ts_d2_63x63_w.txt".
+  Quadrature rule R file = "ts_d2_63x63_r.txt".
+
+  Spatial dimension = 2
+  Number of points  = 3969
+
+  Prob   Dim      Points       Approx          Exact           Error
+
+     1     2        3969         1.64465         1.64493     0.000288476
+     2     2        3969         4.35505         4.35517     0.000120655
+     3     2        3969         3.12414         3.12419     5.49963e-05
+     4     2        3969         2.57896         2.57901     5.03816e-05
+     5     2        3969        0.444451        0.444444     7.00649e-06
+     6     2        3969         1.86299         1.86302     2.14444e-05
+     7     2        3969        0.530469        0.533333      0.00286422
+
+QUADRATURE_2D_TEST:
+  Normal end of execution.
+
+30 January 2009 09:37:56 AM
+30 January 2009 09:38:03 AM
+
+QUADRATURE_TEST_2D
+  C++ version
+
+  Compiled on Jan 30 2009 at 09:35:30.
+
+  Investigate the accuracy of a 2D quadrature
+  rule by integrating test functions.
+
+QUADRATURE_TEST_2D: User input:
+  Quadrature rule X file = "ts_d2_127x127_x.txt".
+  Quadrature rule W file = "ts_d2_127x127_w.txt".
+  Quadrature rule R file = "ts_d2_127x127_r.txt".
+
+  Spatial dimension = 2
+  Number of points  = 16129
+
+  Prob   Dim      Points       Approx          Exact           Error
+
+     1     2       16129         1.64469         1.64493     0.000248612
+     2     2       16129         4.35507         4.35517     0.000102319
+     3     2       16129         3.12415         3.12419     4.66266e-05
+     4     2       16129         2.57896         2.57901     4.27139e-05
+     5     2       16129         0.44445        0.444444     5.93809e-06
+     6     2       16129         1.86278         1.86302     0.000233639
+     7     2       16129        0.532317        0.533333       0.0010167
+
+QUADRATURE_2D_TEST:
+  Normal end of execution.
+
+30 January 2009 09:38:04 AM

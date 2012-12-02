@@ -1,0 +1,436 @@
+21 December 2011 04:28:42 PM
+
+DIVDIF_PRB
+  C++ version
+  Test the DIVDIF library.
+
+TEST01
+  DATA_TO_DIF_DISPLAY sets up a difference table
+  and displays intermediate calculations;
+  DIF_APPEND appends a new data point;
+  DIF_ANTIDERIV computes the antiderivative;
+  DIF_DERIV_TABLE computes the derivative;
+  DIF_SHIFT_ZERO shifts all the abscissas to 0;
+  DIF_VAL evaluates at a point;
+
+
+  The divided difference table:
+
+                 1           2           3           4  
+
+     0           1           4           9          16  
+     1           3           5           7  
+     2           1           1  
+     3           0  
+
+  The divided difference polynomial:
+
+  p(x) =                                    1
+       + ( x -          1) * (              3
+       + ( x -          2) * (              1
+       + ( x -          3) * (              0
+        )))
+
+  DIF_APPEND can add the data (5,25) to the table.
+
+
+  The updated divided difference polynomial:
+
+  p(x) =                                   25
+       + ( x -          5) * (              6
+       + ( x -          1) * (              1
+       + ( x -          2) * (             -0
+       + ( x -          3) * (             -0
+        ))))
+
+  DIF_VAL can evaluate the table at a point.
+
+
+  DIF_VAL reports P(2.5) = 6.25
+
+  The divided difference table after DIF_SHIFT_ZERO:
+
+  p(x) =                                    0
+       + ( x -          0) * (              0
+       + ( x -          0) * (              1
+       + ( x -          0) * (              0
+       + ( x -          0) * (             -0
+        ))))
+
+  The divided difference table for the derivative:
+
+  p(x) =                                    0
+       + ( x -          0) * (              2
+       + ( x -          0) * (              0
+       + ( x -          0) * (             -0
+        )))
+
+  DIF_VAL reports P'(2.5) = 5
+
+  The divided difference table for the antiderivative:
+
+  p(x) =                                    0
+       + ( x -          0) * (              0
+       + ( x -          0) * (              0
+       + ( x -          0) * (       0.333333
+       + ( x -          0) * (              0
+       + ( x -          0) * (             -0
+        )))))
+
+  DIF_VAL reports (Anti)P(2.5) = 5.20833
+
+TEST02
+  Approximate Y = EXP(X) using orders 1 to 8.
+
+  Original data:
+
+       X          Y
+
+           0           1
+           1     2.71828
+           2     7.38906
+           3     20.0855
+           4     54.5982
+           5     148.413
+           6     403.429
+           7     1096.63
+
+  Evaluate at X = 2.5 where EXP(X) = 12.1825
+
+  Order  Approximate Y     Error
+
+       1           1    -11.1825
+       2      5.2957    -6.88679
+       3     10.8316    -1.35087
+       4      12.417    0.234513
+       5     12.0765   -0.106003
+       6      12.252    0.069528
+       7     12.1264  -0.0561433
+       8     12.2343   0.0518261
+
+TEST04
+  DIF_BASIS computes Lagrange basis polynomials
+  in difference form.
+
+
+  The base points:
+
+     1           1
+     2           2
+     3           3
+     4           4
+     5           5
+
+  The table of difference vectors defining the basis polynomials.
+  Each ROW represents a polynomial.
+
+           1          -1         0.5   -0.166667   0.0416667  
+           0           1          -1         0.5   -0.166667  
+           0           0         0.5        -0.5        0.25  
+           0           0           0    0.166667   -0.166667  
+           0           0           0           0   0.0416667  
+
+  Evaluate basis polynomial #3 at a set of points.
+
+      X        Y
+
+           1           0
+         1.5   -0.546875
+           2           0
+         2.5    0.703125
+           3           1
+         3.5    0.703125
+           4           0
+         4.5   -0.546875
+           5           0
+
+TEST05
+  POLY_BASIS computes Lagrange basis polynomials
+  in standard form.
+
+
+  The table of difference vectors defining the basis polynomials.
+  Each ROW represents a polynomial.
+
+         5    -6.41667     2.95833   -0.583333   0.0416667  
+       -10     17.8333    -9.83333     2.16667   -0.166667  
+        10       -19.5       12.25          -3        0.25  
+        -5     10.1667    -6.83333     1.83333   -0.166667  
+         1    -2.08333     1.45833   -0.416667   0.0416667  
+
+  One basis polynomial in standard form:
+
+  p(x) =       0.25 * x ^ 4
+       -          3 * x ^ 3
+       +      12.25 * x ^ 2
+       -       19.5 * x
+       +         10
+
+  Evaluate basis polynomial #3 at a set of points.
+
+      X        Y
+
+           1           0
+         1.5   -0.546875
+           2           0
+         2.5    0.703125
+           3           1
+         3.5    0.703125
+           4           0
+         4.5   -0.546875
+           5           0
+
+TEST06
+  DIF_TO_R8POLY converts a difference table to a polynomial;
+  DIF_SHIFT_ZERO shifts a divided difference table to 0;
+
+  These are equivalent operations
+
+
+  The divided difference table:
+
+                 1           2           3           4  
+
+     0          -2           2          14          40  
+     1           4          12          26  
+     2           4           7  
+     3           1  
+
+  The divided difference table:
+
+                 1           2           3           4  
+
+     0          -2           2          14          40  
+     1           4          12          26  
+     2           4           7  
+     3           1  
+
+  The divided difference table:
+
+  p(x) =                                   -2
+       + ( x -          1) * (              4
+       + ( x -          2) * (              4
+       + ( x -          3) * (              1
+        )))
+
+  The polynomial using DIF_SHIFT_ZERO:
+
+  p(x) =          1 * x ^ 3
+       -          2 * x ^ 2
+       +          3 * x
+       -          4
+
+  The polynomial using DIF_TO_R8POLY:
+
+  p(x) =          1 * x ^ 3
+       -          2 * x ^ 2
+       +          3 * x
+       -          4
+
+TEST07
+  NCC_RULE computes closed Newton Cotes formulas;
+
+
+  Newton-Cotes Closed Quadrature Rule:
+
+    Abscissa       Weight
+
+       1          -1   0.0869213
+       2   -0.714286    0.414005
+       3   -0.428571    0.153125
+       4   -0.142857    0.345949
+       5    0.142857    0.345949
+       6    0.428571    0.153125
+       7    0.714286    0.414005
+       8           1   0.0869213
+
+TEST08
+  NCO_RULE computes open Newton Cotes formulas.
+
+
+  Newton-Cotes Open Quadrature Rule:
+
+    Abscissa       Weight
+
+       1   -0.777778    0.797768
+       2   -0.555556    -1.25134
+       3   -0.333333     2.21741
+       4   -0.111111   -0.763839
+       5    0.111111   -0.763839
+       6    0.333333     2.21741
+       7    0.555556    -1.25134
+       8    0.777778    0.797768
+
+TEST09
+  R8POLY_ANT_COF computes the coefficients of the
+  antiderivative of a polynomial;
+  R8POLY_ANT_VAL evaluates the antiderivative of
+  a polynomial;
+  R8POLY_DER_COF computes the coefficients of the
+  derivative of a polynomial;
+  R8POLY_DER_VAL evaluates the derivative of
+  a polynomial;
+  R8POLY_PRINT prints a polynomial;
+  R8POLY_VAL evaluates a polynomial.
+
+  The initial polynomial:
+
+  p(x) =          5 * x ^ 4
+       +          4 * x ^ 3
+       +          3 * x ^ 2
+       +          2 * x
+       +          1
+
+  The antiderivative polynomial:
+
+  p(x) =          1 * x ^ 5
+       +          1 * x ^ 4
+       +          1 * x ^ 3
+       +          1 * x ^ 2
+       +          1 * x
+
+  The derivative polynomial:
+
+  p(x) =         20 * x ^ 3
+       +         12 * x ^ 2
+       +          6 * x
+       +          2
+
+  Evaluate the polynomial, antiderivative and
+  derivative, using only the original polynomial
+  coefficients:
+
+  X   P(X)   Anti_P(X)     P'(X)
+
+           0           1           0           2
+           1          15           5          40
+           2         129          62         222
+
+TEST10
+  ROOTS_TO_DIF computes a divided difference
+  polynomial with the given roots;
+  DIF_TO_R8POLY converts it to a standard form polynomial.
+
+
+  The roots:
+
+     1           3
+
+  The polynomial:
+
+  p(x) =          1 * x
+       -          3
+
+  The roots:
+
+     1           3
+     2           1
+
+  The polynomial:
+
+  p(x) =          1 * x ^ 2
+       -          4 * x
+       +          3
+
+  The roots:
+
+     1           3
+     2           1
+     3           2
+
+  The polynomial:
+
+  p(x) =          1 * x ^ 3
+       -          6 * x ^ 2
+       +         11 * x
+       -          6
+
+  The roots:
+
+     1           3
+     2           1
+     3           2
+     4           4
+
+  The polynomial:
+
+  p(x) =          1 * x ^ 4
+       -         10 * x ^ 3
+       +         35 * x ^ 2
+       -         50 * x
+       +         24
+
+TEST11
+  ROOTS_TO_R8POLY computes polynomial coefficients from roots.
+
+
+  The roots:
+
+     1           3
+
+  The polynomial:
+
+  p(x) =          1 * x
+       -          3
+
+  The roots:
+
+     1           3
+     2           1
+
+  The polynomial:
+
+  p(x) =          1 * x ^ 2
+       -          4 * x
+       +          3
+
+  The roots:
+
+     1           3
+     2           1
+     3           2
+
+  The polynomial:
+
+  p(x) =          1 * x ^ 3
+       -          6 * x ^ 2
+       +         11 * x
+       -          6
+
+  The roots:
+
+     1           3
+     2           1
+     3           2
+     4           4
+
+  The polynomial:
+
+  p(x) =          1 * x ^ 4
+       -         10 * x ^ 3
+       +         35 * x ^ 2
+       -         50 * x
+       +         24
+
+TEST12
+  R8POLY_SHIFT shifts polynomial coefficients.
+
+  Polynomial coefficients for argument X
+
+       0           6
+       1          -1
+       2           2
+
+  SCALE = 2
+  SHIFT = 3
+
+  Polynomial coefficients for argument Z = SCALE * X + SHIFT:
+
+       0          12
+       1        -3.5
+       2         0.5
+
+DIVDIF_PRB
+  Normal end of execution.
+
+21 December 2011 04:28:42 PM

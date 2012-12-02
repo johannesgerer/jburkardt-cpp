@@ -1,0 +1,117 @@
+06 October 2012 09:01:34 AM
+ 
+SPARSE_INTERP_ND_PRB
+  C version.
+  Test the SPARSE_INTERP_ND library.
+  The R8LIB library is also required.
+
+TEST01:
+  Sparse interpolation for a function f(x) of M-dimensional argument.
+  Use a sequence of sparse grids of levels 0 through SPARSE_MAX.
+  Invoke a general Lagrange interpolant function to do this.
+
+  Compare the exact function and the interpolants at a grid of points.
+
+  The "order" is the sum of the orders of all the product grids
+  used to make a particular sparse grid.
+
+  Spatial dimension M = 1
+  Maximum sparse grid level = 9
+  Number of interpolation points is NI = 100
+
+   L     Order    ApproxError
+
+   1         1  2.66e-02
+   2         3  5.08e-04
+   3         5  1.58e-06
+   4         9  2.20e-12
+   5        17  1.44e-17
+   6        33  2.47e-17
+   7        65  3.19e-17
+   8       129  4.62e-17
+   9       257  7.98e-17
+  10       513  1.36e-16
+
+TEST01:
+  Sparse interpolation for a function f(x) of M-dimensional argument.
+  Use a sequence of sparse grids of levels 0 through SPARSE_MAX.
+  Invoke a general Lagrange interpolant function to do this.
+
+  Compare the exact function and the interpolants at a grid of points.
+
+  The "order" is the sum of the orders of all the product grids
+  used to make a particular sparse grid.
+
+  Spatial dimension M = 2
+  Maximum sparse grid level = 9
+  Number of interpolation points is NI = 100
+
+   L     Order    ApproxError
+
+   1         1  2.11e-02
+   2         7  7.38e-03
+   3        25  5.92e-04
+   4        67  5.90e-04
+   5       161  2.20e-04
+   6       371  9.37e-05
+   7       837  3.09e-05
+   8      1863  1.31e-05
+   9      4105  4.49e-06
+  10      8971  1.98e-06
+
+TEST01:
+  Sparse interpolation for a function f(x) of M-dimensional argument.
+  Use a sequence of sparse grids of levels 0 through SPARSE_MAX.
+  Invoke a general Lagrange interpolant function to do this.
+
+  Compare the exact function and the interpolants at a grid of points.
+
+  The "order" is the sum of the orders of all the product grids
+  used to make a particular sparse grid.
+
+  Spatial dimension M = 3
+  Maximum sparse grid level = 9
+  Number of interpolation points is NI = 100
+
+   L     Order    ApproxError
+
+   1         1  1.53e-02
+   2        10  5.64e-03
+   3        52  2.19e-03
+   4       195  2.46e-04
+   5       609  4.72e-04
+   6      1710  1.99e-04
+   7      4502  9.84e-05
+   8     11369  3.05e-05
+   9     27887  1.51e-05
+  10     66936  7.43e-06
+
+TEST01:
+  Sparse interpolation for a function f(x) of M-dimensional argument.
+  Use a sequence of sparse grids of levels 0 through SPARSE_MAX.
+  Invoke a general Lagrange interpolant function to do this.
+
+  Compare the exact function and the interpolants at a grid of points.
+
+  The "order" is the sum of the orders of all the product grids
+  used to make a particular sparse grid.
+
+  Spatial dimension M = 4
+  Maximum sparse grid level = 7
+  Number of interpolation points is NI = 100
+
+   L     Order    ApproxError
+
+   1         1  1.42e-02
+   2        13  6.08e-03
+   3        87  2.43e-03
+   4       411  1.24e-03
+   5      1573  1.27e-04
+   6      5257  4.15e-04
+   7     16035  2.11e-04
+   8     45879  1.55e-04
+ 
+SPARSE_INTERP_ND_PRB
+  Normal end of execution.
+ 
+06 October 2012 09:01:40 AM

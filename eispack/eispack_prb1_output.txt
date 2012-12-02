@@ -1,0 +1,139 @@
+13 November 2012 08:09:14 AM
+
+EISPACK_PRB
+  C++ version.
+  Test the EISPACK library.
+
+TEST06
+  RS computes the eigenvalues and eigenvectors
+  of a real symmetric matrix.
+
+  Matrix order = 4
+
+  The matrix A:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:            5             4             1             1  
+    1:            4             5             1             1  
+    2:            1             1             4             2  
+    3:            1             1             2             4  
+
+  The eigenvalues Lambda:
+
+         0:              1
+         1:              2
+         2:              5
+         3:             10
+
+  The eigenvector matrix:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:     0.707107  -9.71445e-17      0.316228      0.632456  
+    1:    -0.707107  -2.77556e-17      0.316228      0.632456  
+    2:            0      0.707107     -0.632456      0.316228  
+    3:            0     -0.707107     -0.632456      0.316228  
+
+  The residual (A-Lambda*I)*X:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:            0  -3.60822e-16  -8.88178e-16             0  
+    1:            0    -4.996e-16             0             0  
+    2:            0   8.88178e-16  -2.66454e-15  -1.33227e-15  
+    3:            0  -1.11022e-15             0             0  
+
+TEST065
+  RS computes the eigenvalues and eigenvectors
+  of a real symmetric matrix.
+
+  Matrix order = 3
+
+  The matrix A:
+
+  Col:          0             1             2       
+  Row
+
+    0:     0.218418      0.759007      0.543544  
+    1:     0.759007      0.415307     0.0880378  
+    2:     0.543544     0.0880378      0.043829  
+
+  The eigenvalues Lambda:
+
+         0:      -0.654749
+         1:      0.0897594
+         2:        1.24254
+
+  The eigenvector matrix:
+
+  Col:          0             1             2       
+  Row
+
+    0:    -0.723678      0.162643      0.670699  
+    1:     0.471882     -0.592551      0.652848  
+    2:     0.503604      0.788943      0.352068  
+
+  The residual (A-Lambda*I)*X:
+
+  Col:          0             1             2       
+  Row
+
+    0:  2.77556e-16  -2.42861e-17   2.22045e-16  
+    1:  2.77556e-16  -4.16334e-17   2.22045e-16  
+    2:  5.55112e-17   5.55112e-17   1.11022e-16  
+
+TEST07
+  RSB computes the eigenvalues and eigenvectors
+  of a real symmetric band matrix.
+
+  Matrix order = 5
+
+  The matrix A:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            2            -1             0             0             0  
+    1:           -1             2            -1             0             0  
+    2:            0            -1             2            -1             0  
+    3:            0             0            -1             2            -1  
+    4:            0             0             0            -1             2  
+
+  The eigenvalues Lambda:
+
+         0:       0.267949
+         1:              1
+         2:              2
+         3:              3
+         4:        3.73205
+
+  The eigenvector matrix X:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:     0.288675           0.5      -0.57735          -0.5      0.288675  
+    1:          0.5           0.5   4.14673e-17           0.5          -0.5  
+    2:      0.57735  -2.22045e-16       0.57735             0       0.57735  
+    3:          0.5          -0.5    5.5318e-17          -0.5          -0.5  
+    4:     0.288675          -0.5      -0.57735           0.5      0.288675  
+
+  The residual (A-Lambda*I)*X:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:  4.16334e-17  -1.11022e-16   2.22045e-16             0  -2.22045e-16  
+    1:  3.33067e-16   2.77556e-16    1.3911e-16             0  -1.11022e-15  
+    2: -4.71845e-16  -1.11022e-16  -2.22045e-16   1.11022e-16  -4.44089e-16  
+    3:  2.77556e-16   2.22045e-16  -1.10636e-16             0  -8.88178e-16  
+    4: -4.16334e-16             0   2.22045e-16             0   2.22045e-16  
+
+EISPACK_PRB1
+  Normal end of execution.
+
+13 November 2012 08:09:14 AM

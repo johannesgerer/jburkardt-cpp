@@ -1,0 +1,295 @@
+<html>
+
+  <head>
+    <title>
+      BLAS1_S - Basic Linear Algebra Subprograms - Level 1 -
+      Single Precision Real
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      BLAS1_S <br>
+      Basic Linear Algebra Subprograms <br>
+      Level 1 <br>
+      Single Precision Real Arithmetic
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>BLAS1_S</b>
+      is a C++ library which
+      implements the Level 1 <b>BLAS</b>,
+      or Basic Linear Algebra Subprograms, using single precision real arithmetic.
+    </p>
+
+    <p>
+      The <b>BLAS</b> are a small core library of linear algebra utilities,
+      which can be highly optimized for various architectures.  Software
+      that relies on the <b>BLAS</b> is thus highly portable, and will typically
+      run very efficiently.
+    </p>
+
+    <p>
+      The Level 1 BLAS are primarily for use in vector operations.
+      In certain cases, they may also be used to operate on the rows
+      or columns of a two-dimensional array.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>BLAS1_S</b> is available in
+      <a href = "../../c_src/blas1_s/blas1_s.html">a C version</a> and
+      <a href = "../../cpp_src/blas1_s/blas1_s.html">a C++ version</a> and
+      <a href = "../../f77_src/blas1_s/blas1_s.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/blas1_s/blas1_s.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/blas1_s/blas1_s.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/blas1_c/blas1_c.html">
+      BLAS1_C</a>,
+      a C++ library which
+      contains basic linear algebra routines for vector-vector operations,
+      using single precision complex arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/blas1_d/blas1_d.html">
+      BLAS1_D</a>,
+      a C++ library which
+      contains basic linear algebra routines for vector-vector operations,
+      using double precision real arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/blas1_z/blas1_z.html">
+      BLAS1_Z</a>,
+      a C++ library which
+      contains basic linear algebra routines for vector-vector operations,
+      using double precision complex arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/blas2/blas2.html">
+      BLAS2</a>,
+      a FORTRAN77 library which
+      contains basic linear algebra routines for matrix-vector operations,
+      using single or precision real or complex arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/blas3/blas3.html">
+      BLAS3</a>,
+      a FORTRAN77 library which
+      contains basic linear algebra routines for matrix-matrix operations,
+      using single or precision real or complex arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gsl/gsl.html">
+      GSL</a>,
+      C++ programs which
+      illustrate the use of the Gnu Scientific Library;
+    </p>
+
+    <p>
+      <a href = "../../f77_src/lapack_examples/lapack_examples.html">
+      LAPACK_EXAMPLES</a>,
+      a FORTRAN77 program which
+      demonstrates the use of the LAPACK linear algebra library.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linpack_c/linpack_c.html">
+      LINPACK_C</a>,
+      a C++ library which
+      solves linear systems using single precision complex arithmetic;
+    </p>
+
+    <p>
+      <a href = "../../c_src/super_blas/super_blas.html">
+      SUPER_BLAS</a>,
+      a C library which
+      implements some of the Basic Linear Algebra Subprograms for fast execution.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Original FORTRAN77 version by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
+      C++ version by John Burkardt.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Thomas Coleman, Charles vanLoan,<br>
+          Handbook for Matrix Computations,<br>
+          SIAM, 1988,<br>
+          ISBN13: 978-0-898712-27-8,<br>
+          LC: QA188.C65.
+        </li>
+        <li>
+          Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,<br>
+          LINPACK User's Guide,<br>
+          SIAM, 1979,<br>
+          ISBN13: 978-0-898711-72-1,<br>
+          LC: QA214.L56.
+        </li>
+        <li>
+          Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,<br>
+          Algorithm 539:
+          Basic Linear Algebra Subprograms for Fortran Usage,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 5, Number 3, September 1979, pages 308-323.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "blas1_s.cpp">blas1_s.cpp</a>,
+          the level 1 BLAS in single precision real arithmetic.
+        </li>
+        <li>
+          <a href = "blas1_s.hpp">blas1_s.hpp</a>,
+          an include file for <b>BLAS1_S</b>.
+        </li>
+        <li>
+          <a href = "blas1_s.sh">blas1_s.sh</a>
+          commands to compile the <b>BLAS1_S</b>.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "blas1_s_prb.cpp">blas1_s_prb.cpp</a>,
+          the calling program.
+        </li>
+        <li>
+          <a href = "blas1_s_prb.sh">blas1_s_prb.sh</a>
+          compiles, links and runs the calling program.
+        </li>
+        <li>
+          <a href = "blas1_s_prb_output.txt">blas1_s_prb_output.txt</a>
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two integers.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two integers.
+        </li>
+        <li>
+          <b>ISAMAX</b> finds the index of the float vector element of maximum absolute value.
+        </li>
+        <li>
+          <b>LSAME</b> returns TRUE if CA is the same letter as CB regardless of case.
+        </li>
+        <li>
+          <b>R4_ABS</b> returns the absolute value of a float.
+        </li>
+        <li>
+          <b>R4_MAX</b> returns the maximum of two floats.
+        </li>
+        <li>
+          <b>R4_SIGN</b> returns the sign of a float.
+        </li>
+        <li>
+          <b>SASUM</b> takes the sum of the absolute values of a float vector.
+        </li>
+        <li>
+          <b>SAXPY</b> computes float constant times a vector plus a vector.
+        </li>
+        <li>
+          <b>SCOPY</b> copies a float vector X to a vector Y.
+        </li>
+        <li>
+          <b>SDOT</b> forms the dot product of two float vectors.
+        </li>
+        <li>
+          <b>SMACH</b> computes machine parameters of float arithmetic.
+        </li>
+        <li>
+          <b>SNRM2</b> returns the euclidean norm of a float vector.
+        </li>
+        <li>
+          <b>SROT</b> applies a float plane rotation.
+        </li>
+        <li>
+          <b>SROTG</b> constructs a float Givens plane rotation.
+        </li>
+        <li>
+          <b>SSCAL</b> scales a float vector by a constant.
+        </li>
+        <li>
+          <b>SSWAP</b> interchanges two float vectors.
+        </li>
+        <li>
+          <b>XERBLA</b> is an error handler for the LAPACK routines.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 23 June 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

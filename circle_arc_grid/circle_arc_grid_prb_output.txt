@@ -1,0 +1,29 @@
+21 December 2011 02:04:55 PM
+
+CIRCLE_ARC_GRID_PRB
+  C++ version
+  Test CIRCLE_ARC_GRID.
+
+TEST01
+  Compute points along a 90 degree arc
+
+  Radius =           2
+  Center =           5  5
+  Angle 1 =          0
+  Angle 2 =          90
+  Number of points = 10
+
+  A few of the points:
+
+         0:              7               5
+         1:        6.96962          5.3473
+         2:        6.87939         5.68404
+  ........  ..............  ..............
+         9:              5               7
+
+  Data written to "arc.txt".
+
+CIRCLE_ARC_GRID_PRB
+  Normal end of execution.
+
+21 December 2011 02:04:55 PM

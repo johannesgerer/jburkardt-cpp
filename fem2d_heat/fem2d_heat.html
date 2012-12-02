@@ -1,0 +1,408 @@
+<html>
+
+  <head>
+    <title>
+      FEM2D_HEAT - Finite Element Solution of the Heat Equation on Arbitrary 2D Region
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM2D_HEAT <br>
+      Finite Element Solution of the Heat Equation <br>
+      on a Triangulated Region
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM2D_HEAT</b>
+      is a C++ program which
+      applies the finite element method to solve
+      a form of the time-dependent heat equation over an arbitrary
+      triangulated region.
+    </p>
+
+    <p>
+      The computational region is initially unknown by the program.  The user
+      specifies it by preparing a file containing the coordinates of
+      the nodes, and a file containing the indices of nodes that make
+      up triangles that form a triangulation of the region.
+    </p>
+
+    <p>
+      Normally, the user does not type in this information by hand, but has
+      a program fill in the nodes, and perhaps another program that
+      constructs the triangulation.  However, in the simplest case,
+      the user might construct a very crude triangulation by hand, and
+      have <a href = "../../f_src/triangulation_refine/triangulation_refine.html">
+      TRIANGULATION_REFINE</a> refine it to something more reasonable.
+    </p>
+
+    <p>
+      For the following ridiculously small example:
+      <pre>
+       10-11-12
+        |\   |\
+        | \  | \
+        6  7 8  9
+        |   \|   \
+        1-2--3--4-5
+      </pre>
+      the node file would be:
+      <pre>
+         0.0  0.0
+         1.0  0.0
+         2.0  0.0
+         3.0  0.0
+         4.0  0.0
+         0.0  1.0
+         1.0  1.0
+         2.0  1.0
+         3.0  1.0
+         0.0  2.0
+         1.0  2.0
+         2.0  2.0
+      </pre>
+      and the triangle file would be
+      <pre>
+         1  3 10  2  7  6
+         3  5 12  4  9  8
+        12 10  3 11  7  8
+      </pre>
+    </p>
+
+    <p>
+      The program is set up to handle the time dependent heat
+      equation with a right hand side function, and nonhomogeneous
+      Dirichlet boundary conditions.   The state variable
+      U(T,X,Y) is then constrained by:
+      <pre>
+        Ut - ( Uxx + Uyy ) + K(x,y,t) * U = F(x,y,t)  in the region
+                                        U = G(x,y,t)  on the boundary
+                                        U = H(x,y,t)  at initial time TINIT.
+      </pre>
+    </p>
+
+    <p>
+      To specify the right hand side function F(x,y,t), the linear
+      coefficient K(x,y,t), the boundary condition function G(x,y,t),
+      and the initial condition H(x,y,t),
+      the user has to supply a file, perhaps called <i>myprog.C</i>, 
+      containing several functions:
+      <ul>
+        <li>
+          <b>double rhs ( int node_num, double node_xy[], double time )</b>
+          evaluates the right hand side forcing term F(x,y,t).
+        </li>
+        <li>
+          <b>double k_coef ( int node_num, double node_xy[], double time )</b>
+          evaluates K(x,y,t);
+        </li>
+        <li>
+          <b>double *dirichlet_condition ( int node_num, double node_xy[], double time )</b>
+          evaluates G(x,y,t) for all nodes on the boundary;
+        </li>
+        <li>
+          <b>double *initial_condition ( int node_num, double node_xy[], double time )</b>
+          evaluates H(x,y,t) for all nodes at the initial time.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The program is also able to write out a file containing the
+      solution value at every node.  This file may be used to create
+      contour plots of the solution.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        g++ fem2d_heat.cpp <i>myprog.cpp</i> <br>
+        mv a.out fem2d_heat<br>
+        fem2d_heat <i>prefix</i>
+      </blockquote>
+      where prefix is the common file prefix:
+      <ul>
+        <li>
+          "prefix"_nodes.txt, contains the node coordinates.
+        </li>
+        <li>
+          "prefix"_elements.txt, contains the indices of nodes that form elements.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>FEM2D_HEAT</b> is available in
+      <a href = "../../cpp_src/fem2d_heat/fem2d_heat.html">a C++ version</a> and
+      <a href = "../../f_src/fem2d_heat/fem2d_heat.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/fem2d_heat/fem2d_heat.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem1d_heat_steady/fem1d_heat_steady.html">
+      FEM1D_HEAT_STEADY</a>,
+      a C++ program which
+      uses the finite element method to solve the steady (time independent)
+      heat equation in 1D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_heat_square/fem2d_heat_square.html">
+      FEM2D_HEAT_SQUARE</a>,
+      a C++ library which
+      defines the geometry of a square region, as well as boundary and initial
+      conditions for a given heat problem, and is called by FEM2D_HEAT
+      as part of a solution procedure.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Hans Rudolf Schwarz,<br>
+          Finite Element Methods,<br>
+          Academic Press, 1988,<br>
+          ISBN: 0126330107,<br>
+          LC: TA347.F5.S3313.
+        </li>
+        <li>
+          Gilbert Strang, George Fix,<br>
+          An Analysis of the Finite Element Method,<br>
+          Cambridge, 1973,<br>
+          ISBN: 096140888X,<br>
+          LC: TA335.S77.
+        </li>
+        <li>
+          Olgierd Zienkiewicz,<br>
+          The Finite Element Method,<br>
+          Sixth Edition,<br>
+          Butterworth-Heinemann, 2005,<br>
+          ISBN: 0750663200,<br>
+          LC: TA640.2.Z54
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fem2d_heat.cpp">fem2d_heat.cpp</a>,
+          the source code;
+        </li>
+        <li>
+          <a href = "fem2d_heat.sh">fem2d_heat.sh</a>,
+          commands to compile the partial program;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main routine of FEM2D_HEAT.
+        </li>
+        <li>
+          <b>ASSEMBLE_BACKWARD_EULER</b> adjusts the system for the backward Euler term.
+        </li>
+        <li>
+          <b>ASSEMBLE_BOUNDARY</b> modifies the linear system for the boundary conditions.
+        </li>
+        <li>
+          <b>ASSEMBLE_FEM</b> assembles the finite element system for the heat equation.
+        </li>
+        <li>
+          <b>BANDWIDTH</b> determines the bandwidth of the coefficient matrix.
+        </li>
+        <li>
+          <b>BASIS_11_T6:</b> one basis at one point for the T6 element.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DGB_FA</b> performs a LINPACK-style PLU factorization of a DGB matrix.
+        </li>
+        <li>
+          <b>DGB_PRINT_SOME</b> prints some of a DGB matrix.
+        </li>
+        <li>
+          <b>DGB_SL</b> solves a system factored by DGB_FA.
+        </li>
+        <li>
+          <b>DTABLE_DATA_READ</b> reads the data from a real TABLE file.
+        </li>
+        <li>
+          <b>DTABLE_HEADER_READ</b> reads the header from a real TABLE file.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_NAME_INC</b> increments a partially numeric file name.
+        </li>
+        <li>
+          <b>FILE_NAME_SPECIFICATION</b> determines the names of the input files.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of integer division.
+        </li>
+        <li>
+          <b>I4_WRAP</b> forces an integer to lie between given limits by wrapping.
+        </li>
+        <li>
+          <b>I4COL_COMPARE</b> compares columns I and J of an I4COL.
+        </li>
+        <li>
+          <b>I4COL_SORT_A</b> ascending sorts the columns of an I4COL.
+        </li>
+        <li>
+          <b>I4COL_SWAP</b> swaps two columns of an integer array.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT_SOME</b> prints some of an I4MAT, transposed.
+        </li>
+        <li>
+          <b>ITABLE_DATA_READ</b> reads data from an integer TABLE file.
+        </li>
+        <li>
+          <b>ITABLE_HEADER_READ</b> reads the header from an integer TABLE file.
+        </li>
+        <li>
+          <b>I4VEC_PRINT_SOME</b> prints "some" of an integer vector.
+        </li>
+        <li>
+          <b>LVEC_PRINT</b> prints a logical vector.
+        </li>
+        <li>
+          <b>POINTS_PLOT</b> plots a pointset.
+        </li>
+        <li>
+          <b>QUAD_RULE</b> sets the quadrature rule for assembly.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8_HUGE</b> returns a "huge" R8.
+        </li>
+        <li>
+          <b>R8_NINT</b> returns the nearest integer to an R8.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8VEC_PRINT_SOME</b> prints "some" of an R8VEC.
+        </li>
+        <li>
+          <b>REFERENCE_TO_PHYSICAL_T3</b> maps reference points to physical points.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>SOLUTION_WRITE</b> writes the solution to a file.
+        </li>
+        <li>
+          <b>SORT_HEAP_EXTERNAL</b> externally sorts a list of items into ascending order.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TIMESTRING</b> returns the current YMDHMS date as a string.
+        </li>
+        <li>
+          <b>TRIANGLE_AREA_2D</b> computes the area of a triangle in 2D.
+        </li>
+        <li>
+          <b>TRIANGULATION_ORDER6_BOUNDARY_NODE</b> indicates nodes on the boundary.
+        </li>
+        <li>
+          <b>TRIANGULATION_ORDER6_PLOT</b> plots a 6-node triangulation of a set of nodes.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 13 November 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

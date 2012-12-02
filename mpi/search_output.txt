@@ -1,0 +1,35 @@
+
+SEARCH - Master process:
+  A program using MPI, to search an array.
+
+  Compiled on May  1 2003 at 11:21:45.
+
+  The number of processes is 4
+
+Process 0 is active.
+
+SEARCH - Master process:
+  The number of data items per process is 101
+  The total number of data items is       404.
+  The target value is 14.
+P3  202  14
+P2  145  14
+P2  178  14
+P2  180  14
+P3  211  14
+P3  240  14
+P3  266  14
+P3  295  14
+P1  12  14
+P1  23  14
+P1  36  14
+P1  71  14
+
+SEARCH - Master process:
+  Normal end of execution.
+
+Process 1 is active.
+
+Process 2 is active.
+
+Process 3 is active.

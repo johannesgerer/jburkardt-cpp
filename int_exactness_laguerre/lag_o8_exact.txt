@@ -1,0 +1,88 @@
+21 January 2008 12:50:59 PM
+
+INT_EXACTNESS_LAGUERRE
+  C++ version
+
+  Investigate the polynomial exactness of a Gauss-Laguerre
+  quadrature rule by integrating exponentially weighted
+  monomials up to a given degree over the [0,+oo) interval.
+
+  The rule may be defined on another interval [A,+oo)
+  in which case it is adjusted to the [0,+oo) interval.
+
+INT_EXACTNESS_LAGUERRE: User input:
+  Quadrature rule X file = "lag_o8_x.txt".
+  Quadrature rule W file = "lag_o8_w.txt".
+  Quadrature rule R file = "lag_o8_r.txt".
+  Maximum degree to check = 18
+  OPTION = 0, integrate exp(-x)*f(x)
+
+  Spatial dimension = 1
+  Number of points  = 8
+
+  The quadrature rule to be tested is
+  a Gauss-Laguerre rule
+  ORDER = 8
+  with A = 0
+
+  Standard rule:
+    Integral ( A <= x < +oo ) exp(-x) f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =       0.3691885893416376
+  w[ 1] =        0.418786780814343
+  w[ 2] =       0.1757949866371719
+  w[ 3] =      0.03334349226121564
+  w[ 4] =     0.002794536235225672
+  w[ 5] =    9.076508773358213e-05
+  w[ 6] =    8.485746716272533e-07
+  w[ 7] =     1.04800117487151e-09
+
+  Abscissas X:
+
+  x[ 0] =       0.1702796323051011
+  x[ 1] =       0.9037017767993801
+  x[ 2] =        2.251086629866131
+  x[ 3] =        4.266700170287658
+  x[ 4] =        7.045905402393465
+  x[ 5] =          10.758516010181
+  x[ 6] =          15.740678641278
+  x[ 7] =        22.86313173688927
+
+  Region R:
+
+  r[ 0] =                        0
+  r[ 1] =                    1e+30
+
+  A Gauss-Laguerre rule would be able to exactly
+  integrate monomials up to and including degree = 15
+
+          Error          Degree
+
+     2.220446049250313e-16   0
+     2.220446049250313e-16   1
+                         0   2
+      3.33066907387547e-16   3
+     5.551115123125783e-16   4
+     6.661338147750939e-16   5
+     6.661338147750939e-16   6
+     5.551115123125783e-16   7
+     2.220446049250313e-16   8
+     2.220446049250313e-16   9
+     4.440892098500626e-16  10
+     6.661338147750939e-16  11
+     8.881784197001252e-16  12
+     1.110223024625157e-15  13
+     1.332267629550188e-15  14
+     1.554312234475219e-15  15
+      7.77000776982506e-05  16
+     0.0006627359568511793  17
+      0.002986628476821407  18
+
+INT_EXACTNESS_LAGUERRE:
+  Normal end of execution.
+
+21 January 2008 12:50:59 PM

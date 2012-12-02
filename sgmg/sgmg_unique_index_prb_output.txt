@@ -1,0 +1,1334 @@
+16 October 2011 01:59:54 PM
+
+SGMG_UNIQUE_INDEX_PRB
+  C++ version
+
+SGMG_UNIQUE_INDEX_TESTS
+  Call SGMG_UNIQUE_INDEX_TEST with various arguments.
+
+  All tests will use a point equality tolerance of 0
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         1         6
+         1         1         6
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         5         7
+
+     POINT    UNIQUE
+
+         0         2
+         1         0
+         2         2
+         3         4
+         4         1
+         5         2
+         6         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         1         2        13        25
+
+     POINT    UNIQUE
+
+         0         1
+         1         6
+         2        11
+         3         4
+         4         6
+         5         8
+         6         1
+         7         3
+         8         6
+         9         9
+        10        11
+        11         0
+        12         4
+        13        10
+        14         1
+        15         6
+        16        11
+        17         2
+        18         8
+        19        12
+        20         4
+        21         5
+        22         6
+        23         7
+        24         8
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         1         6
+         1         3         6
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         5         7
+
+     POINT    UNIQUE
+
+         0         2
+         1         0
+         2         2
+         3         4
+         4         1
+         5         2
+         6         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         1         2        15        27
+
+     POINT    UNIQUE
+
+         0         1
+         1         7
+         2        13
+         3         5
+         4         7
+         5         9
+         6         1
+         7         3
+         8         7
+         9        11
+        10        13
+        11         0
+        12         5
+        13        12
+        14         1
+        15         7
+        16        13
+        17         2
+        18         9
+        19        14
+        20         4
+        21         5
+        22         6
+        23         7
+        24         8
+        25         9
+        26        10
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         1         6
+         1         4         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         6         7
+
+     POINT    UNIQUE
+
+         0         2
+         1         0
+         2         2
+         3         5
+         4         1
+         5         3
+         6         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         1         2        19        25
+
+     POINT    UNIQUE
+
+         0         1
+         1         9
+         2        16
+         3         6
+         4        10
+         5        12
+         6         1
+         7         4
+         8         9
+         9        14
+        10        16
+        11         0
+        12         6
+        13        15
+        14         2
+        15        10
+        16        17
+        17         3
+        18        12
+        19        18
+        20         5
+        21         7
+        22         8
+        23        11
+        24        13
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         1         6
+         1         7         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         6         7
+
+     POINT    UNIQUE
+
+         0         2
+         1         0
+         2         2
+         3         5
+         4         1
+         5         3
+         6         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         1         2        19        25
+
+     POINT    UNIQUE
+
+         0         1
+         1         7
+         2        16
+         3         6
+         4         9
+         5        11
+         6         1
+         7         4
+         8         7
+         9        14
+        10        16
+        11         0
+        12         6
+        13        15
+        14         2
+        15         9
+        16        17
+        17         3
+        18        11
+        19        18
+        20         5
+        21         8
+        22        10
+        23        12
+        24        13
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         1         6
+         1         8         3             1.5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         6         7
+
+     POINT    UNIQUE
+
+         0         2
+         1         0
+         2         2
+         3         5
+         4         1
+         5         3
+         6         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         1         2        19        25
+
+     POINT    UNIQUE
+
+         0         1
+         1         8
+         2        16
+         3         6
+         4         9
+         5        11
+         6         1
+         7         4
+         8         8
+         9        14
+        10        16
+        11         0
+        12         6
+        13        15
+        14         2
+        15         9
+        16        17
+        17         3
+        18        11
+        19        18
+        20         5
+        21         7
+        22        10
+        23        12
+        24        13
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         2         6
+         1         9         3             0.5             1.5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         6         7
+
+     POINT    UNIQUE
+
+         0         3
+         1         0
+         2         3
+         3         5
+         4         1
+         5         2
+         6         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         1         2        21        27
+
+     POINT    UNIQUE
+
+         0         3
+         1        11
+         2        18
+         3         7
+         4        10
+         5        13
+         6         0
+         7         3
+         8         5
+         9        11
+        10        15
+        11        18
+        12        20
+        13         1
+        14         7
+        15        16
+        16         2
+        17        10
+        18        17
+        19         4
+        20        13
+        21        19
+        22         6
+        23         8
+        24         9
+        25        12
+        26        14
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         6         3               2
+         1        10         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         6         7
+
+     POINT    UNIQUE
+
+         0         2
+         1         0
+         2         4
+         3         5
+         4         1
+         5         2
+         6         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         1         2        17        23
+
+     POINT    UNIQUE
+
+         0         2
+         1         9
+         2        14
+         3         5
+         4         6
+         5         7
+         6         0
+         7         4
+         8        11
+         9        12
+        10        16
+        11         1
+        12         8
+        13        13
+        14         2
+        15         9
+        16        14
+        17         3
+        18        10
+        19        15
+        20         5
+        21         6
+        22         7
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         1         6
+         1         4         3
+         2         5         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         9        10
+
+     POINT    UNIQUE
+
+         0         4
+         1         0
+         2         4
+         3         8
+         4         1
+         5         6
+         6         7
+         7         2
+         8         3
+         9         5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         2        42        52
+
+     POINT    UNIQUE
+
+         0        19
+         1         3
+         2        19
+         3        38
+         4        11
+         5        26
+         6        31
+         7        16
+         8        18
+         9        22
+        10         3
+        11         7
+        12        19
+        13        34
+        14        38
+        15         0
+        16        11
+        17        35
+        18         5
+        19        26
+        20        40
+        21         6
+        22        31
+        23        41
+        24         8
+        25        13
+        26        14
+        27        28
+        28        33
+        29         1
+        30        16
+        31        36
+        32         2
+        33        18
+        34        37
+        35         4
+        36        22
+        37        39
+        38         9
+        39        24
+        40        29
+        41        10
+        42        25
+        43        30
+        44        12
+        45        27
+        46        32
+        47        15
+        48        17
+        49        20
+        50        21
+        51        23
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         1         6
+         1        11         3
+         2        11         3
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         0         1         1
+
+     POINT    UNIQUE
+
+         0         0
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         1         9        10
+
+     POINT    UNIQUE
+
+         0         4
+         1         0
+         2         4
+         3         8
+         4         1
+         5         6
+         6         7
+         7         2
+         8         3
+         9         5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         0         2        42        52
+
+     POINT    UNIQUE
+
+         0        19
+         1         3
+         2        19
+         3        38
+         4        11
+         5        26
+         6        31
+         7        16
+         8        18
+         9        22
+        10         3
+        11         7
+        12        19
+        13        34
+        14        38
+        15         0
+        16        11
+        17        35
+        18         5
+        19        26
+        20        40
+        21         6
+        22        31
+        23        41
+        24         8
+        25        13
+        26        14
+        27        28
+        28        33
+        29         1
+        30        16
+        31        36
+        32         2
+        33        18
+        34        37
+        35         4
+        36        22
+        37        39
+        38         9
+        39        24
+        40        29
+        41        10
+        42        25
+        43        30
+        44        12
+        45        27
+        46        32
+        47        15
+        48        17
+        49        20
+        50        21
+        51        23
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         3         6
+         1         3         6
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4       129       273
+
+     POINT    UNIQUE
+
+         0         2
+         1         8
+         2        14
+         3        24
+         4        34
+         5        40
+         6        46
+         7        64
+         8        82
+         9        88
+        10        94
+        11       104
+        12       114
+        13       120
+        14       126
+        15         6
+        16        20
+        17        38
+        18        56
+        19        86
+        20       100
+        21       118
+        22         8
+        23        24
+        24        40
+        25        64
+        26        88
+        27       104
+        28       120
+        29        10
+        30        28
+        31        42
+        32        72
+        33        90
+        34       108
+        35       122
+        36        18
+        37        52
+        38        98
+        39        20
+        40        56
+        41       100
+        42        22
+        43        60
+        44       102
+        45        24
+        46        64
+        47       104
+        48        26
+        49        68
+        50       106
+        51        28
+        52        72
+        53       108
+        54        30
+        55        76
+        56       110
+        57        50
+        58        52
+        59        54
+        60        56
+        61        58
+        62        60
+        63        62
+        64        64
+        65        66
+        66        68
+        67        70
+        68        72
+        69        74
+        70        76
+        71        78
+        72         0
+        73         2
+        74         4
+        75         8
+        76        12
+        77        14
+        78        16
+        79        24
+        80        32
+        81        34
+        82        36
+        83        40
+        84        44
+        85        46
+        86        48
+        87        64
+        88        80
+        89        82
+        90        84
+        91        88
+        92        92
+        93        94
+        94        96
+        95       104
+        96       112
+        97       114
+        98       116
+        99       120
+       100       124
+       101       126
+       102       128
+       103         1
+       104         6
+       105        13
+       106        20
+       107        33
+       108        38
+       109        45
+       110        56
+       111        81
+       112        86
+       113        93
+       114       100
+       115       113
+       116       118
+       117       125
+       118         2
+       119         8
+       120        14
+       121        24
+       122        34
+       123        40
+       124        46
+       125        64
+       126        82
+       127        88
+       128        94
+       129       104
+       130       114
+       131       120
+       132       126
+       133         3
+       134        10
+       135        15
+       136        28
+       137        35
+       138        42
+       139        47
+       140        72
+       141        83
+       142        90
+       143        95
+       144       108
+       145       115
+       146       122
+       147       127
+       148         5
+       149        18
+       150        37
+       151        52
+       152        85
+       153        98
+       154       117
+       155         6
+       156        20
+       157        38
+       158        56
+       159        86
+       160       100
+       161       118
+       162         7
+       163        22
+       164        39
+       165        60
+       166        87
+       167       102
+       168       119
+       169         8
+       170        24
+       171        40
+       172        64
+       173        88
+       174       104
+       175       120
+       176         9
+       177        26
+       178        41
+       179        68
+       180        89
+       181       106
+       182       121
+       183        10
+       184        28
+       185        42
+       186        72
+       187        90
+       188       108
+       189       122
+       190        11
+       191        30
+       192        43
+       193        76
+       194        91
+       195       110
+       196       123
+       197        17
+       198        50
+       199        97
+       200        18
+       201        52
+       202        98
+       203        19
+       204        54
+       205        99
+       206        20
+       207        56
+       208       100
+       209        21
+       210        58
+       211       101
+       212        22
+       213        60
+       214       102
+       215        23
+       216        62
+       217       103
+       218        24
+       219        64
+       220       104
+       221        25
+       222        66
+       223       105
+       224        26
+       225        68
+       226       106
+       227        27
+       228        70
+       229       107
+       230        28
+       231        72
+       232       108
+       233        29
+       234        74
+       235       109
+       236        30
+       237        76
+       238       110
+       239        31
+       240        78
+       241       111
+       242        49
+       243        50
+       244        51
+       245        52
+       246        53
+       247        54
+       248        55
+       249        56
+       250        57
+       251        58
+       252        59
+       253        60
+       254        61
+       255        62
+       256        63
+       257        64
+       258        65
+       259        66
+       260        67
+       261        68
+       262        69
+       263        70
+       264        71
+       265        72
+       266        73
+       267        74
+       268        75
+       269        76
+       270        77
+       271        78
+       272        79
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         3         4
+         1         3         4
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4        33        97
+
+     POINT    UNIQUE
+
+         0         1
+         1         6
+         2        11
+         3        16
+         4        21
+         5        26
+         6        31
+         7         4
+         8        14
+         9        24
+        10         6
+        11        16
+        12        26
+        13         8
+        14        18
+        15        28
+        16         4
+        17        14
+        18        24
+        19         6
+        20        16
+        21        26
+        22         8
+        23        18
+        24        28
+        25        13
+        26        14
+        27        15
+        28        16
+        29        17
+        30        18
+        31        19
+        32         1
+        33         6
+        34        11
+        35        16
+        36        21
+        37        26
+        38        31
+        39         0
+        40         4
+        41        10
+        42        14
+        43        20
+        44        24
+        45        30
+        46         1
+        47         6
+        48        11
+        49        16
+        50        21
+        51        26
+        52        31
+        53         2
+        54         8
+        55        12
+        56        18
+        57        22
+        58        28
+        59        32
+        60         4
+        61        14
+        62        24
+        63         6
+        64        16
+        65        26
+        66         8
+        67        18
+        68        28
+        69         3
+        70        13
+        71        23
+        72         4
+        73        14
+        74        24
+        75         5
+        76        15
+        77        25
+        78         6
+        79        16
+        80        26
+        81         7
+        82        17
+        83        27
+        84         8
+        85        18
+        86        28
+        87         9
+        88        19
+        89        29
+        90        13
+        91        14
+        92        15
+        93        16
+        94        17
+        95        18
+        96        19
+
+SGMG_UNIQUE_INDEX_TEST
+  SGMG_UNIQUE_INDEX returns a mapping between
+  the nonunique and unique points in a sparse grid.
+
+ Dimension      Rule  Growth rate      Parameters
+
+         0         3         5
+         1         3         5
+
+ LEVEL_MIN LEVEL_MAX POINT_NUM POINT_NUM
+                        Unique     Total
+
+         3         4        97       241
+
+     POINT    UNIQUE
+
+         0         1
+         1         6
+         2        11
+         3        20
+         4        29
+         5        34
+         6        39
+         7        48
+         8        57
+         9        62
+        10        67
+        11        76
+        12        85
+        13        90
+        14        95
+        15         4
+        16        16
+        17        32
+        18        44
+        19        60
+        20        72
+        21        88
+        22         6
+        23        20
+        24        34
+        25        48
+        26        62
+        27        76
+        28        90
+        29         8
+        30        24
+        31        36
+        32        52
+        33        64
+        34        80
+        35        92
+        36        14
+        37        42
+        38        70
+        39        16
+        40        44
+        41        72
+        42        18
+        43        46
+        44        74
+        45        20
+        46        48
+        47        76
+        48        22
+        49        50
+        50        78
+        51        24
+        52        52
+        53        80
+        54        26
+        55        54
+        56        82
+        57        41
+        58        42
+        59        43
+        60        44
+        61        45
+        62        46
+        63        47
+        64        48
+        65        49
+        66        50
+        67        51
+        68        52
+        69        53
+        70        54
+        71        55
+        72         1
+        73         6
+        74        11
+        75        20
+        76        29
+        77        34
+        78        39
+        79        48
+        80        57
+        81        62
+        82        67
+        83        76
+        84        85
+        85        90
+        86        95
+        87         0
+        88         4
+        89        10
+        90        16
+        91        28
+        92        32
+        93        38
+        94        44
+        95        56
+        96        60
+        97        66
+        98        72
+        99        84
+       100        88
+       101        94
+       102         1
+       103         6
+       104        11
+       105        20
+       106        29
+       107        34
+       108        39
+       109        48
+       110        57
+       111        62
+       112        67
+       113        76
+       114        85
+       115        90
+       116        95
+       117         2
+       118         8
+       119        12
+       120        24
+       121        30
+       122        36
+       123        40
+       124        52
+       125        58
+       126        64
+       127        68
+       128        80
+       129        86
+       130        92
+       131        96
+       132         3
+       133        14
+       134        31
+       135        42
+       136        59
+       137        70
+       138        87
+       139         4
+       140        16
+       141        32
+       142        44
+       143        60
+       144        72
+       145        88
+       146         5
+       147        18
+       148        33
+       149        46
+       150        61
+       151        74
+       152        89
+       153         6
+       154        20
+       155        34
+       156        48
+       157        62
+       158        76
+       159        90
+       160         7
+       161        22
+       162        35
+       163        50
+       164        63
+       165        78
+       166        91
+       167         8
+       168        24
+       169        36
+       170        52
+       171        64
+       172        80
+       173        92
+       174         9
+       175        26
+       176        37
+       177        54
+       178        65
+       179        82
+       180        93
+       181        13
+       182        41
+       183        69
+       184        14
+       185        42
+       186        70
+       187        15
+       188        43
+       189        71
+       190        16
+       191        44
+       192        72
+       193        17
+       194        45
+       195        73
+       196        18
+       197        46
+       198        74
+       199        19
+       200        47
+       201        75
+       202        20
+       203        48
+       204        76
+       205        21
+       206        49
+       207        77
+       208        22
+       209        50
+       210        78
+       211        23
+       212        51
+       213        79
+       214        24
+       215        52
+       216        80
+       217        25
+       218        53
+       219        81
+       220        26
+       221        54
+       222        82
+       223        27
+       224        55
+       225        83
+       226        41
+       227        42
+       228        43
+       229        44
+       230        45
+       231        46
+       232        47
+       233        48
+       234        49
+       235        50
+       236        51
+       237        52
+       238        53
+       239        54
+       240        55
+
+SGMG_UNIQUE_INDEX_PRB
+  Normal end of execution.
+
+16 October 2011 01:59:54 PM

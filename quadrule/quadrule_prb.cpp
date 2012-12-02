@@ -1,0 +1,6215 @@
+# include <cstdlib>
+# include <iostream>
+# include <iomanip>
+# include <cmath>
+# include <cstring>
+
+using namespace std;
+
+# include "quadrule.hpp"
+
+int main ( );
+void test01 ( );
+void test02 ( );
+void test03 ( );
+void test04 ( );
+void test05 ( );
+void test06 ( );
+void test07 ( );
+void test0725 ( );
+void test075 ( );
+void test076 ( );
+void test078 ( );
+void test079 ( int order, double alpha );
+void test08 ( );
+void test085 ( );
+void test087 ( );
+void test09 ( );
+void test095 ( );
+void test096 ( );
+void test10 ( );
+void test105 ( );
+void test108 ( int order );
+void test11 ( );
+void test12 ( );
+void test13 ( );
+void test14 ( );
+void test15 ( );
+void test16 ( );
+void test165 ( int order, double alpha );
+void test17 ( );
+void test18 ( int n );
+void test185 ( int n );
+void test19 ( );
+void test20 ( );
+void test21 ( );
+void test22 ( );
+void test23 ( );
+void test24 ( );
+void test25 ( );
+void test26 ( );
+void test27 ( );
+void test28 ( );
+void test29 ( );
+void test30 ( );
+void test31 ( );
+void test32 ( );
+void test33 ( );
+void test34 ( );
+void test345 ( );
+void test35 ( );
+void test36 ( );
+void test37 ( );
+void test38 ( );
+void test39 ( );
+void test40 ( );
+void test401 ( );
+void test402 ( );
+void test403 ( );
+void test404 ( );
+void test41 ( );
+double f1sd1 ( double x );
+char *function_name ( int function_index );
+void function_set ( string action, int *i );
+double function_value ( double x );
+double fx1sd1 ( double x );
+double fx2sd1 ( double x );
+
+//****************************************************************************80
+
+int main ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    MAIN is the main program for QUADRULE_PRB.
+//
+//  Discussion:
+//
+//    QUADRULE_PRB calls a set of tests for the QUADRULE library.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 May 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  timestamp ( );
+
+  double alpha;
+  int n;
+  int order;
+
+  cout << "\n";
+  cout << "QUADRULE_PRB\n";
+  cout << "  C++ version\n";
+  cout << "  Test the QUADRULE library.\n";
+
+  test01 ( );
+  test02 ( );
+  test03 ( );
+  test04 ( );
+  test05 ( );
+  test06 ( );
+  test07 ( );
+  test0725 ( );
+  test075 ( );
+  test076 ( );
+  test078 ( );
+
+  order = 5;
+  alpha = 0.5;
+  test079 ( order, alpha );
+
+  order = 10;
+  alpha = - 0.5;
+  test079 ( order, alpha );
+
+  test08 ( );
+  test085 ( );
+  test087 ( );
+  test09 ( );
+  test095 ( );
+  test096 ( );
+
+  test10 ( );
+  test105 ( );
+  order = 10;
+  test108 ( order );
+  test11 ( );
+  test12 ( );
+  test13 ( );
+  test14 ( );
+  test15 ( );
+  test16 ( );
+
+  order = 11;
+  alpha = 0.0;
+  test165 ( order, alpha );
+
+  order = 11;
+  alpha = 0.5;
+  test165 ( order, alpha );
+
+  order = 11;
+  alpha = 2.0;
+  test165 ( order, alpha );
+
+  test17 ( );
+//
+//  Compare computed and lookup versions of Gauss-Legendre rules.
+//
+  n = 31;
+  test18 ( n );
+  n = 64;
+  test18 ( n );
+  n = 129;
+  test18 ( n );
+  n = 255;
+  test18 ( n );
+
+  n = 31;
+  test185 ( n );
+  test19 ( );
+
+  test20 ( );
+  test21 ( );
+  test22 ( );
+  test23 ( );
+  test24 ( );
+  test25 ( );
+  test26 ( );
+  test27 ( );
+  test28 ( );
+  test29 ( );
+
+  test30 ( );
+  test31 ( );
+  test32 ( );
+  test33 ( );
+  test34 ( );
+  test345 ( );
+  test35 ( );
+  test36 ( );
+  test37 ( );
+  test38 ( );
+  test39 ( );
+
+  test40 ( );
+  test401 ( );
+  test402 ( );
+  test403 ( );
+  test404 ( );
+  test41 ( );
+//
+//  Terminate.
+//
+  cout << "\n";
+  cout << "QUADRULE_PRB\n";
+  cout << "  Normal end of execution.\n";
+
+  cout << "\n";
+  timestamp ( );
+ 
+  return 0;
+}
+//****************************************************************************80
+
+void test01 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST01 tests BASHFORTH_SET and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 April 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int n;
+  int n_max = 10;
+  double *result;
+  double *w;
+  double *x;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST01\n";
+  cout << "  BASHFORTH_SET sets up an Adams-Bashforth rule;\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [0,1].\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "  Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( n = 1; n <= n_max; n++ )
+    {
+      x = new double[n];
+      w = new double[n];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        bashforth_set ( n, x, w );
+ 
+        result[i] = summer ( function_value, n, x, w );
+ 
+      }
+      cout << "  " << setw(2) << n << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] x;
+      delete [] w;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test02 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST02 tests BDFC_SET and BDF_SUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 April 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int n;
+  int n_max = 10;
+  double *result;
+  double *w;
+  double *x;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST02\n";
+  cout << "  BDFC_SET sets up a Backward Difference Corrector rule;\n";
+  cout << "  BDF_SUM carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [0,1].\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( n = 1; n <= n_max; n++ )
+    {
+      x = new double[n];
+      w = new double[n];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        bdfc_set ( n, x, w );
+ 
+        result[i] = bdf_sum ( function_value, n, x, w );
+ 
+      }
+      cout << setw(2) << n << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] x;
+      delete [] w;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test03 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST03 tests BDFP_SET and BDF_SUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 10;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST03\n";
+  cout << "  BDFP_SET sets up a Backward Difference Predictor rule;\n";
+  cout << "  BDF_SUM carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [0,1].\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        bdfp_set ( order, xtab, weight );
+ 
+        result[i] = bdf_sum ( function_value, order, xtab, weight );
+ 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test04 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST04 tests CHEB_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST04\n";
+  cout << "  CHEB_SET sets up a Chebyshev rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      if ( order == 8 )
+      {
+        continue;
+      }
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        cheb_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test05 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST05 tests CHEBYSHEV1_COMPUTE and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 March 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 6;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = -1.0;
+  b =  1.0;
+  nsub = 1;
+
+  cout << "\n";
+  cout << "TEST05\n";
+  cout << "  CHEBYSHEV1_COMPUTE sets up a Gauss-Chebyshev type 1 rule,\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is 1 / sqrt ( 1 - X**2 )\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        chebyshev1_compute ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(6) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test06 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST06 tests CHEBYSHEV2_COMPUTE and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 March 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 4;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = -1.0;
+  b =  1.0;
+  nsub = 1;
+
+  cout << "\n";
+  cout << "TEST06\n";
+  cout << "  CHEBYSHEV2_COMPUTE sets up a Gauss-Chebyshev type 2 rule,\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is 1 / sqrt ( 1 - X**2 )\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      if ( order == 8 )
+      {
+        continue;
+      }
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        chebyshev2_compute ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(6) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test07 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST07 tests CHEBYSHEV3_COMPUTE and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 March 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 6;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = -1.0;
+  b =  1.0;
+  nsub = 1;
+
+  cout << "\n";
+  cout << "TEST07\n";
+  cout << "  CHEBYSHEV3_COMPUTE sets up a Gauss-Chebyshev type 3 rule,\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is 1 / sqrt ( 1 - X**2 )\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        chebyshev3_compute ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(6) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test0725 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST0725 tests CLENSHAW_CURTIS_COMPUTE
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    18 October 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int order;
+  int order_max = 10;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST0725\n";
+  cout << "  CLENSHAW_CURTIS_COMPUTE computes\n";
+  cout << "  a Clenshaw-Curtis quadrature rule over [-1,1]\n";
+  cout << "  of given order.\n";
+
+  cout << "\n";
+  cout << "    Order  W             X\n";
+  cout << "\n";
+
+  for ( order = 1; order <= order_max; order++ )
+  {
+    w = new double[order];
+    x = new double[order];
+
+    clenshaw_curtis_compute ( order, x, w );
+
+    cout << "\n";
+    cout << "  " << setw(8) << order << "\n";
+
+    for ( i = 0; i < order; i++ )
+    {
+      cout << "          "
+           << "  " << setw(14) << w[i]
+           << "  " << setw(14) << x[i] << "\n";
+    }
+    delete [] w;
+    delete [] x;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void test075 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST075 tests CLENSHAW_CURTIS_SET and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 16;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST075\n";
+  cout << "  CLENSHAW_CURTIS_SET sets up a Clenshaw-Curtis rule;\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [-1,1].\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        clenshaw_curtis_set ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight );
+ 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test076 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST076 compares FEJER1_COMPUTE and FEJER1_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 March 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int order;
+  int order_max = 10;
+  double *w1;
+  double *w2;
+  double *x1;
+  double *x2;
+
+  cout << "\n";
+  cout << "TEST076\n";
+  cout << "  FEJER1_COMPUTE computes a Fejer type 1 quadrature rule;\n";
+  cout << "  FEJER1_SET sets a Fejer type 1 quadrature rule;\n";
+  cout << "\n";
+  cout << "  Compare:\n";
+  cout << "    (W1,X1) from FEJER1_SET,\n";
+  cout << "    (W2,X2) from FEJER1_COMPUTE.\n";
+  cout << "\n";
+  cout << 
+    "     Order        W1              W2              X1             X2\n";
+  cout << "\n";
+
+  for ( order = 1; order <= order_max; order++ )
+  {
+    w1 = new double[order];
+    x1 = new double[order];
+
+    fejer1_set ( order, x1, w1 );
+
+    w2 = new double[order];
+    x2 = new double[order];
+
+    fejer1_compute ( order, x2, w2 );
+
+    cout << "\n";
+    cout << "  " << setw(8) << order << "\n";
+
+    for ( i = 0; i < order; i++ )
+    {
+      cout << "          "
+           << "  " << setw(14) << w1[i]
+           << "  " << setw(14) << w2[i]
+           << "  " << setw(14) << x1[i]
+           << "  " << setw(14) << x2[i] << "\n";
+    }
+    delete [] w1;
+    delete [] w2;
+    delete [] x1;
+    delete [] x2;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void test078 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST078 compares FEJER2_COMPUTE and FEJER2_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 March 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ORDER_MAX 10
+
+  int i;
+  int order;
+  double w1[ORDER_MAX];
+  double w2[ORDER_MAX];
+  double x1[ORDER_MAX];
+  double x2[ORDER_MAX];
+
+  cout << "\n";
+  cout << "TEST078\n";
+  cout << "  FEJER2_COMPUTE computes a Fejer type 2 quadrature rule;\n";
+  cout << "  FEJER2_SET sets a Fejer type 2 quadrature rule;\n";
+  cout << "\n";
+  cout << "  Compare:\n";
+  cout << "    (W1,X1) from FEJER2_SET,\n";
+  cout << "    (W2,X2) from FEJER2_COMPUTE.\n";
+  cout << "\n";
+  cout << 
+    "     Order        W1              W2              X1             X2\n";
+  cout << "\n";
+
+  for ( order = 1; order <= ORDER_MAX; order++ )
+  {
+    fejer2_set ( order, x1, w1 );
+    fejer2_compute ( order, x2, w2 );
+
+    cout << "\n";
+    cout << "  " << setw(8) << order << "\n";
+
+    for ( i = 0; i < order; i++ )
+    {
+      cout << "          "
+           << "  " << setw(14) << w1[i]
+           << "  " << setw(14) << w2[i]
+           << "  " << setw(14) << x1[i]
+           << "  " << setw(14) << x2[i] << "\n";
+    }
+  }
+
+  return;
+# undef ORDER_MAX
+}
+//****************************************************************************80
+
+void test079 ( int order, double alpha )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST079 tests GEGENBAUER_COMPUTE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    24 June 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int ORDER, the order of the rule.
+//
+//    Input, double ALPHA, the parameter.
+//
+{
+  int i;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST079\n";
+  cout << "  GEGENBAUER_COMPUTE computes a Gauss-Gegenbauer rule;\n";
+  cout << "\n";
+  cout << "  The printed output of this routine can be inserted into\n";
+  cout << "  a C++ program.\n";
+
+  w = new double[order];
+  x = new double[order];
+
+  gegenbauer_compute ( order, alpha, x, w );
+
+  cout << "//\n";
+  cout << "//  Abscissas X and weights W for a Gauss Gegenbauer rule\n";
+  cout << "//  of ORDER   = " << order << "\n";
+  cout << "//  with ALPHA = " << alpha << "\n";
+  cout << "//\n";
+
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "    x[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << x[i] << ";\n";
+  }
+  cout << "\n";
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "    w[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << w[i] << ";\n";
+  }
+
+  delete [] w;
+  delete [] x;
+
+  return;
+# undef ORDER
+}
+//****************************************************************************80
+
+void test08 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST08 tests HERMITE_EK_COMPUTE and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    19 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST08\n";
+  cout << "  HERMITE_EK_COMPUTE computes a Gauss-Hermite rule;\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is ( -oo, +oo ).\n";
+  cout << "  The weight function is exp ( - x * x )\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        hermite_ek_compute ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test085 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST085 tests HERMITE_EK_COMPUTE against HERMITE_INTEGRAL.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    19 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double error;
+  double estimate;
+  double exact;
+  double *f_vec;
+  int i;
+  int n;
+  int order;
+  int order_max = 10;
+  double *weight;
+  double *xtab;
+
+  cout << "\n";
+  cout << "TEST085\n";
+  cout << "  HERMITE_EK_COMPUTE computes a Gauss-Hermite rule\n";
+  cout << "  which is appropriate for integrands of the form\n";
+  cout << "    f(x) * exp(-x*x) from -oo to +oo.\n";
+  cout << "\n";
+  cout << "  HERMITE_INTEGRAL determines the exact value of\n";
+  cout << "  this integal when f(x) = x^n.\n";
+  cout << "\n";
+  cout << "         N     Order       Estimate       Exact            Error\n";
+
+  for ( n = 0; n <= 10; n = n + 2 )
+  {
+    exact = hermite_integral ( n );
+
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      f_vec = new double[order];
+      weight = new double[order];
+      xtab = new double[order];
+
+      hermite_ek_compute ( order, xtab, weight );
+ 
+      if ( n == 0 )
+      {
+        for ( i = 0; i < order; i++ )
+        {
+          f_vec[i] = 1.0;
+        }
+      }
+      else
+      {
+        for ( i = 0; i < order; i++ )
+        {
+          f_vec[i] = pow ( xtab[i], n );
+        }
+      }
+      estimate = r8vec_dot_product ( order, weight, f_vec );
+
+      error = r8_abs ( exact - estimate );
+  
+      cout << "  " << setw(8)  << n
+           << "  " << setw(8)  << order
+           << "  " << setw(14) << estimate
+           << "  " << setw(14) << exact
+           << "  " << setw(14) << error << "\n";
+
+      delete [] f_vec;
+      delete [] weight;
+      delete [] xtab;
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void test087 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST087 tests HERMITE_EK_COMPUTE.
+//
+//  Discussion:
+//
+//    I used this test to generate tabular values of weights and
+//    abscissas for Gauss-Hermite quadrature.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    19 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n = 31;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST087\n";
+  cout << "  HERMITE_EK_COMPUTE computes a Gauss-Hermite rule;\n";
+  cout << "\n";
+  cout << "  Compute the data for N = " << n << "\n";
+
+  w = new double[n];
+  x = new double[n];
+
+  hermite_ek_compute ( n, x, w );
+ 
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "    x[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << x[i] << ";\n";
+  }
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "    w[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << w[i] << ";\n";
+  }
+  delete [] w;
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void test09 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST09 tests HERMITE_SET and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST09\n";
+  cout << "  HERMITE_SET sets up a Gauss-Hermite rule;\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is ( -oo, +oo ).\n";
+  cout << "  The weight function is exp ( - x * x )\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        hermite_set ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test095 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST095 tests HERMITE_GK16_SET and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 June 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define L_MAX 8
+
+  double error;
+  double estimate;
+  double exact;
+  double *f;
+  int i;
+  int l;
+  int m;
+  int n;
+  int n_list[L_MAX+1] = { 1, 3, 7, 9, 17, 19, 31, 33, 35 };
+  int p;
+  int p_list[L_MAX+1] = { 1, 5, 7, 15, 17, 29, 31, 33, 51 };
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST095\n";
+  cout << "  HERMITE_GK16_SET sets up a nested rule\n";
+  cout << "  for the Hermite integration problem.\n";
+  cout << "\n";
+  cout << "  The integration interval is ( -oo, +oo ).\n";
+  cout << "  The weight function is exp ( - x * x )\n";
+  cout << "\n";
+  cout << "  HERMITE_INTEGRAL determines the exact value of\n";
+  cout << "  the integal when f(x) = x^m.\n";
+  cout << "\n";
+  cout << "         M         N       Estimate       Exact            Error\n";
+
+  for ( l = 0; l <= L_MAX; l++ )
+  {
+    cout << "\n";
+    n = n_list[l];
+
+    f = new double[n];
+    x = new double[n];
+    w = new double[n];
+
+    p = p_list[l];
+
+    hermite_gk16_set ( n, x, w );
+
+    for ( m = 0; m <= i4_min ( p + 2, 20 ); m = m + 2 )
+    {
+      exact = hermite_integral ( m );
+
+      if ( m == 0 )
+      {
+        for ( i = 0; i < n; i++ )
+        {
+          f[i] = 1.0;
+        }
+      }
+      else
+      {
+        for ( i = 0; i < n; i++ )
+        {
+          f[i] = pow ( x[i], m );
+        }
+      }
+
+      estimate = r8vec_dot_product ( n, w, f );
+
+      error = r8_abs ( exact - estimate );
+  
+      cout << "  " << setw(8) << m
+           << "  " << setw(8) << n
+           << "  " << setw(14) << estimate
+           << "  " << setw(14) << exact
+           << "  " << setw(14) << error << "\n";
+    }
+    delete [] f;
+    delete [] w;
+    delete [] x;
+  }
+  return;
+# undef L_MAX
+}
+//****************************************************************************80
+
+void test096 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST096 tests HERMITE_GK**_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 May 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double error;
+  double estimate;
+  double exact;
+  double *f;
+  int i;
+  int m;
+  int n;
+  int p;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST096\n";
+  cout << "  HERMITE_GK**_SET sets up a nested rule\n";
+  cout << "  for the Hermite integration problem.\n";
+  cout << "\n";
+  cout << "  The integration interval is ( -oo, +oo ).\n";
+  cout << "  The weight function is exp ( - x * x )\n";
+  cout << "\n";
+  cout << "  HERMITE_INTEGRAL determines the exact value of\n";
+  cout << "  the integal when f(x) = x^m.\n";
+  cout << "\n";
+  cout << "  Here, we just test the highest order rule.\n";
+
+  cout << "\n";
+  cout << "  HERMITE_GK16_SET:\n";
+  cout << "\n";
+  cout << "         M         N       Estimate       Exact            Error\n";
+  cout << "\n";
+
+  n = 35;
+  p = 51;
+
+  f = new double[n];
+  w = new double[n];
+  x = new double[n];
+
+  hermite_gk16_set ( n, x, w );
+
+  for ( m = 0; m <= i4_min ( p + 2, 20 ); m = m + 2 )
+  {
+    exact = hermite_integral ( m );
+
+    if ( m == 0 )
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = 1.0;
+      }
+    }
+    else
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = pow ( x[i], m );
+      }
+    }
+
+    estimate = r8vec_dot_product ( n, w, f );
+
+    error = r8_abs ( exact - estimate );
+  
+    cout << "  " << setw(8) << m
+         << "  " << setw(8) << n
+         << "  " << setw(14) << estimate
+         << "  " << setw(14) << exact
+         << "  " << setw(14) << error << "\n";
+  }
+  delete [] f;
+  delete [] w;
+  delete [] x;
+
+  cout << "\n";
+  cout << "  HERMITE_GK18_SET:\n";
+  cout << "\n";
+  cout << "         M         N       Estimate       Exact            Error\n";
+  cout << "\n";
+  
+  n = 37;
+  p = 55;
+
+  f = new double[n];
+  w = new double[n];
+  x = new double[n];
+
+  hermite_gk18_set ( n, x, w );
+
+  for ( m = 0; m <= i4_min ( p + 2, 20 ); m = m + 2 )
+  {
+    exact = hermite_integral ( m );
+
+    if ( m == 0 )
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = 1.0;
+      }
+    }
+    else
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = pow ( x[i], m );
+      }
+    }
+
+    estimate = r8vec_dot_product ( n, w, f );
+
+    error = r8_abs ( exact - estimate );
+  
+    cout << "  " << setw(8) << m
+         << "  " << setw(8) << n
+         << "  " << setw(14) << estimate
+         << "  " << setw(14) << exact
+         << "  " << setw(14) << error << "\n";
+  }
+  delete [] f;
+  delete [] w;
+  delete [] x;
+
+  cout << "\n";
+  cout << "  HERMITE_GK22_SET:\n";
+  cout << "\n";
+  cout << "         M         N       Estimate       Exact            Error\n";
+  cout << "\n";
+
+  n = 41;
+  p = 63;
+
+  f = new double[n];
+  w = new double[n];
+  x = new double[n];
+
+  hermite_gk22_set ( n, x, w );
+
+  for ( m = 0; m <= i4_min ( p + 2, 20 ); m = m + 2 )
+  {
+    exact = hermite_integral ( m );
+
+    if ( m == 0 )
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = 1.0;
+      }
+    }
+    else
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = pow ( x[i], m );
+      }
+    }
+
+    estimate = r8vec_dot_product ( n, w, f );
+
+    error = r8_abs ( exact - estimate );
+  
+    cout << "  " << setw(8) << m
+         << "  " << setw(8) << n
+         << "  " << setw(14) << estimate
+         << "  " << setw(14) << exact
+         << "  " << setw(14) << error << "\n";
+  }
+  delete [] f;
+  delete [] w;
+  delete [] x;
+
+  cout << "\n";
+  cout << "  HERMITE_GK24_SET:\n";
+  cout << "\n";
+  cout << "         M         N       Estimate       Exact            Error\n";
+  cout << "\n";
+
+  n = 43;
+  p = 67;
+
+  f = new double[n];
+  w = new double[n];
+  x = new double[n];
+
+  hermite_gk24_set ( n, x, w );
+
+  for ( m = 0; m <= i4_min ( p + 2, 20 ); m = m + 2 )
+  {
+    exact = hermite_integral ( m );
+
+    if ( m == 0 )
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = 1.0;
+      }
+    }
+    else
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        f[i] = pow ( x[i], m );
+      }
+    }
+
+    estimate = r8vec_dot_product ( n, w, f );
+
+    error = r8_abs ( exact - estimate );
+  
+    cout << "  " << setw(8) << m
+         << "  " << setw(8) << n
+         << "  " << setw(14) << estimate
+         << "  " << setw(14) << exact
+         << "  " << setw(14) << error << "\n";
+  }
+  delete [] f;
+  delete [] w;
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void test10 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST10 tests JACOBI_EK_COMPUTE and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    30 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double alpha;
+  double b;
+  double beta;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int k;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  a = -1.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST10\n";
+  cout << "  JACOBI_EK_COMPUTE computes a Gauss-Jacobi rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( k = 1; k <= 2; k++ )
+  {
+    result = new double[function_num];
+
+    if ( k == 1 )
+    {
+      alpha = 0.0;
+      beta = 0.0;
+    }
+    else
+    {
+      alpha = 1.0;
+      beta = 0.0;
+    }
+    cout << "\n";
+    cout << "  ALPHA = " << alpha << "\n";
+    cout << "  BETA =  " << beta << "\n";
+
+    for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+    {
+      ihi = i4_min ( ilo + 4, function_num - 1 );
+
+      cout << "\n";
+      cout << "Order  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << setw(10) << function_name ( i ) << "    ";
+      }
+      cout << "\n";
+      cout << "\n";
+
+      for ( order = 1; order <= order_max; order++ )
+      {
+        xtab = new double[order];
+        weight = new double[order];
+
+        for ( i = ilo; i <= ihi; i++ )
+        {
+          function_set ( "SET", &i );
+
+          jacobi_ek_compute ( order, alpha, beta, xtab, weight );
+ 
+          result[i] = sum_sub ( function_value, a, b, nsub, order, 
+            xlo, xhi, xtab, weight ); 
+        }
+        cout << setw(2) << order << "  ";
+        for ( i = ilo; i <= ihi; i++ )
+        {
+          cout << "  " << setw(12) << setprecision(8) << result[i];
+        }
+        cout << "\n";
+
+        delete [] xtab;
+        delete [] weight;
+      }
+    }
+    delete [] result;
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void test105 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST105 tests JACOBI_EK_COMPUTE and JACOBI_SS_COMPUTE.
+//
+//  Discussion:
+//
+//    Compare with tabular values on page 178 of Stroud and Secrest.
+//
+//     In particular,
+//
+//             X              W
+//
+//     1  -0.9833999115   0.4615276287E-03
+//     2  -0.9447138932   0.2732249104E-02
+//     3  -0.8849310847   0.8045830455E-02
+//    ..  .............   ................
+//    19   0.9656375637   0.7613987785E-01
+//    20   0.9934477866   0.3348337670E-01
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 May 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double alpha;
+  double b;
+  double beta;
+  int i;
+  int order = 20;
+  double *weight;
+  double *xtab;
+
+  a = -1.0;
+  b =  1.0;
+
+  cout << "\n";
+  cout << "TEST105\n";
+  cout << "  JACOBI_EK_COMPUTE computes a Gauss-Jacobi rule;\n";
+  cout << "  JACOBI_SS_COMPUTE computes a Gauss-Jacobi rule;\n";
+  cout << "  Here, we simply compute a single rule and\n";
+  cout << "  print it, to check for accuracy.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+
+  alpha = 1.5;
+  beta = 0.5;
+
+  cout << "\n";
+  cout << "  N = " << order << "\n";
+  cout << "  ALPHA = " << alpha << "\n";
+  cout << "  BETA =  " << beta << "\n";
+
+  xtab = new double[order];
+  weight = new double[order];
+  
+  jacobi_ek_compute ( order, alpha, beta, xtab, weight );
+ 
+  cout << "\n";
+  cout << "  JACOBI_EK_COMPUTE:\n";
+  cout << "\n";
+  cout << "     I        X(I)            W(I)\n";
+  cout << "\n";
+
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "  " << setw(4)  << i+1
+         << "  " << setw(14) << setprecision(8) << xtab[i]
+         << "  " << setw(14) << setprecision(8) << weight[i] << "\n";
+  }
+
+  jacobi_ss_compute ( order, alpha, beta, xtab, weight );
+ 
+  cout << "\n";
+  cout << "  JACOBI_SS_COMPUTE:\n";
+  cout << "\n";
+  cout << "     I        X(I)            W(I)\n";
+  cout << "\n";
+
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "  " << setw(4)  << i+1
+         << "  " << setw(14) << setprecision(8) << xtab[i]
+         << "  " << setw(14) << setprecision(8) << weight[i] << "\n";
+  }
+
+
+  delete [] xtab;
+  delete [] weight;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test108 ( int order )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST108 tests JACOBI_EK_COMPUTE.
+//
+//  Discussion:
+//
+//    I used this test to generate tabular values of weights and
+//    abscissas for Gauss-Jacobi quadrature.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    30 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double alpha = 0.5;
+  double beta  = 2.0;
+  int i;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST108\n";
+  cout << "  JACOBI_EK_COMPUTE computes a Gauss-Jacobi rule;\n";
+  cout << "\n";
+  cout << "  The printed output of this test can be inserted into\n";
+  cout << "  a C++ program.\n";
+
+  w = new double[order];
+  x = new double[order];
+
+  jacobi_ek_compute ( order, alpha, beta, x, w );
+
+  cout << "//\n";
+  cout << "//  Abscissas X and weights W for a Gauss Jacobi rule\n";
+  cout << "//  of ORDER   = " << order << "\n";
+  cout << "//  with ALPHA = " << alpha << "\n";
+  cout << "//  and  BETA  = " << beta << "\n";
+  cout << "//\n";
+
+  cout << "\n";
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "    x[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << x[i] << ";\n";
+  }
+  cout << "\n";
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "    w[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << w[i] << ";\n";
+  }
+
+  delete [] w;
+  delete [] x;
+
+  return;
+# undef ORDER
+}
+//****************************************************************************80
+
+void test11 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST11 tests KRONROD_SET, LEGENDRE_SET and SUMMER_GK.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    07 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ORDERG 10
+# define ORDERK 2 * ORDERG + 1
+
+  double resultg;
+  double resultk;
+  double weightg[ORDERG];
+  double weightk[ORDERK];
+  double xtabg[ORDERG];
+  double xtabk[ORDERK];
+
+  cout << "\n";
+  cout << "TEST11\n";
+  cout << "  KRONROD_SET sets up a Kronrod rule;\n";
+  cout << "  LEGENDRE_SET sets up Gauss-Legendre rule;\n";
+  cout << "  SUMMER_GK carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [-1, 1].\n";
+  cout << "  Integrand is X**2 / SQRT ( 1.1 - X**2 ).\n";
+  cout << "\n";
+
+  legendre_set ( ORDERG, xtabg, weightg );
+
+  kronrod_set ( ORDERK, xtabk, weightk );
+
+  summer_gk ( fx2sd1, ORDERG, weightg, &resultg, 
+    ORDERK, xtabk, weightk, &resultk );
+
+  cout << "  " << setw(2) << ORDERG 
+       << "  " << setw(16) << setprecision(10) << resultg << "\n";
+  cout << "  " << setw(2) << ORDERK 
+       << "  " << setw(16) << setprecision(10) << resultk << "\n";
+  cout << "    "
+       << "  " << setw(16) << setprecision(10) << resultg - resultk << "\n";
+
+  return;
+# undef ORDERG
+# undef ORDERK
+}
+//****************************************************************************80
+
+void test12 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST12 tests KRONROD_SET, LEGENDRE_SET and SUM_SUB_GK.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ORDERG 7
+# define ORDERK 2 * ORDERG + 1
+
+  double a;
+  double b;
+  double error;
+  int nsub;
+  double resultg;
+  double resultk;
+  double weightg[ORDERG];
+  double weightk[ORDERK];
+  double xtabg[ORDERG];
+  double xtabk[ORDERK];
+
+  a = -1.0;
+  b =   1.0;
+  nsub = 5;
+
+  cout << "\n";
+  cout << "TEST12\n";
+  cout << "  KRONROD_SET sets up a Kronrod rule;\n";
+  cout << "  LEGENDRE_SET sets up Gauss-Legendre rule;\n";
+  cout << "  SUM_SUB_GK carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "]\n";
+  cout << "  Number of subintervals is " << nsub << "\n";
+  cout << "  Integrand is X**2 / SQRT ( 1.1 - X**2 ).\n";
+  cout << "\n";
+
+  legendre_set ( ORDERG, xtabg, weightg );
+
+  kronrod_set ( ORDERK, xtabk, weightk );
+
+  sum_sub_gk ( fx2sd1, a, b, nsub, ORDERG, weightg, &resultg, 
+    ORDERK, xtabk, weightk, &resultk, &error );
+
+  cout << "  " << setw(2) << ORDERG 
+       << "  " << setw(16) << setprecision(10) << resultg << "\n";
+  cout << "  " << setw(2) << ORDERK 
+       << "  " << setw(16) << setprecision(10) << resultk << "\n";
+  cout << "    "
+       << "  " << setw(16) << setprecision(10) << error << "\n";
+
+  return;
+# undef ORDERG
+# undef ORDERK
+}
+//****************************************************************************80
+
+void test13 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST13 tests LAGUERRE_EK_COMPUTE and LAGUERRE_SUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 1.0;
+
+  cout << "\n";
+  cout << "TEST13\n";
+  cout << "  LAGUERRE_EK_COMPUTE computes a Gauss-Laguerre rule;\n";
+  cout << "  LAGUERRE_SUM carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << ", +oo).\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is EXP ( - X ).\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        laguerre_ek_compute ( order, xtab, weight );
+ 
+        result[i] = laguerre_sum ( function_value, a, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test14 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST14 tests LAGUERRE_EK_COMPUTE and LAGUERRE_SUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+
+  cout << "\n";
+  cout << "TEST14\n";
+  cout << "  LAGUERRE_EK_COMPUTE sets up a Gauss-Laguerre rule;\n";
+  cout << "  LAGUERRE_SUM carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << ", +oo).\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is EXP ( - X ).\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        laguerre_ek_compute ( order, xtab, weight );
+ 
+        result[i] = laguerre_sum ( function_value, a, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test15 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST15 tests GEN_LAGUERRE_EK_COMPUTE and LAGUERRE_SUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double alpha;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  alpha = 1.0;
+
+  cout << "\n";
+  cout << "TEST15\n";
+  cout << "  GEN_LAGUERRE_EK_COMPUTE computes a generalized Gauss-Laguerre rule;\n";
+  cout << "  LAGUERRE_SUM carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << ", +oo).\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is EXP ( - X ) * X^ " << alpha << ".\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        gen_laguerre_ek_compute ( order, alpha, xtab, weight );
+ 
+        result[i] = laguerre_sum ( function_value, a, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test16 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST16 tests GEN_LAGUERRE_EK_COMPUTE and LAGUERRE_SUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 April 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double alpha;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  alpha = 2.0;
+
+  cout << "\n";
+  cout << "TEST16\n";
+  cout << "  GEN_LAGUERRE_EK_COMPUTE computes a generalized Gauss-Laguerre rule;\n";
+  cout << "  LAGUERRE_SUM carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << ", +oo).\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is EXP ( - X ) * X^ " << alpha << ".\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        gen_laguerre_ek_compute ( order, alpha, xtab, weight );
+ 
+        result[i] = laguerre_sum ( function_value, a, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test165 ( int order, double alpha )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST165 tests GEN_LAGUERRE_EK_COMPUTE.
+//
+//  Discussion:
+//
+//    I used this test to generate tabular values of weights and
+//    abscissas for generalized Gauss-Laguerre quadrature.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    28 August 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int ORDER, the order of the rule.
+//
+//    Input, double ALPHA, the parameter.
+//
+{
+  int i;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST165\n";
+  cout << "  GEN_LAGUERRE_EK_COMPUTE computes a generalized Gauss-Laguerre rule;\n";
+  cout << "\n";
+  cout << "  The printed output of this routine can be inserted into\n";
+  cout << "  a C++ program.\n";
+
+  w = new double[order];
+  x = new double[order];
+
+  gen_laguerre_ek_compute ( order, alpha, x, w );
+
+  cout << "//\n";
+  cout << "//  Abscissas X and weights W for a Gauss Laguerre rule\n";
+  cout << "//  of ORDER   = " << order << "\n";
+  cout << "//  with ALPHA = " << alpha << "\n";
+  cout << "//\n";
+
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "    x[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << x[i] << ";\n";
+  }
+  cout << "\n";
+  for ( i = 0; i < order; i++ )
+  {
+    cout << "    w[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << w[i] << ";\n";
+  }
+
+  delete [] w;
+  delete [] x;
+
+  return;
+# undef ORDER
+}
+//****************************************************************************80
+
+void test17 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST17 tests LAGUERRE_SET and LAGUERRE_SUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  1.0;
+
+  cout << "\n";
+  cout << "TEST17\n";
+  cout << "  LAGUERRE_SET sets up a Gauss-Laguerre rule;\n";
+  cout << "  LAGUERRE_SUM carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << ", +oo).\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "  The weight function is EXP ( - X ).\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        laguerre_set ( order, xtab, weight );
+ 
+        result[i] = laguerre_sum ( function_value, a, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test18 ( int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST18 compares LEGENDRE_EK_COMPUTE and LEGENDRE_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 April 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int iwdifmax;
+  int ixdifmax;
+  double *w1;
+  double *w2;
+  double wdifmax;
+  double *x1;
+  double *x2;
+  double xdifmax;
+
+  cout << "\n";
+  cout << "TEST18\n";
+  cout << "  LEGENDRE_EK_COMPUTE computes a Gauss-Legendre rule;\n";
+  cout << "  LEGENDRE_SET looks up the same data.\n";
+  cout << "\n";
+  cout << "  Compare the data for N = " << n << "\n";
+
+  x1 = new double[n];
+  w1 = new double[n];
+
+  legendre_ek_compute ( n, x1, w1 );
+
+  x2 = new double[n];
+  w2 = new double[n];
+
+  legendre_set ( n, x2, w2 );
+
+  xdifmax = 0.0;
+  ixdifmax = -1;
+
+  wdifmax = 0.0;
+  iwdifmax = -1;
+
+  for ( i = 0; i < n; i++ )
+  {
+    if ( xdifmax < r8_abs ( x1[i] - x2[i] ) )
+    {
+      xdifmax = r8_abs ( x1[i] - x2[i] );
+      ixdifmax = i;
+    }
+
+    if ( wdifmax < r8_abs ( w1[i] - w2[i] ) )
+    {
+      wdifmax = r8_abs ( w1[i] - w2[i] );
+      iwdifmax = i;
+    }
+
+  }
+
+  if ( -1 < ixdifmax )
+  {
+    cout << "\n";
+    cout << "  Maximum abscissa difference is " << xdifmax << "\n";
+    cout << "  for index I = " << ixdifmax << "\n";
+    cout << "  Computed:" << x1[ixdifmax] << "\n";
+    cout << "  Stored:  " << x2[ixdifmax] << "\n";
+  }
+  else
+  {
+    cout << "\n";
+    cout << "  The computed and stored abscissas are identical.\n";
+  }
+
+  if ( -1 < iwdifmax )
+  {
+    cout << "\n";
+    cout << "  Maximum weight difference is   " << wdifmax << "\n";
+    cout << "  for index I = " << iwdifmax << "\n";
+    cout << "  Computed:" << w1[iwdifmax] << "\n";
+    cout << "  Stored:  " << w2[iwdifmax] << "\n";
+  }
+  else
+  {
+    cout << "\n";
+    cout << "  The computed and stored weights are identical.\n";
+  }
+
+  delete [] w1;
+  delete [] w2;
+  delete [] x1;
+  delete [] x2;
+
+  return;
+}
+//****************************************************************************80
+
+void test185 ( int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST185 tests LEGENDRE_EK_COMPUTE.
+//
+//  Discussion:
+//
+//    I used this test to generate tabular values of weights and
+//    abscissas for Gauss-Legendre quadrature.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    19 October 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the rule.
+//
+{
+  int i;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST185\n";
+  cout << "  LEGENDRE_EK_COMPUTE computes a Gauss-Legendre rule;\n";
+  cout << "\n";
+  cout << "  Compute the data for N = " << n << "\n";
+
+  x = new double[n];
+  w = new double[n];
+
+  legendre_ek_compute ( n, x, w );
+ 
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "    x[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << x[i] << ";\n";
+  }
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "    w[" << setw(2) << i
+         << "] = " << setw(24) << setprecision(16) << w[i] << ";\n";
+  }
+
+  delete [] w;
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void test19 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST19 tests LEGENDRE_EK_COMPUTE and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    01 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int iexp;
+  int n = 2;
+  int nsub;
+  double result;
+  double *w;
+  double *x;
+  double xhi;
+  double xlo;
+
+  a = 0.0;
+  b = 1.0;
+
+  xlo = -1.0;
+  xhi = +1.0;
+
+  x = new double[n];
+  w = new double[n];
+
+  cout << "\n";
+  cout << "TEST19\n";
+  cout << "  LEGENDRE_EK_COMPUTE computes a Gauss-Legendre rule;\n";
+  cout << "  SUM_SUB carries it out over subintervals.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "]\n";
+  cout << "  Here, we use a fixed order N = " << n << "\n";
+  cout << "  and use more and more subintervals.\n";
+  cout << "\n";
+  cout << "  NSUB     Integral\n";
+  cout << "\n";
+ 
+  legendre_ek_compute ( n, x, w );
+ 
+  for ( iexp = 0; iexp <= 9; iexp++ )
+  {
+    nsub = i4_power ( 2, iexp );
+
+    result = sum_sub ( fx2sd1, a, b, nsub, n, xlo, xhi, x, w );
+
+    cout << "  " << setw(4)  << nsub
+         << "  " << setw(16) << setprecision(8) << result << "\n";
+  } 
+
+  delete [] w;
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void test20 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST20 tests LEGENDRE_EK_COMPUTE and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 10;
+  double *result;
+  double *weight;
+  double *x;
+  double xhi;
+  double xlo;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST20\n";
+  cout << "  LEGENDRE_EK_COMPUTE sets up a Gauss-Legendre rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      x = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_ek_compute ( order, x, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          x, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] x;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test21 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST21 tests LEGENDRE_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST21\n";
+  cout << "  LEGENDRE_SET sets up a Gauss-Legendre rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test22 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST22 tests LEGENDRE_SET, LEGENDRE_SET_X0_01 and RULE_ADJUST.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ORDER 5
+
+  double a;
+  double b;
+  double c;
+  double d;
+  int i;
+  double weight1[ORDER];
+  double weight2[ORDER];
+  double weight3[ORDER];
+  double xtab1[ORDER];
+  double xtab2[ORDER];
+  double xtab3[ORDER];
+
+  a = -1.0;
+  b = +1.0;
+  c =  0.0;
+  d =  1.0;
+
+  cout << "\n";
+  cout << "TEST22\n";
+  cout << "  LEGENDRE_SET sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating F(X) over [-1,1];\n";
+  cout << "  RULE_ADJUST adjusts a rule for a new interval.\n";
+  cout << "  LEGENDRE_SET_X0_01 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating F(X) over [0,1];\n";
+  cout << "\n";
+  cout << "  We will use LEGENDRE_SET to get a rule for [-1,1],\n";
+  cout << "  adjust it to [0,1] using RULE_ADJUST,\n";
+  cout << "  and compare the results of LEGENDRE_SET_X0_01.\n";
+  cout << "\n";
+
+  legendre_set ( ORDER, xtab1, weight1 );
+
+  r8vec_copy ( ORDER, xtab1, xtab2 );
+  r8vec_copy ( ORDER, weight1, weight2 );
+
+  rule_adjust ( a, b, c, d, ORDER, xtab2, weight2 );
+
+  legendre_set_x0_01 ( ORDER, xtab3, weight3 );
+
+  cout << "\n";
+  cout << "  Abscissas:\n";
+  cout << "\n";
+  cout << "          Original          Adjusted            Stored\n";
+  cout << "\n";
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(16) << setprecision(12) << xtab1[i]
+         << "  " << setw(16) << setprecision(12) << xtab2[i]
+         << "  " << setw(16) << setprecision(12) << xtab3[i] << "\n";
+  }
+
+  cout << "\n";
+  cout << "  Weights:\n";
+  cout << "\n";
+  cout << "          Original          Adjusted            Stored\n";
+  cout << "\n";
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(16) << setprecision(12) << weight1[i]
+         << "  " << setw(16) << setprecision(12) << weight2[i]
+         << "  " << setw(16) << setprecision(12) << weight3[i] << "\n";
+  }
+
+  return;
+# undef ORDER
+}
+//****************************************************************************80
+
+void test23 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST23 tests LEGENDRE_SET_COS and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int iexp;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 20;
+  double pi = 3.141592653589793;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = -0.5 * pi;
+  b = +0.5 * pi;
+
+  nsub = 1;
+
+  xlo = -0.5 * pi;
+  xhi = +0.5 * pi;
+
+  cout << "\n";
+  cout << "TEST23\n";
+  cout << "  LEGENDRE_SET_COS sets up a Gauss-Legendre rule\n";
+  cout << "    over [-PI/2,PI/2] with weight function COS(X);\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( iexp = 0; iexp <= 4; iexp++ )
+    {
+      order = i4_power ( 2, iexp );
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_cos ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test24 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST24 tests LEGENDRE_SET_SQRTX_01 and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int iexp;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  cout << "\n";
+  cout << "TEST24\n";
+  cout << "  LEGENDRE_SET_SQRTX_01 sets up a Gauss-Legendre rule\n";
+  cout << "    over [0,1] with weight function SQRT(X);\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( iexp = 0; iexp <= 3; iexp++ )
+    {
+      order = i4_power ( 2, iexp );
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_sqrtx_01 ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test25 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST25 tests LEGENDRE_SET_SQRTX2_01 and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int iexp;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 20;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  cout << "\n";
+  cout << "TEST25\n";
+  cout << "  LEGENDRE_SET_SQRTX2_01 sets up a Gauss-Legendre rule\n";
+  cout << "    over [0,1] with weight function 1/SQRT(X);\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( iexp = 0; iexp <= 3; iexp++ )
+    {
+      order = i4_power ( 2, iexp );
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_sqrtx2_01 ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test26 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST26 tests LEGENDRE_SET_COS2 and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int iexp;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 20;
+  double pi = 3.141592653589793;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = -0.5 * pi;
+  b = +0.5 * pi;
+
+  nsub = 1;
+
+  xlo = -0.5 * pi;
+  xhi = +0.5 * pi;
+
+  cout << "\n";
+  cout << "TEST26\n";
+  cout << "  LEGENDRE_SET_COS2 sets up a Gauss-Legendre rule\n";
+  cout << "    over [0,PI/2] with weight function COS(X);\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( iexp = 1; iexp <= 4; iexp++ )
+    {
+      order = i4_power ( 2, iexp );
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_cos2 ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test27 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST27 tests LEGENDRE_SET_LOG and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    07 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define TEST_NUM 9
+
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 20;
+  int order_test[TEST_NUM] = { 1, 2, 3, 4, 5, 6, 7, 8, 16 };
+  double *result;
+  int test;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = 0.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST27\n";
+  cout << "  LEGENDRE_SET_LOG sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating -LOG(X) * F(X) over [0,1];\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( test = 0; test < TEST_NUM; test++ )
+    {
+      order = order_test[test];
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_log ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+# undef TEST_NUM
+}
+//****************************************************************************80
+
+void test28 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST28 tests LEGENDRE_SET_X0_01 and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 8;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = 0.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST28\n";
+  cout << "  LEGENDRE_SET_X0_01 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating F(X) over [0,1];\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_x0_01 ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test29 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST29 tests LEGENDRE_SET_X1 and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST29\n";
+  cout << "  LEGENDRE_SET_X1 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating ( 1 + X ) * F(X) over [-1,1];\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_x1 ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test30 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST30 tests LEGENDRE_SET_X1, LEGENDRE_SET_X1_01 and RULE_ADJUST.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ORDER 5
+
+  double a;
+  double b;
+  double c;
+  double d;
+  int i;
+  double weight1[ORDER];
+  double weight2[ORDER];
+  double weight3[ORDER];
+  double xtab1[ORDER];
+  double xtab2[ORDER];
+  double xtab3[ORDER];
+
+  a = -1.0;
+  b =  1.0;
+  c =  0.0;
+  d =  1.0;
+
+  cout << "\n";
+  cout << "TEST30:\n";
+  cout << "  LEGENDRE_SET_X1 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating ( 1 + X ) * F(X) over [-1,1];\n";
+  cout << "  RULE_ADJUST adjusts a rule for a new interval.\n";
+  cout << "  LEGENDRE_SET_X1_01 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating X * F(X) over [0,1];\n";
+  cout << "\n";
+  cout << "  We will use LEGENDRE_SET_X1 to get a rule for [-1,1],\n";
+  cout << "  adjust it to [0,1] using RULE_ADJUST,\n";
+  cout << "  make further adjustments because the weight function\n";
+  cout << "  is not 1,\n";
+  cout << "  and compare the results of LEGENDRE_SET_X1_01.\n";
+  cout << "\n";
+
+  legendre_set_x1 ( ORDER, xtab1, weight1 );
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    xtab2[i] = xtab1[i];
+  }
+  for ( i = 0; i < ORDER; i++ )
+  {
+    weight2[i] = weight1[i];
+  }
+
+  rule_adjust ( a, b, c, d, ORDER, xtab2, weight2 );
+//
+//  Because the weight function W(X) is not 1, we need to do more
+//  adjustments to the weight vector.
+//
+  for ( i = 0; i < ORDER; i++ )
+  {
+    weight2[i] = weight2[i] / 2.0;
+  }
+  legendre_set_x1_01 ( ORDER, xtab3, weight3 );
+
+  cout << "\n";
+  cout << "  Abscissas:\n";
+  cout << "\n";
+  cout << "  Original  Adjusted Stored\n";
+  cout << "\n";
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(16) << setprecision(12) << xtab1[i]
+         << "  " << setw(16) << setprecision(12) << xtab2[i]
+         << "  " << setw(16) << setprecision(12) << xtab3[i] << "\n";
+  }
+
+  cout << "\n";
+  cout << "  Weights:\n";
+  cout << "\n";
+  cout << "  Original  Adjusted Stored\n";
+  cout << "\n";
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(16) << setprecision(12) << weight1[i]
+         << "  " << setw(16) << setprecision(12) << weight2[i]
+         << "  " << setw(16) << setprecision(12) << weight3[i] << "\n";
+  }
+
+  return;
+# undef ORDER
+}
+//****************************************************************************80
+
+void test31 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST31 tests LEGENDRE_SET_X1_01 and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 8;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = 0.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST31\n";
+  cout << "  LEGENDRE_SET_X1_01 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating X * F(X) over [0,1];\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_x1_01 ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test32 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST32 tests LEGENDRE_SET_Xs and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST32\n";
+  cout << "  LEGENDRE_SET_X2 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating (1 + X)**2 * F(X) over [-1,1];\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_x2 ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test33 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST33 tests LEGENDRE_SET_X2, LEGENDRE_SET_X2_01 and RULE_ADJUST.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ORDER 5
+
+  double a;
+  double b;
+  double c;
+  double d;
+  int i;
+  double weight1[ORDER];
+  double weight2[ORDER];
+  double weight3[ORDER];
+  double xtab1[ORDER];
+  double xtab2[ORDER];
+  double xtab3[ORDER];
+
+  a = -1.0;
+  b =  1.0;
+  c =  0.0;
+  d =  1.0;
+
+  cout << "\n";
+  cout << "TEST33:\n";
+  cout << "  LEGENDRE_SET_X2 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating ( 1 + X )^2 * F(X) over [-1,1];\n";
+  cout << "  RULE_ADJUST adjusts a rule for a new interval.\n";
+  cout << "  LEGENDRE_SET_X2_01 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating X^2 * F(X) over [0,1];\n";
+  cout << "\n";
+  cout << "  We will use LEGENDRE_SET_X2 to get a rule for [-1,1],\n";
+  cout << "  adjust it to [0,1] using RULE_ADJUST,\n";
+  cout << "  make further adjustments because the weight function\n";
+  cout << "  is not 1,\n";
+  cout << "  and compare the results of LEGENDRE_SET_X2_01.\n";
+  cout << "\n";
+
+  legendre_set_x2 ( ORDER, xtab1, weight1 );
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    xtab2[i] = xtab1[i];
+  }
+  for ( i = 0; i < ORDER; i++ )
+  {
+    weight2[i] = weight1[i];
+  }
+
+  rule_adjust ( a, b, c, d, ORDER, xtab2, weight2 );
+//
+//  Because the weight function W(X) is not 1, we need to do more
+//  adjustments to the weight vector.
+//
+  for ( i = 0; i < ORDER; i++ )
+  {
+    weight2[i] = weight2[i] / 4.0;
+  }
+  legendre_set_x2_01 ( ORDER, xtab3, weight3 );
+
+  cout << "\n";
+  cout << "  Abscissas:\n";
+  cout << "\n";
+  cout << "  Original  Adjusted Stored\n";
+  cout << "\n";
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(16) << setprecision(12) << xtab1[i]
+         << "  " << setw(16) << setprecision(12) << xtab2[i]
+         << "  " << setw(16) << setprecision(12) << xtab3[i] << "\n";
+  }
+
+  cout << "\n";
+  cout << "  Weights:\n";
+  cout << "\n";
+  cout << "  Original  Adjusted Stored\n";
+  cout << "\n";
+
+  for ( i = 0; i < ORDER; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(16) << setprecision(12) << weight1[i]
+         << "  " << setw(16) << setprecision(12) << weight2[i]
+         << "  " << setw(16) << setprecision(12) << weight3[i] << "\n";
+  }
+
+  return;
+# undef ORDER
+}
+//****************************************************************************80
+
+void test34 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST34 tests LEGENDRE_SET_X2_01 and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 8;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = 0.0;
+  b = 1.0;
+
+  nsub = 1;
+
+  xlo = 0.0;
+  xhi = +1.0;
+
+  cout << "\n";
+  cout << "TEST34\n";
+  cout << "  LEGENDRE_SET_X2_01 sets up a Gauss-Legendre rule\n";
+  cout << "    for integrating X*X * F(X) over [0,1];\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [ " << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << ".\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        legendre_set_x2_01 ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, xlo, xhi,
+          xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
+void test345 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST345 tests LOBATTO_COMPUTE and LOBATTO_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 February 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n;
+  double *w1;
+  double *w2;
+  double *x1;
+  double *x2;
+
+  cout << "\n";
+  cout << "TEST345\n";
+  cout << "  LOBATTO_COMPUTE computes a Lobatto rule;\n";
+  cout << "  LOBATTO_SET sets a rule from a table.\n";
+  cout << "\n";
+  cout << "         I      X1            X2            W1            W2\n";
+
+  for ( n = 4; n <= 12; n = n + 3 )
+  {
+    w1 = new double[n];
+    w2 = new double[n];
+    x1 = new double[n];
+    x2 = new double[n];
+
+    lobatto_compute ( n, x1, w1 );
+    lobatto_set ( n, x2, w2 );
+
+    cout << "\n";
+    for ( i = 0; i < n; i++ )
+    {
+      cout << "  " << setw(8)  << i+1
+           << "  " << setw(12) << x1[i]
+           << "  " << setw(12) << x2[i]
+           << "  " << setw(12) << w1[i]
+           << "  " << setw(12) << w2[i] << "\n";
+    }
+    delete [] w1;
+    delete [] w2;
+    delete [] x1;
+    delete [] x2;
+  }
+  return;
+}
+//****************************************************************************80
+
+void test35 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST35 tests LOBATTO_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 15;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a = -1.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST35\n";
+  cout << "  LOBATTO_SET sets up a Lobatto rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      if ( order == 1 )
+      {
+        continue;
+      }
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        lobatto_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test36 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST36 tests MOULTON_SET and SUMMER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int order;
+  int order_max = 10;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST36\n";
+  cout << "  MOULTON_SET sets up an Adams-Moulton rule;\n";
+  cout << "  SUMMER carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [0,1].\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        moulton_set ( order, xtab, weight );
+ 
+        result[i] = summer ( function_value, order, xtab, weight );
+ 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test37 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST37 tests NCC_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    08 May 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 21;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST37\n";
+  cout << "  NCC_SET computes a closed Newton-Cotes rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        ncc_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test38 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST38 tests NCC_COMPUTE and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    08 May 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 21;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST38\n";
+  cout << "  NCC_COMPUTE computes a closed Newton-Cotes rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        ncc_compute ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test39 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST39 tests NCO_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST39\n";
+  cout << "  NCO_SET sets up an open Newton-Cotes rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      if ( order == 8 )
+      {
+        continue;
+      }
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        nco_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test40 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST40 tests NCO_COMPUTE and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST40\n";
+  cout << "  NCO_COMPUTE computes an open Newton-Cotes rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        nco_compute ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test401 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST401 tests NCOH_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST401\n";
+  cout << "  NCOH_SET sets up an open half Newton-Cotes rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        ncoh_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test402 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST402 tests NCOH_COMPUTE and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST402\n";
+  cout << "  NCOH_COMPUTE computes an open half Newton-Cotes rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        ncoh_compute ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test403 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST403 tests PATTERSON_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 April 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int level;
+  int level_max = 7;
+  int nsub;
+  int order;
+  int order_max = 9;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST403\n";
+  cout << "  PATTERSON_SET sets up a Patterson rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order   ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( level = 1; level <= level_max; level++ )
+    {
+      order = i4_power ( 2, level ) - 1;
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        patterson_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(3) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+void test404 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST404 tests RADAU_COMPUTE and RADAU_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 February 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n;
+  double *w1;
+  double *w2;
+  double *x1;
+  double *x2;
+
+  cout << "\n";
+  cout << "TEST404\n";
+  cout << "  RADAU_COMPUTE computes a Radau rule;\n";
+  cout << "  RADAU_SET sets a rule from a table.\n";
+  cout << "\n";
+  cout << "         I      X1            X2            W1            W2\n";
+
+  for ( n = 4; n <= 12; n = n + 3 )
+  {
+    w1 = new double[n];
+    w2 = new double[n];
+    x1 = new double[n];
+    x2 = new double[n];
+
+    radau_compute ( n, x1, w1 );
+    radau_set ( n, x2, w2 );
+
+    cout << "\n";
+    for ( i = 0; i < n; i++ )
+    {
+      cout << "  " << setw(8)  << i+1
+           << "  " << setw(12) << x1[i]
+           << "  " << setw(12) << x2[i]
+           << "  " << setw(12) << w1[i]
+           << "  " << setw(12) << w2[i] << "\n";
+    }
+    delete [] w1;
+    delete [] w2;
+    delete [] x1;
+    delete [] x2;
+  }
+  return;
+}
+//****************************************************************************80
+
+void test41 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST41 tests RADAU_SET and SUM_SUB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int nsub;
+  int order;
+  int order_max = 15;
+  double *result;
+  double *weight;
+  double xhi;
+  double xlo;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  a =  0.0;
+  b =  1.0;
+
+  nsub = 1;
+
+  xlo = -1.0;
+  xhi =  1.0;
+
+  cout << "\n";
+  cout << "TEST41\n";
+  cout << "  RADAU_SET sets up a Radau rule;\n";
+  cout << "  SUM_SUB carries it out.\n";
+  cout << "\n";
+  cout << "  The integration interval is [" << a << "," << b << "].\n";
+  cout << "  The number of subintervals is " << nsub << "\n";
+  cout << "  Quadrature order will vary.\n";
+  cout << "  Integrand will vary.\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      if ( order == 8 )
+      {
+        continue;
+      }
+
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        radau_set ( order, xtab, weight );
+ 
+        result[i] = sum_sub ( function_value, a, b, nsub, order, 
+          xlo, xhi, xtab, weight ); 
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+
+  delete [] result;
+ 
+  return;
+}
+//****************************************************************************80
+
+double f1sd1 ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    F1SD1 evaluates the function 1.0D+00/ sqrt ( 1.1 - x**2 ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the function.
+//
+//    Output, double F1SD1, the value of the function.
+//
+{
+  double value;
+
+  value = 1.0 / sqrt ( 1.1 - x * x );
+ 
+  return value;
+}
+//****************************************************************************80
+
+char *function_name ( int function_index )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    FUNCTION_NAME returns the name of the function evaluated in FUNCTION_VALUE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, integer FUNCTION_INDEX, the index of the function.
+//
+//    Output, char *FUNCTION_NAME, the name of the function.
+//
+{
+  char *value;
+
+  value = new char[10];
+
+  if ( function_index == 0 )
+  {
+    strcpy ( value, "         1" );
+  }
+  else if ( function_index == 1 )
+  {
+    strcpy ( value, "         X" );
+  }
+  else if ( function_index == 2 )
+  {
+    strcpy ( value, "       X^2" );
+  }
+  else if ( function_index == 3 )
+  {
+    strcpy ( value, "       X^3" );
+  }
+  else if ( function_index == 4 )
+  {
+    strcpy ( value, "       X^4" );
+  }
+  else if ( function_index == 5 )
+  {
+    strcpy ( value, "       X^5" );
+  }
+  else if ( function_index == 6 )
+  {
+    strcpy ( value, "       X^6" );
+  }
+  else if ( function_index == 7 )
+  {
+    strcpy ( value, "       X^7" );
+  }
+  else if ( function_index == 8 )
+  {
+    strcpy ( value, "    SIN(X)" );
+  }
+  else if ( function_index == 9 )
+  {
+    strcpy ( value, "    EXP(X)" );
+  }
+  else if ( function_index == 10 )
+  {
+    strcpy ( value, " SQRT(|X|)" );
+  }
+  else
+  {
+    strcpy ( value, "??????????" );
+  }
+  return value;
+}
+//****************************************************************************80
+
+void function_set ( string action, int *i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    FUNCTION_SET sets the function to be returned by FUNCTION_VALUE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string ACTION, the action to be carried out.
+//    "COUNT" means the call is made to count the number of functions available.
+//    "GET" means the call is made to find out the current function index.
+//    "SET" means the call is made to set the current function index.
+//
+//    Input/output, int *I.
+//    For "COUNT", I is output as the number of functions available;
+//    For "GET", I is output as the currently chosen function;
+//    For "SET", I is input as the user's new choice for the function.
+//
+{
+  static int function_index = -1;
+
+  if ( s_eqi ( action, "COUNT" ) )
+  {
+    *i = 11;
+  }
+  else if ( s_eqi ( action, "GET" ) )
+  {
+    *i = function_index;
+  }
+  else if ( s_eqi ( action, "SET" ) )
+  {
+    function_index = *i;
+  }
+  else
+  {
+    cout << "\n";
+    cout << "FUNCTION_SET - Warning!\n";
+    cout << "  Unrecognized action = \"" << action << "\".\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+double function_value ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    FUNCTION_VALUE evaluates a function of X, as chosen by the user.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the function.
+//
+//    Output, double FUNCTION_VALUE, the value of the function.
+//
+{
+  int function_index;
+  double value;
+
+  function_set ( "GET", &function_index );
+
+  if ( function_index == 0 )
+  {
+    value = 1.0;
+  }
+  else if ( function_index == 1 )
+  {
+    value = x;
+  }
+  else if ( function_index == 2 )
+  {
+    value = pow ( x, 2 );
+  }
+  else if ( function_index == 3 )
+  {
+    value = pow ( x, 3 );
+  }
+  else if ( function_index == 4 )
+  {
+    value = pow ( x, 4 );
+  }
+  else if ( function_index == 5 )
+  {
+    value = pow ( x, 5 );
+  }
+  else if ( function_index == 6 )
+  {
+    value = pow ( x, 6 );
+  }
+  else if ( function_index == 7 )
+  {
+    value = pow ( x, 7 );
+  }
+  else if ( function_index == 8 )
+  {
+    value = sin ( x );
+  }
+  else if ( function_index == 9 )
+  {
+    value = exp ( x );
+  }
+  else if ( function_index == 10 )
+  {
+    value = sqrt ( fabs ( x ) );
+  }
+  else
+  {
+    value = 0.0;
+  }
+
+  return value;
+}
+//****************************************************************************80
+
+double fxsd1 ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    FXSD1 evaluates the function x / sqrt ( 1.1 - x**2 ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the function.
+//
+//    Output, double FXSD1, the value of the function.
+//
+{
+  double value;
+
+  value = x / sqrt ( 1.1 - x * x );
+ 
+  return value;
+}
+//****************************************************************************80
+
+double fx2sd1 ( double x )
+
+//****************************************************************************80
+//
+//  Purpose;
+//
+//    FX2SD1 evaluates the function x**2 / sqrt ( 1.1 - x**2 ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    01 May 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the function.
+//
+//    Output, double FX2SD1, the value of the function.
+//
+{
+  double value;
+
+  value = x * x / sqrt ( 1.1 - x * x );
+ 
+  return value;
+}

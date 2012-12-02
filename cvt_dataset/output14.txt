@@ -1,0 +1,281 @@
+23 June 2005 11:50:21 AM
+
+CVT_DATASET (C++ version)
+
+  Compiled on Jun 23 2005 at 11:43:18.
+
+  Generate a CVT dataset.
+
+  This program is meant to be used interactively.
+  It is also possible to prepare a simple input
+  file beforehand and use it in batch mode.
+
+  The program requests input values from the user:
+
+  * DIM_NUM, the spatial dimension,
+  * N, the number of points to generate,
+  * SEED, a seed to use for random number generation,
+  * INIT, initialize the points:
+    ** file, read data from a file;
+    ** GRID, by picking points from a grid;
+    ** HALTON, from a Halton sequence;
+    ** RANDOM, using FORTRAN RANDOM function;
+    ** UNIFORM, using a simple uniform RNG;
+    ** USER, call the "USER" routine;
+  * IT_MAX, the maximum number of iterations.
+  * IT_FIXED, the number of iterative steps to take
+    using a fixed set of sampling points.
+  * SAMPLE, how to conduct the sampling.
+    ** GRID, by picking points from a grid;
+    ** HALTON, from a Halton sequence;
+    ** RANDOM, using FORTRAN RANDOM function;
+    ** UNIFORM, using a simple uniform RNG;
+    ** USER, call the "USER" routine;
+  * SAMPLE_NUM, the number of sample points.
+  * BATCH, the number of sample points to generate at one time.
+  * OUTPUT, a file to store the data.
+
+  To indicate that no further computations are
+  desired, it is enough to input a nonsensical value,
+  such as -1.
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+  Enter DIM_NUM, the spatial dimension:
+  (Try '2' if you have no preference.)
+  (0 or any negative value terminates execution).
+  User input DIM_NUM = 2
+
+  Enter N, the number of points to generate:
+  (Try '25' if you have no preference.)
+  (0 or any negative value terminates execution).
+  User input N = 100
+
+  Enter SEED, a seed for the random number generator:
+  (Try '123456789' if you have no preference.)
+  (Any negative value terminates execution).
+  User input SEED = 123456789
+
+  INIT is the method of initializing the data:
+
+  file     read data from a file;
+  GRID     by picking points from a grid;
+  HALTON   from a Halton sequence;
+  RANDOM   using C++ RANDOM function;
+  UNIFORM  using a simple uniform RNG;
+  USER     call the "USER" routine;
+
+  (Try 'RANDOM' if you have no preference.)
+  (A blank value terminates execution).
+
+  Enter INIT:
+  User input INIT = "user".
+
+  IT_MAX is the maximum number of iterations.
+
+  An iteration carries out the following steps:
+  * the Voronoi region associated with each
+    generator is estimated by sampling;
+  * the centroid of each Voronoi region is estimated.
+  * the generator is replaced by the centroid.
+
+  If "enough" sampling points are used,
+  and "enough" iterations are taken, this process
+  will converge.
+
+  (Try '50' if you have no preference.)
+  (A negative value terminates execution).
+
+  Enter IT_MAX:
+  User input IT_MAX = 100
+
+  IT_FIXED is the number of consecutive iterations
+  to take with a fixed set of sample points.
+
+  Setting IT_FIXED to 1 means a new set of sample
+  points is generated on every iterative step;
+  Setting IT_FIXED equal to IT_MAX means a single set
+  of sample points is used for the entire iteration.
+
+  Any value between 1 and IT_MAX is reasonable.
+
+  (Try 100 if you have no preference.)
+  (A 0 or negative value terminates execution).
+
+  Enter IT_FIXED:
+  User input IT_FIXED = 25
+
+  SAMPLE is the method of sampling the region:
+
+  GRID     by picking points from a grid;
+  HALTON   from a Halton sequence;
+  RANDOM   using C++ RANDOM function;
+  UNIFORM  using a simple uniform RNG;
+  USER     call the "USER" routine;
+
+  (Try 'RANDOM' if you have no preference.)
+  (A blank value terminates execution).
+
+  Enter SAMPLE:
+  User input SAMPLE = "user".
+
+  SAMPLE_NUM is the number of sample points.
+
+  The Voronoi regions will be explored by generating
+  SAMPLE_NUM points.  For each sample point, the
+  nearest generator is found.  Using more points
+  gives a better estimate of these regions.
+
+  SAMPLE_NUM should be much larger than N, the
+  number of generators.
+
+  (Try '10000' if you have no preference.)
+  (A zero or negative value terminates execution.)
+
+  Enter SAMPLE_NUM:
+  User input SAMPLE_NUM = 100000
+
+  BATCH is the number of sample points to create at one time.
+
+  BATCH should be between 1 and SAMPLE_NUM.
+
+  It is FASTER to set BATCH to SAMPLE_NUM;
+  setting BATCH to 1 requires the least memory.
+
+  (Try 1000 if you have no preference.)
+  (A zero or negative value terminates execution.)
+
+  Enter BATCH:
+  User input BATCH = 10000
+
+  OUTPUT is a file in which to store the data.
+
+  (Try 'cvt.txt' if you have no preference.)
+  (A blank value terminates execution).
+
+  Enter OUTPUT:
+  User input OUTPUT = "cvt14.txt".
+
+  Step       SEED          L2-Change        Energy
+
+     0     123456789
+     1     123456789         4.64432       0.0107418
+     2     123456789         1.77099      0.00678526
+     3     123456789         1.12661      0.00619287
+     4     123456789        0.828511      0.00592957
+     5     123456789        0.688399      0.00578422
+     6     123456789        0.595678      0.00566639
+     7     123456789        0.536945      0.00559387
+     8     123456789        0.477919      0.00551037
+     9     123456789        0.431461      0.00548268
+    10     123456789         0.39061      0.00546768
+    11     123456789        0.347278      0.00542562
+    12     123456789        0.366516      0.00543045
+    13     123456789         0.36101      0.00538812
+    14     123456789        0.311861        0.005412
+    15     123456789        0.324287      0.00536224
+    16     123456789        0.312483      0.00537887
+    17     123456789        0.303262      0.00533645
+    18     123456789        0.285182      0.00535064
+    19     123456789        0.311228      0.00534895
+    20     123456789        0.305174      0.00532324
+    21     123456789         0.29117      0.00533195
+    22     123456789        0.297914      0.00532953
+    23     123456789        0.269249      0.00531092
+    24     123456789        0.274739      0.00528702
+    25     123456789        0.282259       0.0052759
+    26     123456789        0.261529      0.00526981
+    27     123456789        0.269015        0.005265
+    28     123456789         0.24195      0.00527615
+    29     123456789        0.253856      0.00527823
+    30     123456789        0.241525      0.00527749
+    31     123456789        0.264566      0.00526155
+    32     123456789        0.283802      0.00524206
+    33     123456789        0.269859      0.00526713
+    34     123456789        0.258873      0.00525608
+    35     123456789        0.262521       0.0052571
+    36     123456789        0.271788      0.00524477
+    37     123456789        0.248052      0.00523131
+    38     123456789         0.23723      0.00522082
+    39     123456789        0.247287      0.00521733
+    40     123456789        0.249448      0.00523334
+    41     123456789        0.253617      0.00520569
+    42     123456789        0.261869      0.00523652
+    43     123456789        0.245392      0.00524575
+    44     123456789        0.261409      0.00524004
+    45     123456789        0.250572      0.00521526
+    46     123456789        0.246349      0.00524026
+    47     123456789        0.251524      0.00523666
+    48     123456789         0.24202      0.00521675
+    49     123456789        0.240698      0.00521325
+    50     123456789        0.253618      0.00522089
+    51     123456789        0.239358      0.00520476
+    52     123456789        0.242305      0.00522787
+    53     123456789        0.261751      0.00522252
+    54     123456789        0.241121      0.00520357
+    55     123456789          0.2375      0.00521219
+    56     123456789        0.230843      0.00521494
+    57     123456789        0.245072      0.00522941
+    58     123456789        0.242829      0.00520605
+    59     123456789        0.279181      0.00521629
+    60     123456789         0.22394      0.00520201
+    61     123456789        0.252451      0.00521179
+    62     123456789         0.23883      0.00521001
+    63     123456789        0.228831       0.0052225
+    64     123456789        0.222248      0.00521106
+    65     123456789        0.246772      0.00518325
+    66     123456789        0.227726      0.00519913
+    67     123456789        0.226052      0.00520889
+    68     123456789        0.239179      0.00519945
+    69     123456789        0.244237      0.00521151
+    70     123456789        0.237086      0.00520956
+    71     123456789         0.24001      0.00521063
+    72     123456789        0.242762      0.00520753
+    73     123456789        0.248095      0.00522333
+    74     123456789        0.248061      0.00520831
+    75     123456789        0.260019      0.00520226
+    76     123456789        0.262417       0.0052081
+    77     123456789        0.240223      0.00521421
+    78     123456789        0.240085      0.00518658
+    79     123456789        0.246865      0.00520026
+    80     123456789        0.242088      0.00519658
+    81     123456789        0.224069      0.00520739
+    82     123456789        0.242517      0.00518708
+    83     123456789        0.229722      0.00516986
+    84     123456789        0.251782      0.00519151
+    85     123456789        0.260297      0.00518958
+    86     123456789        0.228131      0.00518768
+    87     123456789        0.241126      0.00521678
+    88     123456789        0.229634      0.00519169
+    89     123456789        0.219143      0.00516797
+    90     123456789        0.237457      0.00518138
+    91     123456789        0.242069      0.00521951
+    92     123456789        0.237182      0.00519456
+    93     123456789        0.258318      0.00517235
+    94     123456789        0.228053      0.00518868
+    95     123456789        0.256849      0.00519531
+    96     123456789        0.226143      0.00520334
+    97     123456789        0.223492      0.00519857
+    98     123456789        0.221219      0.00519017
+    99     123456789        0.222977      0.00519339
+   100     123456789        0.228134      0.00518244
+
+  The data was written to the file "cvt14.txt"
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+  Enter DIM_NUM, the spatial dimension:
+  (Try '2' if you have no preference.)
+  (0 or any negative value terminates execution).
+  User input DIM_NUM = -1
+
+CVT_DATASET
+  The input value of DIM_NUM = -1
+  is interpreted as a request for termination.
+  Normal end of execution.
+
+23 June 2005 11:54:11 AM

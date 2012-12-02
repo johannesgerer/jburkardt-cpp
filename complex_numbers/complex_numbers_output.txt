@@ -1,0 +1,142 @@
+07 November 2010 06:59:41 PM
+
+COMPLEX_NUMBERS
+  C++ version
+  Demonstrate complex number usage.
+
+TEST01
+  Declare a COMPLEX <FLOAT> variable.
+  Assign value with an = statement.
+
+  Scalar A:
+
+  (1,2)
+
+  Vector B:
+
+  (1,2)
+  (3,4)
+  (5,6)
+
+  Array C:
+
+  (1,0.1)  (1,0.2)
+  (2,0.1)  (2,0.2)
+
+TEST02
+  Declare a COMPLEX <FLOAT> variable.
+  Initialize as part of the declaration.
+
+  Scalar A:
+
+  (1,2)
+
+  Vector B:
+
+  (1,2)
+  (3,4)
+  (5,6)
+
+  Array C:
+
+  (1,0.1)  (1,0.2)
+  (2,0.1)  (2,0.2)
+
+TEST03
+  Apply operations and intrinsic functions 
+  to COMPLEX <FLOAT> variable.
+
+  a =                        (1,2)
+  - a =                      (-1,-2)
+  a + complex <float>(0,5) = (1,7)
+  pow ( a, 2 ) =             (-3,4)
+  pow ( a, a ) =             (-0.222517,0.100709)
+
+  abs ( a ) =                2.23607
+  arg ( a ) =                1.10715
+  conj ( a ) =               (1,-2)
+  cos ( a ) =                (2.03272,-3.0519)
+  cosh ( a ) =               (-0.642148,1.06861)
+  exp ( a ) =                (-1.1312,2.47173)
+  imag ( a ) =               2
+  log ( a ) =                (0.804719,1.10715)
+  log10 ( a ) =              (0.349485,0.480829)
+  norm ( a ) =               5
+  polar (10.0,pi/4) =        (7.07107,7.07107)
+  real ( a ) =               1
+  sin ( a ) =                (3.16578,1.9596)
+  sinh ( a ) =               (-0.489056,1.40312)
+  sqrt ( a ) =               (1.27202,0.786151)
+  tan ( a ) =                (0.0338128,1.01479)
+  tanh ( a ) =               (1.16674,-0.243458)
+
+TEST04
+  Declare a COMPLEX <DOUBLE> variable.
+  Assign value with an = statement.
+
+  Scalar A:
+
+  (1,2)
+
+  Vector B:
+
+  (1,2)
+  (3,4)
+  (5,6)
+
+  Array C:
+
+  (1,0.1)  (1,0.2)
+  (2,0.1)  (2,0.2)
+
+TEST05
+  Declare a COMPLEX <DOUBLE> variable.
+  Initialize as part of the declaration.
+
+  Scalar A:
+
+  (1,2)
+
+  Vector B:
+
+  (1,2)
+  (3,4)
+  (5,6)
+
+  Array C:
+
+  (1,0.1)  (1,0.2)
+  (2,0.1)  (2,0.2)
+
+TEST06
+  Apply operations and intrinsic functions 
+  to COMPLEX <DOUBLE> variable.
+
+  a =                         (1,2)
+  - a =                       (-1,-2)
+  a + complex <double>(0,5) = (1,7)
+  pow ( a, 2 ) =              (-3,4)
+  pow ( a, a ) =              (-0.222517,0.100709)
+
+  abs ( a ) =                 2.23607
+  arg ( a ) =                 1.10715
+  conj ( a ) =                (1,-2)
+  cos ( a ) =                 (2.03272,-3.0519)
+  cosh ( a ) =                (-0.642148,1.06861)
+  exp ( a ) =                 (-1.1312,2.47173)
+  imag ( a ) =                2
+  log ( a ) =                 (0.804719,1.10715)
+  log10 ( a ) =               (0.349485,0.480829)
+  norm ( a ) =                5
+  polar (10.0,pi/4) =         (7.07107,7.07107)
+  real ( a ) =                1
+  sin ( a ) =                 (3.16578,1.9596)
+  sinh ( a ) =                (-0.489056,1.40312)
+  sqrt ( a ) =                (1.27202,0.786151)
+  tan ( a ) =                 (0.0338128,1.01479)
+  tanh ( a ) =                (1.16674,-0.243458)
+
+COMPLEX_NUMBERS
+  Normal end of execution.
+
+07 November 2010 06:59:41 PM

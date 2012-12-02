@@ -1,0 +1,689 @@
+<html>
+
+  <head>
+    <title>
+      ANN_TEST - Compute Approximate Nearest Neighbors
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      ANN_TEST <br> Compute Approximate Nearest Neighbors
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>ANN_TEST</b>
+      is a C++ program which
+      computes approximate nearest neighbors when the data
+      and query points are available in files.
+    </p>
+
+    <p>
+      <b>ANN_TEST</b> relies on the <b>ANN</b> library to quickly and
+      efficiently compute the information.  The brute force method
+      simply computes, for each query point, the distance to every
+      data point, and returns the data point whose distance is least.
+    </p>
+
+    <p>
+      This approach might seem to be the fastest possible, but it is
+      not.  Particularly when there are many data points or query points,
+      it is worth the overhead of computing a data structure that allows
+      nearest neighbor queries to be computed quickly and efficiently.
+    </p>
+
+    <p>
+      The greatest efficiency occurs if the user is willing to accept
+      <i>approximate</i> nearest neighbors.  That is, the program will
+      return a data point that is either the nearest, or "almost" the
+      nearest, to within some tolerance.  In many applications, the
+      controllable error of this approximation is worth the marked
+      speedup in execution.
+    </p>
+
+    <h3 align = "center">
+      Program Details:
+    </h3>
+
+    <p>
+      <b>ANN_TEST</b> is a driver for testing and evaluating the <b>ANN</b>
+      library for computing approximate nearest neighbors.  It allows the
+      user to generate data and query sets of various sizes, dimensions, and
+      distributions, to build KD and BD trees of various types,
+      run queries and output performance statistics.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>ann_test</b> < <i>test_input</i> > <i>test_output</i>
+        </dt>
+        <dd>
+          reads <i>test_input</i>, a list of directives described below,
+          and writes the results to <i>test_output</i>.
+        </dd>
+      </dl>
+    </p>
+
+    <p>
+      Directives consist of a directive name, followed by list of
+      arguments.  Arguments and directives are
+      separated by white space (blank, tab, and newline).  String arguments
+      are not quoted, and consist of a string of nonwhite chacters.  A
+      character "#" denotes a comment.  The following characters up to
+      the end of line are ignored.  Comments may only be inserted between
+      directives (not within the argument list of a directive).
+    </p>
+
+    <p>
+      <b>ANN_TEST</b> can perform the following operations.  How these
+      operations are performed depends on the options which are described
+      later:
+      <ul>
+        <li>
+          <i>Data Generation</i>:
+          <dl>
+            <dt>
+              read_data_pts <i>file</i>
+            </dt>
+            <dd>
+              Create a set of data points whose coordinates are input
+              from file <i>file</i>.
+            </dd>
+            <dt>
+              gen_data_pts
+            </dt>
+            <dd>
+              Create a set of data points whose coordinates are generated
+              from the current point distribution.
+            </dt>
+          </dl>
+        </li>
+        <li>
+          <i>Building the tree</i>
+          <dl>
+            <dt>
+              build_ann
+            </dt>
+            <dd>
+              Generate an approximate nearest neighbor structure for the
+              current data set, using the selected splitting rules.  Any
+              existing tree will be destroyed.
+            </dt>
+          </dl>
+        </li>
+        <li>
+          <i>Query Generation/Searching:</i>
+          <dl>
+            <dt>
+              read_query_pts <i>file</i>
+            </dt>
+            <dd>
+              Create a set of query points whose coordinates are input
+              from file <i>file</i>.
+            </dd>
+            <dt>
+              gen_query_pts
+            </dt>
+            <dd>
+              Create a set of query points whose coordinates are generated
+              from the current point distribution.
+            </dt>
+            <dt>
+              run_queries <i>string</i>
+            </dt>
+            <dd>
+              Apply nearest neighbor searching to the query points using
+              the approximate nearest neighbor structure and the search
+              strategy specified by <i>string</i> = "standard" for
+              standard KD tree search, or "priority" for a priority search.
+            </dt>
+          </dl>
+        </li>
+        <li>
+          <i>Miscellaneous:</i>
+          <dl>
+            <dt>
+              output_label
+            </dt>
+            <dd>
+              Output a label to the output file.
+            </dd>
+            <dt>
+              dump <i>file</i>
+            </dt>
+            <dd>
+              Dump the current structure to the given <i>file</i>.  (The dump
+              format is explained further in the source file for kd_tree.C)
+            </dt>
+            <dt>
+              load <i>file</i>
+            </dt>
+            <dd>
+              Load a tree from the data file <i>file</i>, which was created
+              by the dump operation.  Any existing tree will be destroyed.
+            </dt>
+          </dl>
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Options
+    </h3>
+
+    <p>
+      How these operations are performed depends on a set of options.
+      If an option is not specified, a default value is used. An option
+      retains its value until it is set again.  String inputs are not
+      enclosed in quotes, and must contain no embedded white space (sorry,
+      this is C++'s convention).
+    </p>
+
+    <h3 align = "center">
+      Options affecting search tree structure:
+    </h3>
+
+    <p>
+      The test program can perform the following operations.  How these
+      operations are performed depends on the options which are described
+      later:
+      <dl>
+        <dt>
+          split_rule <i>type</i>
+        </dt>
+        <dd>
+          Type of splitting rule to use in building the search tree.
+          The default is "suggest".  See the file kd_split.C for more
+          information. Choices are:
+          <ul>
+            <li>
+              <b>kd</b> = optimized KD tree
+            </li>
+            <li>
+              <b>midpt</b> = midpoint split
+            </li>
+            <li>
+              <b>fair</b> = fair split
+            </li>
+            <li>
+              <b>sl_midpt</b> = sliding midpoint split
+            </li>
+            <li>
+              <b>sl_fair</b> = sliding fair split
+            </li>
+            <li>
+              <b>suggest</b> = authors's choice for best
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          shrink_rule <i>type</i>
+        </dt>
+        <dd>
+          Type of shrinking rule to use in building a BD tree
+          data structure.  If "none" is given, then no shrinking is
+          performed and the result is a KD tree.  The default
+          is "none".  See the file bd_tree.C for more information.
+          Choices are:
+          <ul>
+            <li>
+              <b>none</b> = perform no shrinking
+            </li>
+            <li>
+              <b>simple</b> = simple shrinking
+            </li>
+            <li>
+              <b>centroid</b> = centroid shrinking
+            </li>
+            <li>
+              <b>suggest</b> = authors's choice for best
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          bucket_size <i>int</i>
+        </dt>
+        <dd>
+          Bucket size, that is, the maximum number of points stored in
+          each leaf node.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Options affecting data and query point generation:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          dim <i>int</i>
+        </dt>
+        <dd>
+          Dimension of space.
+        </dd>
+        <dt>
+          seed <i>int</i>
+        </dt>
+        <dd>
+          Seed for random number generation.
+        </dd>
+        <dt>
+          data_size <i>int</i>
+        </dt>
+        <dd>
+          Number of data points.  When reading data points from a file, this
+          indicates the maximum number of points for storage
+          allocation. Default = 100.
+        </dd>
+        <dt>
+          query_size <i>int</i>
+        </dt>
+        <dd>
+          Same as data_size for query points.
+        </dd>
+        <dt>
+          std_dev <i>float</i>
+        </dt>
+        <dd>
+          Standard deviation (used in Gauss, and clustered distributions).
+          This is the "small" distribution for clus_ellipsoids.
+          Default = 1.
+        </dd>
+        <dt>
+          std_dev_lo <i>float</i>
+        </dt>
+        <dd>
+          Low standard deviation (used in clus ellipsoids). Default = 1.
+        </dd>
+        <dt>
+          std_dev_hi <i>float</i>
+        </dt>
+        <dd>
+          High standard deviation (used in clus_ellipsoids).  Default = 1.
+        </dd>
+        <dt>
+          corr_coef <i>float</i>
+        </dt>
+        <dd>
+          Correlation coefficient (used in co-Gauss and co_Lapace
+          distributions). Default = 0.05.
+        </dd>
+        <dt>
+          colors <i>int</i>
+        </dt>
+        <dd>
+          Number of color classes (clusters) (used in the clustered
+          distributions).  Default = 5.
+        </dd>
+        <dt>
+          new_clust
+        </dt>
+        <dd>
+          Once generated, cluster centers are not normally regenerated.
+          This is so that both query points and data points can be generated
+          using the same set of clusters.  This option forces new cluster
+          centers to be generated with the next generation of either data
+          or query points.
+        </dd>
+        <dt>
+          max_clus_dim <i>int</i>
+        </dt>
+        <dd>
+          Maximum dimension of clusters (used in clus_orth_flats and
+          clus_ellipsoids).  Default = 1.
+        </dd>
+        <dt>
+          distribution <i>string</i>
+        </dt>
+        <dd>
+          Type of input distribution.  See the file rand.C for further
+          information.  Values for <i>string</i> are:
+          <ul>
+            <li>
+              <b>uniform</b> = uniform over cube [-1,1]^d.
+            </li>
+            <li>
+              <b>gauss</b> = Gaussian with mean 0
+            </li>
+            <li>
+              <b>laplace</b> = Laplacian, mean 0 and var 1
+            </li>
+            <li>
+              <b>co_gauss</b> = correlated Gaussian
+            </li>
+            <li>
+              <b>co_laplace</b> = correlated Laplacian
+            </li>
+            <li>
+              <b>clus_gauss</b> = clustered Gaussian
+            </li>
+            <li>
+              <b>clus_orth_flats</b> = clusters of orth flats
+            </li>
+            <li>
+              <b>clus_ellipsoids</b> = clusters of ellipsoids
+            </li>
+          </ul>
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Options affecting nearest neighbor search:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          epsilon <i>float</i>
+        </dt>
+        <dd>
+          Error bound for approx. near neigh. search.
+        </dd>
+        <dt>
+          near_neigh <i>int</i>
+        </dt>
+        <dd>
+          Number of nearest neighbors to compute.
+        </dd>
+        <dt>
+          max_pts_visit <i>int</i>
+        </dt>
+        <dd>
+          Maximum number of points to visit before terminating.
+          (Used in applications where real-time performance is important.)
+          (Default = 0, which means no limit.)
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Options affection general program behavior:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          stats <i>string</i>
+        </dt>
+        <dd>
+          Level of statistics output.  Values for <i>string</i> are:
+          <ul>
+            <li>
+              <b>silent</b>             = no output,
+            </li>
+            <li>
+              <b>exec_time</b>      += execution time only
+            </li>
+            <li>
+              <b>prep_stats</b>      += preprocessing statistics
+            </li>
+            <li>
+              <b>query_stats</b> += query performance stats
+            </li>
+            <li>
+              <b>query_res</b>      += results of queries
+            </li>
+            <li>
+              <b>show_pts</b>      += show the data points
+            </li>
+            <li>
+              <b>show_struct</b> += print search structure
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          validate <i>string</i>
+        </dt>
+        <dd>
+          Validate experiment and compute average error.  Since validation
+          causes exact nearest neighbors to be computed by the brute force
+          method, this can take a long time.  Values for <i>string</i> are:
+          <ul>
+            <li>
+              <b>on</b> = turn validation on
+            </li>
+            <li>
+              <b>off</b> = turn validation off
+            </li>
+          </ul>
+        </dd>
+        <dt>
+          true_near_neigh <i>int</i>
+        </dt>
+        <dd>
+          Number of true nearest neighbors to compute.  When validating, we
+          compute the difference in rank between each reported nearest
+          neighbor and the true nearest neighbor of the same rank.  Thus
+          it is necessary to compute a few more true nearest neighbors.
+          By default we compute 10 more than near_neigh.  With
+          this option the exact number can be set.  (Used only when
+          validating.)
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Example:
+    </h3>
+
+    <pre>
+      output_label test_run_0   # Label this run "test_run_0".
+      validate off              # Do not perform validation.
+      dim 16                    # The points are in dimension 16.
+      stats query_stats         # Output performance statistics for queries
+      seed 121212               # Set the random number seed.
+
+      data_size 1000
+      distribution uniform
+      gen_data_pts              # Generate 1000 uniform data points in dim 16.
+
+      query_size 100
+      std_dev 0.05
+      distribution clus_gauss
+      gen_query_pts             # Generate 100 query points
+                                # in 10 clusters with std_dev 0.05
+
+      bucket_size 2
+      split_rule kd
+      shrink_rule none
+      build_ann                 # Set up a KD tree with bucket size 2.
+
+      epsilon 0.1               # We accept 10% error.
+      near_neigh 5              # We ask for the 5 nearest neighbors;
+      max_pts_visit 100         # Stop search if more than 100 points seen
+
+      run_queries standard      # Run the queries;
+
+      data_size 500
+      read_data_pts data.in     # Read up to 500 data points from file data.in
+
+      split_rule sl_midpt       # Use the sliding midpoint shrink.
+      shrink_rule simple        # Use a simple shrink.
+      build_ann                 # Set up a BD tree. midpoint split
+
+      epsilon 0                 # We accept 0% error.
+      run_queries priority      # Run the queries.
+    </pre>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/ann/ann.html">ANN</a>,
+      a C++ library which 
+      creates and manipulates the data structures
+      necessary to carry out the approximate nearest neighbor computations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ann_to_fig/ann_to_fig.html">ANN_TO_FIG</a>,
+      a C++ program which
+      can convert the record of
+      a search carried out by
+      ANN_TEST into a graphical image in the <b>FIG</b> format.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          David Mount,<br>
+          Department of Computer Science,<br>
+          University of Maryland,<br>
+          College Park, MD 20742 USA,<br>
+          mount@cs.umd.edu
+        </li>
+        <li>
+          Sunil Arya,<br>
+          Department of Computer Science,<br>
+          The Hong Kong University of Science and Technology,<br>
+          Clear Water Bay, Kowloon, Hong Kong,<br>
+          arya@cs.ust.hk
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          David Mount,<br>
+          The ANN Programming Manual.
+        </li>
+        <li>
+          Sunil Arya, David Mount, Nathan Netanyahu, Ruth Silverman,
+          Angela Wu,<br>
+          An Optimal Algorithm for Approximate Nearest Neighbor Searching
+            in Fixed Dimensions,<br>
+          Journal of the ACM,<br>
+          Volume 45, Number 6, November 1998, pages 891-923.
+        </li>
+        <li>
+          <a href = "http://www.cs.umd.edu/~mount/ANN/">
+          http://www.cs.umd.edu/~mount/ANN/</a>, the web site.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ann_test.sh">ann_test.sh</a>, commands to compile the
+          source code into a library;
+        </li>
+        <li>
+          <a href = "ann_test.cpp">ann_test.cpp</a>, the main library;
+        </li>
+        <li>
+          <a href = "rand.cpp">rand.cpp</a>, the main library;
+        </li>
+        <li>
+          <a href = "rand.hpp">rand.hpp</a>;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>TEST1:</b>
+      <ul>
+        <li>
+          <a href = "test1_data.pts">test1_data.pts</a>,
+          a set of 20 data points in 2D.
+        </li>
+        <li>
+          <a href = "test1_query.pts">test1_query.pts</a>,
+          a set of 10 query points in 2D.
+        </li>
+        <li>
+          <a href = "test1_input.txt">test1_input.txt</a>,
+          the input commands.
+        </li>
+        <li>
+          <a href = "test1_output.txt">test1_output.txt</a>,
+          the printed output from <b>ANN_TEST</b>.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TEST2:</b>
+      <ul>
+        <li>
+          <a href = "test2_data.pts">test2_data.pts</a>,
+          a set of 5000 data points in 8D.
+        </li>
+        <li>
+          <a href = "test2_query.pts">test2_query.pts</a>,
+          a set of 100 query points in 8D.
+        </li>
+        <li>
+          <a href = "test2_input.txt">test2_input.txt</a>,
+          the input commands.
+        </li>
+        <li>
+          <a href = "test2_output.txt">test2_output.txt</a>,
+          the printed output from <b>ANN_TEST</b>.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TEST3:</b>
+      <ul>
+        <li>
+          <a href = "test3_input.txt">test3_input.txt</a>,
+          the input commands.
+        </li>
+        <li>
+          <a href = "test3_output.txt">test3_output.txt</a>,
+          the printed output from <b>ANN_TEST</b>.
+        </li>
+        <li>
+          <a href = "test3.dmp">test3.dmp</a>,
+          a dump file containing information about the search
+          tree, which can be plotted by <b>ANN_TO_FIG</b>.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 15 May 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

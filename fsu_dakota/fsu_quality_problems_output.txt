@@ -1,0 +1,47 @@
+10 November 2006 12:35:23 PM
+
+FSU_QUALITY_PROBLEMS
+  Test the C++ FSU_QUALITY library.
+
+FSU_QUALITY_PROBLEMS:
+  Measures of uniform point dispersion.
+
+  The pointset was read from "halton_02_00100.txt"
+
+  The spatial dimension DIM_NUM =     2
+  The number of points N =         100
+  The number of sample points NS = 100000
+  The random number SEED_INIT =    123456789
+
+
+  5x5 portion of data read from file:
+
+  Row:       1             2       
+  Col
+    1              0             0
+    2            0.5      0.333333
+    3           0.25      0.666667
+    4           0.75      0.111111
+    5          0.125      0.444444
+
+
+QUALITY_TEST01
+  CHI_MEASURE computes the CHI measure of quality.
+  The regularity measure         Chi = 5.1746
+
+QUALITY_TEST02
+  D_MEASURE computes the D measure of quality.
+  2nd moment determinant measure   D = 6.62849e-07
+
+QUALITY_TEST03
+  H_MEASURE computes the H measure of quality.
+  The point distribution norm      H = 0.124875
+
+QUALITY_TEST04
+  TAU_MEASURE computes the Tau measure of quality.
+  2nd moment trace measure       Tau = 0.00165464
+
+FSU_QUALITY_PROBLEMS
+  Normal end of execution.
+
+10 November 2006 12:35:32 PM

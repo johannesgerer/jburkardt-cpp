@@ -1,0 +1,226 @@
+<html>
+
+  <head>
+    <title>
+      PGMB_IO - Read and Write binary Portable Gray Map (PGM) Files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PGMB_IO <br> binary Portable Gray Map (PGM) Files <br> 
+      Read and Write Utilities
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PGMB_IO</b> 
+      is a C++ library which 
+      reads and writes files in the 
+      binary Portable Gray Map (PGM)
+      format for 2D grayscale graphics information.
+    </p>
+
+    <p>
+      There are many graphics programs, such as XV and GIMP, that can
+      display images in this format, or translate them to other formats
+      such as BMP, GIF, JPEG, MacPaint, X Window, and so on.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>PGMB_IO</b> is available in
+      <a href = "../../c_src/pgmb_io/pgmb_io.html">a C version</a> and
+      <a href = "../../cpp_src/pgmb_io/pgmb_io.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/pbmb_io/pbmb_io.html">
+      PBMB_IO<a>,
+      a C++ library which
+      handles the Portable Bit Map (PBM) format.
+    </p>
+
+    <p>
+      <a href = "../../data/pgmb/pgmb.html">
+      PGMB</a>,
+      a data directory which
+      contains examples of binary Portable Gray Map (PGM) files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgma_io/pgma_io.html">
+      PGMA_IO<a>,
+      a C++ library which
+      handles the ASCII Portable Gray Map (PGM) format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgma_to_pgmb/pgma_to_pgmb.html">
+      PGMA_TO_PGMB<a>,
+      a C++ program which 
+      converts an ASCII Portable Gray Map (PGM) file
+      to a binary PGM file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppmb_io/ppmb_io.html">
+      PPMB_IO<a>,
+      a C++ library which 
+      handles the binary Portable Pixel Map (PPM) format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pgmb_to_pgma/pgmb_to_pgma.html">
+      PGMB_TO_PGMA<a>,
+      a C++ program which 
+      converts a binary Portable Gray Map (PGM) file to an ASCII PGM file.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">the NETPBM homepage</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pgmb_io.cpp">pgmb_io.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "pgmb_io.hpp">pgmb_io.hpp</a>, 
+          the include file for PGMB_IO;
+        </li>
+        <li>
+          <a href = "pgmb_io.sh">pgmb_io.sh</a>, 
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pgmb_io_prb.cpp">pgmb_io_prb.cpp</a>, 
+          the sample calling program.
+        </li>
+        <li>
+          <a href = "pgmb_io_prb.sh">pgmb_io_prb.sh</a>, 
+          commands to compile, link and run the sample calling program.
+        </li>
+        <li>
+          <a href = "pgmb_io_prb_output.txt">pgmb_io_prb_output.txt</a>, 
+          the sample output file.
+        </li>
+        <li>
+          <a href = "pgmb_io_prb_01.pgm">pgmb_io_prb_01.pgm</a>, 
+          a binary PGM file created by the program.
+        </li>
+        <li>
+          <a href = "pgmb_io_prb_02.pgm">pgmb_io_prb_02.pgm</a>, 
+          a binary PGM file created by the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>PGMB_CHECK_DATA</b> checks the data for a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_EXAMPLE</b> sets up some data for a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_READ</b> reads the header and data from a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_READ_DATA</b> reads the data in a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_READ_HEADER</b> reads the header of a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_READ_TEST</b> tests the binary portable gray map read routines.
+        </li>
+        <li>
+          <b>PGMB_WRITE</b> writes the header and data for a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_WRITE_DATA</b> writes the data for a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_WRITE_HEADER</b> writes the header of a binary portable gray map file.
+        </li>
+        <li>
+          <b>PGMB_WRITE_TEST</b> tests the binary portable gray map write routines.
+        </li>
+        <li>
+          <b>S_EQI</b> reports whether two strings are equal, ignoring case.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_WORD_EXTRACT_FIRST</b> extracts the first word from a string.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 16 June 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,292 @@
+16 January 2012 12:09:48 PM
+
+SANDIA_SGMGA_SIZE_TABLE
+  C++ version
+  Make tables of point counts.
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 0
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         5        13        25        41        61
+       3         9        29        69       137       241
+       4         9        49       153       369       761
+       5        17        81       297       849      2033
+       6        17       129       545      1777      4833
+       7        17       161       881      3377     10433
+
+  CPU_TIME = 0.188527
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 0
+
+   DIM:          6         7         8         9        10
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1        13        15        17        19        21
+       2        85       113       145       181       221
+       3       389       589       849      1177      1581
+       4      1409      2409      3873      5929      8721
+       5      4289      8233     14689     24721     39665
+       6     11473     24529     48289     88945    155105
+       7     27697     65537    141601    284209    536705
+
+  CPU_TIME = 38.0491
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 2
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         5        13        25        41        61
+       3         9        29        69       137       241
+       4        17        65       177       401       801
+       5        33       145       441      1105      2433
+       6        65       321      1073      2929      6993
+       7       129       705      2561      7537     19313
+
+  CPU_TIME = 0.248597
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 2
+
+   DIM:          6         7         8         9        10
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1        13        15        17        19        21
+       2        85       113       145       181       221
+       3       389       589       849      1177      1581
+       4      1457      2465      3937      6001      8801
+       5      4865      9017     15713     26017     41265
+       6     15121     30241     56737    100897    171425
+       7     44689     95441    190881    361249    652065
+
+  CPU_TIME = 40.8367
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 2
+
+   DIM:        100
+
+   LEVEL_MAX
+
+       0         1
+       1       201
+       2     20201
+
+  CPU_TIME = 1.96751
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 0
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         3         9        19        33        51
+       3         7        17        39        81       151
+       4         7        33        87       193       391
+       5         7        33       135       385       903
+       6        15        65       207       641      1743
+       7        15        97       399      1217      3343
+
+  CPU_TIME = 0.11048
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 1
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         7        17        31        49        71
+       3        15        49       111       209       351
+       4        15        97       303       705      1391
+       5        15       161       687      1985      4623
+       6        31       257      1375      4865     13343
+       7        31       321      2335     10369     33823
+
+  CPU_TIME = 0.463218
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 2
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         7        17        31        49        71
+       3        15        49       111       209       351
+       4        31       129       351       769      1471
+       5        63       321      1023      2561      5503
+       6       127       769      2815      7937     18943
+
+  CPU_TIME = 0.132189
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 0
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         3         9        19        33        51
+       3         5        17        39        81       151
+       4         5        33        87       193       391
+       5         7        45       153       409       933
+       6         7        81       273       777      1973
+       7         9        97       465      1481      4013
+
+  CPU_TIME = 0.077875
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 1
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         5        17        31        49        71
+       3         7        45       105       201       341
+       4         9        97       297       681      1341
+       5        11       181       735      2001      4543
+       6        13       305      1631      5257     13683
+       7        15       477      3305     12609     37433
+
+  CPU_TIME = 0.167129
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 1
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         7        10        13        16
+       2         5        25        52        87       131
+       3         7        63       189       403       736
+       4         9       129       543      1461      3206
+       5        11       231      1320      4433     11583
+       6        13       377      2834     11739     36218
+       7        15       575      5531     27911    100893
+
+  CPU_TIME = 0.155134
+
+SANDIA_SGMGA_SIZE_TABULATE
+  SANDIA_SGMGA_SIZE returns the number of distinct
+  points in a sparse grid.
+
+  We use the same rule in all dimensions, and count the points,
+  for a range of dimensions and levels.
+
+  Growth rule = 0
+
+   DIM:          1         2         3         4         5
+
+   LEVEL_MAX
+
+       0         1         1         1         1         1
+       1         3         5         7         9        11
+       2         3         9        19        33        51
+       3         9        21        45        89       161
+       4         9        45       117       249       481
+       5         9        45       189       537      1233
+       6         9        81       297       945      2553
+       7         9        81       513      1809      5193
+
+  CPU_TIME = 0.12588
+
+SANDIA_SGMGA_SIZE_TABLE
+  Normal end of execution.
+
+16 January 2012 12:11:11 PM

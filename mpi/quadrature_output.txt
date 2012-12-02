@@ -1,0 +1,33 @@
+
+QUADRATURE - Process 3
+  My contribution to the integral is 0.777874.
+
+QUADRATURE - Master process:
+  Estimate the value of PI by approximating an integral.
+  The integral is approximated by a sum,
+  whose calculation is divided among a number of processes.
+
+  Compiled on May  1 2003 at 10:02:24
+
+  The number of processes available is 4
+
+QUADRATURE - Master process:
+  Number of intervals used is 100
+
+QUADRATURE - Process 0
+  My contribution to the integral is 0.792876.
+
+QUADRATURE - Master process:
+  The estimate for PI is 3.1416
+  The error of this estimate is 8.33333e-06
+
+  Wall clock elapsed seconds = 0.0014624
+
+QUADRATURE - Master process:
+  Normal end of execution.
+
+QUADRATURE - Process 1
+  My contribution to the integral is 0.787926.
+
+QUADRATURE - Process 2
+  My contribution to the integral is 0.782924.

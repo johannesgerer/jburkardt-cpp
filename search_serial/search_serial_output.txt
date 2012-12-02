@@ -1,0 +1,19 @@
+22 October 2012 10:19:46 AM
+
+SEARCH_SERIAL:
+  C++ version
+  Search the integers from A to B
+  for a value J such that F(J) = C.
+
+  A           = 1
+  B           = 2147483647
+  C           = 45
+
+  Found     J = 1674924981
+  Verify F(J) = 45
+  Elapsed CPU time is 87.478
+
+SEARCH_SERIAL:
+  Normal end of execution.
+
+22 October 2012 10:21:14 AM

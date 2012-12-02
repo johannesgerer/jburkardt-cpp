@@ -1,0 +1,167 @@
+<html>
+
+  <head>
+    <title>
+      HEXDUMP - Hexadecimal file dump
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      HEXDUMP <br> Hexadecimal file dump
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>HEXDUMP</b>
+      is a C++ program which
+      prints the contents of a file,
+      byte by byte, in hexadecimal format.
+    </p>
+
+    <p>
+      This sort of information can be useful when determining the format of a file,
+      checking for byte-swapping, or other common tasks.
+    </p>
+
+    <p>
+      On many computer systems, there's already a program called <b>hexdump</b>,
+      so you have to be careful that you know which program you are running!
+      You can type
+      <blockquote><code>
+        which hexdump
+      </code></blockquote>
+      to see where the system is going to go if you issue the command.  If you
+      don't like what this tells you, you can either invoke the command with
+      path information, or you can rename it, to say "my_hexdump".
+    </p>
+
+    <p>
+      Thanks to John McCabe of Rutgers for pointing out and correcting a
+      bug which occurred on some machines if the byte value 0xFF was
+      encountered, 30 January 2008.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>hexdump</b> <i>filename</i>
+        </dt>
+        <dd>
+          reads <i>filename</i> and writes a hexadecimal dump to the
+          standard output.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Sample Output:
+    </h3>
+
+    <p>
+      <pre>
+
+        HEXDUMP: Hexadecimal dump of file: box.3ds.
+
+           Address                   Hexadecimal values                  Printable
+        -----  -----------------------------------------------  ----------------
+
+            0  4d 4d 53 02 00 00 02 00 0a 00 00 00 03 00 00 00  MMS.............
+           16  3d 3d 68 01 00 00 3e 3d 0a 00 00 00 03 00 00 00  ==h...>=........
+           32  00 01 0a 00 00 00 00 00 80 3f 00 40 4e 01 00 00  .........?.@N...
+           48  42 6f 78 30 31 00 00 41 42 01 00 00 10 41 68 00  Box01..AB....Ah.
+           ...
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Howard Burdick,<br>
+          Digital Imaging: Theory and Applications,<br>
+          McGraw Hill, 1997,<br>
+          ISBN: 0079130593,<br>
+          LC: TA1637.B87.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "hexdump.cpp">hexdump.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "hexdump.sh">hexdump.sh</a>,
+          commands to compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "text.txt">text.txt</a>, a file;
+        </li>
+        <li>
+          <a href = "text.hex">text.hex</a>,
+          the hexadecimal dump file, created by typing
+          <pre>
+            hexdump text.txt &gt; text.hex
+          </pre>
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for HEXDUMP.
+        </li>
+        <li>
+          <b>HANDLE</b> creates a hexdump for a single file.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 31 August 2005.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

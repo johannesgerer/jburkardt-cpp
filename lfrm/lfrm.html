@@ -1,0 +1,260 @@
+<html>
+
+  <head>
+    <title>
+      LFRM - Remove Linefeeds
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      LFRM <br> Remove Linefeeds
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>LFRM</b>
+      is a C++ program which
+      removes linefeed characters
+      from a file.
+    </p>
+
+    <p>
+      I constantly run into problems, when transferring
+      a file from one system to another, involving different conventions
+      for ending a line of text.
+    </p>
+
+    <p>
+      It is my understanding that the following "conventions" apply:
+      <ul>
+        <li>
+          Macintosh (pre OSX) text lines end with the CR (carriage return) character;
+        </li>
+        <li>
+          PC text lines end with the CR+LF (carriage return + line feed) characters;
+        </li>
+        <li>
+          UNIX text lines end with the LF (line feed) character;
+        </li>
+      </ul>
+    <p>
+
+    <p>
+      While your file transfer program will usually transfer a text file in such
+      a way that that carriage control is properly translated, this sometimes doesn't
+      happen, especially if the text file is transferred "verbatim", that is,
+      as though it were a binary file.
+    </p>
+
+    <p>
+      In such a case, <b>LFRM</b> is the correct program to use if you want
+      to convert a PC text file to a Macintosh (pre OSX) text file, since it
+      will replace each occurrence of CR+LF by CR.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>lfrm</b> <i>old</i> <i>new</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>old</i> is the file to be modified;
+        </li>
+        <li>
+          <i>new</i> is the modified copy of the old file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cr2crlf/cr2crlf.html">
+      CR2CRLF</a>,
+      a C++ program which
+      replaces carriage returns by carriage returns + line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cr2lf/cr2lf.html">
+      CR2LF</a>,
+      a C++ program which
+      reads a text file and replaces carriage returns by line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/crrm/crrm.html">
+      CRRM</a>,
+      a C++ program which
+      reads a text file and removes carriage returns.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/deblank/deblank.html">
+      DEBLANK</a>,
+      a C++ program which
+      makes a copy of a text file which contains no blank lines.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/decomment/decomment.html">
+      DECOMMENT</a>,
+      a C++ program which
+      makes a copy of a text file which contains no "comment" lines
+      (that begin with "#").
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/detroff/detroff.html">
+      DETROFF</a>,
+      a C++ program which
+      removes from a file every occurrence of the TROFF overprint
+      pair character+backspace, which can make a MAN page printable;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/filum/filum.html">
+      FILUM</a>,
+      a C++ library which
+      performs various operations
+      on files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lf2cr/lf2cr.html">
+      LF2CR</a>,
+      a C++ program which
+      replaces linefeeds by carriage returns.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lf2crlf/lf2crlf.html">
+      LF2CRLF</a>,
+      a C++ program which
+      replaces linefeeds by carriage returns + line feeds.
+    </p>
+
+    <p>
+      <a href = "../../f_src/reformat/reformat.html">
+      REFORMAT</a>,
+      a FORTRAN90 program which
+      reads a text file that contains only real values, and writes a copy
+      which has a fixed number of real values on each line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/reword/reword.html">
+      REWORD</a>,
+      a C++ program which
+      reads a text file and writes a copy which has a fixed number
+      of "words" per line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uncontrol/uncontrol.html">
+      UNCONTROL</a>,
+      a C++ program which
+      makes a copy of a text file which contains no control characters.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap/wrap.html">
+      WRAP</a>,
+      a C++ program which
+      makes a copy of a text file in which no line is longer
+      than a user-specified wrap length.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap2/wrap2.html">
+      WRAP2</a>,
+      a C++ program which
+      wraps long lines in a text file, but which
+      wraps some lines "early", so as to avoid breaking words.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lfrm.C">lfrm.C</a>, the source code;
+        </li>
+        <li>
+          <a href = "lfrm.sh">lfrm.sh</a>, commands to compile
+          and link the code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "crlf.txt">crlf.txt</a>, the input "CR+LF" file;
+        </li>
+        <li>
+          <a href = "cr.txt">cr.txt</a>, the output "CR" file;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for LFRM.
+        </li>
+        <li>
+          <b>HANDLE</b> makes a copy of a file in which LF's are removed.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 12 December 2005.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

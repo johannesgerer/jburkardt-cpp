@@ -1,0 +1,16 @@
+void ffwt ( int n, double x[] );
+void fwt ( int n, double x[] );
+void haar ( int n, double x[] );
+void haarin ( int n, double x[] );
+void hnorm ( int n, double x[] );
+int i4_log_2 ( int i );
+int i4_max ( int i1, int i2 );
+int i4_min ( int i1, int i2 );
+int i4_modp ( int i, int j );
+int i4_power ( int i, int j );
+int i4_wrap ( int ival, int ilo, int ihi );
+void r8vec_copy ( int n, double a1[], double a2[] );
+double *r8vec_copy_new ( int n, double a1[] );
+double *r8vec_uniform_01_new ( int n, int *seed );
+void timestamp ( );
+void walsh ( int n, double x[] );

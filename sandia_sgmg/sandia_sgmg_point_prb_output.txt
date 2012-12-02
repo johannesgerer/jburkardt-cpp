@@ -1,0 +1,503 @@
+13 January 2012 10:41:19 AM
+
+SGMG_POINT_PRB
+  C++ version
+
+SGMG_POINT_TESTS
+  Call SGMG_POINT_TEST with various arguments.
+
+  All tests will use a point equality tolerance of 1.49012e-08
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0           0
+
+  For LEVEL_MAX = 1
+
+     0            -1           0
+     1             0          -1
+     2             0           0
+     3             0           1
+     4             1           0
+
+  For LEVEL_MAX = 2
+
+     0            -1          -1
+     1            -1           0
+     2            -1           1
+     3     -0.707107           0
+     4             0          -1
+     5             0   -0.707107
+     6             0           0
+     7             0    0.707107
+     8             0           1
+     9      0.707107           0
+    10             1          -1
+    11             1           0
+    12             1           1
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0           0
+
+  For LEVEL_MAX = 1
+
+     0            -1           0
+     1             0   -0.774597
+     2             0           0
+     3             0    0.774597
+     4             1           0
+
+  For LEVEL_MAX = 2
+
+     0            -1   -0.774597
+     1            -1           0
+     2            -1    0.774597
+     3     -0.707107           0
+     4             0   -0.960491
+     5             0   -0.774597
+     6             0   -0.434244
+     7             0           0
+     8             0    0.434244
+     9             0    0.774597
+    10             0    0.960491
+    11      0.707107           0
+    12             1   -0.774597
+    13             1           0
+    14             1    0.774597
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0           0
+
+  For LEVEL_MAX = 1
+
+     0            -1           0
+     1     -0.707107           0
+     2             0   -0.774597
+     3             0  1.99493e-17
+     4             0    0.774597
+     5      0.707107           0
+     6             1           0
+
+  For LEVEL_MAX = 2
+
+     0            -1   -0.774597
+     1            -1  1.99493e-17
+     2            -1    0.774597
+     3      -0.92388           0
+     4     -0.707107   -0.774597
+     5     -0.707107  1.99493e-17
+     6     -0.707107    0.774597
+     7     -0.382683           0
+     8             0    -0.90618
+     9             0   -0.774597
+    10             0   -0.538469
+    11             0  -1.08185e-16
+    12             0    0.538469
+    13             0    0.774597
+    14             0     0.90618
+    15      0.382683           0
+    16      0.707107   -0.774597
+    17      0.707107  1.99493e-17
+    18      0.707107    0.774597
+    19       0.92388           0
+    20             1   -0.774597
+    21             1  1.99493e-17
+    22             1    0.774597
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0           1
+
+  For LEVEL_MAX = 1
+
+     0            -1           1
+     1     -0.707107           1
+     2             0    0.415775
+     3             0           1
+     4             0     2.29428
+     5             0     6.28995
+     6      0.707107           1
+     7             1           1
+
+  For LEVEL_MAX = 2
+
+     0            -1    0.415775
+     1            -1           1
+     2            -1     2.29428
+     3            -1     6.28995
+     4      -0.92388           1
+     5     -0.707107    0.415775
+     6     -0.707107           1
+     7     -0.707107     2.29428
+     8     -0.707107     6.28995
+     9     -0.382683           1
+    10             0     0.26356
+    11             0    0.415775
+    12             0           1
+    13             0      1.4134
+    14             0     2.29428
+    15             0     3.59643
+    16             0     6.28995
+    17             0     7.08581
+    18             0     12.6408
+    19      0.382683           1
+    20      0.707107    0.415775
+    21      0.707107           1
+    22      0.707107     2.29428
+    23      0.707107     6.28995
+    24       0.92388           1
+    25             1    0.415775
+    26             1           1
+    27             1     2.29428
+    28             1     6.28995
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0         2.5
+
+  For LEVEL_MAX = 1
+
+     0            -1         2.5
+     1     -0.707107         2.5
+     2             0      1.2204
+     3             0         2.5
+     4             0     3.80888
+     5             0     8.47072
+     6      0.707107         2.5
+     7             1         2.5
+
+  For LEVEL_MAX = 2
+
+     0            -1      1.2204
+     1            -1         2.5
+     2            -1     3.80888
+     3            -1     8.47072
+     4      -0.92388         2.5
+     5     -0.707107      1.2204
+     6     -0.707107         2.5
+     7     -0.707107     3.80888
+     8     -0.707107     8.47072
+     9     -0.382683         2.5
+    10             0    0.817632
+    11             0      1.2204
+    12             0     2.47233
+    13             0         2.5
+    14             0     3.80888
+    15             0     5.11601
+    16             0     8.47072
+    17             0     9.04415
+    18             0     15.0499
+    19      0.382683         2.5
+    20      0.707107      1.2204
+    21      0.707107         2.5
+    22      0.707107     3.80888
+    23      0.707107     8.47072
+    24       0.92388         2.5
+    25             1      1.2204
+    26             1         2.5
+    27             1     3.80888
+    28             1     8.47072
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0        0.25
+
+  For LEVEL_MAX = 1
+
+     0      -0.92388        0.25
+     1     -0.707107        0.25
+     2     -0.382683        0.25
+     3             0   -0.537986
+     4             0    0.152829
+     5             0        0.25
+     6             0    0.760157
+     7      0.382683        0.25
+     8      0.707107        0.25
+     9       0.92388        0.25
+
+  For LEVEL_MAX = 2
+
+     0     -0.980785        0.25
+     1      -0.92388   -0.537986
+     2      -0.92388    0.152829
+     3      -0.92388        0.25
+     4      -0.92388    0.760157
+     5      -0.83147        0.25
+     6     -0.707107   -0.537986
+     7     -0.707107    0.152829
+     8     -0.707107        0.25
+     9     -0.707107    0.760157
+    10      -0.55557        0.25
+    11     -0.382683   -0.537986
+    12     -0.382683    0.152829
+    13     -0.382683        0.25
+    14     -0.382683    0.760157
+    15      -0.19509        0.25
+    16             0   -0.769541
+    17             0   -0.537986
+    18             0   -0.370814
+    19             0    0.110027
+    20             0    0.152829
+    21             0        0.25
+    22             0    0.562906
+    23             0    0.760157
+    24             0    0.884088
+    25       0.19509        0.25
+    26      0.382683   -0.537986
+    27      0.382683    0.152829
+    28      0.382683        0.25
+    29      0.382683    0.760157
+    30       0.55557        0.25
+    31      0.707107   -0.537986
+    32      0.707107    0.152829
+    33      0.707107        0.25
+    34      0.707107    0.760157
+    35       0.83147        0.25
+    36       0.92388   -0.537986
+    37       0.92388    0.152829
+    38       0.92388        0.25
+    39       0.92388    0.760157
+    40      0.980785        0.25
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0           0
+
+  For LEVEL_MAX = 1
+
+     0      -1.58114           0
+     1             0    -1.22474
+     2             0           0
+     3             0     1.22474
+     4       1.58114           0
+
+  For LEVEL_MAX = 2
+
+     0       -2.3175           0
+     1      -1.58114    -1.22474
+     2      -1.58114           0
+     3      -1.58114     1.22474
+     4      -1.27639           0
+     5             0    -2.95921
+     6             0    -2.02323
+     7             0   -0.524034
+     8             0    0.524034
+     9             0     1.22474
+    10             0     2.02323
+    11             0     2.95921
+    12             0    -1.22474
+    13             0           0
+    14       1.27639           0
+    15       1.58114    -1.22474
+    16       1.58114           0
+    17       1.58114     1.22474
+    18        2.3175           0
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 0
+
+     0             0           0           0
+
+  For LEVEL_MAX = 1
+
+     0            -1           0           0
+     1     -0.707107           0           0
+     2             0   -0.774597           0
+     3             0           0    -1.22474
+     4             0           0  -9.86284e-17
+     5             0           0     1.22474
+     6             0    0.774597           0
+     7      0.707107           0           0
+     8             1           0           0
+
+  For LEVEL_MAX = 2
+
+     0            -1   -0.774597           0
+     1            -1           0    -1.22474
+     2            -1           0     1.22474
+     3            -1           0  -9.86284e-17
+     4            -1    0.774597           0
+     5      -0.92388           0           0
+     6     -0.707107   -0.774597           0
+     7     -0.707107           0    -1.22474
+     8     -0.707107           0  -9.86284e-17
+     9     -0.707107           0     1.22474
+    10     -0.707107    0.774597           0
+    11     -0.382683           0           0
+    12             0    -0.90618           0
+    13             0   -0.774597    -1.22474
+    14             0   -0.774597  -9.86284e-17
+    15             0   -0.774597     1.22474
+    16             0   -0.538469           0
+    17             0           0    -2.02018
+    18             0           0   -0.958572
+    19             0           0    0.958572
+    20             0  1.99493e-17     1.22474
+    21             0           0     2.02018
+    22             0  1.99493e-17    -1.22474
+    23             0           0  2.40258e-16
+    24             0    0.538469           0
+    25             0    0.774597    -1.22474
+    26             0    0.774597  -9.86284e-17
+    27             0    0.774597     1.22474
+    28             0     0.90618           0
+    29      0.382683           0           0
+    30      0.707107   -0.774597           0
+    31      0.707107           0    -1.22474
+    32      0.707107           0  -9.86284e-17
+    33      0.707107           0     1.22474
+    34      0.707107    0.774597           0
+    35       0.92388           0           0
+    36             1   -0.774597           0
+    37             1           0    -1.22474
+    38             1           0     1.22474
+    39             1           0  -9.86284e-17
+    40             1    0.774597           0
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 3
+
+     0     -0.960491           0
+     1     -0.774597   -0.774597
+     2     -0.774597           0
+     3     -0.774597    0.774597
+     4     -0.434244           0
+     5             0   -0.960491
+     6             0   -0.774597
+     7             0   -0.434244
+     8             0           0
+     9             0    0.434244
+    10             0    0.774597
+    11             0    0.960491
+    12      0.434244           0
+    13      0.774597   -0.774597
+    14      0.774597           0
+    15      0.774597    0.774597
+    16      0.960491           0
+
+SGMG_POINT_TEST
+  SGMG_POINT returns an array of the points
+  forming a multidimensional sparse grid with mixed factors.
+
+  Each sparse grid is of spatial dimension DIM_NUM,
+  and is made up of product grids of levels up to LEVEL_MAX.
+
+  For LEVEL_MAX = 3
+
+     0     -0.993832           0
+     1     -0.960491   -0.774597
+     2     -0.960491           0
+     3     -0.960491    0.774597
+     4     -0.888459           0
+     5     -0.774597   -0.960491
+     6     -0.774597   -0.774597
+     7     -0.774597   -0.434244
+     8     -0.774597           0
+     9     -0.774597    0.434244
+    10     -0.774597    0.774597
+    11     -0.774597    0.960491
+    12     -0.621103           0
+    13     -0.434244   -0.774597
+    14     -0.434244           0
+    15     -0.434244    0.774597
+    16     -0.223387           0
+    17             0   -0.993832
+    18             0   -0.960491
+    19             0   -0.888459
+    20             0   -0.774597
+    21             0   -0.621103
+    22             0   -0.434244
+    23             0   -0.223387
+    24             0           0
+    25             0    0.223387
+    26             0    0.434244
+    27             0    0.621103
+    28             0    0.774597
+    29             0    0.888459
+    30             0    0.960491
+    31             0    0.993832
+    32      0.223387           0
+    33      0.434244   -0.774597
+    34      0.434244           0
+    35      0.434244    0.774597
+    36      0.621103           0
+    37      0.774597   -0.960491
+    38      0.774597   -0.774597
+    39      0.774597   -0.434244
+    40      0.774597           0
+    41      0.774597    0.434244
+    42      0.774597    0.774597
+    43      0.774597    0.960491
+    44      0.888459           0
+    45      0.960491   -0.774597
+    46      0.960491           0
+    47      0.960491    0.774597
+    48      0.993832           0
+
+SGMG_POINT_PRB
+  Normal end of execution.
+
+13 January 2012 10:41:19 AM

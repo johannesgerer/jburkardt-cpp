@@ -1,0 +1,195 @@
+17 October 2008 10:49:49 AM
+
+NINT_EXACTNESS_MIXED
+  C++ version
+
+  Compiled on Oct 17 2008 at 10:48:48.
+
+  Investigate the polynomial exactness of
+  a multidimensional quadrature rule
+  for a region R = R1 x R2 x ... x RM.
+
+  Individual rules may be for:
+
+  Legendre:
+  region: [-1,+1]
+  weight: w(x)=1
+  rules: Gauss-Legendre, Clenshaw-Curtis, Fejer2, Gauss-Patterson
+
+  Jacobi:
+  region: [-1,+1]
+  weight: w(x)=(1-x)^alpha (1+x)^beta
+  rules: Gauss-Jacobi
+
+  Laguerre:
+  region: [0,+oo)
+  weight: w(x)=exp(-x)
+  rules: Gauss-Laguerre
+
+  Generalized Laguerre:
+  region: [0,+oo)
+  weight: w(x)=x^alpha exp(-x)
+  rules: Generalized Gauss-Laguerre
+
+  Hermite:
+  region: (-oo,+o)
+  weight: w(x)=exp(-x*x)
+  rules: Gauss-Hermite
+
+  Generalized Hermite:
+  region: (-oo,+oo)
+  weight: w(x)=|x|^alpha exp(-x*x)
+  rules: generalized Gauss-Hermite
+
+NINT_EXACTNESS: User input:
+  Quadrature rule A file = "sparse_grid_mixed_d3_l2_ccxf2xgh_a.txt".
+  Quadrature rule B file = "sparse_grid_mixed_d3_l2_ccxf2xgh_b.txt".
+  Quadrature rule R file = "sparse_grid_mixed_d3_l2_ccxf2xgh_r.txt".
+  Quadrature rule W file = "sparse_grid_mixed_d3_l2_ccxf2xgh_w.txt".
+  Quadrature rule X file = "sparse_grid_mixed_d3_l2_ccxf2xgh_x.txt".
+  Maximum total degree to check = 7
+
+  Spatial dimension = 3
+  Number of points  = 31
+
+  Analysis of integration region:
+
+     0  Gauss Legendre.
+     1  Gauss Legendre.
+     2  Gauss Hermite dimension.
+
+      Error    Degree  Exponents
+
+   5.01101e-16      0   0 0 0
+
+             0      1   1 0 0
+   6.66134e-16      1   0 1 0
+   5.72459e-17      1   0 0 1
+
+   3.75826e-16      2   2 0 0
+             0      2   1 1 0
+             0      2   0 2 0
+             0      2   1 0 1
+             0      2   0 1 1
+   1.25275e-16      2   0 0 2
+
+             0      3   3 0 0
+             0      3   2 1 0
+             0      3   1 2 0
+   1.66533e-16      3   0 3 0
+             0      3   2 0 1
+             0      3   1 1 1
+             0      3   0 2 1
+             0      3   1 0 2
+   2.22045e-16      3   0 1 2
+   1.11022e-16      3   0 0 3
+
+   6.26376e-16      4   4 0 0
+             0      4   3 1 0
+   1.40935e-16      4   2 2 0
+             0      4   1 3 0
+   1.56594e-16      4   0 4 0
+             0      4   3 0 1
+             0      4   2 1 1
+             0      4   1 2 1
+             0      4   0 3 1
+   1.87913e-16      4   2 0 2
+             0      4   1 1 2
+   1.87913e-16      4   0 2 2
+             0      4   1 0 3
+             0      4   0 1 3
+   1.67034e-16      4   0 0 4
+
+             0      5   5 0 0
+             0      5   4 1 0
+             0      5   3 2 0
+             0      5   2 3 0
+             0      5   1 4 0
+   1.11022e-16      5   0 5 0
+             0      5   4 0 1
+             0      5   3 1 1
+             0      5   2 2 1
+             0      5   1 3 1
+   1.38778e-17      5   0 4 1
+             0      5   3 0 2
+             0      5   2 1 2
+             0      5   1 2 2
+   1.11022e-16      5   0 3 2
+             0      5   2 0 3
+             0      5   1 1 3
+             0      5   0 2 3
+             0      5   1 0 4
+   2.22045e-16      5   0 1 4
+   1.11022e-16      5   0 0 5
+
+     0.0666667      6   6 0 0
+             0      6   5 1 0
+      0.666667      6   4 2 0
+             0      6   3 3 0
+      0.166667      6   2 4 0
+             0      6   1 5 0
+   6.57695e-16      6   0 6 0
+             0      6   5 0 1
+             0      6   4 1 1
+             0      6   3 2 1
+             0      6   2 3 1
+             0      6   1 4 1
+             0      6   0 5 1
+      0.666667      6   4 0 2
+             0      6   3 1 2
+             1      6   2 2 2
+             0      6   1 3 2
+      0.166667      6   0 4 2
+             0      6   3 0 3
+             0      6   2 1 3
+             0      6   1 2 3
+             0      6   0 3 3
+   1.25275e-16      6   2 0 4
+             0      6   1 1 4
+   2.50551e-16      6   0 2 4
+             0      6   1 0 5
+             0      6   0 1 5
+   9.35389e-16      6   0 0 6
+
+             0      7   7 0 0
+             0      7   6 1 0
+             0      7   5 2 0
+             0      7   4 3 0
+             0      7   3 4 0
+             0      7   2 5 0
+             0      7   1 6 0
+   2.77556e-17      7   0 7 0
+             0      7   6 0 1
+             0      7   5 1 1
+             0      7   4 2 1
+             0      7   3 3 1
+             0      7   2 4 1
+             0      7   1 5 1
+   6.93889e-18      7   0 6 1
+             0      7   5 0 2
+             0      7   4 1 2
+             0      7   3 2 2
+             0      7   2 3 2
+             0      7   1 4 2
+   5.55112e-17      7   0 5 2
+             0      7   4 0 3
+             0      7   3 1 3
+             0      7   2 2 3
+             0      7   1 3 3
+             0      7   0 4 3
+             0      7   3 0 4
+             0      7   2 1 4
+             0      7   1 2 4
+   1.11022e-16      7   0 3 4
+             0      7   2 0 5
+             0      7   1 1 5
+             0      7   0 2 5
+             0      7   1 0 6
+   4.44089e-16      7   0 1 6
+   4.44089e-16      7   0 0 7
+
+
+NINT_EXACTNESS_MIXED:
+  Normal end of execution.
+
+17 October 2008 10:49:49 AM

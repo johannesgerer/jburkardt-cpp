@@ -1,0 +1,15 @@
+double *circle_unit_van_der_corput ( );
+int get_seed ( );
+int i4_log_2 ( int i );
+double i4_to_van_der_corput ( int seed, int base );
+void i4_to_van_der_corput_sequence ( int seed, int base, int n, double r[] );
+double r8_epsilon ( );
+void r8mat_write ( string output_filename, int m, int n, double table[] );
+void timestamp ( );
+double van_der_corput ( );
+int van_der_corput_base_get ( );
+void van_der_corput_base_set ( int base );
+int van_der_corput_seed_get ( );
+void van_der_corput_seed_set ( int seed );
+void van_der_corput_sequence ( int n, double r[] );
+int *vdc_numerator_sequence ( int n );

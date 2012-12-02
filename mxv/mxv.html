@@ -1,0 +1,236 @@
+<html>
+
+  <head>
+    <title>
+      MXV - Matrix Vector Multiplication Timings
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MXV <br> Matrix Vector Multiplication Timings
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MXV</b> 
+      is a C++ program which 
+      sets up several matrix vector multiplication problems y=A*x,
+      and carries them out using 
+      <ul>
+        <li>
+          Nested FOR I, FOR J loops, A stored as a vector;
+        </li>
+        <li>
+          Nested FOR J, FOR I loops, A stored as a vector;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The user is allowed to specify M and N, the number of matrix rows and columns.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>mxv</b> <i>m</i> <i>n</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <b>m</b> is the number of matrix rows;
+        </li>
+        <li>
+          <b>n</b> is the number of matrix columns;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Sample Results:
+    </h3>
+
+    <p>
+      <pre>
+          M        N       FLOP  FORIFORJ  FORJFORI
+
+         10       10        100       7      13
+
+         10      100      1,000      22      29
+        100       10      1,000      14      31
+
+         10    1,000     10,000      35      32
+        100      100     10,000      23      33
+      1,000       10     10,000      22      32
+
+         10   10,000    100,000      18      26
+        100    1,000    100,000      23      30
+      1,000      100    100,000      23      32
+     10,000       10    100,000      22      32
+
+         10  100,000  1,000,000      17      33
+        100   10,000  1,000,000       7      48
+      1,000    1,000  1,000,000      17      33
+     10,000      100  1,000,000      26      33
+    100,000       10  1,000,000      22      31
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>MXV</b> is available in
+      <a href = "../../c_src/mxv/mxv.html">a C version</a> and
+      <a href = "../../cpp_src/mxv/mxv.html">a C++ version</a> and
+      <a href = "../../f77_src/mxv/mxv.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/mxv/mxv.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/mxv/mxv.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/linpack_bench/linpack_bench.html">
+      LINPACK_BENCH</a>,
+      a C++ program which 
+      measures the time needed to factor and solve a "large" (N=1000)
+      dense linear system of equations, and is used as a benchmark.
+    </p>
+
+    <p>
+      <a href = "../../f_src/matmul/matmul.html">
+      MATMUL</a>,
+      a FORTRAN90 program which
+      is an interactive matrix multiplication benchmark program.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mxm/mxm.html">
+      MXM</a>,
+      a C++ program which
+      sets up a matrix multiplication problem A=B*C of arbitrary size,
+      and compares the time required for IJK, IKJ, JIK, JKI, KIJ and KJI orderings
+      of the loops.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mxv_openmp/mxv_openmp.html">
+      MXV_OPENMP</a>,
+      a C++ program which
+      compares the performance of plain vanilla Fortran and the FORTRAN90
+      intrinsic routine MATMUL, for the matrix multiplication problem
+      y=A*x, with and without parallelization by OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/sum_million/sum_million.html">
+      SUM_MILLION</a>,
+      a C++ program which 
+      sums the integers from 1 to 1,000,000, as a demonstration of how
+      to rate a computer's speed;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/timer/timer.html">
+      TIMER</a>,
+      C++ programs which
+      demonstrate how to compute CPU time or elapsed time.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          John Burkardt, Paul Puglielli,<br>
+          Pittsburgh Supercomputing Center,<br>
+          <a href = "../../presentations/matmul.pdf">
+          MATMUL: An Interactive Matrix Multiplication Benchmark
+          </a>
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "mxv.cpp">mxv.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "mxv.sh">mxv.sh</a>,
+          commands to compile and link the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for MXV.
+        </li>
+        <li>
+          <b>CPU_TIME</b> returns the current reading on the CPU clock.
+        </li>
+        <li>
+          <b>MATGEN</b> generates a random matrix A and vector X.
+        </li>
+        <li>
+          <b>MXV_FORIFORJ</b> computes y = A * x, using FOR I, FOR J loops.
+        </li>
+        <li>
+          <b>MXV_FORJFORI</b> computes y = A * x, using FOR J, FOR I loops.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 23 May 2008.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

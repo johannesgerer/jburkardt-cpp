@@ -1,0 +1,220 @@
+22 November 2011 09:23:21 AM
+
+FILUM_PRB:
+  C++ version
+  Test the FILUM library.
+
+TEST02
+  FILE_CHAR_COUNT counts the characters in a file.
+
+  Examining file "filum_prb_test.txt".
+
+  Number of characters: 233.
+
+TEST03
+  FILE_COLUMN_COUNT counts the columns in a file.
+
+  It is assumed that the file contains a number of lines,
+  with each line containing the same number of words.
+  The task is to determine the number of words in a line,
+  that is, the number of "columns" of text.
+
+  Examining the file:"filum_prb_4by5.txt".
+
+  Number of columns: 5
+
+TEST06
+  FILE_EXIST reports whether a file 'exists'.
+
+  Exist?   File_name
+
+       1  filum_prb.C
+       1  filum.C
+       0  raisin.txt
+       0  make.money.fast
+
+TEST08
+  FILE_LINE_UNIFORM selects one line of a file,
+  uniformly at random, reading the file one time.
+
+  Examining the file: "filum_prb_test.txt".
+
+      Line  Text:
+
+        16  "[16] charleyhorse".
+         8  "[ 8] Belle".
+         5  "[ 5] Anna".
+        15  "[15] CharleyHorse".
+         8  "[ 8] Belle".
+
+  Total number of lines in file is 16
+
+TEST085
+  FILE_LINE_WIDTH counts the longest line in a file.
+
+  Examining file "filum_prb_test.txt".
+
+  Longest line is: 22 characters.
+
+TEST11
+  FILE_NAME_DEC decrements a string
+
+     Input             Output
+
+  file_02_99.dat    file_02_98.dat
+  file_02_98.dat    file_02_97.dat
+  file_02_97.dat    file_02_96.dat
+  file_02_96.dat    file_02_95.dat
+
+  file076.dat    file075.dat
+  file075.dat    file074.dat
+  file074.dat    file073.dat
+  file073.dat    file072.dat
+
+  3cat3.dat      3cat2.dat  
+  3cat2.dat      3cat1.dat  
+  3cat1.dat      3cat0.dat  
+  3cat0.dat      2cat9.dat  
+
+  fred03.txt     fred02.txt 
+  fred02.txt     fred01.txt 
+  fred01.txt     fred00.txt 
+  fred00.txt     fred99.txt 
+
+TEST12
+  FILE_NAME_EXT_GET finds a file extension.
+
+  FILE_NAME     Begin    End
+
+     bob.for       3       6
+     N.B.C.D       5       6
+      Naomi.       5       5
+      Arthur      -1      -1
+       .amos       0       4
+
+TEST13
+  FILE_NAME_EXT_SWAP changes a file extension.
+
+  FILE_NAME   EXT   FILE_NAME_EXT_SWAP
+
+       bob.for  obj         bob.obj
+   bob.bob.bob  txt     bob.bob.txt
+          bob.  yak         bob.yak
+           bob   ps          bob.ps
+         .oops  eek            .eek
+
+TEST14
+  FILE_NAME_INC increments a string
+
+     Input             Output
+
+  file???.dat               
+  (File name not incrementable.  Quit loop!)
+
+  file072.dat    file073.dat
+  file073.dat    file074.dat
+  file074.dat    file075.dat
+  file075.dat    file076.dat
+
+  2cat9.dat      3cat0.dat  
+  3cat0.dat      3cat1.dat  
+  3cat1.dat      3cat2.dat  
+  3cat2.dat      3cat3.dat  
+
+  fred98.txt     fred99.txt 
+  fred99.txt     fred00.txt 
+  fred00.txt     fred01.txt 
+  fred01.txt     fred02.txt 
+
+TEST15
+  FILE_NAME_INC increments a string.
+
+  In this example, the string is a file name.
+  The user is going to carry out several simulations.
+  For each simulation, a consecutive series of file
+  names is desired.
+
+  Simulation 1 begins.
+
+  file_01_001.txt
+  file_01_002.txt
+  file_01_003.txt
+  file_01_004.txt
+
+  Simulation 2 begins.
+
+  file_02_001.txt
+  file_02_002.txt
+  file_02_003.txt
+  file_02_004.txt
+
+  Simulation 3 begins.
+
+  file_03_001.txt
+  file_03_002.txt
+  file_03_003.txt
+  file_03_004.txt
+
+  Simulation 4 begins.
+
+  file_04_001.txt
+  file_04_002.txt
+  file_04_003.txt
+  file_04_004.txt
+
+TEST165
+  FILE_NAME_INC_NOWRAP increments a string
+
+     Input             Output
+
+  file???.dat               
+  (File name not incrementable.  Quit loop!)
+
+  file072.dat    file073.dat
+  file073.dat    file074.dat
+  file074.dat    file075.dat
+  file075.dat    file076.dat
+
+  2cat9.dat      3cat0.dat  
+  3cat0.dat      3cat1.dat  
+  3cat1.dat      3cat2.dat  
+  3cat2.dat      3cat3.dat  
+
+  fred98.txt     fred99.txt 
+  fred99.txt                
+  (File name not incrementable.  Quit loop!)
+
+TEST17
+  FILE_PARA_COUNT counts the paragraphs in a file.
+
+  Examining file "story.txt".
+
+  Number of paragraphs: 6
+
+TEST22
+  FILE_ROW_COUNT counts the lines in a file.
+
+  Examining file "filum_prb_test.txt".
+
+  Number of lines: 16.
+
+TEST225
+  FILE_SEQUENCE_SIZE "sizes" the files in a file sequence.
+
+  Examining files in sequence starting with:
+    "data_100.txt".
+
+  Number of files:      3
+  Number of data items: 8
+
+TEST24
+  FILE_WORD_COUNT counts the words in a file.
+
+  Examining file "filum_prb_test.txt".
+
+  Number of words: 45.
+
+FILUM_PRB:
+  Normal end of execution.
+
+22 November 2011 09:23:21 AM

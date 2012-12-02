@@ -1,0 +1,16 @@
+
+DISLIN_EX12:
+  C++ version:
+  Demonstrate a shaded contour plot.
+ <<<< Warning: Endpoint   ( 1267/ 2819) in MESSAG out of page - (X-axis).
+
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ <<                END OF DISLIN / VERSION 10.1                  <<
+ <<  Date    : 10.04.2011  Time    : 08:24:59  Pageformat: USAP  <<
+ <<  Vectors : 1923        Warnings: 1         Fileformat:  PNG  <<
+ <<  Metafile: dislin_ex12.png                                   <<
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+DISLIN_EX12:
+  Normal end of execution.

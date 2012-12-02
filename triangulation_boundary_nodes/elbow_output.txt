@@ -1,0 +1,137 @@
+
+03 December 2010 08:16:39 AM
+
+TRIANGULATION_BOUNDARY_NODES
+  C++ version:
+  Identify triangulation nodes that lie on the boundary.
+
+* Read a node dataset of NODE_NUM points in 2 dimensions;
+
+* Read an associated triangulation dataset of 
+  triangles using 3 or 6 nodes;
+
+* Determine which nodes are on the boundary;
+
+* Write a file which is 1 for each boundary node.
+
+  Compiled on Dec  3 2010 at 08:16:22.
+
+  Read the header of "elbow_nodes.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of nodes NODE_NUM  = 319
+
+  Read the data in "elbow_nodes.txt".
+
+  Portion of coordinate data from file:
+
+  Row:       1             2       
+  Col
+
+    1              1             0
+    2              0             1
+    3            0.4             0
+    4              0           0.4
+    5             -0       0.44282
+
+ Read the header of "elbow_elements.txt".
+
+  Triangle order TRIANGLE_ORDER = 3
+  Number of triangles TRIANGLE_NUM  = 568
+
+  Read the data in "elbow_elements.txt".
+
+  Portion of data read from file:
+
+  Row:      1       2       3  
+  Col
+
+    1      17      18       2  
+    2       6       5       4  
+    3     287     301     302  
+    4     257     258     239  
+    5     274     258     257  
+
+MESH_BASE_ZERO:
+  The element indexing appears to be 1-based!
+  This will be converted to 0-based.
+
+  Number of boundary nodes is 65
+
+  Boundary nodes:
+
+     New     Old
+   Index   Index         X and Y Coordinates
+
+         0         0               1               0
+         1         1               0               1
+         2         2             0.4               0
+         3         3               0             0.4
+         4         5        0.041839        0.449512
+         5         6              -0        0.488823
+         6         7              -0        0.538095
+         7         8              -0        0.582249
+         8         9              -0        0.632065
+         9        10              -0        0.676178
+        10        11              -0        0.726139
+        11        12              -0        0.770205
+        12        13              -0        0.821068
+        13        14              -0        0.865798
+        14        15               0        0.912502
+        15        16              -0        0.956362
+        16        17        0.045648        0.998958
+        17        30        0.050564        0.954884
+        18        31        0.093881        0.995583
+        19        45        0.104536        0.952876
+        20        58        0.159308        0.935784
+        21        59          0.1459        0.989299
+        22        73        0.211113        0.931059
+        23        74        0.195528        0.980698
+        24        75        0.279682        0.285968
+        25        89        0.263945        0.924097
+        26       104        0.304428        0.895755
+        27       105         0.34891        0.937156
+        28       106        0.301768        0.953381
+        29       107        0.345677        0.201265
+        30       122        0.355475        0.886743
+        31       124             0.4               0
+        32       125        0.396959        0.049229
+        33       127        0.413102        0.141812
+        34       144        0.408997        0.871717
+        35       164         0.46328        0.842587
+        36       165        0.453028        0.891496
+        37       184        0.501649        0.804815
+        38       185         0.54708         0.83708
+        39       186        0.503985        0.863712
+        40       205        0.548483        0.789502
+        41       222        0.619074        0.715558
+        42       223        0.635247        0.772309
+        43       224        0.593562        0.804788
+        44       241        0.664634         0.69467
+        45       242        0.672557        0.740045
+        46       257        0.726708        0.613853
+        47       258        0.749998         0.66144
+        48       259        0.713381        0.700776
+        49       273        0.771703        0.575015
+        50       274        0.783927        0.620853
+        51       287          0.8017        0.527015
+        52       288        0.819385        0.573244
+        53       299        0.856791        0.431847
+        54       300         0.87973        0.475473
+        55       301        0.851084        0.525029
+        56       308        0.914169        0.277509
+        57       309        0.947571        0.319544
+        58       310        0.929284        0.369367
+        59       311        0.905695         0.42393
+        60       312        0.956319              -0
+        61       314        0.960058        0.083021
+        62       315        0.993899        0.110296
+        63       316        0.986534        0.163557
+        64       317        0.977185        0.212391
+
+  Created the file "elbow_boundarynodes.txt"
+
+TRIANGULATION_BOUNDARY_NODES:
+  Normal end of execution.
+
+03 December 2010 08:16:39 AM

@@ -1,0 +1,1670 @@
+<html>
+
+  <head>
+    <title>
+      LINPLUS - Linear Algebra Utilities
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      LINPLUS <br> Linear Algebra Utilities
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>LINPLUS</b> 
+      is a C++ library which 
+      carries out simple manipulations of matrices in a variety of formats,
+      including matrices stored in banded, border-banded, circulant, 
+      lower triangular, pentadiagonal, sparse, sparse, 
+      toeplitz, tridiagonal, upper triangular and vandermonde formats.
+    </p>
+
+    <p>
+      The routines are primarily organized by the storage format of
+      the matrix they operate on.  Some of these formats were defined by
+      LINPACK, while others are new; I just made them up when I had to solve
+      problems involving such matrices.  The formats include:
+      <ul>
+        <li>
+          <b>C83</b> - Complex double precision tridiagonal;
+        </li>
+        <li>
+          <b>C8CI</b> - Complex double precision circulant;
+        </li>
+        <li>
+          <b>C8GE</b> - Complex double precision general;
+        </li>
+        <li>
+          <b>C8TO</b> - Complex double precision Toeplitz;
+        </li>
+        <li>
+          <b>R83</b> - Real double precision tridiagonal;
+        </li>
+        <li>
+          <b>R83P</b> - Real double precision tridiagonal periodic;
+        </li>
+        <li>
+          <b>R85</b> - Real double precision pentadiagonal;
+        </li>
+        <li>
+          <b>R8BB</b> - Real double precision border-banded;
+        </li>
+        <li>
+          <b>R8BLT</b> - Real double precision banded lower triangular matrix;
+        </li>
+        <li>
+          <b>R8BTO</b> - Real double precision block Toeplitz;
+        </li>
+        <li>
+          <b>R8BUT</b> - Real double precision banded upper triangular matrix;
+        </li>
+        <li>
+          <b>R8CB</b> - Real double precision compact band;
+        </li>
+        <li>
+          <b>R8CBB</b> - Real double precision compact border-banded;
+        </li>
+        <li>
+          <b>R8CC</b> - Real double precision compressed column sparse
+          = Harwell Boeing Real Unsymmetric Assembled (RUA) format
+          = MATLAB sparse format;
+        </li>
+        <li>
+          <b>R8CI</b> - Real double precision circulant;
+        </li>
+        <li>
+          <b>R8GB</b> - Real double precision general band, 
+          used by LINPACK and LAPACK;
+        </li>
+        <li>
+          <b>R8GD</b> - Real double precision general diagonal;
+        </li>
+        <li>
+          <b>R8GE</b> - Real double precision general, used by LINPACK and LAPACK;
+        </li>
+        <li>
+          <b>R8LT</b> - Real double precision lower triangular;
+        </li>
+        <li>
+          <b>R8NCF</b> - Real double precision Nonsymmetric Coordinate Format
+          (one of the formats used by NSPCG);
+        </li>
+        <li>
+          <b>R8PBL</b> - Real double precision positive-definite symmetric band
+          matrix, store diagonal and lower triangle;
+        </li>
+        <li>
+          <b>R8PBU</b> - Real double precision positive-definite symmetric band 
+          matrix, store diagonal and upper triangle;
+        </li>
+        <li>
+          <b>R8PO</b> - Real double precision positive-definite symmetric,
+          used by LINPACK and LAPACK;
+        </li>
+        <li>
+          <b>R8PP</b> - Real double precision positive-definite symmetric Packed,
+          used by LINPACK and LAPACK;
+        </li>
+        <li>
+          <b>R8S3</b> - Real double precision sparse matrix stored by row,
+          column, value (used by SLAP/DLAP, symmetric or nonsymmetric);
+        </li>
+        <li>
+          <b>R8SD</b> - Real double precision symmetric diagonal;
+        </li>
+        <li>
+          <b>R8SM</b> - Real double precision Sherman Morrison system A - u * v';
+        </li>
+        <li>
+          <b>R8SP</b> - Real double precision sparse matrix stored by row, 
+          column, value (used by CSPARSE ("sparse triplet"),
+          SLAP/DLAP (nonsymmetric SLAP triad format), MATLAB,
+          and SPARSEKIT ("COO" format));
+        </li>
+        <li>
+          <b>R8SR</b> - Real double precision sparse matrix stored by rows;
+        </li>
+        <li>
+          <b>R8SS</b> - Real double precision symmetric skyline;
+        </li>
+        <li>
+          <b>R8STO</b> - Real double precision symmetric Toeplitz;
+        </li>
+        <li>
+          <b>R8TO</b> - Real double precision Toeplitz;
+        </li>
+        <li>
+          <b>R8UT</b> - Real double precision upper triangular;
+        </li>
+        <li>
+          <b>R8VEC</b> - Real double precision vector, which in some cases
+          is used to store a matrix;
+        </li>
+        <li>
+          <b>R8VM</b> - Real double precision Vandermonde;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>LINPLUS</b> is available in 
+      <a href = "../../c_src/linplus/linplus.html">a C version </a> and 
+      <a href = "../../cpp_src/linplus/linplus.html">a C++ version </a> and 
+      <a href = "../../f77_src/linplus/linplus.html">a FORTRAN77 version </a> and 
+      <a href = "../../f_src/linplus/linplus.html">a FORTRAN90 version </a> and 
+      <a href = "../../m_src/linplus/linplus.html">a MATLAB version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/blas1/blas1.html">
+      BLAS1</a>, 
+      a C++ library which
+      carries out basic linear algebra routines.
+    </p>
+
+    <p>
+      <a href = "../../c_src/csparse/csparse.html">
+      CSPARSE</a>,
+      a C library which
+      carries out the direct solution of sparse linear systems.
+    </p>
+
+    <p>
+      <a href = "../../f_src/dlap/dlap.html">
+      DLAP</a>,
+      a FORTRAN90 library which
+      contains iterative linear algebra routines for sparse systems.
+    </p>
+
+    <p>
+      <a href = "../../data/dsp/dsp.html">
+      DSP</a>,
+      a data format which
+      can be used to store a DSP matrix in a file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gsl/gsl.html">
+      GSL</a>, 
+      a C++ library which
+      includes many linear algebra routines.
+    </p>
+
+    <p>
+      <a href = "../../f_src/hb_to_st/hb_to_st.html">
+      HB_TO_ST</a>, 
+      a FORTRAN77 program which 
+      converts the sparse matrix information stored as a Harwell-Boeing file into a
+      sparse triplet file.
+    </p>
+
+    <p>
+      <a href = "../../datasets/hbsmc/hbsmc.html">
+      HBSMC</a>, 
+      a dataset directory which
+      contains the Harwell-Boeing Sparse Matrix Collection
+      of large sparse matrices.
+    </p>
+
+    <p>
+      <a href = "../../f_src/lapack_examples/lapack_examples.html">
+      LAPACK_EXAMPLES</a>,
+      a FORTRAN90 program which
+      demonstrates the use of the LAPACK linear algebra library.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linpack_d/linpack_d.html">
+      LINPACK_D</a>,
+      a C++ library which
+      solves linear systems using double precision real arithmetic;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linpack_bench/linpack_bench.html">
+      LINPACK_BENCH</a>,
+      a C++ program which 
+      measures the time taken by <b>LINPACK</b> to solve a 
+      particular linear system.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mgmres/mgmres.html">
+      MGMRES</a>,
+      a C++ library which 
+      applies the restarted GMRES algorithm
+      to solve a sparse linear system.
+    </p>
+
+    <p>
+      <a href = "../../f_src/mm_io/mm_io.html">
+      MM_IO</a>, 
+      a FORTRAN90 library which
+      reads and writes
+      files of sparse matrix information stored in the Matrix Market format.
+    </p>
+
+    <p>
+      <a href = "../../data/sparse_cc/sparse_cc.html">
+      SPARSE_CC</a>,
+      a data directory which
+      contains a description and examples of the CC format,
+      ("compressed column") for storing a sparse matrix,
+      including a way to write the matrix as a set of three files.
+    </p>
+
+    <p>
+      <a href = "../../data/sparse_cr/sparse_cr.html">
+      SPARSE_CR</a>,
+      a data directory which
+      contains a description and examples of the CR format,
+      ("compressed row") for storing a sparse matrix,
+      including a way to write the matrix as a set of three files.
+    </p>
+
+    <p>
+      <a href = "../../f_src/sparsekit/sparsekit.html">
+      SPARSEKIT</a>, 
+      a FORTRAN90 library which
+      carries out operations
+      on sparse matrices, including conversion between various formats.
+    </p>
+
+    <p>
+      <a href = "../../c_src/super_lu/super_lu.html">
+      SUPER_LU</a>, 
+      a C library which 
+      implements some very fast solvers
+      for systems of sparse linear equations.
+    </p>
+
+    <p>
+      <a href = "../../m_src/templates/templates.html">
+      TEMPLATES</a>, 
+      a MATLAB library which
+      implements
+      various iterative methods for solving a linear system.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_mat/test_mat.html">
+      TEST_MAT</a>,
+      a C++ library which 
+      defines test matrices, some of
+      which have known determinants, eigenvalues and eigenvectors,
+      inverses and so on.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/toeplitz_cholesky/toeplitz_cholesky.html">
+      TOEPLITZ_CHOLESKY</a>,
+      a C++ library which
+      computes the Cholesky factorization of a nonnegative definite symmetric
+      Toeplitz matrix.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Anderson, Zhaojun Bai, Christian Bischof, Susan Blackford, 
+          James Demmel, Jack Dongarra, Jeremy Du Croz, Anne Greenbaum, 
+          Sven Hammarling, Alan McKenney, Danny Sorensen,<br>
+          LAPACK User's Guide,<br>
+          Third Edition,<br>
+          SIAM, 1999,<br>
+          ISBN: 0898714478,<br>
+          LC: QA76.73.F25L36
+        </li>
+        <li>
+          Frank Beckman,<br>
+          The Solution of Linear Equations by the Conjugate Gradient Method,<br>
+          in Mathematical Methods for Digital Computers,<br>
+          edited by John Ralston, Herbert Wilf,<br>
+          Wiley, 1967,<br>
+          ISBN: 0471706892.
+        </li>
+        <li>
+          Paul Bratley, Bennett Fox, Linus Schrage,<br>
+          A Guide to Simulation,<br>
+          Second Edition,<br>
+          Springer, 1987,<br>
+          ISBN: 0387964673.
+        </li>
+        <li>
+          Ward Cheney, David Kincaid,<br>
+          Numerical Mathematics and Computing,<br>
+          Brooks-Cole Publishing, 2004,<br>
+          ISBN: 0534201121.
+        </li>
+        <li>
+          Philip Davis,<br>
+          Circulant Matrices,<br>
+          Second Edition,<br>
+          Chelsea, 1994,<br>
+          ISBN: 0828403384,<br>
+          LC: QA188.D37.
+        </li>
+        <li>
+          Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,<br>
+          LINPACK User's Guide,<br>
+          SIAM, 1979,<br>
+          ISBN13: 978-0-898711-72-1,<br>
+          LC: QA214.L56.
+        </li>
+        <li>
+          Iain Duff, Roger Grimes, John Lewis,<br>
+          User's Guide for the Harwell-Boeing Sparse Matrix Collection,<br>
+          October 1992.
+        </li>
+        <li>
+          Bennett Fox,<br>
+          Algorithm 647:
+          Implementation and Relative Efficiency of Quasirandom
+          Sequence Generators,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 12, Number 4, December 1986, pages 362-376.
+        </li>
+        <li>
+          Gene Golub, Charles VanLoan,<br>
+          Matrix Computations,
+          Third Edition,<br>
+          Johns Hopkins, 1996,<br>
+          ISBN: 0-8018-4513-X,<br>
+          LC: QA188.G65.
+        </li>
+        <li>
+          Roger Hockney,<br>
+          A fast direct solution of Poisson's equation using Fourier Analysis,<br>
+          Journal of the ACM,<br>
+          Volume 12, Number 1, pages 95-113, January 1965.
+        </li>
+        <li>
+          David Kahaner, Cleve Moler, Steven Nash,<br>
+          Numerical Methods and Software,<br>
+          Prentice Hall, 1989,<br>
+          ISBN: 0-13-627258-4,<br>
+          LC: TA345.K34.
+        </li>
+        <li>
+          Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,<br>
+          Algorithm 539: Basic Linear Algebra Subprograms for Fortran Usage,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 5, Number 3, September 1979, pages 308-323.
+        </li>
+        <li>
+          Albert Nijenhuis, Herbert Wilf,<br>
+          Combinatorial Algorithms for Computers and Calculators,<br>
+          Second Edition,<br>
+          Academic Press, 1978,<br>
+          ISBN: 0-12-519260-6,<br>
+          LC: QA164.N54.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "linplus.cpp">linplus.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "linplus.hpp">linplus.hpp</a>, the include file;
+        </li>
+        <li>
+          <a href = "linplus.sh">linplus.sh</a>, commands to compile
+          the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "linplus_prb.cpp">linplus_prb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "linplus_prb.sh">linplus_prb.sh</a>, commands to
+          compile and run the calling program;
+        </li>
+        <li>
+          <a href = "linplus_prb_output.txt">linplus_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>C8VEC_PRINT</b> prints a double complex vector.
+        </li>
+        <li>
+          <b>C8VEC_SORT_A2</b> ascending sorts a double complex array by L2 norm.
+        </li>
+        <li>
+          <b>C8VEC_UNITY</b> returns the N roots of unity as a double complex vector.
+        </li>
+        <li>
+          <b>DAXPY</b> adds a constant times one vector to another.
+        </li>
+        <li>
+          <b>R83_CR_FA</b> decomposes a real tridiagonal matrix using cyclic reduction.
+        </li>
+        <li>
+          <b>R83_CR_SL</b> solves a real linear system factored by R83_CR_FA.
+        </li>
+        <li>
+          <b>R83_GS_SL</b> solves a R83 system using Gauss-Seidel iteration.
+        </li>
+        <li>
+          <b>R83_INDICATOR</b> sets up a R83 indicator matrix.
+        </li>
+        <li>
+          <b>R83_JAC_SL</b> solves a R83 system using Jacobi iteration.
+        </li>
+        <li>
+          <b>R83_MXV</b> multiplies a R83 matrix times a vector.
+        </li>
+        <li>
+          <b>R83_NP_DET:</b> determinant of a tridiagonal system factored by R83_NP_FA.
+        </li>
+        <li>
+          <b>R83_NP_FA</b> factors a R83 system without pivoting.
+        </li>
+        <li>
+          <b>R83_NP_FS</b> factors and solves a R83 system.
+        </li>
+        <li>
+          <b>R83_NP_ML</b> computes Ax or xA, where A has been factored by R83_NP_FA.
+        </li>
+        <li>
+          <b>R83_NP_SL</b> solves a R83 system factored by R83_NP_FA.
+        </li>
+        <li>
+          <b>R83_PRINT</b> prints a R83 matrix.
+        </li>
+        <li>
+          <b>R83_PRINT_SOME</b> prints some of a R83 matrix.
+        </li>
+        <li>
+          <b>R83_RANDOM</b> randomizes a R83 matrix.
+        </li>
+        <li>
+          <b>R83_TO_R8GE</b> copies a R83 matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R83_VXM</b> multiplies a vector times a R83 matrix.
+        </li>
+        <li>
+          <b>R83_ZERO</b> zeros a R83 matrix.
+        </li>
+        <li>
+          <b>R83NP_FS</b> factors and solves an R83NP system.
+        </li>
+        <li>
+          <b>R83P_DET</b> computes the determinant of a matrix factored by R83P_FA.
+        </li>
+        <li>
+          <b>R83P_FA</b> factors a R83P matrix.
+        </li>
+        <li>
+          <b>R83P_INDICATOR</b> sets up a R83P indicator matrix.
+        </li>
+        <li>
+          <b>R83P_ML</b> computes A * x or x * A, where A has been factored by R83P_FA.
+        </li>
+        <li>
+          <b>R83P_MXV</b> multiplies a R83P matrix times a vector.
+        </li>
+        <li>
+          <b>R83P_PRINT</b> prints a R83P matrix.
+        </li>
+        <li>
+          <b>R83P_PRINT_SOME</b> prints some of a R83P matrix.
+        </li>
+        <li>
+          <b>R83P_RANDOM</b> randomizes a R83P matrix.
+        </li>
+        <li>
+          <b>R83P_SL</b> solves a R83P system factored by R83P_FA.
+        </li>
+        <li>
+          <b>R83P_TO_R8GE</b> copies a R83P matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R83P_VXM</b> multiplies a vector times a R83P matrix.
+        </li>
+        <li>
+          <b>R83P_ZERO</b> zeros a R83P matrix.
+        </li>
+        <li>
+          <b>R85_INDICATOR</b> sets up a R85 indicator matrix.
+        </li>
+        <li>
+          <b>R85_NP_FS</b> factors and solves a R85 system.
+        </li>
+        <li>
+          <b>R85_MXV</b> multiplies a R85 matrix times a vector.
+        </li>
+        <li>
+          <b>R85_PRINT</b> prints a R85 matrix.
+        </li>
+        <li>
+          <b>R85_PRINT_SOME</b> prints some of a R85 matrix.
+        </li>
+        <li>
+          <b>R85_RANDOM</b> randomizes a R85 matrix.
+        </li>
+        <li>
+          <b>R85_TO_R8GE</b> copies a R85 matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R85_VXM</b> multiplies a vector times a R85 matrix.
+        </li>
+        <li>
+          <b>R85_ZERO</b> zeros a R85 matrix.
+        </li>
+        <li>
+          <b>R8BB_ADD</b> adds a value to an entry in a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_FA</b> factors a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_GET</b> gets a value of a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_INDICATOR</b> sets up a R8BB indicator matrix.
+        </li>
+        <li>
+          <b>R8BB_MXV</b> multiplies a R8BB matrix times a vector.
+        </li>
+        <li>
+          <b>R8BB_PRINT</b> prints a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_PRINT_SOME</b> prints some of a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_RANDOM</b> randomizes a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_SET</b> sets a value of a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_TO_R8GE</b> copies a R8BB matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8BB_VXM</b> multiplies a vector by a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BB_ZERO</b> zeros a R8BB matrix.
+        </li>
+        <li>
+          <b>R8BLT_DET</b> computes the determinant of a R8BLT matrix.
+        </li>
+        <li>
+          <b>R8BLT_INDICATOR</b> sets up a R8BLT indicator matrix.
+        </li>
+        <li>
+          <b>R8BLT_MXV</b> multiplies a R8BLT matrix times a vector.
+        </li>
+        <li>
+          <b>R8BLT_PRINT</b> prints a R8BLT matrix.
+        </li>
+        <li>
+          <b>R8BLT_PRINT_SOME</b> prints some of a R8BLT matrix.
+        </li>
+        <li>
+          <b>R8BLT_RANDOM</b> randomizes a R8BLT matrix.
+        </li>
+        <li>
+          <b>R8BLT_SL</b> solves a R8BLT system.
+        </li>
+        <li>
+          <b>R8BLT_TO_R8GE</b> copies a R8BLT matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8BLT_VXM</b> multiplies a vector by a R8BLT matrix.
+        </li>
+        <li>
+          <b>R8BLT_ZERO</b> zeros a R8BLT matrix.
+        </li>
+        <li>
+          <b>R8BTO_INDICATOR</b> sets up a R8BTO indicator matrix.
+        </li>
+        <li>
+          <b>R8BTO_MXV</b> multiplies a R8BTO matrix times a vector.
+        </li>
+        <li>
+          <b>R8BTO_PRINT</b> prints a R8BTO matrix.
+        </li>
+        <li>
+          <b>R8BTO_PRINT_SOME</b> prints some of a R8BTO matrix.
+        </li>
+        <li>
+          <b>R8BTO_RANDOM</b> randomizes a R8BTO matrix.
+        </li>
+        <li>
+          <b>R8BTO_TO_R8GE</b> copies a R8BTO matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8BTO_VXM</b> multiplies a vector times a R8BTO matrix.
+        </li>
+        <li>
+          <b>R8BTO_ZERO</b> zeros a R8BTO matrix.
+        </li>
+        <li>
+          <b>R8BUT_DET</b> computes the determinant of a R8BUT matrix.
+        </li>
+        <li>
+          <b>R8BUT_INDICATOR</b> sets up a R8BUT indicator matrix.
+        </li>
+        <li>
+          <b>R8BUT_MXV</b> multiplies a R8BUT matrix times a vector.
+        </li>
+        <li>
+          <b>R8BUT_PRINT</b> prints a R8BUT matrix.
+        </li>
+        <li>
+          <b>R8BUT_PRINT_SOME</b> prints some of a R8BUT matrix.
+        </li>
+        <li>
+          <b>R8BUT_RANDOM</b> randomizes a R8BUT matrix.
+        </li>
+        <li>
+          <b>R8BUT_SL</b> solves a R8BUT system.
+        </li>
+        <li>
+          <b>R8BUT_TO_R8GE</b> copies a R8BUT matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8BUT_VXM</b> multiplies a vector by a R8BUT matrix.
+        </li>
+        <li>
+          <b>R8CB_DET</b> computes the determinant of a R8CB matrix factored by R8CB_NP_FA.
+        </li>
+        <li>
+          <b>R8CB_INDICATOR</b> sets up a R8CB indicator matrix.
+        </li>
+        <li>
+          <b>R8CB_ML</b> computes A * x or A' * X, using R8CB_NP_FA factors.
+        </li>
+        <li>
+          <b>R8CB_MXV</b> multiplies a R8CB matrix times a vector.
+        </li>
+        <li>
+          <b>R8CB_NP_FA</b> factors a R8CB matrix by Gaussian elimination.
+        </li>
+        <li>
+          <b>R8CB_NP_SL</b> solves a R8CB system factored by R8CB_NP_FA.
+        </li>
+        <li>
+          <b>R8CB_PRINT</b> prints a R8CB matrix.
+        </li>
+        <li>
+          <b>R8CB_PRINT_SOME</b> prints some of a R8CB matrix.
+        </li>
+        <li>
+          <b>R8CB_RANDOM</b> randomizes a R8CB matrix.
+        </li>
+        <li>
+          <b>R8CB_TO_R8VEC</b> copies a R8CB matrix to a real vector.
+        </li>
+        <li>
+          <b>R8CB_TO_R8GE</b> copies a R8CB matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8CB_VXM</b> multiplies a vector by a R8CB matrix.
+        </li>
+        <li>
+          <b>R8CB_ZERO</b> zeros a R8CB matrix.
+        </li>
+        <li>
+          <b>R8CBB_ADD</b> adds a value to an entry of a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_ERROR</b> checks the dimensions of a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_FA</b> factors a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_GET</b> gets the value of an entry of a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_INDICATOR</b> sets up a R8CBB indicator matrix.
+        </li>
+        <li>
+          <b>R8CBB_MXV</b> multiplies a R8CBB matrix times a vector.
+        </li>
+        <li>
+          <b>R8CBB_PRINT</b> prints a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_PRINT_SOME</b> prints some of a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_RANDOM</b> randomizes a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_SET</b> sets an entry of a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_SL</b> solves a R8CBB system factored by R8CBB_FA.
+        </li>
+        <li>
+          <b>R8CBB_TO_R8GE</b> copies a R8CBB matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8CBB_VXM</b> multiplies a vector by a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CBB_ZERO</b> zeros a R8CBB matrix.
+        </li>
+        <li>
+          <b>R8CC_GET</b> gets a value of a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_IJK</b> seeks K, the sparse index of (I,J), the full index of a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_INC</b> increments a value of a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_INDICATOR</b> sets up a R8CC indicator matrix.
+        </li>
+        <li>
+          <b>R8CC_KIJ</b> seeks (I,J), the full index of K, the sparse index of a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_MXV</b> multiplies a R8CC matrix times a vector.
+        </li>
+        <li>
+          <b>R8CC_PRINT</b> prints a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_PRINT_SOME</b> prints some of a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_RANDOM</b> randomizes a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_READ</b> reads a R8CC matrix from three files.
+        </li>
+        <li>
+          <b>R8CC_READ_SIZE</b> reads the sizes of a R8CC sparse matrix from a file.
+        </li>
+        <li>
+          <b>R8CC_SET</b> sets a value of a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_TO_R8GE</b> converts a R8CC matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8CC_VXM</b> multiplies a vector times a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CC_WRITE</b> writes a R8CC matrix to three files.
+        </li>
+        <li>
+          <b>R8CC_ZERO</b> zeros a R8CC matrix.
+        </li>
+        <li>
+          <b>R8CI_EVAL</b> returns the eigenvalues of a R8CI matrix.
+        </li>
+        <li>
+          <b>R8CI_INDICATOR</b> sets up a R8CI indicator matrix.
+        </li>
+        <li>
+          <b>R8CI_MXV</b> multiplies a R8CI matrix times a vector.
+        </li>
+        <li>
+          <b>R8CI_PRINT</b> prints a R8CI matrix.
+        </li>
+        <li>
+          <b>R8CI_PRINT_SOME</b> prints some of a R8CI matrix.
+        </li>
+        <li>
+          <b>R8CI_RANDOM</b> randomizes a R8CI matrix.
+        </li>
+        <li>
+          <b>R8CI_SL</b> solves a R8CI system.
+        </li>
+        <li>
+          <b>R8CI_TO_R8GE</b> copies a R8CI matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8CI_VXM</b> multiplies a vector times a R8CI matrix.
+        </li>
+        <li>
+          <b>R8CI_ZERO</b> zeros a R8CI matrix.
+        </li>
+        <li>
+          <b>R8GB_DET</b> computes the determinant of a matrix factored by R8GB_FA or R8GB_TRF.
+        </li>
+        <li>
+          <b>R8GB_FA</b> performs a LINPACK-style PLU factorization of a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GB_INDICATOR</b> sets up a R8GB indicator matrix.
+        </li>
+        <li>
+          <b>R8GB_ML</b> computes A * x or A' * X, using R8GB_FA factors.
+        </li>
+        <li>
+          <b>R8GB_MU</b> computes A * x or A' * X, using R8GB_TRF factors.
+        </li>
+        <li>
+          <b>R8GB_MXV</b> multiplies a R8GB matrix times a vector.
+        </li>
+        <li>
+          <b>R8GB_NZ_NUM</b> counts the nonzeroes in a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GB_PRINT</b> prints a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GB_PRINT_SOME</b> prints some of a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GB_RANDOM</b> randomizes a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GB_SL</b> solves a system factored by R8GB_FA.
+        </li>
+        <li>
+          <b>R8GB_TO_R8S3</b> copies a R8GB matrix to a R8S3 matrix.
+        </li>
+        <li>
+          <b>R8GB_TO_R8SP</b> copies a R8GB matrix to a R8SP matrix.
+        </li>
+        <li>
+          <b>R8GB_TO_R8VEC</b> copies a R8GB matrix to a real vector.
+        </li>
+        <li>
+          <b>R8GB_TO_R8GE</b> copies a R8GB matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GB_TRF</b> performs a LAPACK-style PLU factorization of a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GB_TRS</b> solves a linear system factored by R8GB_TRF.
+        </li>
+        <li>
+          <b>R8GB_VXM</b> multilies a vector times a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GB_ZERO</b> zeros a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GD_ERROR</b> checks the dimensions of a R8GD matrix.
+        </li>
+        <li>
+          <b>R8GD_INDICATOR</b> sets up a R8GD indicator matrix.
+        </li>
+        <li>
+          <b>R8GD_MXV</b> multiplies a R8GD matrix by a vector.
+        </li>
+        <li>
+          <b>R8GD_PRINT</b> prints a R8GD matrix.
+        </li>
+        <li>
+          <b>R8GD_PRINT_SOME</b> prints some of a R8GD matrix.
+        </li>
+        <li>
+          <b>R8GD_RANDOM</b> randomizes a R8GD matrix.
+        </li>
+        <li>
+          <b>R8GD_TO_R8GE</b> copies a R8GD matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GD_VXM</b> multiplies a vector by a R8GD matrix.
+        </li>
+        <li>
+          <b>R8GD_ZERO</b> zeros a R8GD matrix.
+        </li>
+        <li>
+          <b>R8GE_CO</b> factors a R8GE matrix and estimates its condition number.
+        </li>
+        <li>
+          <b>R8GE_DET</b> computes the determinant of a matrix factored by R8GE_FA or R8GE_TRF.
+        </li>
+        <li>
+          <b>R8GE_DILU</b> produces the diagonal incomplete LU factor of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_FA</b> performs a LINPACK-style PLU factorization of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_FS</b> factors and solves a R8GE system.
+        </li>
+        <li>
+          <b>R8GE_FS_NEW</b> factors and solves a R8GE system.
+        </li>
+        <li>
+          <b>R8GE_FSS</b> factors and solves multiple R8GE systems.
+        </li>
+        <li>
+          <b>R8GE_FSS_NEW</b> factors and solves multiple R8GE systems.
+        </li>
+        <li>
+          <b>R8GE_IDENTITY</b> sets a R8GE matrix to the identity.
+        </li>
+        <li>
+          <b>R8GE_ILU</b> produces the incomplete LU factors of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_INDICATOR</b> sets up a R8GE indicator matrix.
+        </li>
+        <li>
+          <b>R8GE_INVERSE</b> computes the inverse of a R8GE matrix factored by R8GE_FA.
+        </li>
+        <li>
+          <b>R8GE_ML</b> computes A * x or A' * x, using R8GE_FA factors.
+        </li>
+        <li>
+          <b>R8GE_MU</b> computes A * x or A' * x, using R8GE_TRF factors.
+        </li>
+        <li>
+          <b>R8GE_MXM</b> multiplies two R8GE matrices.
+        </li>
+        <li>
+          <b>R8GE_MXV</b> multiplies a R8GE matrix times a vector.
+        </li>
+        <li>
+          <b>R8GE_NP_DET</b> computes the determinant of a matrix factored by R8GE_NP_FA.
+        </li>
+        <li>
+          <b>R8GE_NP_FA</b> factors a R8GE matrix by nonpivoting Gaussian elimination.
+        </li>
+        <li>
+          <b>R8GE_NP_INVERSE</b> computes the inverse of a matrix factored by R8GE_NP_FA.
+        </li>
+        <li>
+          <b>R8GE_NP_ML</b> computes A * x or x * A, for a matrix factored by R8GE_NP_FA.
+        </li>
+        <li>
+          <b>R8GE_NP_SL</b> solves a system factored by R8GE_NP_FA.
+        </li>
+        <li>
+          <b>R8GE_NP_TRF</b> computes the LU factorization of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_NP_TRM</b> computes A * x or A' * x, for a matrix factored by R8GE_NP_TRF.
+        </li>
+        <li>
+          <b>R8GE_NP_TRS</b> solves a system of linear equations factored by R8GE_NP_TRF.
+        </li>
+        <li>
+          <b>R8GE_PLU</b> produces the PLU factors of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_POLY</b> computes the characteristic polynomial of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_PRINT</b> prints a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_PRINT_SOME</b> prints some of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_RANDOM</b> randomizes a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_RES</b> computes the residual for a R8GE system.
+        </li>
+        <li>
+          <b>R8GE_SL</b> solves a R8GE system factored by R8GE_FA.
+        </li>
+        <li>
+          <b>R8GE_SL_IT</b> applies one step of iterative refinement following R8GE_SL.
+        </li>
+        <li>
+          <b>R8GE_TO_R8GB</b> copies a R8GE matrix to a R8GB matrix.
+        </li>
+        <li>
+          <b>R8GE_TO_R8VEC</b> copies a R8GE matrix to a real vector.
+        </li>
+        <li>
+          <b>R8GE_TRF</b> performs a LAPACK-style PLU factorization of a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_TRS</b> solves a system of linear equations factored by R8GE_TRF.
+        </li>
+        <li>
+          <b>R8GE_VXM</b> multiplies a vector times a R8GE matrix.
+        </li>
+        <li>
+          <b>R8GE_ZERO</b> zeros a R8GE matrix.
+        </li>
+        <li>
+          <b>R8LT_DET</b> computes the determinant of a R8LT matrix.
+        </li>
+        <li>
+          <b>R8LT_INDICATOR</b> sets up a R8LT indicator matrix.
+        </li>
+        <li>
+          <b>R8LT_INVERSE</b> computes the inverse of a R8LT matrix.
+        </li>
+        <li>
+          <b>R8LT_MXM</b> multiplies two R8LT matrices.
+        </li>
+        <li>
+          <b>R8LT_MXV</b> multiplies a R8LT matrix times a vector.
+        </li>
+        <li>
+          <b>R8LT_PRINT</b> prints a R8LT matrix.
+        </li>
+        <li>
+          <b>R8LT_PRINT_SOME</b> prints some of a R8LT matrix.
+        </li>
+        <li>
+          <b>R8LT_RANDOM</b> randomizes a R8LT matrix.
+        </li>
+        <li>
+          <b>R8LT_SL</b> solves a R8LT system.
+        </li>
+        <li>
+          <b>R8LT_VXM</b> multiplies a vector times a R8LT matrix.
+        </li>
+        <li>
+          <b>R8LT_ZERO</b> zeros a R8LT matrix.
+        </li>
+        <li>
+          <b>R8NCF_INDICATOR</b> sets up a R8NCF indicator matrix.
+        </li>
+        <li>
+          <b>R8NCF_PRINT</b> prints a R8NCF matrix.
+        </li>
+        <li>
+          <b>R8NCF_PRINT_SOME</b> prints some of a R8NCF matrix.
+        </li>
+        <li>
+          <b>R8PBL_DET</b> computes the determinant of a matrix factored by R8PBL_FA.
+        </li>
+        <li>
+          <b>R8PBL_INDICATOR</b> sets up a R8PBL indicator matrix.
+        </li>
+        <li>
+          <b>R8PBL_PRINT</b> prints a R8PBL matrix.
+        </li>
+        <li>
+          <b>R8PBL_PRINT_SOME</b> prints some of a R8PBL matrix.
+        </li>
+        <li>
+          <b>R8PBL_RANDOM</b> randomizes a R8PBL matrix.
+        </li>
+        <li>
+          <b>R8PBL_TO_R8GE</b> copies a R8PBL matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8PBL_ZERO</b> zeros a R8PBL matrix.
+        </li>
+        <li>
+          <b>R8PBU_CG</b> uses the conjugate gradient method on a R8PBU system.
+        </li>
+        <li>
+          <b>R8PBU_DET</b> computes the determinant of a matrix factored by R8PBU_FA.
+        </li>
+        <li>
+          <b>R8PBU_FA</b> factors a R8PBU matrix.
+        </li>
+        <li>
+          <b>R8PBU_INDICATOR</b> sets up a R8PBU indicator matrix.
+        </li>
+        <li>
+          <b>R8PBU_ML</b> multiplies a vector times a matrix that was factored by R8PBU_FA.
+        </li>
+        <li>
+          <b>R8PBU_MXV</b> multiplies a R8PBU matrix times a vector.
+        </li>
+        <li>
+          <b>R8PBU_PRINT</b> prints a R8PBU matrix.
+        </li>
+        <li>
+          <b>R8PBU_PRINT_SOME</b> prints some of a R8PBU matrix.
+        </li>
+        <li>
+          <b>R8PBU_RANDOM</b> randomizes a R8PBU matrix.
+        </li>
+        <li>
+          <b>R8PBU_SL</b> solves a R8PBU system factored by R8PBU_FA.
+        </li>
+        <li>
+          <b>R8PBU_SOR</b> uses SOR iteration to solve a R8PBU linear system.
+        </li>
+        <li>
+          <b>R8PBU_TO_R8GE</b> copies a R8PBU matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8PBU_ZERO</b> zeros a R8PBU matrix.
+        </li>
+        <li>
+          <b>R8PO_DET</b> computes the determinant of a matrix factored by R8PO_FA.
+        </li>
+        <li>
+          <b>R8PO_FA</b> factors a R8PO matrix.
+        </li>
+        <li>
+          <b>R8PO_INDICATOR</b> sets up a R8PO indicator matrix.
+        </li>
+        <li>
+          <b>R8PO_INVERSE</b> computes the inverse of a matrix factored by R8PO_FA.
+        </li>
+        <li>
+          <b>R8PO_ML</b> computes A * x = b after A has been factored by R8PO_FA.
+        </li>
+        <li>
+          <b>R8PO_MXM</b> multiplies two R8PO matrices.
+        </li>
+        <li>
+          <b>R8PO_MXV</b> multiplies a R8PO matrix times a vector.
+        </li>
+        <li>
+          <b>R8PO_PRINT</b> prints a R8PO matrix.
+        </li>
+        <li>
+          <b>R8PO_PRINT_SOME</b> prints some of a R8PO matrix.
+        </li>
+        <li>
+          <b>R8PO_RANDOM</b> randomizes a R8PO matrix.
+        </li>
+        <li>
+          <b>R8PO_SL</b> solves a linear system that has been factored by R8PO_FA.
+        </li>
+        <li>
+          <b>R8PO_TO_R8GE</b> copies a R8PO matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8PO_ZERO</b> zeros a R8PO matrix.
+        </li>
+        <li>
+          <b>R8PP_DET</b> computes the determinant of a matrix factored by R8PP_FA.
+        </li>
+        <li>
+          <b>R8PP_FA</b> factors a R8PP matrix.
+        </li>
+        <li>
+          <b>R8PP_INDICATOR</b> sets up a R8PP indicator matrix.
+        </li>
+        <li>
+          <b>R8PP_MXV</b> multiplies a R8PP matrix times a vector.
+        </li>
+        <li>
+          <b>R8PP_PRINT</b> prints a R8PP matrix.
+        </li>
+        <li>
+          <b>R8PP_PRINT_SOME</b> prints some of a R8PP matrix.
+        </li>
+        <li>
+          <b>R8PP_RANDOM</b> randomizes a R8PP matrix.
+        </li>
+        <li>
+          <b>R8PP_SL</b> solves a R8PP system factored by R8PP_FA.
+        </li>
+        <li>
+          <b>R8PP_TO_R8GE</b> copies a R8PP matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8PP_ZERO</b> zeros a R8PP matrix.
+        </li>
+        <li>
+          <b>R8ROW_SWAP</b> swaps two rows of a real array.
+        </li>
+        <li>
+          <b>R8S3_INDICATOR</b> sets up a R8S3 indicator matrix.
+        </li>
+        <li>
+          <b>R8S3_PRINT</b> prints a R8S3 matrix.
+        </li>
+        <li>
+          <b>R8S3_PRINT_SOME</b> prints some of a R8S3 matrix.
+        </li>
+        <li>
+          <b>R8S3_READ</b> reads a square R8S3 matrix from a file.
+        </li>
+        <li>
+          <b>R8S3_READ_SIZE</b> reads the size of a square R8S3 matrix from a file.
+        </li>
+        <li>
+          <b>R8S3_WRITE</b> writes a square R8S3 matrix to a file.
+        </li>
+        <li>
+          <b>R8SD_CG</b> uses the conjugate gradient method on a R8SD linear system.
+        </li>
+        <li>
+          <b>R8SD_INDICATOR</b> sets up a R8SD indicator matrix.
+        </li>
+        <li>
+          <b>R8SD_MXV</b> multiplies a R8SD matrix times a vector.
+        </li>
+        <li>
+          <b>R8SD_PRINT</b> prints a R8SD matrix.
+        </li>
+        <li>
+          <b>R8SD_PRINT_SOME</b> prints some of a R8SD matrix.
+        </li>
+        <li>
+          <b>R8SD_RANDOM</b> randomizes a R8SD matrix.
+        </li>
+        <li>
+          <b>R8SD_TO_R8GE</b> copies a R8SD matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8SD_ZERO</b> zeros a R8SD matrix.
+        </li>
+        <li>
+          <b>R8SM_ML</b> multiplies a factored square R8SM matrix times a vector.
+        </li>
+        <li>
+          <b>R8SM_MXV</b> multiplies a R8SM matrix times a vector.
+        </li>
+        <li>
+          <b>R8SM_PRINT</b> prints a R8SM matrix.
+        </li>
+        <li>
+          <b>R8SM_PRINT_SOME</b> prints some of a R8SM matrix.
+        </li>
+        <li>
+          <b>R8SM_RANDOM</b> randomizes a R8SM matrix.
+        </li>
+        <li>
+          <b>R8SM_SL</b> solves a square R8SM system that has been factored.
+        </li>
+        <li>
+          <b>R8SM_TO_R8GE</b> copies a R8SM matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8SM_VXM</b> multiplies a vector by a R8SM matrix.
+        </li>
+        <li>
+          <b>R8SM_ZERO</b> zeros a R8SM matrix.
+        </li>
+        <li>
+          <b>R8SP_CHECK</b> checks that a R8SP matrix data structure is properly sorted.
+        </li>
+        <li>
+          <b>R8SP_IJ_TO_K</b> seeks the compressed index of the (I,J) entry of A.
+        </li>
+        <li>
+          <b>R8SP_INDICATOR</b> sets up a R8SP indicator matrix.
+        </li>
+        <li>
+          <b>R8SP_MXV</b> multiplies a R8SP matrix times a vector.
+        </li>
+        <li>
+          <b>R8SP_PRINT</b> prints a R8SP matrix.
+        </li>
+        <li>
+          <b>R8SP_PRINT_SOME</b> prints some of a R8SP matrix.
+        </li>
+        <li>
+          <b>R8SP_RANDOM</b> sets a random R8SP matrix.
+        </li>
+        <li>
+          <b>R8SP_READ</b> reads a R8SP matrix from a file.
+        </li>
+        <li>
+          <b>R8SP_READ_SIZE</b> reads the size of a R8SP matrix from a file.
+        </li>
+        <li>
+          <b>R8SP_TO_R8GE</b> converts a R8SP matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8SP_TO_R8NCF</b> converts a R8SP matrix to a R8NCF matrix.
+        </li>
+        <li>
+          <b>R8SP_VXM</b> multiplies a vector times a R8SP matrix.
+        </li>
+        <li>
+          <b>R8SP_WRITE</b> writes a R8SP matrix to a file.
+        </li>
+        <li>
+          <b>R8SP_ZERO</b> returns a zero R8SP matrix.
+        </li>
+        <li>
+          <b>R8SR_INDICATOR</b> sets up a R8SR indicator matrix.
+        </li>
+        <li>
+          <b>R8SR_MXV</b> multiplies a R8SR matrix times a vector.
+        </li>
+        <li>
+          <b>R8SR_PRINT</b> prints a R8SR matrix.
+        </li>
+        <li>
+          <b>R8SR_PRINT_SOME</b> prints some of a R8SR matrix.
+        </li>
+        <li>
+          <b>R8SR_RANDOM</b> randomizes a R8SR matrix.
+        </li>
+        <li>
+          <b>R8SR_TO_R8GE</b> converts a R8SR matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8SR_VXM</b> multiplies a vector times a R8SR matrix.
+        </li>
+        <li>
+          <b>R8SR_ZERO</b> zeros a R8SR matrix.
+        </li>
+        <li>
+          <b>R8SS_ERROR</b> checks dimensions for a R8SS matrix.
+        </li>
+        <li>
+          <b>R8SS_INDICATOR</b> sets up a R8SS indicator matrix.
+        </li>
+        <li>
+          <b>R8SS_MXV</b> multiplies a R8SS matrix times a vector.
+        </li>
+        <li>
+          <b>R8SS_PRINT</b> prints a R8SS matrix.
+        </li>
+        <li>
+          <b>R8SS_PRINT_SOME</b> prints some of a R8SS matrix.
+        </li>
+        <li>
+          <b>R8SS_RANDOM</b> randomizes a R8SS matrix.
+        </li>
+        <li>
+          <b>R8SS_TO_R8GE</b> copies a R8SS matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8SS_ZERO</b> zeros a R8SS matrix.
+        </li>
+        <li>
+          <b>FILE_DELETE</b> deletes a named file if it exists.
+        </li>
+        <li>
+          <b>FILE_EXIST</b> reports whether a file exists.
+        </li>
+        <li>
+          <b>GET_SEED</b> returns a random seed for the random number generator.
+        </li>
+        <li>
+          <b>HILBERT_INVERSE</b> returns the inverse of the Hilbert matrix.
+        </li>
+        <li>
+          <b>I4_HUGE</b> returns a "huge" integer value, usually the largest legal signed int.
+        </li>
+        <li>
+          <b>I4_LOG_10</b> returns the integer part of the logarithm base 10 of ABS(X).
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two integers.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two integers.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of integer division.
+        </li>
+        <li>
+          <b>I4_POWER</b> returns the value of I^J.
+        </li>
+        <li>
+          <b>I4_UNIFORM</b> returns a scaled pseudorandom I4.
+        </li>
+        <li>
+          <b>I4VEC_PRINT</b> prints an integer vector.
+        </li>
+        <li>
+          <b>I4VEC_SEARCH_BINARY_A</b> searches an ascending sorted vector for a value.
+        </li>
+        <li>
+          <b>R4_ABS</b> returns the absolute value of an R4.
+        </li>
+        <li>
+          <b>R4_NINT</b> returns the nearest integer to an R4.
+        </li>
+        <li>
+          <b>R4_UNIFORM</b> returns a scaled pseudorandom R4.
+        </li>
+        <li>
+          <b>R4_UNIFORM_01</b> returns a unit pseudorandom R4.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8_IS_INT</b> determines if a real number represents an integer value.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8s.
+        </li>
+        <li>
+          <b>R8_MIN</b> returns the minimum of two R8s.
+        </li>
+        <li>
+          <b>R8_SIGN2</b> returns the first argument with the sign of the second.
+        </li>
+        <li>
+          <b>R8_SWAP</b> switches two R8s.
+        </li>
+        <li>
+          <b>R8_UNIFORM</b> randomizes a real number.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> is a portable pseudorandom number generator.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8STO_INDICATOR</b> sets up a R8STO indicator matrix.
+        </li>
+        <li>
+          <b>R8STO_INVERSE</b> computes the inverse of a R8STO matrix.
+        </li>
+        <li>
+          <b>R8STO_MXV</b> multiplies a R8STO matrix times a vector.
+        </li>
+        <li>
+          <b>R8STO_PRINT</b> prints a R8STO matrix.
+        </li>
+        <li>
+          <b>R8STO_PRINT_SOME</b> prints some of am R8STO matrix.
+        </li>
+        <li>
+          <b>R8STO_RANDOM</b> randomizes a R8STO matrix.
+        </li>
+        <li>
+          <b>R8STO_SL</b> solves a R8STO system.
+        </li>
+        <li>
+          <b>R8STO_TO_R8GE</b> copies a R8STO matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8STO_YW_SL</b> solves the Yule-Walker equations for a R8STO matrix.
+        </li>
+        <li>
+          <b>R8STO_ZERO</b> zeros a R8STO matrix.
+        </li>
+        <li>
+          <b>R8TO_INDICATOR</b> sets up a R8TO indicator matrix.
+        </li>
+        <li>
+          <b>R8TO_MXV</b> multiplies a R8TO matrix times a vector.
+        </li>
+        <li>
+          <b>R8TO_PRINT</b> prints a R8TO matrix.
+        </li>
+        <li>
+          <b>R8TO_PRINT_SOME</b> prints some of a R8TO matrix.
+        </li>
+        <li>
+          <b>R8TO_RANDOM</b> randomizes a R8TO matrix.
+        </li>
+        <li>
+          <b>R8TO_SL</b> solves a R8TO system.
+        </li>
+        <li>
+          <b>R8TO_TO_R8GE</b> copies a R8TO matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8TO_VXM</b> multiplies a vector times a R8TO matrix.
+        </li>
+        <li>
+          <b>R8TO_ZERO</b> zeros a R8TO matrix.
+        </li>
+        <li>
+          <b>R8UT_DET</b> computes the determinant of a R8UT matrix.
+        </li>
+        <li>
+          <b>R8UT_INDICATOR</b> sets up a R8UT indicator matrix.
+        </li>
+        <li>
+          <b>R8UT_INVERSE</b> computes the inverse of a R8UT matrix.
+        </li>
+        <li>
+          <b>R8UT_MXM</b> multiplies two R8UT matrices.
+        </li>
+        <li>
+          <b>R8UT_MXV</b> multiplies a R8UT matrix times a vector.
+        </li>
+        <li>
+          <b>R8UT_PRINT</b> prints a R8UT matrix.
+        </li>
+        <li>
+          <b>R8UT_PRINT_SOME</b> prints some of a R8UT matrix.
+        </li>
+        <li>
+          <b>R8UT_RANDOM</b> randomizes a R8UT matrix.
+        </li>
+        <li>
+          <b>R8UT_SL</b> solves a R8UT system.
+        </li>
+        <li>
+          <b>R8UT_VXM</b> multiplies a vector times a R8UT matrix.
+        </li>
+        <li>
+          <b>R8UT_ZERO</b> zeros a R8UT matrix.
+        </li>
+        <li>
+          <b>R8VEC_DOT</b> computes the inner product of two R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_INDICATOR_NEW</b> sets an R8VEC to the indicator vector {1,2,3...}.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_PRINT_SOME</b> prints "some" of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_RANDOM</b> randomizes an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_READ</b> reads an R8VEC from a file.
+        </li>
+        <li>
+          <b>R8VEC_READ_SIZE</b> reads the size of an R8VEC from a file.
+        </li>
+        <li>
+          <b>R8VEC_TO_R8CB</b> copies an R8VEC into a R8CB matrix.
+        </li>
+        <li>
+          <b>R8VEC_TO_R8GB</b> copies an R8VEC into a R8GB matrix.
+        </li>
+        <li>
+          <b>R8VEC_TO_R8GE</b> copies an R8VEC into a R8GE matrix.
+        </li>
+        <li>
+          <b>R8VEC_WRITE</b> writes an R8VEC to a file.
+        </li>
+        <li>
+          <b>R8VEC2_PRINT_SOME</b> prints "some" of two real vectors.
+        </li>
+        <li>
+          <b>R8VM_DET</b> computes the determinant of a R8VM matrix.
+        </li>
+        <li>
+          <b>R8VM_MXV</b> multiplies a R8VM matrix times a vector.
+        </li>
+        <li>
+          <b>R8VM_PRINT</b> prints a R8VM matrix.
+        </li>
+        <li>
+          <b>R8VM_PRINT_SOME</b> prints some of a R8VM matrix.
+        </li>
+        <li>
+          <b>R8VM_RANDOM</b> randomizes a R8VM matrix.
+        </li>
+        <li>
+          <b>R8VM_SL</b> solves a R8VM system.
+        </li>
+        <li>
+          <b>R8VM_TO_R8GE</b> copies a R8VM matrix to a R8GE matrix.
+        </li>
+        <li>
+          <b>R8VM_VXM</b> multiplies a vector times a R8VM matrix.
+        </li>
+        <li>
+          <b>R8VM_ZERO</b> zeros a R8VM matrix.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>SORT_HEAP_EXTERNAL</b> externally sorts a list of items into ascending order.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 11 August 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

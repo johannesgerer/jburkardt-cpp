@@ -1,0 +1,192 @@
+23 December 2011 04:06:33 PM
+
+GRID_PRB:
+  C++ version
+  Test the GRID library.
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 123456789
+  Centering option =   1
+
+  The grid points:
+
+         0           0  
+         0           1  
+  0.333333           0  
+  0.333333    0.333333  
+  0.333333    0.666667  
+  0.333333           1  
+  0.666667           0  
+  0.666667    0.666667  
+         1           0  
+         1           1  
+
+  Repeat TEST01 with a different seed from the first run.
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 987654321
+  Centering option =   1
+
+  The grid points:
+
+         0    0.666667  
+         0           1  
+  0.333333           0  
+  0.333333    0.333333  
+  0.333333    0.666667  
+  0.666667           0  
+  0.666667    0.333333  
+  0.666667           1  
+         1    0.333333  
+         1           1  
+
+  Repeat TEST01 with the same seed as the first run.
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 123456789
+  Centering option =   1
+
+  The grid points:
+
+         0           0  
+         0           1  
+  0.333333           0  
+  0.333333    0.333333  
+  0.333333    0.666667  
+  0.333333           1  
+  0.666667           0  
+  0.666667    0.666667  
+         1           0  
+         1           1  
+
+  Repeat TEST01 with different centering values.
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 123456789
+  Centering option =   1
+
+  The grid points:
+
+         0           0  
+         0           1  
+  0.333333           0  
+  0.333333    0.333333  
+  0.333333    0.666667  
+  0.333333           1  
+  0.666667           0  
+  0.666667    0.666667  
+         1           0  
+         1           1  
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 123456789
+  Centering option =   2
+
+  The grid points:
+
+       0.2         0.2  
+       0.2         0.8  
+       0.4         0.2  
+       0.4         0.4  
+       0.4         0.6  
+       0.4         0.8  
+       0.6         0.2  
+       0.6         0.6  
+       0.8         0.2  
+       0.8         0.8  
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 123456789
+  Centering option =   3
+
+  The grid points:
+
+         0           0  
+         0        0.75  
+      0.25           0  
+      0.25        0.25  
+      0.25         0.5  
+      0.25        0.75  
+       0.5           0  
+       0.5         0.5  
+      0.75           0  
+      0.75        0.75  
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 123456789
+  Centering option =   4
+
+  The grid points:
+
+      0.25        0.25  
+      0.25           1  
+       0.5        0.25  
+       0.5         0.5  
+       0.5        0.75  
+       0.5           1  
+      0.75        0.25  
+      0.75        0.75  
+         1        0.25  
+         1           1  
+
+TEST01
+  GRID_GENERATE randomly chooses a given number of
+  points on a uniform grid.
+
+  Spatial dimension =  2
+  Number of points =   10
+  Random number SEED = 123456789
+  Centering option =   5
+
+  The grid points:
+
+     0.125       0.125  
+     0.125       0.875  
+     0.375       0.125  
+     0.375       0.375  
+     0.375       0.625  
+     0.375       0.875  
+     0.625       0.125  
+     0.625       0.625  
+     0.875       0.125  
+     0.875       0.875  
+
+GRID_PRB:
+  Normal end of execution.
+
+23 December 2011 04:06:33 PM

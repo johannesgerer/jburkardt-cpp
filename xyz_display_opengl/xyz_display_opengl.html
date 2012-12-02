@@ -1,0 +1,286 @@
+<html>
+
+  <head>
+    <title>
+      XYZ_DISPLAY_OPENGL - Display 3D Points Using OpenGL
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      XYZ_DISPLAY_OPENGL<br> Display 3D Points Using OpenGL
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>XYZ_DISPLAY_OPENGL</b>
+      is a C++ program which
+      reads the name of a data file
+      containing a list of 3D point coordinates, reads the data,
+      and displays the points using <b>OPENGL</b>.
+    </p>
+
+    <p>
+      The program displays the data, and slowly rotates it.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>xyz_display_opengl</b> <i>data.txt</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>data.txt</i> is a file containing a list of the XYZ coordinates
+          of the points to plot.
+        </li>
+      </ul>
+      The program will open a window and display a plot of the points.
+      The image will slowly rotate.  Successive mouse clicks alternate the
+      axis of rotation from the X, to the Y, to the Z axis and back again.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fern_opengl/fern_opengl.html">
+      FERN_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the Barnsley fractal fern.
+    </p>
+
+    <p> 
+      <a href = "../../cpp_src/sphere_xyz_display_opengl/sphere_xyz_display_opengl.html">
+      SPHERE_XYZ_DISPLAY_OPENGL</a>, 
+      a C++ program which
+      reads XYZ information defining points in 3D, 
+      and displays a unit sphere and the points, using OpenGL.
+    </p>
+
+    <p> 
+      <a href = "../../cpp_src/xy_display_opengl/xy_display_opengl.html">
+      XY_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XY file of 2D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../data/xyz/xyz.html">
+      XYZ</a>, 
+      a data directory which 
+      contains some examples of 3D pointsets.
+    </p>
+
+    <p> 
+      <a href = "../../m_src/xyz_display/xyz_display.html">
+      XYZ_DISPLAY</a>, 
+      a MATLAB program which
+      reads XYZ information defining points in 3D, and displays
+      an image in the MATLAB graphics window.
+    </p>
+
+    <p> 
+      <a href = "../../cpp_src/xyzf_display_opengl/xyzf_display_opengl.html">
+      XYZF_DISPLAY_OPENGL</a>, 
+      a C++ program which
+      reads XYZF information defining points and faces in 3D, and displays
+      an image using OpenGL.
+    </p>
+
+    <p> 
+      <a href = "../../cpp_src/xyzl_display_opengl/xyzl_display_opengl.html">
+      XYZL_DISPLAY_OPENGL</a>, 
+      a C++ program which
+      reads XYZL information defining points and lines in 3D, and displays
+      an image using OpenGL.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics, 
+          a Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000,<br>
+          ISBN: 0-201-38597-X,<br>
+          LC: T385.A514.
+        </li>
+        <li>
+          Renate Kempf, Chris Frazier, editors,<br>
+          OpenGL Reference Manual,<br>
+          Fourth Edition,<br>
+          Addison-Wesley, 2004,<br>
+          ISBN: 032117383X,<br>
+          LC: T385.O642
+        </li>
+        <li>
+          Mason Woo, Jackie Neider, Tom Davis,<br>
+          OpenGL Programming Guide,<br>
+          Addison-Wesley, 1997,<br>
+          ISBN: 0-201-46138-2,<br>
+          LC: T385.N435
+        </li>
+        <li>
+          Richard Wright, Michael Sweet,<br>
+          OpenGL Superbible,<br>
+          Third Edition,<br>
+          Sams, 2004,<br>
+          ISBN: 0672326019,<br>
+          LC: T385.W73
+        </li>
+        <li>
+          <a href = "http://www.opengl.org/">
+                     http://www.opengl.org/ </a> <br>
+          The official OpenGL site.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "xyz_display_opengl.cpp">
+          xyz_display_opengl.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "xyz_display_opengl.sh">xyz_display_opengl.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "helix_201.xyz">
+          helix_201.xyz</a>, 201 points that lie on a helix.
+        </li>
+        <li>
+          <a href = "helix_201.png">helix_201.png</a>,
+          a PNG image of
+          the screen generated by Open GL. 
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for XYZ_DISPLAY_OPENGL.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DISPLAY</b> generates the graphics output.
+        </li>
+        <li>
+          <b>MOUSE</b> determines the response to mouse input.
+        </li>
+        <li>
+          <b>MYINIT</b> initializes OpenGL state variables dealing with viewing and attributes.
+        </li>
+        <li>
+          <b>MYRESHAPE</b> determines the window mapping.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_MIN</b> returns the minimum of two R8's.
+        </li>
+        <li>
+          <b>R83VEC_MAX</b> returns the maximum value in an R83VEC.
+        </li>
+        <li>
+          <b>R83VEC_MIN</b> returns the minimum value in an R83VEC.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>SPIN_IMAGE</b> adjusts the angle of rotation and redisplays the picture.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TIMESTRING</b> returns the current YMDHMS date as a string.
+        </li>
+        <li>
+          <b>XYZ_DATA_PRINT</b> prints the data for an XYZ file.
+        </li>
+        <li>
+          <b>XYZ_DATA_READ</b> reads the data in an XYZ file.
+        </li>
+        <li>
+          <b>XYZ_HEADER_PRINT</b> prints the header of an XYZ file.
+        </li>
+        <li>
+          <b>XYZ_HEADER_READ</b> reads the header of an XYZ file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 24 August 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

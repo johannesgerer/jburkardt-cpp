@@ -1,0 +1,78 @@
+
+15 October 2009 09:13:02 AM
+
+TRIANGULATION_QUAD:
+  C++ version:
+  Estimate an integral over a triangulated region.
+
+  Compiled on Oct 15 2009 at 09:12:55.
+
+  Read the header of "example_nodes.txt".
+
+  Spatial dimension NODE_DIM = 2
+  Number of nodes NODE_NUM  = 121
+
+  Read the data in "example_nodes.txt".
+
+  First 5 nodes:
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2            0.1             0
+    3            0.2             0
+    4            0.3             0
+    5            0.4             0
+
+ Read the header of "example_elements.txt".
+
+  Element order      = 3
+  Number of elements = 200
+
+  Read the data in "example_elements.txt".
+
+  First 5 elements:
+
+  Row:      1       2       3  
+  Col
+
+    1       1       2      12  
+    2      13      12       2  
+    3       2       3      13  
+    4      14      13       3  
+    5       3       4      14  
+
+  Read the header of "example_values.txt".
+
+  VALUE dimension VALUE_DIM = 4
+  Number of nodes VALUE_NUM = 121
+
+  Read the data in "example_values.txt".
+
+  First 5 values:
+
+  Row:       1             2             3             4       
+  Col
+
+    1              1             0             0             0
+    2              1           0.1             0             0
+    3              1           0.2             0             0
+    4              1           0.3             0             0
+    5              1           0.4             0             0
+
+MESH_BASE_ZERO:
+  The element indexing appears to be 1-based!
+  This will be converted to 0-based.
+
+  Integral estimates:
+
+         0               1
+         1             0.5
+         2             0.5
+         3        0.249167
+
+TRIANGULATION_QUAD:
+  Normal end of execution.
+
+15 October 2009 09:13:02 AM

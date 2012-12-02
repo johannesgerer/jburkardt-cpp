@@ -1,0 +1,265 @@
+<html>
+
+  <head>
+    <title>
+      FFT_SERIAL - Fast Fourier Transform
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FFT_SERIAL <br> Fast Fourier Transform
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FFT_SERIAL</b>
+      is a C++ program which 
+      demonstrates the computation of a Fast Fourier Transform,
+      and is intended as a starting point for developing a parallel version
+      using OpenMP.
+    </p>
+
+    <p>
+      On an Apple PowerPC G5 with two processors, the following results were
+      observed:
+      <table border="1" align="center">
+        <tr>
+          <th>N</th><th>Time</th><th>MegaFLOPS</th>
+        </tr>
+        <tr><td>      2</td><td>4.3525e-07</td><td>       22.9753</td></tr>
+        <tr><td>      4</td><td>1.15245e-06</td><td>       34.7087</td></tr>
+        <tr><td>      8</td><td>2.20385e-06</td><td>       54.4502</td></tr>
+        <tr><td>     16</td><td>4.509e-06</td><td>       70.9692</td></tr>
+        <tr><td>     32</td><td>6.798e-06</td><td>       117.682</td></tr>
+        <tr><td>     64</td><td>1.61065e-05</td><td>       119.207</td></tr>
+        <tr><td>    128</td><td>3.28125e-05</td><td>       136.533</td></tr>
+        <tr><td>    256</td><td>7.6573e-05</td><td>       133.729</td></tr>
+        <tr><td>    512</td><td>0.000157155</td><td>       146.607</td></tr>
+        <tr><td>   1024</td><td>0.00035841</td><td>       142.853</td></tr>
+        <tr><td>   2048</td><td>0.00075819</td><td>       148.564</td></tr>
+        <tr><td>   4096</td><td>0.00170309</td><td>       144.302</td></tr>
+        <tr><td>   8192</td><td>0.00348095</td><td>       152.970</td></tr>
+        <tr><td>  16384</td><td>0.00811195</td><td>       141.382</td></tr>
+        <tr><td>  32768</td><td>0.0173951</td><td>       141.281</td></tr>
+        <tr><td>  65536</td><td>0.0402766</td><td>       130.172</td></tr>
+        <tr><td> 131072</td><td>0.083454</td><td>       133.500</td></tr>
+        <tr><td> 262144</td><td>0.184454</td><td>       127.907</td></tr>
+        <tr><td> 524288</td><td>0.382927</td><td>       130.070</td></tr>
+        <tr><td>1048576</td><td>0.835447</td><td>       125.511</td></tr>
+      </table> 
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>FFT_SERIAL</b> is available in
+      <a href = "../../c_src/fft_serial/fft_serial.html">a C version</a> and
+      <a href = "../../cpp_src/fft_serial/fft_serial.html">a C++ version</a> and
+      <a href = "../../f77_src/fft_serial/fft_serial.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/fft_serial/fft_serial.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/fft_serial/fft_serial.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fft_openmp/fft_openmp.html">
+      FFT_OPENMP</a>,
+      a C++ program which
+      computes a Fast Fourier Transform using OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/heated_plate/heated_plate.html">
+      HEATED_PLATE</a>,
+      a C++ program which 
+      solves the steady state heat equation in a 2D
+      rectangular region, and is intended as
+      a starting point for implementing an OpenMP parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/md/md.html">
+      MD</a>,
+      a C++ program which
+      carries out a molecular dynamics simulation,
+      and is intended as a starting point for developing a parallel version
+      using OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/mxm_serial/mxm_serial.html">
+      MXM_SERIAL</a>,
+      a C++ program which
+      sets up a matrix multiplication problem A=B*C,
+      intended as a starting point for implementing a parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/openmp/openmp.html">
+      OPENMP</a>,
+      C++ programs which
+      illustrate the use of the OpenMP application program interface
+      for carrying out parallel computations in a shared memory environment.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/poisson_serial/poisson_serial.html">
+      POISSON_SERIAL</a>,
+      a C++ program which
+      computes an approximate solution to the Poisson equation in a rectangle,
+      and is intended as the starting point for the creation of a parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/prime_serial/prime_serial.html">
+      PRIME_SERIAL</a>,
+      a C++ program which
+      counts the number of primes between 1 and N,
+      intended as a starting point for the creation of a parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quad_serial/quad_serial.html">
+      QUAD_SERIAL</a>,
+      a C++ program which
+      approximates an integral using a quadrature rule,
+      and is intended as a starting point for parallelization exercises.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/search_serial/search_serial.html">
+      SEARCH_SERIAL</a>,
+      a C++ program which
+      searches the integers from A to B for a value J such that F(J) = C.
+      this version of the program is intended as a starting point for
+      a parallel approach.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sftpack/sftpack.html">
+      SFTPACK</a>,
+      a C++ library which
+      implements the "slow" Fourier transform, intended as a teaching
+      tool and comparison with the fast Fourier transform.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sine_transform/sine_transform.html">
+      SINE_TRANSFORM</a>,
+      a C++ library which
+      demonstrates some simple properties of the discrete sine transform.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Wesley Petersen, Peter Arbenz, <br>
+          Introduction to Parallel Computing - A practical guide with examples in C,<br>
+          Oxford University Press,<br>
+          ISBN: 0-19-851576-6,<br>
+          LC: QA76.58.P47.
+        </li>
+        <li>
+          Rohit Chandra, Leonardo Dagum, Dave Kohr, Dror Maydan,
+          Jeff McDonald, Ramesh Menon,<br>
+          Parallel Programming in OpenMP,<br>
+          Morgan Kaufmann, 2001,<br>
+          ISBN: 1-55860-671-8,<br>
+          LC: QA76.642.P32.
+        </li>
+        <li>
+          Barbara Chapman, Gabriele Jost, Ruud vanderPas, David Kuck,<br>
+          Using OpenMP: Portable Shared Memory Parallel Processing,<br>
+          MIT Press, 2007,<br>
+          ISBN13: 978-0262533027,<br>
+          LC: QA76.642.C49.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fft_serial.cpp">fft_serial.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "fft_serial.sh">fft_serial.sh</a>,
+          commands to compile, link and load the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fft_serial_output.txt">fft_serial_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for FFT.
+        </li>
+        <li>
+          <b>CCOPY</b> copies a complex vector.
+        </li>
+        <li>
+          <b>CFFT2</b> performs a complex Fast Fourier Transform.
+        </li>
+        <li>
+          <b>CFFTI</b> sets up sine and cosine tables needed for the FFT calculation.
+        </li>
+        <li>
+          <b>GGL</b> generates u(0,1) distributed random numbers. 
+        </li>
+        <li>
+          <b>STEP</b> carries out one step of the workspace version of CFFT2.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 23 March 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

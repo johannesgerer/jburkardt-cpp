@@ -1,0 +1,166 @@
+<html>
+
+  <head>
+    <title>
+      SOR - Linear System Solution by Successive Over-Relaxation
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SOR <br> Linear System Solution by Successive Over-Relaxation
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SOR</b>
+      is a C++ library which
+      implements a simple version of the successive over-relaxation method
+      for the iterative solution of a system of linear equations.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SOR</b> is available in
+      <a href = "../../cpp_src/sor/sor.html">a C++ version</a> and
+      <a href = "../../m_src/sor/sor.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/jacobi/jacobi.html">
+      JACOBI</a>,
+      a C++ library which
+      implements the Jacobi iteration for solving symmetric positive definite 
+      systems of linear equations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_mat/test_mat.html">
+      TEST_MAT</a>,
+      a C++ library which
+      defines test matrices.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Tim Kelley,<br>
+          Iterative Methods for Linear and Nonlinear Equations,<br>
+          SIAM, 2004,<br>
+          ISBN: 0898713528,<br>
+          LC: QA297.8.K45.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sor.cpp">sor.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "sor.hpp">sor.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "sor.sh">sor.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sor_prb.cpp">sor_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "sor_prb.sh">sor_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sor_prb_output.txt">sor_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>DIF2</b> returns the DIF2 matrix.
+        </li>
+        <li>
+          <b>R8MAT_MV</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_RESIDUAL_NORM</b> returns the norm of A*x-b.
+        </li>
+        <li>
+          <b>R8VEC_COPY</b> copies an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_DIFF_NORM_SQUARED:</b> square of the L2 norm of the difference of R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 25 December 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

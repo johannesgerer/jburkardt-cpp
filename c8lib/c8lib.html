@@ -1,0 +1,324 @@
+<html>
+
+  <head>
+    <title>
+      C8LIB - A Double Precision Complex Arithmetic Utility Library
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      C8LIB <br> A Double Precision Complex Arithmetic Utility Library
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>C8LIB</b> 
+      is a C++ library which 
+      is a utility library for "C8" or
+      "double precision complex" arithmetic.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>C8LIB</b> is available in
+      <a href = "../../c_src/c8lib/c8lib.html">a C version</a> and
+      <a href = "../../cpp_src/c8lib/c8lib.html">a C++ version</a> and
+      <a href = "../../f77_src/c8lib/c8lib.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/c8lib/c8lib.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/c8lib/c8lib.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/c4lib/c4lib.html">
+      C4LIB</a>, 
+      a C++ library which
+      implements certain elementary functions for "C4" or
+      single precision complex variables;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c8_complex_lib/c8_complex_lib.html">
+      C8_COMPLEX_LIB</a>, 
+      a C++ library which 
+      defines a class called "c8_complex" for complex numbers with
+      double precision components.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/complex_numbers/complex_numbers.html">
+      COMPLEX_NUMBERS</a>, 
+      a C++ program which
+      demonstrates some simple features involved in the use of
+      complex numbers in C programming.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/i4lib/i4lib.html">
+      I4LIB</a>, 
+      a C++ library which
+      contains many utility routines, using "I4" or "single precision integer"
+      arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/i8lib/i8lib.html">
+      I8LIB</a>, 
+      a C++ library which
+      contains many utility routines, using "I8" or "double precision integer"
+      arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/r4lib/r4lib.html">
+      R4LIB</a>, 
+      a C++ library which
+      contains many utility routines, using "R4" or 
+      "single precision real" arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/r8lib/r8lib.html">
+      R8LIB</a>, 
+      a C++ library which
+      contains many utility routines, using "R8" or 
+      "double precision real" arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/subpak/subpak.html">
+      SUBPAK</a>, 
+      a C++ library which
+      contains many utility routines;
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "c8lib.cpp">c8lib.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "c8lib.hpp">c8lib.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "c8lib.sh">c8lib.sh</a>, 
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "c8lib_prb.cpp">c8lib_prb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "c8lib_prb.sh">c8lib_prb.sh</a>, 
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "c8lib_prb_output.txt">c8lib_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>C4_ABS</b> returns the absolute value of a C4.
+        </li>
+        <li>
+          <b>C4_ARGUMENT</b> returns the argument of a C4.
+        </li>
+        <li>
+          <b>C4_MAGNITUDE</b> returns the magnitude of a C4.
+        </li>
+        <li>
+          <b>C4MAT_PRINT_SOME</b> prints some of a C4MAT.
+        </li>
+        <li>
+          <b>C4VEC_PRINT</b> prints a C4VEC.
+        </li>
+        <li>
+          <b>C4VEC_PRINT_PART</b> prints "part" of a C4VEC.
+        </li>
+        <li>
+          <b>C4VEC_PRINT_SOME</b> prints some of a C4VEC.
+        </li>
+        <li>
+          <b>C8_ARGUMENT</b> returns the argument of a C8.
+        </li>
+        <li>
+          <b>C8_CUBE_ROOT</b> returns the principal cube root of a C8.
+        </li>
+        <li>
+          <b>C8_I</b> returns the value of the imaginary unit, i as a C8.
+        </li>
+        <li>
+          <b>C8_LE_L1</b> := X <= Y for C8 values, and the L1 norm.
+        </li>
+        <li>
+          <b>C8_LE_L2</b> := X <= Y for C8 values, and the L2 norm.
+        </li>
+        <li>
+          <b>C8_LE_LI</b> := X <= Y for C8 values, and the L-oo norm.
+        </li>
+        <li>
+          <b>C8_MAGNITUDE</b> returns the magnitude of a C8.
+        </li>
+        <li>
+          <b>C8_NORM_L1</b> evaluates the L1 norm of a C8.
+        </li>
+        <li>
+          <b>C8_NORM_L2</b> evaluates the L2 norm of a C8.
+        </li>
+        <li>
+          <b>C8_NORM_LI</b> evaluates the L-oo norm of a C8.
+        </li>
+        <li>
+          <b>C8_NORMAL_01</b> returns a unit pseudonormal C8.
+        </li>
+        <li>
+          <b>C8_ONE</b> returns the value of complex 1.
+        </li>
+        <li>
+          <b>C8_PRINT</b> prints a C8.
+        </li>
+        <li>
+          <b>C8_SQRT</b> returns the principal square root of a C8.
+        </li>
+        <li>
+          <b>C8_SWAP</b> swaps two C8's.
+        </li>
+        <li>
+          <b>C8_UNIFORM_01</b> returns a unit pseudorandom C8.
+        </li>
+        <li>
+          <b>C8_ZERO</b> returns the value of 0 as a C8.
+        </li>
+        <li>
+          <b>C8MAT_COPY</b> copies one C8MAT to another.
+        </li>
+        <li>
+          <b>C8MAT_COPY_NEW</b> copies one C8MAT to a "new" C8MAT.
+        </li>
+        <li>
+          <b>C8MAT_IDENTITY</b> sets a C8MAT to the identity.
+        </li>
+        <li>
+          <b>C8MAT_INDICATOR_NEW</b> returns the C8MAT indicator matrix.
+        </li>
+        <li>
+          <b>C8MAT_NINT</b> rounds the entries of a C8MAT.
+        </li>
+        <li>
+          <b>C8MAT_PRINT</b> prints a C8MAT.
+        </li>
+        <li>
+          <b>C8MAT_PRINT_SOME</b> prints some of a C8MAT.
+        </li>
+        <li>
+          <b>C8MAT_UNIFORM_01_NEW</b> returns a unit pseudorandom C8MAT.
+        </li>
+        <li>
+          <b>C8VEC_COPY</b> copies a C8VEC.
+        </li>
+        <li>
+          <b>C8VEC_COPY_NEW</b> copies a C8VEC to a "new" C8VEC.
+        </li>
+        <li>
+          <b>C8VEC_INDICATOR_NEW</b> sets a C8VEC to the indicator vector.
+        </li>
+        <li>
+          <b>C8VEC_NORM_L2</b> returns the L2 norm of a C8VEC.
+        </li>
+        <li>
+          <b>C8VEC_PRINT</b> prints a C8VEC.
+        </li>
+        <li>
+          <b>C8VEC_PRINT_PART</b> prints "part" of a C8VEC.
+        </li>
+        <li>
+          <b>C8VEC_PRINT_SOME</b> prints some of a C8VEC.
+        </li>
+        <li>
+          <b>C8VEC_UNIFORM_01_NEW</b> returns a unit pseudorandom C8VEC.
+        </li>
+        <li>
+          <b>C8VEC_UNITY</b> returns the N roots of unity in a C8VEC.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_NINT</b> returns the nearest integer to an R8.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>SORT_HEAP_EXTERNAL</b> externally sorts a list of items into ascending order.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 10 June 2010.
+    </i>
+
+    <!-- John Burkardt -->
+ 
+  </body>
+
+</html>

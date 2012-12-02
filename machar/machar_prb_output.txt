@@ -1,0 +1,46 @@
+22 December 2011 05:14:44 PM
+
+MACHAR_PRB
+  C++ version
+  Test the MACHAR library.
+
+TEST01
+  Test R4_MACHAR, which computes single
+  precision machine constants.
+
+  IBETA =  2
+  IT =     24
+  IRND =   5
+  NGRD =   0
+  MACHEP = -23
+  NEGEP =  -24
+  IEXP =   8
+  MINEXP = -126
+  MAXEXP = 128
+                 EPS =    1.192092895507812e-07
+                 EPSNEG = 5.960464477539062e-08
+                 XMIN =   1.175494350822288e-38
+                 XMAX =   3.402823466385289e+38
+
+TEST02
+  Test R8_MACHAR, which computes double
+  precision machine constants.
+
+  IBETA =  2
+  IT =     53
+  IRND =   5
+  NGRD =   0
+  MACHEP = -52
+  NEGEP =  -53
+  IEXP =   11
+  MINEXP = -1022
+  MAXEXP = 1024
+                 EPS =    2.220446049250313e-16
+                 EPSNEG = 1.110223024625157e-16
+                 XMIN =   2.225073858507201e-308
+                 XMAX =   1.797693134862316e+308
+
+MACHAR_PRB
+  Normal end of execution.
+
+22 December 2011 05:14:44 PM

@@ -1,0 +1,537 @@
+29 August 2011 04:22:35 PM
+
+SANDIA_SGMGG_PRB:
+  C++ version.
+  Test the SANDIA_SGMGG library.
+
+TEST01:
+  Demonstrate naive coefficient calculations.
+
+  1) Isotropic grid in 2D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       2  
+    1:     0       3  
+    2:     1       1  
+    3:     1       2  
+    4:     2       0  
+    5:     2       1  
+    6:     3       0  
+
+  COEF vector:
+
+         0:       -1
+         1:        1
+         2:       -1
+         3:        1
+         4:       -1
+         5:        1
+         6:        1
+       ---         -
+       Sum:        1
+
+  2) Isotropic grid in 3D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1       2  
+  Col
+
+    0:     0       1       0  
+    1:     0       2       0  
+    2:     0       3       0  
+    3:     1       0       0  
+    4:     1       1       0  
+    5:     1       2       0  
+    6:     2       0       0  
+    7:     2       1       0  
+    8:     3       0       0  
+    9:     0       0       1  
+   10:     0       1       1  
+   11:     0       2       1  
+   12:     1       0       1  
+   13:     1       1       1  
+   14:     2       0       1  
+   15:     0       0       2  
+   16:     0       1       2  
+   17:     1       0       2  
+   18:     0       0       3  
+
+  COEF vector:
+
+         0:        1
+         1:       -2
+         2:        1
+         3:        1
+         4:       -2
+         5:        1
+         6:       -2
+         7:        1
+         8:        1
+         9:        1
+        10:       -2
+        11:        1
+        12:       -2
+        13:        1
+        14:        1
+        15:       -2
+        16:        1
+        17:        1
+        18:        1
+       ---         -
+       Sum:        1
+
+  3) Ansotropic grid in 2D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       2  
+    1:     1       1  
+    2:     1       2  
+    3:     2       1  
+    4:     3       0  
+    5:     3       1  
+    6:     4       0  
+    7:     5       0  
+
+  COEF vector:
+
+         0:        0
+         1:       -1
+         2:        1
+         3:        0
+         4:       -1
+         5:        1
+         6:        0
+         7:        1
+       ---         -
+       Sum:        1
+
+  4) Generalized grid in 2D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+    3:     0       3  
+    4:     1       0  
+    5:     1       1  
+    6:     2       0  
+    7:     3       0  
+
+  COEF vector:
+
+         0:        0
+         1:       -1
+         2:        0
+         3:        1
+         4:       -1
+         5:        1
+         6:        0
+         7:        1
+       ---         -
+       Sum:        1
+
+TEST02:
+  Demonstrate naive neighbor calculations.
+
+  1) Isotropic grid in 2D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       2  
+    1:     0       3  
+    2:     1       1  
+    3:     1       2  
+    4:     2       0  
+    5:     2       1  
+    6:     3       0  
+
+  NEIGHBOR matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     1       1  
+    1:     0       0  
+    2:     1       1  
+    3:     0       0  
+    4:     1       1  
+    5:     0       0  
+    6:     0       0  
+
+  2) Isotropic grid in 3D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1       2  
+  Col
+
+    0:     0       1       0  
+    1:     0       2       0  
+    2:     0       3       0  
+    3:     1       0       0  
+    4:     1       1       0  
+    5:     1       2       0  
+    6:     2       0       0  
+    7:     2       1       0  
+    8:     3       0       0  
+    9:     0       0       1  
+   10:     0       1       1  
+   11:     0       2       1  
+   12:     1       0       1  
+   13:     1       1       1  
+   14:     2       0       1  
+   15:     0       0       2  
+   16:     0       1       2  
+   17:     1       0       2  
+   18:     0       0       3  
+
+  NEIGHBOR matrix:
+
+  Row:      0       1       2  
+  Col
+
+    0:     1       1       1  
+    1:     1       1       1  
+    2:     0       0       0  
+    3:     1       1       1  
+    4:     1       1       1  
+    5:     0       0       0  
+    6:     1       1       1  
+    7:     0       0       0  
+    8:     0       0       0  
+    9:     1       1       1  
+   10:     1       1       1  
+   11:     0       0       0  
+   12:     1       1       1  
+   13:     0       0       0  
+   14:     0       0       0  
+   15:     1       1       1  
+   16:     0       0       0  
+   17:     0       0       0  
+   18:     0       0       0  
+
+  3) Ansotropic grid in 2D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       2  
+    1:     1       1  
+    2:     1       2  
+    3:     2       1  
+    4:     3       0  
+    5:     3       1  
+    6:     4       0  
+    7:     5       0  
+
+  NEIGHBOR matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     1       0  
+    1:     1       1  
+    2:     0       0  
+    3:     1       0  
+    4:     1       1  
+    5:     0       0  
+    6:     1       0  
+    7:     0       0  
+
+  4) Generalized grid in 2D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+    3:     0       3  
+    4:     1       0  
+    5:     1       1  
+    6:     2       0  
+    7:     3       0  
+
+  NEIGHBOR matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     1       1  
+    1:     1       1  
+    2:     0       1  
+    3:     0       0  
+    4:     1       1  
+    5:     0       0  
+    6:     1       0  
+    7:     0       0  
+
+TEST03:
+  Set up examples of the GG (Gerstner-Griebel)
+  data structure for generalized sparse grids.
+
+  1) Isotropic grid in 2D
+
+  Before Heap:
+     I     A      G
+
+     0     3               3
+     1     6             3.2
+     2     8             3.3
+     3     9             3.1
+
+  After Heap:
+     I     A      G
+
+     0     8             3.3
+     1     6             3.2
+     2     3               3
+     3     9             3.1
+
+  Transferring index 8 from active to old set.
+
+TEST04:
+  Simulate incremental coefficient calculations.
+
+  Generalized grid in 2D:
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+
+  COEF vector:
+
+         0:        1
+       ---         -
+       Sum:        1
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+
+  COEF vector:
+
+         0:        0
+         1:        1
+       ---         -
+       Sum:        1
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+
+  COEF vector:
+
+         0:        0
+         1:        0
+         2:        1
+       ---         -
+       Sum:        1
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+    3:     0       3  
+
+  COEF vector:
+
+         0:        0
+         1:        0
+         2:        0
+         3:        1
+       ---         -
+       Sum:        1
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+    3:     0       3  
+    4:     1       0  
+
+  COEF vector:
+
+         0:       -1
+         1:        0
+         2:        0
+         3:        1
+         4:        1
+       ---         -
+       Sum:        1
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+    3:     0       3  
+    4:     1       0  
+    5:     1       1  
+
+  COEF vector:
+
+         0:        0
+         1:       -1
+         2:        0
+         3:        1
+         4:        0
+         5:        1
+       ---         -
+       Sum:        1
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+    3:     0       3  
+    4:     1       0  
+    5:     1       1  
+    6:     2       0  
+
+  COEF vector:
+
+         0:        0
+         1:       -1
+         2:        0
+         3:        1
+         4:       -1
+         5:        1
+         6:        1
+       ---         -
+       Sum:        1
+
+  SPARSE_INDEX matrix:
+
+  Row:      0       1  
+  Col
+
+    0:     0       0  
+    1:     0       1  
+    2:     0       2  
+    3:     0       3  
+    4:     1       0  
+    5:     1       1  
+    6:     2       0  
+    7:     3       0  
+
+  COEF vector:
+
+         0:        0
+         1:       -1
+         2:        0
+         3:        1
+         4:       -1
+         5:        1
+         6:        0
+         7:        1
+       ---         -
+       Sum:        1
+
+TEST05:
+  Predict new coefficients given candidate index.
+
+  Spatial dimension M = 2
+  Number of items in active set N1 = 5
+
+  Index  Coef   Indices
+
+     0:     1     0   2
+     1:     1     1   1
+     2:     1     2   0
+     3:    -1     0   1
+     4:    -1     1   0
+
+  Candidate:      1   2
+
+  Index  Coef  Coef
+          Old   New
+
+     0:     1     0
+     1:     1     0
+     2:     1     1
+     3:    -1     0
+     4:    -1    -1
+     5:           1
+    --   ----  ----
+   Sum:     1     1
+
+TEST06:
+  Predict new coefficients given candidate index.
+
+  Spatial dimension M = 2
+  Number of items in active set N1 = 5
+
+  Index  Coef   Indices
+
+     0:     1     2   0
+     1:     1     1   1
+     2:     1     0   2
+     3:    -1     1   0
+     4:    -1     0   1
+
+  Candidate:      3   0
+
+  Index  Coef  Coef
+          Old   New
+
+     0:     1     0
+     1:     1     1
+     2:     1     1
+     3:    -1    -1
+     4:    -1    -1
+     5:           1
+    --   ----  ----
+   Sum:     1     1
+
+SANDIA_SGMGG_PRB:
+  Normal end of execution.
+
+29 August 2011 04:22:35 PM

@@ -1,0 +1,205 @@
+<html>
+
+  <head>
+    <title>
+      EMPS - Expand a compressed MPS file.
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      EMPS <br> Expand a compressed MPS file.
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>EMPS</b>
+      is a C++ program which
+      can expand a compressed MPS file into standard form,
+      by David Gay.
+    </p>
+
+    <p>
+      MPS files are a standard format for describing linear programming
+      problems.  They tend to be large and verbose, and so it is
+      useful to compress them when they are not in use.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>emps</b> <i>file.mpsc</i> <i>file.mps</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>file.mpsc</i> is the compressed file;
+        </li>
+        <li>
+          <i>file.mps</i> is the uncompressed version created by the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>EMPS</b> is available in
+      <a href = "../../cpp_src/emps/emps.html">a C++ version</a> and
+      <a href = "../../f_src/emps/emps.html">a FORTRAN90 version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../datasets/mpsc/mpsc.html">
+      MPSC</a>,
+      a dataset directory which
+      contains examples of compressed MPS files.
+    </p>
+
+    <p>
+      <a href = "../../datasets/mps/mps.html">
+      MPS</a>,
+      a dataset directory which
+      contains examples of uncompressed MPS files.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      David Gay
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Irvin Lustig,<br>
+          An Analysis of an Available Set of Linear Programming
+          Test Problems,<br>
+          Computers and Operations Research,<br>
+          Volume 16, number 2, pages 173-184, 1989.
+        </li>
+        <li>
+          Bruce Murtagh,<br>
+          Advanced Linear Programming: Computation and Practice,<br>
+          McGraw-Hill, 1981.
+        </li>
+        <li>
+          The original source code for EMPS is available in the
+          <b>lp/data</b> subdirectory of
+          <a href = "http://www.netlib.org/">the NETLIB web site</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "emps.cpp">emps.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "emps.sh">emps.sh</a>,
+          commands to compile and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>EMPS</b> expands a compressed linear programming file to MPS format.
+        </li>
+        <li>
+          <b>BADCHK</b> handles the case when a bad checksum is encountered.
+        </li>
+        <li>
+          <b>BLANKFIX</b> replaces blank characters by a substitute character.
+        </li>
+        <li>
+          <b>CHECKCHAR</b> ???
+        </li>
+        <li>
+          <b>checkline</b> ???
+        </li>
+        <li>
+          <b>colout</b> ???
+        </li>
+        <li>
+          <b>EARLY_EOF</b> handles the situation when the input file ends prematurely.
+        </li>
+        <li>
+          <b>EXFORM</b> expands a compressed string.
+        </li>
+        <li>
+          <b>EXINDX</b> expands a supersparse index.
+        </li>
+        <li>
+          <b>namfetch</b> ???
+        </li>
+        <li>
+          <b>namstore</b> ???
+        </li>
+        <li>
+          <b>newfile</b> ???
+        </li>
+        <li>
+          <b>newofile</b> ???
+        </li>
+        <li>
+          <b>process</b> ???
+        </li>
+        <li>
+          <b>rdline</b> ???
+        </li>
+        <li>
+          <b>SCREAM</b> prints an error message and terminates execution.
+        </li>
+        <li>
+          <b>USAGE</b> prints out usage information for the program.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 31 August 2005.
+    </i>
+
+    <!-- John Burkardt -->
+
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

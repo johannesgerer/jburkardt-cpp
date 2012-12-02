@@ -1,0 +1,134 @@
+02 October 2012 03:59:43 PM
+
+TEST:
+  C++ version
+  Test the LAGRANGE_INTERP_ND library.
+
+TEST01:
+  Interpolate in 1D, using orders.
+  LAGRANGE_INTERP_ND_GRID sets the interpolant.
+  LAGRANGE_INTERP_ND_VALUE evaluates it.
+
+         Zinterp          Zexact      Error
+
+        0.216702        0.216686  1.63051e-05
+        0.817085        0.817074  1.09649e-05
+        0.737595          0.7376  5.36652e-06
+        0.532609        0.532622  1.32662e-05
+        0.403489        0.403471  1.76965e-05
+
+TEST02:
+  Interpolate in 2D, using orders.
+  LAGRANGE_INTERP_ND_GRID sets the interpolant.
+  LAGRANGE_INTERP_ND_VALUE evaluates it.
+
+         Zinterp          Zexact      Error
+
+         0.83001        0.831022  0.00101224
+         0.84218        0.842438  0.000258151
+        0.405576        0.408251  0.00267534
+         0.27169        0.276419  0.00472918
+        0.594992        0.593563  0.00142893
+
+TEST03:
+  Interpolate in 3D, using orders.
+  LAGRANGE_INTERP_ND_GRID sets the interpolant.
+  LAGRANGE_INTERP_ND_VALUE evaluates it.
+
+         Zinterp          Zexact      Error
+
+        0.959476         0.95934  0.000135764
+        0.645867        0.645501  0.000366333
+        0.275349        0.279693  0.00434437
+        0.703275         0.70301  0.000265895
+        0.920134        0.920307  0.00017356
+
+TEST04:
+  Interpolate in 3D, using orders.
+  Use a sequence of increasing orders.
+
+  Level     Order   Average Error
+
+      1     27  0.00451888
+      2    125  0.000255966
+      3    729  5.20214e-06
+      4   4913  2.1856e-07
+      5  35937  1.81901e-09
+
+TEST05:
+  Repeat test #1, using levels.
+  LAGRANGE_INTERP_ND_GRID2 sets the interpolant.
+  LAGRANGE_INTERP_ND_VALUE2 evaluates it.
+
+         Zinterp          Zexact      Error
+
+        0.216702        0.216686  1.63051e-05
+        0.817085        0.817074  1.09649e-05
+        0.737595          0.7376  5.36652e-06
+        0.532609        0.532622  1.32662e-05
+        0.403489        0.403471  1.76965e-05
+
+TEST06:
+  Repeat test #2, using levels.
+  LAGRANGE_INTERP_ND_GRID2 sets the interpolant.
+  LAGRANGE_INTERP_ND_VALUE2 evaluates it.
+
+         Zinterp          Zexact      Error
+
+         0.83001        0.831022  0.00101224
+         0.84218        0.842438  0.000258151
+        0.405576        0.408251  0.00267534
+         0.27169        0.276419  0.00472918
+        0.594992        0.593563  0.00142893
+
+TEST07:
+  Repeat test #3,  using levels.
+  LAGRANGE_INTERP_ND_GRID2 sets the interpolant.
+  LAGRANGE_INTERP_ND_VALUE2 evaluates it.
+
+         Zinterp          Zexact      Error
+
+        0.959476         0.95934  0.000135764
+        0.645867        0.645501  0.000366333
+        0.275349        0.279693  0.00434437
+        0.703275         0.70301  0.000265895
+        0.920134        0.920307  0.00017356
+
+TEST08:
+  Interpolate in 3D, using levels.
+  Use a sequence of increasing levels.
+
+  Level     Order   Average Error
+
+      0      1   0.0351905
+      1     27  0.00451888
+      2    125  0.000255966
+      3    729  5.20214e-06
+      4   4913  2.1856e-07
+      5  35937  1.81901e-09
+
+TEST09:
+  Interpolate in 3D, using orders.
+  Use a sequence of increasing orders.
+  Use anisotropic resolution.
+  The interpoland is a polynomial of degrees 3, 5, 2
+  so our orders need to be at least 4, 6, 3 to match it.
+
+  Level     Orders   Average Error
+
+      0      1      1      1   0.0507646
+      1      2      1      1   0.0678105
+      2      1      2      1   0.0543933
+      3      1      1      2   0.0513603
+      4      4      2      2   0.0275354
+      5      2      4      2   0.0712667
+      6      2      2      4   0.0894074
+      7      2      2      4   0.0894074
+      8      6      4      4  0.000778477
+      9      4      6      4  1.30893e-16
+     10      4      4      6  0.000778477
+
+TEST:
+  Normal end of execution.
+
+02 October 2012 03:59:43 PM

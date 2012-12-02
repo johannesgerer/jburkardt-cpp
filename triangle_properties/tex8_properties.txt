@@ -1,0 +1,61 @@
+
+30 July 2009 10:06:18 PM
+
+TRIANGLE_PROPERTIES:
+  C++ version:
+  Determine properties of a triangle.
+
+  Read the header of "tex8.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of points NODE_NUM = 3
+
+  Read the data in "tex8.txt".
+
+  Node coordinates:
+
+  Row:       1             2       
+  Col
+
+    1              2             3
+    2              2             3
+    3              2             3
+
+  ANGLES (radians):
+
+         0          2.0944
+         1          2.0944
+         2          2.0944
+
+  ANGLES (degrees):
+
+         0             120
+         1             120
+         2             120
+
+  AREA: 0
+
+  CENTROID:                2               3
+
+  CIRCUM_RADIUS: -1
+  CIRCUM_CENTER:                0               0
+
+  EDGE_LENGTHS:
+
+         0               0
+         1               0
+         2               0
+
+  IN_RADIUS: 2
+  IN_CENTER:                3               0
+
+  ORIENTATION: Degenerate, at least two points identical.
+
+  ORTHO_CENTER: Could not be computed.
+
+  QUALITY: 0
+
+TRIANGLE_PROPERTIES:
+  Normal end of execution.
+
+30 July 2009 10:06:18 PM

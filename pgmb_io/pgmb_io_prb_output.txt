@@ -1,0 +1,33 @@
+22 July 2011 04:23:00 PM
+
+PGMB_IO_PRB:
+  C++ version
+  Test the PGMB_IO library.
+
+TEST01:
+  PGMB_EXAMPLE sets up PGMB data.
+  PGMB_WRITE writes a PGMB file.
+
+  Writing the file "pgmb_io_prb_01.pgmb".
+
+  PGMB_EXAMPLE has set up the data.
+
+  Gray scale data has maximum value 79
+
+  PGMB_WRITE was successful.
+
+  PGMB_CHECK_DATA passes the data from the file.
+
+TEST02
+  PGMB_READ reads the header and data of a PGMB file.
+
+  Reading the file "pgmb_io_prb_02.pgmb".
+
+  PGMB_WRITE_TEST created some test data.
+
+  PGMB_READ read the test data successfully.
+
+PGMB_IO_PRB:
+  Normal end of execution.
+
+22 July 2011 04:23:00 PM

@@ -1,0 +1,44 @@
+
+23 June 2005 05:41:45 PM
+
+TABLE_QUALITY (C++ version):
+  Compute measures of uniform dispersion for a pointset.
+
+  Compiled on Jun 23 2005 at 17:41:11.
+
+  Note: this routine assumes that the input pointset
+  is contained in the unit hypercube.  If this is not
+  the case, then you must rewrite the routine
+    SAMPLE_ROUTINE
+  so that it properly returns sample points in your
+  region, with a uniform density, or a probability
+  density of your choosing.
+
+  Measures of uniform point dispersion.
+
+  The pointset was read from "cvt_07_00010.txt".
+  The sample routine will be SAMPLE_HYPERCUBE_UNIFORM.
+
+  Spatial dimension DIM_NUM =      7
+  The number of points N =         10
+  The number of sample points NS = 100000
+  The random number SEED_INIT =    123456789
+
+  The minimum angle measure    ALPHA = (omitted)
+  The regularity measure         Chi = 3.26241
+  2nd moment determinant measure   D = 1.48555e-14
+  The Voronoi energy measure       E = 0.355249
+  The mesh ratio               Gamma = 1.03713
+  The point distribution norm      H = 1.0822
+  The COV measure             Lambda = 0.0140941
+  The point distribution ratio    Mu = 1.11241
+  The cell volume deviation       Nu = 1.23651
+  The triangle uniformity measure  Q = (omitted)
+  The Riesz S = 0 energy measure  R0 = 0.346641
+  Nonintersecting sphere volume    S = 0.00552582
+  2nd moment trace measure       Tau = 0.0148465
+
+TABLE_QUALITY:
+  Normal end of execution.
+
+23 June 2005 05:41:52 PM

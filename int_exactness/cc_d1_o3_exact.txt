@@ -1,0 +1,61 @@
+25 January 2008 03:42:51 PM
+
+INT_EXACTNESS
+  C++ version
+
+  Investigate the polynomial exactness of a
+  quadrature rule by integrating all
+  monomials up to a given degree over the [0,+1] interval.
+
+  If necessary, the rule is adjusted to the [0,1] interval.
+
+INT_EXACTNESS: User input:
+  Quadrature rule X file = "cc_d1_o3_x.txt".
+  Quadrature rule W file = "cc_d1_o3_w.txt".
+  Quadrature rule R file = "cc_d1_o3_r.txt".
+  Maximum degree to check = 5
+
+  Spatial dimension = 1
+  Number of points  = 3
+
+  The quadrature rule to be tested:
+  ORDER = 3
+
+  Standard rule:
+    Integral ( R[0] <= x <= R[1] ) f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =             0.3333333333
+  w[ 1] =             1.3333333333
+  w[ 2] =             0.3333333333
+
+  Abscissas X:
+
+  x[ 0] =                       -1
+  x[ 1] =                        0
+  x[ 2] =                        1
+
+  Region R:
+
+  r[ 0] =                       -1
+  r[ 1] =                        1
+
+  A Gauss-Legendre rule would be able to exactly
+  integrate monomials up to and including degree = 5
+
+          Error          Degree
+
+     5.000011515932101e-11   0
+     5.000000413701855e-11   1
+     6.250000517127319e-11   2
+     7.500000620552782e-11   3
+       0.04166666657812484   4
+         0.124999999896875   5
+
+INT_EXACTNESS:
+  Normal end of execution.
+
+25 January 2008 03:42:51 PM

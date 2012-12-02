@@ -1,0 +1,20 @@
+25 October 2011 02:35:35 PM
+
+QUAD_SERIAL:
+  C++ version
+  Estimate the integral of f(x) from A to B.
+  f(x) = 50 / ( pi * ( 2500 * x * x + 1 ) ).
+
+  A        = 0
+  B        = 10
+  N        = 10000000
+  Exact    =       0.4993633810764567
+
+  Estimate =       0.4993712889191264
+  Error    = 7.907842669685472e-06
+  W time   = 0.343365
+
+QUAD_SERIAL:
+  Normal end of execution.
+
+25 October 2011 02:35:36 PM

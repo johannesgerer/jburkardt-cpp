@@ -1,0 +1,33 @@
+24 December 2011 11:59:42 AM
+
+WTIME_PRB
+  C++ version
+  Test the WTIME library.
+
+TEST01
+  Time the RAND routine by computing N values.
+  For a given N, repeat the computation 5 times.
+
+  Data vectors will be of minimum size 1024
+  Data vectors will be of maximum size 1048576
+
+  Times are measured in seconds.
+
+         N      Rep #1      Rep #2      Rep #2      Rep #4      Rep #5
+
+      1024     2.1e-05     1.1e-05     1.1e-05       1e-05       1e-05
+      2048     2.5e-05     2.1e-05       2e-05     2.1e-05       2e-05
+      4096     4.8e-05       4e-05     4.1e-05       4e-05       4e-05
+      8192     9.4e-05     8.1e-05       8e-05       8e-05     8.2e-05
+     16384    0.000187     0.00016     0.00016     0.00016    0.000159
+     32768    0.000379    0.000324    0.000325    0.000306    0.000316
+     65536    0.000738    0.000616    0.000632    0.000653     0.00064
+    131072    0.001549    0.001279    0.001282     0.00128     0.00125
+    262144    0.002867    0.002448    0.002451    0.002462    0.002448
+    524288    0.005838       0.005    0.005123    0.004987    0.004929
+   1048576    0.011731    0.009847    0.009853      0.0098    0.010002
+
+WTIME_PRB
+  Normal end of execution.
+
+24 December 2011 11:59:42 AM

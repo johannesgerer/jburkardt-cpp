@@ -1,0 +1,111 @@
+11 September 2011 01:31:03 PM
+
+COMPLEX_VALUES
+  C++ version
+  Demonstrate the use of the ANSI COMPLEX class.
+
+TEST01
+  Look at assignment operators.
+  Note that it might seem natural to try the assignment
+  statement in the form:
+
+    variable = ( float, float )
+
+  but as the examples will show, this is NOT the correct way!
+
+
+  complex <float> a = ( 1.0, 2.0 ) in initialization.
+  a = (2,0)
+
+  complex <float> b ( 3.0, 4.0 ) in initialization.
+  b = (3,4)
+
+  a = ( 5.0, 6.0 ) in executable statement.
+  a = (6,0)
+
+  a = ( complex <float> ) ( 7.0, 8.0 ) in executable statement.
+  a = (8,0)
+
+  a = complex <float> ( 9.0, 10.0 ) in executable statement.
+  a = (9,10)
+
+  a = complex <float> ( 11.0 ) in executable statement.
+  a = (11,0)
+
+  Use two float variables for assignment:
+  c = 12
+  d = 13
+  a = complex <float> ( c, d ) in executable statement.
+  a = (12,13)
+
+  Use one float variable for assignment:
+  c = 12
+  a = complex <float> ( c ) in executable statement.
+  a = (12,0)
+
+CONCLUSION:
+  To initialize a complex number in a declaration:
+
+    complex <float> a ( 1.0, 2.0 )
+
+  To assign a complex number a complex value:
+
+    a = complex <float> ( 3.0, 4.0 )
+    a = complex <float> ( b, c )
+
+  To assign a complex number a real value:
+
+    a = complex <float> ( 5.0 )
+    a = complex <float> ( d )
+
+TEST02
+  Look at complex array initialization.
+
+    complex <float> a[3] = {
+      ( 1.0, 2.0 ),
+      ( 3.0, 4.0 ),
+      ( 5.0, 6.0 ) }
+
+  A:
+
+         (2,0)
+         (4,0)
+         (6,0)
+
+    complex <float> b[3] = {
+      complex <float> ( 1.0, 2.0 ),
+      complex <float> ( 3.0, 4.0 ),
+      complex <float> ( 5.0, 6.0 ) }
+
+  B:
+
+         (1,2)
+         (3,4)
+         (5,6)
+
+CONCLUSION:
+  To initialize a complex vector in a declaration:
+
+    complex <float> b[3] = {
+      complex <float> ( 1.0, 2.0 ),
+      complex <float> ( 3.0, 4.0 ),
+      complex <float> ( 5.0, 6.0 ) }
+
+
+TEST03
+  Look at new function calls.
+
+
+  A =                 (3,4)
+  real ( A ) =            3
+  imag ( A ) =            4
+  arg ( A ) =      0.927295
+  norm ( A ) =           25
+  abs ( A ) =             5
+  conj ( A ) =       (3,-4)
+  polar ( abs ( a ), arg ( a ) ) =        (3,4)
+
+COMPLEX_VALUES
+  Normal end of execution.
+
+11 September 2011 01:31:03 PM

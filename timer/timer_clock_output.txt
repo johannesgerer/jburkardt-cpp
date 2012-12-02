@@ -1,0 +1,56 @@
+20 May 2009 09:44:20 AM
+
+TIMER_CLOCK
+  C++ version
+  Demonstrate the use of the CLOCK timer.
+
+  CLOCK is a  C++ library routine
+  (defined in <ctime>)
+
+  It returns the processor time used by the program
+  since the beginning of program execution.
+  Divide this by CLOCKS_PER_SEC to convert to seconds.
+
+  CLOCK is a crude timer, and results less than
+  a tenth of a second are probably not reliable.
+
+  The number of clock ticks per second is 1000000
+
+TEST01
+  Time the RAND function by computing N values.
+  For a given N, repeat the computation 5 times.
+
+  Data vectors will be of minimum size 1
+  Data vectors will be of maximum size 1048576
+
+  CPU times are in seconds.
+
+         N      Rep #1      Rep #2      Rep #2      Rep #4      Rep #5         Min         Ave         Max
+
+         1     5.3e-05       5e-06       6e-06       6e-06       5e-06       5e-06     1.5e-05     5.3e-05
+         2       5e-06       5e-06       5e-06       4e-06       4e-06       4e-06     4.6e-06       5e-06
+         4       4e-06       6e-06       6e-06       6e-06       6e-06       4e-06     5.6e-06       6e-06
+         8       6e-06       6e-06       5e-06       6e-06       6e-06       5e-06     5.8e-06       6e-06
+        16       5e-06       5e-06       5e-06       5e-06       6e-06       5e-06     5.2e-06       6e-06
+        32       7e-06       6e-06       7e-06       7e-06       7e-06       6e-06     6.8e-06       7e-06
+        64       8e-06       7e-06       7e-06       7e-06       7e-06       7e-06     7.2e-06       8e-06
+       128       1e-05     1.1e-05     1.1e-05       1e-05       1e-05       1e-05    1.04e-05     1.1e-05
+       256     1.7e-05     1.5e-05     1.6e-05     1.5e-05     1.5e-05     1.5e-05    1.56e-05     1.7e-05
+       512     3.6e-05     2.6e-05     2.7e-05     2.6e-05     2.9e-05     2.6e-05    2.88e-05     3.6e-05
+      1024     5.8e-05     4.8e-05     4.6e-05     5.2e-05     4.9e-05     4.6e-05    5.06e-05     5.8e-05
+      2048    0.000109     8.6e-05     8.5e-05     9.1e-05     8.6e-05     8.5e-05    9.14e-05    0.000109
+      4096     0.00021    0.000175    0.000175    0.000164    0.000172    0.000164   0.0001792     0.00021
+      8192    0.000406    0.000337    0.000323    0.000323    0.000353    0.000323   0.0003484    0.000406
+     16384    0.000924     0.00065    0.000645    0.000667     0.00073    0.000645   0.0007232    0.000924
+     32768    0.001624    0.001366    0.001364    0.001293    0.001677    0.001293   0.0014648    0.001677
+     65536    0.003279    0.002581    0.002655    0.002798    0.002764    0.002581   0.0028154    0.003279
+    131072    0.006591    0.005283    0.005156    0.006238    0.005284    0.005156   0.0057104    0.006591
+    262144    0.013097    0.010425    0.010468    0.010293    0.010675    0.010293   0.0109916    0.013097
+    524288     0.02655    0.021519    0.021012    0.017624    0.013577    0.013577   0.0200564     0.02655
+   1048576    0.034843    0.028054    0.027193      0.0275     0.02772    0.027193    0.029062    0.034843
+
+
+TIMER_CLOCK
+  Normal end of execution.
+
+20 May 2009 09:44:21 AM

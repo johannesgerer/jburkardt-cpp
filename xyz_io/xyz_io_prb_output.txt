@@ -1,0 +1,156 @@
+22 December 2011 08:43:41 AM
+
+XYZ_IO_PRB:
+  C++ version
+  Test the XYZ_IO library.
+
+TEST01
+  XYZ_EXAMPLE sets up sample XYZ data.
+  XYZ_WRITE writes an XYZ file.
+  Example dataset size is 101
+
+  XYZ_WRITE wrote the header and data for "helix.xyz".
+  Number of points = 101
+
+TEST02
+  XYZ_HEADER_READ reads the header of an XYZ file.
+  XYZ_DATA_READ reads the data of an XYZ file.
+
+  XYZ_WRITE_TEST created some data.
+
+  XYZ_HEADER_READ has read the header.
+
+  Number of points = 101
+
+  XYZ_DATA_READ has read the data.
+
+  Sample data:
+
+     0             1             0             0
+    10     -0.309017      0.951057           0.2
+    20     -0.809017     -0.587785           0.4
+    30      0.809017     -0.587785           0.6
+    40      0.309017      0.951057           0.8
+    50            -1   3.67394e-16             1
+    60      0.309017     -0.951057           1.2
+    70      0.809017      0.587785           1.4
+    80     -0.809017      0.587785           1.6
+    90     -0.309017     -0.951057           1.8
+   100             1  -7.34788e-16             2
+
+TEST03
+  XYZL_EXAMPLE sets up XYZ and XYZL data.
+
+  Example has:
+
+  Number of points     = 8
+  Number of lines      = 6
+  Number of line items = 18
+
+  Wrote the XYZ file "cube.xyz".
+  and the XYZL file "cube.xyzl".
+
+TEST04
+  XYZ_HEADER_READ  reads the header of an XYZ  file.
+  XYZ_DATA_READ    reads the data   of an XYZ  file.
+  XYZL_HEADER_READ reads the header of an XYZL file.
+  XYZL_DATA_READ   reads the data   of an XYZL file.
+
+  Examine XYZ file "cube.xyz".
+
+  Number of points = 8
+
+  Point data:
+
+     0           0           0           0
+     1           1           0           0
+     2           1           1           0
+     3           0           1           0
+     4           0           0           1
+     5           1           0           1
+     6           1           1           1
+     7           0           1           1
+
+  Examine XYZL file "cube.xyzl".
+
+  Number of lines      = 6
+  Number of line items = 18
+
+  Line pointers:
+
+     0         0         4
+     1         5         9
+     2        10        11
+     3        12        13
+     4        14        15
+     5        16        17
+
+  Line data:
+
+     0             0         1         2         3         0
+     1             4         5         6         7         4
+     2             0         4
+     3             1         5
+     4             2         6
+     5             3         7
+
+TEST05
+  XYZF_EXAMPLE sets up XYZ and XYZF data.
+
+  Example has:
+
+  Number of points     = 8
+  Number of faces      = 6
+  Number of face items = 24
+
+  Wrote the XYZ file "cube.xyz".
+  and the XYZF file "cube.xyzf".
+
+TEST06
+  XYZ_HEADER_READ  reads the header of an XYZ  file.
+  XYZ_DATA_READ    reads the data   of an XYZ  file.
+  XYZF_HEADER_READ reads the header of an XYZF file.
+  XYZF_DATA_READ   reads the data   of an XYZF file.
+
+  Examine XYZ file "cube.xyz".
+
+  Number of points = 8
+
+  Point data:
+
+     0           0           0           0
+     1           1           0           0
+     2           1           1           0
+     3           0           1           0
+     4           0           0           1
+     5           1           0           1
+     6           1           1           1
+     7           0           1           1
+
+  Examine XYZF file "cube.xyzf".
+
+  Number of faces      = 6
+  Number of face items = 24
+
+  Face pointers:
+
+     0         0         3
+     1         4         7
+     2         8        11
+     3        12        15
+     4        16        19
+     5        20        23
+
+  Face data:
+
+     0             0         3         2         1
+     1             1         2         6         5
+     2             4         5         6         7
+     3             4         7         3         0
+     4             0         1         5         4
+     5             2         3         7         6
+
+XYZ_IO_PRB:
+  Normal end of execution.
+
+22 December 2011 08:43:41 AM

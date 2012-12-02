@@ -1,0 +1,120 @@
+15 December 2011 09:48:15 AM
+
+ASA047_PRB:
+  C++ version
+  Test the ASA047 library.
+
+TEST01
+  Apply NELMIN to ROSENBROCK function.
+
+  Starting point X:
+
+            -1.2
+               1
+
+  F(X) = 24.2
+
+  Return code IFAULT = 0
+
+  Estimate of minimizing value X*:
+
+         1.00099
+         1.00192
+
+  F(X*) = 1.23903e-06
+
+  Number of iterations = 157
+  Number of restarts =   0
+
+TEST02
+  Apply NELMIN to POWELL quartic function.
+
+  Starting point X:
+
+               3
+              -1
+               0
+               1
+
+  F(X) = 215
+
+  Return code IFAULT = 0
+
+  Estimate of minimizing value X*:
+
+       0.0212558
+     -0.00220881
+     -0.00634404
+     -0.00624836
+
+  F(X*) = 6.47322e-06
+
+  Number of iterations = 281
+  Number of restarts =   4
+
+TEST03
+  Apply NELMIN to the HELICAL function.
+
+  Starting point X:
+
+              -1
+               0
+               0
+
+  F(X) = 10001
+
+  Return code IFAULT = 0
+
+  Estimate of minimizing value X*:
+
+      0.00751841
+    -1.12238e-05
+     -0.00203779
+
+  F(X*) = 7.21133e-05
+
+  Number of iterations = 280
+  Number of restarts =   2
+
+TEST04
+  Apply NELMIN to the QUARTIC function.
+
+  Starting point X:
+
+               1
+               1
+               1
+               1
+               1
+               1
+               1
+               1
+               1
+               1
+
+  F(X) = 10
+
+  Return code IFAULT = 2
+
+  Estimate of minimizing value X*:
+
+     0.000435993
+      -0.0238412
+      -0.0182519
+      -0.0278513
+      -0.0386991
+      0.00697994
+      0.00592834
+       0.0221775
+       0.0170133
+      -0.0419872
+
+  F(X*) = 6.71583e-06
+
+  Number of iterations = 511
+  Number of restarts =   11
+
+ASA047_PRB:
+  Normal end of execution.
+
+15 December 2011 09:48:15 AM

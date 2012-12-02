@@ -1,0 +1,280 @@
+<html>
+
+  <head>
+    <title>
+      RAND48 - 48-bit Random Number Generators
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      RAND48 <br> 48-bit Random Number Generators
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>RAND48</b>
+      is a C++ library which
+      demonstrates the use of the rand48 function in the C <b>stdlib</b> library.
+      The rand48 function uses 48-bit arithmetic to generate uniformly distributed pseudorandom
+      values.  The results can be returned as double precision values
+      in [0.0,1.0], or as long integers in [-2^31,2^31], or as nonnegative long
+      integers in [0,2^31].
+    </p>
+
+    <p>
+      The underlying calculations are done in 48-bit integer arithmetic.
+      The user has the option of allowing the system to select the initial seed,
+      or of supplying 32 bits of the seed as a long int, or supplying all 48 bits
+      of the seed as 3 16 bit values.  The user can also supply the seed as
+      an explicit argument on each call, or make a single initialization call
+      with the desired seed.
+    </p>
+
+    <p>
+      Routines to set the seed:
+      <ul>
+        <li>
+          <b>void srand48(long int seedval)</b>, <br>
+          the user passes in a long int.  The 32 bits of this
+          value are used, along with 16 bits supplied internally.  This is the
+          most convenient routine to call.
+        </li>
+        <li>
+          <b>unsigned short int *seed48(unsigned short int seedvec[3])</b>,<br>
+          the user passes in 3 16 bit values which completely
+          determine the seed.  This gives the user full control over the seed.
+        </li>
+        <li>
+          <b>void lcong48(unsigned short int param[7])</b>, <br>
+          allows the user to specify the seed as in <b>seed48</b>,
+          but also the 48 bit multiplier and 16 bit addend used in the linear
+          congruential generator.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      There are 3 routines available which return a random value, assuming that
+      the seed has been set in advance by a call to <b>srand48</b>, <b>seed48</b>, or
+      <b>lcong48</b>, or that the user is satisfied with a
+      default seed value.  These routines have no input argument.
+      <ul>
+        <li>
+          <b>double drand48(void)</b><br>
+          returns a double precision floating point value in [0.0,1.0];
+        </li>
+        <li>
+          <b>long int lrand48(void)</b>,<br>
+          returns a nonnegative long integer in [0,2^31];
+        </li>
+        <li>
+          <b>long int mrand48(void)</b>, <br>
+          returns a long integer in [-2^31,2^31];
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      There are 3 routines available which return a random value, whose computation
+      is determined by the value of the seed vector in the input argument.
+      These routines do not require the user to call a seed initialization routine first.
+      <ul>
+        <li>
+          <b>double erand48(unsigned short int seedvec[3])</b><br>
+          returns a double precision floating point value in [0.0,1.0];
+        </li>
+        <li>
+          <b>long int nrand48(unsigned short int seedvec[3])</b>,<br>
+          returns a nonnegative long integer in [0,2^31];
+        </li>
+        <li>
+          <b>long int jrand48(unsigned short int seedvec[3])</b>, <br>
+          returns a long integer in [-2^31,2^31];
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>RAND48</b> is available in
+      <a href = "../../c_src/rand48/rand48.html">a C version</a> and
+      <a href = "../../cpp_src/rand48/rand48.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/asa183/asa183.html">
+      ASA183</a>,
+      a C++ library which
+      implements the Wichman-Hill pseudorandom number generator.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cpp_random/cpp_random.html">
+      CPP_RANDOM</a>,
+      C++ programs which
+      illustrate the use of the C++ random number generator routines.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/faure/faure.html">
+      FAURE</a>,
+      a C++ library which
+      computes elements of a Faure quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/grid/grid.html">
+      GRID</a>,
+      a C++ library which
+      computes elements of a grid sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/halton/halton.html">
+      HALTON</a>,
+      a C++ library which
+      computes elements of a Halton quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hammersley/hammersley.html">
+      HAMMERSLEY</a>,
+      a C++ library which
+      computes elements of a Hammersley quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hex_grid/hex_grid.html">
+      HEX_GRID</a>,
+      a C++ library which
+      computes elements of a hexagonal grid dataset.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ihs/ihs.html">
+      IHS</a>,
+      a C++ library which
+      computes improved Latin Hypercube datasets.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/latin_center/latin_center.html">
+      LATIN_CENTER</a>,
+      a C++ library which
+      computes elements of a Latin Hypercube dataset, choosing center points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/latin_edge/latin_edge.html">
+      LATIN_EDGE</a>,
+      a C++ library which
+      computes elements of a Latin Hypercube dataset, choosing edge points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/latin_random/latin_random.html">
+      LATIN_RANDOM</a>,
+      a C++ library which
+      computes elements of a Latin Hypercube dataset, choosing points at random.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/niederreiter2/niederreiter2.html">
+      NIEDERREITER2</a>,
+      a C++ library which
+      computes elements of a Niederreiter sequence using base 2.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/normal/normal.html">
+      NORMAL</a>,
+      a C++ library which
+      computes elements of a sequence of pseudorandom normally distributed values.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sobol/sobol.html">
+      SOBOL</a>,
+      a C++ library which
+      computes elements of a Sobol quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uniform/uniform.html">
+      UNIFORM</a>,
+      a C++ library which
+      computes elements of a sequence of pseudorandom uniformly distributed values.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/van_der_corput/van_der_corput.html">
+      VAN_DER_CORPUT</a>,
+      a C++ library which
+      computes elements of a 1D van der Corput sequence.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Donald Knuth,<br>
+          The Art of Computer Programming,<br>
+          Volume 2, Seminumerical Algorithms,<br>
+          Third Edition,<br>
+          Addison Wesley, 1997,<br>
+          ISBN: 0201896842,<br>
+          LC: QA76.6.K64.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "rand48_prb.cpp">rand48_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "rand48_prb.sh">rand48_prb.sh</a>,
+          commands to compile, link and run the sample calling program.
+        </li>
+        <li>
+          <a href = "rand48_prb_output.txt">rand48_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 18 August 2008.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

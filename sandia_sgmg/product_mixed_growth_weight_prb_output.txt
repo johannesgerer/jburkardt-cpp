@@ -1,0 +1,125 @@
+14 January 2012 11:25:26 AM
+
+PRODUCT_MIXED_GROWTH_WEIGHT_PRB
+  C++ version
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TESTS
+  Call PRODUCT_MIXED_GROWTH_WEIGHT_TEST with various arguments.
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TEST:
+  Compute the weights of a mixed factor product grid.
+
+  As a simple test, sum these weights.
+
+  Spatial dimension DIM_NUM = 2
+
+ Dimension     Order
+
+         0         3
+         1         5
+
+    Weight sum
+
+               4
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TEST:
+  Compute the weights of a mixed factor product grid.
+
+  As a simple test, sum these weights.
+
+  Spatial dimension DIM_NUM = 2
+
+ Dimension     Order
+
+         0         3
+         1         7
+
+    Weight sum
+
+         3.54491
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TEST:
+  Compute the weights of a mixed factor product grid.
+
+  As a simple test, sum these weights.
+
+  Spatial dimension DIM_NUM = 2
+
+ Dimension     Order
+
+         0         3
+         1         3
+
+    Weight sum
+
+               2
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TEST:
+  Compute the weights of a mixed factor product grid.
+
+  As a simple test, sum these weights.
+
+  Spatial dimension DIM_NUM = 2
+
+ Dimension     Order
+
+         0         5
+         1         5
+
+    Weight sum
+
+         2.65868
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TEST:
+  Compute the weights of a mixed factor product grid.
+
+  As a simple test, sum these weights.
+
+  Spatial dimension DIM_NUM = 2
+
+ Dimension     Order
+
+         0         5
+         1         5
+
+    Weight sum
+
+         3.14159
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TEST:
+  Compute the weights of a mixed factor product grid.
+
+  As a simple test, sum these weights.
+
+  Spatial dimension DIM_NUM = 2
+
+ Dimension     Order
+
+         0         7
+         1         9
+
+    Weight sum
+
+          1.5708
+
+PRODUCT_MIXED_GROWTH_WEIGHT_TEST:
+  Compute the weights of a mixed factor product grid.
+
+  As a simple test, sum these weights.
+
+  Spatial dimension DIM_NUM = 3
+
+ Dimension     Order
+
+         0         2
+         1         3
+         2         3
+
+    Weight sum
+
+         7.08982
+
+PRODUCT_MIXED_GROWTH_WEIGHT
+  Normal end of execution.
+
+14 January 2012 11:25:26 AM

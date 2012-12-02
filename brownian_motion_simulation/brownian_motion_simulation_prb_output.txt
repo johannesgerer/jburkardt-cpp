@@ -1,0 +1,21 @@
+02 October 2012 10:49:16 AM
+
+BROWNIAN_MOTION_SIMULATION_PRB
+  C++ version
+  Test the BROWNIAN_MOTION_SIMULATION library.
+
+  BROWNIAN_MOTION data stored in "motion_1d_data.txt"  BROWNIAN_MOTION plot commands stored in "motion_1d_commands.txt"
+  BROWNIAN_MOTION data stored in "motion_2d_data.txt"  BROWNIAN_MOTION plot commands stored in "motion_2d_commands.txt"
+  BROWNIAN_DISPLACEMENT data stored in "displacement_1d_data.txt".
+  BROWNIAN_DISPLACEMENT plot commands stored in "displacement_1d_commands.txt".
+
+  BROWNIAN_DISPLACEMENT data stored in "displacement_2d_data.txt".
+  BROWNIAN_DISPLACEMENT plot commands stored in "displacement_2d_commands.txt".
+
+  BROWNIAN_DISPLACEMENT data stored in "displacement_3d_data.txt".
+  BROWNIAN_DISPLACEMENT plot commands stored in "displacement_3d_commands.txt".
+
+BROWNIAN_MOTION_SIMULATION_PRB
+  Normal end of execution.
+
+02 October 2012 10:49:16 AM

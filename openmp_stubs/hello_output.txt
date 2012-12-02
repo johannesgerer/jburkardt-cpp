@@ -1,0 +1,20 @@
+20 November 2007 12:20:50 PM
+
+HELLO
+  C++ version
+
+  An OpenMP sample program.
+
+  Have each parallel thread identify itself.
+
+  (If the program is compiled for sequential
+  execution, only one value will appear.)
+
+  Call OMP_SET_NUM_THREADS, and request 4 threads.
+
+  This is processor 0
+
+HELLO
+  Normal end of execution.
+
+20 November 2007 12:20:50 PM

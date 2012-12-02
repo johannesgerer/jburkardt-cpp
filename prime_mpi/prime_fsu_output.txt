@@ -1,0 +1,33 @@
+24 October 2011 02:39:11 PM
+
+'PRIME_MPI
+  C++/MPI version
+
+  An MPI example program to count the number of primes.
+  The number of processes is 8
+
+         N        Pi          Time
+
+         1         0        0.043942
+         2         1      0.00793409
+         4         2     2.09808e-05
+         8         4     1.71661e-05
+        16         6     1.62125e-05
+        32        11      1.3113e-05
+        64        18     1.78814e-05
+       128        31     2.59876e-05
+       256        54     7.89165e-05
+       512        97      0.00026989
+      1024       172      0.00103092
+      2048       309      0.00371099
+      4096       564        0.013504
+      8192      1028        0.023561
+     16384      1900       0.0597911
+     32768      3512        0.227069
+     65536      6542        0.864204
+    131072     12251         3.34312
+
+PRIME_MPI - Master process:
+  Normal end of execution.
+
+24 October 2011 02:39:16 PM

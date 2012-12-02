@@ -1,0 +1,136 @@
+<html>
+
+  <head>
+    <title>
+      CRC - PNG Cyclic Redundancy Checksum
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      CRC <br> PNG Cyclic Redundancy Checksum
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CRC</b>
+      is a C++ library which
+      computes the PNG CRC
+      (cyclic redundancy checksum) for a string of bytes.
+    </p>
+
+    <p>
+      PNG is the
+      <a href = "../../data/png/png.html">Portable Network Graphics format.</a>
+      The PNG checksum algorithm is used as part of the encoding of
+      a PNG file.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/png/png.html">
+      PNG</a>,
+      a data directory which
+      contains examples of Portable Network Graphics (PNG) files, 2D graphics;
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          World Wide Web Consortium,<br>
+          Portable Network Graphics (PNG) Specification,<br>
+          Second edition, 10 November 2003.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "crc.cpp">crc.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "crc.hpp">crc.hpp</a>, the include file;
+        </li>
+        <li>
+          <a href = "crc.sh">crc.sh</a>, commands to compile
+          the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "crc_prb.cpp">crc_prb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "crc_prb.sh">crc_prb.sh</a>, commands to compile,
+          link and run the calling program;
+        </li>
+        <li>
+          <a href = "crc_prb_output.txt">crc_prb_output.txt</a>, the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CRC</b> returns the CRC of the bytes in BUF[0...LEN-1].
+        </li>
+        <li>
+          <b>MAKE_CRC_TABLE</b> makes the table for a fast CRC computation.
+        </li>
+        <li>
+          <b>PRINT_CRC_TABLE</b> prints the CRC table.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>UPDATE_CRC_C</b> updates a running CRC with one more character.
+        </li>
+        <li>
+          <b>UPDATE_CRC_S</b> updates a running CRC with a new string of characters.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 30 December 2007.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

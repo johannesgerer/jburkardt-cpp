@@ -1,0 +1,83 @@
+20 December 2011 08:41:59 AM
+
+C8_COMPLEX_LIB_PRB
+  C++ version.
+  Test the C8_COMPLEX_LIB library.
+
+TEST01
+  Test assignment of a value to c8_complex.
+
+  double D1 = 1
+  double D2 = 2
+
+  C1 = c8_complex ( d1, d2 ) = (1,2)
+  C1 = c8_complex ( d1 ) = (1,0)
+  C2 = C1 = (1,0)
+
+TEST02
+  Test c8_complex addition.
+
+  double D1 = 1
+  c8_complex C1 = (100,10)
+  c8_complex C2 = (99,9)
+
+  C3 = C1 + C2 = (199,19)
+  C3 = C1 + D1 = (101,10)
+  C3 = C1 + D1 = (101,10)
+  C3 = C1 + C1 = (200,20)
+
+TEST02
+  Test c8_complex addition.
+
+  double D1 = 1
+  c8_complex C1 = (100,10)
+  c8_complex C2 = (99,9)
+
+  C3 = C1 - C2 = (1,1)
+  C3 = C1 - D1 = (99,10)
+  C3 = C1 - D1 = (-99,10)
+  C3 = C1 - C1 = (0,0)
+
+TEST04
+  Test c8_complex conjugation.
+
+  c8_complex C1 = (100,10)
+
+  C2 = ~C1 = (100,-10)
+
+TEST05
+  Test c8_complex multiplication.
+
+  couble D1 = 5
+  couble D2 = 6
+  c8_complex C1 = (1,2)
+  c8_complex C2 = (3,4)
+
+  C3 = D1 * C1 = (5,10)
+  C3 = C2 * D2 = (18,24)
+  C3 = C1 * C2 = (-5,10)
+
+TEST06
+  Test c8_complex division.
+
+  double D1 = 5
+  double D2 = 6
+  c8_complex C1 = (1,2)
+  c8_complex C2 = (3,4)
+
+  C3 = D1 / C1 = (1,-2)
+  C3 = C2 / D2 = (0.5,0.666667)
+  C3 = C1 / C2 = (0.44,0.08)
+
+TEST07
+  Test c8_complex real and imaginary parts.
+
+  c8_complex C1 = (1,2)
+
+  D1 = C1.real ( ) = 1
+  D1 = C1.imaginary ( ) = 2
+
+C8_COMPLEX_LIB_PRB
+  Normal end of execution.
+
+20 December 2011 08:41:59 AM

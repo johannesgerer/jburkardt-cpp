@@ -1,0 +1,84 @@
+
+26 September 2009 09:40:47 PM
+
+TRIANGULATION_HISTOGRAM:
+  C++ version:
+  Compute a histogram for datapoints in a triangulation.
+
+  Compiled on Sep 26 2009 at 21:40:29.
+
+  Read the header of "house3_nodes.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of nodes NODE_NUM  = 5
+
+  Read the data in "house3_nodes.txt".
+
+  First 5 nodes:
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              2             0
+    3              0             2
+    4              2             2
+    5              1             3
+
+ Read the header of "house3_elements.txt".
+
+  Triangle order ELEMENT_ORDER = 3
+  Number of triangles ELEMENT_NUM  = 3
+
+  Read the data in "house3_elements.txt".
+
+  First 10 triangles:
+
+  Row:      1       2       3  
+  Col
+
+    1       1       2       3  
+    2       2       4       3  
+    3       3       4       5  
+
+  The element indexing appears to be 1-based!
+  The internal copy is shifted to be 0-based.
+
+  Read the header of "thousand_xy.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of data points DATA_NUM  = 1000
+
+  Read the data in "thousand_xy.txt".
+
+  First 5 data points:
+
+  Row:       1             2       
+  Col
+
+    1       0.436837       2.86895
+    2        1.65902       1.68509
+    3       0.830614      0.198356
+    4       0.515156       0.32987
+    5       0.087658        1.9019
+
+TRIANGULATION_HISTOGRAM:
+  Histogram report:
+
+  Node data from         "house3_nodes.txt".
+  Element data from      "house3_elements.txt".
+  Sample point data from "thousand_xy.txt".
+  Number of sample points = 1000
+
+  Triangle        Area          Hits  Area Ratio       Hit Ratio
+
+         0               2       345             0.4        0.410714
+         1               2       334             0.4        0.397619
+         2               1       161             0.2        0.191667
+
+     Total               5       840               1               1
+
+TRIANGULATION_HISTOGRAM:
+  Normal end of execution.
+
+26 September 2009 09:40:47 PM

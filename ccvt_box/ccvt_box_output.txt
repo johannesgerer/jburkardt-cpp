@@ -1,0 +1,115 @@
+03 December 2004 02:54:39 PM
+
+CCVT_BOX:
+  Generate a constrained CVT dataset.
+
+  Default NDIM = 2
+
+  N is the number of points to generate.
+  (Try '100' if you have no preference.)
+  (Any value less than 1 terminates execution.)
+  User input N = 100
+
+  NPP is the number of sample points used to
+  check the boundary.
+  (Try '1000' if you have no preference.)
+  (Any value less than 1 terminates execution.)
+  User input NPP = 1000
+  Default SEED = 123456789
+  Default INIT = "RAND".
+
+  IT_MAX is the maximum number of iterations.
+
+  An iteration carries out the following steps:
+  * the Voronoi region associated with each
+    generator is estimated by sampling;
+  * the centroid of each Voronoi region is estimated.
+  * the generator is replaced by the centroid.
+
+  If enough sampling points are used,
+  and enough iterations are taken, this process
+  will converge.
+
+  (Try '50' if you have no preference.)
+  (A negative value terminates execution).
+
+  Enter IT_MAX:
+  User input IT_MAX = 50
+  Default IT_FIXED = 1
+  Default SAMPLE = "RAND".
+
+  SAMPLE_NUM is the number of sample points.
+
+  The Voronoi regions will be explored by generating
+  SAMPLE_NUM points.  For each sample point, the
+  nearest generator is found.  Using more points
+  gives a better estimate of these regions.
+
+  SAMPLE_NUM should be much larger than N, the
+  number of generators.
+
+  (Try '10000' if you have no preference.)
+  (A zero or negative value terminates execution.)
+
+  User input SAMPLE_NUM = 100000
+  Default BATCH = 1000
+
+                            Energy         Energy after
+  Iteration     Seed        of CVT         projection
+
+       0     123456789      0.00372814      0.00389791
+       1     123656789      0.00230705      0.00283327
+       2     123856789      0.00207687      0.00253696
+       3     124056789      0.00195127      0.00238154
+       4     124256789      0.00191136      0.00228989
+       5     124456789       0.0018839      0.00223574
+       6     124656789      0.00187214      0.00222844
+       7     124856789      0.00185971        0.002195
+       8     125056789      0.00184887      0.00214496
+       9     125256789      0.00183297      0.00212622
+      10     125456789      0.00183027      0.00214393
+      11     125656789       0.0018114      0.00211993
+      12     125856789      0.00181943      0.00211337
+      13     126056789      0.00181665      0.00208601
+      14     126256789      0.00181126      0.00213294
+      15     126456789       0.0018085      0.00210697
+      16     126656789      0.00180808      0.00211501
+      17     126856789      0.00181321      0.00209911
+      18     127056789      0.00180416      0.00209544
+      19     127256789      0.00180089      0.00213174
+      20     127456789      0.00180682      0.00211023
+      21     127656789      0.00181057      0.00213964
+      22     127856789       0.0018121      0.00212605
+      23     128056789      0.00180407      0.00211568
+      24     128256789      0.00181744      0.00210678
+      25     128456789       0.0018117         0.00211
+      26     128656789      0.00181826      0.00209357
+      27     128856789      0.00181353      0.00208902
+      28     129056789       0.0018192      0.00208509
+      29     129256789      0.00181376      0.00207764
+      30     129456789      0.00180973      0.00207662
+      31     129656789      0.00181504       0.0020693
+      32     129856789       0.0018158      0.00207648
+      33     130056789      0.00180855      0.00207196
+      34     130256789      0.00181569      0.00206854
+      35     130456789      0.00181669      0.00206711
+      36     130656789      0.00181194      0.00207159
+      37     130856789      0.00181215       0.0020653
+      38     131056789      0.00182008      0.00206647
+      39     131256789      0.00181575      0.00206399
+      40     131456789      0.00181113      0.00205667
+      41     131656789      0.00181501      0.00206325
+      42     131856789      0.00180967      0.00205935
+      43     132056789      0.00181386      0.00206131
+      44     132256789      0.00180846      0.00206126
+      45     132456789      0.00181239      0.00206288
+      46     132656789      0.00181493       0.0020592
+      47     132856789      0.00181186      0.00206294
+      48     133056789       0.0018145      0.00206093
+      49     133256789      0.00180699      0.00205651
+      50     133456789      0.00180586      0.00205291
+
+CCVT_BOX:
+  Normal end of execution.
+
+03 December 2004 02:56:07 PM

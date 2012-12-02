@@ -1,0 +1,69 @@
+03 March 2008 09:12:42 AM
+
+INT_EXACTNESS_GEGENBAUER
+  C++ version
+
+  Investigate the polynomial exactness of a Gauss-Gegenbauer
+  quadrature rule by integrating exponentially weighted
+  monomials up to a given degree over the (-oo,+oo) interval.
+
+INT_EXACTNESS_GEGENBAUER: User input:
+  Quadrature rule X file = "gegen_o4_a0.5_x.txt".
+  Quadrature rule W file = "gegen_o4_a0.5_w.txt".
+  Quadrature rule R file = "gegen_o4_a0.5_r.txt".
+  Maximum degree to check = 10
+  Exponent of (1-x^2), ALPHA = 0.5
+
+  Spatial dimension = 1
+  Number of points  = 4
+
+  The quadrature rule to be tested is
+  a Gauss-Gegenbauer rule
+  ORDER = 4
+  ALPHA = 0.5
+
+  Standard rule:
+    Integral ( -1 <= x <= +1 ) (1-x^2)^alpha f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =        0.217078713422706
+  w[ 1] =       0.5683194499747424
+  w[ 2] =       0.5683194499747424
+  w[ 3] =        0.217078713422706
+
+  Abscissas X:
+
+  x[ 0] =      -0.8090169943749475
+  x[ 1] =      -0.3090169943749475
+  x[ 2] =       0.3090169943749474
+  x[ 3] =       0.8090169943749475
+
+  Region R:
+
+  r[ 0] =                       -1
+  r[ 1] =                        1
+
+  A Gauss-Gegenbauer rule would be able to exactly
+  integrate monomials up to and including degree = 7
+
+          Error          Degree
+
+     7.067899292141143e-16   0
+     5.551115123125783e-17   1
+     1.413579858428229e-16   2
+                         0   3
+     4.240739575284687e-16   4
+                         0   5
+     1.130863886742583e-16   6
+                         0   7
+       0.07142857142857166   8
+                         0   9
+        0.1904761904761884  10
+
+INT_EXACTNESS_GEGENBAUER:
+  Normal end of execution.
+
+03 March 2008 09:12:42 AM

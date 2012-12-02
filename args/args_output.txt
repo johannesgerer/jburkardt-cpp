@@ -1,0 +1,12 @@
+
+ARGS
+  Print the command line arguments associated with a C++ program.
+
+  Compiled on Nov 24 2002 at 13:20:04.
+
+  ARGC reports the number of arguments as 4.
+
+0  args
+1  17
+2  apple
+3  3.14159

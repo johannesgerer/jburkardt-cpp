@@ -1,0 +1,152 @@
+16 February 2012 11:37:34 PM
+
+TEST_OPT_CON_PRB
+  C++ version
+  Test the TEST_OPT_CON library.
+
+TEST01
+  For each problem, print the title.
+
+  Problem    Title
+
+       1  f(x) = - exp(prod(x)) * sin(sum(x)).
+       2  f(x) = - exp(x(1)*x(2)^2*x(3)^3*x(4)^4) * sin(sum(x)).
+       3  f(x) = -1000 * product(x) * exp(-x(1)-2x(2)-3x(3)-4x(4)).
+       4  f(x) = -100 * product(x) * exp(-x(4)) / (1+x(1)+x(2)+x(3)).
+       5  f(x) = (x(1)-3/11)^2+(x(2)-6/13)^2+(x(3)-12/23)^4+(x(4)-8/37)^6
+       6  f(x) = - sin(1/x(1)+1/x(2)+1/x(3)+1/x(4))
+       7  f(x) = Langerman2 function
+       8  f(x) = Langerman10 function
+
+TEST02
+  For each problem, evaluate the function at many points.
+  Number of sample points = 100000
+
+  Problem 1
+  f(x) = - exp(prod(x)) * sin(sum(x)).
+  M =     4
+
+    I      A(i)      B(i)
+
+     0           0           1
+     1           0           1
+     2           0           1
+     3           0           1
+
+  Max(F) = 1.61628
+  Min(F) = -1.02605
+  F(X*)  = -1.0262
+
+  Problem 2
+  f(x) = - exp(x(1)*x(2)^2*x(3)^3*x(4)^4) * sin(sum(x)).
+  M =     4
+
+    I      A(i)      B(i)
+
+     0           0           1
+     1           0           1
+     2           0           1
+     3           0           1
+
+  Max(F) = 1.4485
+  Min(F) = -1.00024
+  F(X*)  = -1.00009
+
+  Problem 3
+  f(x) = -1000 * product(x) * exp(-x(1)-2x(2)-3x(3)-4x(4)).
+  M =     4
+
+    I      A(i)      B(i)
+
+     0           0           1
+     1           0           1
+     2           0           1
+     3           0           1
+
+  Max(F) = -9.73845e-06
+  Min(F) = -7.60389
+  F(X*)  = -7.63152
+
+  Problem 4
+  f(x) = -100 * product(x) * exp(-x(4)) / (1+x(1)+x(2)+x(3)).
+  M =     4
+
+    I      A(i)      B(i)
+
+     0           0           1
+     1           0           1
+     2           0           1
+     3           0           1
+
+  Max(F) = -1.12023e-06
+  Min(F) = -9.1646
+  F(X*)  = -9.19699
+
+  Problem 5
+  f(x) = (x(1)-3/11)^2+(x(2)-6/13)^2+(x(3)-12/23)^4+(x(4)-8/37)^6
+  M =     4
+
+    I      A(i)      B(i)
+
+     0           0           1
+     1           0           1
+     2           0           1
+     3           0           1
+
+  Max(F) = 0.989515
+  Min(F) = 5.56688e-05
+  F(X*)  = 0
+
+  Problem 6
+  f(x) = - sin(1/x(1)+1/x(2)+1/x(3)+1/x(4))
+  M =     4
+
+    I      A(i)      B(i)
+
+     0           0           1
+     1           0           1
+     2           0           1
+     3           0           1
+
+  Max(F) = 1
+  Min(F) = -1
+  F(X*)  = -1
+
+  Problem 7
+  f(x) = Langerman2 function
+  M =     2
+
+    I      A(i)      B(i)
+
+     0           0          10
+     1           0          10
+
+  Max(F) = 4.14305
+  Min(F) = -5.16201
+  X* is not given.
+
+  Problem 8
+  f(x) = Langerman10 function
+  M =     10
+
+    I      A(i)      B(i)
+
+     0           0          10
+     1           0          10
+     2           0          10
+     3           0          10
+     4           0          10
+     5           0          10
+     6           0          10
+     7           0          10
+     8           0          10
+     9           0          10
+
+  Max(F) = 0.0859384
+  Min(F) = -0.0922961
+  X* is not given.
+
+TEST_OPT_CON_PRB
+  Normal end of execution.
+
+16 February 2012 11:37:35 PM

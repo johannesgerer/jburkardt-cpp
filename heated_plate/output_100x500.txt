@@ -1,0 +1,33 @@
+
+HEATED_PLATE
+  C++ version
+  A program to solve for the steady state temperature distribution
+  over a rectangular plate.
+
+  Spatial grid of 100 by 500 points.
+
+  The iteration will be repeated until the change is <= 0.01
+
+  The steady state solution will be written to "sol_100x500.txt"
+ Iteration  Change
+
+         1  20.903
+         2  7.83863
+         4  3.5927
+         8  1.87545
+        16  0.93884
+        32  0.467819
+        64  0.23446
+       128  0.117462
+       256  0.058777
+       512  0.0293952
+      1024  0.0143026
+
+      1353  0.00999608
+
+  Error tolerance achieved.
+  CPU time = 5.33717
+
+  Solution written to the output file "sol_100x500.txt
+HEATED_PLATE:
+  Normal end of execution.

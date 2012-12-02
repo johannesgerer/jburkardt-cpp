@@ -1,0 +1,524 @@
+<html>
+
+  <head>
+    <title>
+      SANDIA_RULES2 - Interface Functions for SANDIA_RULES
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SANDIA_RULES2 <br> Interface Functions for SANDIA_RULES
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SANDIA_RULES2</b>
+      is a C++ library which
+      contains a special set of interface functions to be used when
+      SANDIA_SGMG or SANDIA_SGMGA wish to call SANDIA_RULES for quadrature rules.
+    </p>
+
+    <p>
+      The environment in which SANDIA_SGMG and SANDIA_SGMGA are used means
+      that it is inconvenient to pass extra parameters that might be needed
+      to define a particular quadrature rule; in particular, the generalized
+      Hermite, generalized Laguerre, and Jacobi quadrature rules require one
+      or two parameters for a complete definition.
+    </p>
+
+    <p>
+      These two libraries arrange for the parameters to be available through
+      class mechanisms, so that they do not appear in the parameter list.
+      In an attempt to reproduce that environment, SANDIA_RULES2 supplies
+      the corresponding "parameter free" calling sequences for the
+      quadrature rules.  In order to make this scheme actually work,
+      we declare (but do not produce) a function called <b>parameter ( )</b>
+      which is presumed to be able to return the necessary information.
+    </p>
+
+    <p>
+      If a user wishes to test the SANDIA_RULES2 code, it is then necessary
+      to supply a version of the <b>parameter</b> function.  An example is
+      exhibited in the test code.  It is of little importance that this interface
+      is awkward.  We are simply emulating the way the system works elsewhere
+      because we need to make sure that the results are computed correctly!
+    </p>
+
+    <p>
+      <table border=1>
+        <tr>
+          <th>Index</th>
+          <th>Name</th>
+          <th>Abbreviation</th>
+          <th>Default Growth Rule</th>
+          <th>Interval</th>
+          <th>Weight function</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Clenshaw-Curtis</td>
+          <td>CC</td>
+          <td>Moderate Exponential</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Fejer Type 2</td>
+          <td>F2</td>
+          <td>Moderate Exponential</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Gauss Patterson</td>
+          <td>GP</td>
+          <td>Moderate Exponential</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Gauss-Legendre</td>
+          <td>GL</td>
+          <td>Moderate Linear</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Gauss-Hermite</td>
+          <td>GH</td>
+          <td>Moderate Linear</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Generalized Gauss-Hermite</td>
+          <td>GGH</td>
+          <td>Moderate Linear</td>
+          <td>(-oo,+oo)</td>
+          <td>|x|<sup>alpha</sup> e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Gauss-Laguerre</td>
+          <td>LG</td>
+          <td>Moderate Linear</td>
+          <td>[0,+oo)</td>
+          <td>e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Generalized Gauss-Laguerre</td>
+          <td>GLG</td>
+          <td>Moderate Linear</td>
+          <td>[0,+oo)</td>
+          <td>x<sup>alpha</sup> e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Gauss-Jacobi</td>
+          <td>GJ</td>
+          <td>Moderate Linear</td>
+          <td>[-1,+1]</td>
+          <td>(1-x)<sup>alpha</sup> (1+x)<sup>beta</sup></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Hermite Genz-Keister</td>
+          <td>HGK</td>
+          <td>Moderate Exponential</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>User-supplied Open Rule</td>
+          <td>UO</td>
+          <td>Moderate Linear</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>User-supplied Closed Rule</td>
+          <td>UC</td>
+          <td>Moderate Linear</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+      </table>
+    </p>
+
+    <p>
+      Also included in this library are functions for Newton-Cotes Open ("NCO")
+      and Newton-Cotes Closed ("NCC") rules, which can be used as "User Supplied"
+      rules.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/chebyshev1_rule/chebyshev1_rule.html">
+      CHEBYSHEV1_RULE</a>,
+      a C++ program which
+      can compute and print a Gauss-Chebyshev type 1 quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/chebyshev2_rule/chebyshev2_rule.html">
+      CHEBYSHEV2_RULE</a>,
+      a C++ program which
+      can compute and print a Gauss-Chebyshev type 2 quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gegenbauer_rule/gegenbauer_rule.html">
+      GEGENBAUER_RULE</a>,
+      a C++ program which
+      can compute and print a Gauss-Gegenbauer quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gen_hermite_rule/gen_hermite_rule.html">
+      GEN_HERMITE_RULE</a>,
+      a C++ program which
+      can compute and print a generalized Gauss-Hermite quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gen_laguerre_rule/gen_laguerre_rule.html">
+      GEN_LAGUERRE_RULE</a>,
+      a C++ program which
+      can compute and print a generalized Gauss-Laguerre quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hermite_rule/hermite_rule.html">
+      HERMITE_RULE</a>,
+      a C++ program which
+      can compute and print a Gauss-Hermite quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/jacobi_rule/jacobi_rule.html">
+      JACOBI_RULE</a>,
+      a C++ program which
+      can compute and print a Gauss-Jacobi quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/laguerre_rule/laguerre_rule.html">
+      LAGUERRE_RULE</a>,
+      a C++ program which
+      can compute and print a Gauss-Laguerre quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/legendre_rule/legendre_rule.html">
+      LEGENDRE_RULE</a>,
+      a C++ program which
+      can compute and print a Gauss-Legendre quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule/quadrule.html">
+      QUADRULE</a>,
+      a C++ library which
+      defines 1-dimensional quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_rules/sandia_rules.html">
+      SANDIA_RULES</a>,
+      a C++ library which
+      produces 1D quadrature rules of
+      Chebyshev, Clenshaw Curtis, Fejer 2, Gegenbauer, generalized Hermite,
+      generalized Laguerre, Hermite, Jacobi, Laguerre, Legendre and Patterson types.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_sgmg/sandia_sgmg.html">
+      SANDIA_SGMG</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules,
+      and experiments with the use of a linear growth rate for the quadrature rules.
+      This is a version of SPARSE_GRID_MIXED_GROWTH that uses a different procedure
+      for supplying the parameters needed to evaluate certain quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_sgmga/sandia_sgmga.html">
+      SANDIA_SGMGA</a>,
+      a C++ library which
+      creates sparse grids based on a mixture of 1D quadrature rules,
+      allowing anisotropic weights for each dimension.
+      This is a version of SGMGA that uses a different procedure
+      for supplying the parameters needed to evaluate certain quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgmga/sgmga.html">
+      SGMGA</a>,
+      a C++ library which
+      creates sparse grids based on a mixture of 1D quadrature rules,
+      allowing anisotropic weights for each dimension.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_grid_mixed/sparse_grid_mixed.html">
+      SPARSE_GRID_MIXED</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_grid_mixed_growth/sparse_grid_mixed_growth.html">
+      SPARSE_GRID_MIXED_GROWTH</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules,
+      and experiments with the use of a linear growth rate for the quadrature rules.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Milton Abramowitz, Irene Stegun,<br>
+          Handbook of Mathematical Functions,<br>
+          National Bureau of Standards, 1964,<br>
+          ISBN: 0-486-61272-4,<br>
+          LC: QA47.A34.
+        </li>
+        <li>
+          William Cody,<br>
+          An Overview of Software Development for Special Functions,<br>
+          in Numerical Analysis Dundee, 1975,<br>
+          edited by GA Watson,<br>
+          Lecture Notes in Mathematics 506,<br>
+          Springer, 1976.
+        </li>
+        <li>
+          Philip Davis, Philip Rabinowitz,<br>
+          Methods of Numerical Integration,<br>
+          Second Edition,<br>
+          Dover, 2007,<br>
+          ISBN: 0486453391,<br>
+          LC: QA299.3.D28.
+        </li>
+        <li>
+          Alan Genz, Bradley Keister,<br>
+          Fully symmetric interpolatory rules for multiple integrals
+          over infinite regions with Gaussian weight,<br>
+          Journal of Computational and Applied Mathematics,<br>
+          Volume 71, 1996, pages 299-309.
+        </li>
+        <li>
+          John Hart, Ward Cheney, Charles Lawson, Hans Maehly,
+          Charles Mesztenyi, John Rice, Henry Thatcher,
+          Christoph Witzgall,<br>
+          Computer Approximations,<br>
+          Wiley, 1968,<br>
+          LC: QA297.C64.
+        </li>
+        <li>
+          Knut Petras,<br>
+          Smolyak Cubature of Given Polynomial Degree with Few Nodes
+          for Increasing Dimension,<br>
+          Numerische Mathematik,<br>
+          Volume 93, Number 4, February 2003, pages 729-753.
+        </li>
+        <li>
+          Arthur Stroud, Don Secrest,<br>
+          Gaussian Quadrature Formulas,<br>
+          Prentice Hall, 1966,<br>
+          LC: QA299.4G3S7.
+        </li>
+        <li>
+          Shanjie Zhang, Jianming Jin,<br>
+          Computation of Special Functions,<br>
+          Wiley, 1996,<br>
+          ISBN: 0-471-11963-6,<br>
+          LC: QA351.C45
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sandia_rules2.cpp">sandia_rules2.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "sandia_rules2.hpp">sandia_rules2.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "sandia_rules2.sh">sandia_rules2.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sandia_rules2_prb.cpp">sandia_rules2_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "sandia_rules2_prb.sh">sandia_rules2_prb.sh</a>,
+          commands to compile, link and run the sample calling program.
+        </li>
+        <li>
+          <a href = "sandia_rules2_prb_output.txt">sandia_rules2_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CCN_POINTS</b> computes nested Clenshaw Curtis quadrature points.
+        </li>
+        <li>
+          <b>CCN_WEIGHTS</b> computes nested Clenshaw Curtis quadrature weights.
+        </li>
+        <li>
+          <b>CLENSHAW_CURTIS_POINTS</b> computes Clenshaw Curtis quadrature points.
+        </li>
+        <li>
+          <b>CLENSHAW_CURTIS_WEIGHTS</b> computes Clenshaw Curtis quadrature weights.
+        </li>
+        <li>
+          <b>FEJER2_POINTS</b> computes Fejer type 2 quadrature points.
+        </li>
+        <li>
+          <b>FEJER2_WEIGHTS</b> computes Fejer type 2 quadrature weights.
+        </li>
+        <li>
+          <b>GEN_HERMITE_POINTS:</b> Generalized Hermite quadrature points.
+        </li>
+        <li>
+          <b>GEN_HERMITE_WEIGHTS:</b> Generalized Hermite quadrature weights.
+        </li>
+        <li>
+          <b>GEN_LAGUERRE_POINTS:</b> Generalized Laguerre quadrature points.
+        </li>
+        <li>
+          <b>GEN_LAGUERRE_WEIGHTS:</b> Generalized Laguerre quadrature weights.
+        </li>
+        <li>
+          <b>HCC_POINTS</b> computes Hermite-Cubic-Chebyshev-Spacing quadrature points.
+        </li>
+        <li>
+          <b>HCC_WEIGHTS</b> computes Hermite-Cubic-Chebyshev-Spacing quadrature weights.
+        </li>
+        <li>
+          <b>HCE_POINTS</b> computes Hermite-Cubic-Equal-Spacing quadrature points.
+        </li>
+        <li>
+          <b>HCE_WEIGHTS</b> computes Hermite-Cubic-Equal-Spacing quadrature weights.
+        </li>
+        <li>
+          <b>HERMITE_GENZ_KEISTER_POINTS</b> looks up Genz-Keister Hermite abscissas.
+        </li>
+        <li>
+          <b>HERMITE_GENZ_KEISTER_WEIGHTS</b> looks up Genz-Keister Hermite weights.
+        </li>
+        <li>
+          <b>HERMITE_POINTS</b> computes Hermite quadrature points.
+        </li>
+        <li>
+          <b>HERMITE_WEIGHTS</b> computes Hermite quadrature weights.
+        </li>
+        <li>
+          <b>JACOBI_POINTS</b> computes Jacobi quadrature points.
+        </li>
+        <li>
+          <b>JACOBI_WEIGHTS</b> computes Jacobi quadrature weights.
+        </li>
+        <li>
+          <b>LAGUERRE_POINTS</b> computes Laguerre quadrature points.
+        </li>
+        <li>
+          <b>LAGUERRE_WEIGHTS</b> computes Laguerre quadrature weights.
+        </li>
+        <li>
+          <b>LEGENDRE_POINTS</b> computes Legendre quadrature points.
+        </li>
+        <li>
+          <b>LEGENDRE_WEIGHTS</b> computes Legendre quadrature weights.
+        </li>
+        <li>
+          <b>NCC_POINTS</b> computes Newton Cotes Closed quadrature points.
+        </li>
+        <li>
+          <b>NCC_WEIGHTS</b> computes Newton Cotes Closed quadrature weights.
+        </li>
+        <li>
+          <b>NCO_POINTS</b> computes Newton Cotes Open quadrature points.
+        </li>
+        <li>
+          <b>NCO_WEIGHTS</b> computes Newton Cotes Open quadrature weights.
+        </li>
+        <li>
+          <b>PATTERSON_POINTS</b> looks up Patterson quadrature points.
+        </li>
+        <li>
+          <b>PATTERSON_WEIGHTS</b> looks up Patterson quadrature weights.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 03 August 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -1,0 +1,15 @@
+
+SURFACE_GRID:
+  C++ version:
+  Use DISLIN to plot Z(X,Y) data as a surface.
+
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ <<                END OF DISLIN / VERSION 10.1                  <<
+ <<  Date    : 19.05.2011  Time    : 20:16:35  Pageformat: USAP  <<
+ <<  Vectors : 3663        Warnings: 0         Fileformat:  PNG  <<
+ <<  Metafile: surface_grid.png                                  <<
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+SURFACE_GRID:
+  Normal end of execution.

@@ -1,0 +1,230 @@
+<html>
+
+  <head>
+    <title>
+      MINPACK - Least Squares Minimization
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MINPACK <br> Least Squares Minimization
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MINPACK</b>
+      is a C++ library which
+      solves systems of nonlinear equations, or carries out the
+      least squares minimization of the residual of a set of linear or nonlinear equations.
+    </p>
+
+    <p>
+      <b>MINPACK</b>  includes software for solving nonlinear equations and
+      nonlinear least squares problems.  Five algorithmic paths each include
+      a core subroutine and an easy-to-use driver.  The algorithms proceed
+      either from an analytic specification of the Jacobian matrix or
+      directly from the problem functions.  The paths include facilities for
+      systems of equations with a banded Jacobian matrix, for least squares
+      problems with a large amount of data, and for checking the consistency
+      of the Jacobian matrix with the functions.
+    </p>
+
+    <p>
+      Given a set of N nonlinear equations in N unknowns, F(X) = 0,
+      Powell's method is used to seek a solution X.
+    </p>
+
+    <p>
+      Given a set of M nonlinear functions in N unknowns, F(X),
+      the Levenberg-Marquardt method is used to seek an X which minimizes
+      the L2 norm of the residual ||F(X)||.
+    </p>
+
+    <p>
+      The user supplies a subroutine to evaluate the nonlinear function;
+      the jacobian matrix dFi(X)/dXj may also be supplied by the user
+      in a subroutine, or approximated by finite differences.
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>MINPACK</b> is available in
+      <a href = "../../cpp_src/minpack/minpack.html">a C++ version</a> and
+      <a href = "../../f77_src/minpack/minpack.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/minpack/minpack.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/llsq/llsq.html">
+      LLSQ</a>,
+      a C++ library which
+      solves the simple linear least squares problem of finding the formula
+      of a straight line y=a*x+b which minimizes the root-mean-square error
+      to a set of N data points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/qr_solve/qr_solve.html">
+      QR_SOLVE</a>,
+      a C++ library which
+      computes the least squares solution of a linear system A*x=b.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_ls/test_ls.html">
+      TEST_LS</a>,
+      a C++ library which
+      implements linear least squares test problems of the form A*x=b.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Jorge More, Burton Garbow, Kenneth Hillstrom,<br>
+          User Guide for MINPACK-1,<br>
+          Technical Report ANL-80-74,<br>
+          Argonne National Laboratory, 1980.
+        </li>
+        <li>
+          Jorge More, Danny Sorenson, Burton Garbow, Kenneth Hillstrom,<br>
+          The MINPACK Project,<br>
+          in Sources and Development of Mathematical Software,<br>
+          edited by Wayne Cowell,<br>
+          Prentice-Hall, 1984,<br>
+          ISBN: 0-13-823501-5,<br>
+          LC: QA76.95.S68.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "minpack.cpp">minpack.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "minpack.hpp">minpack.hpp</a>, the include file;
+        </li>
+        <li>
+          <a href = "minpack.sh">minpack.sh</a>,
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "minpack_prb.cpp">minpack_prb.cpp</a>, sample calling code;
+        </li>
+        <li>
+          <a href = "minpack_prb.sh">minpack_prb.sh</a>,
+          commands to compile, link and run the sample calling code;
+        </li>
+        <li>
+          <a href = "minpack_prb_output.txt">minpack_prb_output.txt</a>, sample output;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CHKDER</b> checks the gradients of M functions in N variables.
+        </li>
+        <li>
+          <b>DOGLEG</b> combines Gauss-Newton and gradient for a minimizing step.
+        </li>
+        <li>
+          <b>ENORM</b> returns the Euclidean norm of a vector.
+        </li>
+        <li>
+          <b>FDJAC1</b> estimates an N by N Jacobian matrix using forward differences.
+        </li>
+        <li>
+          <b>FDJAC2</b> estimates an M by N Jacobian matrix using forward differences.
+        </li>
+        <li>
+          <b>HYBRD1</b> is a simplified interface to HYBRD.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>QRFORM</b> constructs the standard form of Q from its factored form.
+        </li>
+        <li>
+          <b>QRFAC</b> computes the QR factorization of an M by N matrix.
+        </li>
+        <li>
+          <b>R1UPDT</b> updates the Q factor after a rank one update of the matrix.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8_EPSILON</b> returns the R8 roundoff unit.
+        </li>
+        <li>
+          <b>R8_HUGE</b> returns a "huge" R8.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_MIN</b> returns the minimum of two R8's.
+        </li>
+        <li>
+          <b>R8_TINY</b> returns a "tiny" R8.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 06 April 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,22 @@
+25 December 2011 09:51:47 AM
+
+IMAGE_DENOISE_PRB
+  C++ version
+  Test the IMAGE_DENOISE library.
+
+TEST01:
+  GRAY_MEDIAN_NEWS uses a NEWS median filter 
+  on a noisy grayscale image.
+
+  The input file is "glassware_noisy.ascii.pgm".
+
+  Number of rows =          320
+  Number of columns =       428
+  Maximum pixel intensity = 255
+
+  Wrote denoised image to "glassware_median_news.ascii.pgm".
+
+IMAGE_DENOISE_PRB
+  Normal end of execution.
+
+25 December 2011 09:51:47 AM

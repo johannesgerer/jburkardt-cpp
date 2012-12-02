@@ -1,0 +1,51 @@
+05 July 2007 05:08:08 AM
+
+NINT_EXACTNESS_TET
+  C++ version
+
+  Investigate the polynomial exactness of a quadrature
+  rule for the tetrahedron by integrating all monomials
+  of a given degree.
+
+  The rule will be adjusted to the unit tetrahedron.
+
+NINT_EXACTNESS_TET: User input:
+  Quadrature rule X file = "nco2_x.txt".
+  Quadrature rule W file = "nco2_w.txt".
+  Quadrature rule R file = "nco2_r.txt".
+  Maximum total degree to check = 3
+
+  Spatial dimension = 3
+  Number of points  = 10
+
+      Error    Degree  Exponents
+
+   2.22045e-16      0   0 0 0
+
+   8.88178e-16      1   1 0 0
+   8.88178e-16      1   0 1 0
+   4.44089e-16      1   0 0 1
+
+             0      2   2 0 0
+   6.66134e-16      2   1 1 0
+             0      2   0 2 0
+   6.66134e-16      2   1 0 1
+   6.66134e-16      2   0 1 1
+   2.22045e-16      2   0 0 2
+
+     0.0277778      3   3 0 0
+     0.0277778      3   2 1 0
+     0.0277778      3   1 2 0
+     0.0277778      3   0 3 0
+     0.0277778      3   2 0 1
+     0.0555556      3   1 1 1
+     0.0277778      3   0 2 1
+     0.0277778      3   1 0 2
+     0.0277778      3   0 1 2
+     0.0277778      3   0 0 3
+
+
+'NINT_EXACTNESS_TET:
+  Normal end of execution.
+
+05 July 2007 05:08:08 AM

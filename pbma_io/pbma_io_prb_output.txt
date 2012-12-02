@@ -1,0 +1,66 @@
+24 December 2011 11:06:28 AM
+
+PBMA_IO_PRB:
+  C++ version
+  Test the PBMA_IO library.
+
+TEST01:
+  PBMA_EXAMPLE sets up ASCII PBM data.
+  PBMA_WRITE writes an ASCII PBM file.
+
+  Writing the file "pbma_io_prb_01.ascii.pbm".
+
+  PBMA_EXAMPLE has set up the data.
+
+  PBMA_WRITE was successful.
+
+  PBMA_READ was able to read "pbma_io_prb_01.ascii.pbm".
+
+  PBMA_CHECK_DATA approved the data from the file.
+
+  PBMA_READ_TEST was able to read the file.
+
+TEST02
+  PBMA_READ reads the header and data of an ASCII PBM file.
+
+  PBMA_WRITE_TEST created some test data.
+
+  PBMA_READ was able to read the file we created.
+
+  Sample data:
+
+   0     0       0
+   6     6       0
+  13    13       0
+  20    20       0
+  27    27       0
+  34    34       0
+  41    41       0
+  48    48       1
+  54    54       0
+  61    61       0
+  68    68       0
+  75    75       0
+  82    82       0
+  89    89       0
+  96    96       0
+ 102   102       0
+ 109   109       0
+ 116   116       0
+ 123   123       0
+ 130   130       0
+ 137   137       0
+ 144   144       0
+ 150   150       1
+ 157   157       0
+ 164   164       0
+ 171   171       0
+ 178   178       0
+ 185   185       0
+ 192   192       0
+ 199   199       0
+
+PBMA_IO_PRB:
+  Normal end of execution.
+
+24 December 2011 11:06:28 AM

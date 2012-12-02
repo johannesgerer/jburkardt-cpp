@@ -1,0 +1,209 @@
+<html>
+
+  <head>
+    <title>
+      FEM2D_NAVIER_STOKES_CHANNEL - 2D Navier Stokes Channel Problem
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM2D_NAVIER_STOKES_CHANNEL <br> 2D Navier Stokes Channel Problem
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM2D_NAVIER_STOKES_CHANNEL</b>
+      is a C++ library which
+      supplies information defining a Navier-Stokes flow problem in a channel.
+      The channel is a rectangular region that is 3 units wide and 1 unit
+      high.  This problem is used as a test case for the Navier-Stokes solver.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      To run the problem directly, you only need the user-supplied routines
+      in <b>channel.C</b>, the node data in <b>nodes6.txt</b>, and the
+      element data in <b>triangles6.txt</b>.
+    </p>
+
+    <p>
+      You compile and link the Navier Stokes solver with <b>channel.cpp</b>,
+      using commands like:
+      <pre>
+        g++ fem2d_navier_stokes.cpp channel.cpp
+        mv a.out channel
+      </pre>
+      and then run the program with the command
+      <pre>
+        ./channel nodes6.txt triangles6.txt
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+   <p>
+      <b>FEM2D_NAVIER_STOKES_CHANNEL</b> is available in
+      <a href = "../../cpp_src/fem2d_navier_stokes_channel/fem2d_navier_stokes_channel.html">a C++ version</a> and
+      <a href = "../../f_src/fem2d_navier_stokes_channel/fem2d_navier_stokes_channel.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/fem2d_navier_stokes_channel/fem2d_navier_stokes_channel.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_navier_stokes/fem2d_navier_stokes.html">
+      FEM2D_NAVIER_STOKES</a>,
+      a C++ program which
+      applies the finite element method to a 2D Navier Stokes flow problem with user input.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      Some of the files needed to run the problem include:
+      <ul>
+        <li>
+          <a href = "channel.cpp">channel.cpp</a>,
+          the user-supplied routines to evaluate the right hand side
+          and boundary conditions;
+        </li>
+        <li>
+          <a href = "channel.sh">channel.sh</a>,
+          commands to compile the user routines, link them with
+          the partial program, and run the program;
+        </li>
+        <li>
+          <a href = "channel_output.txt">channel_output.txt</a>,
+          output from a run of the program;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The pressures are associated with a subset of the full set of
+      nodes, and with an order 3 triangulation of those nodes.
+      Note that, in the order 3 triangulation, the nodes are renumbered,
+      and do NOT inherit the labels used in the order 6 triangulation.
+      <ul>
+        <li>
+          <a href = "nodes3.txt">nodes3.txt</a>,
+          a text file containing the pressure nodes;
+        </li>
+        <li>
+          <a href = "nodes3.png">nodes3.png</a>,
+          a PNG image of
+          the pressure nodes, created by
+          <a href = "../../f_src/plot_points/plot_points.html">
+          PLOT_POINTS</a>;
+        </li>
+        <li>
+          <a href = "triangles3.txt">triangles3.txt</a>,
+          the linear triangulation;
+        </li>
+        <li>
+          <a href = "triangles3.png">triangles3.png</a>,
+          a PNG image of
+          the linear triangulation produced by
+          <a href =
+          "../../cpp_src/triangulation_plot/triangulation_plot.html">
+          TRIANGULATION_PLOT</a>.
+        </li>
+        <li>
+          <a href = "pressure3.txt">pressure3.txt</a>,
+          a text file containing the pressure P at each linear node;
+        </li>
+        <li>
+          <a href = "pressure3.png">pressure3.png</a>,
+          a PNG image of
+          a contour plot of the pressure, produced by
+          <a href =
+          "../../m_src/triangulation_order3_contour/triangulation_order3_contour.html">
+          TRIANGULATION_ORDER3_CONTOUR</a>.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The velocities are associated with the full set of
+      nodes, and with an order 6 triangulation of those nodes.
+      <ul>
+        <li>
+          <a href = "nodes6.txt">nodes6.txt</a>,
+          a text file containing the velocity nodes;
+        </li>
+        <li>
+          <a href = "nodes6.png">nodes6.png</a>,
+          a PNG image of
+          the velocity nodes (based on EPS files output directly
+          by FEM2D_NAVIER_STOKES);
+        </li>
+        <li>
+          <a href = "triangles6.txt">triangles6.txt</a>,
+          the quadratic triangulation;
+        </li>
+        <li>
+          <a href = "triangles6.png">triangles6.png</a>,
+          a PNG image of
+          the order 6 triangulation (based on EPS files output directly
+          by FEM2D_NAVIER_STOKES);
+        </li>
+        <li>
+          <a href = "velocity6.txt">velocity6.txt</a>,
+          a text file containing the velocity (U,V) at each velocity node;
+        </li>
+        <li>
+          <a href = "velocity6_dir.png">velocity6_dir.png</a>,
+          a PNG image of
+          the direction field, created by
+          <a href = "../../f_src/vector_plot/vector_plot.html">
+          VECTOR_PLOT.</a>
+        </li>
+        <li>
+          <a href = "velocity6_vec.png">velocity6_vec.png</a>,
+          a PNG image of
+          the velocity field, created by
+          <a href = "../../f_src/vector_plot/vector_plot.html">
+          VECTOR_PLOT.</a>
+        </li>
+        <li>
+          <a href = "velocity6_arrows.png">velocity6_arrows.png</a>,
+          a PNG image of the velocity field, created by
+          <a href = "../../m_src/velocity_arrows/velocity_arrows.html">
+          VELOCITY_ARROWS.</a>
+        </li>
+      </ul>
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 08 September 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

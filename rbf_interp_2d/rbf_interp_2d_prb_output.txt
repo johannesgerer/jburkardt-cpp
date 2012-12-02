@@ -1,0 +1,480 @@
+06 October 2012 09:05:39 PM
+
+RBF_INTERP_2D_TEST:
+  C++ version
+  Test the RBF_INTERP_2D library.
+  The R8LIB library is required.
+  This test also needs the TEST_INTERP_2D library.
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 4.49953e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.71396e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.6165e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.14771e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 6.84893e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 9.19084e-17
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 9.25355e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.86043e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 4.53933e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.03663e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.30528e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 5.11836e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 7.08448e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.43919e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 5.54012e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 3.93541e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 3.65016e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 4.45156e-17
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.53302e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 4.26974e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 7.89889e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 9.86322e-17
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 7.20209e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.09913e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 5.83411e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.88273e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 3.65223e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.42883e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 4.38957e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 5.37151e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.5302e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 3.5007e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 8.34021e-13
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 3.20133e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 9.96808e-13
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 3.9115e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 7.75858e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.79551e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.00066e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 4.2918e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.29793e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.02456e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.43858e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.69856e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.64065e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 6.20172e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.26064e-14
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.00793e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  using grid #1
+  using radial basis function "phi1".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 2.26686e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  using grid #1
+  using radial basis function "phi2".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 1.37353e-16
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  using grid #1
+  using radial basis function "phi3".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 3.61153e-15
+
+RBF_INTERP_2D_TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  using grid #1
+  using radial basis function "phi4".
+  Number of data points = 100
+  Setting R0 = 0.108908
+
+  L2 interpolation error averaged per interpolant node = 7.8404e-16
+
+RBF_INTERP_2D_TEST:
+  Normal end of execution.
+
+06 October 2012 09:06:38 PM

@@ -1,0 +1,369 @@
+<html>
+
+  <head>
+    <title>
+      TABLE_BORDER - Add zero boundary values to a table
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TABLE_BORDER <br> Add zero boundary values to a table
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TABLE_BORDER</b>
+      is a C++ program which
+      adds a layer of zero boundary values to a table.
+    </p>
+
+    <p>
+      To understand what's going on, assume that we begin with
+      a set of (scalar) values on an M by N grid; we illustrate with
+      M = 3 and N = 5:
+      <pre>
+        11  12  13  14  15
+        21  22  23  24  25
+        31  32  33  34  35
+      </pre>
+
+    </p>
+
+    <p>
+      Suppose that this data represents the values of some quantity
+      on the interior points of a 5 x 7 grid, and that we'd like
+      to make a new version of the table which includes entries
+      for these boundary values; that is, we want the M+2 by N+2
+      array created by adding one row and column to the beginning
+      and end of the original table, and setting those values to 0.
+      For our example, this would be:
+      <pre>
+         0   0   0   0   0   0   0
+         0  11  12  13  14  15   0
+         0  21  22  23  24  25   0
+         0  31  32  33  34  35   0
+         0   0   0   0   0   0   0
+      </pre>
+    </p>
+
+    <p>
+      The <b>TABLE_BORDER</b> program is designed to do this, using
+      the command line.
+    </p>
+
+    <p>
+      Now we are probably going to be dealing with much larger sets of
+      data, stored in a file.  So we have to figure out the rules for
+      doing that:
+    </p>
+
+    <p>
+      <i>Input file format</i>: The initial data, which is "really" an
+      M by N array, is to be thought of as a vector of length M * N,
+      created by listing the first column, the second column, and so on
+      to the last column.  This data is stored in a file using the
+      <a href = "../../data/table/table.html">TABLE format</a>.  Our
+      example data would be:
+      <pre>
+        # Comments are OK in a file if preceded by the comment character!
+        #
+        11
+        21
+        31
+        12
+        22
+        ...
+        34
+        15
+        25
+        35
+      </pre>
+      We will presume this file is called <i>"u.txt"</i>.
+    </p>
+
+    <p>
+      <i>(Pie in the Sky):</i> In a future version of this program,
+      the data at each node will be allowed to be vector-valued.
+      That's one reason we are forcing the data currently to be listed
+      with just a single value per line in the file!
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>table_border</b> <i>u.txt</i> <i>v.txt</i> <i>3</i> <i>5</i>
+        </dt>
+        <dd>
+          reads the data from <i>u.txt</i>, presumed to contain
+          3 rows by 5 columns, and adds a border to it, and writes
+          the revised data out to <i>v.txt</i>.
+        </dd>
+        <dt>
+          <b>table_border</b>
+        </dt>
+        <dd>
+          in which case the program will interactively request
+          the missing data.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TABLE_BORDER</b> is available in
+      <a href = "../../cpp_src/table_border/table_border.html">a C++ version</a> and
+      <a href = "../../f_src/table_border/table_border.html">a FORTRAN90 version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/table/table.html">
+      TABLE</a>,
+      a file format which
+      is used for the input and output of
+      <b>TABLE_BORDER</b>
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_delaunay/table_delaunay.html">
+      TABLE_DELAUNAY</a>,
+      a C++ program which
+      reads a
+      file of 2d point coordinates and computes the Delaunay triangulation.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_io/table_io.html">
+      TABLE_IO</a>,
+      a C++ library which
+      can read or write
+      a TABLE file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_latinize/table_latinize.html">
+      TABLE_LATINIZE</a>,
+      a C++ program which
+      can read a TABLE file
+      and write out a "latinized" version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_quality/table_quality.html">
+      TABLE_QUALITY</a>,
+      a C++ program which
+      can read a TABLE file
+      and print out measures of the quality of dispersion of the points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_unborder/table_unborder.html">
+      TABLE_UNBORDER</a>,
+      a C++ program which
+      can be used to remove the
+      border from a table file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_voronoi/table_voronoi.html">
+      TABLE_VORONOI</a>,
+      a C++ program which
+      can read a TABLE file
+      describing a set of 2D points, and print out information
+      describing the Voronoi diagram of those points.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "table_border.cpp">table_border.cpp</a>,
+          the source code.
+        </li>
+        <li>
+          <a href = "table_border.sh">table_border.sh</a>,
+          commands to compile and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      Our test data is the results of the command
+      <blockquote>
+        table_border u_01.txt v_01.txt 3 5
+      </blockquote>
+      Note that the program will automatically repeat the command
+      on a numerical sequence of input files!
+      Test files you may copy include:
+      <ul>
+        <li>
+          <a href = "u_01.txt">u_01.txt</a>,
+          input file #1, a 3 by 5 set of data.
+        </li>
+        <li>
+          <a href = "u_02.txt">u_02.txt</a>,
+          input file #2, a 3 by 5 set of data.
+        </li>
+        <li>
+          <a href = "u_03.txt">u_03.txt</a>,
+          input file #3, a 3 by 5 set of data.
+        </li>
+        <li>
+          <a href = "v_01.txt">v_01.txt</a>,
+          output file #1, a 5 by 7 set of data.
+        </li>
+        <li>
+          <a href = "v_02.txt">v_02.txt</a>,
+          output file #2, a 5 by 7 set of data.
+        </li>
+        <li>
+          <a href = "v_03.txt">v_03.txt</a>,
+          output file #3, a 5 by 7 set of data.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for TABLE_BORDER.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_IS_DIGIT</b> returns TRUE if a character is a decimal digit.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DTABLE_DATA_BORDER_ADD</b> adds a "border" to double precision table data.
+        </li>
+        <li>
+          <b>DTABLE_DATA_READ</b> reads the data from a real TABLE file.
+        </li>
+        <li>
+          <b>DTABLE_DATA_WRITE</b> writes data to a real TABLE file.
+        </li>
+        <li>
+          <b>DTABLE_HEADER_READ</b> reads the header from a real TABLE file.
+        </li>
+        <li>
+          <b>DTABLE_HEADER_WRITE</b> writes the header of a real TABLE file.
+        </li>
+        <li>
+          <b>DTABLE_PRINT</b> prints a double precision matrix, with an optional title.
+        </li>
+        <li>
+          <b>DTABLE_PRINT_SOME</b> prints some of a double precision matrix.
+        </li>
+        <li>
+          <b>DTABLE_WRITE</b> writes information to a real TABLE file.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_EXIST</b> reports whether a file exists.
+        </li>
+        <li>
+          <b>FILE_NAME_INC</b> generates the next file name in a series.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_HUGE</b> returns a "huge" integer value, usually the largest legal signed int.
+        </li>
+        <li>
+          <b>I4_INPUT</b> prints a prompt string and reads an integer from the user.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two integers.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two integers.
+        </li>
+        <li>
+          <b>R8_EPSILON</b> returns the R8 round off unit.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TIMESTRING</b> returns the current YMDHMS date as a string.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 12 November 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

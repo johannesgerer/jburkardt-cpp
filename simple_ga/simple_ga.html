@@ -1,0 +1,165 @@
+<html>
+
+  <head>
+    <title>
+      SIMPLE_GA - A Simple Genetic Algorithms
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SIMPLE_GA <br> A Simple Genetic Algorithm
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SIMPLE_GA</b>
+      is a C++ program which
+      implements a simple genetic algorithm,
+      by Dennis Cormier and Sita Raghavan.
+    </p>
+
+    <p>
+      Here, we consider the task of constrained optimization of a scalar function.
+      That is, we have a function F(X), where X is an M-vector satisfying simple
+      constraints for each component I:
+      <pre>
+        X_MIN[I] <= X[I] <= X_MAX[I]
+      </pre>
+      and, subject to those constraints, we seek a vector X which maximizes
+      the value F(X).
+    </p>
+
+    <p>
+      In the example given here, the spatial dimension M is 3, the function
+      F(X) is X[1]^2 - X[1]*X[2] + X[3], and the constraints are
+      <pre>
+        0 <= X[1] <= 5
+        0 <= X[2] <= 5
+       -2 <= X[3] <= 2
+      </pre>
+      The correct solution is [5,0,2].
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Dennis Cormier, Sita Raghavan.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Zbigniew Michalewicz,<br>
+          Genetic Algorithms + Data Structures = Evolution Programs,<br>
+          Third Edition,<br>
+          Springer, 1996,<br>
+          ISBN: 3-540-60676-9,<br>
+          LC: QA76.618.M53.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "simple_ga.cpp">simple_ga.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "simple_ga.sh">simple_ga.sh</a>,
+          commands to compile and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "simple_ga_input.txt">simple_ga_input.txt</a>, an input file.
+        </li>
+        <li>
+          <a href = "simple_ga_output.txt">simple_ga_output.txt</a>, the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> supervises the genetic algorithm.
+        </li>
+        <li>
+          <b>CROSSOVER</b> selects two parents for the single point crossover.
+        </li>
+        <li>
+          <b>ELITIST</b> stores the best member of the previous generation.
+        </li>
+        <li>
+          <b>EVALUATE</b> implements the user-defined valuation function
+        </li>
+        <li>
+          <b>INITIALIZE</b> initializes the genes within the variables bounds.
+        </li>
+        <li>
+          <b>KEEP_THE_BEST</b> keeps track of the best member of the population.
+        </li>
+        <li>
+          <b>MUTATE</b> performs a random uniform mutation.
+        </li>
+        <li>
+          <b>RANDVAL</b> generates a random value within bounds.
+        </li>
+        <li>
+          <b>REPORT</b> reports progress of the simulation.
+        </li>
+        <li>
+          <b>SELECTOR</b> is the selection function.
+        </li>
+        <li>
+          <b>SWAP</b> swaps 2 variables
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>XOVER</b> performs crossover of the two selected parents.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 16 November 2007.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

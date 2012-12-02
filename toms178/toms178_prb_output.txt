@@ -1,0 +1,55 @@
+21 December 2011 01:50:42 PM
+
+TOMS178_PRB:
+  C++ version
+  Test the TOMS178 library.
+
+TEST01
+  HOOKE seeks a minimizer of F(X).
+  Here we use the Rosenbrock function.
+
+  Initial estimate X =
+
+         1            -1.2
+         2               1
+
+  F(X) = 24.2
+
+  Number of iterations taken = 19
+
+  X* = 
+
+         1               1
+         2               1
+
+  F(X*) = 1.51339e-11
+
+TEST02
+  HOOKE seeks a minimizer of F(X).
+  Here we use the Rosenbrock function.
+  Here we use the Woods function.
+
+  Initial estimate X =
+
+         1              -3
+         2              -1
+         3              -3
+         4              -1
+
+  F(X) = 19192
+
+  Number of iterations taken = 19
+
+  X* = 
+
+         1         1.00004
+         2         1.00007
+         3        0.999968
+         4        0.999935
+
+  F(X*) = 4.83269e-09
+
+TOMS178_PRB:
+  Normal end of execution.
+
+21 December 2011 01:50:42 PM

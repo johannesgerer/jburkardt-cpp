@@ -1,0 +1,249 @@
+<html>
+
+  <head>
+    <title>
+      SPHERE_VORONOI_DISPLAY_OPENGL - Display an Approximate Voronoi Diagram on a Sphere
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SPHERE_VORONOI_DISPLAY_OPENGL <br> Display an Approximate Voronoi Diagram on a Sphere
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SPHERE_VORONOI_DISPLAY_OPENGL</b>
+      is a C++ program which
+      picks random points on a sphere as generators, and then gradually
+      colors in neighboring points according to the color of the nearest generator.
+      This, in effect, constructs a Voronoi diagram, or at least, suggests it.
+      The exact calculation of the boundary lines and vertices requires
+      a more precise computation.
+    </p>
+
+    <p>
+      The user is allowed to request the number of generators, and OpenGL is used
+      to display the results.  Initially, the sphere is rotating, but at least on
+      my machine, once I try to display the neighbors, the rotation becomes very
+      slow.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>sphere_voronoi_display_opengl</b> <i>gen_num</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>gen_num</i> is the number of generators,
+        </li>
+      </ul>
+      The first 5 or 6
+      mouse clicks rotate and pause the image of the generators.  The next 20
+      mouse clicks pause the sphere, add 1/10 of the sample points and resume
+      rotation.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fern_opengl/fern_opengl.html">
+      FERN_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the Barnsley fractal fern.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rotating_cube_display_opengl/rotating_cube_display_opengl.html">
+      ROTATING_CUBE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a rotating color cube in 3D, using OpenGL;
+    </p>
+
+    <p>
+      <a href = "../../f_src/sphere_cvt/sphere_cvt.html">
+      SPHERE_CVT</a>,
+      a FORTRAN90 library which
+      creates a mesh of well-separated points on a unit sphere using Centroidal Voronoi
+      Tessellations.
+    </p>
+
+    <p>
+      <a href = "../../m_src/sphere_cvt/sphere_cvt.html">
+      SPHERE_CVT</a>,
+      a MATLAB library which
+      creates a mesh of well-separated points on a unit sphere by applying the
+      Centroidal Voronoi Tessellation (CVT) iteration.
+    </p>
+
+    <p>
+      <a href = "../../m_src/sphere_delaunay/sphere_delaunay.html">
+      SPHERE_DELAUNAY</a>,
+      a MATLAB program which
+      computes the Delaunay triangulation of points on a sphere.
+    </p>
+
+    <p>
+      <a href = "../../f_src/sphere_design_rule/sphere_design_rule.html">
+      SPHERE_DESIGN_RULE</a>,
+      a FORTRAN90 library which
+      returns point sets on the surface of the unit sphere, known as "designs",
+      which can be useful for estimating integrals on the surface, among other uses.
+    </p>
+
+    <p>
+      <a href = "../../m_src/sphere_voronoi/sphere_voronoi.html">
+      SPHERE_VORONOI</a>,
+      a MATLAB program which
+      computes the Voronoi diagram of points on a sphere.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_xyz_display_opengl/sphere_xyz_display_opengl.html">
+      SPHERE_XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYZ information defining points in 3D,
+      and displays a unit sphere and the points, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../f_src/stripack_interactive/stripack_interactive.html">
+      STRIPACK_INTERACTIVE</a>,
+      a FORTRAN90 program which
+      reads an XYZ file of 3D points on
+      the unit sphere, computes the Delaunay triangulation, and writes it
+      to a file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/sxyz_voronoi/sxyz_voronoi.html">
+      SXYZ_VORONOI</a>,
+      a FORTRAN90 library which
+      reads an XYZ file of 3D points on the sphere, and
+      computes and plots Delaunay triangulations and Voronoi diagrams.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyz_display_opengl/xyz_display_opengl.html">
+      XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYZ information defining points in 3D,
+      and displays an image using OpenGL.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sphere_voronoi_display_opengl.cpp">sphere_voronoi_display_opengl.cpp</a>,
+          the source code.
+        </li>
+        <li>
+          <a href = "sphere_voronoi_display_opengl.sh">sphere_voronoi_display_opengl.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sphere_generators.png">sphere_generators.png</a>,
+          a PNG image of the sphere with just the initial generators indicated.
+        </li>
+        <li>
+          <a href = "sphere_voronoi.png">sphere_voronoi.png</a>,
+          a PNG image of the sphere, with many points colored the same as the nearest generator.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for SPHERE_VORONOI_DISPLAY_OPENGL.
+        </li>
+        <li>
+          <b>DISPLAY</b> generates the graphics output.
+        </li>
+        <li>
+          <b>MOUSE</b> determines the response to mouse input.
+        </li>
+        <li>
+          <b>MYINIT</b> initializes OpenGL state variables dealing with viewing and attributes.
+        </li>
+        <li>
+          <b>MYRESHAPE</b> determines the window mapping.
+        </li>
+        <li>
+          <b>R4MAT_UNIFORM_01</b> returns a unit pseudorandom R4MAT.
+        </li>
+        <li>
+          <b>R4MAT_ZERO_NEW</b> returns a new zeroed R4MAT.
+        </li>
+        <li>
+          <b>R4VEC_NORMAL_01</b> samples the standard normal probability distribution.
+        </li>
+        <li>
+          <b>R4VEC_UNIFORM_01</b> returns a unit unit pseudorandom R4VEC.
+        </li>
+        <li>
+          <b>SPIN_IMAGE</b> adjusts the angle of rotation and redisplays the picture.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>UNIFORM_ON_SPHERE01_MAP</b> maps uniform points onto the unit sphere.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 14 February 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

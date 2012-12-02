@@ -1,0 +1,505 @@
+<html>
+
+  <head>
+    <title>
+      TET_MESH_QUALITY - Tet Mesh Quality Measures
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TET_MESH_QUALITY <br>
+      Interactive Program for <br>
+      Tet Mesh Quality
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TET_MESH_QUALITY</b>
+      is a C++ program which
+      computes and prints a variety
+      of quality measures for a given tet mesh of a set of
+      points in 3D.
+    </p>
+
+    <p>
+      The tet mesh is defined by a <i>node file</i> containing
+      the coordinates of nodes, and a <i>tetra file</i> containing
+      quadruples of node indices.  For more information on this format,
+      see
+      <a href = "../../data/tet_mesh_order4/tet_mesh_order4.html">
+      the order4 tet mesh format</a>.
+    </p>
+
+    <p>
+      The quality measures computed include:
+      <ul>
+        <li>
+          <b>Measure 1</b>, the minimum, over all tetrahedrons, of 3 times
+          the radius of the insphere divided by the radius of the circumsphere.
+        </li>
+        <li>
+          <b>Measure 2</b>, the minimum, over all tetrahedrons, of 2 times
+          sqrt ( 6 ) times the radius of the insphere divided by the
+          length of the longest side of the tetrahedron.
+        </li>
+        <li>
+          <b>Measure 3</b>, the minimum, over all tetrahedrons, of
+          12 * ( 3 * volume )**(2/3) / (sum of squares of edge lengths);
+        </li>
+        <li>
+          <b>Measure 4</b>, the minimum solid angle in any tetrahedron;
+        </li>
+        <li>
+          <b>Measure 5</b>, a uniformity measure, the ratio of the
+          maximum to minimum tetrahedron volume;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Each quality measure is defined as the minimum of its value
+      over each tetrahedron.  The maximum and best possible value is 1, and
+      the minimum and worst value is 0.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>tet_mesh_quality</b> <i>prefix</i>
+      </blockquote>
+      where <i>prefix</i> is the common file prefix:
+      <ul>
+        <li>
+          <i>prefix</i>_nodes.txt contains the node coordinates;
+        </li>
+        <li>
+          <i>prefix</i>_elements.txt or<br> the node indices forming each element.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The element definition file will list node indices.  In C++, it may be
+      more natural to use 0-based indices.  This program will accept an element
+      definition file that is 0-based or 1-based, and will convert a 1-based
+      input file so that it becomes 0-based internal to the program.  The detection
+      of 1-based data is determined by the absence of the use of a 0 index, and
+      the use of an index equal to the number of nodes.  This is an implicit
+      and fallible, but reasonable, way to handle this problem.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TET_MESH_QUALITY</b> is available in
+      <a href = "../../cpp_src/tet_mesh_quality/tet_mesh_quality.html">a C++ version</a> and
+      <a href = "../../f_src/tet_mesh_quality/tet_mesh_quality.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/tet_mesh_quality/tet_mesh_quality.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Programs:
+    </h3>
+
+    <p>
+      <a href = "../../f_src/cvt_tet_mesh/cvt_tet_mesh.html">
+      CVT_TET_MESH</a>,
+      a FORTRAN90 library which
+      uses CVT methods to compute a tet mesh in a region.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/geompack/geompack.html">
+      GEOMPACK</a>,
+      a C++ library which
+      includes a routine <b>DTRIS3</b> to compute the tet mesh of a set
+      of points in 3D.
+    </p>
+
+    <p>
+      <a href = "../../f_src/table_quality/table_quality.html">
+      TABLE_QUALITY</a>,
+      a FORTRAN90 program which
+      computes quality measures for
+      an arbitrary (untriangulated) pointset in any dimension.
+    </p>
+
+    <p>
+      <a href = "../../f_src/table_tet_mesh/table_tet_mesh.html">
+      TABLE_TET_MESH</a>,
+      a FORTRAN90 program which
+      computes the tet mesh of a set of points in 3D.
+    </p>
+
+    <p>
+      <a href = "../../f_src/test_tet_mesh/test_tet_mesh.html">
+      TEST_TET_MESH</a>,
+      a FORTRAN90 library which
+      defines a few test regions for the generation of a tet mesh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh/tet_mesh.html">
+      TET_MESH</a>,
+      a C++ library which
+      carries out computations with
+      a tet mesh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_boundary/tet_mesh_boundary.html">
+      TET_MESH_BOUNDARY</a>,
+      a C++ program which
+      returns the nodes and faces of the boundary of a tetrahedral mesh,
+      which themselves form a 3D triangular mesh or "TRI_SURFACE".
+    </p>
+
+    <p>
+      <a href = "../../m_src/tet_mesh_display/tet_mesh_display.html">
+      TET_MESH_DISPLAY</a>,
+      a MATLAB program which
+      can read in the node and tetra files defining a tet mesh and display a wireframe
+      image.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_display_opengl/tet_mesh_display_opengl.html">
+      TET_MESH_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads a tet mesh and displays the nodes and edges using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_l2q/tet_mesh_l2q.html">
+      TET_MESH_L2Q</a>,
+      a C++ program which
+      converts a linear to quadratic tet mesh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_q2l/tet_mesh_q2l.html">
+      TET_MESH_Q2L</a>,
+      a C++ program which
+      converts a quadratic to linear tet mesh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_rcm/tet_mesh_rcm.html">
+      TET_MESH_RCM</a>,
+      a C++ program which
+      takes a tet mesh and
+      relabels the nodes to reduce the bandwidth of the
+      corresponding adjacency matrix.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_refine/tet_mesh_refine.html">
+      TET_MESH_REFINE</a>,
+      a C++ program which
+      refines a tet mesh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_tet_neighbors/tet_mesh_tet_neighbors.html">
+      TET_MESH_TET_NEIGHBORS</a>,
+      a C++ program which
+      computes the tetrahedral adjacency information.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tet_mesh_volumes/tet_mesh_volumes.html">
+      TET_MESH_VOLUMES</a>,
+      a C++ program which
+      computes the volume of each tetrahedron in a tet mesh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_quality/triangulation_quality.html">
+      TRIANGULATION_QUALITY</a>,
+      a C++ program which
+      computes triangle-based quality
+      measures for a triangulation of a set of points in 2D.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Herbert Edelsbrunner,<br>
+          Geometry and Topology for Mesh Generation,<br>
+          Cambridge, 2001,<br>
+          ISBN: 0-521-79309-2,<br>
+          LC: QA377.E36.
+        </li>
+        <li>
+          David Field,<br>
+          Qualitative Measures for Initial Meshes,<br>
+          International Journal of Numerical Methods in Engineering,<br>
+          Volume 47, 2000, pages 887-906.
+        </li>
+        <li>
+          Barry Joe,<br>
+          GEOMPACK - a software package for the generation of meshes
+          using geometric algorithms,<br>
+          Advances in Engineering Software,<br>
+          Volume 13, 1991, pages 325-331.
+        </li>
+        <li>
+          Per-Olof Persson, Gilbert Strang,<br>
+          A Simple Mesh Generator in MATLAB,<br>
+          SIAM Review,<br>
+          Volume 46, Number 2, June 2004, pages 329-345.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "tet_mesh_quality.cpp">tet_mesh_quality.cpp</a>,
+          the source code.
+        </li>
+        <li>
+          <a href = "tet_mesh_quality.sh">tet_mesh_quality.sh</a>,
+          commands to compile, link and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Tests and Examples
+    </h3>
+
+    <p>
+      <b>CUBE</b> is a simple example of 8 nodes in a cube.
+      Test files you may copy include:
+      <ul>
+        <li>
+          <a href = "cube_nodes.txt">cube_nodes.txt</a>,
+          the node file.
+        </li>
+        <li>
+          <a href = "cube_elements.txt">cube_elements.txt</a>,
+          the tetrahedron file.
+        </li>
+        <li>
+          <a href = "cube_quality.txt">cube_quality.txt</a>,
+          the report from the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+         <li>
+          <b>MAIN</b> is the main program for TET_MESH_QUALITY.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT</b> prints an I4MAT, transposed.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT_SOME</b> prints some of an I4MAT, transposed.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4VEC_HISTOGRAM</b> computes a histogram of the elements of an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_MAX</b> returns the value of the maximum element in an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_PRINT</b> prints an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_ZERO</b> zeroes an I4VEC.
+        </li>
+        <li>
+          <b>R8_HUGE</b> returns a "huge" double precision value.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_MIN</b> returns the minimum of two R8's.
+        </li>
+        <li>
+          <b>R8_SWAP</b> switches two R8's.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_DET_4D</b> computes the determinant of a 4 by 4 R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_SOLVE</b> uses Gauss-Jordan elimination to solve an N by N linear system.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT</b> prints an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8VEC_CROSS_3D</b> computes the cross product of two R8VEC's in 3D.
+        </li>
+        <li>
+          <b>R8VEC_LENGTH</b> returns the Euclidean length of a vector.
+        </li>
+        <li>
+          <b>R8VEC_MAX</b> returns the maximum element in an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_MEAN</b> returns the mean of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_MIN</b> returns the minimum element in an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_VARIANCE</b> returns the variance of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_ZERO</b> zeroes an R8VEC.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TET_MESH_NODE_ORDER:</b> determines the order of nodes.
+        </li>
+        <li>
+          <b>TET_MESH_QUALITY1</b> returns a tet mesh quality factor.
+        </li>
+        <li>
+          <b>TET_MESH_QUALITY2</b> returns a tet mesh quality factor.
+        </li>
+        <li>
+          <b>TET_MESH_QUALITY3</b> returns a tet mesh quality factor.
+        </li>
+        <li>
+          <b>TET_MESH_QUALITY4</b> returns a tet mesh quality factor.
+        </li>
+        <li>
+          <b>TET_MESH_QUALITY5</b> returns a tet mesh quality factor.
+        </li>
+        <li>
+          <b>TETRAHEDRON_CIRCUMSPHERE_3D</b> computes the circumsphere of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TETRAHEDRON_EDGE_LENGTH_3D</b> returns edge lengths of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TETRAHEDRON_INSPHERE_3D</b> finds the insphere of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TETRAHEDRON_QUALITY1_3D:</b> "quality" of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TETRAHEDRON_QUALITY2_3D:</b> "quality" of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TETRAHEDRON_QUALITY3_3D</b> computes the mean ratio of a tetrahedron.
+        </li>
+        <li>
+          <b>TETRAHEDRON_QUALITY4_3D</b> computes the minimum solid angle of a tetrahedron.
+        </li>
+        <li>
+          <b>TETRAHEDRON_VOLUME_3D</b> computes the volume of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 12 August 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

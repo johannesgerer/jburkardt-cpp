@@ -1,0 +1,58 @@
+16 November 2012 03:32:34 PM
+
+CELL_PRB:
+  C++ version
+  Test the CELL library.
+
+TEST01
+  Use a cell array (vector of vectors) to store rows 3:7
+  of Pascal''s triangle.
+
+  The row sizes:
+
+         0:        4
+         1:        5
+         2:        6
+         3:        7
+         4:        8
+
+  The storage for the cell array is 30
+
+  The row offsets:
+
+         0:        0
+         1:        4
+         2:        9
+         3:       15
+         4:       22
+         5:       30
+
+  Rows 3:7 of Pascal's Triangle:
+
+    0               1             3             3             1
+    1               1             4             6             4             1
+    2               1             5            10            10             5
+                    1
+    3               1             6            15            20            15
+                    6             1
+    4               1             7            21            35            35
+                   21             7             1
+
+  A(2,3) = 10
+
+  A(3,*):
+
+             1             6            15            20            15
+             6             1
+
+  Retrieve an arbitrary list of items:
+
+  A(0,1) = 3
+  A(1,2) = 6
+  A(4,3) = 35
+  A(4,7) = 1
+
+CELL_PRB:
+  Normal end of execution.
+
+16 November 2012 03:32:34 PM

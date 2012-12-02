@@ -1,0 +1,178 @@
+<html>
+
+  <head>
+    <title>
+      MINESWEEPER - An ASCII-Graphics Emulation of Minesweeper
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MINESWEEPER <br> An ASCII-Graphics Emulation of Minesweeper
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MINESWEEPER</b>
+      is a C++ program which
+      emulates the popular Minesweeper game, using ASCII graphics,
+      by Detelina Stoyanova.
+    </p>
+
+    <p>
+      The program sets up an 8 by 8 board, with 10 mines.  The minefield
+      is displayed, using '-' to indicate unknown squares, a blank for clear
+      squares, and a number for a clear square with that many mined neighbors.
+    </p>
+
+    <p>
+      The user selects a square by typing in the row and column number.
+    </p>
+
+    <p>
+      There are three optional inputs:
+      <ul>
+        <li>
+          <b>M</b> means you want to mark a possible mine.  The program asks you
+          to specify a row and column, and places a '?' there.
+        </li>
+        <li>
+          <b>U</b> means you want to unmark a possible mine.  The program
+          places a '-' there.
+        </li>
+        <li>
+          <b>Q</b> means you want to quit the game immediately;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/life_opengl/life_opengl.html">
+      LIFE_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the evolution of John Conway's "Game of Life".
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lights_out_opengl/lights_out_opengl.html">
+      LIGHTS_OUT_OPENGL</a>,
+      a C++ program which
+      sets up a "Lights Out" game and allows the user to solve it,
+      using the OpenGL graphics window.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Detelina Stoyanova
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Richard Kaye,<br>
+          Minesweeper is NP Complete,<br>
+          Mathematical Intelligencer,<br>
+          Volume 22, Number 2, pages 9-15, 2000.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "minesweeper.cpp">minesweeper.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "minesweeper.hpp">minesweeper.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "minesweeper.sh">minesweeper.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main function for the MINESWEEPER program.
+        </li>
+        <li>
+          <b>INITIALSTATE</b> initializes all the elements of the two arrays to -'s
+        </li>
+        <li>
+          <b>PRINTTABLE</b> prints the visible table.
+        </li>
+        <li>
+          <b>PLACEMINES</b> places MINES mines randomly in the table.
+        </li>
+        <li>
+          <b>CALCULATENUMBERS</b> calculates the number of mines adjacent to each square.
+        </li>
+        <li>
+          <b>GETNEIGHBORS</b> returns the indices of the 8 neighbors of a square.
+        </li>
+        <li>
+          <b>ISREALNEIGHBOR</b> checks which neighbors are "real neighbors". 
+        </li>
+        <li>
+          <b>COUNTMINES</b> computes the number of mines that are neighbors to a square.
+        </li>
+        <li>
+          <b>PLAY</b> controls the game and allows the player to make moves.
+        </li>
+        <li>
+          <b>OPENSAFE</b> is called whenever a square with no neighboring mines is cleared.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 26 July 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

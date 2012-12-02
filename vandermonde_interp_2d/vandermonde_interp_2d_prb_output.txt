@@ -1,0 +1,468 @@
+07 October 2012 06:22:30 PM
+
+VANDERMONDE_INTERP_2D_PRB:
+  C++ version
+  Test the VANDERMONDE_INTERP_2D library.
+  The QR_SOLVE library is needed.
+  The R8LIB library is needed.
+  This test needs the TEST_INTERP_2D library.
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 7.62928e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 4.9573e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 3.79402e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 2.35284e-15
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #1
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 1.42263e-12
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 5.18894e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 6.35635e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 6.97938e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 3.04474e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #2
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 3.75189e-13
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 1.42581e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 1.19342e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 1.55225e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 4.81528e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #3
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 1.38727e-14
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 1.60247e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 7.18975e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 1.97728e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 2.33414e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #4
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 2.78629e-15
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 1.51726e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 4.04741e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 2.88861e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 4.97296e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #5
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 3.89328e-13
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 3.81464e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 6.7987e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 7.81234e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 6.04423e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #6
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 4.94216e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 2.4285e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 2.02704e-15
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 3.32721e-15
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 2.54723e-14
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #7
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 4.41384e-12
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 1.20288e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 7.65361e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 2.32339e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 6.25598e-15
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #8
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 5.74433e-12
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 3.01923e-15
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 2.0693e-14
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 9.34657e-14
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 2.57299e-13
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #9
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 8.47493e-10
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 6.81442e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 1.57598e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 4.79649e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 3.37475e-15
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #10
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 7.7505e-12
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 2.19719e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 3.82164e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 7.2391e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 6.95322e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #11
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 6.78792e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 3.81464e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 2.31761e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 3.1692e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 4.61261e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #12
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 2.24381e-14
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  Create an interpolant of total degree 1
+  Number of data values needed is 3
+
+  L2 data interpolation error = 4.01284e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  Create an interpolant of total degree 2
+  Number of data values needed is 6
+
+  L2 data interpolation error = 3.54241e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  Create an interpolant of total degree 3
+  Number of data values needed is 10
+
+  L2 data interpolation error = 3.47863e-17
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  Create an interpolant of total degree 4
+  Number of data values needed is 15
+
+  L2 data interpolation error = 4.32807e-16
+
+TEST01:
+  Interpolate data from TEST_INTERP_2D problem #13
+  Create an interpolant of total degree 8
+  Number of data values needed is 45
+
+  L2 data interpolation error = 3.25422e-12
+
+VANDERMONDE_INTERP_2D_PRB:
+  Normal end of execution.
+
+07 October 2012 06:22:30 PM

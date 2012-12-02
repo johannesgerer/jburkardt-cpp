@@ -1,0 +1,71 @@
+18 March 2012 10:40:07 AM
+
+PCE_ODE_HERMITE_TEST:
+  C++ version
+  Test PCE_ODE_HERMITE.
+
+PCE_ODE_HERMITE_TEST01:
+  Call PCE_ODE_HERMITE to compute a polynomial chaos expansion
+  for the ODE:
+
+    u' = - alpha * u,
+    u(0) = 1.
+
+  Initial time         TI = 0
+  Final time           TF = 2
+  Number of time steps NT = 200
+  Initial condition    UI = 1
+  Expansion degree     NP = 4
+  E(ALPHA)       ALPHA_MU = 0
+  STD(ALPHA)  ALPHA_SIGMA = 1
+
+ i  T(i)  E(U(T(i)))    U(T(i),0)
+
+     0       0               1               1               0
+    10     0.1         1.00501         1.00451     0.000506218
+    20     0.2          1.0202         1.01915      0.00105541
+    30     0.3         1.04603         1.04433      0.00169674
+    40     0.4         1.08329          1.0808      0.00248698
+    50     0.5         1.13315         1.12965      0.00349537
+    60     0.6         1.19722         1.19241      0.00480986
+    70     0.7         1.27762         1.27108      0.00654525
+    80     0.8         1.37713         1.36827       0.0088545
+    90     0.9          1.4993         1.48736       0.0119446
+   100       1         1.64872         1.63262       0.0160997
+   110     1.1         1.83125         1.80954       0.0217156
+   120     1.2         2.05443         2.02508       0.0293505
+   130     1.3         2.32798         2.28817       0.0398037
+   140     1.4         2.66446         2.61022       0.0542352
+   150     1.5         3.08022         3.00587       0.0743494
+   160     1.6         3.59664         3.49396        0.102681
+   170     1.7         4.24185         4.09882        0.143035
+   180     1.8         5.05309         4.85192        0.201174
+   190     1.9         6.07997         5.79409        0.285881
+   200       2         7.38906         6.97844        0.410611
+
+PCE_ODE_HERMITE_TEST02:
+  Examine convergence behavior as the PCE degree increases:
+
+    u' = - alpha * u,
+    u(0) = 1.
+
+  Initial time         TI = 0
+  Final time           TF = 2
+  Number of time steps NT = 2000
+  Initial condition    UI = 1
+  E(ALPHA)       ALPHA_MU = 0
+  STD(ALPHA)  ALPHA_SIGMA = 1
+
+    NP     Error(NP)     Log(Error(NP))
+
+     0         6.38906         1.85459
+     1         3.63062          1.2894
+     2          1.4085        0.342522
+     3        0.421433       -0.864094
+     4        0.121242        -2.10997
+     5       0.0519274        -2.95791
+
+PCE_ODE_HERMITE_TEST:
+  Normal end of execution.
+
+18 March 2012 10:40:07 AM

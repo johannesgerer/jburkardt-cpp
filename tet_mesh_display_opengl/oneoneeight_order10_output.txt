@@ -1,0 +1,25 @@
+
+TET_MESH_DISPLAY_OPEN_GL:
+
+  Compiled on Jul 17 2006 at 10:47:42.
+
+  This program reads information defining a tetrahedral mesh
+  ("tet mesh") 
+  and displays an image of it using OpenGL.
+
+  The file has been examined.
+
+  The spatial dimension DIM_NUM =  3
+  The number of nodes NODE_NUM =   118
+
+  Minimum: -1.66558  -1.66558  -1.66558
+  Maximum: 2.18319  2.18319  2.18319
+  Range:   3.84877  3.84877  3.84877
+
+  The file has been examined.
+
+  The order TET_ORDER =                10
+  The number of tetrahedrons TET_NUM = 70
+
+  The tet mesh indexing is assumed to be 1-based!
+  Pixels:  500  500

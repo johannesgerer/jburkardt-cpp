@@ -1,0 +1,47 @@
+24 October 2011 10:53:08 AM
+
+TYPE - Master process:
+  C++ version
+  An MPI example program that uses an MPI datatype.
+
+  Compiled on Oct 24 2011 at 10:53:06.
+
+  The number of processes is 8
+
+  Process 0 says 'Hello, world!'
+
+  Process 2 says 'Hello, world!'
+
+  Process 2: MPI has nothing for me to do!
+
+  Process 3 says 'Hello, world!'
+
+  Process 3: MPI has nothing for me to do!
+
+  Process 5 says 'Hello, world!'
+
+  Process 5: MPI has nothing for me to do!
+
+  Process 1 says 'Hello, world!'
+
+  Process 1 received an item of type POINT_TYPE, with value 1  2  4
+  Process 1 sent a modified item of type POINT_TYPE, with value 400  20  1
+  Process 0 sent an item of type POINT_TYPE, with value 1  2  4
+  Process 0 received a modified item of type POINT_TYPE, with value 400  20  1
+
+  Process 7 says 'Hello, world!'
+
+  Process 7: MPI has nothing for me to do!
+
+  Process 4 says 'Hello, world!'
+
+  Process 4: MPI has nothing for me to do!
+
+  Process 6 says 'Hello, world!'
+
+  Process 6: MPI has nothing for me to do!
+
+TYPE - Master process:
+  Normal end of execution.
+
+24 October 2011 10:53:08 AM

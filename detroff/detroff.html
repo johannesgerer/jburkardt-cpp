@@ -1,0 +1,288 @@
+<html>
+
+  <head>
+    <title>
+      DETROFF - Remove Backspace+Character Combinations
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      DETROFF <br> Remove Backspace+Character Combinations
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>DETROFF</b>
+      is a C++ program which
+      makes a copy of a file from which all pairs of backspace+character 
+      have been removed.
+    </p>
+
+    <p>
+      Given the string of 8 characters:
+      <blockquote><code>
+        AB#C#DE
+      </code></blockquote>
+      where we are using "#" to represent a backspace, the returned string
+      will be
+      <blockquote><code>
+        AE
+      </code></blockquote>
+    </p>
+
+    <p>
+      This function was originally written for use in "cleaning up" MAN pages
+      so that they would print properly.
+      These MAN pages were formatted in the Paleolithic and Byzantine TROFF printing format.
+      Although the files were text, and would seem to "print" correctly to
+      the screen, an unholy mess would emerge if the same file was sent
+      to the printer.  This is because the screen handled the backspaces
+      by backspacing, but most printers don't know anymore how to handle
+      TROFF's backspaces, and so they just print them as blobs, instead of,
+      say, spacing back.
+    </p>
+
+    <p>
+      Passages which are to be underlined were written so:
+      <blockquote><code>
+        _#T_#e_#x_#t
+      </code></blockquote>
+      when what is meant is that "Text" is to be underlined if possible.  
+      Note that the seemingly equivalent
+      <blockquote><code>
+        T#_e#_x#_t#_
+      </code></blockquote>
+      is NOT used.  This is because, in the olden
+      days, certain screen terminals could backspace, but would only
+      display the new character, obliterating rather than
+      overwriting the old one.  This convention allows us to know
+      that we want to delete "character" + Backspace, rather than
+      Backspace + "character".
+    </p>
+
+    <p>
+      Passages which are meant to be in BOLDFACE are written so:
+      <blockquote><code>
+        U#U#U#Ug#g#g#gl#l#l#ly#y#y#y
+      </code></blockquote>
+      when what is meant is that
+      "Ugly" is to be printed as boldly as possible.  These boldface
+      passages may also be cleaned up using the same rule of
+      removing all occurrences of "character" + Backspace.
+    </p>
+
+    <p>
+      It is truly a fright to look at the text of one of these MAN
+      pages with all the ugly Backspace's, which sometimes display as ^H
+      or as a reverse-video bugsplat.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>detroff</b> <i>old</i> <i>new</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>old</i> is the file to be modified;
+        </li>
+        <li>
+          <i>new</i> is the modified copy of the old file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align="center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align="center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cr2crlf/cr2crlf.html">
+      CR2CRLF</a>,
+      a C++ program which
+      replaces carriage returns by carriage returns + line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cr2lf/cr2lf.html">
+      CR2LF</a>, 
+      a C++ program which
+      reads a text file and replaces carriage returns by line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/crrm/crrm.html">
+      CRRM</a>,
+      a C++ program which 
+      removes all carriage returns from a file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/deblank/deblank.html">
+      DEBLANK</a>, 
+      a C++ program which
+      makes a copy of a text file which contains no blank lines.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/decomment/decomment.html">
+      DECOMMENT</a>, 
+      a C++ program which
+      makes a copy of a text file which contains no "comment" lines
+      (that begin with "#").
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/filum/filum.html">
+      FILUM</a>, 
+      a C++ library which
+      performs various operations on files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lf2cr/lf2cr.html">
+      LF2CR</a>, 
+      a C++ program which
+      replaces linefeeds by carriage returns.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lf2crlf/lf2crlf.html">
+      LF2CRLF</a>, 
+      a C++ program which
+      replaces linefeeds by carriage returns + line feeds.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lfrm/lfrm.html">
+      LFRM</a>,
+      a C++ program which 
+      removes all linefeeds from a file.
+    </p>
+
+    <p>
+      <a href = "../../f_src/reformat/reformat.html">
+      REFORMAT</a>, 
+      a FORTRAN90 program which
+      reads a text file that contains only real values, and writes a copy
+      which has a fixed number of real values on each line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/reword/reword.html">
+      REWORD</a>, 
+      a C++ program which
+      reads a text file and writes a copy which has a fixed number 
+      of "words" per line.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uncontrol/uncontrol.html">
+      UNCONTROL</a>, 
+      a C++ program which
+      makes a copy of a text file which contains no control characters.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap/wrap.html">
+      WRAP</a>, 
+      a C++ program which
+      makes a copy of a text file in which no line is longer 
+      than a user-specified wrap length.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wrap2/wrap2.html">
+      WRAP2</a>, 
+      a C++ program which 
+      wraps long lines in a text file, but which
+      wraps some lines "early", so as to avoid breaking words.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "detroff.cpp">detroff.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "detroff.sh">detroff.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "date_man.txt">date_man.txt</a>,
+          what I got when I typed "man date &gt; date_man.txt".
+        </li>
+        <li>
+          <a href = "date_detroff.txt">date_detroff.txt</a>,
+          what I got when I typed "detroff date_man.txt date_detroff.txt".
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>DETROFF</b> removes obnoxious "character" + backspace pairs from a file. 
+        </li>
+        <li>
+          <b>HANDLE</b> makes a copy of a file in which "character" + backspace pairs
+          have been removed.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 January 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -1,0 +1,104 @@
+14 October 2011 09:43:01 AM
+
+SGEFA_OPENMP
+  C++/OpenMP version
+
+  Number of processors available = 8
+  Number of threads =              1
+
+ Algorithm        Mode          N    Error       Time
+
+  Original  Sequential           10  2.11596e-06  5.96046e-06
+  Revised     Parallel           10  2.11596e-06  2.5034e-05
+  Revised   Sequential           10  2.11596e-06  5.00679e-06
+
+  Original  Sequential          100  0.00144973  0.00135016
+  Revised     Parallel          100  0.00144973  0.00328898
+  Revised   Sequential          100  0.00144973  0.00236893
+
+  Original  Sequential         1000    0.191827     1.17204
+  Revised     Parallel         1000    0.191827      3.0611
+  Revised   Sequential         1000    0.191827     2.25698
+
+SGEFA_OPENMP
+  Normal end of execution.
+
+14 October 2011 09:43:08 AM
+14 October 2011 09:43:08 AM
+
+SGEFA_OPENMP
+  C++/OpenMP version
+
+  Number of processors available = 8
+  Number of threads =              2
+
+ Algorithm        Mode          N    Error       Time
+
+  Original  Sequential           10  2.11596e-06  5.96046e-06
+  Revised     Parallel           10  2.11596e-06  0.000299931
+  Revised   Sequential           10  2.11596e-06  4.05312e-06
+
+  Original  Sequential          100  0.00144973  0.00133204
+  Revised     Parallel          100  0.00144973  0.00301504
+  Revised   Sequential          100  0.00144973  0.00237608
+
+  Original  Sequential         1000    0.191827     1.16804
+  Revised     Parallel         1000    0.191827     1.61301
+  Revised   Sequential         1000    0.191827     2.25607
+
+SGEFA_OPENMP
+  Normal end of execution.
+
+14 October 2011 09:43:13 AM
+14 October 2011 09:43:13 AM
+
+SGEFA_OPENMP
+  C++/OpenMP version
+
+  Number of processors available = 8
+  Number of threads =              4
+
+ Algorithm        Mode          N    Error       Time
+
+  Original  Sequential           10  2.11596e-06  7.15256e-06
+  Revised     Parallel           10  2.11596e-06  0.000306845
+  Revised   Sequential           10  2.11596e-06  5.00679e-06
+
+  Original  Sequential          100  0.00144973  0.00136805
+  Revised     Parallel          100  0.00144973  0.00263095
+  Revised   Sequential          100  0.00144973    0.002424
+
+  Original  Sequential         1000    0.191827     1.16794
+  Revised     Parallel         1000    0.191827    0.878283
+  Revised   Sequential         1000    0.191827     2.25625
+
+SGEFA_OPENMP
+  Normal end of execution.
+
+14 October 2011 09:43:18 AM
+14 October 2011 09:43:18 AM
+
+SGEFA_OPENMP
+  C++/OpenMP version
+
+  Number of processors available = 8
+  Number of threads =              8
+
+ Algorithm        Mode          N    Error       Time
+
+  Original  Sequential           10  2.11596e-06  6.19888e-06
+  Revised     Parallel           10  2.11596e-06  0.000731945
+  Revised   Sequential           10  2.11596e-06  5.00679e-06
+
+  Original  Sequential          100  0.00144973  0.00135994
+  Revised     Parallel          100  0.00144973  0.00642514
+  Revised   Sequential          100  0.00144973  0.00243092
+
+  Original  Sequential         1000    0.191827     1.17862
+  Revised     Parallel         1000    0.191827     0.93877
+  Revised   Sequential         1000    0.191827     2.26248
+
+SGEFA_OPENMP
+  Normal end of execution.
+
+14 October 2011 09:43:22 AM

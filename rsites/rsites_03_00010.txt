@@ -1,0 +1,19 @@
+#  output file of N points in M dimensions,
+#  created by RSITES.
+#
+#  Point coordinates are between 0 and 999999.
+#
+#  Number of points, N = 10
+#  Spatial dimension, M = 3
+#  Value of SEED for SRAND = 123456789
+#
+102536  725855  684578  
+601937  238646  998030  
+816544  714160   63065  
+968134  950355  124838  
+618719  715137  317929  
+357754  159057  297752  
+307227  589962  248480  
+562729  426409  880157  
+141091  303144  116049  
+439417  615642  708419  

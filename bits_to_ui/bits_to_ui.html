@@ -1,0 +1,136 @@
+<html>
+
+  <head>
+    <title>
+      BITS_TO_UI - Convert text bits to 32 bit integers
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      BITS_TO_UI <br> Convert text bits to 32 bit integers
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>BITS_TO_UI</b>
+      is a C++ program which
+      converts a text file of
+      '0' and '1' characters to a binary file of 32 bit integers.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>bits_to_ui</b> <i>input_file</i> <i>output_file</i>
+        </dt>
+        <dd>
+          processes <i>input_file</i>, a text file containing only the
+          characters '0' and '1', and creates <i>output_file</i>,
+          in binary format, containing
+          the 32-bit integers created by grouping together 32 successive
+          "bits" from the input file.  The bits are read from left to
+          right, in a sense, so a file whose first 32 characters are
+          "11010000000000000000000000000000" will result in the first
+          integer being 11.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Programs and Data:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/ascii_to_mri/ascii_to_mri.html">
+      ASCII_TO_MRI</a>,
+      a C program which
+      restores magnetic resonance imaging (MRI) data to its original binary format, having been
+      previously converted to an ASCII text file.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "bits_to_ui.cpp">bits_to_ui.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "bits_to_ui.sh">bits_to_ui.sh</a>, commands to
+          compile and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "rule30.txt">rule30.txt</a>,
+          a list of bits created by a cellular automaton called "rule 30",
+          from a program written by Kevin Mcleod and Patrick Neary;
+        </li>
+        <li>
+          <a href = "rule30.ui">rule30.ui</a>,
+          the binary file created by the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> gets the names of the files from the user.
+        </li>
+        <li>
+          <b>HANDLE</b> processes a given input file to an output file.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 January 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+
+  </body>
+
+</html>

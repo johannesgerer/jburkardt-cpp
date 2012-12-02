@@ -1,0 +1,213 @@
+<html>
+
+  <head>
+    <title>
+      MPI_STUBS - Dummy MPI Library
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      MPI_STUBS <br> Dummy MPI Library
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>MPI_STUBS</b>
+      is a C++ library  which
+      implements "stub" MPI routines.
+    </p>
+
+    <p>
+      <b>MPI_STUBS</b> is intended to include stubs for the most commonly
+      called MPI routines.  Most of the stub routines don't do anything.
+      In a few cases, where it makes sense, they do some simple action
+      or return a value that is appropriate for the serial processing
+      case.
+    </p>
+
+    <p>
+      <b>MPI_STUBS</b> can be used as a convenience, when a real MPI
+      implementation is not available, and the user simply wants to
+      test-compile a code.  It may also be useful in those occasions
+      when a code has been so carefully written that it will still
+      execute correctly on a single processor.
+    </p>
+
+    <p>
+      <b>MPI_STUBS</b> is based on a similar package supplied as
+      part of the <b>LAMMPS</b> program, which allow that program to
+      be compiled, linked and run on a single processor machine,
+      although it is normally intended for parallel execution.
+    </p>
+
+    <p>
+      <b>
+        This C++ implementation is very sketchy.  I am struggling to
+        implement it in a way that includes an MPI namespace.
+      </b>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>MPI_STUBS</b> is available in
+      <a href = "../../c_src/mpi_stubs/mpi_stubs.html">a C version</a> and
+      <a href = "../../cpp_src/mpi_stubs/mpi_stubs.html">a C++ version</a> and
+      <a href = "../../f77_src/mpi_stubs/mpi_stubs.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/mpi_stubs/mpi_stubs.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/hello_mpi/hello_mpi.html">
+      HELLO_MPI</a>,
+      a C++ program which
+      prints out "Hello, world!" using the MPI parallel programming environment.
+    </p>
+
+    <p>
+      <a href = "../../examples/moab/moab.html">
+      MOAB</a>,
+      examples which
+      illustrate the use of the MOAB job scheduler for a computer cluster.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mpi/mpi.html">
+      MPI</a>,
+      C++ programs which
+      demonstrate a message passing library which
+      enables parallel processing on a variety of machine architectures, and with
+      a varying number of processors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/multitask_mpi/multitask_mpi.html">
+      MULTITASK_MPI</a>,
+      a C++ program which
+      demonstrates how to "multitask", that is, to execute several unrelated
+      and distinct tasks simultaneously, using MPI for parallel execution.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          William Gropp, Ewing Lusk, Anthony Skjellum,<br>
+          Using MPI: Portable Parallel Programming with the
+          Message-Passing Interface,<br>
+          Second Edition,<br>
+          MIT Press, 1999,<br>
+          ISBN: 0262571323,<br>
+          LC: QA76.642.G76.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "mpi_stubs.cpp">mpi_stubs.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "mpi_stubs.hpp">mpi_stubs.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "mpi_stubs.sh">mpi_stubs.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples:
+    </h3>
+
+    <p>
+      <b>HELLO</b> is a simple program that says "Hello, world!".
+      <ul>
+        <li>
+          <a href = "hello.cpp">hello.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "hello.sh">hello.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "hello_output.txt">hello_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MPI::COMM::GET_RANK</b> reports the rank of the calling process.
+        </li>
+        <li>
+          <b>MPI::COMM::GET_SIZE</b> reports the number of processes in a communicator.
+        </li>
+        <li>
+          <b>MPI::FINALIZE</b> shuts down the MPI library.
+        </li>
+        <li>
+          <b>MPI::INIT</b> initializes the MPI library.
+        </li>
+        <li>
+          <b>MPI::WTICK</b> returns the number of seconds in one tick of the timer.
+        </li>
+        <li>
+          <b>MPI::WTIME</b> returns the elapsed wall clock time.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 13 January 2012.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

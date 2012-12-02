@@ -1,0 +1,55 @@
+20 May 2009 01:15:44 PM
+
+TIMER_TIME
+  C++ version
+  Demonstrate the use of the TIME real time timer.
+
+  TIME is a standard C++ library routine
+  (defined in <ctime>)
+
+  It returns a reading of the number of seconds on a clock.
+  Taking the difference between two such readings
+  can give a real time measurement.  However, this measurement
+  is no finer than one second.
+
+TEST01
+  Time the RAND function by computing N values.
+  For a given N, repeat the computation 5 times.
+
+  Data vectors will be of minimum size 1
+  Data vectors will be of maximum size 16777216
+
+  CPU times are in seconds.
+
+         N      Rep #1      Rep #2      Rep #2      Rep #4      Rep #5         Min         Ave         Max
+
+         1           0           0           0           0           0           0           0           0
+         2           0           0           0           0           0           0           0           0
+         4           0           0           0           0           0           0           0           0
+         8           0           0           0           0           0           0           0           0
+        16           0           0           0           0           0           0           0           0
+        32           0           0           0           0           0           0           0           0
+        64           0           0           0           0           0           0           0           0
+       128           0           0           0           0           0           0           0           0
+       256           0           0           0           0           0           0           0           0
+       512           0           0           0           0           0           0           0           0
+      1024           0           0           0           0           0           0           0           0
+      2048           0           0           0           0           0           0           0           0
+      4096           0           0           0           0           0           0           0           0
+      8192           0           0           0           0           0           0           0           0
+     16384           0           0           0           0           0           0           0           0
+     32768           0           0           0           0           0           0           0           0
+     65536           0           0           0           0           0           0           0           0
+    131072           0           0           0           0           0           0           0           0
+    262144           0           0           0           0           0           0           0           0
+    524288           0           0           0           0           0           0           0           0
+   1048576           0           0           0           0           0           0           0           0
+   2097152           0           0           0           0           0           0           0           0
+   4194304           1           0           0           0           0           0         0.2           1
+   8388608           0           1           0           0           0           0         0.2           1
+  16777216           1           0           1           0           1           0         0.6           1
+
+TIMER_TIME
+  Normal end of execution.
+
+20 May 2009 01:15:49 PM

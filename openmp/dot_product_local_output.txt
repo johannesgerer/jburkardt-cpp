@@ -1,0 +1,78 @@
+
+DOT_PRODUCT
+  C++/OpenMP version
+
+  A program which computes a vector dot product.
+
+  Number of processors available = 8
+  Number of threads =              1
+
+  Sequential      1000            1000      4.05312e-06
+  Parallel        1000            1000      1.71661e-05
+
+  Sequential     10000           10000      4.19617e-05
+  Parallel       10000           10000      4.81606e-05
+
+  Sequential    100000          100000      0.000428915
+  Parallel      100000          100000      0.000463009
+
+  Sequential   1000000           1e+06       0.00447083
+  Parallel     1000000           1e+06       0.00483704
+
+  Sequential  10000000           1e+07        0.0446141
+  Parallel    10000000           1e+07        0.0481699
+
+DOT_PRODUCT
+  Normal end of execution.
+
+DOT_PRODUCT
+  C++/OpenMP version
+
+  A program which computes a vector dot product.
+
+  Number of processors available = 8
+  Number of threads =              2
+
+  Sequential      1000            1000      5.00679e-06
+  Parallel        1000            1000       0.00019908
+
+  Sequential     10000           10000      4.31538e-05
+  Parallel       10000           10000       0.00028491
+
+  Sequential    100000          100000      0.000428915
+  Parallel      100000          100000      0.000396013
+
+  Sequential   1000000           1e+06       0.00446916
+  Parallel     1000000           1e+06       0.00270486
+
+  Sequential  10000000           1e+07         0.044559
+  Parallel    10000000           1e+07        0.0253241
+
+DOT_PRODUCT
+  Normal end of execution.
+
+DOT_PRODUCT
+  C++/OpenMP version
+
+  A program which computes a vector dot product.
+
+  Number of processors available = 8
+  Number of threads =              4
+
+  Sequential      1000            1000      4.76837e-06
+  Parallel        1000            1000      0.000181913
+
+  Sequential     10000           10000      4.31538e-05
+  Parallel       10000           10000      0.000164032
+
+  Sequential    100000          100000      0.000429869
+  Parallel      100000          100000      0.000324965
+
+  Sequential   1000000           1e+06       0.00444007
+  Parallel     1000000           1e+06        0.0024271
+
+  Sequential  10000000           1e+07          0.04495
+  Parallel    10000000           1e+07        0.0167561
+
+DOT_PRODUCT
+  Normal end of execution.

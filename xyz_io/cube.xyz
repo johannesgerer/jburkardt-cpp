@@ -1,0 +1,13 @@
+#  cube.xyz
+#  created by xyz_io::xyz_header_write.C
+#
+#  Number of points = 8
+#
+         0           0           0
+         1           0           0
+         1           1           0
+         0           1           0
+         0           0           1
+         1           0           1
+         1           1           1
+         0           1           1

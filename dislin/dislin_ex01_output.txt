@@ -1,0 +1,16 @@
+
+DISLIN_EX01:
+  C++ version:
+  Demonstrate the use of the CURVE routine, for
+  plotting (X,Y) data.
+
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ <<                END OF DISLIN / VERSION 10.1                  <<
+ <<  Date    : 10.04.2011  Time    : 08:21:24  Pageformat: USAL  <<
+ <<  Vectors : 2025        Warnings: 0         Fileformat:  PNG  <<
+ <<  Metafile: dislin_ex01.png                                   <<
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+DISLIN_EX01:
+  Normal end of execution.

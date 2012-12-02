@@ -1,0 +1,448 @@
+<html>
+
+  <head>
+    <title>
+      TET_MESH_DISPLAY_OPENGL - Display a Tet Mesh Using OpenGL
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TET_MESH_DISPLAY_OPENGL<br> Display a Tet Mesh Using OpenGL
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TET_MESH_DISPLAY_OPENGL</b>
+      is a C++ program which
+      reads the name of two data files
+      defining a tetrahedral mesh ("tet mesh"), reads the data,
+      and displays the tet mesh using <b>OPENGL</b>.
+    </p>
+
+    <p>
+      The files defining the tet mesh consist of one file containing
+      the coordinates of the points, and a second file that lists the
+      indices of the nodes making up each tetrahedron.  Either 4-node or
+      10-node tetrahedrons may be used.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>tet_mesh_display_opengl</b> <i>prefix</i>
+      </blockquote>
+      where <i>prefix</i> is the common file prefix:
+      <ul>
+        <li>
+          <i>prefix</i><b>_nodes.txt</b>,    the node coordinates;
+        </li>
+        <li>
+          <i>prefix</i><b>_elements.txt</b>,    the element definitions.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/caustic_opengl/caustic_opengl.html">
+      CAUSTIC_OPENGL</a>,
+      a C++ program which
+      computes a caustic curve and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fern_opengl/fern_opengl.html">
+      FERN_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the Barnsley fractal fern.
+    </p>
+
+    <p>
+      <a href = "../../c_src/flood_opengl/flood_opengl.html">
+      FLOOD_OPENGL</a>,
+      a C program which
+      allows a user to select a region and flood it with color,
+      using OpenGL, by Art Wetzel.
+    </p>
+
+    <p>
+      <a href = "../../c_src/life_opengl/life_opengl.html">
+      LIFE_OPENGL</a>,
+      a C program which
+      simulates a version of John Conway's "Game of Life", displaying the
+      results using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lights_out_opengl/lights_out_opengl.html">
+      LIGHTS_OUT_OPENGL</a>,
+      a C++ program which
+      sets up a "Lights Out" game and allows the user to solve it,
+      using the OpenGL graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lissajous_opengl/lissajous_opengl.html">
+      LISSAJOUS_OPENGL</a>,
+      a C++ program which
+      computes a Lissajous figure and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/opengl/opengl.html">
+      OPENGL</a>,
+      C++ programs which
+      illustrate the use of the OpenGL graphics library;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygonal_surface_display_opengl/polygonal_surface_display_opengl.html">
+      POLYGONAL_SURFACE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a surface in 3D described as a set of polygons, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rotating_cube_display_opengl/rotating_cube_display_opengl.html">
+      ROTATING_CUBE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a rotating color cube in 3D, using OpenGL;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_xyz_display_opengl/sphere_xyz_display_opengl.html">
+      SPHERE_XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYZ information defining points in 3D,
+      and displays a unit sphere and the points, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../m_src/tet_mesh_display/tet_mesh_display.html">
+      TET_MESH_DISPLAY</a>,
+      a MATLAB program which
+      reads a tet mesh and displays the
+      nodes and edges using the MATLAB graphical window.
+    </p>
+
+    <p>
+      <a href = "../../data/tet_mesh_order4/tet_mesh_order4.html">
+      TET_MESH_ORDER4</a>,
+      a data directory which
+      contains a description and
+      examples of a tet mesh using order 4 elements.
+    </p>
+
+    <p>
+      <a href = "../../data/tet_mesh_order10/tet_mesh_order10.html">
+      TET_MESH_ORDER10</a>,
+      a directory which
+      contains a description and
+      examples of a tet mesh using order 10 elements.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xy_display_opengl/xy_display_opengl.html">
+      XY_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XY file of 2D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyl_display_opengl/xyl_display_opengl.html">
+      XYL_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYL information defining points and lines in 2D, and displays
+      an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyz_display_opengl/xyz_display_opengl.html">
+      XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XYZ file of 3D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics,<br>
+          A Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000,<br>
+          T385.A514.
+        </li>
+        <li>
+          Renate Kempf, Chris Frazier, editors,<br>
+          OpenGL Reference Manual,<br>
+          Addison-Wesley, 1997,<br>
+          T385.O642.
+        </li>
+        <li>
+          Mason Woo, Jackie Neider, Tom Davis,<br>
+          OpenGL Programming Guide,<br>
+          Addison-Wesley, 1997,<br>
+          T385.N435.
+        </li>
+        <li>
+          Richard Wright, Michael Sweet,<br>
+          OpenGL Superbible,<br>
+          Waite Group Press, 1996,<br>
+          T385.W73.
+        </li>
+        <li>
+          <a href = "http://www.opengl.org/">
+                     http://www.opengl.org/ </a> <br>
+          The official OpenGL site.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "tet_mesh_display_opengl.cpp">
+          tet_mesh_display_opengl.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "tet_mesh_display_opengl.sh">
+          tet_mesh_display_opengl.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>CUBE_ORDER4</b> is a cube-shaped region, which may be meshed by
+      order-4 tetrahedrons.
+      <ul>
+        <li>
+          <a href = "cube_order4_output.txt">cube_order4_output.txt</a>,
+          the printed output in response to the command:<pre><b>
+            tet_mesh_display_opengl cube_order4</b></pre>
+        </li>
+        <li>
+          <a href = "cube_order4_nodes.txt">
+          cube_order4_nodes.txt</a>, the node file.
+        </li>
+        <li>
+          <a href = "cube_order4_elements.txt">
+          cube_order4_elements.txt</a>, the tetrahedron file.
+        </li>
+        <li>
+          <a href = "cube_order4.png">
+          cube_order4.png</a>,
+          a PNG image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>TWENTY_ORDER4</b> is a region formed by 20 random nodes.
+      <ul>
+        <li>
+          <a href = "twenty_order4_output.txt">twenty_order4_output.txt</a>,
+          the printed output in response to the command:<pre><b>
+            tet_mesh_display_opengl twenty_order4</b></pre>
+        </li>
+        <li>
+          <a href = "twenty_order4_nodes.txt">
+          twenty_order4_nodes.txt</a>, the node file.
+        </li>
+        <li>
+          <a href = "twenty_order4_elements.txt">
+          twenty_order4_elements.txt</a>, the tetrahedron file.
+        </li>
+        <li>
+          <a href = "twenty_order4.png">
+          twenty_order4.png</a>,
+          a <a href = "../../data/png/png.html">PNG</a> image of the
+          mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CUBE_ORDER10</b> is a cube-shaped region, which may be meshed by
+      order-10 tetrahedrons.
+      <ul>
+        <li>
+          <a href = "cube_order10_output.txt">cube_order10_output.txt</a>,
+          the printed output in response to the command:<pre><b>
+            tet_mesh_display_opengl cube_order10</b></pre>
+        </li>
+        <li>
+          <a href = "cube_order10_nodes.txt">
+          cube_order10_nodes.txt</a>, the node file.
+        </li>
+        <li>
+          <a href = "cube_order10_elements.txt">
+          cube_order10_elements.txt</a>, the tetrahedron file.
+        </li>
+        <li>
+          <a href = "cube_order10.png">
+          cube_order10.png</a>,
+          a <a href = "../../data/png/png.html">PNG</a> image of the
+          mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>ONEONEEIGHT_ORDER10</b> is a region formed by the refinement
+      of 20 random nodes to 118 nodes (by adding the midside nodes.)
+      <ul>
+        <li>
+          <a href = "oneoneeight_order10_output.txt">oneoneeight_order10_output.txt</a>,
+          the printed output in response to the command:<pre><b>
+            tet_mesh_display_opengl oneoneeight_order10</b></pre>
+        </li>
+        <li>
+          <a href = "oneoneeight_order10_nodes.txt">
+          oneoneeight_order10_nodes.txt</a>, the node file.
+        </li>
+        <li>
+          <a href = "oneoneeight_order10_elements.txt">
+          oneoneeight_order10_elements.txt</a>, the tetrahedron file.
+        </li>
+        <li>
+          <a href = "oneoneeight_order10.png">
+          oneoneeight_order10.png</a>,
+          a <a href = "../../data/png/png.html">PNG</a> image of the
+          mesh.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for TET_MESH_DISPLAY_OPENGL.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DISPLAY</b> generates the graphics output.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_EXIST</b> reports whether a file exists.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
+        </li>
+        <li>
+          <b>MYINIT</b> initializes OpenGL state variables.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R83VEC_MAX</b> returns the maximum value in an R83VEC.
+        </li>
+        <li>
+          <b>R83VEC_MIN</b> returns the minimum value in an R83VEC.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 13 August 2009.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

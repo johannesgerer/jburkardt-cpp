@@ -1,0 +1,164 @@
+<html>
+
+  <head>
+    <title>
+      PPMA_TO_BMP - PPMA => BMP Graphics File Conversion
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PPMA_TO_BMP <br> PPMA => BMP Graphics File Conversion
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PPMA_TO_BMP</b>
+      is a C++ program which
+      converts an ASCII Portable Pixel Map (PPM)
+      file to a Microsoft BMP file.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <dl>
+        <dt>
+          <b>ppma_to_bmp</b> <i>file.ppma</i> <i>file.bmp</i>
+        </dt>
+        <dd>
+          reads data from <i>file.ppma</i> and creates an equivalent
+          graphics file in <i>file.bmp</i>.
+        </dd>
+      </dl>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/bmp/bmp.html">
+      BMP</a>,
+      a data directory which
+      contains a description and examples of BMP files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_to_ppma/bmp_to_ppma.html">
+      BMP_TO_PPMA</a>,
+      a C++ program which
+      converts BMP files to ASCII PPM files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/bmp_io/bmp_io.html">
+      BMP_IO</a>,
+      a C++ library which
+      contains many routines required by PPMA_TO_BMP.
+    </p>
+
+    <p>
+      <a href = "../../data/ppma/ppma.html">
+      PPMA</a>,
+      a data directory which
+      contains a description and examples of ASCII PPM files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ppma_io/ppma_io.html">
+      PPMA_IO</a>,
+      a C++ library which
+      contains many routines required by PPMA_TO_BMP.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Microsoft Corporation,<br>
+          Microsoft Windows Programmer's Reference,<br>
+          Volume 5; Messages, Structures, and Macros,<br>
+          Microsoft Press, 1993.
+        </li>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">
+                     http://netpbm.sourceforge.net</a> <br>
+          the NETPBM homepage.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ppma_to_bmp.cpp">ppma_to_bmp.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "ppma_to_bmp.sh">ppma_to_bmp.sh</a>,
+          commands to compile link and load the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for PPMA_TO_BMP.
+        </li>
+        <li>
+          <b>PPMA_TO_BMP</b> reads a PPMA (ASCII PPM) file and writes a BMP file.
+        </li>
+        <li>
+          <b>I4MAT_VERT_FLIP</b> swaps rows of an I4MAT, to flip it vertically.
+        </li>
+        <li>
+          <b>I4MAT_TO_UCMAT</b> converts an I4MAT to a UCMAT.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 06 January 2006.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

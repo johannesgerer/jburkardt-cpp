@@ -1,0 +1,102 @@
+04 October 2012 12:37:09 PM
+
+QR_SOLVE_PRB
+  C++ version
+  Test the QR_SOLVE library.
+  QR_SOLVE needs the R8LIB library.
+  This test also needs the TEST_LS library.
+
+TEST01
+  NORMAL_SOLVE is a function with a simple interface which
+  solves a linear system A*x = b in the least squares sense.
+  Compare a tabulated solution X1 to the NORMAL_SOLVE result X2.
+
+  NORMAL_SOLVE cannot be applied when N < M,
+  or if the matrix does not have full column rank.
+
+  Number of problems = 6
+
+  Index     M     N     ||B||         ||X1 - X2||   ||X1||       ||X2||        ||R1||        ||R2||
+
+      1     5     3       6.20484   2.86071e-08       5.46115       5.46115       1.07544       1.07544
+      2     6     3       537.569   5.41634e-05       194.819       194.819       5.22193       5.22193
+      3     5     3       40.3733  ------------        10.844  ------------   5.47723e-07  ------------
+      4     3     5        232.11  ------------        7.4162  ------------             0  ------------
+      5    10    10             1  ------------   1.53439e+07  ------------   1.50702e-10  ------------
+      6    10    10             1   5.17959e-16             1             1   4.92799e-16   2.52609e-16
+
+TEST02
+  QR_SOLVE is a function with a simple interface which
+  solves a linear system A*x = b in the least squares sense.
+  Compare a tabulated solution X1 to the QR_SOLVE result X2.
+
+  Number of problems = 6
+
+  Index     M     N     ||B||         ||X1 - X2||   ||X1||       ||X2||        ||R1||        ||R2||
+
+      1     5     3       6.20484   2.86071e-08       5.46115       5.46115       1.07544       1.07544
+      2     6     3       537.569   5.41634e-05       194.819       194.819       5.22193       5.22193
+      3     5     3       40.3733       40.7616        10.844       42.1794   5.47723e-07   6.39488e-14
+      4     3     5        232.11       10.3682        7.4162       12.7475             0   8.93845e-14
+      5    10    10             1       2182.02   1.53439e+07   1.53417e+07   1.50702e-10   1.03352e-09
+      6    10    10             1   6.46324e-16             1             1   4.92799e-16   3.18401e-16
+
+TEST03
+  SVD_SOLVE is a function with a simple interface which
+  solves a linear system A*x = b in the least squares sense.
+  Compare a tabulated solution X1 to the SVD_SOLVE result X2.
+
+  Number of problems = 6
+
+  Index     M     N     ||B||         ||X1 - X2||   ||X1||       ||X2||        ||R1||        ||R2||
+
+      1     5     3       6.20484   2.86071e-08       5.46115       5.46115       1.07544       1.07544
+      2     6     3       537.569   5.41634e-05       194.819       194.819       5.22193       5.22193
+      3     5     3       40.3733   5.09175e-08        10.844        10.844   5.47723e-07   4.28172e-14
+      4     3     5        232.11   1.14813e-13        7.4162        7.4162             0   1.31642e-13
+      5    10    10             1       1730.72   1.53439e+07   1.53422e+07   1.50702e-10   7.09956e-10
+      6    10    10             1   1.12179e-15             1             1   4.92799e-16   7.74907e-16
+
+TEST04
+  DQRLS solves a linear system A*x = b in the least squares sense.
+
+  Coefficient matrix A:
+
+  Col:          0             1             2       
+  Row
+
+    0:            1             1             1  
+    1:            1             2             4  
+    2:            1             3             9  
+    3:            1             4            16  
+    4:            1             5            25  
+
+  Right hand side b:
+
+         0:              1
+         1:            2.3
+         2:            4.6
+         3:            3.1
+         4:            1.2
+
+  Error code = 0
+  Estimated matrix rank = 3
+
+  Least squares solution x:
+
+         0:          -3.02
+         1:        4.49143
+         2:      -0.728571
+
+  Residuals A*x-b
+
+         0:       0.257143
+         1:      -0.748571
+         2:       0.702857
+         3:      -0.188571
+         4:     -0.0228571
+
+QR_SOLVE_PRB
+  Normal end of execution.
+
+04 October 2012 12:37:09 PM

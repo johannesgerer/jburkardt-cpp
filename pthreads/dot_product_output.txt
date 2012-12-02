@@ -1,0 +1,11 @@
+
+DOT_PRODUCT:
+  C++ version
+
+  Demonstrate the use of Posix Threads by computing the
+  dot product of two vectors.
+
+  The length of the vectors N = 256
+  The number of threads used is 4
+
+  Sum = 5.61702e+06

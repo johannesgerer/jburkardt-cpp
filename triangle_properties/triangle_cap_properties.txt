@@ -1,0 +1,61 @@
+
+18 July 2009 11:08:56 PM
+
+TRIANGLE_PROPERTIES:
+  C++ version:
+  Determine properties of a triangle.
+
+  Read the header of "triangle_cap.txt".
+
+  Spatial dimension DIM_NUM = 2
+  Number of points NODE_NUM = 3
+
+  Read the data in "triangle_cap.txt".
+
+  Node coordinates:
+
+  Row:       1             2       
+  Col
+
+    1            -50             0
+    2             50             0
+    3              0          0.02
+
+  ANGLES (radians)
+
+         0          0.0004
+         1          0.0004
+         2         3.14079
+
+  ANGLES (degrees)
+
+         0       0.0229183
+         1       0.0229183
+         2         179.954
+
+  AREA = 1
+
+  CENTROID:                0      0.00666667
+
+  CIRCUM_RADIUS = 62500
+  CIRCUM_CENTER:                0          -62500
+
+  EDGE_LENGTHS
+
+         0             100
+         1              50
+         2              50
+
+  IN_RADIUS = 0
+  IN_CENTER:             0.01               0
+
+  ORIENTATION: CounterClockwise.
+
+  ORTHO_CENTER:      1.11022e-08          125000
+
+  QUALITY = 3.2e-07
+
+TRIANGLE_PROPERTIES:
+  Normal end of execution.
+
+18 July 2009 11:08:56 PM

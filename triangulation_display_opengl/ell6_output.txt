@@ -1,0 +1,24 @@
+
+TRIANGULATION_DISPLAY_OPEN_GL:
+
+  Compiled on Jun 23 2006 at 14:16:40.
+
+  This program reads information defining a triangulation
+  and displays an image of the triangulation using OpenGL.
+
+  The file has been examined.
+
+  The spatial dimension DIM_NUM =  2
+  The number of nodes NODE_NUM =   21
+
+  Minimum: 0  0
+  Maximum: 4  4
+  Range:   4  4
+
+  The file has been examined.
+
+  The order TRIANGLE_ORDER =             6
+  The number of triangles TRIANGLE_NUM = 6
+
+  The triangulation is assumed to be 1-based!
+  Pixels:  500  500

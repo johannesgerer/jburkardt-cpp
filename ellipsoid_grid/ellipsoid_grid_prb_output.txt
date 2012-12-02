@@ -1,0 +1,46 @@
+22 December 2011 08:38:32 AM
+
+ELLIPSOID_GRID_TEST:
+  C++ version
+  Test the ELLIPSOID_GRID library.
+
+TEST01:
+  ELLIPSOID_GRID can define a grid of points
+  with N+1 points on the minor half axis,
+  based on any ellipsoid.
+
+  We use N = 4
+  Radius R = (2,1,1.5)
+  Center C = (1,2,1.5)
+
+  Number of grid points will be 1161
+
+  Part of the grid point array:
+
+         0:              1               2             1.5
+         1:        1.22222               2             1.5
+         2:       0.777778               2             1.5
+         3:        1.44444               2             1.5
+         4:       0.555556               2             1.5
+         5:        1.66667               2             1.5
+         6:       0.333333               2             1.5
+         7:        1.88889               2             1.5
+         8:       0.111111               2             1.5
+         9:        2.11111               2             1.5
+        10:      -0.111111               2             1.5
+        11:        2.33333               2             1.5
+        12:      -0.333333               2             1.5
+        13:        2.55556               2             1.5
+        14:      -0.555556               2             1.5
+        15:        2.77778               2             1.5
+        16:      -0.777778               2             1.5
+        17:              1         2.22222             1.5
+  ........  ..............  ..............  ..............
+      1160:       0.777778         1.55556        0.166667
+
+  Data written to the file "ellipsoid_grid_test01.xyz".
+
+ELLIPSOID_GRID_TEST:
+  Normal end of execution.
+
+22 December 2011 08:38:32 AM

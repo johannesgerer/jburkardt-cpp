@@ -1,0 +1,368 @@
+<html>
+
+  <head>
+    <title>
+      TABLE_IO - Read or Write a TABLE file
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TABLE_IO <br> Table Files <br> Read and Write Utilities
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TABLE_IO</b> 
+      is a C++ library which 
+      can read or write a TABLE file.
+    </p>
+
+    <p>
+      A <a href = "../../data/table/table.html">
+      TABLE file</a> is a simple format for storing a double-indexed
+      array of data.  We regard this is a situation involving <b>N</b>
+      points in <b>M</b> dimensions, with <b>M</b> relatively small
+      (often just 2 or 3, but possibly 10 or 20) while <b>N</b> can
+      be "enormous" (10, 100, 1,000 or 10,000).
+    </p>
+
+    <p>
+      To keep things simple, then, the data is written to an ASCII
+      file, with optional comment lines (which must start with the
+      '#' character) and blank lines (which are ignored).  The point
+      data is stored by writing the coordinates of each point on
+      a separate line.  No information about <b>M</b> or <b>N</b> is 
+      explicitly included in the file.
+      It is up to the I/O program to determine this.
+    </p>
+
+    <p>
+      <b>TABLE_IO</b> supplies routines by which a TABLE file can
+      easily be written or read.  A typical write operation simply
+      calls routine <b>R8MAT_WRITE</b>.  A typical read operation
+      will probably first want to call <b>R8MAT_HEADER_READ</b>
+      to determine the values of <b>M</b> and <b>N</b>, and then
+      allocate space for the table, and then call <b>R8MAT_DATA_READ</b> 
+      to read the data. 
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+ 
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TABLE_IO</b> is available in
+      <a href = "../../c_src/table_io/table_io.html">a C version</a> and
+      <a href = "../../cpp_src/table_io/table_io.html">a C++ version</a> and
+      <a href = "../../f77_src/table_io/table_io.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/table_io/table_io.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/table_io/table_io.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/table/table.html">
+      TABLE</a>,
+      a file format which
+      is used for the storage of table files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_border/table_border.html">
+      TABLE_BORDER</a>, 
+      a C++ program which
+      can read a TABLE file
+      and add zero entries corresponding to a single layer of 
+      boundary data.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_delaunay/table_delaunay.html">
+      TABLE_DELAUNAY</a>, 
+      a C++ program which
+      reads a
+      file of 2d point coordinates and computes the Delaunay triangulation.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_latinize/table_latinize.html">
+      TABLE_LATINIZE</a>, 
+      a C++ program which
+      can read a TABLE file
+      and write out a "latinized" version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_quality/table_quality.html">
+      TABLE_QUALITY</a>, 
+      a C++ program which
+      can read a TABLE file
+      and print out measures of the quality of dispersion of the points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_unborder/table_unborder.html">
+      TABLE_UNBORDER</a>, 
+      a C++ program which
+      can be used to remove the 
+      border from a table file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_voronoi/table_voronoi.html">
+      TABLE_VORONOI</a>, 
+      a C++ program which
+      reads a TABLE file
+      describing a set of 2D points, and print out information
+      describing the Voronoi diagram of those points.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "table_io.cpp">table_io.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "table_io.hpp">table_io.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "table_io.sh">table_io.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "table_io_prb.cpp">table_io_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "table_io_prb.sh">table_io_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "table_io_prb_output.txt">table_io_prb_output.txt</a>,
+          the output from a run of the sample program.
+        </li>
+        <li>
+          <a href = "r8mat_05_00020.txt">r8mat_05_00020.txt</a>,
+          the R8MAT file created by the sample program, with
+          N = 20 points in M = 5 dimensions.
+        </li>
+        <li>
+          <a href = "i4mat_05_00020.txt">i4mat_05_00020.txt</a>,
+          the I4MAT file created by the sample program, with
+          N = 20 points in M = 5 dimensions.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_LOG_10</b> returns the integer part of the logarithm base 10 of ABS(X).
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>I4MAT_BORDER_ADD</b> adds a "border" to an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_BORDER_CUT</b> cuts the "border" of an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_INDICATOR</b> sets up an "indicator" I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_PRINT</b> prints an I4MAT, with an optional title.
+        </li>
+        <li>
+          <b>I4MAT_PRINT_SOME</b> prints some of an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_READ</b> reads the information from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_WRITE</b> writes an I4MAT file with no header.
+        </li>
+        <li>
+          <b>LVEC_DATA_READ</b> reads data from an LVEC file.
+        </li>
+        <li>
+          <b>LVEC_HEADER_READ</b> reads the header from an LVEC file.
+        </li>
+        <li>
+          <b>LVEC_WRITE</b> writes an LVEC to a file.
+        </li>
+        <li>
+          <b>R4MAT_DATA_READ</b> reads the data from an R4MAT file.
+        </li>
+        <li>
+          <b>R4MAT_HEADER_READ</b> reads the header from an R4MAT file.
+        </li>
+        <li>
+          <b>R4MAT_INDICATOR</b> sets up an "indicator" R4MAT.
+        </li>
+        <li>
+          <b>R4MAT_PRINT</b> prints an R4MAT, with an optional title.
+        </li>
+        <li>
+          <b>R4MAT_PRINT_SOME</b> prints some of an R4MAT.
+        </li>
+        <li>
+          <b>R4MAT_READ</b> reads information from an R4MAT file.
+        </li>
+        <li>
+          <b>R4MAT_TRANSPOSE_PRINT</b> prints an R4MAT, transposed.
+        </li>
+        <li>
+          <b>R4MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R4MAT, transposed.
+        </li>
+        <li>
+          <b>R4MAT_UNIFORM_01</b> returns a unit pseudorandom R4MAT.
+        </li>
+        <li>
+          <b>R4MAT_WRITE</b> writes an R4MAT file.
+        </li>
+        <li>
+          <b>R8MAT_BORDER_ADD</b> adds a "border" to an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_BORDER_CUT</b> cuts the "border" of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_INDICATOR</b> sets up an "indicator" R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT, with an optional title.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_READ</b> reads information from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT</b> prints an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_01</b> returns a unit pseudorandom R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_WRITE</b> writes an R8MAT file.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_L</b> reads an L from a string.
+        </li>
+        <li>
+          <b>S_TO_R4</b> reads an R4 from a string.
+        </li>
+        <li>
+          <b>S_TO_R4VEC</b> reads an R4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 April 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

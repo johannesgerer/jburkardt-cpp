@@ -1,0 +1,23 @@
+#  cvt_02_00010.latin.txt
+#  created by LATINIZE.CC
+#  at 08 October 2004 08:08:09 AM
+#
+#  Spatial dimension M = 2
+#  Number of points N =  10
+#  EPSILON (unit roundoff) = 2.22045e-16
+#
+#  This data was created by the C++ TABLE_LATINIZE program.
+#  The data was read from cvt_02_00010.txt by DTABLE_DATA_READ.CC
+#  The data was latinized by DTABLE_LATINIZE.CC.
+#  The data was written to cvt_02_00010.latin.txt by DTABLE_DATA_WRITE.CC.
+#
+      0.05        0.95  
+      0.75        0.75  
+      0.65        0.45  
+      0.55        0.15  
+      0.35        0.65  
+      0.25        0.35  
+      0.45        0.85  
+      0.85        0.25  
+      0.95        0.55  
+      0.15        0.05  

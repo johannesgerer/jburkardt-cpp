@@ -1,0 +1,119 @@
+24 January 2008 11:58:51 AM
+
+INT_EXACTNESS_GEN_HERMITE
+  C++ version
+
+  Investigate the polynomial exactness of a generalized Gauss-Hermite
+  quadrature rule by integrating exponentially weighted
+  monomials up to a given degree over the (-oo,+oo) interval.
+
+INT_EXACTNESS_GEN_HERMITE: User input:
+  Quadrature rule X file = "gen_herm_o16_a1.0_x.txt".
+  Quadrature rule W file = "gen_herm_o16_a1.0_w.txt".
+  Quadrature rule R file = "gen_herm_o16_a1.0_r.txt".
+  Maximum degree to check = 35
+  Power of |X|, ALPHA = 1
+  OPTION = 0, integrate |x|^alpha*exp(-x*x)*f(x)
+
+  Spatial dimension = 1
+  Number of points  = 16
+
+  The quadrature rule to be tested is
+  a generalized Gauss-Hermite rule
+  ORDER = 16
+  ALPHA = 1
+
+  OPTION = 0: Standard rule:
+    Integral ( -oo < x < +oo ) |x|^alpha exp(-x*x) f(x) dx
+    is to be approximated by
+    sum ( 1 <= I <= ORDER ) w(i) * f(x(i)).
+
+  Weights W:
+
+  w[ 0] =    5.240005874357543e-10
+  w[ 1] =    4.242873358136269e-07
+  w[ 2] =    4.538254386679103e-05
+  w[ 3] =     0.001397268117612835
+  w[ 4] =      0.01667174613060782
+  w[ 5] =      0.08789749331858591
+  w[ 6] =       0.2093933904071717
+  w[ 7] =       0.1845942946708189
+  w[ 8] =       0.1845942946708189
+  w[ 9] =       0.2093933904071717
+  w[10] =      0.08789749331858591
+  w[11] =      0.01667174613060782
+  w[12] =     0.001397268117612835
+  w[13] =    4.538254386679103e-05
+  w[14] =    4.242873358136269e-07
+  w[15] =    5.240005874357543e-10
+
+  Abscissas X:
+
+  x[ 0] =       -4.781540728352031
+  x[ 1] =       -3.967452411973961
+  x[ 2] =       -3.280017684431137
+  x[ 3] =       -2.654412440144422
+  x[ 4] =       -2.065599227896752
+  x[ 5] =       -1.500362166233917
+  x[ 6] =      -0.9506323036797034
+  x[ 7] =      -0.4126495272081394
+  x[ 8] =       0.4126495272081394
+  x[ 9] =       0.9506323036797034
+  x[10] =        1.500362166233917
+  x[11] =        2.065599227896752
+  x[12] =        2.654412440144422
+  x[13] =        3.280017684431137
+  x[14] =        3.967452411973961
+  x[15] =        4.781540728352031
+
+  Region R:
+
+  r[ 0] =                   -1e+30
+  r[ 1] =                    1e+30
+
+  A generalized Gauss-Hermite rule would be able to exactly
+  integrate monomials up to and including degree = 31
+
+          Error          Degree
+
+     6.661338147750939e-16   0
+     8.207652892352808e-18   1
+     8.881784197001252e-16   2
+     2.533646937060533e-17   3
+     4.440892098500626e-16   4
+      1.56224639209215e-16   5
+                         0   6
+     3.481271531897284e-16   7
+     5.921189464667501e-16   8
+     2.130457268934016e-16   9
+     8.289665250534502e-16  10
+     5.322131624296844e-15  11
+     1.105288700071267e-15  12
+     2.586819647376615e-14  13
+     1.263187085795734e-15  14
+     4.511946372076636e-13  15
+     7.218211918832764e-16  16
+     9.265477274311706e-12  17
+      6.41618837229579e-16  18
+      9.00399754755199e-11  19
+     3.849713023377474e-16  20
+     3.346940502524376e-10  21
+     1.119916515891628e-15  22
+     3.725290298461914e-09  23
+     4.604101231998941e-15  24
+     8.940696716308594e-08  25
+     1.072056835725322e-15  26
+      4.76837158203125e-07  27
+     8.751484373267933e-16  28
+       1.9073486328125e-05  29
+     1.866983332963825e-16  30
+            0.000244140625  31
+     7.770007770399816e-05  32
+               0.001953125  33
+     0.0006627359568564141  34
+                         0  35
+
+INT_EXACTNESS_GEN_HERMITE:
+  Normal end of execution.
+
+24 January 2008 11:58:51 AM

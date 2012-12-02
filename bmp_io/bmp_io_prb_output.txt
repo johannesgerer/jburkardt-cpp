@@ -1,0 +1,76 @@
+18 December 2011 08:40:02 AM
+
+BMP_IO_PRB
+  C++ version
+  Test the BMP_IO library.
+
+  The BMP_BYTE_SWAP option being used is 1
+
+TEST01:
+  Call BMP_24_WRITE_TEST to store some graphics
+  information in the file "bmp_24.bmp".
+
+  BMP_24_WRITE_TEST passed.
+
+TEST02:
+  Call BMP_READ_TEST to read the
+  information in the file "bmp_24.bmp".
+
+  BMP_READ_TEST passed.
+
+TEST03:
+  Call BMP_PRINT_TEST to read and print the
+  information in the file "bmp_24.bmp".
+
+BMP_PRINT_TEST:
+  Contents of BMP file "bmp_24.bmp"
+
+  Contents of BMP file header:
+
+    FILETYPE =     16973
+    FILESIZE =     120054
+    RESERVED1 =    0
+    RESERVED2 =    0
+    BITMAPOFFSET = 54
+
+  Contents of BMP file bitmap header:
+
+    SIZE =            40
+    WIDTH =           200
+    HEIGHT =          200
+    PLANES =          1
+    BITSPERPIXEL =    24
+    COMPRESSION =     0
+    SIZEOFBITMAP =    0
+    HORZRESOLUTION =  0
+    VERTRESOLUTION =  0
+    COLORSUSED =      0
+    COLORSIMPORTANT = 0
+
+  Palette information from BMP file:
+
+    There are NO colors defined for the palette.
+
+  BMP_PRINT_TEST passed.
+
+TEST04:
+  BMP_READ can extract the RGB information from a BMP file.
+
+  We will try to read the file "blackbuck.bmp".
+
+BMP_READ - Fatal error!
+  Could not open the input file.
+
+TEST04 - Fatal error!
+  The test failed.
+
+TEST05:
+  Call BMP_08_WRITE_TEST to store some graphics
+  information in the file "bmp_08.bmp".
+
+  BMP_08_WRITE_TEST passed.
+
+BMP_IO_PRB:
+  Normal end of execution.
+
+18 December 2011 08:40:02 AM

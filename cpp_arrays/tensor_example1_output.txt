@@ -1,0 +1,9 @@
+
+TENSOR_EXAMPLE1:
+  C++ version.
+  Demonstrate the creation and use of 3D arrays.
+
+T1[3][1][0]: 5,  T1[4][1][2]: 4
+
+TENSOR_EXAMPLE1:
+  Normal end of execution.

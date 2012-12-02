@@ -1,0 +1,166 @@
+23 September 2004 02:13:57 PM
+
+HALTON_DATASET (C++ version)
+  Generate a Halton dataset.
+
+  This program is meant to be used interactively.
+  It is also possible to prepare a simple input
+  file beforehand and use it in batch mode.
+
+  The program requests input values from the user:
+
+  * NDIM, the spatial dimension,
+  * N, the number of points to generate,
+  * STEP, the index of the first subsequence element.
+  * SEED(1:NDIM),the Halton sequence element
+    corresponding to STEP = 0
+  * LEAP(1:NDIM), the succesive jumps in the Halton sequence.
+  * BASE(1:NDIM), the Halton bases,
+    usually distinct primes.
+
+  The program generates the data, writes it to the file
+
+    halton_NDIM_N.txt
+
+  where NDIM and N are the numeric values specified
+  by the user, and then asks the user for more input.
+
+  To indicate that no further computations are
+  desired, it is enough to input a nonsensical value,
+  such as -1.
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you don't have a preference.)
+  (0 or any negative value terminates execution).
+
+  Enter N, the number of points to generate:
+  (Try '25' if you don't have a preference.)
+  (0 or any negative value terminates execution).
+
+  Enter STEP, the index of the first subsequence element:
+  (Try '0' or '1' if you don't have a preference.)
+  (Any negative value terminates execution).
+
+  Enter SEED(1:NDIM), the starting element index
+  for each coordinate
+  (Try '0 0 ... 0' if you don't have a preference).
+  (a negative value terminates execution.)
+  User input:           1           1
+
+  Enter LEAP(1:NDIM), the leaping multiplier
+  for each coordinate
+  (Try '1 1 1 ... 1' if you don't have a preference).
+  (Another choice is any prime larger than all the bases).
+  (any value of 0 or less terminates execution.)
+  User input:           1           1
+
+  Enter BASE(1:NDIM), the base for each coordinate,
+  usually distinct primes.
+  (Try '2 3 5 7 11 ...' if you don't have a preference).
+  (any value of 1 or less terminates execution.)
+  User input:           2           3
+
+  The data was written to the file "halton_2_10.txt".
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you don't have a preference.)
+  (0 or any negative value terminates execution).
+
+  Enter N, the number of points to generate:
+  (Try '25' if you don't have a preference.)
+  (0 or any negative value terminates execution).
+
+  Enter STEP, the index of the first subsequence element:
+  (Try '0' or '1' if you don't have a preference.)
+  (Any negative value terminates execution).
+
+  Enter SEED(1:NDIM), the starting element index
+  for each coordinate
+  (Try '0 0 ... 0' if you don't have a preference).
+  (a negative value terminates execution.)
+  User input:           0           1           2
+
+  Enter LEAP(1:NDIM), the leaping multiplier
+  for each coordinate
+  (Try '1 1 1 ... 1' if you don't have a preference).
+  (Another choice is any prime larger than all the bases).
+  (any value of 0 or less terminates execution.)
+  User input:           1           2           3
+
+  Enter BASE(1:NDIM), the base for each coordinate,
+  usually distinct primes.
+  (Try '2 3 5 7 11 ...' if you don't have a preference).
+  (any value of 1 or less terminates execution.)
+  User input:           5           3           7
+
+  The data was written to the file "halton_3_100.txt".
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you don't have a preference.)
+  (0 or any negative value terminates execution).
+
+  Enter N, the number of points to generate:
+  (Try '25' if you don't have a preference.)
+  (0 or any negative value terminates execution).
+
+  Enter STEP, the index of the first subsequence element:
+  (Try '0' or '1' if you don't have a preference.)
+  (Any negative value terminates execution).
+
+  Enter SEED(1:NDIM), the starting element index
+  for each coordinate
+  (Try '0 0 ... 0' if you don't have a preference).
+  (a negative value terminates execution.)
+  User input:           0           0           0           0           0
+                        0           0
+
+  Enter LEAP(1:NDIM), the leaping multiplier
+  for each coordinate
+  (Try '1 1 1 ... 1' if you don't have a preference).
+  (Another choice is any prime larger than all the bases).
+  (any value of 0 or less terminates execution.)
+  User input:           1           1           1           1           1
+                        1           1
+
+  Enter BASE(1:NDIM), the base for each coordinate,
+  usually distinct primes.
+  (Try '2 3 5 7 11 ...' if you don't have a preference).
+  (any value of 1 or less terminates execution.)
+  User input:           2           3           4           5           6
+                        7           8
+
+  The data was written to the file "halton_7_1000.txt".
+  *
+ *
+*  Ready to generate a new dataset:
+ *
+  *
+
+  Enter NDIM, the spatial dimension:
+  (Try '2' if you don't have a preference.)
+  (0 or any negative value terminates execution).
+
+HALHAM_NDIM_CHECK - Fatal error!
+  NDIM < 0.  NDIM = -1
+
+HALTON_DATASET
+  The input value of NDIM = -1
+  is interpreted as a request for termination.
+  Normal end of execution.
+
+23 September 2004 02:13:57 PM

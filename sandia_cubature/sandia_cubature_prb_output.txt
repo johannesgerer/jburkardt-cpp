@@ -1,0 +1,4338 @@
+25 December 2011 02:55:14 PM
+
+SANDIA_CUBATURE_PRB
+  C++ version
+  Test the SANDIA_CUBATURE library.
+
+CN_GEG_TESTS
+  Demonstrate the use of quadrature rules for the region
+  CN_GEG, that is, the hypercube [-1,+1]^N, with the
+  weight W(ALPHA;X) = product ( 1 <= I <= N )
+    (1-X(I)^2)^ALPHA
+
+  We use the formulas to integrate various monomials of
+  the form X(1)^E(1) * X(2)^E(2) * ... X(N)^E(N)
+  and compare to the exact integral.
+
+  The precision of each formula is known, and we only use
+  a formula if its precision indicates it should be able to
+  produce an exact result.
+
+  N = 1
+  ALPHA = -0.5
+  EXPON =    0
+  Degree = 0
+
+  CN_GEG_01_1:          1         3.14159               0
+  CN_GEG_02_XIU:        2         3.14159               0
+  GW_02_XIU:            2         3.14159      3.9968e-15
+  CN_GEG_03_XIU:        2         3.14159               0
+  EXACT                           3.14159
+
+  N = 1
+  ALPHA = 0
+  EXPON =    0
+  Degree = 0
+
+  CN_GEG_01_1:          1               2               0
+  CN_GEG_02_XIU:        2               2               0
+  GW_02_XIU:            2               2     2.22045e-16
+  CN_GEG_03_XIU:        2               2               0
+  EXACT                                 2
+
+  N = 1
+  ALPHA = 0.5
+  EXPON =    0
+  Degree = 0
+
+  CN_GEG_01_1:          1          1.5708               0
+  CN_GEG_02_XIU:        2          1.5708               0
+  GW_02_XIU:            2          1.5708     1.55431e-15
+  CN_GEG_03_XIU:        2          1.5708               0
+  EXACT                            1.5708
+
+  N = 1
+  ALPHA = 1
+  EXPON =    0
+  Degree = 0
+
+  CN_GEG_01_1:          1         1.33333               0
+  CN_GEG_02_XIU:        2         1.33333               0
+  GW_02_XIU:            2         1.33333               0
+  CN_GEG_03_XIU:        2         1.33333               0
+  EXACT                           1.33333
+
+  N = 1
+  ALPHA = 1.5
+  EXPON =    0
+  Degree = 0
+
+  CN_GEG_01_1:          1          1.1781               0
+  CN_GEG_02_XIU:        2          1.1781               0
+  GW_02_XIU:            2          1.1781     8.88178e-16
+  CN_GEG_03_XIU:        2          1.1781               0
+  EXACT                            1.1781
+
+  N = 1
+  ALPHA = -0.5
+  EXPON =    1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  CN_GEG_03_XIU:        2               0               0
+  EXACT                                 0
+
+  N = 1
+  ALPHA = 0
+  EXPON =    1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  CN_GEG_03_XIU:        2               0               0
+  EXACT                                 0
+
+  N = 1
+  ALPHA = 0.5
+  EXPON =    1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  CN_GEG_03_XIU:        2               0               0
+  EXACT                                 0
+
+  N = 1
+  ALPHA = 1
+  EXPON =    1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  CN_GEG_03_XIU:        2               0               0
+  EXACT                                 0
+
+  N = 1
+  ALPHA = 1.5
+  EXPON =    1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  CN_GEG_03_XIU:        2               0               0
+  EXACT                                 0
+
+  N = 1
+  ALPHA = -0.5
+  EXPON =    2
+  Degree = 2
+
+  CN_GEG_02_XIU:        2          1.5708     6.66134e-16
+  GW_02_XIU:            2          1.5708     1.33227e-15
+  CN_GEG_03_XIU:        2          1.5708     1.55431e-15
+  EXACT                            1.5708
+
+  N = 1
+  ALPHA = 0
+  EXPON =    2
+  Degree = 2
+
+  CN_GEG_02_XIU:        2        0.666667               0
+  GW_02_XIU:            2        0.666667     1.11022e-16
+  CN_GEG_03_XIU:        2        0.666667     2.22045e-16
+  EXACT                          0.666667
+
+  N = 1
+  ALPHA = 0.5
+  EXPON =    2
+  Degree = 2
+
+  CN_GEG_02_XIU:        2        0.392699     2.22045e-16
+  GW_02_XIU:            2        0.392699     1.66533e-16
+  CN_GEG_03_XIU:        2        0.392699     2.22045e-16
+  EXACT                          0.392699
+
+  N = 1
+  ALPHA = 1
+  EXPON =    2
+  Degree = 2
+
+  CN_GEG_02_XIU:        2        0.266667     5.55112e-17
+  GW_02_XIU:            2        0.266667     5.55112e-17
+  CN_GEG_03_XIU:        2        0.266667     5.55112e-17
+  EXACT                          0.266667
+
+  N = 1
+  ALPHA = 1.5
+  EXPON =    2
+  Degree = 2
+
+  CN_GEG_02_XIU:        2         0.19635     2.77556e-17
+  GW_02_XIU:            2         0.19635     1.38778e-16
+  CN_GEG_03_XIU:        2         0.19635     2.77556e-17
+  EXACT                           0.19635
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1          9.8696               0
+  CN_GEG_02_XIU:        3          9.8696               0
+  GW_02_XIU:            3          9.8696      2.4869e-14
+  CN_GEG_03_XIU:        4          9.8696               0
+  EXACT                            9.8696
+
+  N = 2
+  ALPHA = 0
+  EXPON =    0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1               4               0
+  CN_GEG_02_XIU:        3               4               0
+  GW_02_XIU:            3               4     8.88178e-16
+  CN_GEG_03_XIU:        4               4               0
+  EXACT                                 4
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1          2.4674               0
+  CN_GEG_02_XIU:        3          2.4674               0
+  GW_02_XIU:            3          2.4674     4.88498e-15
+  CN_GEG_03_XIU:        4          2.4674               0
+  EXACT                            2.4674
+
+  N = 2
+  ALPHA = 1
+  EXPON =    0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         1.77778               0
+  CN_GEG_02_XIU:        3         1.77778               0
+  GW_02_XIU:            3         1.77778               0
+  CN_GEG_03_XIU:        4         1.77778               0
+  EXACT                           1.77778
+
+  N = 2
+  ALPHA = 1.5
+  EXPON =    0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         1.38791               0
+  CN_GEG_02_XIU:        3         1.38791               0
+  GW_02_XIU:            3         1.38791     2.22045e-15
+  CN_GEG_03_XIU:        4         1.38791               0
+  EXACT                           1.38791
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        3     1.33227e-15     1.33227e-15
+  GW_02_XIU:            3     1.77636e-15     1.77636e-15
+  CN_GEG_03_XIU:        4     -1.6025e-16      1.6025e-16
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 0
+  EXPON =    0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        3     6.66134e-16     6.66134e-16
+  GW_02_XIU:            3     5.55112e-16     5.55112e-16
+  CN_GEG_03_XIU:        4    -8.89617e-17     8.89617e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        3     2.22045e-16     2.22045e-16
+  GW_02_XIU:            3     3.33067e-16     3.33067e-16
+  CN_GEG_03_XIU:        4    -5.13219e-17     5.13219e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 1
+  EXPON =    0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        3     2.22045e-16     2.22045e-16
+  GW_02_XIU:            3     2.22045e-16     2.22045e-16
+  CN_GEG_03_XIU:        4    -1.33364e-17     1.33364e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 1.5
+  EXPON =    0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        3     1.11022e-16     1.11022e-16
+  GW_02_XIU:            3     1.11022e-16     1.11022e-16
+  CN_GEG_03_XIU:        4    -2.13106e-17     2.13106e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    1   1
+  Degree = 2
+
+  CN_GEG_02_XIU:        3     1.33227e-15     1.33227e-15
+  GW_02_XIU:            3     1.55431e-15     1.55431e-15
+  CN_GEG_03_XIU:        4    -3.02169e-16     3.02169e-16
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 0
+  EXPON =    1   1
+  Degree = 2
+
+  CN_GEG_02_XIU:        3     2.77556e-16     2.77556e-16
+  GW_02_XIU:            3     3.33067e-16     3.33067e-16
+  CN_GEG_03_XIU:        4    -8.16431e-17     8.16431e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    1   1
+  Degree = 2
+
+  CN_GEG_02_XIU:        3     1.38778e-16     1.38778e-16
+  GW_02_XIU:            3     1.66533e-16     1.66533e-16
+  CN_GEG_03_XIU:        4    -3.77712e-17     3.77712e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 1
+  EXPON =    1   1
+  Degree = 2
+
+  CN_GEG_02_XIU:        3     8.32667e-17     8.32667e-17
+  GW_02_XIU:            3     8.32667e-17     8.32667e-17
+  CN_GEG_03_XIU:        4    -2.17715e-17     2.17715e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 1.5
+  EXPON =    1   1
+  Degree = 2
+
+  CN_GEG_02_XIU:        3     6.93889e-17     6.93889e-17
+  GW_02_XIU:            3     8.32667e-17     8.32667e-17
+  CN_GEG_03_XIU:        4    -1.41642e-17     1.41642e-17
+  EXACT                                 0
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    2   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        3          4.9348     8.88178e-16
+  GW_02_XIU:            3          4.9348     1.15463e-14
+  CN_GEG_03_XIU:        4          4.9348     3.55271e-15
+  EXACT                            4.9348
+
+  N = 2
+  ALPHA = 0
+  EXPON =    2   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        3         1.33333     2.22045e-16
+  GW_02_XIU:            3         1.33333               0
+  CN_GEG_03_XIU:        4         1.33333     4.44089e-16
+  EXACT                           1.33333
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    2   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        3         0.61685     5.55112e-16
+  GW_02_XIU:            3         0.61685     6.66134e-16
+  CN_GEG_03_XIU:        4         0.61685     4.44089e-16
+  EXACT                           0.61685
+
+  N = 2
+  ALPHA = 1
+  EXPON =    2   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        3        0.355556     5.55112e-17
+  GW_02_XIU:            3        0.355556     5.55112e-17
+  CN_GEG_03_XIU:        4        0.355556     5.55112e-17
+  EXACT                          0.355556
+
+  N = 2
+  ALPHA = 1.5
+  EXPON =    2   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        3        0.231319     5.55112e-17
+  GW_02_XIU:            3        0.231319     4.16334e-16
+  CN_GEG_03_XIU:        4        0.231319     2.77556e-17
+  EXACT                          0.231319
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         31.0063               0
+  CN_GEG_02_XIU:        4         31.0063               0
+  GW_02_XIU:            4         31.0063      1.1724e-13
+  CN_GEG_03_XIU:        6         31.0063               0
+  EXACT                           31.0063
+
+  N = 3
+  ALPHA = 0
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1               8               0
+  CN_GEG_02_XIU:        4               8               0
+  GW_02_XIU:            4               8     2.66454e-15
+  CN_GEG_03_XIU:        6               8     8.88178e-16
+  EXACT                                 8
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         3.87578               0
+  CN_GEG_02_XIU:        4         3.87578               0
+  GW_02_XIU:            4         3.87578     1.15463e-14
+  CN_GEG_03_XIU:        6         3.87578               0
+  EXACT                           3.87578
+
+  N = 3
+  ALPHA = 1
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         2.37037               0
+  CN_GEG_02_XIU:        4         2.37037               0
+  GW_02_XIU:            4         2.37037               0
+  CN_GEG_03_XIU:        6         2.37037               0
+  EXACT                           2.37037
+
+  N = 3
+  ALPHA = 1.5
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1          1.6351               0
+  CN_GEG_02_XIU:        4          1.6351               0
+  GW_02_XIU:            4          1.6351     3.77476e-15
+  CN_GEG_03_XIU:        6          1.6351     2.22045e-16
+  EXACT                            1.6351
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        4               0               0
+  GW_02_XIU:            4               0               0
+  CN_GEG_03_XIU:        6               0               0
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 0
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        4               0               0
+  GW_02_XIU:            4               0               0
+  CN_GEG_03_XIU:        6               0               0
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        4               0               0
+  GW_02_XIU:            4               0               0
+  CN_GEG_03_XIU:        6               0               0
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 1
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        4               0               0
+  GW_02_XIU:            4               0               0
+  CN_GEG_03_XIU:        6               0               0
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 1.5
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        4               0               0
+  GW_02_XIU:            4               0               0
+  CN_GEG_03_XIU:        6               0               0
+  EXACT                                 0
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4     9.49293e-16     9.49293e-16
+  GW_02_XIU:            4     9.49293e-16     9.49293e-16
+  CN_GEG_03_XIU:        6      6.6543e-17      6.6543e-17
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 0
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4     1.63286e-16     1.63286e-16
+  GW_02_XIU:            4     1.63286e-16     1.63286e-16
+  CN_GEG_03_XIU:        6     1.15352e-16     1.15352e-16
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4     5.93308e-17     5.93308e-17
+  GW_02_XIU:            4     5.93308e-17     5.93308e-17
+  CN_GEG_03_XIU:        6     5.96701e-17     5.96701e-17
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 1
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4     2.90287e-17     2.90287e-17
+  GW_02_XIU:            4     2.90287e-17     2.90287e-17
+  CN_GEG_03_XIU:        6     1.68063e-17     1.68063e-17
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 1.5
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4     1.66868e-17     1.66868e-17
+  GW_02_XIU:            4     1.66868e-17     1.66868e-17
+  CN_GEG_03_XIU:        6    -1.43238e-18     1.43238e-18
+  EXACT                                 0
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4         15.5031     3.55271e-15
+  GW_02_XIU:            4         15.5031     5.50671e-14
+  CN_GEG_03_XIU:        6         15.5031     7.10543e-15
+  EXACT                           15.5031
+
+  N = 3
+  ALPHA = 0
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4         2.66667               0
+  GW_02_XIU:            4         2.66667     8.88178e-16
+  CN_GEG_03_XIU:        6         2.66667     1.33227e-15
+  EXACT                           2.66667
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4        0.968946     7.77156e-16
+  GW_02_XIU:            4        0.968946     2.10942e-15
+  CN_GEG_03_XIU:        6        0.968946     6.66134e-16
+  EXACT                          0.968946
+
+  N = 3
+  ALPHA = 1
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4        0.474074     1.11022e-16
+  GW_02_XIU:            4        0.474074     1.11022e-16
+  CN_GEG_03_XIU:        6        0.474074     1.11022e-16
+  EXACT                          0.474074
+
+  N = 3
+  ALPHA = 1.5
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        4        0.272516               0
+  GW_02_XIU:            4        0.272516     6.66134e-16
+  CN_GEG_03_XIU:        6        0.272516     5.55112e-17
+  EXACT                          0.272516
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         97.4091               0
+  CN_GEG_02_XIU:        5         97.4091               0
+  GW_02_XIU:            5         97.4091      4.9738e-13
+  CN_GEG_03_XIU:        8         97.4091     1.42109e-14
+  EXACT                           97.4091
+
+  N = 4
+  ALPHA = 0
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1              16               0
+  CN_GEG_02_XIU:        5              16               0
+  GW_02_XIU:            5              16     7.10543e-15
+  CN_GEG_03_XIU:        8              16               0
+  EXACT                                16
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         6.08807               0
+  CN_GEG_02_XIU:        5         6.08807               0
+  GW_02_XIU:            5         6.08807     2.39808e-14
+  CN_GEG_03_XIU:        8         6.08807               0
+  EXACT                           6.08807
+
+  N = 4
+  ALPHA = 1
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         3.16049               0
+  CN_GEG_02_XIU:        5         3.16049               0
+  GW_02_XIU:            5         3.16049               0
+  CN_GEG_03_XIU:        8         3.16049               0
+  EXACT                           3.16049
+
+  N = 4
+  ALPHA = 1.5
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1          1.9263     2.22045e-16
+  CN_GEG_02_XIU:        5          1.9263     2.22045e-16
+  GW_02_XIU:            5          1.9263     5.77316e-15
+  CN_GEG_03_XIU:        8          1.9263     4.44089e-16
+  EXACT                            1.9263
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        5     3.55271e-15     3.55271e-15
+  GW_02_XIU:            5     3.55271e-15     3.55271e-15
+  CN_GEG_03_XIU:        8    -1.78287e-14     1.78287e-14
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 0
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        5     6.66134e-16     6.66134e-16
+  GW_02_XIU:            5     6.66134e-16     6.66134e-16
+  CN_GEG_03_XIU:        8    -2.53217e-15     2.53217e-15
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        5     2.22045e-16     2.22045e-16
+  GW_02_XIU:            5     2.22045e-16     2.22045e-16
+  CN_GEG_03_XIU:        8    -8.39489e-16     8.39489e-16
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 1
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        5     8.32667e-17     8.32667e-17
+  GW_02_XIU:            5     8.32667e-17     8.32667e-17
+  CN_GEG_03_XIU:        8    -3.77882e-16     3.77882e-16
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 1.5
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        5     2.77556e-17     2.77556e-17
+  GW_02_XIU:            5     2.77556e-17     2.77556e-17
+  CN_GEG_03_XIU:        8    -2.13172e-16     2.13172e-16
+  EXACT                                 0
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5     2.66454e-15     2.66454e-15
+  GW_02_XIU:            5     2.66454e-15     2.66454e-15
+  CN_GEG_03_XIU:        8    -1.20594e-15     1.20594e-15
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 0
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5     2.22045e-16     2.22045e-16
+  GW_02_XIU:            5     1.11022e-16     1.11022e-16
+  CN_GEG_03_XIU:        8    -1.04528e-16     1.04528e-16
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5     8.32667e-17     8.32667e-17
+  GW_02_XIU:            5     8.32667e-17     8.32667e-17
+  CN_GEG_03_XIU:        8    -3.76855e-17     3.76855e-17
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 1
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5     2.77556e-17     2.77556e-17
+  GW_02_XIU:            5     2.77556e-17     2.77556e-17
+  CN_GEG_03_XIU:        8    -1.09493e-17     1.09493e-17
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 1.5
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5     2.77556e-17     2.77556e-17
+  GW_02_XIU:            5     2.77556e-17     2.77556e-17
+  CN_GEG_03_XIU:        8    -5.78088e-18     5.78088e-18
+  EXACT                                 0
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5         48.7045     2.13163e-14
+  GW_02_XIU:            5         48.7045     2.34479e-13
+  CN_GEG_03_XIU:        8         48.7045     2.84217e-14
+  EXACT                           48.7045
+
+  N = 4
+  ALPHA = 0
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5         5.33333               0
+  GW_02_XIU:            5         5.33333     3.55271e-15
+  CN_GEG_03_XIU:        8         5.33333     2.66454e-15
+  EXACT                           5.33333
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5         1.52202     8.88178e-16
+  GW_02_XIU:            5         1.52202     5.10703e-15
+  CN_GEG_03_XIU:        8         1.52202     1.33227e-15
+  EXACT                           1.52202
+
+  N = 4
+  ALPHA = 1
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5        0.632099     1.11022e-16
+  GW_02_XIU:            5        0.632099     1.11022e-16
+  CN_GEG_03_XIU:        8        0.632099     2.22045e-16
+  EXACT                          0.632099
+
+  N = 4
+  ALPHA = 1.5
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        5         0.32105     5.55112e-17
+  GW_02_XIU:            5         0.32105     9.99201e-16
+  CN_GEG_03_XIU:        8         0.32105               0
+  EXACT                           0.32105
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1          306.02               0
+  CN_GEG_02_XIU:        6          306.02               0
+  GW_02_XIU:            6          306.02     1.93268e-12
+  CN_GEG_03_XIU:       10          306.02               0
+  EXACT                            306.02
+
+  N = 5
+  ALPHA = 0
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1              32               0
+  CN_GEG_02_XIU:        6              32     3.55271e-15
+  GW_02_XIU:            6              32     2.13163e-14
+  CN_GEG_03_XIU:       10              32     3.55271e-15
+  EXACT                                32
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         9.56312               0
+  CN_GEG_02_XIU:        6         9.56312               0
+  GW_02_XIU:            6         9.56312     4.79616e-14
+  CN_GEG_03_XIU:       10         9.56312     1.77636e-15
+  EXACT                           9.56312
+
+  N = 5
+  ALPHA = 1
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         4.21399               0
+  CN_GEG_02_XIU:        6         4.21399               0
+  GW_02_XIU:            6         4.21399               0
+  CN_GEG_03_XIU:       10         4.21399     8.88178e-16
+  EXACT                           4.21399
+
+  N = 5
+  ALPHA = 1.5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         2.26937     4.44089e-16
+  CN_GEG_02_XIU:        6         2.26937     4.44089e-16
+  GW_02_XIU:            6         2.26937     8.88178e-15
+  CN_GEG_03_XIU:       10         2.26937               0
+  EXACT                           2.26937
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        6               0               0
+  GW_02_XIU:            6               0               0
+  CN_GEG_03_XIU:       10               0               0
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 0
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        6               0               0
+  GW_02_XIU:            6               0               0
+  CN_GEG_03_XIU:       10               0               0
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        6               0               0
+  GW_02_XIU:            6               0               0
+  CN_GEG_03_XIU:       10               0               0
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 1
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        6               0               0
+  GW_02_XIU:            6               0               0
+  CN_GEG_03_XIU:       10               0               0
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 1.5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        6               0               0
+  GW_02_XIU:            6               0               0
+  CN_GEG_03_XIU:       10               0               0
+  EXACT                                 0
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6     1.77636e-14     1.77636e-14
+  GW_02_XIU:            6     1.77636e-14     1.77636e-14
+  CN_GEG_03_XIU:       10    -3.89893e-16     3.89893e-16
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 0
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6     6.66134e-16     6.66134e-16
+  GW_02_XIU:            6     6.66134e-16     6.66134e-16
+  CN_GEG_03_XIU:       10     1.43618e-16     1.43618e-16
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6     2.22045e-16     2.22045e-16
+  GW_02_XIU:            6     2.22045e-16     2.22045e-16
+  CN_GEG_03_XIU:       10    -3.38477e-17     3.38477e-17
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 1
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6     8.32667e-17     8.32667e-17
+  GW_02_XIU:            6     8.32667e-17     8.32667e-17
+  CN_GEG_03_XIU:       10     1.42259e-17     1.42259e-17
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 1.5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6     4.85723e-17     4.85723e-17
+  GW_02_XIU:            6     4.85723e-17     4.85723e-17
+  CN_GEG_03_XIU:       10     9.22771e-18     9.22771e-18
+  EXACT                                 0
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6          153.01               0
+  GW_02_XIU:            6          153.01     9.66338e-13
+  CN_GEG_03_XIU:       10          153.01     8.52651e-14
+  EXACT                            153.01
+
+  N = 5
+  ALPHA = 0
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6         10.6667     3.55271e-15
+  GW_02_XIU:            6         10.6667     5.32907e-15
+  CN_GEG_03_XIU:       10         10.6667     5.32907e-15
+  EXACT                           10.6667
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6         2.39078     2.66454e-15
+  GW_02_XIU:            6         2.39078     9.76996e-15
+  CN_GEG_03_XIU:       10         2.39078     2.22045e-15
+  EXACT                           2.39078
+
+  N = 5
+  ALPHA = 1
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6        0.842798     2.22045e-16
+  GW_02_XIU:            6        0.842798     2.22045e-16
+  CN_GEG_03_XIU:       10        0.842798               0
+  EXACT                          0.842798
+
+  N = 5
+  ALPHA = 1.5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        6        0.378229               0
+  GW_02_XIU:            6        0.378229     1.66533e-15
+  CN_GEG_03_XIU:       10        0.378229               0
+  EXACT                          0.378229
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         961.389               0
+  CN_GEG_02_XIU:        7         961.389     1.13687e-13
+  GW_02_XIU:            7         961.389     7.27596e-12
+  CN_GEG_03_XIU:       12         961.389     1.13687e-13
+  EXACT                           961.389
+
+  N = 6
+  ALPHA = 0
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1              64               0
+  CN_GEG_02_XIU:        7              64     1.42109e-14
+  GW_02_XIU:            7              64     3.55271e-14
+  CN_GEG_03_XIU:       12              64               0
+  EXACT                                64
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         15.0217     1.77636e-15
+  CN_GEG_02_XIU:        7         15.0217     1.77636e-15
+  GW_02_XIU:            7         15.0217     9.05942e-14
+  CN_GEG_03_XIU:       12         15.0217     3.55271e-15
+  EXACT                           15.0217
+
+  N = 6
+  ALPHA = 1
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         5.61866     8.88178e-16
+  CN_GEG_02_XIU:        7         5.61866               0
+  GW_02_XIU:            7         5.61866               0
+  CN_GEG_03_XIU:       12         5.61866     8.88178e-16
+  EXACT                           5.61866
+
+  N = 6
+  ALPHA = 1.5
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_GEG_01_1:          1         2.67354     4.44089e-16
+  CN_GEG_02_XIU:        7         2.67354               0
+  GW_02_XIU:            7         2.67354     1.28786e-14
+  CN_GEG_03_XIU:       12         2.67354               0
+  EXACT                           2.67354
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        7    -3.55271e-14     3.55271e-14
+  GW_02_XIU:            7    -6.39488e-14     6.39488e-14
+  CN_GEG_03_XIU:       12    -2.47739e-13     2.47739e-13
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 0
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        7    -3.55271e-15     3.55271e-15
+  GW_02_XIU:            7    -4.44089e-15     4.44089e-15
+  CN_GEG_03_XIU:       12    -1.41424e-14     1.41424e-14
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        7    -7.77156e-16     7.77156e-16
+  GW_02_XIU:            7    -6.66134e-16     6.66134e-16
+  CN_GEG_03_XIU:       12    -2.61892e-15     2.61892e-15
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 1
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        7      -2.498e-16       2.498e-16
+  GW_02_XIU:            7      -2.498e-16       2.498e-16
+  CN_GEG_03_XIU:       12    -9.42871e-16     9.42871e-16
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 1.5
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_GEG_01_1:          1               0               0
+  CN_GEG_02_XIU:        7      -1.249e-16       1.249e-16
+  GW_02_XIU:            7    -1.11022e-16     1.11022e-16
+  CN_GEG_03_XIU:       12    -4.06349e-16     4.06349e-16
+  EXACT                                 0
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7     2.84217e-14     2.84217e-14
+  GW_02_XIU:            7     1.42109e-14     1.42109e-14
+  CN_GEG_03_XIU:       12    -1.25173e-14     1.25173e-14
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 0
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7     1.33227e-15     1.33227e-15
+  GW_02_XIU:            7     1.33227e-15     1.33227e-15
+  CN_GEG_03_XIU:       12    -4.26771e-16     4.26771e-16
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7     1.11022e-16     1.11022e-16
+  GW_02_XIU:            7     2.22045e-16     2.22045e-16
+  CN_GEG_03_XIU:       12    -9.77912e-17     9.77912e-17
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 1
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7     2.77556e-17     2.77556e-17
+  GW_02_XIU:            7     2.77556e-17     2.77556e-17
+  CN_GEG_03_XIU:       12    -3.19947e-17     3.19947e-17
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 1.5
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7               0               0
+  GW_02_XIU:            7     6.93889e-18     6.93889e-18
+  CN_GEG_03_XIU:       12     -4.3119e-18      4.3119e-18
+  EXACT                                 0
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7         480.695      1.7053e-13
+  GW_02_XIU:            7         480.695     3.46745e-12
+  CN_GEG_03_XIU:       12         480.695     2.27374e-13
+  EXACT                           480.695
+
+  N = 6
+  ALPHA = 0
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7         21.3333               0
+  GW_02_XIU:            7         21.3333     1.06581e-14
+  CN_GEG_03_XIU:       12         21.3333     7.10543e-15
+  EXACT                           21.3333
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7         3.75543     2.22045e-15
+  GW_02_XIU:            7         3.75543      1.9984e-14
+  CN_GEG_03_XIU:       12         3.75543     3.10862e-15
+  EXACT                           3.75543
+
+  N = 6
+  ALPHA = 1
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7         1.12373     2.22045e-16
+  GW_02_XIU:            7         1.12373     2.22045e-16
+  CN_GEG_03_XIU:       12         1.12373     4.44089e-16
+  EXACT                           1.12373
+
+  N = 6
+  ALPHA = 1.5
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_GEG_02_XIU:        7         0.44559               0
+  GW_02_XIU:            7         0.44559     2.22045e-15
+  CN_GEG_03_XIU:       12         0.44559     1.11022e-16
+  EXACT                           0.44559
+
+CN_JAC_TESTS
+  Demonstrate the use of quadrature rules for the region
+  CN_JAC, that is, the hypercube [-1,+1]^N, with the
+  weight W(ALPHA,BETA;X) = product ( 1 <= I <= N )
+    (1-X(I))^ALPHA (1+X(I))^BETA
+
+  We use the formulas to integrate various monomials of
+  the form X(1)^E(1) * X(2)^E(2) * ... X(N)^E(N)
+  and compare to the exact integral.
+
+  The precision of each formula is known, and we only use
+  a formula if its precision indicates it should be able to
+  produce an exact result.
+
+  N = 1
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0
+  Degree = 0
+
+  CN_JAC_01_1:          1               2               0
+  CN_JAC_02_XIU:        2               2               0
+  GW_02_XIU:            2               2               0
+  EXACT                                 2
+
+  N = 1
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0
+  Degree = 0
+
+  CN_JAC_01_1:          1               2               0
+  CN_JAC_02_XIU:        2               2               0
+  GW_02_XIU:            2               2               0
+  EXACT                                 2
+
+  N = 1
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0
+  Degree = 0
+
+  CN_JAC_01_1:          1         2.66667               0
+  CN_JAC_02_XIU:        2         2.66667               0
+  GW_02_XIU:            2         2.66667     4.44089e-16
+  EXACT                           2.66667
+
+  N = 1
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0
+  Degree = 0
+
+  CN_JAC_01_1:          1          1.5708               0
+  CN_JAC_02_XIU:        2          1.5708               0
+  GW_02_XIU:            2          1.5708     4.44089e-16
+  EXACT                            1.5708
+
+  N = 1
+  ALPHA = 0
+  BETA =  0
+  EXPON =    1
+  Degree = 1
+
+  CN_JAC_01_1:          1               0               0
+  CN_JAC_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  EXACT                                 0
+
+  N = 1
+  ALPHA = 1
+  BETA =  0
+  EXPON =    1
+  Degree = 1
+
+  CN_JAC_01_1:          1       -0.666667               0
+  CN_JAC_02_XIU:        2       -0.666667     1.11022e-16
+  GW_02_XIU:            2       -0.666667     1.11022e-16
+  EXACT                         -0.666667
+
+  N = 1
+  ALPHA = 0
+  BETA =  2
+  EXPON =    1
+  Degree = 1
+
+  CN_JAC_01_1:          1         1.33333               0
+  CN_JAC_02_XIU:        2         1.33333     2.22045e-16
+  GW_02_XIU:            2         1.33333               0
+  EXACT                           1.33333
+
+  N = 1
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    1
+  Degree = 1
+
+  CN_JAC_01_1:          1        0.392699     5.55112e-17
+  CN_JAC_02_XIU:        2        0.392699     5.55112e-17
+  GW_02_XIU:            2        0.392699               0
+  EXACT                          0.392699
+
+  N = 1
+  ALPHA = 0
+  BETA =  0
+  EXPON =    2
+  Degree = 2
+
+  CN_JAC_02_XIU:        2        0.666667               0
+  GW_02_XIU:            2        0.666667               0
+  EXACT                          0.666667
+
+  N = 1
+  ALPHA = 1
+  BETA =  0
+  EXPON =    2
+  Degree = 2
+
+  CN_JAC_02_XIU:        2        0.666667     2.22045e-16
+  GW_02_XIU:            2        0.666667     2.22045e-16
+  EXACT                          0.666667
+
+  N = 1
+  ALPHA = 0
+  BETA =  2
+  EXPON =    2
+  Degree = 2
+
+  CN_JAC_02_XIU:        2         1.06667               0
+  GW_02_XIU:            2         1.06667     2.22045e-16
+  EXACT                           1.06667
+
+  N = 1
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    2
+  Degree = 2
+
+  CN_JAC_02_XIU:        2        0.392699               0
+  GW_02_XIU:            2        0.392699     5.55112e-17
+  EXACT                          0.392699
+
+  N = 2
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1               4               0
+  CN_JAC_02_XIU:        3               4               0
+  GW_02_XIU:            3               4               0
+  EXACT                                 4
+
+  N = 2
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1               4               0
+  CN_JAC_02_XIU:        3               4               0
+  GW_02_XIU:            3               4               0
+  EXACT                                 4
+
+  N = 2
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         7.11111               0
+  CN_JAC_02_XIU:        3         7.11111               0
+  GW_02_XIU:            3         7.11111     1.77636e-15
+  EXACT                           7.11111
+
+  N = 2
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1          2.4674               0
+  CN_JAC_02_XIU:        3          2.4674               0
+  GW_02_XIU:            3          2.4674     1.33227e-15
+  EXACT                            2.4674
+
+  N = 2
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1               0               0
+  CN_JAC_02_XIU:        3     6.66134e-16     6.66134e-16
+  GW_02_XIU:            3     6.66134e-16     6.66134e-16
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1        -1.33333               0
+  CN_JAC_02_XIU:        3        -1.33333     6.66134e-16
+  GW_02_XIU:            3        -1.33333     6.66134e-16
+  EXACT                          -1.33333
+
+  N = 2
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         3.55556               0
+  CN_JAC_02_XIU:        3         3.55556     4.44089e-16
+  GW_02_XIU:            3         3.55556               0
+  EXACT                           3.55556
+
+  N = 2
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         0.61685               0
+  CN_JAC_02_XIU:        3         0.61685     1.11022e-16
+  GW_02_XIU:            3         0.61685     4.44089e-16
+  EXACT                           0.61685
+
+  N = 2
+  ALPHA = 0
+  BETA =  0
+  EXPON =    1   1
+  Degree = 2
+
+  CN_JAC_02_XIU:        3     2.77556e-16     2.77556e-16
+  GW_02_XIU:            3     2.77556e-16     2.77556e-16
+  EXACT                                 0
+
+  N = 2
+  ALPHA = 1
+  BETA =  0
+  EXPON =    1   1
+  Degree = 2
+
+  CN_JAC_02_XIU:        3        0.444444               0
+  GW_02_XIU:            3        0.444444               0
+  EXACT                          0.444444
+
+  N = 2
+  ALPHA = 0
+  BETA =  2
+  EXPON =    1   1
+  Degree = 2
+
+  CN_JAC_02_XIU:        3         1.77778     8.88178e-16
+  GW_02_XIU:            3         1.77778     2.22045e-16
+  EXACT                           1.77778
+
+  N = 2
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    1   1
+  Degree = 2
+
+  CN_JAC_02_XIU:        3        0.154213     1.38778e-16
+  GW_02_XIU:            3        0.154213     2.22045e-16
+  EXACT                          0.154213
+
+  N = 2
+  ALPHA = 0
+  BETA =  0
+  EXPON =    2   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        3         1.33333     2.22045e-16
+  GW_02_XIU:            3         1.33333     2.22045e-16
+  EXACT                           1.33333
+
+  N = 2
+  ALPHA = 1
+  BETA =  0
+  EXPON =    2   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        3         1.33333     2.22045e-16
+  GW_02_XIU:            3         1.33333     2.22045e-16
+  EXACT                           1.33333
+
+  N = 2
+  ALPHA = 0
+  BETA =  2
+  EXPON =    2   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        3         2.84444               0
+  GW_02_XIU:            3         2.84444     8.88178e-16
+  EXACT                           2.84444
+
+  N = 2
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    2   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        3         0.61685     1.11022e-16
+  GW_02_XIU:            3         0.61685     4.44089e-16
+  EXACT                           0.61685
+
+  N = 3
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1               8               0
+  CN_JAC_02_XIU:        4               8               0
+  GW_02_XIU:            4               8               0
+  EXACT                                 8
+
+  N = 3
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1               8               0
+  CN_JAC_02_XIU:        4               8               0
+  GW_02_XIU:            4               8               0
+  EXACT                                 8
+
+  N = 3
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1          18.963               0
+  CN_JAC_02_XIU:        4          18.963               0
+  GW_02_XIU:            4          18.963     7.10543e-15
+  EXACT                            18.963
+
+  N = 3
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         3.87578               0
+  CN_JAC_02_XIU:        4         3.87578               0
+  GW_02_XIU:            4         3.87578     3.10862e-15
+  EXACT                           3.87578
+
+  N = 3
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1               0               0
+  CN_JAC_02_XIU:        4               0               0
+  GW_02_XIU:            4               0               0
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1        -2.66667               0
+  CN_JAC_02_XIU:        4        -2.66667     4.44089e-16
+  GW_02_XIU:            4        -2.66667     4.44089e-16
+  EXACT                          -2.66667
+
+  N = 3
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         9.48148               0
+  CN_JAC_02_XIU:        4         9.48148     1.77636e-15
+  GW_02_XIU:            4         9.48148     1.77636e-15
+  EXACT                           9.48148
+
+  N = 3
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1        0.968946     1.11022e-16
+  CN_JAC_02_XIU:        4        0.968946     2.22045e-16
+  GW_02_XIU:            4        0.968946     7.77156e-16
+  EXACT                          0.968946
+
+  N = 3
+  ALPHA = 0
+  BETA =  0
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4     1.63286e-16     1.63286e-16
+  GW_02_XIU:            4     1.63286e-16     1.63286e-16
+  EXACT                                 0
+
+  N = 3
+  ALPHA = 1
+  BETA =  0
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4        0.888889     2.22045e-16
+  GW_02_XIU:            4        0.888889     2.22045e-16
+  EXACT                          0.888889
+
+  N = 3
+  ALPHA = 0
+  BETA =  2
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4         4.74074     1.77636e-15
+  GW_02_XIU:            4         4.74074               0
+  EXACT                           4.74074
+
+  N = 3
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4        0.242237     5.55112e-17
+  GW_02_XIU:            4        0.242237     2.77556e-16
+  EXACT                          0.242237
+
+  N = 3
+  ALPHA = 0
+  BETA =  0
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4         2.66667               0
+  GW_02_XIU:            4         2.66667               0
+  EXACT                           2.66667
+
+  N = 3
+  ALPHA = 1
+  BETA =  0
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4         2.66667     8.88178e-16
+  GW_02_XIU:            4         2.66667     8.88178e-16
+  EXACT                           2.66667
+
+  N = 3
+  ALPHA = 0
+  BETA =  2
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4         7.58519     8.88178e-16
+  GW_02_XIU:            4         7.58519     3.55271e-15
+  EXACT                           7.58519
+
+  N = 3
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        4        0.968946     1.11022e-16
+  GW_02_XIU:            4        0.968946     8.88178e-16
+  EXACT                          0.968946
+
+  N = 4
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1              16               0
+  CN_JAC_02_XIU:        5              16               0
+  GW_02_XIU:            5              16               0
+  EXACT                                16
+
+  N = 4
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1              16               0
+  CN_JAC_02_XIU:        5              16               0
+  GW_02_XIU:            5              16               0
+  EXACT                                16
+
+  N = 4
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         50.5679               0
+  CN_JAC_02_XIU:        5         50.5679               0
+  GW_02_XIU:            5         50.5679     2.13163e-14
+  EXACT                           50.5679
+
+  N = 4
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         6.08807               0
+  CN_JAC_02_XIU:        5         6.08807     8.88178e-16
+  GW_02_XIU:            5         6.08807     7.10543e-15
+  EXACT                           6.08807
+
+  N = 4
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1               0               0
+  CN_JAC_02_XIU:        5     6.66134e-16     6.66134e-16
+  GW_02_XIU:            5     6.66134e-16     6.66134e-16
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1        -5.33333               0
+  CN_JAC_02_XIU:        5        -5.33333     8.88178e-16
+  GW_02_XIU:            5        -5.33333     8.88178e-16
+  EXACT                          -5.33333
+
+  N = 4
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1          25.284               0
+  CN_JAC_02_XIU:        5          25.284     7.10543e-15
+  GW_02_XIU:            5          25.284     7.10543e-15
+  EXACT                            25.284
+
+  N = 4
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         1.52202     2.22045e-16
+  CN_JAC_02_XIU:        5         1.52202               0
+  GW_02_XIU:            5         1.52202     1.77636e-15
+  EXACT                           1.52202
+
+  N = 4
+  ALPHA = 0
+  BETA =  0
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5     2.22045e-16     2.22045e-16
+  GW_02_XIU:            5     2.22045e-16     2.22045e-16
+  EXACT                                 0
+
+  N = 4
+  ALPHA = 1
+  BETA =  0
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5         1.77778               0
+  GW_02_XIU:            5         1.77778               0
+  EXACT                           1.77778
+
+  N = 4
+  ALPHA = 0
+  BETA =  2
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5          12.642     3.55271e-15
+  GW_02_XIU:            5          12.642               0
+  EXACT                            12.642
+
+  N = 4
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5        0.380504     1.66533e-16
+  GW_02_XIU:            5        0.380504     6.10623e-16
+  EXACT                          0.380504
+
+  N = 4
+  ALPHA = 0
+  BETA =  0
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5         5.33333               0
+  GW_02_XIU:            5         5.33333               0
+  EXACT                           5.33333
+
+  N = 4
+  ALPHA = 1
+  BETA =  0
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5         5.33333     8.88178e-16
+  GW_02_XIU:            5         5.33333     8.88178e-16
+  EXACT                           5.33333
+
+  N = 4
+  ALPHA = 0
+  BETA =  2
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5         20.2272     3.55271e-15
+  GW_02_XIU:            5         20.2272     1.06581e-14
+  EXACT                           20.2272
+
+  N = 4
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        5         1.52202               0
+  GW_02_XIU:            5         1.52202     1.77636e-15
+  EXACT                           1.52202
+
+  N = 5
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1              32               0
+  CN_JAC_02_XIU:        6              32     3.55271e-15
+  GW_02_XIU:            6              32     3.55271e-15
+  EXACT                                32
+
+  N = 5
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1              32               0
+  CN_JAC_02_XIU:        6              32     3.55271e-15
+  GW_02_XIU:            6              32     3.55271e-15
+  EXACT                                32
+
+  N = 5
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         134.848               0
+  CN_JAC_02_XIU:        6         134.848               0
+  GW_02_XIU:            6         134.848     8.52651e-14
+  EXACT                           134.848
+
+  N = 5
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         9.56312               0
+  CN_JAC_02_XIU:        6         9.56312               0
+  GW_02_XIU:            6         9.56312     1.42109e-14
+  EXACT                           9.56312
+
+  N = 5
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1               0               0
+  CN_JAC_02_XIU:        6               0               0
+  GW_02_XIU:            6               0               0
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1        -10.6667               0
+  CN_JAC_02_XIU:        6        -10.6667     1.77636e-15
+  GW_02_XIU:            6        -10.6667     1.77636e-15
+  EXACT                          -10.6667
+
+  N = 5
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         67.4239               0
+  CN_JAC_02_XIU:        6         67.4239     1.42109e-14
+  GW_02_XIU:            6         67.4239     2.84217e-14
+  EXACT                           67.4239
+
+  N = 5
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         2.39078               0
+  CN_JAC_02_XIU:        6         2.39078               0
+  GW_02_XIU:            6         2.39078     2.66454e-15
+  EXACT                           2.39078
+
+  N = 5
+  ALPHA = 0
+  BETA =  0
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6     6.66134e-16     6.66134e-16
+  GW_02_XIU:            6     6.66134e-16     6.66134e-16
+  EXACT                                 0
+
+  N = 5
+  ALPHA = 1
+  BETA =  0
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6         3.55556     4.44089e-16
+  GW_02_XIU:            6         3.55556     4.44089e-16
+  EXACT                           3.55556
+
+  N = 5
+  ALPHA = 0
+  BETA =  2
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6         33.7119     2.13163e-14
+  GW_02_XIU:            6         33.7119               0
+  EXACT                           33.7119
+
+  N = 5
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6        0.597695     1.11022e-16
+  GW_02_XIU:            6        0.597695     9.99201e-16
+  EXACT                          0.597695
+
+  N = 5
+  ALPHA = 0
+  BETA =  0
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6         10.6667     3.55271e-15
+  GW_02_XIU:            6         10.6667     3.55271e-15
+  EXACT                           10.6667
+
+  N = 5
+  ALPHA = 1
+  BETA =  0
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6         10.6667     1.77636e-15
+  GW_02_XIU:            6         10.6667     1.77636e-15
+  EXACT                           10.6667
+
+  N = 5
+  ALPHA = 0
+  BETA =  2
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6         53.9391               0
+  GW_02_XIU:            6         53.9391     3.55271e-14
+  EXACT                           53.9391
+
+  N = 5
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        6         2.39078     4.44089e-16
+  GW_02_XIU:            6         2.39078      3.9968e-15
+  EXACT                           2.39078
+
+  N = 6
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1              64               0
+  CN_JAC_02_XIU:        7              64     1.42109e-14
+  GW_02_XIU:            7              64     1.42109e-14
+  EXACT                                64
+
+  N = 6
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1              64               0
+  CN_JAC_02_XIU:        7              64     1.42109e-14
+  GW_02_XIU:            7              64     1.42109e-14
+  EXACT                                64
+
+  N = 6
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         359.594               0
+  CN_JAC_02_XIU:        7         359.594               0
+  GW_02_XIU:            7         359.594     2.84217e-13
+  EXACT                           359.594
+
+  N = 6
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_JAC_01_1:          1         15.0217     1.77636e-15
+  CN_JAC_02_XIU:        7         15.0217     1.77636e-15
+  GW_02_XIU:            7         15.0217     2.66454e-14
+  EXACT                           15.0217
+
+  N = 6
+  ALPHA = 0
+  BETA =  0
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1               0               0
+  CN_JAC_02_XIU:        7    -3.55271e-15     3.55271e-15
+  GW_02_XIU:            7    -3.55271e-15     3.55271e-15
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 1
+  BETA =  0
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1        -21.3333               0
+  CN_JAC_02_XIU:        7        -21.3333     3.55271e-15
+  GW_02_XIU:            7        -21.3333     3.55271e-15
+  EXACT                          -21.3333
+
+  N = 6
+  ALPHA = 0
+  BETA =  2
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         179.797               0
+  CN_JAC_02_XIU:        7         179.797     2.84217e-14
+  GW_02_XIU:            7         179.797     1.13687e-13
+  EXACT                           179.797
+
+  N = 6
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_JAC_01_1:          1         3.75543     8.88178e-16
+  CN_JAC_02_XIU:        7         3.75543     8.88178e-16
+  GW_02_XIU:            7         3.75543     4.88498e-15
+  EXACT                           3.75543
+
+  N = 6
+  ALPHA = 0
+  BETA =  0
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7     1.33227e-15     1.33227e-15
+  GW_02_XIU:            7     1.33227e-15     1.33227e-15
+  EXACT                                 0
+
+  N = 6
+  ALPHA = 1
+  BETA =  0
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7         7.11111     1.77636e-15
+  GW_02_XIU:            7         7.11111     1.77636e-15
+  EXACT                           7.11111
+
+  N = 6
+  ALPHA = 0
+  BETA =  2
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7         89.8985     1.42109e-14
+  GW_02_XIU:            7         89.8985     5.68434e-14
+  EXACT                           89.8985
+
+  N = 6
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7        0.938857     2.22045e-16
+  GW_02_XIU:            7        0.938857     1.55431e-15
+  EXACT                          0.938857
+
+  N = 6
+  ALPHA = 0
+  BETA =  0
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7         21.3333               0
+  GW_02_XIU:            7         21.3333               0
+  EXACT                           21.3333
+
+  N = 6
+  ALPHA = 1
+  BETA =  0
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7         21.3333     3.55271e-15
+  GW_02_XIU:            7         21.3333     3.55271e-15
+  EXACT                           21.3333
+
+  N = 6
+  ALPHA = 0
+  BETA =  2
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7         143.838     2.84217e-14
+  GW_02_XIU:            7         143.838     1.42109e-13
+  EXACT                           143.838
+
+  N = 6
+  ALPHA = 0.5
+  BETA =  1.5
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_JAC_02_XIU:        7         3.75543     4.44089e-16
+  GW_02_XIU:            7         3.75543     5.77316e-15
+  EXACT                           3.75543
+
+CN_LEG_TESTS
+  Demonstrate the use of quadrature rules for the region
+  CN_LEG, that is, the hypercube [-1,+1]^N, with the
+  Legendre weight W(X) = 1.
+
+  We use the formulas to integrate various monomials of
+  the form X(1)^E(1) * X(2)^E(2) * ... X(N)^E(N)
+  and compare to the exact integral.
+
+  The precision of each formula is known, and we only use
+  a formula if its precision indicates it should be able to
+  produce an exact result.
+
+  N = 1
+  EXPON =    0
+  Degree = 0
+
+  CN_LEG_01_1:          1               2               0
+  CN_LEG_02_XIU:        2               2               0
+  GW_02_XIU:            2               2               0
+  CN_LEG_03_1:          2               2               0
+  CN_LEG_03_XIU:        2               2               0
+  EXACT                                 2
+
+  N = 1
+  EXPON =    1
+  Degree = 1
+
+  CN_LEG_01_1:          1               0               0
+  CN_LEG_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  CN_LEG_03_1:          2               0               0
+  CN_LEG_03_XIU:        2               0               0
+  EXACT                                 0
+
+  N = 1
+  EXPON =    2
+  Degree = 2
+
+  CN_LEG_02_XIU:        2        0.666667               0
+  GW_02_XIU:            2        0.666667               0
+  CN_LEG_03_1:          2        0.666667     2.22045e-16
+  CN_LEG_03_XIU:        2        0.666667     2.22045e-16
+  EXACT                          0.666667
+
+  N = 1
+  EXPON =    3
+  Degree = 3
+
+  CN_LEG_03_1:          2               0               0
+  CN_LEG_03_XIU:        2               0               0
+  EXACT                                 0
+
+  N = 1
+  EXPON =    4
+  Degree = 4
+
+  EXACT                               0.4
+
+  N = 2
+  EXPON =    0   0
+  Degree = 0
+
+  CN_LEG_01_1:          1               4               0
+  CN_LEG_02_XIU:        3               4               0
+  GW_02_XIU:            3               4               0
+  CN_LEG_03_1:          4               4               0
+  CN_LEG_03_XIU:        4               4               0
+  CN_LEG_05_2:          9               4               0
+  EXACT                                 4
+
+  N = 2
+  EXPON =    0   1
+  Degree = 1
+
+  CN_LEG_01_1:          1               0               0
+  CN_LEG_02_XIU:        3     6.66134e-16     6.66134e-16
+  GW_02_XIU:            3     6.66134e-16     6.66134e-16
+  CN_LEG_03_1:          4    -8.89617e-17     8.89617e-17
+  CN_LEG_03_XIU:        4    -8.89617e-17     8.89617e-17
+  CN_LEG_05_2:          9               0               0
+  EXACT                                 0
+
+  N = 2
+  EXPON =    1   1
+  Degree = 2
+
+  CN_LEG_02_XIU:        3     2.77556e-16     2.77556e-16
+  GW_02_XIU:            3     2.77556e-16     2.77556e-16
+  CN_LEG_03_1:          4    -8.16431e-17     8.16431e-17
+  CN_LEG_03_XIU:        4    -8.16431e-17     8.16431e-17
+  CN_LEG_05_2:          9               0               0
+  EXACT                                 0
+
+  N = 2
+  EXPON =    2   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        3         1.33333     2.22045e-16
+  GW_02_XIU:            3         1.33333     2.22045e-16
+  CN_LEG_03_1:          4         1.33333     4.44089e-16
+  CN_LEG_03_XIU:        4         1.33333     4.44089e-16
+  CN_LEG_05_2:          9         1.33333     2.22045e-16
+  EXACT                           1.33333
+
+  N = 2
+  EXPON =    3   0
+  Degree = 3
+
+  CN_LEG_03_1:          4               0               0
+  CN_LEG_03_XIU:        4               0               0
+  CN_LEG_05_2:          9               0               0
+  EXACT                                 0
+
+  N = 2
+  EXPON =    0   4
+  Degree = 4
+
+  CN_LEG_05_2:          9             0.8     2.22045e-16
+  EXACT                               0.8
+
+  N = 2
+  EXPON =    3   2
+  Degree = 5
+
+  CN_LEG_05_2:          9               0               0
+  EXACT                                 0
+
+  N = 3
+  EXPON =    0   0   0
+  Degree = 0
+
+  CN_LEG_01_1:          1               8               0
+  CN_LEG_02_XIU:        4               8               0
+  GW_02_XIU:            4               8               0
+  CN_LEG_03_1:          6               8     8.88178e-16
+  CN_LEG_03_XIU:        6               8     8.88178e-16
+  CN_LEG_05_2:         19               8               0
+  EXACT                                 8
+
+  N = 3
+  EXPON =    0   0   1
+  Degree = 1
+
+  CN_LEG_01_1:          1               0               0
+  CN_LEG_02_XIU:        4               0               0
+  GW_02_XIU:            4               0               0
+  CN_LEG_03_1:          6               0               0
+  CN_LEG_03_XIU:        6               0               0
+  CN_LEG_05_2:         19               0               0
+  EXACT                                 0
+
+  N = 3
+  EXPON =    1   1   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        4     1.63286e-16     1.63286e-16
+  GW_02_XIU:            4     1.63286e-16     1.63286e-16
+  CN_LEG_03_1:          6     1.15352e-16     1.15352e-16
+  CN_LEG_03_XIU:        6     1.15352e-16     1.15352e-16
+  CN_LEG_05_2:         19               0               0
+  EXACT                                 0
+
+  N = 3
+  EXPON =    2   0   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        4         2.66667               0
+  GW_02_XIU:            4         2.66667               0
+  CN_LEG_03_1:          6         2.66667     1.33227e-15
+  CN_LEG_03_XIU:        6         2.66667     1.33227e-15
+  CN_LEG_05_2:         19         2.66667     4.44089e-16
+  EXACT                           2.66667
+
+  N = 3
+  EXPON =    3   0   0
+  Degree = 3
+
+  CN_LEG_03_1:          6    -1.11022e-16     1.11022e-16
+  CN_LEG_03_XIU:        6    -1.11022e-16     1.11022e-16
+  CN_LEG_05_2:         19               0               0
+  EXACT                                 0
+
+  N = 3
+  EXPON =    0   0   4
+  Degree = 4
+
+  CN_LEG_05_2:         19             1.6     4.44089e-16
+  EXACT                               1.6
+
+  N = 3
+  EXPON =    3   2   0
+  Degree = 5
+
+  CN_LEG_05_2:         19               0               0
+  EXACT                                 0
+
+  N = 4
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  CN_LEG_01_1:          1              16               0
+  CN_LEG_02_XIU:        5              16               0
+  GW_02_XIU:            5              16               0
+  CN_LEG_03_1:          8              16               0
+  CN_LEG_03_XIU:        8              16               0
+  CN_LEG_05_1(1):      22              16     1.06581e-14
+  CN_LEG_05_1(2):      22              16     1.77636e-14
+  CN_LEG_05_2:         33              16     3.55271e-15
+  EXACT                                16
+
+  N = 4
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  CN_LEG_01_1:          1               0               0
+  CN_LEG_02_XIU:        5     6.66134e-16     6.66134e-16
+  GW_02_XIU:            5     6.66134e-16     6.66134e-16
+  CN_LEG_03_1:          8    -2.53217e-15     2.53217e-15
+  CN_LEG_03_XIU:        8    -2.53217e-15     2.53217e-15
+  CN_LEG_05_1(1):      22               0               0
+  CN_LEG_05_1(2):      22     8.32667e-17     8.32667e-17
+  CN_LEG_05_2:         33               0               0
+  EXACT                                 0
+
+  N = 4
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        5     2.22045e-16     2.22045e-16
+  GW_02_XIU:            5     2.22045e-16     2.22045e-16
+  CN_LEG_03_1:          8    -1.04528e-16     1.04528e-16
+  CN_LEG_03_XIU:        8    -1.04528e-16     1.04528e-16
+  CN_LEG_05_1(1):      22    -1.15186e-15     1.15186e-15
+  CN_LEG_05_1(2):      22    -1.94289e-16     1.94289e-16
+  CN_LEG_05_2:         33               0               0
+  EXACT                                 0
+
+  N = 4
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        5         5.33333               0
+  GW_02_XIU:            5         5.33333               0
+  CN_LEG_03_1:          8         5.33333     2.66454e-15
+  CN_LEG_03_XIU:        8         5.33333     2.66454e-15
+  CN_LEG_05_1(1):      22         5.33333     4.44089e-15
+  CN_LEG_05_1(2):      22         5.33333     4.44089e-15
+  CN_LEG_05_2:         33         5.33333     8.88178e-16
+  EXACT                           5.33333
+
+  N = 4
+  EXPON =    3   0   0   0
+  Degree = 3
+
+  CN_LEG_03_1:          8               0               0
+  CN_LEG_03_XIU:        8               0               0
+  CN_LEG_05_1(1):      22     1.07553e-16     1.07553e-16
+  CN_LEG_05_1(2):      22     1.11022e-16     1.11022e-16
+  CN_LEG_05_2:         33               0               0
+  EXACT                                 0
+
+  N = 4
+  EXPON =    0   0   0   4
+  Degree = 4
+
+  CN_LEG_05_1(1):      22             3.2     3.10862e-15
+  CN_LEG_05_1(2):      22             3.2     6.21725e-15
+  CN_LEG_05_2:         33             3.2     8.88178e-16
+  EXACT                               3.2
+
+  N = 4
+  EXPON =    3   2   0   0
+  Degree = 5
+
+  CN_LEG_05_1(1):      22     8.45678e-18     8.45678e-18
+  CN_LEG_05_1(2):      22               0               0
+  CN_LEG_05_2:         33               0               0
+  EXACT                                 0
+
+  N = 5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  CN_LEG_01_1:          1              32               0
+  CN_LEG_02_XIU:        6              32     3.55271e-15
+  GW_02_XIU:            6              32     3.55271e-15
+  CN_LEG_03_1:         10              32     3.55271e-15
+  CN_LEG_03_XIU:       10              32     3.55271e-15
+  CN_LEG_05_1(1):      32              32     4.26326e-14
+  CN_LEG_05_1(2):      32              32     5.68434e-14
+  CN_LEG_05_2:         51              32     3.19744e-14
+  EXACT                                32
+
+  N = 5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  CN_LEG_01_1:          1               0               0
+  CN_LEG_02_XIU:        6               0               0
+  GW_02_XIU:            6               0               0
+  CN_LEG_03_1:         10               0               0
+  CN_LEG_03_XIU:       10               0               0
+  CN_LEG_05_1(1):      32    -1.11022e-16     1.11022e-16
+  CN_LEG_05_1(2):      32     3.33067e-16     3.33067e-16
+  CN_LEG_05_2:         51               0               0
+  EXACT                                 0
+
+  N = 5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        6     6.66134e-16     6.66134e-16
+  GW_02_XIU:            6     6.66134e-16     6.66134e-16
+  CN_LEG_03_1:         10     1.43618e-16     1.43618e-16
+  CN_LEG_03_XIU:       10     1.43618e-16     1.43618e-16
+  CN_LEG_05_1(1):      32     9.99201e-16     9.99201e-16
+  CN_LEG_05_1(2):      32    -6.93889e-17     6.93889e-17
+  CN_LEG_05_2:         51               0               0
+  EXACT                                 0
+
+  N = 5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        6         10.6667     3.55271e-15
+  GW_02_XIU:            6         10.6667     3.55271e-15
+  CN_LEG_03_1:         10         10.6667     5.32907e-15
+  CN_LEG_03_XIU:       10         10.6667     5.32907e-15
+  CN_LEG_05_1(1):      32         10.6667     1.06581e-14
+  CN_LEG_05_1(2):      32         10.6667               0
+  CN_LEG_05_2:         51         10.6667     1.77636e-15
+  EXACT                           10.6667
+
+  N = 5
+  EXPON =    3   0   0   0   0
+  Degree = 3
+
+  CN_LEG_03_1:         10     2.22045e-16     2.22045e-16
+  CN_LEG_03_XIU:       10     2.22045e-16     2.22045e-16
+  CN_LEG_05_1(1):      32    -4.44089e-16     4.44089e-16
+  CN_LEG_05_1(2):      32     1.66533e-16     1.66533e-16
+  CN_LEG_05_2:         51               0               0
+  EXACT                                 0
+
+  N = 5
+  EXPON =    0   0   0   0   4
+  Degree = 4
+
+  CN_LEG_05_1(1):      32             6.4     7.99361e-15
+  CN_LEG_05_1(2):      32             6.4     1.33227e-14
+  CN_LEG_05_2:         51             6.4     1.77636e-15
+  EXACT                               6.4
+
+  N = 5
+  EXPON =    3   2   0   0   0
+  Degree = 5
+
+  CN_LEG_05_1(1):      32     1.66533e-16     1.66533e-16
+  CN_LEG_05_1(2):      32    -1.09288e-16     1.09288e-16
+  CN_LEG_05_2:         51               0               0
+  EXACT                                 0
+
+  N = 6
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  CN_LEG_01_1:          1              64               0
+  CN_LEG_02_XIU:        7              64     1.42109e-14
+  GW_02_XIU:            7              64     1.42109e-14
+  CN_LEG_03_1:         12              64               0
+  CN_LEG_03_XIU:       12              64               0
+  CN_LEG_05_1(1):      44              64     2.84217e-14
+  CN_LEG_05_2:         73              64      9.9476e-14
+  EXACT                                64
+
+  N = 6
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  CN_LEG_01_1:          1               0               0
+  CN_LEG_02_XIU:        7    -3.55271e-15     3.55271e-15
+  GW_02_XIU:            7    -3.55271e-15     3.55271e-15
+  CN_LEG_03_1:         12    -1.41424e-14     1.41424e-14
+  CN_LEG_03_XIU:       12    -1.41424e-14     1.41424e-14
+  CN_LEG_05_1(1):      44     6.66134e-16     6.66134e-16
+  CN_LEG_05_2:         73               0               0
+  EXACT                                 0
+
+  N = 6
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        7     1.33227e-15     1.33227e-15
+  GW_02_XIU:            7     1.33227e-15     1.33227e-15
+  CN_LEG_03_1:         12    -4.26771e-16     4.26771e-16
+  CN_LEG_03_XIU:       12    -4.26771e-16     4.26771e-16
+  CN_LEG_05_1(1):      44               0               0
+  CN_LEG_05_2:         73               0               0
+  EXACT                                 0
+
+  N = 6
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  CN_LEG_02_XIU:        7         21.3333               0
+  GW_02_XIU:            7         21.3333               0
+  CN_LEG_03_1:         12         21.3333     7.10543e-15
+  CN_LEG_03_XIU:       12         21.3333     7.10543e-15
+  CN_LEG_05_1(1):      44         21.3333     2.13163e-14
+  CN_LEG_05_2:         73         21.3333     7.10543e-15
+  EXACT                           21.3333
+
+  N = 6
+  EXPON =    3   0   0   0   0   0
+  Degree = 3
+
+  CN_LEG_03_1:         12    -3.55271e-15     3.55271e-15
+  CN_LEG_03_XIU:       12    -3.55271e-15     3.55271e-15
+  CN_LEG_05_1(1):      44     1.11022e-16     1.11022e-16
+  CN_LEG_05_2:         73               0               0
+  EXACT                                 0
+
+  N = 6
+  EXPON =    0   0   0   0   0   4
+  Degree = 4
+
+  CN_LEG_05_1(1):      44            12.8     2.13163e-14
+  CN_LEG_05_2:         73            12.8     7.10543e-15
+  EXACT                              12.8
+
+  N = 6
+  EXPON =    3   2   0   0   0   0
+  Degree = 5
+
+  CN_LEG_05_1(1):      44               0               0
+  CN_LEG_05_2:         73               0               0
+  EXACT                                 0
+
+EN_HER_TESTS
+  Demonstrate the use of Stroud rules for the region
+  EN_HER, that is, all of N-dimensional space, with the
+  weight function W(X) = exp ( - X1^2 - X2^2 ... -XN^2 )
+
+  We use the formulas to integrate various monomials of
+  the form X1^ALPHA1 * X2^ALPHA2 * ... XN^ALPHAN
+  and compare to the exact integral.
+
+  The precision of each formula is known, and we only use
+  a formula if its precision indicates it should be able to
+  produce an exact result.
+
+  N = 1
+  EXPON =      0
+  Degree = 0
+
+  EN_HER_01_1:          1         1.77245     2.22045e-16
+  EN_HER_02_XIU:        2         1.77245     2.22045e-16
+  GW_02_XIU:            2         1.77245     2.22045e-16
+  EN_HER_03_1:          2         1.77245     2.22045e-16
+  EN_HER_03_XIU:        2         1.77245     2.22045e-16
+  EN_HER_05_2:          3         1.77245     2.22045e-16
+  EXACT                           1.77245
+
+  N = 1
+  EXPON =      2
+  Degree = 2
+
+  EN_HER_02_XIU:        2        0.886227     1.11022e-16
+  GW_02_XIU:            2        0.886227     1.11022e-16
+  EN_HER_03_1:          2        0.886227     1.11022e-16
+  EN_HER_03_XIU:        2        0.886227     3.33067e-16
+  EN_HER_05_2:          3        0.886227     1.11022e-16
+  EXACT                          0.886227
+
+  N = 1
+  EXPON =      0
+  Degree = 0
+
+  EN_HER_01_1:          1         1.77245     2.22045e-16
+  EN_HER_02_XIU:        2         1.77245     2.22045e-16
+  GW_02_XIU:            2         1.77245     2.22045e-16
+  EN_HER_03_1:          2         1.77245     2.22045e-16
+  EN_HER_03_XIU:        2         1.77245     2.22045e-16
+  EN_HER_05_2:          3         1.77245     2.22045e-16
+  EXACT                           1.77245
+
+  N = 1
+  EXPON =      1
+  Degree = 1
+
+  EN_HER_01_1:          1               0               0
+  EN_HER_02_XIU:        2               0               0
+  GW_02_XIU:            2               0               0
+  EN_HER_03_1:          2               0               0
+  EN_HER_03_XIU:        2               0               0
+  EN_HER_05_2:          3               0               0
+  EXACT                                 0
+
+  N = 1
+  EXPON =      2
+  Degree = 2
+
+  EN_HER_02_XIU:        2        0.886227     1.11022e-16
+  GW_02_XIU:            2        0.886227     1.11022e-16
+  EN_HER_03_1:          2        0.886227     1.11022e-16
+  EN_HER_03_XIU:        2        0.886227     3.33067e-16
+  EN_HER_05_2:          3        0.886227     1.11022e-16
+  EXACT                          0.886227
+
+  N = 2
+  EXPON =      0     0
+  Degree = 0
+
+  EN_HER_01_1:          1         3.14159     8.88178e-16
+  EN_HER_02_XIU:        3         3.14159     4.44089e-16
+  GW_02_XIU:            3         3.14159     4.44089e-16
+  EN_HER_03_1:          4         3.14159     8.88178e-16
+  EN_HER_03_XIU:        4         3.14159     8.88178e-16
+  EN_HER_05_1(1):       8         3.14159     1.77636e-15
+  EN_HER_05_2:          9         3.14159     1.77636e-15
+  EXACT                           3.14159
+
+  N = 2
+  EXPON =      2     0
+  Degree = 2
+
+  EN_HER_02_XIU:        3          1.5708     6.66134e-16
+  GW_02_XIU:            3          1.5708     6.66134e-16
+  EN_HER_03_1:          4          1.5708     4.44089e-16
+  EN_HER_03_XIU:        4          1.5708     4.44089e-16
+  EN_HER_05_1(1):       8          1.5708     1.77636e-15
+  EN_HER_05_2:          9          1.5708     2.22045e-16
+  EXACT                            1.5708
+
+  N = 2
+  EXPON =      0     4
+  Degree = 4
+
+  EN_HER_05_1(1):       8         2.35619     6.66134e-15
+  EN_HER_05_2:          9         2.35619               0
+  EXACT                           2.35619
+
+  N = 2
+  EXPON =      1     2
+  Degree = 3
+
+  EN_HER_03_1:          4               0               0
+  EN_HER_03_XIU:        4    -9.61835e-17     9.61835e-17
+  EN_HER_05_1(1):       8               0               0
+  EN_HER_05_2:          9               0               0
+  EXACT                                 0
+
+  N = 2
+  EXPON =      2     2
+  Degree = 4
+
+  EN_HER_05_1(1):       8        0.785398     1.22125e-15
+  EN_HER_05_2:          9        0.785398     2.22045e-16
+  EXACT                          0.785398
+
+  N = 3
+  EXPON =      0     0     0
+  Degree = 0
+
+  EN_HER_01_1:          1         5.56833     2.66454e-15
+  EN_HER_02_XIU:        4         5.56833     2.66454e-15
+  GW_02_XIU:            4         5.56833     2.66454e-15
+  EN_HER_03_1:          6         5.56833     2.66454e-15
+  EN_HER_03_XIU:        6         5.56833     2.66454e-15
+  EN_HER_05_1(1):      14         5.56833     3.55271e-15
+  EN_HER_05_1(2):      14         5.56833     3.55271e-15
+  EN_HER_05_2:         19         5.56833     8.88178e-16
+  EXACT                           5.56833
+
+  N = 3
+  EXPON =      2     0     0
+  Degree = 2
+
+  EN_HER_02_XIU:        4         2.78416               0
+  GW_02_XIU:            4         2.78416               0
+  EN_HER_03_1:          6         2.78416     1.77636e-15
+  EN_HER_03_XIU:        6         2.78416     1.33227e-15
+  EN_HER_05_1(1):      14         2.78416     2.66454e-15
+  EN_HER_05_1(2):      14         2.78416     4.44089e-15
+  EN_HER_05_2:         19         2.78416     1.33227e-15
+  EXACT                           2.78416
+
+  N = 3
+  EXPON =      0     4     0
+  Degree = 4
+
+  EN_HER_05_1(1):      14         4.17625     8.88178e-16
+  EN_HER_05_1(2):      14         4.17625     1.86517e-14
+  EN_HER_05_2:         19         4.17625     1.77636e-15
+  EXACT                           4.17625
+
+  N = 4
+  EXPON =      0     0     0     0
+  Degree = 0
+
+  EN_HER_01_1:          1          9.8696     7.10543e-15
+  EN_HER_02_XIU:        5          9.8696     5.32907e-15
+  GW_02_XIU:            5          9.8696     7.10543e-15
+  EN_HER_03_1:          8          9.8696     7.10543e-15
+  EN_HER_03_XIU:        8          9.8696     7.10543e-15
+  EN_HER_05_1(1):      22          9.8696     1.77636e-15
+  EN_HER_05_2:         33          9.8696     7.10543e-15
+  EXACT                            9.8696
+
+  N = 4
+  EXPON =      2     0     0     0
+  Degree = 2
+
+  EN_HER_02_XIU:        5          4.9348     8.88178e-16
+  GW_02_XIU:            5          4.9348     1.77636e-15
+  EN_HER_03_1:          8          4.9348     2.66454e-15
+  EN_HER_03_XIU:        8          4.9348     3.55271e-15
+  EN_HER_05_1(1):      22          4.9348     1.77636e-15
+  EN_HER_05_2:         33          4.9348     4.44089e-15
+  EXACT                            4.9348
+
+  N = 4
+  EXPON =      0     4     0     0
+  Degree = 4
+
+  EN_HER_05_1(1):      22          7.4022     1.42109e-14
+  EN_HER_05_2:         33          7.4022     5.32907e-15
+  EXACT                            7.4022
+
+  N = 5
+  EXPON =      0     0     0     0     0
+  Degree = 0
+
+  EN_HER_01_1:          1         17.4934     1.42109e-14
+  EN_HER_02_XIU:        6         17.4934     1.42109e-14
+  GW_02_XIU:            6         17.4934     1.42109e-14
+  EN_HER_03_1:         10         17.4934     1.42109e-14
+  EN_HER_03_XIU:       10         17.4934     1.42109e-14
+  EN_HER_05_1(1):      32         17.4934     7.10543e-15
+  EN_HER_05_1(2):      32         17.4934     7.10543e-15
+  EN_HER_05_2:         51         17.4934     2.84217e-14
+  EXACT                           17.4934
+
+  N = 5
+  EXPON =      2     0     0     0     0
+  Degree = 2
+
+  EN_HER_02_XIU:        6         8.74671     1.77636e-15
+  GW_02_XIU:            6         8.74671     1.77636e-15
+  EN_HER_03_1:         10         8.74671     5.32907e-15
+  EN_HER_03_XIU:       10         8.74671     7.10543e-15
+  EN_HER_05_1(1):      32         8.74671     3.41061e-13
+  EN_HER_05_1(2):      32         8.74671     3.55271e-14
+  EN_HER_05_2:         51         8.74671     8.88178e-15
+  EXACT                           8.74671
+
+  N = 5
+  EXPON =      0     4     0     0     0
+  Degree = 4
+
+  EN_HER_05_1(1):      32         13.1201     4.56524e-13
+  EN_HER_05_1(2):      32         13.1201     8.17124e-14
+  EN_HER_05_2:         51         13.1201     5.32907e-15
+  EXACT                           13.1201
+
+  N = 6
+  EXPON =      0     0     0     0     0     0
+  Degree = 0
+
+  EN_HER_01_1:          1         31.0063     3.19744e-14
+  EN_HER_02_XIU:        7         31.0063     2.84217e-14
+  GW_02_XIU:            7         31.0063     2.84217e-14
+  EN_HER_03_1:         12         31.0063     3.19744e-14
+  EN_HER_03_XIU:       12         31.0063     3.19744e-14
+  EN_HER_05_1(1):      44         31.0063     2.84217e-14
+  EN_HER_05_1(2):      44         31.0063     2.84217e-14
+  EN_HER_05_2:         73         31.0063     1.06581e-14
+  EXACT                           31.0063
+
+  N = 6
+  EXPON =      2     0     0     0     0     0
+  Degree = 2
+
+  EN_HER_02_XIU:        7         15.5031     1.06581e-14
+  GW_02_XIU:            7         15.5031     1.06581e-14
+  EN_HER_03_1:         12         15.5031     1.95399e-14
+  EN_HER_03_XIU:       12         15.5031     1.59872e-14
+  EN_HER_05_1(1):      44         15.5031     6.39488e-14
+  EN_HER_05_1(2):      44         15.5031     3.19744e-14
+  EN_HER_05_2:         73         15.5031     7.10543e-15
+  EXACT                           15.5031
+
+  N = 6
+  EXPON =      0     4     0     0     0     0
+  Degree = 4
+
+  EN_HER_05_1(1):      44         23.2547     2.30926e-13
+  EN_HER_05_1(2):      44         23.2547      1.3145e-13
+  EN_HER_05_2:         73         23.2547               0
+  EXACT                           23.2547
+
+  N = 7
+  EXPON =      0     0     0     0     0     0     0
+  Degree = 0
+
+  EN_HER_01_1:          1         54.9572     6.39488e-14
+  EN_HER_02_XIU:        8         54.9572     5.68434e-14
+  GW_02_XIU:            8         54.9572     6.39488e-14
+  EN_HER_03_1:         14         54.9572     8.52651e-14
+  EN_HER_03_XIU:       14         54.9572     8.52651e-14
+  EN_HER_05_1(1):      58         54.9572     2.13163e-14
+  EN_HER_05_2:         99         54.9572      1.7053e-13
+  EXACT                           54.9572
+
+  N = 7
+  EXPON =      2     0     0     0     0     0     0
+  Degree = 2
+
+  EN_HER_02_XIU:        8         27.4786     2.13163e-14
+  GW_02_XIU:            8         27.4786     2.13163e-14
+  EN_HER_03_1:         14         27.4786     3.19744e-14
+  EN_HER_03_XIU:       14         27.4786     3.19744e-14
+  EN_HER_05_1(1):      58         27.4786     1.49214e-13
+  EN_HER_05_2:         99         27.4786     2.13163e-14
+  EXACT                           27.4786
+
+  N = 7
+  EXPON =      0     4     0     0     0     0     0
+  Degree = 4
+
+  EN_HER_05_1(1):      58         41.2179     4.90274e-13
+  EN_HER_05_2:         99         41.2179     2.13163e-14
+  EXACT                           41.2179
+
+EPN_GLG_TESTS
+  Demonstrate the use of quadrature rules for the region
+  EPN_GLG, that is, the positive half space [0,+oo)^N, with the
+  weight W(ALPHA;X) = product ( 1 <= I <= N ) X(I)^ALPHA exp ( -X(I) )
+
+  We use the formulas to integrate various monomials of
+  the form X(1)^E(1) * X(2)^E(2) * ... X(N)^E(N)
+  and compare to the exact integral.
+
+  The precision of each formula is known, and we only use
+  a formula if its precision indicates it should be able to
+  produce an exact result.
+
+  N = 1
+  ALPHA = -0.5
+  EXPON =    0
+  Degree = 0
+
+  EPN_GLG_01_1:          1         1.77245               0
+  EPN_GLG_02_XIU:        2         1.77245               0
+  GW_02_XIU:             2         1.77245               0
+  EXACT                            1.77245
+
+  N = 1
+  ALPHA = 0
+  EXPON =    0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        2               1               0
+  GW_02_XIU:             2               1               0
+  EXACT                                  1
+
+  N = 1
+  ALPHA = 0.5
+  EXPON =    0
+  Degree = 0
+
+  EPN_GLG_01_1:          1        0.886227               0
+  EPN_GLG_02_XIU:        2        0.886227               0
+  GW_02_XIU:             2        0.886227               0
+  EXACT                           0.886227
+
+  N = 1
+  ALPHA = 1
+  EXPON =    0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        2               1               0
+  GW_02_XIU:             2               1               0
+  EXACT                                  1
+
+  N = 1
+  ALPHA = 2
+  EXPON =    0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               2               0
+  EPN_GLG_02_XIU:        2               2               0
+  GW_02_XIU:             2               2               0
+  EXACT                                  2
+
+  N = 1
+  ALPHA = -0.5
+  EXPON =    1
+  Degree = 1
+
+  EPN_GLG_01_1:          1        0.886227               0
+  EPN_GLG_02_XIU:        2        0.886227     2.22045e-16
+  GW_02_XIU:             2        0.886227     2.22045e-16
+  EXACT                           0.886227
+
+  N = 1
+  ALPHA = 0
+  EXPON =    1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        2               1               0
+  GW_02_XIU:             2               1               0
+  EXACT                                  1
+
+  N = 1
+  ALPHA = 0.5
+  EXPON =    1
+  Degree = 1
+
+  EPN_GLG_01_1:          1         1.32934               0
+  EPN_GLG_02_XIU:        2         1.32934               0
+  GW_02_XIU:             2         1.32934               0
+  EXACT                            1.32934
+
+  N = 1
+  ALPHA = 1
+  EXPON =    1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               2               0
+  EPN_GLG_02_XIU:        2               2               0
+  GW_02_XIU:             2               2               0
+  EXACT                                  2
+
+  N = 1
+  ALPHA = 2
+  EXPON =    1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               6               0
+  EPN_GLG_02_XIU:        2               6               0
+  GW_02_XIU:             2               6               0
+  EXACT                                  6
+
+  N = 1
+  ALPHA = -0.5
+  EXPON =    2
+  Degree = 2
+
+  EPN_GLG_02_XIU:        2         1.32934               0
+  GW_02_XIU:             2         1.32934               0
+  EXACT                            1.32934
+
+  N = 1
+  ALPHA = 0
+  EXPON =    2
+  Degree = 2
+
+  EPN_GLG_02_XIU:        2               2               0
+  GW_02_XIU:             2               2               0
+  EXACT                                  2
+
+  N = 1
+  ALPHA = 0.5
+  EXPON =    2
+  Degree = 2
+
+  EPN_GLG_02_XIU:        2         3.32335               0
+  GW_02_XIU:             2         3.32335               0
+  EXACT                            3.32335
+
+  N = 1
+  ALPHA = 1
+  EXPON =    2
+  Degree = 2
+
+  EPN_GLG_02_XIU:        2               6               0
+  GW_02_XIU:             2               6               0
+  EXACT                                  6
+
+  N = 1
+  ALPHA = 2
+  EXPON =    2
+  Degree = 2
+
+  EPN_GLG_02_XIU:        2              24     7.10543e-15
+  GW_02_XIU:             2              24     7.10543e-15
+  EXACT                                 24
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1         3.14159               0
+  EPN_GLG_02_XIU:        3         3.14159               0
+  GW_02_XIU:             3         3.14159               0
+  EXACT                            3.14159
+
+  N = 2
+  ALPHA = 0
+  EXPON =    0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        3               1               0
+  GW_02_XIU:             3               1               0
+  EXACT                                  1
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1        0.785398               0
+  EPN_GLG_02_XIU:        3        0.785398               0
+  GW_02_XIU:             3        0.785398               0
+  EXACT                           0.785398
+
+  N = 2
+  ALPHA = 1
+  EXPON =    0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        3               1               0
+  GW_02_XIU:             3               1               0
+  EXACT                                  1
+
+  N = 2
+  ALPHA = 2
+  EXPON =    0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               4               0
+  EPN_GLG_02_XIU:        3               4               0
+  GW_02_XIU:             3               4               0
+  EXACT                                  4
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1          1.5708               0
+  EPN_GLG_02_XIU:        3          1.5708     6.66134e-16
+  GW_02_XIU:             3          1.5708     6.66134e-16
+  EXACT                             1.5708
+
+  N = 2
+  ALPHA = 0
+  EXPON =    0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        3               1     3.33067e-16
+  GW_02_XIU:             3               1     3.33067e-16
+  EXACT                                  1
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1          1.1781     2.22045e-16
+  EPN_GLG_02_XIU:        3          1.1781               0
+  GW_02_XIU:             3          1.1781               0
+  EXACT                             1.1781
+
+  N = 2
+  ALPHA = 1
+  EXPON =    0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               2               0
+  EPN_GLG_02_XIU:        3               2     4.44089e-16
+  GW_02_XIU:             3               2     4.44089e-16
+  EXACT                                  2
+
+  N = 2
+  ALPHA = 2
+  EXPON =    0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1              12               0
+  EPN_GLG_02_XIU:        3              12     1.77636e-15
+  GW_02_XIU:             3              12     1.77636e-15
+  EXACT                                 12
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    1   1
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3        0.785398               0
+  GW_02_XIU:             3        0.785398               0
+  EXACT                           0.785398
+
+  N = 2
+  ALPHA = 0
+  EXPON =    1   1
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3               1               0
+  GW_02_XIU:             3               1               0
+  EXACT                                  1
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    1   1
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3         1.76715     4.44089e-16
+  GW_02_XIU:             3         1.76715     4.44089e-16
+  EXACT                            1.76715
+
+  N = 2
+  ALPHA = 1
+  EXPON =    1   1
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3               4     4.44089e-16
+  GW_02_XIU:             3               4     4.44089e-16
+  EXACT                                  4
+
+  N = 2
+  ALPHA = 2
+  EXPON =    1   1
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3              36               0
+  GW_02_XIU:             3              36               0
+  EXACT                                 36
+
+  N = 2
+  ALPHA = -0.5
+  EXPON =    2   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3         2.35619     8.88178e-16
+  GW_02_XIU:             3         2.35619     8.88178e-16
+  EXACT                            2.35619
+
+  N = 2
+  ALPHA = 0
+  EXPON =    2   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3               2     8.88178e-16
+  GW_02_XIU:             3               2     8.88178e-16
+  EXACT                                  2
+
+  N = 2
+  ALPHA = 0.5
+  EXPON =    2   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3         2.94524     4.44089e-16
+  GW_02_XIU:             3         2.94524     4.44089e-16
+  EXACT                            2.94524
+
+  N = 2
+  ALPHA = 1
+  EXPON =    2   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3               6     8.88178e-16
+  GW_02_XIU:             3               6     8.88178e-16
+  EXACT                                  6
+
+  N = 2
+  ALPHA = 2
+  EXPON =    2   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        3              48               0
+  GW_02_XIU:             3              48               0
+  EXACT                                 48
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1         5.56833               0
+  EPN_GLG_02_XIU:        4         5.56833               0
+  GW_02_XIU:             4         5.56833               0
+  EXACT                            5.56833
+
+  N = 3
+  ALPHA = 0
+  EXPON =    0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        4               1               0
+  GW_02_XIU:             4               1               0
+  EXACT                                  1
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1        0.696041               0
+  EPN_GLG_02_XIU:        4        0.696041               0
+  GW_02_XIU:             4        0.696041               0
+  EXACT                           0.696041
+
+  N = 3
+  ALPHA = 1
+  EXPON =    0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        4               1               0
+  GW_02_XIU:             4               1               0
+  EXACT                                  1
+
+  N = 3
+  ALPHA = 2
+  EXPON =    0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               8               0
+  EPN_GLG_02_XIU:        4               8               0
+  GW_02_XIU:             4               8               0
+  EXACT                                  8
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1         2.78416               0
+  EPN_GLG_02_XIU:        4         2.78416               0
+  GW_02_XIU:             4         2.78416               0
+  EXACT                            2.78416
+
+  N = 3
+  ALPHA = 0
+  EXPON =    0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        4               1               0
+  GW_02_XIU:             4               1               0
+  EXACT                                  1
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1         1.04406               0
+  EPN_GLG_02_XIU:        4         1.04406               0
+  GW_02_XIU:             4         1.04406               0
+  EXACT                            1.04406
+
+  N = 3
+  ALPHA = 1
+  EXPON =    0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               2               0
+  EPN_GLG_02_XIU:        4               2               0
+  GW_02_XIU:             4               2               0
+  EXACT                                  2
+
+  N = 3
+  ALPHA = 2
+  EXPON =    0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1              24               0
+  EPN_GLG_02_XIU:        4              24               0
+  GW_02_XIU:             4              24               0
+  EXACT                                 24
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    1   1   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4         1.39208     2.22045e-16
+  GW_02_XIU:             4         1.39208     2.22045e-16
+  EXACT                            1.39208
+
+  N = 3
+  ALPHA = 0
+  EXPON =    1   1   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4               1     1.11022e-16
+  GW_02_XIU:             4               1     1.11022e-16
+  EXACT                                  1
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    1   1   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4         1.56609     4.44089e-16
+  GW_02_XIU:             4         1.56609     4.44089e-16
+  EXACT                            1.56609
+
+  N = 3
+  ALPHA = 1
+  EXPON =    1   1   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4               4               0
+  GW_02_XIU:             4               4               0
+  EXACT                                  4
+
+  N = 3
+  ALPHA = 2
+  EXPON =    1   1   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4              72               0
+  GW_02_XIU:             4              72               0
+  EXACT                                 72
+
+  N = 3
+  ALPHA = -0.5
+  EXPON =    2   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4         4.17625     2.66454e-15
+  GW_02_XIU:             4         4.17625     2.66454e-15
+  EXACT                            4.17625
+
+  N = 3
+  ALPHA = 0
+  EXPON =    2   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4               2               0
+  GW_02_XIU:             4               2               0
+  EXACT                                  2
+
+  N = 3
+  ALPHA = 0.5
+  EXPON =    2   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4         2.61015     4.44089e-16
+  GW_02_XIU:             4         2.61015     4.44089e-16
+  EXACT                            2.61015
+
+  N = 3
+  ALPHA = 1
+  EXPON =    2   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4               6               0
+  GW_02_XIU:             4               6               0
+  EXACT                                  6
+
+  N = 3
+  ALPHA = 2
+  EXPON =    2   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        4              96     2.84217e-14
+  GW_02_XIU:             4              96     2.84217e-14
+  EXACT                                 96
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1          9.8696     1.77636e-15
+  EPN_GLG_02_XIU:        5          9.8696     1.77636e-15
+  GW_02_XIU:             5          9.8696     1.77636e-15
+  EXACT                             9.8696
+
+  N = 4
+  ALPHA = 0
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        5               1               0
+  GW_02_XIU:             5               1               0
+  EXACT                                  1
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1         0.61685     1.11022e-16
+  EPN_GLG_02_XIU:        5         0.61685     1.11022e-16
+  GW_02_XIU:             5         0.61685     1.11022e-16
+  EXACT                            0.61685
+
+  N = 4
+  ALPHA = 1
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        5               1               0
+  GW_02_XIU:             5               1               0
+  EXACT                                  1
+
+  N = 4
+  ALPHA = 2
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1              16               0
+  EPN_GLG_02_XIU:        5              16               0
+  GW_02_XIU:             5              16               0
+  EXACT                                 16
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1          4.9348     8.88178e-16
+  EPN_GLG_02_XIU:        5          4.9348     1.77636e-15
+  GW_02_XIU:             5          4.9348     1.77636e-15
+  EXACT                             4.9348
+
+  N = 4
+  ALPHA = 0
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        5               1               0
+  GW_02_XIU:             5               1               0
+  EXACT                                  1
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1        0.925275     1.11022e-16
+  EPN_GLG_02_XIU:        5        0.925275     1.11022e-16
+  GW_02_XIU:             5        0.925275     1.11022e-16
+  EXACT                           0.925275
+
+  N = 4
+  ALPHA = 1
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               2               0
+  EPN_GLG_02_XIU:        5               2               0
+  GW_02_XIU:             5               2               0
+  EXACT                                  2
+
+  N = 4
+  ALPHA = 2
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1              48               0
+  EPN_GLG_02_XIU:        5              48               0
+  GW_02_XIU:             5              48               0
+  EXACT                                 48
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5          2.4674     4.44089e-16
+  GW_02_XIU:             5          2.4674     4.44089e-16
+  EXACT                             2.4674
+
+  N = 4
+  ALPHA = 0
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5               1               0
+  GW_02_XIU:             5               1               0
+  EXACT                                  1
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5         1.38791     4.44089e-16
+  GW_02_XIU:             5         1.38791     4.44089e-16
+  EXACT                            1.38791
+
+  N = 4
+  ALPHA = 1
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5               4               0
+  GW_02_XIU:             5               4               0
+  EXACT                                  4
+
+  N = 4
+  ALPHA = 2
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5             144               0
+  GW_02_XIU:             5             144               0
+  EXACT                                144
+
+  N = 4
+  ALPHA = -0.5
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5          7.4022     1.77636e-15
+  GW_02_XIU:             5          7.4022     1.77636e-15
+  EXACT                             7.4022
+
+  N = 4
+  ALPHA = 0
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5               2               0
+  GW_02_XIU:             5               2               0
+  EXACT                                  2
+
+  N = 4
+  ALPHA = 0.5
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5         2.31319     4.44089e-16
+  GW_02_XIU:             5         2.31319     4.44089e-16
+  EXACT                            2.31319
+
+  N = 4
+  ALPHA = 1
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5               6               0
+  GW_02_XIU:             5               6               0
+  EXACT                                  6
+
+  N = 4
+  ALPHA = 2
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        5             192     2.84217e-14
+  GW_02_XIU:             5             192     2.84217e-14
+  EXACT                                192
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1         17.4934     3.55271e-15
+  EPN_GLG_02_XIU:        6         17.4934     3.55271e-15
+  GW_02_XIU:             6         17.4934     3.55271e-15
+  EXACT                            17.4934
+
+  N = 5
+  ALPHA = 0
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        6               1     1.11022e-16
+  GW_02_XIU:             6               1     1.11022e-16
+  EXACT                                  1
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1        0.546669     1.11022e-16
+  EPN_GLG_02_XIU:        6        0.546669     1.11022e-16
+  GW_02_XIU:             6        0.546669     1.11022e-16
+  EXACT                           0.546669
+
+  N = 5
+  ALPHA = 1
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        6               1     1.11022e-16
+  GW_02_XIU:             6               1     1.11022e-16
+  EXACT                                  1
+
+  N = 5
+  ALPHA = 2
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1              32               0
+  EPN_GLG_02_XIU:        6              32     3.55271e-15
+  GW_02_XIU:             6              32     3.55271e-15
+  EXACT                                 32
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1         8.74671     1.77636e-15
+  EPN_GLG_02_XIU:        6         8.74671     3.55271e-15
+  GW_02_XIU:             6         8.74671     3.55271e-15
+  EXACT                            8.74671
+
+  N = 5
+  ALPHA = 0
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        6               1               0
+  GW_02_XIU:             6               1               0
+  EXACT                                  1
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1        0.820004     1.11022e-16
+  EPN_GLG_02_XIU:        6        0.820004     1.11022e-16
+  GW_02_XIU:             6        0.820004     1.11022e-16
+  EXACT                           0.820004
+
+  N = 5
+  ALPHA = 1
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               2               0
+  EPN_GLG_02_XIU:        6               2               0
+  GW_02_XIU:             6               2               0
+  EXACT                                  2
+
+  N = 5
+  ALPHA = 2
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1              96               0
+  EPN_GLG_02_XIU:        6              96     1.42109e-14
+  GW_02_XIU:             6              96     1.42109e-14
+  EXACT                                 96
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6         4.37335     8.88178e-16
+  GW_02_XIU:             6         4.37335     8.88178e-16
+  EXACT                            4.37335
+
+  N = 5
+  ALPHA = 0
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6               1     1.11022e-16
+  GW_02_XIU:             6               1     1.11022e-16
+  EXACT                                  1
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6         1.23001               0
+  GW_02_XIU:             6         1.23001               0
+  EXACT                            1.23001
+
+  N = 5
+  ALPHA = 1
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6               4     8.88178e-16
+  GW_02_XIU:             6               4     8.88178e-16
+  EXACT                                  4
+
+  N = 5
+  ALPHA = 2
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6             288               0
+  GW_02_XIU:             6             288               0
+  EXACT                                288
+
+  N = 5
+  ALPHA = -0.5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6         13.1201     5.32907e-15
+  GW_02_XIU:             6         13.1201     5.32907e-15
+  EXACT                            13.1201
+
+  N = 5
+  ALPHA = 0
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6               2               0
+  GW_02_XIU:             6               2               0
+  EXACT                                  2
+
+  N = 5
+  ALPHA = 0.5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6         2.05001               0
+  GW_02_XIU:             6         2.05001               0
+  EXACT                            2.05001
+
+  N = 5
+  ALPHA = 1
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6               6               0
+  GW_02_XIU:             6               6               0
+  EXACT                                  6
+
+  N = 5
+  ALPHA = 2
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        6             384               0
+  GW_02_XIU:             6             384               0
+  EXACT                                384
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1         31.0063     7.10543e-15
+  EPN_GLG_02_XIU:        7         31.0063     3.55271e-15
+  GW_02_XIU:             7         31.0063     3.55271e-15
+  EXACT                            31.0063
+
+  N = 6
+  ALPHA = 0
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        7               1     2.22045e-16
+  GW_02_XIU:             7               1     2.22045e-16
+  EXACT                                  1
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1        0.484473     1.11022e-16
+  EPN_GLG_02_XIU:        7        0.484473     5.55112e-17
+  GW_02_XIU:             7        0.484473     5.55112e-17
+  EXACT                           0.484473
+
+  N = 6
+  ALPHA = 1
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        7               1     2.22045e-16
+  GW_02_XIU:             7               1     2.22045e-16
+  EXACT                                  1
+
+  N = 6
+  ALPHA = 2
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  EPN_GLG_01_1:          1              64               0
+  EPN_GLG_02_XIU:        7              64     1.42109e-14
+  GW_02_XIU:             7              64     1.42109e-14
+  EXACT                                 64
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1         15.5031     3.55271e-15
+  EPN_GLG_02_XIU:        7         15.5031     3.55271e-15
+  GW_02_XIU:             7         15.5031     3.55271e-15
+  EXACT                            15.5031
+
+  N = 6
+  ALPHA = 0
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               1               0
+  EPN_GLG_02_XIU:        7               1               0
+  GW_02_XIU:             7               1               0
+  EXACT                                  1
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1         0.72671     2.22045e-16
+  EPN_GLG_02_XIU:        7         0.72671     2.22045e-16
+  GW_02_XIU:             7         0.72671     2.22045e-16
+  EXACT                            0.72671
+
+  N = 6
+  ALPHA = 1
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1               2               0
+  EPN_GLG_02_XIU:        7               2               0
+  GW_02_XIU:             7               2               0
+  EXACT                                  2
+
+  N = 6
+  ALPHA = 2
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  EPN_GLG_01_1:          1             192               0
+  EPN_GLG_02_XIU:        7             192               0
+  GW_02_XIU:             7             192               0
+  EXACT                                192
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7         7.75157     2.66454e-15
+  GW_02_XIU:             7         7.75157     2.66454e-15
+  EXACT                            7.75157
+
+  N = 6
+  ALPHA = 0
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7               1               0
+  GW_02_XIU:             7               1               0
+  EXACT                                  1
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7         1.09006     2.22045e-16
+  GW_02_XIU:             7         1.09006     2.22045e-16
+  EXACT                            1.09006
+
+  N = 6
+  ALPHA = 1
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7               4     4.44089e-16
+  GW_02_XIU:             7               4     4.44089e-16
+  EXACT                                  4
+
+  N = 6
+  ALPHA = 2
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7             576               0
+  GW_02_XIU:             7             576               0
+  EXACT                                576
+
+  N = 6
+  ALPHA = -0.5
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7         23.2547     7.10543e-15
+  GW_02_XIU:             7         23.2547     7.10543e-15
+  EXACT                            23.2547
+
+  N = 6
+  ALPHA = 0
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7               2               0
+  GW_02_XIU:             7               2               0
+  EXACT                                  2
+
+  N = 6
+  ALPHA = 0.5
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7         1.81677     2.22045e-16
+  GW_02_XIU:             7         1.81677     2.22045e-16
+  EXACT                            1.81677
+
+  N = 6
+  ALPHA = 1
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7               6     8.88178e-16
+  GW_02_XIU:             7               6     8.88178e-16
+  EXACT                                  6
+
+  N = 6
+  ALPHA = 2
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  EPN_GLG_02_XIU:        7             768               0
+  GW_02_XIU:             7             768               0
+  EXACT                                768
+
+EPN_LAG_TESTS
+  Demonstrate the use of quadrature rules for the region
+  EPN_LAG, that is, the positive half space [0,+oo)^N, with the
+  weight W(X) = product ( 1 <= I <= N ) exp ( -X(I) )
+
+  We use the formulas to integrate various monomials of
+  the form X(1)^E(1) * X(2)^E(2) * ... X(N)^E(N)
+  and compare to the exact integral.
+
+  The precision of each formula is known, and we only use
+  a formula if its precision indicates it should be able to
+  produce an exact result.
+
+  N = 1
+  EXPON =    0
+  Degree = 0
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        2               1               0
+  GW_02_XIU:             2               1               0
+  EXACT                                  1
+
+  N = 1
+  EXPON =    1
+  Degree = 1
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        2               1               0
+  GW_02_XIU:             2               1               0
+  EXACT                                  1
+
+  N = 1
+  EXPON =    2
+  Degree = 2
+
+  EPN_LAG_02_XIU:        2               2               0
+  GW_02_XIU:             2               2               0
+  EXACT                                  2
+
+  N = 2
+  EXPON =    0   0
+  Degree = 0
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        3               1               0
+  GW_02_XIU:             3               1               0
+  EXACT                                  1
+
+  N = 2
+  EXPON =    0   1
+  Degree = 1
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        3               1     3.33067e-16
+  GW_02_XIU:             3               1     3.33067e-16
+  EXACT                                  1
+
+  N = 2
+  EXPON =    1   1
+  Degree = 2
+
+  EPN_LAG_02_XIU:        3               1               0
+  GW_02_XIU:             3               1               0
+  EXACT                                  1
+
+  N = 2
+  EXPON =    2   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        3               2     8.88178e-16
+  GW_02_XIU:             3               2     8.88178e-16
+  EXACT                                  2
+
+  N = 3
+  EXPON =    0   0   0
+  Degree = 0
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        4               1               0
+  GW_02_XIU:             4               1               0
+  EXACT                                  1
+
+  N = 3
+  EXPON =    0   0   1
+  Degree = 1
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        4               1               0
+  GW_02_XIU:             4               1               0
+  EXACT                                  1
+
+  N = 3
+  EXPON =    1   1   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        4               1     1.11022e-16
+  GW_02_XIU:             4               1     1.11022e-16
+  EXACT                                  1
+
+  N = 3
+  EXPON =    2   0   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        4               2               0
+  GW_02_XIU:             4               2               0
+  EXACT                                  2
+
+  N = 4
+  EXPON =    0   0   0   0
+  Degree = 0
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        5               1               0
+  GW_02_XIU:             5               1               0
+  EXACT                                  1
+
+  N = 4
+  EXPON =    0   0   0   1
+  Degree = 1
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        5               1               0
+  GW_02_XIU:             5               1               0
+  EXACT                                  1
+
+  N = 4
+  EXPON =    1   1   0   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        5               1               0
+  GW_02_XIU:             5               1               0
+  EXACT                                  1
+
+  N = 4
+  EXPON =    2   0   0   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        5               2               0
+  GW_02_XIU:             5               2               0
+  EXACT                                  2
+
+  N = 5
+  EXPON =    0   0   0   0   0
+  Degree = 0
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        6               1     1.11022e-16
+  GW_02_XIU:             6               1     1.11022e-16
+  EXACT                                  1
+
+  N = 5
+  EXPON =    0   0   0   0   1
+  Degree = 1
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        6               1               0
+  GW_02_XIU:             6               1               0
+  EXACT                                  1
+
+  N = 5
+  EXPON =    1   1   0   0   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        6               1     1.11022e-16
+  GW_02_XIU:             6               1     1.11022e-16
+  EXACT                                  1
+
+  N = 5
+  EXPON =    2   0   0   0   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        6               2               0
+  GW_02_XIU:             6               2               0
+  EXACT                                  2
+
+  N = 6
+  EXPON =    0   0   0   0   0   0
+  Degree = 0
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        7               1     2.22045e-16
+  GW_02_XIU:             7               1     2.22045e-16
+  EXACT                                  1
+
+  N = 6
+  EXPON =    0   0   0   0   0   1
+  Degree = 1
+
+  EPN_LAG_01_1:          1               1               0
+  EPN_LAG_02_XIU:        7               1               0
+  GW_02_XIU:             7               1               0
+  EXACT                                  1
+
+  N = 6
+  EXPON =    1   1   0   0   0   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        7               1               0
+  GW_02_XIU:             7               1               0
+  EXACT                                  1
+
+  N = 6
+  EXPON =    2   0   0   0   0   0
+  Degree = 2
+
+  EPN_LAG_02_XIU:        7               2               0
+  GW_02_XIU:             7               2               0
+  EXACT                                  2
+
+GW_TESTS
+  Demonstrate the use of quadrature rules for a Golub Welsch rule
+  defined over some interval and some weight function for which
+  the three term recursion of the orthogonal polynomials is known.
+
+  Chebyshev1:
+
+       3.28987             1             0
+       3.28987          -0.5      0.866025
+       3.28987          -0.5     -0.866025
+
+  Chebyshev2:
+
+      0.822467      0.707107             0
+      0.822467     -0.353553      0.612372
+      0.822467     -0.353553     -0.612372
+
+  Gegenbauer:
+  ALPHA = 1
+
+      0.592593      0.632456             0
+      0.592593     -0.316228      0.547723
+      0.592593     -0.316228     -0.547723
+
+  Generalized Hermite:
+  ALPHA = 1
+
+      0.333333             2             0
+      0.333333            -1       1.73205
+      0.333333            -1      -1.73205
+
+  Generalized Laguerre:
+  ALPHA = 1
+
+      0.333333  -4.44089e-16             2
+      0.333333             3      0.267949
+      0.333333             3       3.73205
+
+  Hermite (physicist):
+
+        1.0472             1             0
+        1.0472          -0.5      0.866025
+        1.0472          -0.5     -0.866025
+
+  Hermite ( probabilist):
+
+        2.0944       1.41421             0
+        2.0944     -0.707107       1.22474
+        2.0944     -0.707107      -1.22474
+
+  Jacobi:
+  ALPHA = 0.5
+  BETA  = 1.5
+
+      0.822467      0.862372          0.25
+      0.822467    -0.0561862       0.78033
+      0.822467    -0.0561862      -0.28033
+
+  Laguerre:
+
+      0.333333     -0.414214             1
+      0.333333       1.70711     -0.224745
+      0.333333       1.70711       2.22474
+
+  Legendre:
+
+       1.33333      0.816497             0
+       1.33333     -0.408248      0.707107
+       1.33333     -0.408248     -0.707107
+
+SANDIA_CUBATURE_PRB
+  Normal end of execution.
+
+25 December 2011 02:55:14 PM

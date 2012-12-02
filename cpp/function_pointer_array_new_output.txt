@@ -1,0 +1,38 @@
+16 April 2009 10:37:15 AM
+
+FUNCTION_POINTER_ARRAY_NEW
+  C++ version
+
+  Example of a dynamically dimensioned function pointer array.
+
+  We define an array FUNC whose entries are function pointers.
+  Our declaration indicates only that each entry of FUNC 
+  points to a function which has two inputs of type double,
+  and returns a double as its value.
+
+  Set DIM_NUM = 2
+  Set FUNC = { r8_min ( ), r8_max ( ) }
+  -----A----  -----B----     FUNC[0]     FUNC[1]
+                            min(A,B)    max(A,B)
+
+    0.621921    0.624163    0.621921    0.624163
+    0.314565    0.888536    0.314565    0.888536
+     0.62248   0.0180997   0.0180997     0.62248
+    0.200908    0.667529    0.200908    0.667529
+    0.165277    0.803795    0.165277    0.803795
+
+  Set DIM_NUM = 4
+  Set FUNC = { r8_min ( ), r8_max ( ) }
+  -----A----  -----B----     FUNC[0]     FUNC[1]     FUNC[2]     FUNC[3]
+                            max(A,B)    ave(A,B)    min(A,B)    sum(A,B)
+
+    0.621921    0.624163    0.624163    0.623042    0.621921     1.24608
+    0.314565    0.888536    0.888536     0.60155    0.314565      1.2031
+     0.62248   0.0180997     0.62248     0.32029   0.0180997    0.640579
+    0.200908    0.667529    0.667529    0.434219    0.200908    0.868438
+    0.165277    0.803795    0.803795    0.484536    0.165277    0.969071
+
+FUNCTION_PONTER_ARRAY_NEW:
+  Normal end of execution.
+
+16 April 2009 10:37:15 AM

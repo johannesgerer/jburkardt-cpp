@@ -1,0 +1,2479 @@
+19 October 2012 04:01:23 PM
+
+TRIANGULATION_PRB
+  C++ version
+  Test the TRIANGULATION library.
+
+TEST01
+  ALPHA_MEASURE returns the ALPHA measure of
+  quality of a triangulation.
+
+  ALPHA_MIN  = 0.0529972
+  ALPHA_AVE  = 0.160002
+  ALPHA_AREA = 0.193622
+
+TEST02
+  AREA_MEASURE returns the AREA measure of
+  quality of a triangulation.
+
+  AREA_MIN   = 1
+  AREA_MAX   = 7.5
+  AREA_RATIO = 0.133333
+  AREA_AVE   = 3.34375
+  AREA_STD   = 1.88513
+
+TEST025
+  DELAUNAY_SWAP_TEST determines whether two triangles
+  with a common edge need to "swap" diagonals.
+  If swapping is indicated, then ALPHA_MIN should increase.
+
+  Swap   ALPHA_MIN   ALPHA_MIN
+         Unswapped   Swapped
+
+     1    0.163708    0.196797
+     1    0.144478    0.388063
+     1   0.0188105   0.0215744
+     0    0.445858    0.163747
+     0    0.197433    0.144315
+     1   0.0810479   0.0844697
+     1    0.183341    0.396497
+     1    0.116407    0.267163
+     0    0.367144    0.228072
+     1  0.00199687   0.0746785
+
+TEST026
+  DIAEDG determines whether two triangles
+  with a common edge need to "swap" diagonals.
+  If swapping is indicated, then ALPHA_MIN should increase.
+
+  Swap   ALPHA_MIN   ALPHA_MIN
+         Unswapped   Swapped
+
+     1    0.163708    0.196797
+     1    0.144478    0.388063
+     1   0.0188105   0.0215744
+     0    0.445858    0.163747
+     0    0.197433    0.144315
+     1   0.0810479   0.0844697
+     1    0.183341    0.396497
+     1    0.116407    0.267163
+     0    0.367144    0.228072
+     1  0.00199687   0.0746785
+
+TEST03
+  NODE_MERGE identifies groups of nodes
+  that can be merged, with a given tolerance.
+
+  Node coordinates:
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              1             0
+    3              3             0
+    4              4             0
+    5              1             1
+    6              4             1
+    7              2             2
+    8              3             3
+    9              2           3.5
+   10            0.5             4
+   11              1             4
+   12            1.5             4
+   13              4             4
+   14              1           4.5
+   15              1           4.5
+
+  TOLERANCE = 0.01
+
+      Node  Representatives:
+
+         0         0
+         1         1
+         2         2
+         3         3
+         4         4
+         5         5
+         6         6
+         7         7
+         8         8
+         9         9
+        10        10
+        11        11
+        12        12
+        13        14
+        14        14
+
+      Rep   Coordinates:
+
+         0             0             0
+         1             1             0
+         2             3             0
+         3             4             0
+         4             1             1
+         5             4             1
+         6             2             2
+         7             3             3
+         8             2           3.5
+         9           0.5             4
+        10             1             4
+        11           1.5             4
+        12             4             4
+        13             1           4.5
+
+  TOLERANCE = 0.75
+
+      Node  Representatives:
+
+         0         0
+         1         1
+         2         2
+         3         3
+         4         4
+         5         5
+         6         6
+         7         7
+         8        14
+         9        14
+        10        14
+        11        14
+        12        12
+        13        14
+        14        14
+
+      Rep   Coordinates:
+
+         0             0             0
+         1             1             0
+         2             3             0
+         3             4             0
+         4             1             1
+         5             4             1
+         6             2             2
+         7             3             3
+         8             4             4
+         9             1           4.5
+
+  TOLERANCE = 1.2
+
+      Node  Representatives:
+
+         0         4
+         1         4
+         2         5
+         3         5
+         4         4
+         5         5
+         6         6
+         7        14
+         8        14
+         9        14
+        10        14
+        11        14
+        12        12
+        13        14
+        14        14
+
+      Rep   Coordinates:
+
+         0             1             1
+         1             4             1
+         2             2             2
+         3             4             4
+         4             1           4.5
+
+  TOLERANCE = 1.5
+
+      Node  Representatives:
+
+         0        14
+         1        14
+         2         5
+         3         5
+         4        14
+         5         5
+         6        14
+         7        14
+         8        14
+         9        14
+        10        14
+        11        14
+        12        14
+        13        14
+        14        14
+
+      Rep   Coordinates:
+
+         0             4             1
+         1             1           4.5
+
+TEST04
+  For an order 3/order 6 Taylor Hood triangulation
+  for Navier Stokes velocity and pressure,
+  NS_ADJ_COUNT counts variable adjacencies
+    and sets up the sparse compressed column
+    column pointer array.
+  NS_ADJ_COL_SET sets up the sparse compressed column
+    COL vector.
+  NS_ADJ_ROW_SET sets up the sparse compressed column
+    ROW vector.
+
+  Number of variables is 36
+
+  As computed by NS_ADJ_COUNT,
+  Number of variable adjacency entries is 708
+
+  As computed by NS_ADJ_COL_SET,
+  Number of variable adjacency entries is 708
+
+  Variable adjacency pointers:
+
+  Variable     First      Last    Number
+
+         1         1        15        15
+         2        16        30        15
+         3        31        45        15
+         4        46        60        15
+         5        61        75        15
+         6        76       104        29
+         7       105       133        29
+         8       134       162        29
+         9       163       177        15
+        10       178       192        15
+        11       193       207        15
+        12       208       222        15
+        13       223       237        15
+        14       238       252        15
+        15       253       267        15
+        16       268       289        22
+        17       290       311        22
+        18       312       333        22
+        19       334       355        22
+        20       356       370        15
+        21       371       385        15
+        22       386       414        29
+        23       415       443        29
+        24       444       472        29
+        25       473       494        22
+        26       495       516        22
+        27       517       545        29
+        28       546       574        29
+        29       575       603        29
+        30       604       618        15
+        31       619       633        15
+        32       634       648        15
+        33       649       663        15
+        34       664       678        15
+        35       679       693        15
+        36       694       708        15
+
+  Variable adjacency row entries:
+  (Partial printout only)
+
+     Entry     Row       Col
+
+
+         1         1         1
+         2         2         1
+         3         3         1
+         4         4         1
+         5         5         1
+         6         6         1
+         7         7         1
+         8         8         1
+         9        14         1
+        10        15         1
+        11        16         1
+        12        17         1
+        13        22         1
+        14        23         1
+        15        24         1
+
+        16         1         2
+        17         2         2
+        18         3         2
+        19         4         2
+        20         5         2
+        21         6         2
+        22         7         2
+        23         8         2
+        24        14         2
+        25        15         2
+        26        16         2
+        27        17         2
+        28        22         2
+        29        23         2
+        30        24         2
+
+        31         1         3
+        32         2         3
+        33         3         3
+        34         4         3
+        35         5         3
+        36         6         3
+        37         7         3
+        38         8         3
+        39        14         3
+        40        15         3
+        41        16         3
+        42        17         3
+        43        22         3
+        44        23         3
+        45        24         3
+
+  (SKIPPING MANY MANY ENTRIES...)
+
+
+       649        22        33
+       650        23        33
+       651        24        33
+       652        25        33
+       653        26        33
+       654        27        33
+       655        28        33
+       656        29        33
+       657        30        33
+       658        31        33
+       659        32        33
+       660        33        33
+       661        34        33
+       662        35        33
+       663        36        33
+
+       664        22        34
+       665        23        34
+       666        24        34
+       667        25        34
+       668        26        34
+       669        27        34
+       670        28        34
+       671        29        34
+       672        30        34
+       673        31        34
+       674        32        34
+       675        33        34
+       676        34        34
+       677        35        34
+       678        36        34
+
+       679        22        35
+       680        23        35
+       681        24        35
+       682        25        35
+       683        26        35
+       684        27        35
+       685        28        35
+       686        29        35
+       687        30        35
+       688        31        35
+       689        32        35
+       690        33        35
+       691        34        35
+       692        35        35
+       693        36        35
+
+       694        22        36
+       695        23        36
+       696        24        36
+       697        25        36
+       698        26        36
+       699        27        36
+       700        28        36
+       701        29        36
+       702        30        36
+       703        31        36
+       704        32        36
+       705        33        36
+       706        34        36
+       707        35        36
+       708        36        36
+
+TEST05
+  POINTS_DELAUNAY_NAIVE_2D computes the Delaunay
+  triangulation of a set of nodes.
+
+  The nodes:
+
+  Row:       1             2       
+  Col
+
+    1              7             3
+    2              4             7
+    3              5            13
+    4              2             7
+    5              6             9
+    6             12            10
+    7              3             4
+    8              6             6
+    9              3            10
+   10              8             7
+   11              5            13
+   12             10             6
+
+  Number of triangles is TRIANGLE_NUM = 15
+
+  The Delaunay triangles:
+
+  Row:      1       2       3  
+  Col
+
+    1       1       7       8  
+    2       1       8      10  
+    3       1      10      12  
+    4       2       4       9  
+    5       2       5       8  
+    6       2       7       4  
+    7       2       8       7  
+    8       2       9       5  
+    9       3       5       9  
+   10       3       6       5  
+   11       5       6      10  
+   12       5       9      11  
+   13       5      10       8  
+   14       5      11       6  
+   15       6      12      10  
+
+TEST06
+  POINTS_HULL_2D computes the convex hull
+    of a set of nodes.
+
+  The nodes:
+
+  Row:       1             2       
+  Col
+
+    1              7             3
+    2              4             7
+    3              5            13
+    4              2             7
+    5              6             9
+    6             12             8
+    7              3             4
+    8              6             6
+    9              3            10
+   10              8             7
+   11              5            13
+   12             10             6
+
+  The convex hull is formed by connecting:
+
+    0    4                 2               7
+    1    7                 3               4
+    2    1                 7               3
+    3   12                10               6
+    4    6                12               8
+    5    3                 5              13
+    6    9                 3              10
+
+  The correct sequence of nodes is:
+  4, 9, 3, 6, 12, 1, 7, (4).
+
+TEST07
+  Q_MEASURE returns the Q measure of
+  quality of a triangulation.
+
+  Q_MIN  = 0.0290818
+  Q_MAX  = 0.988854
+  Q_AVE  = 0.635991
+  Q_AREA = 0.649268
+
+TEST08
+  R8RIS2 computes the Delaunay triangulation of a
+  pointset in 2D.
+
+  R8TRIS2 computed the Delaunay triangulation with no
+  errors detected.
+
+TRIANGULATION_ORDER3_PRINT
+  Information defining a triangulation.
+
+  The number of nodes is 9
+
+  Node coordinates
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              0             1
+    3            0.2           0.5
+    4            0.3           0.6
+    5            0.4           0.5
+    6            0.6           0.4
+    7            0.6           0.5
+    8              1             0
+    9              1             1
+
+  The number of triangles is 12
+
+  Sets of three nodes are used as vertices of
+  the triangles.  For each triangle, the nodes
+  are listed in counterclockwise order.
+
+  Triangle nodes
+
+  Row:      1       2       3  
+  Col
+
+    1       1       0       2  
+    2       2       0       4  
+    3       1       2       3  
+    4       3       2       4  
+    5       5       6       4  
+    6       4       0       5  
+    7       6       3       4  
+    8       8       3       6  
+    9       5       0       7  
+   10       6       5       7  
+   11       6       7       8  
+   12       1       3       8  
+
+  On each side of a given triangle, there is either
+  another triangle, or a piece of the convex hull.
+  For each triangle, we list the indices of the three
+  neighbors, or (if negative) the codes of the
+  segments of the convex hull.
+
+  Triangle neighbors
+
+  Row:      1       2       3  
+  Col
+
+    1     -28       2       3  
+    2       1       6       4  
+    3       1       4      12  
+    4       3       2       7  
+    5      10       7       6  
+    6       2       9       5  
+    7       8       4       5  
+    8      12       7      11  
+    9       6     -34      10  
+   10       5       9      11  
+   11      10     -38       8  
+   12       3       8      -3  
+
+  The number of boundary points is 4
+
+  The segments that make up the convex hull can be
+  determined from the negative entries of the triangle
+  neighbor list.
+
+     #   Tri  Side    N1    N2
+
+     1     9     2     0     7
+     2    11     2     7     8
+     3    12     3     8     1
+     4     1     1     1     0
+
+TEST09
+  For an order 3 triangle,
+  TRIANGLE_ORDER3_PHYSICAL_TO_REFERENCE
+    maps a physical point to a reference point.
+  TRIANGLE_ORDER3_REFERENCE_TO_PHYSICAL 
+    maps a reference point to a physical point.
+
+   (  XSI    ETA ) ==> ( X      Y  ) ==> ( XSI2    ETA2 )
+
+   0.0204151    0.446937       1.48777     2.78775     0.0204151    0.446937
+    0.399196    0.511578       2.30997     3.04631      0.399196    0.511578
+    0.601833   0.0426098       2.24628     1.17044      0.601833   0.0426098
+    0.451716   0.0558054       1.95924     1.22322      0.451716   0.0558054
+   0.0766307    0.132723       1.28598     1.53089     0.0766307    0.132723
+    0.136762    0.111688       1.38521     1.44675      0.136762    0.111688
+    0.155411    0.478076        1.7889      2.9123      0.155411    0.478076
+    0.891268   0.0016415       2.78418     1.00657      0.891268   0.0016415
+    0.615076    0.332291       2.56244     2.32916      0.615076    0.332291
+    0.303294  0.00418694       1.61078     1.01675      0.303294  0.00418694
+
+TEST10
+  For an order 6 triangle,
+  TRIANGLE_ORDER6_PHYSICAL_TO_REFERENCE
+    maps a physical point to a reference point
+  TRIANGLE_ORDER6_REFERENCE_TO_PHYSICAL
+    maps a reference point to a physical point.
+
+   (  XSI    ETA ) ==> ( X      Y  ) ==> ( XSI2    ETA2 )
+
+   0.0204151    0.446937       7.04083     2.44694     0.0204151    0.446937
+    0.399196    0.511578       7.79839     2.51158      0.399196    0.511578
+    0.601833   0.0426098       8.20367     2.04261      0.601833   0.0426098
+    0.451716   0.0558054       7.90343     2.05581      0.451716   0.0558054
+   0.0766307    0.132723       7.15326     2.13272     0.0766307    0.132723
+    0.136762    0.111688       7.27352     2.11169      0.136762    0.111688
+    0.155411    0.478076       7.31082     2.47808      0.155411    0.478076
+    0.891268   0.0016415       8.78254     2.00164      0.891268   0.0016415
+    0.615076    0.332291       8.23015     2.33229      0.615076    0.332291
+    0.303294  0.00418694       7.60659     2.00419      0.303294  0.00418694
+
+TEST11
+  TRIANGULATION_NODE_ORDER computes the order
+  of the nodes in a triangulation.
+
+  NODE ORDER:
+
+         0         2
+         1         3
+         2         3
+         3         3
+         4         3
+         5         1
+         6         3
+         7         6
+         8         4
+         9         3
+        10         5
+        11         3
+        12         3
+        13         6
+        14         5
+        15         3
+        16         4
+        17         3
+        18         3
+        19         4
+        20         5
+        21         4
+        22         3
+        23         2
+        24         3
+        25         4
+        26         3
+        27         3
+        28         3
+        29         6
+        30         5
+        31         3
+        32         1
+        33         3
+        34         3
+        35         2
+
+TEST12
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_ADJ_COUNT counts adjacencies
+  TRIANGULATION_ORDER3_ADJ_SET sets adjacencies.
+
+  Number of adjacency entries is 69
+
+  Adjacency pointers:
+
+         1         1         5
+         2         6        11
+         3        12        17
+         4        18        20
+         5        21        27
+         6        28        34
+         7        35        39
+         8        40        44
+         9        45        51
+        10        52        55
+        11        56        59
+        12        60        63
+        13        64        69
+
+  Nodes adjacent to node 1
+
+         1
+         2
+         3
+         4
+         5
+
+  Nodes adjacent to node 2
+
+         1
+         2
+         3
+         5
+         8
+        13
+
+  Nodes adjacent to node 3
+
+         1
+         2
+         3
+         4
+         8
+         9
+
+  Nodes adjacent to node 4
+
+         1
+         3
+         4
+
+  Nodes adjacent to node 5
+
+         1
+         2
+         5
+         6
+         7
+        12
+        13
+
+  Nodes adjacent to node 6
+
+         5
+         6
+         7
+         9
+        10
+        11
+        12
+
+  Nodes adjacent to node 7
+
+         5
+         6
+         7
+         9
+        13
+
+  Nodes adjacent to node 8
+
+         2
+         3
+         8
+         9
+        13
+
+  Nodes adjacent to node 9
+
+         3
+         6
+         7
+         8
+         9
+        10
+        13
+
+  Nodes adjacent to node 10
+
+         6
+         9
+        10
+        11
+
+  Nodes adjacent to node 11
+
+         6
+        10
+        11
+        12
+
+  Nodes adjacent to node 12
+
+         5
+         6
+        11
+        12
+
+  Nodes adjacent to node 13
+
+         2
+         5
+         7
+         8
+         9
+        13
+
+TEST125
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_ADJ_COUNT counts adjacencies
+  TRIANGULATION_ORDER3_ADJ_SET2 sets adjacencies
+  as a pair of vectors IA(*), JA(*).
+
+  Number of adjacency entries is 69
+
+  Adjacency pointers:
+
+         1         1         5
+         2         6        11
+         3        12        17
+         4        18        20
+         5        21        27
+         6        28        34
+         7        35        39
+         8        40        44
+         9        45        51
+        10        52        55
+        11        56        59
+        12        60        63
+        13        64        69
+
+  Adjacency list:
+
+         1  ( 1, 1)
+         2  ( 1, 2)
+         3  ( 1, 3)
+         4  ( 1, 4)
+         5  ( 1, 5)
+         6  ( 2, 1)
+         7  ( 2, 2)
+         8  ( 2, 3)
+         9  ( 2, 5)
+        10  ( 2, 8)
+        11  ( 2,13)
+        12  ( 3, 1)
+        13  ( 3, 2)
+        14  ( 3, 3)
+        15  ( 3, 4)
+        16  ( 3, 8)
+        17  ( 3, 9)
+        18  ( 4, 1)
+        19  ( 4, 3)
+        20  ( 4, 4)
+        21  ( 5, 1)
+        22  ( 5, 2)
+        23  ( 5, 5)
+        24  ( 5, 6)
+        25  ( 5, 7)
+        26  ( 5,12)
+        27  ( 5,13)
+        28  ( 6, 5)
+        29  ( 6, 6)
+        30  ( 6, 7)
+        31  ( 6, 9)
+        32  ( 6,10)
+        33  ( 6,11)
+        34  ( 6,12)
+        35  ( 7, 5)
+        36  ( 7, 6)
+        37  ( 7, 7)
+        38  ( 7, 9)
+        39  ( 7,13)
+        40  ( 8, 2)
+        41  ( 8, 3)
+        42  ( 8, 8)
+        43  ( 8, 9)
+        44  ( 8,13)
+        45  ( 9, 3)
+        46  ( 9, 6)
+        47  ( 9, 7)
+        48  ( 9, 8)
+        49  ( 9, 9)
+        50  ( 9,10)
+        51  ( 9,13)
+        52  (10, 6)
+        53  (10, 9)
+        54  (10,10)
+        55  (10,11)
+        56  (11, 6)
+        57  (11,10)
+        58  (11,11)
+        59  (11,12)
+        60  (12, 5)
+        61  (12, 6)
+        62  (12,11)
+        63  (12,12)
+        64  (13, 2)
+        65  (13, 5)
+        66  (13, 7)
+        67  (13, 8)
+        68  (13, 9)
+        69  (13,13)
+
+TEST13
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_BOUNDARY_EDGE_COUNT counts the
+    boundary edges;
+  TRIANGULATION_ORDER3_PLOT plots the triangulation.
+
+  An Encapsulated PostScript image of this
+  triangulation is in "triangulation_order3_plot2.eps".
+
+  Number of boundary edges = 33
+  Correct number =           33
+
+TEST14
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_BOUNDARY_EDGE_COUNT_EULER
+  determines the number of edges that lie on the
+  boundary of a region that has been triangulated.
+
+  Number of points =         36
+  Number of triangles =      41
+  Number of holes =          2
+  Number of boundary edges = 33
+
+TEST15
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_BOUNDARY_NODE determines which
+  nodes lie on the boundary of a triangulation.
+
+    Node  BN?
+
+         0  1
+         1  1
+         2  1
+         3  1
+         4  1
+         5  1
+         6  1
+         7  0
+         8  1
+         9  1
+        10  1
+        11  1
+        12  1
+        13  0
+        14  1
+        15  1
+        16  1
+        17  1
+        18  1
+        19  1
+        20  1
+        21  1
+        22  1
+        23  1
+        24  1
+        25  1
+        26  1
+        27  1
+        28  1
+        29  0
+        30  1
+        31  1
+        32  1
+        33  1
+        34  1
+        35  1
+
+TEST16
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_CHECK checks the triangulation.
+
+  Triangles:
+
+  Row:      1       2       3  
+  Col
+
+    1       3       4       1  
+    2       3       1       2  
+    3       3       2       8  
+    4       2       1       5  
+    5       8       2      13  
+    6       8      13       9  
+    7       3       8       9  
+    8      13       2       5  
+    9       9      13       7  
+   10       7      13       5  
+   11       6       7       5  
+   12       9       7       6  
+   13      10       9       6  
+   14       6       5      12  
+   15      11       6      12  
+   16      10       6      11  
+  Error code = 0
+
+TRIANGULATION_ORDER3_CHECK - Fatal error!
+  The number of nodes is less than 3!
+  Error code = 1
+
+TRIANGULATION_ORDER3_CHECK - Fatal error!
+  The number of triangles is less than 1!
+  Error code = 2
+
+TRIANGULATION_ORDER3_CHECK - Fatal error!
+  Some vertices are less than 1!
+  Error code = 3
+
+TRIANGULATION_ORDER3_CHECK - Fatal error!
+  Some vertices are greater than node_num!
+  Error code = 4
+
+TRIANGULATION_ORDER3_CHECK - Fatal error!
+  Some nodes are never used as triangle vertices!
+  First example is node 5
+  Error code = 5
+
+TRIANGULATION_ORDER3_CHECK - Fatal error!
+  A triangle contains a null edge!
+  Error code = 6
+
+TRIANGULATION_ORDER3_EDGE_CHECK - Warning!
+  An edge occurs twice.
+
+TRIANGULATION_ORDER3_CHECK - Fatal error!
+  Some edges are repeated or given in the wrong direction!
+  Error code = 7
+
+TEST17
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_EXAMPLE1_SIZE gives the sizes
+    for an example triangulation;
+  TRIANGULATION_ORDER3_EXAMPLE1 returns the information
+    for an example triangulation;
+  TRIANGULATION_ORDER3_PRINT prints a triangulation.
+
+TRIANGULATION_ORDER3_PRINT
+  Information defining a triangulation.
+
+  The number of nodes is 13
+
+  Node coordinates
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              2             2
+    3             -1             3
+    4             -2             2
+    5              8             2
+    6              9             5
+    7              7             4
+    8              5             6
+    9              6             7
+   10              8             8
+   11             11             7
+   12             10             4
+   13              6             4
+
+  The number of triangles is 16
+
+  Sets of three nodes are used as vertices of
+  the triangles.  For each triangle, the nodes
+  are listed in counterclockwise order.
+
+  Triangle nodes
+
+  Row:      1       2       3  
+  Col
+
+    1       3       4       1  
+    2       3       1       2  
+    3       3       2       8  
+    4       2       1       5  
+    5       8       2      13  
+    6       8      13       9  
+    7       3       8       9  
+    8      13       2       5  
+    9       9      13       7  
+   10       7      13       5  
+   11       6       7       5  
+   12       9       7       6  
+   13      10       9       6  
+   14       6       5      12  
+   15      11       6      12  
+   16      10       6      11  
+
+  On each side of a given triangle, there is either
+  another triangle, or a piece of the convex hull.
+  For each triangle, we list the indices of the three
+  neighbors, or (if negative) the codes of the
+  segments of the convex hull.
+
+  Triangle neighbors
+
+  Row:      1       2       3  
+  Col
+
+    1      -4     -13       2  
+    2       1       4       3  
+    3       2       5       7  
+    4       2     -43       8  
+    5       3       8       6  
+    6       5       9       7  
+    7       3       6      -3  
+    8       5       4      10  
+    9       6      10      12  
+   10       9       8      11  
+   11      12      10      14  
+   12       9      11      13  
+   13     -23      12      16  
+   14      11     -47      15  
+   15      16      14     -50  
+   16      13      15     -39  
+
+  The number of boundary points is 8
+
+  The segments that make up the convex hull can be
+  determined from the negative entries of the triangle
+  neighbor list.
+
+     #   Tri  Side    N1    N2
+
+     1     1     2     4     1
+     2     4     2     1     5
+     3    14     2     5    12
+     4     1     1     3     4
+     5     7     3     9     3
+     6    15     3    12    11
+     7    16     3    11    10
+     8    13     1    10     9
+
+TEST18
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_NEIGHBOR determines the
+  triangle neighbors.
+
+    T1    S1    T2    S2
+
+     1     1    -1    -1
+     1     2    -1    -1
+     1     3     2     1
+     2     1     1     3
+     2     2     4     1
+     2     3     3     1
+     3     1     2     3
+     3     2     5     1
+     3     3     7     1
+     4     1     2     2
+     4     2    -1    -1
+     4     3     8     2
+     5     1     3     2
+     5     2     8     1
+     5     3     6     1
+     6     1     5     3
+     6     2     9     1
+     6     3     7     2
+     7     1     3     3
+     7     2     6     3
+     7     3    -1    -1
+     8     1     5     2
+     8     2     4     3
+     8     3    10     2
+     9     1     6     2
+     9     2    10     1
+     9     3    12     1
+    10     1     9     2
+    10     2     8     3
+    10     3    11     2
+    11     1    12     2
+    11     2    10     3
+    11     3    14     1
+    12     1     9     3
+    12     2    11     1
+    12     3    13     2
+    13     1    -1    -1
+    13     2    12     3
+    13     3    16     1
+    14     1    11     3
+    14     2    -1    -1
+    14     3    15     2
+    15     1    16     2
+    15     2    14     3
+    15     3    -1    -1
+    16     1    13     3
+    16     2    15     1
+    16     3    -1    -1
+
+TEST19
+  TRIANGULATION_NEIGHBOR_ELEMENTS determines the
+  adjacency relationships between elements.
+
+  Elements:
+
+  Row:      1       2       3  
+  Col
+
+    1       3       4       1  
+    2       3       1       2  
+    3       3       2       8  
+    4       2       1       5  
+    5       8       2      13  
+    6       8      13       9  
+    7       3       8       9  
+    8      13       2       5  
+    9       9      13       7  
+   10       7      13       5  
+   11       6       7       5  
+   12       9       7       6  
+   13      10       9       6  
+   14       6       5      12  
+   15      11       6      12  
+   16      10       6      11  
+
+  Element neighbors:
+
+  Row:      1       2       3  
+  Col
+
+    1      -1       2      -1  
+    2       4       3       1  
+    3       5       7       2  
+    4      -1       8       2  
+    5       8       6       3  
+    6       9       7       5  
+    7       6      -1       3  
+    8       4      10       5  
+    9      10      12       6  
+   10       8      11       9  
+   11      10      14      12  
+   12      11      13       9  
+   13      12      16      -1  
+   14      -1      15      11  
+   15      14      -1      16  
+   16      15      -1      13  
+
+TEST20
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_PLOT can plot a triangulation.
+
+  Example data has 13 points,
+  organized into 16 triangles.
+
+  TRIANGULATION_ORDER3_PLOT has created an
+  Encapsulated PostScript file (EPS) containing
+  an image of the triangulation.
+
+  This file is called "triangulation_order3_plot.eps".
+
+TEST21
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_PRINT prints out a triangulation.
+
+TRIANGULATION_ORDER3_PRINT
+  Information defining a triangulation.
+
+  The number of nodes is 9
+
+  Node coordinates
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              0             1
+    3            0.2           0.5
+    4            0.3           0.6
+    5            0.4           0.5
+    6            0.6           0.4
+    7            0.6           0.5
+    8              1             0
+    9              1             1
+
+  The number of triangles is 12
+
+  Sets of three nodes are used as vertices of
+  the triangles.  For each triangle, the nodes
+  are listed in counterclockwise order.
+
+  Triangle nodes
+
+  Row:      1       2       3  
+  Col
+
+    1       2       1       3  
+    2       3       1       6  
+    3       2       3       4  
+    4       4       3       5  
+    5       7       4       5  
+    6       5       3       6  
+    7       7       5       6  
+    8       9       4       7  
+    9       6       1       8  
+   10       7       6       8  
+   11       7       8       9  
+   12       2       4       9  
+
+  On each side of a given triangle, there is either
+  another triangle, or a piece of the convex hull.
+  For each triangle, we list the indices of the three
+  neighbors, or (if negative) the codes of the
+  segments of the convex hull.
+
+  Triangle neighbors
+
+  Row:      1       2       3  
+  Col
+
+    1     -28       2       3  
+    2       1       9       6  
+    3       1       4      12  
+    4       3       6       5  
+    5       8       4       7  
+    6       4       2       7  
+    7       5       6      10  
+    8      12       5      11  
+    9       2     -34      10  
+   10       7       9      11  
+   11      10     -38       8  
+   12       3       8      -3  
+
+  The number of boundary points is 4
+
+  The segments that make up the convex hull can be
+  determined from the negative entries of the triangle
+  neighbor list.
+
+     #   Tri  Side    N1    N2
+
+     1     9     2     1     8
+     2    11     2     8     9
+     3    12     3     9     2
+     4     1     1     2     1
+
+TEST213
+  TRIANGULATION_ORDER3_QUAD can apply a quadrature rule
+  to every triangle in a triangulated region,
+  and estimate the integral of a function over
+  that region.
+
+  NODE_NUM   TRI_NUM  Integral estim  Area of Region
+
+         4         2         2.12667               1
+         9         8         2.13836               1
+        25        32         2.13928               1
+        81       128         2.13935               1
+
+TEST215
+  For an order3 triangulation:
+  TRIANGULATION_ORDER3_REFINE_SIZE determines the
+  size of a refined triangulation.
+  TRIANGULATION_ORDER3_REFINE_COMPUTES computes the
+  refined triangulation.
+
+  The number of nodes is 5
+  The number of triangles is 3
+
+  The nodes
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              1             0
+    3              0             1
+    4              1             1
+    5            0.5           1.5
+
+  The triangles:
+
+  Row:      1       2       3  
+  Col
+
+    1       1       2       3  
+    2       4       3       2  
+    3       3       4       5  
+
+  Sizing the refined mesh:
+
+  Information about the refined mesh:
+
+  The number of nodes is 12
+  The number of triangles is 12
+
+  Computing the refined mesh:
+
+  The refined nodes
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              1             0
+    3              0             1
+    4              1             1
+    5            0.5           1.5
+    6            0.5             0
+    7              0           0.5
+    8            0.5           0.5
+    9              1           0.5
+   10            0.5             1
+   11           0.25          1.25
+   12           0.75          1.25
+
+  The refined triangles:
+
+  Row:      1       2       3  
+  Col
+
+    1       1       6       7  
+    2       6       2       8  
+    3       7       8       3  
+    4       8       7       6  
+    5       4      10       9  
+    6      10       3       8  
+    7       9       8       2  
+    8       8       9      10  
+    9       3      10      11  
+   10      10       4      12  
+   11      11      12       5  
+   12      12      11      10  
+
+TEST217
+  Given a set of nodes NODE_XY, and a single point XD,
+  find the nearest node in NODE_XY to XD.
+
+  POINTS_POINT_NEAR_NAIVE_ND uses a naive method.
+  TRIANGULATION_SEARCH_DELAUNAY finds a triangle
+    containing the point.  Often, one of these vertices
+    is the closest point.
+
+  R8TRIS2 computed the Delaunay triangulation.
+
+              X         Y     Distance    Index     Steps
+
+
+  XD        4.36731   5.26684
+  Naive           5         6  0.968407       8
+  Delaunay        5         6  0.968407         8       2
+
+  XD        3.67789   2.71111
+  Naive           2         2   1.82236       2
+  Delaunay        2         2   1.82236         2       2
+
+  XD        1.45307   1.36587
+  Naive           2         2  0.837404       2
+  Delaunay        2         2  0.837404         2       1
+
+  XD        6.11169   6.25465
+  Naive           6         7  0.753671       9
+  Delaunay        6         7  0.753671         9       5
+
+  XD        5.16432   3.91036
+  Naive           6         4  0.840478      13
+  Delaunay        6         4  0.840478        13       3
+
+  XD       -1.28278   1.38805
+  Naive          -2         2  0.942804       4
+  Delaunay       -2         2  0.942804         4       3
+
+  XD       -0.68281   2.85042
+  Naive          -1         3  0.350688       3
+  Delaunay       -1         3  0.350688         3       1
+
+  XD        7.30618   7.64387
+  Naive           8         8  0.779879      10
+  Delaunay        8         8  0.779879        10       6
+
+  XD       0.958131  0.306673
+  Naive           0         0   1.00601       1
+  Delaunay        0         0   1.00601         1       5
+
+  XD        2.12433  0.670385
+  Naive           2         2   1.33541       2
+  Delaunay        2         2   1.33541         2       0
+
+TEST219
+  Given a triangulation, and a point P,
+  find the triangle T containing to P.
+
+  TRIANGULATION_SEARCH_NAIVE uses a naive method.
+  TRIANGULATION_SEARCH_DELAUNAY uses a method that will work
+    fast if the triangulation is Delaunay.
+
+  R8TRIS2 computed the Delaunay triangulation.
+
+         X           Y     Naive   Delaunay  Steps
+
+     4.36731     5.26684         3         3         3
+     3.67789     2.71111         8         8         2
+     1.45307     1.36587         4         4         1
+     6.11169     6.25465         9         9         5
+     5.16432     3.91036         5         5         3
+    -1.28278     1.38805         1         1         3
+    -0.68281     2.85042         2         2         1
+     7.30618     7.64387        13        13         6
+    0.958131    0.306673         4         4         5
+     2.12433    0.670385         4         4         0
+
+TEST22
+  For an order6 triangulation:
+  TRIANGULATION_ORDER6_ADJ_COUNT counts adjacencies
+  TRIANGULATION_ORDER6_ADJ_SET sets adjacencies.
+
+  Number of adjacency entries is 432
+
+  Adjacency pointers:
+
+         1         1         6
+         2         7        12
+         3        13        27
+         4        28        33
+         5        34        45
+         6        46        51
+         7        52        57
+         8        58        63
+         9        64        72
+        10        73        81
+        11        82        90
+        12        91        99
+        13       100       108
+        14       109       114
+        15       115       129
+        16       130       138
+        17       139       153
+        18       154       159
+        19       160       174
+        20       175       183
+        21       184       195
+        22       196       201
+        23       202       210
+        24       211       219
+        25       220       225
+        26       226       231
+        27       232       237
+        28       238       251
+        29       252       262
+        30       263       281
+        31       282       290
+        32       291       302
+        33       303       308
+        34       309       322
+        35       323       328
+        36       329       337
+        37       338       344
+        38       345       353
+        39       354       362
+        40       363       371
+        41       372       377
+        42       378       383
+        43       384       389
+        44       390       399
+        45       400       405
+        46       406       420
+        47       421       426
+        48       427       432
+
+  Nodes adjacent to node 1
+
+         1
+         2
+         3
+         8
+         9
+        15
+
+  Nodes adjacent to node 2
+
+         1
+         2
+         3
+         8
+         9
+        15
+
+  Nodes adjacent to node 3
+
+         1
+         2
+         3
+         4
+         5
+         8
+         9
+        10
+        11
+        12
+        15
+        16
+        17
+        18
+        19
+
+  Nodes adjacent to node 4
+
+         3
+         4
+         5
+        11
+        12
+        19
+
+  Nodes adjacent to node 5
+
+         3
+         4
+         5
+         6
+         7
+        11
+        12
+        13
+        14
+        19
+        20
+        21
+
+  Nodes adjacent to node 6
+
+         5
+         6
+         7
+        13
+        14
+        21
+
+  Nodes adjacent to node 7
+
+         5
+         6
+         7
+        13
+        14
+        21
+
+  Nodes adjacent to node 8
+
+         1
+         2
+         3
+         8
+         9
+        15
+
+  Nodes adjacent to node 9
+
+         1
+         2
+         3
+         8
+         9
+        10
+        15
+        16
+        17
+
+  Nodes adjacent to node 10
+
+         3
+         9
+        10
+        11
+        15
+        16
+        17
+        18
+        19
+
+  Nodes adjacent to node 11
+
+         3
+         4
+         5
+        10
+        11
+        12
+        17
+        18
+        19
+
+  Nodes adjacent to node 12
+
+         3
+         4
+         5
+        11
+        12
+        13
+        19
+        20
+        21
+
+  Nodes adjacent to node 13
+
+         5
+         6
+         7
+        12
+        13
+        14
+        19
+        20
+        21
+
+  Nodes adjacent to node 14
+
+         5
+         6
+         7
+        13
+        14
+        21
+
+  Nodes adjacent to node 15
+
+         1
+         2
+         3
+         8
+         9
+        10
+        15
+        16
+        17
+        22
+        23
+        24
+        28
+        29
+        30
+
+  Nodes adjacent to node 16
+
+         3
+         9
+        10
+        15
+        16
+        17
+        23
+        24
+        30
+
+  Nodes adjacent to node 17
+
+         3
+         9
+        10
+        11
+        15
+        16
+        17
+        18
+        19
+        23
+        24
+        25
+        30
+        31
+        32
+
+  Nodes adjacent to node 18
+
+         3
+        10
+        11
+        17
+        18
+        19
+
+  Nodes adjacent to node 19
+
+         3
+         4
+         5
+        10
+        11
+        12
+        13
+        17
+        18
+        19
+        20
+        21
+        26
+        27
+        34
+
+  Nodes adjacent to node 20
+
+         5
+        12
+        13
+        19
+        20
+        21
+        26
+        27
+        34
+
+  Nodes adjacent to node 21
+
+         5
+         6
+         7
+        12
+        13
+        14
+        19
+        20
+        21
+        26
+        27
+        34
+
+  Nodes adjacent to node 22
+
+        15
+        22
+        23
+        28
+        29
+        30
+
+  Nodes adjacent to node 23
+
+        15
+        16
+        17
+        22
+        23
+        24
+        28
+        29
+        30
+
+  Nodes adjacent to node 24
+
+        15
+        16
+        17
+        23
+        24
+        25
+        30
+        31
+        32
+
+  Nodes adjacent to node 25
+
+        17
+        24
+        25
+        30
+        31
+        32
+
+  Nodes adjacent to node 26
+
+        19
+        20
+        21
+        26
+        27
+        34
+
+  Nodes adjacent to node 27
+
+        19
+        20
+        21
+        26
+        27
+        34
+
+  Nodes adjacent to node 28
+
+        15
+        22
+        23
+        28
+        29
+        29
+        30
+        30
+        35
+        36
+        37
+        42
+        43
+        44
+
+  Nodes adjacent to node 29
+
+        15
+        22
+        23
+        28
+        28
+        29
+        30
+        30
+        36
+        37
+        44
+
+  Nodes adjacent to node 30
+
+        15
+        16
+        17
+        22
+        23
+        24
+        25
+        28
+        28
+        29
+        29
+        30
+        31
+        32
+        36
+        38
+        39
+        45
+        46
+
+  Nodes adjacent to node 31
+
+        17
+        24
+        25
+        30
+        31
+        32
+        38
+        39
+        46
+
+  Nodes adjacent to node 32
+
+        17
+        24
+        25
+        30
+        31
+        32
+        33
+        34
+        38
+        39
+        40
+        46
+
+  Nodes adjacent to node 33
+
+        32
+        33
+        34
+        39
+        40
+        46
+
+  Nodes adjacent to node 34
+
+        19
+        20
+        21
+        26
+        27
+        32
+        33
+        34
+        39
+        40
+        41
+        46
+        47
+        48
+
+  Nodes adjacent to node 35
+
+        28
+        35
+        36
+        42
+        43
+        44
+
+  Nodes adjacent to node 36
+
+        28
+        29
+        30
+        35
+        36
+        37
+        42
+        43
+        44
+
+  Nodes adjacent to node 37
+
+        28
+        29
+        36
+        37
+        38
+        45
+        46
+
+  Nodes adjacent to node 38
+
+        30
+        31
+        32
+        37
+        38
+        39
+        44
+        45
+        46
+
+  Nodes adjacent to node 39
+
+        30
+        31
+        32
+        33
+        34
+        38
+        39
+        40
+        46
+
+  Nodes adjacent to node 40
+
+        32
+        33
+        34
+        39
+        40
+        41
+        46
+        47
+        48
+
+  Nodes adjacent to node 41
+
+        34
+        40
+        41
+        46
+        47
+        48
+
+  Nodes adjacent to node 42
+
+        28
+        35
+        36
+        42
+        43
+        44
+
+  Nodes adjacent to node 43
+
+        28
+        35
+        36
+        42
+        43
+        44
+
+  Nodes adjacent to node 44
+
+        28
+        29
+        35
+        36
+        38
+        42
+        43
+        44
+        45
+        46
+
+  Nodes adjacent to node 45
+
+        30
+        37
+        38
+        44
+        45
+        46
+
+  Nodes adjacent to node 46
+
+        30
+        31
+        32
+        33
+        34
+        37
+        38
+        39
+        40
+        41
+        44
+        45
+        46
+        47
+        48
+
+  Nodes adjacent to node 47
+
+        34
+        40
+        41
+        46
+        47
+        48
+
+  Nodes adjacent to node 48
+
+        34
+        40
+        41
+        46
+        47
+        48
+
+TEST23
+  For an order6 triangulation:
+  TRIANGULATION_ORDER6_BOUNDARY_EDGE_COUNT counts the
+    boundary edges.
+
+  Number of boundary edges = 16
+  Correct number =           16
+
+TEST24
+  For an order6 triangulation:
+  TRIANGULATION_ORDER6_BOUNDARY_EDGE_COUNT_EULER
+  determines the number of edges that lie on the
+  boundary of a region that has been triangulated.
+
+  Number of nodes =          48
+  Number of triangles =      16
+  Number of holes =          1
+  Number of boundary edges = 16
+  Correct number =           16
+
+TEST25
+  For an order6 triangulation:
+  TRIANGULATION_ORDER6_BOUNDARY_COUNT counts the boundary
+    edges.
+  TRIANGULATION_ORDER6_PLOT plots the triangulation.
+
+  An Encapsulated PostScript image of this
+  triangulation is in "triangulation_order6_plot.eps"
+
+    Node  BN?
+
+       1  1
+       2  1
+       3  1
+       4  1
+       5  1
+       6  1
+       7  1
+       8  1
+       9  0
+      10  0
+      11  0
+      12  0
+      13  0
+      14  1
+      15  1
+      16  0
+      17  1
+      18  1
+      19  1
+      20  0
+      21  1
+      22  1
+      23  0
+      24  0
+      25  1
+      26  1
+      27  1
+      28  1
+      29  0
+      30  0
+      31  0
+      32  1
+      33  1
+      34  1
+      35  1
+      36  0
+      37  0
+      38  0
+      39  0
+      40  0
+      41  1
+      42  1
+      43  1
+      44  1
+      45  1
+      46  1
+      47  1
+      48  1
+
+TEST26
+  For an order6 triangulation:
+  TRIANGULATION_ORDER6_PRINT prints the data.
+
+TRIANGULATION_ORDER6_PRINT
+  Information defining a triangulation.
+
+  The number of nodes is 48
+
+  Node coordinates
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              1             0
+    3              2             0
+    4              3             0
+    5              4             0
+    6              5             0
+    7              6             0
+    8              0             1
+    9              1             1
+   10              2             1
+   11              3             1
+   12              4             1
+   13              5             1
+   14              6             1
+   15              0             2
+   16              1             2
+   17              2             2
+   18              3             2
+   19              4             2
+   20              5             2
+   21              6             2
+   22              0             3
+   23              1             3
+   24              2             3
+   25              3             3
+   26              5             3
+   27              6             3
+   28              0             4
+   29              1             4
+   30              2             4
+   31              3             4
+   32              4             4
+   33              5             4
+   34              6             4
+   35              0             5
+   36              1             5
+   37              2             5
+   38              3             5
+   39              4             5
+   40              5             5
+   41              6             5
+   42              0             6
+   43              1             6
+   44              2             6
+   45              3             6
+   46              4             6
+   47              5             6
+   48              6             6
+
+  The number of triangles is 16
+
+  Sets of six nodes are used as vertices of
+  the triangles.  For each triangle, the vertices are listed
+  in counterclockwise order, followed by the midside nodes.
+
+  Triangle nodes
+
+  Row:      1       2       3       4       5       6  
+  Col
+
+    1       1       3      15       2       9       8  
+    2      17      15       3      16       9      10  
+    3       5      19       3      12      11       4  
+    4      17       3      19      10      11      18  
+    5       7      21       5      14      13       6  
+    6      19       5      21      12      13      20  
+    7      17      30      15      24      23      16  
+    8      28      15      30      22      23      29  
+    9      30      17      32      24      25      31  
+   10      21      34      19      27      26      20  
+   11      30      44      28      37      36      29  
+   12      42      28      44      35      36      43  
+   13      32      46      30      39      38      31  
+   14      44      30      46      37      38      45  
+   15      32      34      46      33      40      39  
+   16      48      46      34      47      40      41  
+
+  On each side of a given triangle, there is either
+  another triangle, or a piece of the convex hull.
+  For each triangle, we list the indices of the three
+  neighbors, or (if negative) the codes of the
+  segments of the convex hull.
+
+  Triangle neighbors
+
+  Row:      1       2       3  
+  Col
+
+    1      -3       2      -5  
+    2       7       1       4  
+    3       6       4     -11  
+    4       2       3     -14  
+    5     -15       6     -17  
+    6       3       5      10  
+    7       9       8       2  
+    8     -24       7      11  
+    9       7     -28      13  
+   10      27     -31       6  
+   11       8      14      12  
+   12     -36      11     -38  
+   13      15      14       9  
+   14      11      13     -44  
+   15     -45      16      13  
+   16     -48      15     -50  
+
+  The number of boundary points is 14
+
+  The segments that make up the convex hull can be
+  determined from the negative entries of the triangle
+  neighbor list.
+
+     #   Tri  Side    N1    N2    N3
+
+     1     1     1     1     2     3
+     2     1     3    15     8     1
+     3     3     3     3     4     5
+     4     4     3    19    18    17
+     5     5     1     7    14    21
+     6     5     3     5     6     7
+     7     8     1    28    22    15
+     8     9     2    17    25    32
+     9    10     2    34    26    19
+    10    12     1    42    35    28
+    11    12     3    44    43    42
+    12    14     3    46    45    44
+    13    15     1    32    33    34
+    14    16     1    48    47    46
+    15    16     3    34    41    48
+
+TEST265
+  For an order6 triangulation:
+  TRIANGULATION_ORDER6_REFINE_SIZE determines the
+  size of a refined triangulation.
+  TRIANGULATION_ORDER6_REFINE_COMPUTES computes the
+  refined triangulation.
+
+  The number of nodes is 12
+  The number of triangles is 3
+
+  The nodes
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              2             0
+    3              0             2
+    4              2             2
+    5              1             3
+    6              1             0
+    7              0             1
+    8              1             1
+    9              2             1
+   10              1             2
+   11            0.5           2.5
+   12            1.5           2.5
+
+  The triangles:
+
+  Row:      1       2       3       4       5       6  
+  Col
+
+    1       1       2       3       6       8       7  
+    2       4       3       2       9      10       8  
+    3       3       4       5      10      12      11  
+
+  Sizing the refined mesh:
+
+  Information about the refined mesh:
+
+  The number of nodes is 35
+  The number of triangles is 12
+
+  Computing the refined mesh:
+
+  The refined nodes
+
+  Row:       1             2       
+  Col
+
+    1              0             0
+    2              2             0
+    3              0             2
+    4              2             2
+    5              1             3
+    6              1             0
+    7              0             1
+    8              1             1
+    9              2             1
+   10              1             2
+   11            0.5           2.5
+   12            1.5           2.5
+   13            0.5             0
+   14            1.5             0
+   15              0           0.5
+   16              0           1.5
+   17            1.5           0.5
+   18            0.5           1.5
+   19            1.5           1.5
+   20            1.5           0.5
+   21              2           1.5
+   22              1           1.5
+   23           0.25          2.25
+   24           0.75          2.75
+   25           1.75          2.25
+   26           1.25          2.75
+   27            0.5             1
+   28            0.5           0.5
+   29              1           0.5
+   30              1           1.5
+   31            1.5             1
+   32            1.5           1.5
+   33              1           2.5
+   34           0.75          2.25
+   35           1.25          2.25
+
+  The refined triangles:
+
+  Row:      1       2       3       4       5       6  
+  Col
+
+    1       1       6       7      14      28      16  
+    2       6       2       8      13      17      29  
+    3       7       8       3      27      18      15  
+    4       8       7       6      27      28      29  
+    5       4       9       8      22      31      20  
+    6       9       3      10      21      18      32  
+    7       8      10       2      30      17      19  
+    8      10       8       9      30      31      32  
+    9       3      10      11      22      34      24  
+   10      10       4      12      21      25      35  
+   11      11      12       5      33      26      23  
+   12      12      11      10      33      34      35  
+
+TEST27
+  For an order6 triangulation:
+  TRIANGULATION_ORDER6_VERTEX_COUNT counts the 
+  vertex nodes and midside nodes.
+
+  Number of nodes =         48
+  Number of vertex nodes =  16
+  Number of midside nodes = 32
+
+TEST31
+  VORONOI_POLYGON_AREA computes the area of
+  a finite Voronoi polygon.
+
+  The computed area is 0.5
+  The correct area is  0.5
+
+TEST32
+  VORONOI_POLYGON_CENTROID computes the centroid of
+  a finite Voronoi polygon.
+
+  The computed centroid is        0.5         0.5
+  The correct centroid is         0.5         0.5
+
+TEST33
+  VORONOI_POLYGON_VERTICES computes the vertices of
+  a finite Voronoi polygon.
+
+  Vertices:
+
+  Row:       1             2       
+  Col
+
+    1            0.5             0
+    2              1           0.5
+    3            0.5             1
+    4              0           0.5
+
+TRIANGULATION_PRB
+  Normal end of execution.
+
+19 October 2012 04:01:23 PM

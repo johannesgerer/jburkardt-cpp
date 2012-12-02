@@ -1,0 +1,27 @@
+04 October 2012 11:40:07 AM
+
+TEST_LS_PRB
+  C++ version
+  Test the TEST_LS library.
+  This test also requires the R8LIB library.
+
+TEST01
+  Get each least squares test and compute the maximum residual.
+  The L2 norm of the residual MUST be no greater than
+  the L2 norm of the right hand side, else 0 is a better solution.
+
+  Number of problems = 6
+
+  Index     M     N     ||B||         ||X||         ||R||
+
+      1     5     3       6.20484       5.46115       1.07544
+      2     6     3       537.569       194.819       5.22193
+      3     5     3       40.3733        10.844   5.47723e-07
+      4     3     5        232.11        7.4162             0
+      5    10    10             1   1.53439e+07   1.50702e-10
+      6    10    10             1             1   5.09684e-16
+
+TEST_LS_PRB
+  Normal end of execution.
+
+04 October 2012 11:40:07 AM

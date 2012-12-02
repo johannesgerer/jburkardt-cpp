@@ -1,0 +1,26 @@
+07 March 2008 12:59:32 PM
+
+LINPACK_BENCH
+  C++ version
+
+  The LINPACK benchmark.
+  Language: C++
+  Datatype: Double
+
+     Norm. Resid      Resid           MACHEP         X[1]          X[N]
+
+       6.49151     7.20701e-13     2.22045e-16               1               1
+
+  Times are reported for matrices of order N = 1000
+  with leading array dimension of LDA = 1001
+
+      Factor     Solve      Total     MFLOPS       Unit      Ratio
+
+        4          0          4    167.167  0.0119641    71.4286
+
+  End of tests -- This version dated 10/12/92.
+
+LINPACK_BENCH
+  Normal end of execution.
+
+07 March 2008 12:59:37 PM

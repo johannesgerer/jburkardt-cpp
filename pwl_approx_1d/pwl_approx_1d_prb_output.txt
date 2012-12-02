@@ -1,0 +1,461 @@
+10 October 2012 08:39:02 AM
+
+PWL_APPROX_1D_TEST:
+  C++ version
+  Test the PWL_APPROX_1D library.
+  The QR_SOLVE library is needed.
+  The R8LIB library is needed.
+  The test also needs the TEST_INTERP_1D library.
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.240598
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.123596
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.152619
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0805827
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0699614
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0422033
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #1
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0362216
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.148928
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.069537
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 6.59479e-17
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 6.40399e-17
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0134799
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00570115
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #2
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 5.17618e-17
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.177
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0922593
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.104389
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0460788
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0639154
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0269715
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #3
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00663117
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.155149
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0763902
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.104969
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.051385
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0289289
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0132779
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #4
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0042159
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.42567
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.905658
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.30738
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.851458
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 2.04746
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.757202
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #5
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.491408
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0556998
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0259941
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0214935
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.010091
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0028963
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00174043
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #6
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.000314275
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.441869
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.224636
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.292634
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.152422
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.153309
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0965209
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #7
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0625833
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 2
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0703311
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 2
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.035513
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 4
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0493494
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 4
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0248042
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 8
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0.0181713
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 8
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.00976369
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 16
+  Number of data points = 16
+
+  L2 approximation error averaged per data node = 0
+
+TEST01:
+  Approximate data from TEST_INTERP_1D problem #8
+  Number of control points = 16
+  Number of data points = 64
+
+  L2 approximation error averaged per data node = 0.0015659
+
+PWL_APPROX_1D_TEST:
+  Normal end of execution.
+
+10 October 2012 08:39:02 AM

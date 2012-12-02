@@ -1,0 +1,38 @@
+23 December 2011 08:25:28 AM
+
+LLSQ_PRB
+  C++ version
+  Test the LLSQ library.
+
+TEST01
+  LLSQ can compute the formula for a line of the form
+    y = A * x + B
+  which minimizes the RMS error to a set of N data values.
+
+  Estimated relationship is y = 61.2722 * x + -39.062
+  Expected value is         y = 61.272 * x - 39.062
+
+     I      X       Y      B+A*X    |error|
+
+     0     1.47    52.21  51.0082  -1.20184
+     1      1.5    53.12  52.8463  -0.273676
+     2     1.52    54.48  54.0718  -0.408232
+     3     1.55    55.84  55.9099  0.0699332
+     4     1.57     57.2  57.1354  -0.064623
+     5      1.6    58.57  58.9735  0.403543
+     6     1.63    59.93  60.8117  0.881708
+     7     1.65    61.29  62.0372  0.747152
+     8     1.68    63.11  63.8753  0.765317
+     9      1.7    64.47  65.1008  0.630761
+    10     1.73    66.28  66.9389  0.658927
+    11     1.75     68.1  68.1644  0.0643705
+    12     1.78    69.92  70.0025  0.0825361
+    13      1.8    72.19   71.228  -0.96202
+    14     1.83    74.46  73.0661  -1.39385
+
+  RMS error =                      0.182459
+
+LLSQ_PRB
+  Normal end of execution.
+
+23 December 2011 08:25:28 AM

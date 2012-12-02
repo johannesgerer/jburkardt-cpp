@@ -1,0 +1,841 @@
+<html>
+
+  <head>
+    <title>
+      SGMG - Sparse Grids, Mixed Factors, Growth Rules
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SGMG <br> Sparse Grids, Mixed Factors, Growth Rules
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SGMG</b>
+      is a C++ library which
+      constructs a sparse grid whose factors are
+      possibly distinct 1D quadrature rules.
+    </p>
+
+    <p>
+      <b>SGMG</b> is the successor to the
+      <b>SPARSE_GRID_MIXED</b> library.  It includes an option to specify the
+      growth rule that converts a level (which indexes the sparse grids)
+      to the order (which counts the number of points in a 1D rule.)
+    </p>
+
+    <p>
+      <b>SGMG</b> calls many routines from the <b>SANDIA_RULES</b>
+      library.  Source code or compiled copies of <i>both</i> libraries must
+      be available when a program wishes to use the <b>SGMG</b> library.
+    </p>
+
+    <p>
+      Note that there is a variation of this library which is available, called
+      <b>SANDIA_SGMG</b>.  The variant code has the same capabilities, but uses
+      a different interface when it calls the functions in <b>SANDIA_RULES</b>
+      that generate points and weights of quadrature rules.
+    </p>
+
+    <p>
+      For the Clenshaw Curtis rule, exponential growth means that
+      <ul>
+        <li>
+          level 0 has order 1;
+        </li>
+        <li>
+          level L has order 2^L+1, for L greater than 0;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      For all other rules, exponential growth means that
+      <ul>
+        <li>
+          level L has order 2^(L+1)-1;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      For all rules, linear growth means that
+      <ul>
+        <li>
+          level L has order 2*L+1;
+        </li>
+      </ul>
+      Linear growth is <i>not</i> available for the Gauss-Patterson
+      rule.
+    </p>
+
+    <p>
+      The user controls the growth rate by setting an additional argument
+      whose dummy name is <b>level_to_order</b>, and which represents a pointer
+      to a function which determines the relationship between the level of
+      a 1D quadrature rule and the order, or number of points, that it uses:
+      <ul>
+        <li>
+          <b>level_to_order_default</b> uses the original exponential growth rate
+          for the fully nested rules ("CC", "F2" and "GP"), and a simple
+          linear growth rate for other rules ("GL", "GH", "GGH", "LG", "GLG",
+          "GJ" and "GW").
+        </li>
+        <li>
+          <b>level_to_order_exponential</b> uses the original exponential growth rate
+          for all rules.
+        </li>
+        <li>
+          <b>level_to_order_linear</b> uses the simple
+          linear growth rate for all rules.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The 1D quadrature rules are designed to approximate an integral
+      of the form:
+      <blockquote><b>
+        Integral ( A < X < B ) F(X) W(X) dX
+      </b></blockquote>
+      where <b>W(X)</b> is a weight function, by the quadrature sum:
+      <blockquote><b>
+        Sum ( 1 <= I <= ORDER) F(X(I)) * W(I)
+      </b></blockquote>
+      where the set of <b>X</b> values are known as <i>abscissas</i> and
+      the set of <b>W</b> values are known as <i>weights</i>.
+    </p>
+
+    <p>
+      Note that the letter <b>W</b>, unfortunately, is used to denote both the
+      weight function in the original integral, and the vector of weight
+      values in the quadrature sum.
+    </p>
+
+    <p>
+      <table border=1>
+        <tr>
+          <th>Index</th>
+          <th>Name</th>
+          <th>Abbreviation</th>
+          <th>Default Growth Rule</th>
+          <th>Interval</th>
+          <th>Weight function</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Clenshaw-Curtis</td>
+          <td>CC</td>
+          <td>Moderate Exponential</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Fejer Type 2</td>
+          <td>F2</td>
+          <td>Moderate Exponential</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Gauss Patterson</td>
+          <td>GP</td>
+          <td>Moderate Exponential</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Gauss-Legendre</td>
+          <td>GL</td>
+          <td>Moderate Linear</td>
+          <td>[-1,+1]</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Gauss-Hermite</td>
+          <td>GH</td>
+          <td>Moderate Linear</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Generalized Gauss-Hermite</td>
+          <td>GGH</td>
+          <td>Moderate Linear</td>
+          <td>(-oo,+oo)</td>
+          <td>|x|<sup>alpha</sup> e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Gauss-Laguerre</td>
+          <td>LG</td>
+          <td>Moderate Linear</td>
+          <td>[0,+oo)</td>
+          <td>e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Generalized Gauss-Laguerre</td>
+          <td>GLG</td>
+          <td>Moderate Linear</td>
+          <td>[0,+oo)</td>
+          <td>x<sup>alpha</sup> e<sup>-x</sup></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Gauss-Jacobi</td>
+          <td>GJ</td>
+          <td>Moderate Linear</td>
+          <td>[-1,+1]</td>
+          <td>(1-x)<sup>alpha</sup> (1+x)<sup>beta</sup></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Hermite Genz-Keister</td>
+          <td>HGK</td>
+          <td>Moderate Exponential</td>
+          <td>(-oo,+oo)</td>
+          <td>e<sup>-x*x</sup></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>User Supplied Open</td>
+          <td>UO</td>
+          <td>Moderate Linear</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>User Supplied Closed</td>
+          <td>UC</td>
+          <td>Moderate Linear</td>
+          <td>?</td>
+          <td>?</td>
+        </tr>
+      </table>
+    </p>
+
+    <p>
+      For a given family, a growth rule can be prescribed, which determines
+      the orders O of the sequence of rules selected from the family.  The
+      selected rules are indexed by L, which starts at 0.  The polynomial precision P
+      of the rule is sometimes used to determine the appropriate order O.
+      <table border=1>
+        <tr>
+          <th>Index</th>
+          <th>Name</th>
+          <th>Order Formula</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>"DF", Default</td>
+          <td>moderate exponential or moderate linear</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>"SL", Slow linear</td>
+          <td>O=L+1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>"SO", Slow Linear Odd</td>
+          <td>O=1+2*((L+1)/2)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>"ML", Moderate Linear</td>
+          <td>O=2L+1r</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>"SE", Slow Exponential</td>
+          <td>select smallest exponential order O so that 2L+1 <= P</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>"ME", Moderate Exponential</td>
+          <td>select smallest exponential order O so that 4L+1 <= P</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>"FE", Full Exponential</td>
+          <td>O=2^L+1 for Clenshaw Curtis, O=2^(L+1)-1 otherwise.</td>
+        </tr>
+      </table>
+    </p>
+
+    <p>
+      A sparse grid is a quadrature rule for a multidimensional integral.
+      It is formed by taking a certain linear combination of lower-order
+      product rules.  The product rules, in turn, are formed as direct products
+      of 1D quadrature rules.  It is common to form a sparse grid in which the
+      1D component quadrature rules are the same.  This package, however,
+      is intended to produce sparse grids based on sums of product rules for
+      which the rule chosen for each spatial dimension may be freely chosen
+      from the set listed above.
+    </p>
+
+    <p>
+      These sparse grids are still indexed by a number known as <b>level</b>,
+      and assembled as a sum of low order product rules.  As the value of
+      <b>level</b> increases, the point growth becomes more complicated.
+      This is because the 1D rules have somewhat varying point growth patterns
+      to begin with, and the varying levels of nestedness have a dramatic
+      effect on the sparsity of the total grid.
+    </p>
+
+    <p>
+      Since a sparse grid is made up of a combination of product grids,
+      it is frequently the case that many of the product grids include the
+      same point.  For efficiency, it is usually desirable to merge or
+      consolidate such duplicate points when expressing the resulting
+      sparse grid rule.  It is possible to "logically" determine when
+      a duplicate point will be generated; however, this logic changes
+      depending on the specific 1-dimensional rules being used, and the
+      tests can become quite elaborate.  Moreover, for rules which include
+      real parameters, the determination of duplication can require
+      a numerical tolerance.
+    </p>
+
+    <p>
+      In order to simplify the matter of the detection of duplicate points,
+      the codes presented begin by generating the entire "naive" set of
+      points.  Then a user-specified tolerance <b>TOL</b> is used to determine when
+      two points are equal.  If the maximum difference between any two components
+      is less than or equal to <b>TOL</b>, the points are declared to be equal.
+    </p>
+
+    <p>
+      A reasonable value for <b>TOL</b> might be the square root of the machine
+      precision.  Setting <b>TOL</b> to zero means that only points which are
+      identical to the last significant digit are taken to be duplicates.  Setting
+      <b>TOL</b> to a negative value means that no duplicate points will be eliminated -
+      in other words, this choice produces the full or "naive" grid.
+    </p>
+
+    <h3 align = "center">
+      Golub Welsch Rules
+    </h3>
+
+    <p>
+      A multidimensional sparse grid rule is defined in terms of the
+      1D quadrature rules used in each dimension.  This library provides
+      9 such standard rules.  If <b>rule[dim]</b> is between 1 and 9,
+      then the appropriate internal routines are called to compute the
+      points and weights, and assumptions are also made about the
+      growth rate in the rule.
+    </p>
+
+    <p>
+      The user may wish to define other quadrature rules, and to combine
+      these with the built-in rules.  Such rules are assumed to be generated
+      by the Golub Welsch procedure.  To build a sparse grid rule which
+      uses a Golub Welsch rule in dimension <b>dim</b>, the user must
+      do the following:
+    </p>
+
+    <p>
+      1) Set <b>rule[dim]=10</b> to indicate that a Golub Welsch rule is
+      being used in this dimension.  The user may send parameters to this
+      rule by setting <b>np</b> and <b>p</b>.
+    </p>
+
+    <p>
+      2) Write a point function of the form
+      <pre>
+        void compute_points ( int order, int np, double p[], double points[] )
+      </pre>
+      which may use np parameter values in the <b>p</b> vector as parameters
+      for the rule, computing the points of the rule of order <b>order</b> and
+      returning them in the array <b>points[]</b>;
+    </p>
+
+    <p>
+      3) Write a weight function of the form
+      <pre>
+        void compute_weights ( int order, int np, double p[], double weights[] )
+      </pre>
+      which may use np parameter values in the <b>p</b> vector as parameters
+      for the rule, computing the weights of the rule of order <b>order</b> and
+      returning them in the array <b>weights[]</b>;
+    </p>
+
+    <p>
+      The program knows a lot about sparse grid rules which are built entirely
+      from the predefined internal rules.  On the other hand, if even a single
+      component of the sparse grid rule involves a user-defined Golub-Welsch rule,
+      there are some things the program does not know how to do.  Generally,
+      these are minor issues, but the user should be aware of them.
+      In particular:
+      <ul>
+        <li>
+          the function <b>sgmg_write</b> which writes
+          files defining a sparse grid rule does not have enough information
+          to specify the integration region, the "R" file;
+        </li>
+        <li>
+          one of the test codes checks a sparse grid rule's accuracy by
+          summing the weights.  But the test code does not
+          know enough about the correct result for such a sum when
+          a Golub-Welsch rule is one of the factors of the sparse grid rule;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The code described and made available on this web page is distributed
+      under the
+      <a href = "gnu_lgpl.txt">GNU LGPL</a> license.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/nint_exactness_mixed/nint_exactness_mixed.html">
+      NINT_EXACTNESS_MIXED</a>,
+      a C++ program which
+      measures the polynomial exactness of a multidimensional quadrature rule
+      based on a mixture of 1D quadrature rule factors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule/quadrule.html">
+      QUADRULE</a>,
+      a C++ library which
+      defines quadrature rules for various intervals and weight functions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_rules/sandia_rules.html">
+      SANDIA_RULES</a>,
+      a C++ library which
+      produces 1D quadrature rules of
+      Chebyshev, Clenshaw Curtis, Fejer 2, Gegenbauer, generalized Hermite,
+      generalized Laguerre, Hermite, Jacobi, Laguerre, Legendre and Patterson types.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_sgmg/sandia_sgmg.html">
+      SANDIA_SGMG</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules,
+      and experiments with the use of a linear growth rate for the quadrature rules.
+      This is a version of SGMG that uses a different procedure
+      for supplying the parameters needed to evaluate certain quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sandia_sparse/sandia_sparse.html">
+      SANDIA_SPARSE</a>,
+      a C++ library which
+      computes the points and weights of a Smolyak sparse
+      grid, based on a variety of 1-dimensional quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../datasets/sgmg/sgmg.html">
+      SGMG</a>,
+      a dataset directory which
+      contains multidimensional Smolyak sparse grids
+      based on a mixed set of 1D factor rules and a choice of growth rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgmga/sgmga.html">
+      SGMGA</a>,
+      a C++ library which
+      creates sparse grids based on a mixture of 1D quadrature rules,
+      allowing anisotropic weights for each dimension.
+    </p>
+
+    <p>
+      <a href = "../../c_src/smolpack/smolpack.html">
+      SMOLPACK</a>,
+      a C library which
+      implements Novak and Ritter's method for estimating the integral
+      of a function over a multidimensional hypercube using sparse grids,
+      by Knut Petras.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_grid_mixed/sparse_grid_mixed.html">
+      SPARSE_GRID_MIXED</a>,
+      a C++ library which
+      creates sparse grids based on a mix of 1D rules.
+    </p>
+
+    <p>
+      <a href = "../../m_src/toms847/toms847.html">
+      TOMS847</a>,
+      a MATLAB program which
+      uses sparse grids to carry out multilinear hierarchical interpolation.
+      It is commonly known as SPINTERP, and is by Andreas Klimke.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Milton Abramowitz, Irene Stegun,<br>
+          Handbook of Mathematical Functions,<br>
+          National Bureau of Standards, 1964,<br>
+          ISBN: 0-486-61272-4,<br>
+          LC: QA47.A34.
+        </li>
+        <li>
+          Charles Clenshaw, Alan Curtis,<br>
+          A Method for Numerical Integration on an Automatic Computer,<br>
+          Numerische Mathematik,<br>
+          Volume 2, Number 1, December 1960, pages 197-205.
+        </li>
+        <li>
+          Philip Davis, Philip Rabinowitz,<br>
+          Methods of Numerical Integration,<br>
+          Second Edition,<br>
+          Dover, 2007,<br>
+          ISBN: 0486453391,<br>
+          LC: QA299.3.D28.
+        </li>
+        <li>
+          Michael Eldred, John Burkardt,<br>
+          Comparison of Non-Intrusive Polynomial Chaos and Stochastic
+          Collocation Methods for Uncertainty Quantification,<br>
+          American Institute of Aeronautics and Astronautics,<br>
+          Paper 2009-0976,<br>
+          47th AIAA Aerospace Sciences Meeting Including The New Horizons Forum and Aerospace Exposition,<br>
+          5 - 8 January 2009, Orlando, Florida.
+        </li>
+        <li>
+          Walter Gautschi,<br>
+          Numerical Quadrature in the Presence of a Singularity,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 4, Number 3, September 1967, pages 357-362.
+        </li>
+        <li>
+          Thomas Gerstner, Michael Griebel,<br>
+          Numerical Integration Using Sparse Grids,<br>
+          Numerical Algorithms,<br>
+          Volume 18, Number 3-4, 1998, pages 209-232.
+        </li>
+        <li>
+          Gene Golub, John Welsch,<br>
+          Calculation of Gaussian Quadrature Rules,<br>
+          Mathematics of Computation,<br>
+          Volume 23, Number 106, April 1969, pages 221-230.
+        </li>
+        <li>
+          Prem Kythe, Michael Schaeferkotter,<br>
+          Handbook of Computational Methods for Integration,<br>
+          Chapman and Hall, 2004,<br>
+          ISBN: 1-58488-428-2,<br>
+          LC: QA299.3.K98.
+        </li>
+        <li>
+          Albert Nijenhuis, Herbert Wilf,<br>
+          Combinatorial Algorithms for Computers and Calculators,<br>
+          Second Edition,<br>
+          Academic Press, 1978,<br>
+          ISBN: 0-12-519260-6,<br>
+          LC: QA164.N54.
+        </li>
+        <li>
+          Fabio Nobile, Raul Tempone, Clayton Webster,<br>
+          A Sparse Grid Stochastic Collocation Method for Partial Differential
+          Equations with Random Input Data,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 46, Number 5, 2008, pages 2309-2345.
+        </li>
+        <li>
+          Thomas Patterson,<br>
+          The Optimal Addition of Points to Quadrature Formulae,<br>
+          Mathematics of Computation,<br>
+          Volume 22, Number 104, October 1968, pages 847-856.
+        </li>
+        <li>
+          Sergey Smolyak,<br>
+          Quadrature and Interpolation Formulas for Tensor Products of
+          Certain Classes of Functions,<br>
+          Doklady Akademii Nauk SSSR,<br>
+          Volume 4, 1963, pages 240-243.
+        </li>
+        <li>
+          Arthur Stroud, Don Secrest,<br>
+          Gaussian Quadrature Formulas,<br>
+          Prentice Hall, 1966,<br>
+          LC: QA299.4G3S7.
+        </li>
+        <li>
+          Joerg Waldvogel,<br>
+          Fast Construction of the Fejer and Clenshaw-Curtis
+          Quadrature Rules,<br>
+          BIT Numerical Mathematics,<br>
+          Volume 43, Number 1, 2003, pages 1-18.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "sgmg.cpp">sgmg.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "sgmg.hpp">sgmg.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "sgmg.sh">sgmg.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>COMP_NEXT_PRB</b> tests COMP_NEXT.
+      <ul>
+        <li>
+          <a href = "comp_next_prb.cpp">comp_next_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "comp_next_prb.sh">comp_next_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "comp_next_prb_output.txt">
+                     comp_next_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PRODUCT_MIXED_GROWTH_WEIGHT_PRB</b> tests PRODUCT_MIXED_GROWTH_WEIGHT.
+      <ul>
+        <li>
+          <a href = "product_mixed_growth_weight_prb.cpp">product_mixed_growth_weight_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "product_mixed_growth_weight_prb.sh">product_mixed_growth_weight_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "product_mixed_growth_weight_prb_output.txt">
+                     product_mixed_growth_weight_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SGMG_INDEX_PRB</b> tests SGMG_INDEX.
+      <ul>
+        <li>
+          <a href = "sgmg_index_prb.cpp">sgmg_index_prb.cpp</a>,
+          tests SGMG_INDEX.
+        </li>
+        <li>
+          <a href = "sgmg_index_prb.sh">sgmg_index_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sgmg_index_prb_output.txt">
+                     sgmg_index_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SGMG_POINT_PRB</b> tests SGMG_POINT.
+      <ul>
+        <li>
+          <a href = "sgmg_point_prb.cpp">sgmg_point_prb.cpp</a>,
+          tests SGMG_POINT.
+        </li>
+        <li>
+          <a href = "sgmg_point_prb.sh">sgmg_point_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sgmg_point_prb_output.txt">
+                     sgmg_point_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SGMG_SIZE_PRB</b> tests SGMG_SIZE and
+      SGMG_SIZE_TOTAL.
+      <ul>
+        <li>
+          <a href = "sgmg_size_prb.cpp">sgmg_size_prb.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sgmg_size_prb.sh">sgmg_size_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sgmg_size_prb_output.txt">
+                     sgmg_size_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SGMG_SIZE_TABLE</b> makes a point count table.
+      <ul>
+        <li>
+          <a href = "sgmg_size_table.cpp">sgmg_size_table.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sgmg_size_table.sh">sgmg_size_table.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sgmg_size_table_output.txt">
+                     sgmg_size_table_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SGMG_UNIQUE_INDEX_PRB</b> tests SGMG_UNIQUE_INDEX.
+      <ul>
+        <li>
+          <a href = "sgmg_unique_index_prb.cpp">sgmg_unique_index_prb.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sgmg_unique_index_prb.sh">sgmg_unique_index_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sgmg_unique_index_prb_output.txt">
+                     sgmg_unique_index_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SGMG_WEIGHT_PRB</b> tests SGMG_WEIGHT.
+      <ul>
+        <li>
+          <a href = "sgmg_weight_prb.cpp">sgmg_weight_prb.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sgmg_weight_prb.sh">sgmg_weight_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sgmg_weight_prb_output.txt">
+                     sgmg_weight_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>SGMG_WRITE_PRB</b> tests SGMG_WRITE.
+      <ul>
+        <li>
+          <a href = "sgmg_write_prb.cpp">sgmg_write_prb.cpp</a>,
+          the test program.
+        </li>
+        <li>
+          <a href = "sgmg_write_prb.sh">sgmg_write_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "sgmg_write_prb_output.txt">
+                     sgmg_write_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>PRODUCT_MIXED_GROWTH_WEIGHT</b> computes the weights of a mixed product rule.
+        </li>
+        <li>
+          <b>SGMG_INDEX</b> indexes a sparse grid of mixed 1D rules.
+        </li>
+        <li>
+          <b>SGMG_POINT</b> computes the points of a sparse grid rule.
+        </li>
+        <li>
+          <b>SGMG_SIZE</b> sizes a sparse grid, discounting duplicates.
+        </li>
+        <li>
+          <b>SGMG_SIZE_TOTAL</b> sizes a sparse grid, counting duplicates.
+        </li>
+        <li>
+          <b>SGMG_UNIQUE_INDEX</b> maps nonunique to unique points.
+        </li>
+        <li>
+          <b>SGMG_WEIGHT:</b> sparse grid weights for a mix of 1D rules.
+        </li>
+        <li>
+          <b>SGMG_WRITE</b> writes a sparse grid rule to five files.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 26 February 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

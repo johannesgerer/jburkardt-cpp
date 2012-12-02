@@ -1,0 +1,531 @@
+12 October 2012 08:33:34 AM
+
+VANDERMONDE_APPROX_2D_TEST:
+  C++ version
+  Test the VANDERMONDE_APPROX_2D library.
+  This test also needs the TEST_INTERP_2D library.
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #1
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0273665
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #1
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.0146671
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #1
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.0122564
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #1
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.00656543
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #1
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.00144788
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #2
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0100644
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #2
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.00468829
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #2
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.00468413
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #2
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.00300146
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #2
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.00110664
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #3
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0094149
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #3
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.00832351
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #3
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.00436866
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #3
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.00164568
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #3
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.000116524
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #4
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.00828357
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #4
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.00827511
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #4
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.00267982
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #4
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.000575185
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #4
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 5.34508e-06
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #5
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.00726498
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #5
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.00726375
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #5
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.00499903
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #5
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.00291062
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #5
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.000362044
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #6
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0086155
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #6
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.00860026
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #6
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.000721886
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #6
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 9.40424e-05
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #6
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 9.50941e-07
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #7
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.100742
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #7
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.099925
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #7
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.0992833
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #7
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.0884775
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #7
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.0414643
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #8
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0475956
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #8
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.0475569
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #8
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.0332931
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #8
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.0202042
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #8
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.00521182
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #9
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 2.11162
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #9
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 2.0965
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #9
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 2.02805
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #9
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 1.74806
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #9
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.674845
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #10
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.020071
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #10
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.0200554
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #10
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.0177757
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #10
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.0144741
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #10
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.00675567
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #11
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0517436
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #11
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.00993196
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #11
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 3.25133e-17
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #11
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 4.10182e-17
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #11
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 4.62134e-17
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #12
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0410577
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #12
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.0274178
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #12
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.0179013
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #12
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.00472123
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #12
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.000145301
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #13
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 0
+  Number of data points = 100
+
+  L2 data approximation error = 0.0105611
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #13
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 1
+  Number of data points = 100
+
+  L2 data approximation error = 0.0105584
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #13
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 2
+  Number of data points = 100
+
+  L2 data approximation error = 0.00747809
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #13
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 4
+  Number of data points = 100
+
+  L2 data approximation error = 0.00516357
+
+TEST01:
+  Approximate data from TEST_INTERP_2D problem #13
+  Use grid from TEST_INTERP_2D with index #1
+  Using polynomial approximant of total degree 8
+  Number of data points = 100
+
+  L2 data approximation error = 0.00192338
+
+VANDERMONDE_APPROX_2D_TEST:
+  Normal end of execution.
+
+12 October 2012 08:33:34 AM

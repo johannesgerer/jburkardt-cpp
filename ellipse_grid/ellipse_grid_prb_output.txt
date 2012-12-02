@@ -1,0 +1,46 @@
+22 December 2011 08:36:41 AM
+
+ELLIPSE_GRID_TEST:
+  C++ version
+  Test the ELLIPSE_GRID library.
+
+TEST01:
+  ELLIPSE_GRID can define a grid of points
+  with N+1 points on the minor half axis,
+  based on any ellipse.
+
+  We use N = 8
+  Radius R = (2,1)
+  Center C = (1,2)
+
+  Number of grid points will be 455
+
+  Part of the grid point array:
+
+         0:              1               2
+         1:        1.11765               2
+         2:       0.882353               2
+         3:        1.23529               2
+         4:       0.764706               2
+         5:        1.35294               2
+         6:       0.647059               2
+         7:        1.47059               2
+         8:       0.529412               2
+         9:        1.58824               2
+        10:       0.411765               2
+        11:        1.70588               2
+        12:       0.294118               2
+        13:        1.82353               2
+        14:       0.176471               2
+        15:        1.94118               2
+        16:      0.0588235               2
+        17:        2.05882               2
+  ........  ..............  ..............
+       454:       0.411765         1.05882
+
+  Data written to the file "ellipse_grid_test01.xy".
+
+ELLIPSE_GRID_TEST:
+  Normal end of execution.
+
+22 December 2011 08:36:41 AM

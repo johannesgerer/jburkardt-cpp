@@ -1,0 +1,230 @@
+22 December 2011 03:15:17 PM
+
+FEM_BASIS_PRB:
+  C++ version.
+  Test the FEM_BASIS library.
+
+TEST01
+  FEM_BASIS_1D evaluates an arbitrary
+  basis function over an interval.
+
+   I   J        X      L(I,J)(X)
+
+   2   1    0.666667               1
+
+   0   3           0              -0
+   1   2    0.333333               0
+   2   1    0.666667               1
+   3   0           1               0
+
+TEST02
+  FEM_BASIS_2D evaluates an arbitrary triangular
+  basis function.
+
+   I   J   K        X           Y      L(I,J,K)(X,Y)
+
+   1   0   2    0.333333           0               1
+
+   0   0   3           0           0               0
+   1   0   2    0.333333           0               1
+   2   0   1    0.666667           0               0
+   3   0   0           1           0              -0
+   0   1   2           0    0.333333               0
+   1   1   1    0.333333    0.333333     1.11022e-16
+   2   1   0    0.666667    0.333333    -1.66533e-16
+   0   2   1           0    0.666667               0
+   1   2   0    0.333333    0.666667    -1.66533e-16
+   0   3   0           0           1              -0
+
+TEST03
+  FEM_BASIS_3D evaluates an arbitrary tetrahedral
+  basis function.
+
+   I   J   K   L        X           Y           Z      L(I,J,K,L)(X,Y,Z)
+
+   1   0   2   1        0.25           0         0.5               1
+
+   0   0   0   4           0           0           0              -0
+   1   0   0   3        0.25           0           0              -0
+   2   0   0   2         0.5           0           0              -0
+   3   0   0   1        0.75           0           0              -0
+   4   0   0   0           1           0           0              -0
+   0   1   0   3           0        0.25           0              -0
+   1   1   0   2        0.25        0.25           0              -0
+   2   1   0   1         0.5        0.25           0              -0
+   3   1   0   0        0.75        0.25           0              -0
+   0   2   0   2           0         0.5           0              -0
+   1   2   0   1        0.25         0.5           0              -0
+   2   2   0   0         0.5         0.5           0              -0
+   0   3   0   1           0        0.75           0              -0
+   1   3   0   0        0.25        0.75           0              -0
+   0   4   0   0           0           1           0              -0
+   0   0   1   3           0           0        0.25               0
+   1   0   1   2        0.25           0        0.25               0
+   2   0   1   1         0.5           0        0.25               0
+   3   0   1   0        0.75           0        0.25               0
+   0   1   1   2           0        0.25        0.25               0
+   1   1   1   1        0.25        0.25        0.25               0
+   2   1   1   0         0.5        0.25        0.25               0
+   0   2   1   1           0         0.5        0.25               0
+   1   2   1   0        0.25         0.5        0.25               0
+   0   3   1   0           0        0.75        0.25               0
+   0   0   2   2           0           0         0.5               0
+   1   0   2   1        0.25           0         0.5               1
+   2   0   2   0         0.5           0         0.5               0
+   0   1   2   1           0        0.25         0.5               0
+   1   1   2   0        0.25        0.25         0.5               0
+   0   2   2   0           0         0.5         0.5               0
+   0   0   3   1           0           0        0.75               0
+   1   0   3   0        0.25           0        0.75               0
+   0   1   3   0           0        0.25        0.75               0
+   0   0   4   0           0           0           1               0
+
+TEST04
+  FEM_BASIS_MD evaluates an arbitrary
+  basis function over an M-dimensional simplex.
+
+   I   J        X      L(I,J)(X)
+
+   2   1    0.666667               1
+
+   0   3           0              -0
+   1   2    0.333333               0
+   2   1    0.666667               1
+   3   0           1               0
+
+TEST05
+  FEM_BASIS_MD evaluates an arbitrary
+  basis function over an M-dimensional simplex.
+
+   I   J   K        X           Y      L(I,J,K)(X,Y)
+
+   1   0   2    0.333333           0               1
+
+   0   0   3           0           0               0
+   1   0   2    0.333333           0               1
+   2   0   1    0.666667           0               0
+   3   0   0           1           0              -0
+   0   1   2           0    0.333333               0
+   1   1   1    0.333333    0.333333               0
+   2   1   0    0.666667    0.333333              -0
+   0   2   1           0    0.666667               0
+   1   2   0    0.333333    0.666667              -0
+   0   3   0           0           1              -0
+
+TEST06
+  FEM_BASIS_MD evaluates an arbitrary
+  basis function over an M-dimensional simplex.
+
+   I   J   K   L        X           Y           Z      L(I,J,K,L)(X,Y,Z)
+
+   1   0   2   1        0.25           0         0.5               1
+
+   0   0   0   4           0           0           0              -0
+   1   0   0   3        0.25           0           0              -0
+   2   0   0   2         0.5           0           0              -0
+   3   0   0   1        0.75           0           0              -0
+   4   0   0   0           1           0           0              -0
+   0   1   0   3           0        0.25           0              -0
+   1   1   0   2        0.25        0.25           0              -0
+   2   1   0   1         0.5        0.25           0              -0
+   3   1   0   0        0.75        0.25           0              -0
+   0   2   0   2           0         0.5           0              -0
+   1   2   0   1        0.25         0.5           0              -0
+   2   2   0   0         0.5         0.5           0              -0
+   0   3   0   1           0        0.75           0              -0
+   1   3   0   0        0.25        0.75           0              -0
+   0   4   0   0           0           1           0              -0
+   0   0   1   3           0           0        0.25               0
+   1   0   1   2        0.25           0        0.25               0
+   2   0   1   1         0.5           0        0.25               0
+   3   0   1   0        0.75           0        0.25               0
+   0   1   1   2           0        0.25        0.25               0
+   1   1   1   1        0.25        0.25        0.25               0
+   2   1   1   0         0.5        0.25        0.25               0
+   0   2   1   1           0         0.5        0.25               0
+   1   2   1   0        0.25         0.5        0.25               0
+   0   3   1   0           0        0.75        0.25               0
+   0   0   2   2           0           0         0.5               0
+   1   0   2   1        0.25           0         0.5               1
+   2   0   2   0         0.5           0         0.5               0
+   0   1   2   1           0        0.25         0.5               0
+   1   1   2   0        0.25        0.25         0.5               0
+   0   2   2   0           0         0.5         0.5               0
+   0   0   3   1           0           0        0.75               0
+   1   0   3   0        0.25           0        0.75               0
+   0   1   3   0           0        0.25        0.75               0
+   0   0   4   0           0           0           1               0
+
+TEST07
+  FEM_BASIS_PRISM_TRIANGLE evaluates an arbitrary
+  basis function over a right triangular prism.
+
+  Here, we generate basis functions which can be
+  up to degree 2 in X and Y, and up to degree 2 in Z.
+
+  Choose a node N1, define the basis function associated
+  with that node, and then evaluate it at all other nodes.
+
+  I1  I2  I3  J1  J2        X           Y           Z          B(X,Y,Z)
+
+   2   0   0   1   1           1           0         0.5           1
+
+   0   0   2   0   2           0           0           0          -0
+   0   0   2   1   1           0           0         0.5          -0
+   0   0   2   2   0           0           0           1          -0
+   0   1   1   0   2           0         0.5           0          -0
+   0   1   1   1   1           0         0.5         0.5          -0
+   0   1   1   2   0           0         0.5           1          -0
+   0   2   0   0   2           0           1           0          -0
+   0   2   0   1   1           0           1         0.5          -0
+   0   2   0   2   0           0           1           1          -0
+   1   0   1   0   2         0.5           0           0           0
+   1   0   1   1   1         0.5           0         0.5           0
+   1   0   1   2   0         0.5           0           1           0
+   1   1   0   0   2         0.5         0.5           0           0
+   1   1   0   1   1         0.5         0.5         0.5           0
+   1   1   0   2   0         0.5         0.5           1           0
+   2   0   0   0   2           1           0           0           0
+   2   0   0   1   1           1           0         0.5           1
+   2   0   0   2   0           1           0           1           0
+
+TEST08
+  FEM_BASIS_PRISM_TRIANGLE evaluates an arbitrary
+  basis function over a right triangular prism.
+
+  Here, we generate basis functions which can be
+  up to degree 3 in X and Y, and up to degree 1 in Z.
+
+  Choose a node N1, define the basis function associated
+  with that node, and then evaluate it at all other nodes.
+
+  I1  I2  I3  J1  J2        X           Y           Z          B(X,Y,Z)
+
+   2   0   1   1   0    0.666667           0           1           1
+
+   0   0   3   0   1           0           0           0          -0
+   0   0   3   1   0           0           0           1          -0
+   0   1   2   0   1           0    0.333333           0          -0
+   0   1   2   1   0           0    0.333333           1          -0
+   0   2   1   0   1           0    0.666667           0          -0
+   0   2   1   1   0           0    0.666667           1          -0
+   0   3   0   0   1           0           1           0          -0
+   0   3   0   1   0           0           1           1          -0
+   1   0   2   0   1    0.333333           0           0           0
+   1   0   2   1   0    0.333333           0           1           0
+   1   1   1   0   1    0.333333    0.333333           0           0
+   1   1   1   1   0    0.333333    0.333333           1           0
+   1   2   0   0   1    0.333333    0.666667           0           0
+   1   2   0   1   0    0.333333    0.666667           1           0
+   2   0   1   0   1    0.666667           0           0           0
+   2   0   1   1   0    0.666667           0           1           1
+   2   1   0   0   1    0.666667    0.333333           0           0
+   2   1   0   1   0    0.666667    0.333333           1  1.66533e-16
+   3   0   0   0   1           1           0           0           0
+   3   0   0   1   0           1           0           1           0
+
+FEM_BASIS_PRB:
+  Normal end of execution.
+
+22 December 2011 03:15:17 PM

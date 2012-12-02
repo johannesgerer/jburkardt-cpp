@@ -1,0 +1,180 @@
+<html>
+
+  <head>
+    <title>
+      PBMA_TO_PBMB - convert ASCII PBM to binary PBM graphics file
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PBMA_TO_PBMB <br> convert ASCII PBM to binary PBM graphics file
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PBMA_TO_PBMB</b>
+      is a C++ program which
+      converts ASCII PBM files to binary PBM format.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>pbma_to_pbmb</b> <i>file1</i> <i>file2</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>file1</i> is the name of an existing PBM file in ASCII format;
+        </li>
+        <li>
+          <i>file2</i> is the name of the PBM file in binary format to
+          be created.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/pbma/pbma.html">
+      PBMA</a>
+      a data directory which
+      contains sample ASCII PBM files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pbma_io/pbma_io.html">
+      PBMA_IO</a>,
+      a C++ library which
+      is used by <b>PBMA_TO_PBMB</b> to read in the ASCII PBM file.
+    </p>
+
+    <p>
+      <a href = "../../data/pbmb/pbmb.html">
+      PBMB</a>,
+      a data directory which
+      contains sample binary PBM files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pbmb_io/pbmb_io.html">
+      PBMB_IO</a>,
+      a C++ library which
+      is used by <b>PBMA_TO_PBMB</b> to write out the binary PBM file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pbmb_to_pbma/pbmb_to_pbma.html">
+      PBMB_TO_PBMA</a>,
+      a C++ program which
+      converts a binary PBM file to ASCII PBM format.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://netpbm.sourceforge.net/">the NETPBM homepage</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pbma_to_pbmb.cpp">pbma_to_pbmb.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "pbma_to_pbmb.sh">pbma_to_pbmb.sh</a>,
+           commands to compile, link and load the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for PBMA_TO_PBMB.
+        </li>
+        <li>
+          <b>PBMA_CHECK_DATA</b> checks the data for an ASCII PBM file.
+        </li>
+        <li>
+          <b>PBMA_READ</b> reads the header and data from an ASCII PBM file.
+        </li>
+        <li>
+          <b>PBMA_READ_DATA</b> reads the data in an ASCII PBM file.
+        </li>
+        <li>
+          <b>PBMA_READ_HEADER</b> reads the header of an ASCII PBM file.
+        </li>
+        <li>
+          <b>PBMA_TO_PBMB</b> converts an ASCII PBM file to binary PBM format.
+        </li>
+        <li>
+          <b>PBMB_WRITE</b> writes the header and data for a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_WRITE_DATA</b> writes the data for a binary portable bit map file.
+        </li>
+        <li>
+          <b>PBMB_WRITE_HEADER</b> writes the header of a binary portable bit map file.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_WORD_EXTRACT_FIRST</b> extracts the first word from a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 April 2011.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

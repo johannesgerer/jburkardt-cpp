@@ -1,0 +1,17 @@
+
+QUICKPLOT_CURVE:
+  C++ version:
+  Demonstrate the DISLIN 'quickplot' command QPLOT
+  to plot a curve.
+
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ <<                END OF DISLIN / VERSION 10.1                  <<
+ <<  Date    : 22.04.2011  Time    : 16:07:40  Pageformat: USAL  <<
+ <<  Vectors : 2453        Warnings: 0         Fileformat:  PNG  <<
+ <<  Metafile: quickplot_curve.png                               <<
+ <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+ <<<< Warning   3: Incorrect level in disfin!   (   0)
+
+QUICKPLOT_CURVE:
+  Normal end of execution.

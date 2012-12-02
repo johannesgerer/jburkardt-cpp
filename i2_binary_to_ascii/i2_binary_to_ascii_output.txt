@@ -1,0 +1,11 @@
+31 October 2012 04:20:12 PM
+
+I2_BINARY_TO_ASCII:
+  C++ version
+  Given a file of 2 byte integers stored in binary format,
+  create an equivalent ASCII text file.
+
+I2_BINARY_TO_ASCII:
+  C++ version
+
+31 October 2012 04:20:12 PM
