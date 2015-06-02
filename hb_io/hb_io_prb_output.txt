@@ -1,8 +1,8 @@
-01 May 2011 11:27:07 AM
+21 January 2014 04:06:16 PM
 
 HB_IO_PRB
   C++ version
-  Test the HB_IO routines.
+  Test the HB_IO library.
  
 TEST01
   HB_HEADER_READ reads the header of an HB file.
@@ -443,4 +443,4 @@ HB_IO_PRB:
   C++ version
   Normal end of execution.
 
-01 May 2011 11:27:07 AM
+21 January 2014 04:06:16 PM

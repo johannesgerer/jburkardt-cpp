@@ -9,22 +9,21 @@
 using namespace std;
 
 int main ( int argc, char *argv[] );
-double arc_cosine ( double c );
 char ch_cap ( char ch );
 bool ch_eqi ( char ch1, char ch2 );
 int ch_to_digit ( char ch );
-double *dtable_data_read ( string input_filename, int m, int n );
-void dtable_header_read ( string input_filename, int *m, int *n );
 int file_column_count ( string filename );
 int file_row_count ( string input_filename );
 int i4_max ( int i1, int i2 );
 int i4_min ( int i1, int i2 );
-double r8_abs ( double x );
+double r8_acos ( double c );
 double r8_huge ( );
 double r8_max ( double x, double y );
 double r8_min ( double x, double y );
 void r8_swap ( double *x, double *y );
+double *r8mat_data_read ( string input_filename, int m, int n );
 double r8mat_det_4d ( double a[] );
+void r8mat_header_read ( string input_filename, int &m, int &n );
 int r8mat_solve ( int n, int rhs_num, double a[] );
 void r8mat_transpose_print ( int m, int n, double a[], string title );
 void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo, 
@@ -35,24 +34,27 @@ double r8vec_dot ( int n, double a1[], double a2[] );
 double r8vec_length ( int dim_num, double x[] );
 double r8vec_max ( int n, double r8vec[] );
 void r8vec_print ( int n, double a[], string title );
+void r8vec_transpose_print ( int n, double a[], string title );
 void r8vec_zero ( int n, double a[] );
 int s_len_trim ( string s );
 double s_to_r8 ( string s, int *lchar, bool *error );
 bool s_to_r8vec ( string s, int n, double rvec[] );
 int s_word_count ( string s );
-double *tetrahedron_centroid_3d ( double tetra[3*4] );
-void tetrahedron_circumsphere_3d ( double tetra[3*4], double *r, double pc[3] );
-double *tetrahedron_dihedral_angles_3d ( double tetra[] );
-double *tetrahedron_edge_length_3d ( double tetra[3*4] );
-void tetrahedron_face_angles_3d ( double tetra[], double angles[] );
-void tetrahedron_face_areas_3d ( double tetra[], double areas[] );
-void tetrahedron_insphere_3d ( double tetra[3*4], double *r, double pc[3] );
-double tetrahedron_quality1_3d ( double tetra[3*4] );
-double tetrahedron_quality2_3d ( double tetra[3*4] );
-double tetrahedron_quality3_3d ( double tetra[3*4] );
-double tetrahedron_quality4_3d ( double tetra[3*4] );
-double *tetrahedron_solid_angles_3d ( double tetra[] );
-double tetrahedron_volume_3d ( double tetra[3*4] );
+double *tetrahedron_centroid ( double tetra[3*4] );
+void tetrahedron_circumsphere ( double tetra[3*4], double &r, double pc[3] );
+double *tetrahedron_dihedral_angles ( double tetra[] );
+double *tetrahedron_edge_length ( double tetra[3*4] );
+void tetrahedron_edges ( double tetra[3*4], double ab[], double ac[],
+  double ad[], double bc[], double bd[], double cd[] );
+void tetrahedron_face_angles ( double tetra[], double angles[] );
+void tetrahedron_face_areas ( double tetra[], double areas[] );
+void tetrahedron_insphere ( double tetra[3*4], double &r, double pc[3] );
+double tetrahedron_quality1 ( double tetra[3*4] );
+double tetrahedron_quality2 ( double tetra[3*4] );
+double tetrahedron_quality3 ( double tetra[3*4] );
+double tetrahedron_quality4 ( double tetra[3*4] );
+double *tetrahedron_solid_angles ( double tetra[] );
+double tetrahedron_volume ( double tetra[3*4] );
 void timestamp ( );
 void triangle_angles_3d ( double t[3*3], double angle[3] );
 double triangle_area_3d ( double t[3*3] );
@@ -84,13 +86,19 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    09 July 2009
+//    11 May 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
+  double ab[3];
+  double ac[3];
+  double ad[3];
+  double bc[3];
+  double bd[3];
+  double cd[3];
   double *centroid;
   double circum_center[3];
   double circum_radius;
@@ -106,11 +114,11 @@ int main ( int argc, char *argv[] )
   string node_filename;
   int node_num;
   double *node_xyz;
-  double pi = 3.141592653589793;
   double quality1;
   double quality2;
   double quality3;
   double quality4;
+  const double r8_pi = 3.141592653589793;
   double *solid_angles;
   double volume;
 
@@ -130,7 +138,7 @@ int main ( int argc, char *argv[] )
 //
 //  Read the node data.
 //
-  dtable_header_read ( node_filename, &dim_num, &node_num );
+  r8mat_header_read ( node_filename, dim_num, node_num );
 
   cout << "\n";
   cout << "  Read the header of \"" << node_filename << "\".\n";
@@ -159,7 +167,7 @@ int main ( int argc, char *argv[] )
     exit ( 1 );
   }
 
-  node_xyz = dtable_data_read ( node_filename, dim_num, node_num );
+  node_xyz = r8mat_data_read ( node_filename, dim_num, node_num );
 
   cout << "\n";
   cout << "  Read the data in \"" << node_filename << "\".\n";
@@ -168,7 +176,7 @@ int main ( int argc, char *argv[] )
 //
 //  CIRCUMSPHERE
 //
-  tetrahedron_circumsphere_3d ( node_xyz, &circum_radius, circum_center );
+  tetrahedron_circumsphere ( node_xyz, circum_radius, circum_center );
 
   cout << "\n";
   cout << "  CIRCUM_RADIUS = " << circum_radius << "\n";
@@ -179,7 +187,7 @@ int main ( int argc, char *argv[] )
 //
 //  CENTROID
 //
-  centroid = tetrahedron_centroid_3d ( node_xyz );
+  centroid = tetrahedron_centroid ( node_xyz );
 
   cout << "\n";
   cout << "  CENTROID: "
@@ -189,26 +197,38 @@ int main ( int argc, char *argv[] )
 //
 //  DIHEDRAL ANGLES
 //
-  dihedral_angles = tetrahedron_dihedral_angles_3d ( node_xyz );
+  dihedral_angles = tetrahedron_dihedral_angles ( node_xyz );
 
   r8vec_print ( 6, dihedral_angles, "  DIHEDRAL_ANGLES (radians)" );
 
   for ( i = 0; i < 6; i++ )
   {
-    dihedral_angles[i] = dihedral_angles[i] * 180.0 / pi;
+    dihedral_angles[i] = dihedral_angles[i] * 180.0 / r8_pi;
   }
 
   r8vec_print ( 6, dihedral_angles, "  DIHEDRAL_ANGLES (degrees)" );
 //
+//  EDGES
+//
+  tetrahedron_edges ( node_xyz, ab, ac, ad, bc, bd, cd );
+
+  cout << "\n";
+  r8vec_transpose_print ( 3, ab, "  EDGE AB:" );
+  r8vec_transpose_print ( 3, ac, "  EDGE AC:" );
+  r8vec_transpose_print ( 3, ad, "  EDGE AD:" );
+  r8vec_transpose_print ( 3, bc, "  EDGE BC:" );
+  r8vec_transpose_print ( 3, bd, "  EDGE BD:" );
+  r8vec_transpose_print ( 3, cd, "  EDGE CD:" );
+//
 //  EDGE LENGTHS
 //
-  edge_length = tetrahedron_edge_length_3d ( node_xyz );
+  edge_length = tetrahedron_edge_length ( node_xyz );
 
   r8vec_print ( 6, edge_length, "  EDGE_LENGTHS" );
 //
 //  FACE ANGLES
 //
-  tetrahedron_face_angles_3d ( node_xyz, face_angles );
+  tetrahedron_face_angles ( node_xyz, face_angles );
 
   r8mat_transpose_print ( 3, 4, face_angles, "  FACE_ANGLES (radians)" );
 
@@ -216,20 +236,20 @@ int main ( int argc, char *argv[] )
   {
     for ( i = 0; i < 3; i++ )
     {
-      face_angles[i+j*3] = face_angles[i+j*3] * 180.0 / pi;
+      face_angles[i+j*3] = face_angles[i+j*3] * 180.0 / r8_pi;
     }
   }
   r8mat_transpose_print ( 3, 4, face_angles, "  FACE_ANGLES (degrees)" );
 //
 //  FACE AREAS
 //
-  tetrahedron_face_areas_3d ( node_xyz, face_areas );
+  tetrahedron_face_areas ( node_xyz, face_areas );
 
   r8vec_print ( 4, face_areas, "  FACE_AREAS" );
 //
 //  INSPHERE
 //
-  tetrahedron_insphere_3d ( node_xyz, &in_radius, in_center );
+  tetrahedron_insphere ( node_xyz, in_radius, in_center );
 
   cout << "\n";
   cout << "  IN_RADIUS = " << in_radius << "\n";
@@ -240,107 +260,62 @@ int main ( int argc, char *argv[] )
 //
 //  QUALITY1
 //
-  quality1 = tetrahedron_quality1_3d ( node_xyz );
+  quality1 = tetrahedron_quality1 ( node_xyz );
 
   cout << "\n";
   cout << "  QUALITY1 = " << quality1 << "\n";
 //
 //  QUALITY2
 //
-  quality2 = tetrahedron_quality2_3d ( node_xyz );
+  quality2 = tetrahedron_quality2 ( node_xyz );
 
   cout << "\n";
   cout << "  QUALITY2 = " << quality2 << "\n";
 //
 //  QUALITY3
 //
-  quality3 = tetrahedron_quality3_3d ( node_xyz );
+  quality3 = tetrahedron_quality3 ( node_xyz );
 
   cout << "\n";
   cout << "  QUALITY3 = " << quality3 << "\n";
 //
 //  QUALITY4
 //
-  quality4 = tetrahedron_quality4_3d ( node_xyz );
+  quality4 = tetrahedron_quality4 ( node_xyz );
 
   cout << "\n";
   cout << "  QUALITY4 = " << quality4 << "\n";
 //
 //  SOLID ANGLES
 //
-  solid_angles = tetrahedron_solid_angles_3d ( node_xyz );
+  solid_angles = tetrahedron_solid_angles ( node_xyz );
 
   r8vec_print ( 4, solid_angles, "  SOLID_ANGLES (steradians)" );
 //
 //  VOLUME
 //
-  volume = tetrahedron_volume_3d ( node_xyz );
+  volume = tetrahedron_volume ( node_xyz );
 
   cout << "\n";
   cout << "  VOLUME = " << volume << "\n";
-
+//
+//  Free memory.
+//
   delete [] centroid;
   delete [] dihedral_angles;
   delete [] edge_length;
   delete [] node_xyz;
   delete [] solid_angles;
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "TETRAHEDRON_PROPERTIES:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
   return 0;
-}
-//****************************************************************************80
-
-double arc_cosine ( double c )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ARC_COSINE computes the arc cosine function, with argument truncation.
-//
-//  Discussion:
-//
-//    If you call your system ACOS routine with an input argument that is
-//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
-//    This routine truncates arguments outside the range.
-//
-//  Modified:
-//
-//    13 June 2002
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double C, the argument, the cosine of an angle.
-//
-//    Output, double ARC_COSINE, an angle whose cosine is C.
-//
-{
-  double angle;
-  double pi = 3.141592653589793;
-
-  if ( c <= -1.0 )
-  {
-    angle = pi;
-  } 
-  else if ( 1.0 <= c )
-  {
-    angle = 0.0;
-  }
-  else
-  {
-    angle = acos ( c );
-  }
-  return angle;
 }
 //****************************************************************************80
 
@@ -480,165 +455,6 @@ int ch_to_digit ( char ch )
   }
 
   return digit;
-}
-//****************************************************************************80
-
-double *dtable_data_read ( string input_filename, int m, int n )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_DATA_READ reads the data from a DTABLE file.
-//
-//  Discussion:
-//
-//    The file is assumed to contain one record per line.
-//
-//    Records beginning with '#' are comments, and are ignored.
-//    Blank lines are also ignored.
-//
-//    Each line that is not ignored is assumed to contain exactly (or at least)
-//    M real numbers, representing the coordinates of a point.
-//
-//    There are assumed to be exactly (or at least) N such records.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Input, int M, the number of spatial dimensions.
-//
-//    Input, int N, the number of points.  The program
-//    will stop reading data once N values have been read.
-//
-//    Output, double DTABLE_DATA_READ[M*N], the table data.
-//
-{
-  bool error;
-  ifstream input;
-  int i;
-  int j;
-  string line;
-  double *table;
-  double *x;
-
-  input.open ( input_filename.c_str ( ) );
-
-  if ( !input )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_DATA_READ - Fatal error!\n";
-    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return NULL;
-  }
-
-  table = new double[m*n];
-
-  x = new double[m];
-
-  j = 0;
-
-  while ( j < n )
-  {
-    getline ( input, line );
-
-    if ( input.eof ( ) )
-    {
-      break;
-    }
-
-    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
-    {
-      continue;
-    }
-
-    error = s_to_r8vec ( line, m, x );
-
-    if ( error )
-    {
-      continue;
-    }
-
-    for ( i = 0; i < m; i++ )
-    {
-      table[i+j*m] = x[i];
-    }
-    j = j + 1;
-
-  }
-
-  input.close ( );
-
-  delete [] x;
-
-  return table;
-}
-//****************************************************************************80
- 
-void dtable_header_read ( string input_filename, int *m, int *n )
- 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_HEADER_READ reads the header from a DTABLE file.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Output, int *M, the number of spatial dimensions.
-//
-//    Output, int *N, the number of points.
-//
-{
-  *m = file_column_count ( input_filename );
-
-  if ( *m <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
-  }
-
-  *n = file_row_count ( input_filename );
-
-  if ( *n <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
-  }
-
-  return;
 }
 //****************************************************************************80
 
@@ -939,21 +755,27 @@ int i4_min ( int i1, int i2 )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
+double r8_acos ( double c )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_ABS returns the absolute value of an R8.
+//    R8_ACOS computes the arc cosine function, with argument truncation.
+//
+//  Discussion:
+//
+//    If you call your system ACOS routine with an input argument that is
+//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
+//    This routine truncates arguments outside the range.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    14 November 2006
+//    13 June 2002
 //
 //  Author:
 //
@@ -961,20 +783,25 @@ double r8_abs ( double x )
 //
 //  Parameters:
 //
-//    Input, double X, the quantity whose absolute value is desired.
+//    Input, double C, the argument, the cosine of an angle.
 //
-//    Output, double R8_ABS, the absolute value of X.
+//    Output, double R8_ACOS, an angle whose cosine is C.
 //
 {
+  const double r8_pi = 3.141592653589793;
   double value;
 
-  if ( 0.0 <= x )
+  if ( c <= -1.0 )
   {
-    value = x;
-  } 
+    value = r8_pi;
+  }
+  else if ( 1.0 <= c )
+  {
+    value = 0.0;
+  }
   else
   {
-    value = - x;
+    value = acos ( c );
   }
   return value;
 }
@@ -1138,6 +965,113 @@ void r8_swap ( double *x, double *y )
 }
 //****************************************************************************80
 
+double *r8mat_data_read ( string input_filename, int m, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_DATA_READ reads the data from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//    The file is assumed to contain one record per line.
+//
+//    Records beginning with '#' are comments, and are ignored.
+//    Blank lines are also ignored.
+//
+//    Each line that is not ignored is assumed to contain exactly (or at least)
+//    M real numbers, representing the coordinates of a point.
+//
+//    There are assumed to be exactly (or at least) N such records.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Input, int M, the number of spatial dimensions.
+//
+//    Input, int N, the number of points.  The program
+//    will stop reading data once N values have been read.
+//
+//    Output, double R8MAT_DATA_READ[M*N], the data.
+//
+{
+  bool error;
+  ifstream input;
+  int i;
+  int j;
+  string line;
+  double *table;
+  double *x;
+
+  input.open ( input_filename.c_str ( ) );
+
+  if ( !input )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_DATA_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
+    exit ( 1 );
+  }
+
+  table = new double[m*n];
+
+  x = new double[m];
+
+  j = 0;
+
+  while ( j < n )
+  {
+    getline ( input, line );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+
+    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
+    {
+      continue;
+    }
+
+    error = s_to_r8vec ( line, m, x );
+
+    if ( error )
+    {
+      continue;
+    }
+
+    for ( i = 0; i < m; i++ )
+    {
+      table[i+j*m] = x[i];
+    }
+    j = j + 1;
+
+  }
+
+  input.close ( );
+
+  delete [] x;
+
+  return table;
+}
+//****************************************************************************80
+
 double r8mat_det_4d ( double a[] )
 
 //****************************************************************************80
@@ -1191,6 +1125,63 @@ double r8mat_det_4d ( double a[] )
         + a[1+2*4] * ( a[2+0*4] * a[3+1*4] - a[2+1*4] * a[3+0*4] ) );
 
   return det;
+}
+//****************************************************************************80
+
+void r8mat_header_read ( string input_filename, int &m, int &n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_HEADER_READ reads the header from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Output, int &M, the number of spatial dimensions.
+//
+//    Output, int &N, the number of points.
+//
+{
+  m = file_column_count ( input_filename );
+
+  if ( m <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_COLUMN_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  n = file_row_count ( input_filename );
+
+  if ( n <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_ROW_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -1258,7 +1249,7 @@ int r8mat_solve ( int n, int rhs_num, double a[] )
 
     for ( i = j; i < n; i++ )
     {
-      if ( r8_abs ( apivot ) < r8_abs ( a[i+j*n] ) )
+      if ( fabs ( apivot ) < fabs ( a[i+j*n] ) )
       {
         apivot = a[i+j*n];
         ipivot = i;
@@ -1478,7 +1469,7 @@ double r8vec_angle_3d ( double u[], double v[] )
 
   angle_cos = uv_dot / u_norm / v_norm;
 
-  angle = arc_cosine ( angle_cos );
+  angle = r8_acos ( angle_cos );
 
   return angle;
 }
@@ -1511,19 +1502,15 @@ double *r8vec_cross_3d ( double v1[3], double v2[3] )
 //    Output, double R8VEC_CROSS_3D[3], the cross product vector.
 //
 {
-# define DIM_NUM 3
-
   double *v3;
 
-  v3 = new double[DIM_NUM];
+  v3 = new double[3];
 
   v3[0] = v1[1] * v2[2] - v1[2] * v2[1];
   v3[1] = v1[2] * v2[0] - v1[0] * v2[2];
   v3[2] = v1[0] * v2[1] - v1[1] * v2[0];
 
   return v3;
-
-# undef DIM_NUM
 }
 //****************************************************************************80
 
@@ -1714,6 +1701,81 @@ void r8vec_print ( int n, double a[], string title )
   {
     cout << "  " << setw(8)  << i
          << "  " << setw(14) << a[i]  << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_transpose_print ( int n, double a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_TRANSPOSE_PRINT prints an R8VEC "transposed".
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//  Example:
+//
+//    A = (/ 1.0, 2.1, 3.2, 4.3, 5.4, 6.5, 7.6, 8.7, 9.8, 10.9, 11.0 /)
+//    TITLE = 'My vector:  '
+//
+//    My vector:   1.0    2.1    3.2    4.3    5.4
+//                 6.5    7.6    8.7    9.8   10.9
+//                11.0
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    11 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, double A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int ihi;
+  int ilo;
+  int title_length;
+
+  title_length = s_len_trim ( title );
+
+  for ( ilo = 0; ilo < n; ilo = ilo + 5 )
+  {
+    if ( ilo == 0 )
+    {
+      cout << title;
+    }
+    else
+    {
+      for ( i = 0; i < title_length; i++ )
+      {
+        cout << " ";
+      }
+    }
+    cout << "  ";
+    ihi = i4_min ( ilo + 5, n );
+    for ( i = ilo; i < ihi; i++ )
+    {
+      cout << "  " << setw(12) << a[i];
+    }
+    cout << "\n";
   }
 
   return;
@@ -2236,13 +2298,13 @@ int s_word_count ( string s )
 }
 //****************************************************************************80
 
-double *tetrahedron_centroid_3d ( double tetra[3*4] )
+double *tetrahedron_centroid ( double tetra[3*4] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_CENTROID_3D computes the centroid of a tetrahedron in 3D.
+//    TETRAHEDRON_CENTROID computes the centroid of a tetrahedron.
 //
 //  Licensing:
 //
@@ -2260,40 +2322,43 @@ double *tetrahedron_centroid_3d ( double tetra[3*4] )
 //
 //    Input, double TETRA[3*4], the vertices of the tetrahedron.
 //
-//    Output, double TETRAHEDRON_CENTROID_3D[3], the coordinates of the centroid.
+//    Output, double TETRAHEDRON_CENTROID[3], the coordinates of the centroid.
 //
 {
-# define DIM_NUM 3
-
   double *centroid;
+  int i;
 
   centroid = new double[3];
 
-  centroid[0] = 0.25 * ( tetra[0+0*DIM_NUM] + tetra[0+1*DIM_NUM] 
-                       + tetra[0+2*DIM_NUM] + tetra[0+3*DIM_NUM] );
-  centroid[1] = 0.25 * ( tetra[1+0*DIM_NUM] + tetra[1+1*DIM_NUM] 
-                       + tetra[1+2*DIM_NUM] + tetra[1+3*DIM_NUM] );
-  centroid[2] = 0.25 * ( tetra[2+0*DIM_NUM] + tetra[2+1*DIM_NUM] 
-                       + tetra[2+2*DIM_NUM] + tetra[2+3*DIM_NUM] );
+  centroid[0] = ( tetra[0+0*3] + tetra[0+1*3] 
+                + tetra[0+2*3] + tetra[0+3*3] );
+  centroid[1] = ( tetra[1+0*3] + tetra[1+1*3] 
+                + tetra[1+2*3] + tetra[1+3*3] );
+  centroid[2] = ( tetra[2+0*3] + tetra[2+1*3] 
+                + tetra[2+2*3] + tetra[2+3*3] );
+
+  for ( i = 0; i < 3; i++ )
+  {
+    centroid[i] = centroid[i] / 4.0;
+  }
 
   return centroid;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
-void tetrahedron_circumsphere_3d ( double tetra[3*4], double *r, double pc[3] )
+void tetrahedron_circumsphere ( double tetra[3*4], double &r, double pc[3] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_CIRCUMSPHERE_3D computes the circumsphere of a tetrahedron in 3D.
+//    TETRAHEDRON_CIRCUMSPHERE computes the circumsphere of a tetrahedron.
 //
 //  Discussion:
 //
-//    The circumsphere, or circumscribed sphere, of a tetrahedron is the sphere that
-//    passes through the four vertices.  The circumsphere is not necessarily
-//    the smallest sphere that contains the tetrahedron.
+//    The circumsphere, or circumscribed sphere, of a tetrahedron is the 
+//    sphere that passes through the four vertices.  The circumsphere is not
+//    necessarily the smallest sphere that contains the tetrahedron.
 //
 //    Surprisingly, the diameter of the sphere can be found by solving
 //    a 3 by 3 linear system.  This is because the vectors P2 - P1,
@@ -2326,15 +2391,12 @@ void tetrahedron_circumsphere_3d ( double tetra[3*4], double *r, double pc[3] )
 //
 //    Input, double TETRA[3*4], the vertices of the tetrahedron.
 //
-//    Output, double *R, PC[3], the coordinates of the center of the
+//    Output, double &R, PC[3], the coordinates of the center of the
 //    circumscribed sphere, and its radius.  If the linear system is
 //    singular, then R = -1, PC[] = 0.
 //
 {
-# define DIM_NUM 3
-# define RHS_NUM 1
-
-  double a[DIM_NUM*(DIM_NUM+RHS_NUM)];
+  double a[3*4];
   int info;
 //
 //  Set up the linear system.
@@ -2362,20 +2424,20 @@ void tetrahedron_circumsphere_3d ( double tetra[3*4], double *r, double pc[3] )
 //
 //  Solve the linear system.
 //
-  info = r8mat_solve ( DIM_NUM, RHS_NUM, a );
+  info = r8mat_solve ( 3, 1, a );
 //
 //  If the system was singular, return a consolation prize.
 //
   if ( info != 0 )
   {
-    *r = -1.0;
-    r8vec_zero ( DIM_NUM, pc );
+    r = -1.0;
+    r8vec_zero ( 3, pc );
     return;
   }
 //
 //  Compute the radius and center.
 //
-  *r = 0.5 * sqrt 
+  r = 0.5 * sqrt 
     ( a[0+3*3] * a[0+3*3] 
     + a[1+3*3] * a[1+3*3] 
     + a[2+3*3] * a[2+3*3] );
@@ -2385,18 +2447,16 @@ void tetrahedron_circumsphere_3d ( double tetra[3*4], double *r, double pc[3] )
   pc[2] = tetra[2+0*3] + 0.5 * a[2+3*3];
 
   return;
-# undef DIM_NUM
-# undef RHS_NUM
 }
 //****************************************************************************80
 
-double *tetrahedron_dihedral_angles_3d ( double tetra[] )
+double *tetrahedron_dihedral_angles ( double tetra[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_DIHEDRAL_ANGLES_3D computes dihedral angles of a tetrahedron.
+//    TETRAHEDRON_DIHEDRAL_ANGLES computes dihedral angles of a tetrahedron.
 //
 //  Modified:
 //
@@ -2411,7 +2471,7 @@ double *tetrahedron_dihedral_angles_3d ( double tetra[] )
 //    Input, real ( kind = 8 ) TETRA(3,4), the vertices of the tetrahedron,
 //    which can be labeled as A, B, C and D.
 //
-//    Output, double TETRAHEDRON_DIHEDRAL_ANGLES_3D[6], the dihedral angles 
+//    Output, double TETRAHEDRON_DIHEDRAL_ANGLES[6], the dihedral angles 
 //    along the axes AB, AC, AD, BC, BD and CD, respectively.
 //
 {
@@ -2425,17 +2485,11 @@ double *tetrahedron_dihedral_angles_3d ( double tetra[] )
   double bc[3];
   double *bcd_normal;
   double bd[3];
+  double cd[3];
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  for ( i = 0; i < 3; i++ )
-  {
-    ab[i] = tetra[i+1*3] - tetra[i+0*3];
-    ac[i] = tetra[i+2*3] - tetra[i+0*3];
-    ad[i] = tetra[i+3*3] - tetra[i+0*3];
-    bc[i] = tetra[i+2*3] - tetra[i+1*3];
-    bd[i] = tetra[i+3*3] - tetra[i+1*3];
-  }
+  tetrahedron_edges ( tetra, ab, ac, ad, bc, bd, cd );
 
   abc_normal = r8vec_cross_3d ( ac, ab );
   abd_normal = r8vec_cross_3d ( ab, ad );
@@ -2453,7 +2507,7 @@ double *tetrahedron_dihedral_angles_3d ( double tetra[] )
 
   for ( i = 0; i < 6; i++ )
   {
-    angle[i] = pi - angle[i];
+    angle[i] = r8_pi - angle[i];
   }
 
   delete [] abc_normal;
@@ -2463,16 +2517,15 @@ double *tetrahedron_dihedral_angles_3d ( double tetra[] )
 
   return angle;
 }
-
 //****************************************************************************80
 
-double *tetrahedron_edge_length_3d ( double tetra[3*4] )
+double *tetrahedron_edge_length ( double tetra[3*4] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_EDGE_LENGTH_3D returns edge lengths of a tetrahedron in 3D.
+//    TETRAHEDRON_EDGE_LENGTH returns edge lengths of a tetrahedron.
 //
 //  Licensing:
 //
@@ -2493,14 +2546,12 @@ double *tetrahedron_edge_length_3d ( double tetra[3*4] )
 //    Output, double EDGE_LENGTH[6], the length of the edges.
 //
 {
-# define DIM_NUM 3
-
   double *edge_length;
   int i;
   int j1;
   int j2;
   int k;
-  double v[DIM_NUM];
+  double v[3];
 
   edge_length = new double[6];
 
@@ -2509,27 +2560,72 @@ double *tetrahedron_edge_length_3d ( double tetra[3*4] )
   {
     for ( j2 = j1 + 1; j2 < 4; j2++ )
     {
-      for ( i = 0; i < DIM_NUM; i++ )
+      for ( i = 0; i < 3; i++ )
       {
-        v[i] = tetra[i+j2*DIM_NUM] - tetra[i+j1*DIM_NUM];
+        v[i] = tetra[i+j2*3] - tetra[i+j1*3];
       }
-      edge_length[k] = r8vec_length ( DIM_NUM, v );
+      edge_length[k] = r8vec_length ( 3, v );
       k = k + 1;
     }
   }
 
   return edge_length;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
-void tetrahedron_face_angles_3d ( double tetra[], double angles[] )
+void tetrahedron_edges ( double tetra[3*4], double ab[], double ac[],
+  double ad[], double bc[], double bd[], double cd[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_FACE_ANGLES_3D returns the 12 face angles of a tetrahedron 3D.
+//    TETRAHEDRON_EDGES returns the edges of a tetrahedron.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    11 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double TETRA[3*4], the tetrahedron vertices.
+//
+//    Output, double AB[3], AC[3], AD[3], BC[3], BD[3], CD[3], the edges.
+//
+{
+  int i;
+//
+//  Compute the vectors that represent the sides.
+//
+  for ( i = 0; i < 3; i++ )
+  {
+    ab[i] = tetra[i+1*3] - tetra[i+0*3];
+    ac[i] = tetra[i+2*3] - tetra[i+0*3];
+    ad[i] = tetra[i+3*3] - tetra[i+0*3];
+    bc[i] = tetra[i+2*3] - tetra[i+1*3];
+    bd[i] = tetra[i+3*3] - tetra[i+1*3];
+    cd[i] = tetra[i+3*3] - tetra[i+2*3];
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void tetrahedron_face_angles ( double tetra[], double angles[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TETRAHEDRON_FACE_ANGLES returns the 12 face angles of a tetrahedron.
 //
 //  Discussion:
 //
@@ -2621,13 +2717,13 @@ void tetrahedron_face_angles_3d ( double tetra[], double angles[] )
 }
 //****************************************************************************80
 
-void tetrahedron_face_areas_3d ( double tetra[], double areas[] )
+void tetrahedron_face_areas ( double tetra[], double areas[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_FACE_AREAS_3D returns the 4 face areas of a tetrahedron 3D.
+//    TETRAHEDRON_FACE_AREAS returns the 4 face areas of a tetrahedron.
 //
 //  Discussion:
 //
@@ -2719,13 +2815,13 @@ void tetrahedron_face_areas_3d ( double tetra[], double areas[] )
 }
 //****************************************************************************80
 
-void tetrahedron_insphere_3d ( double tetra[3*4], double *r, double pc[3] )
+void tetrahedron_insphere ( double tetra[3*4], double &r, double pc[3] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_INSPHERE_3D finds the insphere of a tetrahedron in 3D.
+//    TETRAHEDRON_INSPHERE finds the insphere of a tetrahedron.
 //
 //  Discussion:
 //
@@ -2763,12 +2859,10 @@ void tetrahedron_insphere_3d ( double tetra[3*4], double *r, double pc[3] )
 //
 //    Input, double TETRA[3*4], the vertices of the tetrahedron.
 //
-//    Output, double *R, PC[3], the radius and the center
+//    Output, double &R, PC[3], the radius and the center
 //    of the sphere.
 //
 {
-# define DIM_NUM 3
-
   double b[4*4];
   double gamma;
   int i;
@@ -2781,87 +2875,63 @@ void tetrahedron_insphere_3d ( double tetra[3*4], double *r, double pc[3] )
   double *n124;
   double *n134;
   double *n234;
-  double v21[DIM_NUM];
-  double v31[DIM_NUM];
-  double v41[DIM_NUM];
-  double v32[DIM_NUM];
-  double v42[DIM_NUM];
-  double v43[DIM_NUM];
+  double v21[3];
+  double v31[3];
+  double v41[3];
+  double v32[3];
+  double v42[3];
+  double v43[3];
 
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    v21[i] = tetra[i+1*DIM_NUM] - tetra[i+0*DIM_NUM];
-  }
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    v31[i] = tetra[i+2*DIM_NUM] - tetra[i+0*DIM_NUM];
-  }
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    v41[i] = tetra[i+3*DIM_NUM] - tetra[i+0*DIM_NUM];
-  }
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    v32[i] = tetra[i+2*DIM_NUM] - tetra[i+1*DIM_NUM];
-  }
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    v42[i] = tetra[i+3*DIM_NUM] - tetra[i+1*DIM_NUM];
-  }
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    v43[i] = tetra[i+3*DIM_NUM] - tetra[i+2*DIM_NUM];
-  }
+  tetrahedron_edges ( tetra, v21, v31, v41, v32, v42, v43 );
 
   n123 = r8vec_cross_3d ( v21, v31 );
   n124 = r8vec_cross_3d ( v41, v21 );
   n134 = r8vec_cross_3d ( v31, v41 );
   n234 = r8vec_cross_3d ( v42, v32 );
 
-  l123 = r8vec_length ( DIM_NUM, n123 );
-  l124 = r8vec_length ( DIM_NUM, n124 );
-  l134 = r8vec_length ( DIM_NUM, n134 );
-  l234 = r8vec_length ( DIM_NUM, n234 );
+  l123 = r8vec_length ( 3, n123 );
+  l124 = r8vec_length ( 3, n124 );
+  l134 = r8vec_length ( 3, n134 );
+  l234 = r8vec_length ( 3, n234 );
 
   delete [] n123;
   delete [] n124;
   delete [] n134;
   delete [] n234;
 
-  for ( i = 0; i < DIM_NUM; i++ )
+  for ( i = 0; i < 3; i++ )
   {
-    pc[i] = ( l234 * tetra[i+0*DIM_NUM]
-            + l134 * tetra[i+1*DIM_NUM]
-            + l124 * tetra[i+2*DIM_NUM]
-            + l123 * tetra[i+3*DIM_NUM] )
+    pc[i] = ( l234 * tetra[i+0*3]
+            + l134 * tetra[i+1*3]
+            + l124 * tetra[i+2*3]
+            + l123 * tetra[i+3*3] )
             / ( l234 + l134 + l124 + l123 );
   }
 
   for ( j = 0; j < 4; j++ )
   {
-    for ( i = 0; i < DIM_NUM; i++ )
+    for ( i = 0; i < 3; i++ )
     {
-      b[i+j*4] = tetra[i+j*DIM_NUM];
+      b[i+j*4] = tetra[i+j*3];
     }
     b[3+j*4] = 1.0;
   }
   
-  gamma = r8_abs ( r8mat_det_4d ( b ) );
+  gamma = fabs ( r8mat_det_4d ( b ) );
 
-  *r = gamma / ( l234 + l134 + l124 + l123 );
+  r = gamma / ( l234 + l134 + l124 + l123 );
 
   return;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
-double tetrahedron_quality1_3d ( double tetra[3*4] )
+double tetrahedron_quality1 ( double tetra[3*4] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_QUALITY1_3D: "quality" of a tetrahedron in 3D.
+//    TETRAHEDRON_QUALITY1: "quality" of a tetrahedron.
 //
 //  Discussion:
 //
@@ -2886,34 +2956,31 @@ double tetrahedron_quality1_3d ( double tetra[3*4] )
 //
 //    Input, double TETRA[3*4], the tetrahedron vertices.
 //
-//    Output, double TETRAHEDRON_QUALITY1_3D, the quality of the tetrahedron.
+//    Output, double TETRAHEDRON_QUALITY1, the quality of the tetrahedron.
 //
 {
-# define DIM_NUM 3
-
-  double pc[DIM_NUM];
+  double pc[3];
   double quality;
   double r_in;
   double r_out;
 
-  tetrahedron_circumsphere_3d ( tetra, &r_out, pc );
+  tetrahedron_circumsphere ( tetra, r_out, pc );
 
-  tetrahedron_insphere_3d ( tetra, &r_in, pc );
+  tetrahedron_insphere ( tetra, r_in, pc );
 
   quality = 3.0 * r_in / r_out;
 
   return quality;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
-double tetrahedron_quality2_3d ( double tetra[3*4] )
+double tetrahedron_quality2 ( double tetra[3*4] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_QUALITY2_3D: "quality" of a tetrahedron in 3D.
+//    TETRAHEDRON_QUALITY2: "quality" of a tetrahedron.
 //
 //  Discussion:
 //
@@ -2952,46 +3019,43 @@ double tetrahedron_quality2_3d ( double tetra[3*4] )
 //
 //    Input, double TETRA[3*4], the tetrahedron vertices.
 //
-//    Output, double TETRAHEDRON_QUALITY2_3D, the quality of the tetrahedron.
+//    Output, double TETRAHEDRON_QUALITY2, the quality of the tetrahedron.
 //
 {
-# define DIM_NUM 3
-
   double *edge_length;
   double l_max;
-  double pc[DIM_NUM];
+  double pc[3];
   double quality2;
   double r_in;
 
-  edge_length = tetrahedron_edge_length_3d ( tetra );
+  edge_length = tetrahedron_edge_length ( tetra );
 
   l_max = r8vec_max ( 6, edge_length );
 
-  tetrahedron_insphere_3d ( tetra, &r_in, pc );
+  tetrahedron_insphere ( tetra, r_in, pc );
 
   quality2 = 2.0 * sqrt ( 6.0 ) * r_in / l_max;
 
   delete [] edge_length;
 
   return quality2;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
-double tetrahedron_quality3_3d ( double tetra[3*4] )
+double tetrahedron_quality3 ( double tetra[3*4] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_QUALITY3_3D computes the mean ratio of a tetrahedron.
+//    TETRAHEDRON_QUALITY3 computes the mean ratio of a tetrahedron.
 //
 //  Discussion:
 //
 //    This routine computes QUALITY3, the eigenvalue or mean ratio of
 //    a tetrahedron.
 //
-//      QUALITY3 = 12 * ( 3 * volume )**(2/3) / (sum of square of edge lengths).
+//      QUALITY3 = 12 * ( 3 * volume )^(2/3) / (sum of square of edge lengths).
 //
 //    This value may be used as a shape quality measure for the tetrahedron.
 //
@@ -3022,19 +3086,17 @@ double tetrahedron_quality3_3d ( double tetra[3*4] )
 //
 //  Parameters:
 //
-//    Input, double TETRA(3,4), the vertices of the tetrahedron.
+//    Input, double TETRA[3*4], the vertices of the tetrahedron.
 //
-//    Output, double TETRAHEDRON_QUALITY3_3D, the mean ratio of the tetrahedron.
+//    Output, double TETRAHEDRON_QUALITY3, the mean ratio of the tetrahedron.
 //
 {
-# define DIM_NUM 3
-
-  double ab[DIM_NUM];
-  double ac[DIM_NUM];
-  double ad[DIM_NUM];
-  double bc[DIM_NUM];
-  double bd[DIM_NUM];
-  double cd[DIM_NUM];
+  double ab[3];
+  double ac[3];
+  double ad[3];
+  double bc[3];
+  double bd[3];
+  double cd[3];
   double denom;
   int i;
   double lab;
@@ -3048,15 +3110,7 @@ double tetrahedron_quality3_3d ( double tetra[3*4] )
 //
 //  Compute the vectors representing the sides of the tetrahedron.
 //
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    ab[i] = tetra[i+1*DIM_NUM] - tetra[i+0*DIM_NUM];
-    ac[i] = tetra[i+2*DIM_NUM] - tetra[i+0*DIM_NUM];
-    ad[i] = tetra[i+3*DIM_NUM] - tetra[i+0*DIM_NUM];
-    bc[i] = tetra[i+2*DIM_NUM] - tetra[i+1*DIM_NUM];
-    bd[i] = tetra[i+3*DIM_NUM] - tetra[i+1*DIM_NUM];
-    cd[i] = tetra[i+3*DIM_NUM] - tetra[i+2*DIM_NUM];
-  }
+  tetrahedron_edges ( tetra, ab, ac, ad, bc, bd, cd );
 //
 //  Compute the squares of the lengths of the sides.
 //
@@ -3069,7 +3123,7 @@ double tetrahedron_quality3_3d ( double tetra[3*4] )
 //
 //  Compute the volume.
 //
-  volume = r8_abs ( 
+  volume = fabs ( 
       ab[0] * ( ac[1] * ad[2] - ac[2] * ad[1] ) 
     + ab[1] * ( ac[2] * ad[0] - ac[0] * ad[2] ) 
     + ab[2] * ( ac[0] * ad[1] - ac[1] * ad[0] ) ) / 6.0;
@@ -3086,17 +3140,16 @@ double tetrahedron_quality3_3d ( double tetra[3*4] )
   }
 
   return quality3;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
-double tetrahedron_quality4_3d ( double tetra[3*4] )
+double tetrahedron_quality4 ( double tetra[3*4] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_QUALITY4_3D computes the minimum solid angle of a tetrahedron.
+//    TETRAHEDRON_QUALITY4 computes the minimum solid angle of a tetrahedron.
 //
 //  Discussion:
 //
@@ -3131,14 +3184,12 @@ double tetrahedron_quality4_3d ( double tetra[3*4] )
 //    Output, double QUALITY4, the value of the quality measure.
 //
 {
-# define DIM_NUM 3
-
-  double ab[DIM_NUM];
-  double ac[DIM_NUM];
-  double ad[DIM_NUM];
-  double bc[DIM_NUM];
-  double bd[DIM_NUM];
-  double cd[DIM_NUM];
+  double ab[3];
+  double ac[3];
+  double ad[3];
+  double bc[3];
+  double bd[3];
+  double cd[3];
   double denom;
   int i;
   double l1;
@@ -3153,30 +3204,22 @@ double tetrahedron_quality4_3d ( double tetra[3*4] )
   double quality4;
   double volume;
 //
-//  Compute the vectors that represent the sides.
+//  Compute the edges.
 //
-  for ( i = 0; i < DIM_NUM; i++ )
-  {
-    ab[i] = tetra[i+1*DIM_NUM] - tetra[i+0*DIM_NUM];
-    ac[i] = tetra[i+2*DIM_NUM] - tetra[i+0*DIM_NUM];
-    ad[i] = tetra[i+3*DIM_NUM] - tetra[i+0*DIM_NUM];
-    bc[i] = tetra[i+2*DIM_NUM] - tetra[i+1*DIM_NUM];
-    bd[i] = tetra[i+3*DIM_NUM] - tetra[i+1*DIM_NUM];
-    cd[i] = tetra[i+3*DIM_NUM] - tetra[i+2*DIM_NUM];
-  }
+  tetrahedron_edges ( tetra, ab, ac, ad, bc, bd, cd );
 //
 //  Compute the lengths of the sides.
 //
-  lab = r8vec_length ( DIM_NUM, ab );
-  lac = r8vec_length ( DIM_NUM, ac );
-  lad = r8vec_length ( DIM_NUM, ad );
-  lbc = r8vec_length ( DIM_NUM, bc );
-  lbd = r8vec_length ( DIM_NUM, bd );
-  lcd = r8vec_length ( DIM_NUM, cd );
+  lab = r8vec_length ( 3, ab );
+  lac = r8vec_length ( 3, ac );
+  lad = r8vec_length ( 3, ad );
+  lbc = r8vec_length ( 3, bc );
+  lbd = r8vec_length ( 3, bd );
+  lcd = r8vec_length ( 3, cd );
 //
 //  Compute the volume.
 //
-  volume = r8_abs ( 
+  volume = fabs ( 
       ab[0] * ( ac[1] * ad[2] - ac[2] * ad[1] ) 
     + ab[1] * ( ac[2] * ad[0] - ac[0] * ad[2] ) 
     + ab[2] * ( ac[0] * ad[1] - ac[1] * ad[0] ) ) / 6.0;
@@ -3254,17 +3297,20 @@ double tetrahedron_quality4_3d ( double tetra[3*4] )
   quality4 = quality4 * 1.5 * sqrt ( 6.0 );
 
   return quality4;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
-double *tetrahedron_solid_angles_3d ( double tetra[] )
+double *tetrahedron_solid_angles ( double tetra[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_SOLID_ANGLES_3D computes solid angles of a tetrahedron.
+//    TETRAHEDRON_SOLID_ANGLES computes solid angles of a tetrahedron.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
@@ -3278,21 +3324,32 @@ double *tetrahedron_solid_angles_3d ( double tetra[] )
 //
 //    Input, double TETRA[3*4], the vertices of the tetrahedron.
 //
-//    Output, double TETRAHEDRON_SOLID_ANGLES_3D[4], the solid angles.
+//    Output, double TETRAHEDRON_SOLID_ANGLES[4], the solid angles.
 //
 {
   double *angle;
   double *dihedral_angles;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  dihedral_angles = tetrahedron_dihedral_angles_3d ( tetra );
+  dihedral_angles = tetrahedron_dihedral_angles ( tetra );
 
   angle = new double[4];
 
-  angle[0] = dihedral_angles[0] + dihedral_angles[1] + dihedral_angles[2] - pi;
-  angle[1] = dihedral_angles[0] + dihedral_angles[3] + dihedral_angles[4] - pi;
-  angle[2] = dihedral_angles[1] + dihedral_angles[3] + dihedral_angles[5] - pi;
-  angle[3] = dihedral_angles[2] + dihedral_angles[4] + dihedral_angles[5] - pi;
+  angle[0] = dihedral_angles[0] 
+           + dihedral_angles[1] 
+           + dihedral_angles[2] - r8_pi;
+
+  angle[1] = dihedral_angles[0] 
+           + dihedral_angles[3] 
+           + dihedral_angles[4] - r8_pi;
+
+  angle[2] = dihedral_angles[1] 
+           + dihedral_angles[3] 
+           + dihedral_angles[5] - r8_pi;
+
+  angle[3] = dihedral_angles[2] 
+           + dihedral_angles[4] 
+           + dihedral_angles[5] - r8_pi;
 
   delete [] dihedral_angles;
 
@@ -3300,13 +3357,13 @@ double *tetrahedron_solid_angles_3d ( double tetra[] )
 }
 //****************************************************************************80
 
-double tetrahedron_volume_3d ( double tetra[3*4] )
+double tetrahedron_volume ( double tetra[3*4] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TETRAHEDRON_VOLUME_3D computes the volume of a tetrahedron in 3D.
+//    TETRAHEDRON_VOLUME computes the volume of a tetrahedron.
 //
 //  Licensing:
 //
@@ -3324,7 +3381,7 @@ double tetrahedron_volume_3d ( double tetra[3*4] )
 //
 //    Input, double TETRA[3*4], the vertices of the tetrahedron.
 //
-//    Output, double TETRAHEDRON_VOLUME_3D, the volume of the tetrahedron.
+//    Output, double TETRAHEDRON_VOLUME, the volume of the tetrahedron.
 //
 {
   double a[4*4];
@@ -3346,7 +3403,7 @@ double tetrahedron_volume_3d ( double tetra[3*4] )
     a[i+j*4] = 1.0;
   }
 
-  volume = r8_abs ( r8mat_det_4d ( a ) ) / 6.0;
+  volume = fabs ( r8mat_det_4d ( a ) ) / 6.0;
 
   return volume;
 }
@@ -3436,64 +3493,61 @@ void triangle_angles_3d ( double t[3*3], double angle[3] )
 //    sides P1-P2, P2-P3 and P3-P1, in radians.
 //
 {
-# define DIM_NUM 3
-
   double a;
   double b;
   double c;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  a = sqrt ( pow ( t[0+1*DIM_NUM] - t[0+0*DIM_NUM], 2 ) 
-           + pow ( t[1+1*DIM_NUM] - t[1+0*DIM_NUM], 2 )
-           + pow ( t[2+1*DIM_NUM] - t[2+0*DIM_NUM], 2 ) );
+  a = sqrt ( pow ( t[0+1*3] - t[0+0*3], 2 ) 
+           + pow ( t[1+1*3] - t[1+0*3], 2 )
+           + pow ( t[2+1*3] - t[2+0*3], 2 ) );
 
-  b = sqrt ( pow ( t[0+2*DIM_NUM] - t[0+1*DIM_NUM], 2 ) 
-           + pow ( t[1+2*DIM_NUM] - t[1+1*DIM_NUM], 2 )
-           + pow ( t[2+2*DIM_NUM] - t[2+1*DIM_NUM], 2 ) );
+  b = sqrt ( pow ( t[0+2*3] - t[0+1*3], 2 ) 
+           + pow ( t[1+2*3] - t[1+1*3], 2 )
+           + pow ( t[2+2*3] - t[2+1*3], 2 ) );
 
-  c = sqrt ( pow ( t[0+0*DIM_NUM] - t[0+2*DIM_NUM], 2 ) 
-           + pow ( t[1+0*DIM_NUM] - t[1+2*DIM_NUM], 2 )
-           + pow ( t[2+0*DIM_NUM] - t[2+2*DIM_NUM], 2 ) );
+  c = sqrt ( pow ( t[0+0*3] - t[0+2*3], 2 ) 
+           + pow ( t[1+0*3] - t[1+2*3], 2 )
+           + pow ( t[2+0*3] - t[2+2*3], 2 ) );
 //
 //  Take care of a ridiculous special case.
 //
   if ( a == 0.0 && b == 0.0 && c == 0.0 )
   {
-    angle[0] = 2.0 * pi / 3.0;
-    angle[1] = 2.0 * pi / 3.0;
-    angle[2] = 2.0 * pi / 3.0;
+    angle[0] = 2.0 * r8_pi / 3.0;
+    angle[1] = 2.0 * r8_pi / 3.0;
+    angle[2] = 2.0 * r8_pi / 3.0;
     return;
   }
 
   if ( c == 0.0 || a == 0.0 )
   {
-    angle[0] = pi;
+    angle[0] = r8_pi;
   }
   else
   {
-    angle[0] = arc_cosine ( ( c * c + a * a - b * b ) / ( 2.0 * c * a ) );
+    angle[0] = r8_acos ( ( c * c + a * a - b * b ) / ( 2.0 * c * a ) );
   }
 
   if ( a == 0.0 || b == 0.0 )
   {
-    angle[1] = pi;
+    angle[1] = r8_pi;
   }
   else
   {
-    angle[1] = arc_cosine ( ( a * a + b * b - c * c ) / ( 2.0 * a * b ) );
+    angle[1] = r8_acos ( ( a * a + b * b - c * c ) / ( 2.0 * a * b ) );
   }
 
   if ( b == 0.0 || c == 0.0 )
   {
-    angle[2] = pi;
+    angle[2] = r8_pi;
   }
   else
   {
-    angle[2] = arc_cosine ( ( b * b + c * c - a * a ) / ( 2.0 * b * c ) );
+    angle[2] = r8_acos ( ( b * b + c * c - a * a ) / ( 2.0 * b * c ) );
   }
 
   return;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
@@ -3536,33 +3590,31 @@ double triangle_area_3d ( double t[3*3] )
 //    Output, double TRIANGLE_AREA_3D, the area of the triangle.
 //
 {
-# define DIM_NUM 3
-
   double area;
   double *cross;
   int i;
 //
 //  Compute the cross product vector.
 //
-  cross = new double[DIM_NUM];
+  cross = new double[3];
 
-  cross[0] = ( t[1+1*DIM_NUM] - t[1+0*DIM_NUM] ) 
-           * ( t[2+2*DIM_NUM] - t[2+0*DIM_NUM] ) 
-           - ( t[2+1*DIM_NUM] - t[2+0*DIM_NUM] ) 
-           * ( t[1+2*DIM_NUM] - t[1+0*DIM_NUM] );
+  cross[0] = ( t[1+1*3] - t[1+0*3] ) 
+           * ( t[2+2*3] - t[2+0*3] ) 
+           - ( t[2+1*3] - t[2+0*3] ) 
+           * ( t[1+2*3] - t[1+0*3] );
 
-  cross[1] = ( t[2+1*DIM_NUM] - t[2+0*DIM_NUM] ) 
-           * ( t[0+2*DIM_NUM] - t[0+0*DIM_NUM] ) 
-           - ( t[0+1*DIM_NUM] - t[0+0*DIM_NUM] ) 
-           * ( t[2+2*DIM_NUM] - t[2+0*DIM_NUM] );
+  cross[1] = ( t[2+1*3] - t[2+0*3] ) 
+           * ( t[0+2*3] - t[0+0*3] ) 
+           - ( t[0+1*3] - t[0+0*3] ) 
+           * ( t[2+2*3] - t[2+0*3] );
 
-  cross[2] = ( t[0+1*DIM_NUM] - t[0+0*DIM_NUM] ) 
-           * ( t[1+2*DIM_NUM] - t[1+0*DIM_NUM] ) 
-           - ( t[1+1*DIM_NUM] - t[1+0*DIM_NUM] ) 
-           * ( t[0+2*DIM_NUM] - t[0+0*DIM_NUM] );
+  cross[2] = ( t[0+1*3] - t[0+0*3] ) 
+           * ( t[1+2*3] - t[1+0*3] ) 
+           - ( t[1+1*3] - t[1+0*3] ) 
+           * ( t[0+2*3] - t[0+0*3] );
 
   area = 0.0;
-  for ( i = 0; i < DIM_NUM; i++ )
+  for ( i = 0; i < 3; i++ )
   {
     area = area + pow ( cross[i], 2 );
   }
@@ -3572,5 +3624,4 @@ double triangle_area_3d ( double t[3*3] )
   delete [] cross;
 
   return area;
-# undef DIM_NUM
 }

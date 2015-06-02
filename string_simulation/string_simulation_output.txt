@@ -1,0 +1,14 @@
+25 December 2012 10:49:49 AM
+
+STRING_SIMULATION:
+  C++ version
+  Simulate the behavior of a vibrating string.
+  ALPHA = ( C * dT / dX )^2 = 1
+
+  Plot data written to the file "string_data.txt".
+  Gnuplot command data written to the file "string_commands.txt".
+
+STRING_SIMULATION:
+  Normal end of execution.
+
+25 December 2012 10:49:49 AM

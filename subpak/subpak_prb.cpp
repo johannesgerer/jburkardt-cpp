@@ -62,7 +62,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SUBPAK_PRB calls the SUBPAK tests.
+//    SUBPAK_PRB tests the SUBPAK library.
 //
 //  Licensing:
 //
@@ -127,7 +127,6 @@ int main ( )
   cout << "\n";
   cout << "SUBPAK_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -2057,7 +2056,7 @@ void test225 ( )
 //
 //  Purpose:
 //
-//    TEST225 tests LMAT_PRINT.
+//    TEST225 tests L4MAT_PRINT.
 //
 //  Licensing:
 //
@@ -2082,7 +2081,7 @@ void test225 ( )
 
   cout << "\n";
   cout << "TEST225\n";
-  cout << "  LMAT_PRINT prints a logical matrix.\n";
+  cout << "  L4MAT_PRINT prints a logical matrix.\n";
 
   for ( i = 0; i < m; i++ )
   {
@@ -2092,7 +2091,7 @@ void test225 ( )
     }
   }
 
-  lmat_print ( m, n, a, "  A(I,J) = I+1 is divisible by J+1" );
+  l4mat_print ( m, n, a, "  A(I,J) = I+1 is divisible by J+1" );
 
   delete [] a;
 

@@ -31,7 +31,6 @@ int main ( )
 */
 {
   timestamp ( );
-
   printf ( "\n" );
   printf ( "COLLATZ_RECURSIVE_PRB\n" );
   printf ( "  C version\n" );
@@ -44,7 +43,6 @@ int main ( )
   printf ( "\n" );
   printf ( "COLLATZ_RECURSIVE_PRB\n" );
   printf ( "  Normal end of execution.\n" );
-
   printf ( "\n" );
   timestamp ( );
 

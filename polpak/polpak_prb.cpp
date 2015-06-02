@@ -10,119 +10,121 @@ using namespace std;
 
 int main ( );
 
-void test001 ( );
-void test002 ( );
-void test003 ( );
-void test0035 ( );
-void test004 ( );
-void test005 ( );
-void test006 ( );
-void test007 ( );
-void test008 ( );
-void test010 ( );
-void test0102 ( );
-
-void test011 ( );
-void test012 ( );
-void test013 ( );
-void test014 ( );
-void test015 ( );
-void test016 ( );
-void test017 ( );
-void test0175 ( );
-void test018 ( );
-void test0185 ( );
-void test019 ( );
-
-void test020 ( );
-void test021 ( );
-void test0215 ( );
-void test0216 ( );
-void test0217 ( );
-void test0218 ( );
-void test024 ( );
-void test0243 ( );
-void test0104 ( );
-void test0115 ( );
-void test0265 ( );
-void test028 ( );
-void test0245 ( );
-void test025 ( );
-void test0255 ( );
-void test026 ( );
-void test027 ( );
-void test029 ( );
-
-void test031 ( );
-void test032 ( );
-void test033 ( );
-void test034 ( );
-void test036 ( );
-void test0365 ( );
-void test037 ( );
-void test038 ( );
-void test039 ( );
-
-void test040 ( );
-void test041 ( );
-void test042 ( );
-void test0425 ( );
-void test023 ( );
-void test043 ( );
-void test044 ( );
-void test045 ( );
-void test046 ( );
-void test047 ( );
-void test048 ( );
-void test049 ( );
-
-void test050 ( );
-void test0505 ( );
-void test051 ( );
-void test052 ( );
-void test054 ( );
-void test055 ( );
-void test057 ( );
-void test058 ( );
-void test059 ( );
-void test0595 ( );
-
-void test060 ( );
-void test061 ( );
-void test0615 ( );
-void test062 ( );
-void test0623 ( );
-void test0625 ( );
-void test063 ( );
-void test0635 ( );
-void test064 ( );
-void test065 ( );
-void test066 ( );
-void test0665 ( );
-void test0667 ( );
-void test067 ( );
-void test0675 ( );
-void test068 ( );
-void test022 ( );
-void test0685 ( );
-void test06855 ( );
-void test06856 ( );
-void test069 ( );
-void test0695 ( );
-void test0696 ( );
-void test0697 ( );
-
-void test070 ( );
-void test071 ( );
-void test072 ( );
-void test073 ( );
-void test074 ( );
-void test075 ( );
-void test076 ( );
-void test077 ( );
-void test0773 ( );
-void test0775 ( );
-void test078 ( );
+void agud_test ( );
+void align_enum_test ( );
+void bell_test ( );
+void benford_test ( );
+void bernoulli_number_test ( );
+void bernoulli_number2_test ( );
+void bernoulli_number3_test ( );
+void bernoulli_poly_test ( );
+void bernoulli_poly2_test ( );
+void bernstein_poly_test ( );
+void bpab_test ( );
+void cardan_poly_test ( );
+void cardan_poly_coef_test ( );
+void cardinal_cos_test ( );
+void cardinal_sin_test ( );
+void catalan_test ( );
+void catalan_row_next_test ( );
+void charlier_test ( );
+void cheby_t_poly_test ( );
+void cheby_t_poly_coef_test ( );
+void cheby_t_poly_zero_test ( );
+void cheby_u_poly_test ( );
+void cheby_u_poly_coef_test ( );
+void cheby_u_poly_zero_test ( );
+void chebyshev_discrete_test ( );
+void collatz_count_test ( );
+void collatz_count_max_test ( );
+void comb_row_next_test ( );
+void commul_test ( );
+void complete_symmetric_poly_test ( );
+void cos_power_int_test ( );
+void euler_number_test ( );
+void euler_number2_test ( );
+void euler_poly_test ( );
+void eulerian_test ( );
+void f_hofstadter_test ( );
+void fibonacci_direct_test ( );
+void fibonacci_floor_test ( );
+void fibonacci_recursive_test ( );
+void g_hofstadter_test ( );
+void gegenbauer_poly_test ( );
+void gen_hermite_poly_test ( );
+void gen_laguerre_poly_test ( );
+void gud_test ( );
+void hail_test ( );
+void h_hofstadter_test ( );
+void hermite_poly_phys_test ( );
+void hermite_poly_phys_coef_test ( );
+void i4_choose_test ( );
+void i4_factor_test ( );
+void i4_factorial_test ( );
+void i4_factorial2_test ( );
+void i4_is_triangular_test ( );
+void i4_partition_distinct_count_test ( );
+void i4_to_triangle_test ( );
+void jacobi_poly_test ( );
+void jacobi_symbol_test ( );
+void krawtchouk_test ( );
+void laguerre_associated_test ( );
+void laguerre_poly_test ( );
+void laguerre_poly_coef_test ( );
+void legendre_poly_test ( );
+void legendre_poly_coef_test ( );
+void legendre_associated_test ( );
+void legendre_associated_normalized_test ( );
+void legendre_function_q_test ( );
+void legendre_symbol_test ( );
+void lerch_test ( );
+void lgamma_test ( );
+void lock_test ( );
+void meixner_test ( );
+void mertens_test ( );
+void moebius_test ( );
+void motzkin_test ( );
+void normal_01_cdf_inverse_test ( );
+void omega_test ( );
+void pentagon_num_test ( );
+void phi_test ( );
+void plane_partition_num_test ( );
+void poly_bernoulli_test ( );
+void poly_coef_count_test ( );
+void prime_test ( );
+void pyramid_num_test ( );
+void pyramid_square_num_test ( );
+void r8_agm_test ( );
+void r8_beta_test ( );
+void r8_choose_test ( );
+void r8_erf_test ( );
+void r8_erf_inverse_test ( );
+void r8_euler_constant_test ( );
+void r8_factorial_test ( );
+void r8_factorial_log_test ( );
+void r8_hyper_2f1_test ( );
+void r8_psi_test ( );
+void r8poly_degree_test ( );
+void r8poly_print_test ( );
+void r8poly_value_horner_test ( );
+void sigma_test ( );
+void simplex_num_test ( );
+void sin_power_int_test ( );
+void slice_test ( );
+void spherical_harmonic_test ( );
+void stirling1_test ( );
+void stirling2_test ( );
+void tau_test ( );
+void tetrahedron_num_test ( );
+void triangle_num_test ( );
+void triangle_to_i4_test ( );
+void trinomial_test ( );
+void v_hofstadter_test ( );
+void vibonacci_test ( );
+void zeckendorf_test ( );
+void zernike_poly_test ( );
+void zernike_poly_coef_test ( );
+void zeta_test ( );
 
 //****************************************************************************80
 
@@ -136,7 +138,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    POLPAK_PRB calls the POLPAK test routines.
+//    POLPAK_PRB tests the POLPAK library.
 //
 //  Licensing:
 //
@@ -144,7 +146,7 @@ int main ( )
 //
 //  Modified:
 //
-//    31 March 2012
+//    11 April 2015
 //
 //  Author:
 //
@@ -152,132 +154,132 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "POLPAK_PRB\n";
   cout << "  C++ version\n";
   cout << "  Test the POLPAK library.\n";
 
-  test001 ( );
-  test002 ( );
-  test003 ( );
-  test0035 ( );
-  test004 ( );
-  test005 ( );
-  test006 ( );
-  test007 ( );
-  test008 ( );
-  test010 ( );
-  test0102 ( );
-  test0104 ( );
-
-  test011 ( );
-  test0115 ( );
-  test012 ( );
-  test013 ( );
-  test014 ( );
-  test015 ( );
-  test016 ( );
-  test017 ( );
-  test0175 ( );
-  test018 ( );
-  test0185 ( );
-  test019 ( );
-
-  test020 ( );
-  test021 ( );
-  test0215 ( );
-  test0216 ( );
-  test0217 ( );
-  test0218 ( );
-  test024 ( );
-  test0243 ( );
-  test0245 ( );
-  test025 ( );
-  test0255 ( );
-  test026 ( );
-  test0265 ( );
-  test028 ( );
-  test027 ( );
-  test029 ( );
-
-  test031 ( );
-  test032 ( );
-  test033 ( );
-  test034 ( );
-  test036 ( );
-  test0365 ( );
-  test037 ( );
-  test038 ( );
-  test039 ( );
-
-  test040 ( );
-  test041 ( );
-  test042 ( );
-  test0425 ( );
-  test023 ( );
-  test043 ( );
-  test044 ( );
-  test045 ( );
-  test046 ( );
-  test047 ( );
-  test048 ( );
-  test049 ( );
-
-  test050 ( );
-  test0505 ( );
-  test051 ( );
-  test052 ( );
-  test054 ( );
-  test055 ( );
-  test057 ( );
-  test058 ( );
-  test059 ( );
-  test0595 ( );
-
-  test060 ( );
-  test061 ( );
-  test0615 ( );
-  test062 ( );
-  test0623 ( );
-  test0625 ( );
-  test063 ( );
-  test0635 ( );
-  test064 ( );
-  test065 ( );
-  test066 ( );
-  test0665 ( );
-  test0667 ( );
-  test067 ( );
-  test0675 ( );
-  test068 ( );
-  test022 ( );
-  test0685 ( );
-  test06855 ( );
-  test06856 ( );
-  test069 ( );
-  test0695 ( );
-  test0696 ( );
-  test0697 ( );
-
-  test070 ( );
-  test071 ( );
-  test072 ( );
-  test073 ( );
-  test074 ( );
-  test075 ( );
-  test076 ( );
-  test077 ( );
-  test0773 ( );
-  test0775 ( );
-  test078 ( );
+  agud_test ( );
+  align_enum_test ( );
+  bell_test ( );
+  benford_test ( );
+  bernoulli_number_test ( );
+  bernoulli_number2_test ( );
+  bernoulli_number3_test ( );
+  bernoulli_poly_test ( );
+  bernoulli_poly2_test ( );
+  bernstein_poly_test ( );
+  bpab_test ( );
+  cardan_poly_test ( );
+  cardan_poly_coef_test ( );
+  cardinal_cos_test ( );
+  cardinal_sin_test ( );
+  catalan_test ( );
+  catalan_row_next_test ( );
+  charlier_test ( );
+  cheby_t_poly_test ( );
+  cheby_t_poly_coef_test ( );
+  cheby_t_poly_zero_test ( );
+  cheby_u_poly_test ( );
+  cheby_u_poly_coef_test ( );
+  cheby_u_poly_zero_test ( );
+  chebyshev_discrete_test ( );
+  collatz_count_test ( );
+  collatz_count_max_test ( );
+  comb_row_next_test ( );
+  commul_test ( );
+  complete_symmetric_poly_test ( );
+  cos_power_int_test ( );
+  euler_number_test ( );
+  euler_number2_test ( );
+  euler_poly_test ( );
+  eulerian_test ( );
+  f_hofstadter_test ( );
+  fibonacci_direct_test ( );
+  fibonacci_floor_test ( );
+  fibonacci_recursive_test ( );
+  g_hofstadter_test ( );
+  gegenbauer_poly_test ( );
+  gen_hermite_poly_test ( );
+  gen_laguerre_poly_test ( );
+  gud_test ( );
+  hail_test ( );
+  h_hofstadter_test ( );
+  hermite_poly_phys_test ( );
+  hermite_poly_phys_coef_test ( );
+  i4_choose_test ( );
+  i4_factor_test ( );
+  i4_factorial_test ( );
+  i4_factorial2_test ( );
+  i4_is_triangular_test ( );
+  i4_partition_distinct_count_test ( );
+  i4_to_triangle_test ( );
+  jacobi_poly_test ( );
+  jacobi_symbol_test ( );
+  krawtchouk_test ( );
+  laguerre_associated_test ( );
+  laguerre_poly_test ( );
+  laguerre_poly_coef_test ( );
+  legendre_poly_test ( );
+  legendre_poly_coef_test ( );
+  legendre_associated_test ( );
+  legendre_associated_normalized_test ( );
+  legendre_function_q_test ( );
+  legendre_symbol_test ( );
+  lerch_test ( );
+  lgamma_test ( );
+  lock_test ( );
+  meixner_test ( );
+  mertens_test ( );
+  moebius_test ( );
+  motzkin_test ( );
+  normal_01_cdf_inverse_test ( );
+  omega_test ( );
+  pentagon_num_test ( );
+  phi_test ( );
+  plane_partition_num_test ( );
+  poly_bernoulli_test ( );
+  poly_coef_count_test ( );
+  prime_test ( );
+  pyramid_num_test ( );
+  pyramid_square_num_test ( );
+  r8_agm_test ( );
+  r8_beta_test ( );
+  r8_choose_test ( );
+  r8_erf_test ( );
+  r8_erf_inverse_test ( );
+  r8_euler_constant_test ( );
+  r8_factorial_test ( );
+  r8_factorial_log_test ( );
+  r8_hyper_2f1_test ( );
+  r8_psi_test ( );
+  r8poly_degree_test ( );
+  r8poly_print_test ( );
+  r8poly_value_horner_test ( );
+  sigma_test ( );
+  simplex_num_test ( );
+  sin_power_int_test ( );
+  slice_test ( );
+  spherical_harmonic_test ( );
+  stirling1_test ( );
+  stirling2_test ( );
+  tau_test ( );
+  tetrahedron_num_test ( );
+  triangle_num_test ( );
+  triangle_to_i4_test ( );
+  trinomial_test ( );
+  v_hofstadter_test ( );
+  vibonacci_test ( );
+  zeckendorf_test ( );
+  zernike_poly_test ( );
+  zernike_poly_coef_test ( );
+  zeta_test ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "POLPAK_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -285,74 +287,13 @@ int main ( )
 }
 //****************************************************************************80
 
-void test001 ( )
+void agud_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST001 tests AGM and AGM_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    24 February 2010
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double a;
-  double b;
-  double fx;
-  double fx2;
-  int n_data;
-
-  cout << "\n";
-  cout << "TEST001\n";
-  cout << "  AGM computes the arithmetic geometric mean.\n";
-  cout << "\n";
-  cout << "           A           B         "
-       << "   AGM                       AGM               Diff\n";
-  cout << "                             "
-       << "      (Tabulated)                AGM(A,B)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    agm_values ( &n_data, &a, &b, &fx );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    fx2 = agm ( a, b );
-
-    cout << "  " << setprecision(6)  << setw(10) << a   
-         << "  " << setprecision(6)  << setw(10) << b   
-         << "  " << setprecision(16) << setw(24) << fx  
-         << "  " << setprecision(16) << setw(24) << fx2 
-         << "  " << setprecision(6)  << setw(10) << r8_abs ( fx - fx2 ) << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test002 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST002 tests AGUD and GUD.
+//    AGUD_TEST tests AGUD.
 //
 //  Licensing:
 //
@@ -367,15 +308,14 @@ void test002 ( )
 //    John Burkardt
 //
 {
-  double gamma;
+  double g;
   int i;
   double x;
   double x2;
 
   cout << "\n";
-  cout << "TEST002\n";
+  cout << "AGUD_TEST\n";
   cout << "  AGUD computes the inverse Gudermannian;\n";
-  cout << "  GUD computes the Gudermannian.\n";
   cout << "\n";
   cout << "         X     GUD(X)     AGUD(GUD(X))\n";
   cout << "\n";
@@ -383,11 +323,11 @@ void test002 ( )
   for ( i = 0; i <= 10; i++ )
   {
     x = 1.0 + ( ( double ) i ) / 5.0;
-    gamma = gud ( x );
-    x2 = agud ( gamma );
+    g = gud ( x );
+    x2 = agud ( g );
 
     cout << "  " << setw(10) << x
-         << "  " << setw(10) << gamma 
+         << "  " << setw(10) << g
          << "  " << setw(10) << x2    << "\n";
   }
 
@@ -395,13 +335,13 @@ void test002 ( )
 }
 //****************************************************************************80
 
-void test003 ( )
+void align_enum_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST003 tests ALIGN_ENUM.
+//    ALIGN_ENUM_TEST tests ALIGN_ENUM.
 //
 //  Licensing:
 //
@@ -423,7 +363,7 @@ void test003 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST003\n";
+  cout << "ALIGN_ENUM_TEST\n";
   cout << "  ALIGN_ENUM counts the number of possible\n";
   cout << "  alignments of two biological sequences.\n";
 
@@ -473,254 +413,13 @@ void test003 ( )
 }
 //****************************************************************************80
 
-void test0035 ( )
+void bell_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0035 tests ARC_COSINE.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    02 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double a;
-  int i;
-  double x;
-  double x2;
-
-  cout << "\n";
-  cout << "TEST0035\n";
-  cout << "  ARC_COSINE computes the inverse cosine,\n";
-  cout << "  and chops input arguments that are out of bounds.\n";
-  cout << "\n";
-  cout << "         X     ARC_COSINE(X)     COS(ARC_COSINE(X))\n";
-  cout << "\n";
-
-  for ( i = -5; i <= 5; i++ )
-  {
-    x = 1.0 + ( ( double ) i ) / 5.0;
-    a = arc_cosine ( x );
-    x2 = cos ( a );
-
-    cout << "  " << setw(10) << x  
-         << "  " << setw(10) << a  
-         << "  " << setw(10) << x2 << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test004 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST004 tests ASINH2.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    02 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double a;
-  int i;
-  double x;
-  double x2;
-
-  cout << "\n";
-  cout << "TEST004\n";
-  cout << "  ASINH2 computes the inverse hyperbolic sine\n";
-  cout << "  of a given value.\n";
-  cout << "\n";
-  cout << "         X     ASINH2(X)     SINH(ASINH2(X))\n";
-  cout << "\n";
-
-  for ( i = 0; i <= 10; i++ )
-  {
-    x = 1.0 + ( ( double ) i ) / 5.0;
-    a = asinh2 ( x );
-    x2 = sinh ( a );
-
-    cout                   << "  "
-         << setw(10) << x  << "  "
-         << setw(10) << a  << "  "
-         << setw(10) << x2 << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test005 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST005 tests ATAN4.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    02 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double x;
-  double y;
-
-  cout << "\n";
-  cout << "TEST005\n";
-  cout << "  ATAN4 computes the arc-tangent given Y and X;\n";
-  cout << "  ATAN2 is the system version of this routine.\n";
-  cout << "\n";
-  cout << "     X         Y     ATAN2(Y,X)   ATAN4(Y,X)\n";
-  cout << "\n";
-
-  x = 1.0;
-  y = 0.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  x = 1.0;
-  y = 1.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  x = 0.0;
-  y = 1.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  x = -1.0;
-  y = 1.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  x = -1.0;
-  y = 0.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  x = - 1.0;
-  y = - 1.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  x =   0.0;
-  y = - 1.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  x =   1.0;
-  y = - 1.0;
-  cout << setw(10) << x << "  "
-       << setw(10) << y << "  "
-       << setw(10) << atan2 ( y, x ) << "  "
-       << setw(10) << atan4 ( y, x ) << "\n";
-
-  return;
-}
-//****************************************************************************80
-
-void test006 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST006 tests ATANH2.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    02 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double a;
-  int i;
-  double x;
-  double x2;
-
-  cout << "\n";
-  cout << "TEST006\n";
-  cout << "  ATANH2 computes the inverse hyperbolic tangent\n";
-  cout << "  of a given value.\n";
-  cout << "\n";
-  cout << "         X     ATANH2(X)     TANH(ATANH2(X))\n";
-  cout << "\n";
-
-  for ( i = -2; i <= 9; i++ )
-  {
-    x = ( ( double ) i ) / 10.0;
-    a = atanh2 ( x );
-    x2 = tanh ( a );
-
-    cout                   << "  "
-         << setw(10) << x  << "  "
-         << setw(10) << a  << "  "
-         << setw(10) << x2 << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test007 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST007 tests BELL and BELL_VALUES.
+//    BELL_TEST tests BELL.
 //
 //  Licensing:
 //
@@ -741,9 +440,8 @@ void test007 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST007\n";
+  cout << "BELL_TEST\n";
   cout << "  BELL computes Bell numbers.\n";
-  cout << "  BELL_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  N  exact C(I)  computed C(I)\n";
   cout << "\n";
@@ -752,7 +450,7 @@ void test007 ( )
 
   for ( ; ; )
   {
-    bell_values ( &n_data, &n, &c );
+    bell_values ( n_data, n, c );
 
     if ( n_data == 0 )
     {
@@ -776,13 +474,13 @@ void test007 ( )
 }
 //****************************************************************************80
 
-void test008 ( )
+void benford_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST008 tests BENFORD.
+//    BENFORD_TEST tests BENFORD.
 //
 //  Licensing:
 //
@@ -800,7 +498,7 @@ void test008 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST008\n";
+  cout << "BENFORD_TEST\n";
   cout << "  BENFORD(I) is the Benford probability of the\n";
   cout << "  initial digit sequence I.\n";
   cout << "\n";
@@ -818,13 +516,13 @@ void test008 ( )
 }
 //****************************************************************************80
 
-void test010 ( )
+void bernoulli_number_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST010 tests BERNOULLI_NUMBER and BERNOULLI_NUMBER_VALUES.
+//    BERNOULLI_NUMBER_TEST tests BERNOULLI_NUMBER.
 //
 //  Licensing:
 //
@@ -845,9 +543,9 @@ void test010 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST010\n";
+  cout << "BERNOULLI_NUMBER_TEST\n";
   cout << "  BERNOULLI_NUMBER computes Bernoulli numbers;\n";
-  cout << "  BERNOULLI_NUMBER_VALUES returns some exact values.\n";
+
   cout << "\n";
   cout << "   I      Exact     BERNOULLI_NUMBER\n";
   cout << "\n";
@@ -856,7 +554,7 @@ void test010 ( )
 
   for ( ; ; )
   {
-    bernoulli_number_values ( &n_data, &n, &c0 );
+    bernoulli_number_values ( n_data, n, c0 );
 
     if ( n_data == 0 )
     {
@@ -875,13 +573,13 @@ void test010 ( )
 }
 //****************************************************************************80
 
-void test0102 ( )
+void bernoulli_number2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0102 tests BERNOULLI_NUMBER2 and BERNOULLI_NUMBER_VALUES.
+//    BERNOULLI_NUMBER2_TEST tests BERNOULLI_NUMBER2.
 //
 //  Licensing:
 //
@@ -902,9 +600,8 @@ void test0102 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0102\n";
+  cout << "BERNOULLI_NUMBER2_TEST\n";
   cout << "  BERNOULLI_NUMBER2 computes Bernoulli numbers;\n";
-  cout << "  BERNOULLI_NUMBER_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "   I      Exact     BERNOULLI_NUMBER2\n";
   cout << "\n";
@@ -913,7 +610,7 @@ void test0102 ( )
 
   for ( ; ; )
   {
-    bernoulli_number_values ( &n_data, &n, &c0 );
+    bernoulli_number_values ( n_data, n, c0 );
 
     if ( n_data == 0 )
     {
@@ -932,13 +629,13 @@ void test0102 ( )
 }
 //****************************************************************************80
 
-void test0104 ( )
+void bernoulli_number3_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0104 tests BERNOULLI_NUMBER3 and BERNOULLI_NUMBER_VALUES.
+//    BERNOULLI_NUMBER3_TEST tests BERNOULLI_NUMBER3.
 //
 //  Licensing:
 //
@@ -959,9 +656,8 @@ void test0104 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0104\n";
+  cout << "BERNOULLI_NUMBER3_TEST\n";
   cout << "  BERNOULLI_NUMBER3 computes Bernoulli numbers.\n";
-  cout << "  BERNOULLI_NUMBER_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "   I      Exact     BERNOULLI_NUMBER3\n";
   cout << "\n";
@@ -970,7 +666,7 @@ void test0104 ( )
 
   for ( ; ; )
   {
-    bernoulli_number_values ( &n_data, &n, &c0 );
+    bernoulli_number_values ( n_data, n, c0 );
 
     if ( n_data == 0 )
     {
@@ -990,13 +686,13 @@ void test0104 ( )
 }
 //****************************************************************************80
 
-void test011 ( )
+void bernoulli_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST011 tests BERNOULLI_POLY;
+//    BERNOULLI_POLY_TEST tests BERNOULLI_POLY;
 //
 //  Licensing:
 //
@@ -1019,7 +715,7 @@ void test011 ( )
   x = 0.2;
 
   cout << "\n";
-  cout << "TEST011\n";
+  cout << "BERNOULLI_POLY_TEST\n";
   cout << "  BERNOULLI_POLY evaluates Bernoulli polynomials;\n";
   cout << "\n";
   cout << "  X = " << x << "\n";
@@ -1040,13 +736,13 @@ void test011 ( )
 }
 //****************************************************************************80
 
-void test0115 ( )
+void bernoulli_poly2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0115 tests BERNOULLI_POLY2.
+//    BERNOULLI_POLY2_TEST tests BERNOULLI_POLY2.
 //
 //  Licensing:
 //
@@ -1069,7 +765,7 @@ void test0115 ( )
   x = 0.2;
  
   cout << "\n";
-  cout << "TEST0115\n";
+  cout << "BERNOULLI_POLY2_TEST\n";
   cout << "  BERNOULLI_POLY2 evaluates Bernoulli polynomials.\n";
   cout << "\n";
   cout << "  X = " << x << "\n";
@@ -1090,13 +786,13 @@ void test0115 ( )
 }
 //****************************************************************************80
 
-void test012 ( )
+void bernstein_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST012 tests BETA and BETA_VALUES.
+//    BERNSTEIN_POLY_TEST tests BERNSTEIN_POLY.
 //
 //  Licensing:
 //
@@ -1104,66 +800,7 @@ void test012 ( )
 //
 //  Modified:
 //
-//    02 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double fxy;
-  double fxy2;
-  int n_data;
-  double x;
-  double y;
-
-  cout << "\n";
-  cout << "TEST012:\n";
-  cout << "  BETA evaluates the Beta function.\n";
-  cout << "  BETA_VALUES returns some exact values.\n";
-  cout << "\n";
-  cout << "     X      Y        Exact F       BETA(X,Y)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    beta_values ( &n_data, &x, &y, &fxy );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    fxy2 = beta ( x, y );
-
-    cout                     << "  "
-         << setw(10) << x    << "  "
-         << setw(10) << y    << "  "
-         << setw(10) << fxy  << "  "
-         << setw(10) << fxy2 << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test013 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST013 tests BERNSTEIN_POLY and BERNSTEIN_POLY_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    02 June 2007
+//    27 February 2015
 //
 //  Author:
 //
@@ -1178,9 +815,8 @@ void test013 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST013:\n";
+  cout << "BERNSTEIN_POLY_TEST:\n";
   cout << "  BERNSTEIN_POLY evaluates the Bernstein polynomials.\n";
-  cout << "  BERNSTEIN_POLY_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "   N   K   X   Exact   B(N,K)(X)\n";
   cout << "\n";
@@ -1189,7 +825,7 @@ void test013 ( )
 
   for ( ; ; )
   {
-    bernstein_poly_values ( &n_data, &n, &k, &x, &b );
+    bernstein_poly_values ( n_data, n, k, x, b );
 
     if ( n_data == 0 )
     {
@@ -1209,13 +845,13 @@ void test013 ( )
 }
 //****************************************************************************80
 
-void test014 ( )
+void bpab_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST014 tests BPAB.
+//    BPAB_TEST tests BPAB.
 //
 //  Licensing:
 //
@@ -1239,7 +875,7 @@ void test014 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST014\n";
+  cout << "BPAB_TEST\n";
   cout << "  BPAB evaluates Bernstein polynomials.\n";
   cout << "\n";
 
@@ -1266,13 +902,82 @@ void test014 ( )
 }
 //****************************************************************************80
 
-void test015 ( )
+void cardan_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST015 tests CARDAN and CARDAN_POLY_COEF.
+//    CARDAN_POLY_TEST tests CARDAN_POLY.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 June 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N_MAX 10
+
+  double c[N_MAX+1];
+  double cx1;
+  double *cx2;
+  int i;
+  int n;
+  double s;
+  double x;
+
+  cout << "\n";
+  cout << "CARDAN_POLY_TEST\n";
+  cout << "  CARDAN_POLY evaluates a Cardan polynomial directly.\n";
+  cout << "\n";
+
+  n = N_MAX;
+  x = 0.25;
+  s = 0.5;
+
+  cout << "\n";
+  cout << "  Compare CARDAN_POLY_COEF + R8POLY_VALUE_HORNER\n";
+  cout << "  versus CARDAN_POLY alone.\n";
+  cout << "\n";
+  cout << "  Evaluate polynomials at X = " << x << "\n";
+  cout << "  We use the parameter S = " << s << "\n";
+  cout << "\n";
+  cout << "  Order       Horner          Direct\n";
+  cout << "\n";
+
+  cx2 = cardan_poly ( n, x, s );
+
+  for ( n = 0; n <= N_MAX; n++ )
+  {
+    cardan_poly_coef ( n, s, c );
+
+    cx1 = r8poly_value_horner ( n, c, x );
+
+    cout << "  " << setw(2)  << n
+         << "  " << setw(14) << cx1
+         << "  " << setw(14) << cx2[n] << "\n";
+  }
+  delete [] cx2;
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void cardan_poly_coef_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CARDAN_POLY_COEF_TEST tests CARDAN_POLY_COEF.
 //
 //  Licensing:
 //
@@ -1300,10 +1005,9 @@ void test015 ( )
   s = 1.0;
 
   cout << "\n";
-  cout << "TEST015\n";
+  cout << "CARDAN_POLY_COEF_TEST\n";
   cout << "  CARDAN_POLY_COEF returns the coefficients of a\n";
   cout << "  Cardan polynomial.\n";
-  cout << "  CARDAN evaluates a Cardan polynomial directly.\n";
   cout << "\n";
   cout << "  We use the parameter S = " << s << "\n";
   cout << "\n";
@@ -1322,45 +1026,131 @@ void test015 ( )
     cout << "\n";
   }
 
-  s = 0.5;
-  x = 0.25;
-
-  cout << "\n";
-  cout << "  Compare CARDAN_POLY_COEF + R8POLY_VAL_HORNER\n";
-  cout << "  versus CARDAN alone.\n";
-  cout << "\n";
-  cout << "  Evaluate polynomials at X = " << x << "\n";
-  cout << "  We use the parameter S = " << s << "\n";
-  cout << "\n";
-  cout << "  Order       Horner          Direct\n";
-  cout << "\n";
-
-  cx2 = cardan ( n, x, s );
-
-  for ( n = 0; n <= N_MAX; n++ )
-  {
-    cardan_poly_coef ( n, s, c );
-
-    cx1 = r8poly_value ( n + 1, c, x );
-
-    cout << "  " << setw(2)  << n
-         << "  " << setw(14) << cx1
-         << "  " << setw(14) << cx2[n] << "\n";
-  }
-  delete [] cx2;
-
   return;
 # undef N_MAX
 }
 //****************************************************************************80
 
-void test016 ( )
+void cardinal_cos_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST016 tests CATALAN and CATALAN_VALUES.
+//    CARDINAL_COS_TEST tests CARDINAL_COS.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *c;
+  int i;
+  int j;
+  int m = 11;
+  const double r8_pi = 3.141592653589793;
+  double *t;
+
+  cout << "\n";
+  cout << "CARDINAL_COS_TEST\n";
+  cout << "  CARDINAL_COS evaluates cardinal cosine functions.\n";
+  cout << "  Ci(Tj) = Delta(i,j), where Tj = cos(pi*i/(n+1)).\n";
+  cout << "  A simple check of all pairs should form the identity matrix.\n";
+
+  cout << "\n";
+  cout << "  The CARDINAL_COS test matrix:\n";
+  cout << "\n";
+
+  t = r8vec_linspace_new ( m + 2, 0.0, r8_pi );
+
+  for ( j = 0; j <= m + 1; j++ )
+  {
+    c = cardinal_cos ( j, m, m + 2, t );
+    for ( i = 0; i <= m + 1; i++ )
+    {
+      cout << "  " << setw(4) << c[i];
+    }
+    cout << "\n";
+    delete [] c;
+  }
+
+  delete [] t;
+
+  return;
+}
+//****************************************************************************80
+
+void cardinal_sin_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CARDINAL_SIN_TEST tests CARDINAL_SIN.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int j;
+  int m = 11;
+  const double r8_pi = 3.141592653589793;
+  double *s;
+  double *t;
+
+  cout << "\n";
+  cout << "CARDINAL_SIN_TEST\n";
+  cout << "  CARDINAL_SIN evaluates cardinal sine functions.\n";
+  cout << "  Si(Tj) = Delta(i,j), where Tj = cos(pi*i/(n+1)).\n";
+  cout << "  A simple check of all pairs should form the identity matrix.\n";
+
+  t = r8vec_linspace_new ( m + 2, 0.0, r8_pi );
+
+  cout << "\n";
+  cout << "  The CARDINAL_SIN test matrix:\n";
+  cout << "\n";
+  for ( j = 0; j <= m + 1; j++ )
+  {
+    s = cardinal_sin ( j, m, m + 2, t );
+    for ( i = 0; i <= m + 1; i++ )
+    {
+      cout << "  " << setw(4) << s[i];
+    }
+    cout << "\n";
+    delete [] s;
+  }
+
+  delete [] t;
+
+  return;
+}
+//****************************************************************************80
+
+void catalan_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CATALAN_TEST tests CATALAN.
 //
 //  Licensing:
 //
@@ -1381,9 +1171,8 @@ void test016 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST016\n";
+  cout << "CATALAN_TEST\n";
   cout << "  CATALAN computes Catalan numbers.\n";
-  cout << "  CATALAN_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  N  exact C(I)  computed C(I)\n";
   cout << "\n";
@@ -1414,13 +1203,13 @@ void test016 ( )
 }
 //****************************************************************************80
 
-void test017 ( )
+void catalan_row_next_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST017 tests CATALAN_ROW_NEXT.
+//    CATALAN_ROW_NEXT_TEST tests CATALAN_ROW_NEXT.
 //
 //  Licensing:
 //
@@ -1443,7 +1232,7 @@ void test017 ( )
   bool next;
 
   cout << "\n";
-  cout << "TEST017\n";
+  cout << "CATALAN_ROW_NEXT_TEST\n";
   cout << "  CATALAN_ROW_NEXT computes a row of Catalan''s triangle.\n";
   cout << "\n";
   cout << "  First, compute row 7:\n";
@@ -1485,13 +1274,13 @@ void test017 ( )
 }
 //****************************************************************************80
 
-void test0175 ( )
+void charlier_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0175 tests CHARLIER.
+//    CHARLIER_TEST tests CHARLIER.
 //
 //  Licensing:
 //
@@ -1519,7 +1308,7 @@ void test0175 ( )
   double value[N+1];
 
   cout << "\n";
-  cout << "TEST0175:\n";
+  cout << "CHARLIER_TEST:\n";
   cout << "  CHARLIER evaluates Charlier polynomials.\n";
   cout << "\n";
   cout << "       N      A         X        P(N,A,X)\n";
@@ -1556,13 +1345,13 @@ void test0175 ( )
 }
 //****************************************************************************80
 
-void test018 ( )
+void cheby_t_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST018 tests CHEBY_T_POLY and CHEBY_T_POLY_VALUES.
+//    CHEBY_T_POLY_TEST tests CHEBY_T_POLY.
 //
 //  Licensing:
 //
@@ -1587,9 +1376,8 @@ void test018 ( )
   double x_vec[1];
 
   cout << "\n";
-  cout << "TEST018:\n";
+  cout << "CHEBY_T_POLY_TEST:\n";
   cout << "  CHEBY_T_POLY evaluates the Chebyshev T polynomial.\n";
-  cout << "  CHEBY_T_POLY_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N      X        Exact F       T(N)(X)\n";
   cout << "\n";
@@ -1622,13 +1410,13 @@ void test018 ( )
 }
 //****************************************************************************80
 
-void test0185 ( )
+void cheby_t_poly_zero_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0185 tests CHEBY_T_POLY_ZERO.
+//    CHEBY_T_POLY_ZERO_TEST tests CHEBY_T_POLY_ZERO.
 //
 //  Licensing:
 //
@@ -1651,7 +1439,7 @@ void test0185 ( )
   double *z;
 
   cout << "\n";
-  cout << "TEST0185:\n";
+  cout << "CHEBY_T_POLY_ZERO_TEST:\n";
   cout << "  CHEBY_T_POLY_ZERO returns zeroes of T(N,X).\n";
   cout << "\n";
   cout << "       N      X        T(N,X)\n";
@@ -1677,13 +1465,13 @@ void test0185 ( )
 }
 //****************************************************************************80
 
-void test019 ( )
+void cheby_t_poly_coef_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST019 tests CHEBY_T_POLY_COEF.
+//    CHEBY_T_POLY_COEF_TEST tests CHEBY_T_POLY_COEF.
 //
 //  Licensing:
 //
@@ -1704,7 +1492,7 @@ void test019 ( )
   int n = 5;
 
   cout << "\n";
-  cout << "TEST019\n";
+  cout << "CHEBY_T_POLY_COEF_TEST\n";
   cout << "  CHEBY_T_POLY_COEF determines the  polynomial coefficients\n";
   cout << "  of the Chebyshev polynomial T(n,x).\n";
 
@@ -1741,13 +1529,13 @@ void test019 ( )
 }
 //****************************************************************************80
 
-void test020 ( )
+void cheby_u_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST020 tests CHEBY_U_POLY and CHEBY_U_POLY_VALUES.
+//    CHEBY_U_POLY_TEST tests CHEBY_U_POLY.
 //
 //  Licensing:
 //
@@ -1755,7 +1543,7 @@ void test020 ( )
 //
 //  Modified:
 //
-//    21 April 2012
+//    10 January 2015
 //
 //  Author:
 //
@@ -1765,15 +1553,15 @@ void test020 ( )
 # define N_MAX 12
 
   double fx;
-  double fx2[N_MAX+1];
+  double *fx2;
   int n;
   int n_data;
   double x;
+  double x_vec[1];
 
   cout << "\n";
-  cout << "TEST020:\n";
+  cout << "CHEBY_U_POLY_TEST:\n";
   cout << "  CHEBY_U_POLY evaluates the Chebyshev U polynomial.\n";
-  cout << "  CHEBY_U_POLY_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N      X        Exact F       U(N)(X)\n";
   cout << "\n";
@@ -1789,12 +1577,15 @@ void test020 ( )
       break;
     }
 
-    cheby_u_poly ( n, x, fx2 );
+    x_vec[0] = x;
+    fx2 = cheby_u_poly ( 1, n, x_vec );
 
     cout << "  " << setw(8)  << n
          << "  " << setw(8)  << x
          << "  " << setw(14) << fx
          << "  " << setw(14) << fx2[n] << "\n";
+
+    delete [] fx2;
 
   }
 
@@ -1803,13 +1594,13 @@ void test020 ( )
 }
 //****************************************************************************80
 
-void test021 ( )
+void cheby_u_poly_coef_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST021 tests CHEBY_U_POLY_COEF.
+//    CHEBY_U_POLY_COEF_TEST tests CHEBY_U_POLY_COEF.
 //
 //  Licensing:
 //
@@ -1831,7 +1622,7 @@ void test021 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST021\n";
+  cout << "CHEBY_U_POLY_COEF_TEST\n";
   cout << "  CHEBY_U_POLY_COEF determines the polynomial coefficients\n";
   cout << "  of the Chebyshev polynomial U(n,x).\n";
 
@@ -1867,13 +1658,13 @@ void test021 ( )
 }
 //****************************************************************************80
 
-void test0215 ( )
+void cheby_u_poly_zero_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0215 tests CHEBY_U_POLY_ZERO.
+//    CHEBY_U_POLY_ZERO_TEST tests CHEBY_U_POLY_ZERO.
 //
 //  Licensing:
 //
@@ -1881,7 +1672,7 @@ void test0215 ( )
 //
 //  Modified:
 //
-//    18 March 2009
+//    15 January 2015
 //
 //  Author:
 //
@@ -1890,31 +1681,30 @@ void test0215 ( )
 {
 # define N_MAX 4
 
-  double fx[N_MAX+1];
+  double *fx;
   int i;
   int n;
   double *z;
 
   cout << "\n";
-  cout << "TEST0215:\n";
-  cout << "  CHEBY_U_POLY_ZERO returns zeroes of U(N)(X).\n";
+  cout << "CHEBY_U_POLY_ZERO_TEST:\n";
+  cout << "  CHEBY_U_POLY_ZERO returns zeroes of U(N,X).\n";
   cout << "\n";
-  cout << "       N      X        U(N)(X)\n";
+  cout << "       N      X        U(N,X)\n";
   cout << "\n";
 
   for ( n = 1; n <= N_MAX; n++ )
   {
     z = cheby_u_poly_zero ( n );
-
+    fx = cheby_u_poly ( n, n, z );
     for ( i = 0; i < n; i++ )
     {
-      cheby_u_poly ( n, z[i], fx );
-
       cout << "  " << setw(8) << n
            << "  " << setw(8) << z[i]
-           << "  " << setw(14) << fx[n] << "\n";
+           << "  " << setw(14) << fx[i+n*n] << "\n";
     }
     cout << "\n";
+    delete [] fx;
     delete [] z;
   }
 
@@ -1923,13 +1713,13 @@ void test0215 ( )
 }
 //****************************************************************************80
 
-void test0216 ( )
+void chebyshev_discrete_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0216 tests CHEBYSHEV_DISCRETE.
+//    CHEBYSHEV_DISCRETE_TEST tests CHEBYSHEV_DISCRETE.
 //
 //  Licensing:
 //
@@ -1955,7 +1745,7 @@ void test0216 ( )
   double value[N+1];
 
   cout << "\n";
-  cout << "TEST0216:\n";
+  cout << "CHEBYSHEV_DISCRETE_TEST:\n";
   cout << "  CHEBYSHEV_DISCRETE evaluates discrete Chebyshev polynomials.\n";
   cout << "\n";
   cout << "       N      M         X        T(N,M,X)\n";
@@ -1985,13 +1775,13 @@ void test0216 ( )
 }
 //****************************************************************************80
 
-void test0217 ( )
+void collatz_count_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0217 tests COLLATZ_COUNT and COLLATZ_COUNT_VALUES.
+//    COLLATZ_COUNT_TEST tests COLLATZ_COUNT.
 //
 //  Licensing:
 //
@@ -2012,7 +1802,7 @@ void test0217 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0217:\n";
+  cout << "COLLATZ_COUNT_TEST:\n";
   cout << "  COLLATZ_COUNT(N) counts the length of the\n";
   cout << "  Collatz sequence beginning with N.\n";
   cout << "\n";
@@ -2042,13 +1832,13 @@ void test0217 ( )
 }
 //****************************************************************************80
 
-void test0218 ( )
+void collatz_count_max_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0218 tests COLLATZ_COUNT_MAX.
+//    COLLATZ_COUNT_MAX_TEST tests COLLATZ_COUNT_MAX.
 //
 //  Licensing:
 //
@@ -2068,7 +1858,7 @@ void test0218 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST0218:\n";
+  cout << "COLLATZ_COUNT_MAX_TEST:\n";
   cout << "  COLLATZ_COUNT_MAX(N) returns the length of the\n";
   cout << "  longest Collatz sequence from 1 to N.\n";
   cout << "\n";
@@ -2092,13 +1882,13 @@ void test0218 ( )
 }
 //****************************************************************************80
 
-void test024 ( )
+void comb_row_next_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST024 tests COMB_ROW.
+//    COMB_ROW_NEXT_TEST tests COMB_ROW_NEXT.
 //
 //  Licensing:
 //
@@ -2106,52 +1896,184 @@ void test024 ( )
 //
 //  Modified:
 //
-//    23 May 2007
+//    25 December 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define N 10
+# define N_MAX 10
 
-  int c[N+1];
+  int c[N_MAX+1];
   int i;
-  int j;
-  bool next;
+  int n;
 
   cout << "\n";
-  cout << "TEST024\n";
-  cout << "  COMB_ROW computes a row of Pascal's triangle.\n";
+  cout << "COMB_ROW_NEXT_TEST\n";
+  cout << "  COMB_ROW_NEXT computes the next row of Pascal's triangle.\n";
   cout << "\n";
 
-  next = false;
-
-  for ( i = 0; i <= N; i++ )
+  for ( n = 0; n <= N_MAX; n++ )
   {
-    comb_row ( next, i, c );
-    next = true;
-    cout                 << "  "
-         << setw(2) << i << "  ";
-    for ( j = 0; j <= i; j++ )
+    comb_row_next ( n, c );
+    cout << "  " << setw(2) << n << "  ";
+    for ( i = 0; i <= n; i++ )
     {
-      cout << setw(5) << c[j];
+      cout << setw(5) << c[i];
     }
     cout << "\n";
   }
 
   return;
-# undef N
+# undef N_MAX
 }
 //****************************************************************************80
 
-void test0243 ( )
+void commul_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0243 tests COS_POWER_INT and COS_POWER_INT_VALUES.
+//    COMMUL_TEST tests COMMUL.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 November 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n;
+  int factor[4];
+  int i;
+  int ncomb;
+  int nfactor;
+
+  cout << "\n";
+  cout << "COMMUL_TEST\n";
+  cout << "  COMMUL computes a multinomial coefficient.\n";
+  cout << "\n";
+
+  n = 8;
+  nfactor = 2;
+  factor[0] = 6;
+  factor[1] = 2;
+  ncomb = commul ( n, nfactor, factor );
+  cout << "\n";
+  cout << "  N = " << n << "\n";
+  cout << "  Number of factors = " << factor << "\n";
+  for ( i = 0; i < nfactor; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(8) << factor[i] << "\n";
+  }
+  cout << "  Value of coefficient = " << ncomb << "\n";
+
+  n = 8;
+  nfactor = 3;
+  factor[0] = 2;
+  factor[1] = 2;
+  factor[2] = 4;
+  cout << "\n";
+  cout << "  N = " << n << "\n";
+  cout << "  Number of factors = " << factor << "\n";
+  for ( i = 0; i < nfactor; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(8) << factor[i] << "\n";
+  }
+  cout << "  Value of coefficient = " << ncomb << "\n";
+
+  n = 13;
+  nfactor = 4;
+  factor[0] = 5;
+  factor[1] = 3;
+  factor[2] = 3;
+  factor[3] = 2;
+  ncomb = commul ( n, nfactor, factor );
+  cout << "\n";
+  cout << "  N = " << n << "\n";
+  cout << "  Number of factors = " << factor << "\n";
+  for ( i = 0; i < nfactor; i++ )
+  {
+    cout << "  " << setw(2) << i
+         << "  " << setw(8) << factor[i] << "\n";
+  }
+  cout << "  Value of coefficient = " << ncomb << "\n";
+
+  return;
+}
+//****************************************************************************80
+
+void complete_symmetric_poly_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    COMPLETE_SYMMETRIC_POLY_TEST tests COMPLETE_SYMMETRIC_POLY.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    04 November 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n = 5;
+  int nn;
+  int r;
+  int rr;
+  double value;
+  double x[5] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
+
+  cout << "\n";
+  cout << "COMPLETE_SYMMETRIC_POLY_TEST\n";
+  cout << "  COMPLETE_SYMMETRIC_POLY evaluates a complete symmetric.\n";
+  cout << "  polynomial in a given set of variables X.\n";
+ 
+  r8vec_print ( n, x, "  Variable vector X:" );
+
+  cout << "\n";
+  cout << "   N\\R     0       1       2       3       4       5\n";
+  cout << "\n";
+
+  for ( nn = 0; nn <= n; nn++ )
+  {
+    cout << "  " << setw(2) <<  nn;
+    for ( rr = 0; rr <= 5; rr++ )
+    {
+      value = complete_symmetric_poly ( nn, rr, x );
+      cout << "  " << setw(6) << value;
+    }
+    cout << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void cos_power_int_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    COS_POWER_INT_TEST tests COS_POWER_INT.
 //
 //  Licensing:
 //
@@ -2174,10 +2096,9 @@ void test0243 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0243:\n";
+  cout << "COS_POWER_INT_TEST:\n";
   cout << "  COS_POWER_INT computes the integral of the N-th power\n";
   cout << "  of the cosine function.\n";
-  cout << "  COS_POWER_INT_VALUES returns selected values.\n";
   cout << "\n";
   cout << "         A         B       N        Exact    Computed\n";
   cout << "\n";
@@ -2206,185 +2127,13 @@ void test0243 ( )
 }
 //****************************************************************************80
 
-void test0245 ( )
+void euler_number_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0245 tests R8_FACTORIAL and R8_FACTORIAL_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double fn;
-  double fn2;
-  int n;
-  int n_data;
-
-  cout << "\n";
-  cout << "TEST0245:\n";
-  cout << "  R8_FACTORIAL evaluates the factorial function.\n";
-  cout << "  R8_FACTORIAL_VALUES returns some exact values.\n";
-  cout << "\n";
-  cout << "     N       Exact F       R8_FACTORIAL(N)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    r8_factorial_values ( &n_data, &n, &fn );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    fn2 = r8_factorial ( n );
-
-    cout                    << "  "
-         << setw(4)  << n   << "  "
-         << setw(14) << fn  << "  "
-         << setw(14) << fn2 << "\n";
-
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test025 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST025 tests ERROR_F and ERF_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double fx;
-  double fx2;
-  int n_data;
-  double x;
-
-  cout << "\n";
-  cout << "TEST025:\n";
-  cout << "  ERROR_F evaluates the error function.\n";
-  cout << "  ERF_VALUES returns some exact values.\n";
-  cout << "\n";
-  cout << "     X      Exact F       ERF(X)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    erf_values ( &n_data, &x, &fx );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    fx2 = error_f ( x );
-
-    cout                    << "  "
-         << setw(8)  << x   << "  "
-         << setw(14) << fx  << "  "
-         << setw(14) << fx2 << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test0255 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST0255 tests ERROR_F_INVERSE and ERF_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    05 August 2010
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double fx;
-  int n_data;
-  double x1;
-  double x2;
-
-  cout << "\n";
-  cout << "TEST0255:\n";
-  cout << "  ERROR_F_INVERSE inverts the error function.\n";
-  cout << "  ERF_VALUES returns some exact values.\n";
-  cout << "\n";
-  cout << "    FX           X1           X2\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    erf_values ( &n_data, &x1, &fx );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    x2 = error_f_inverse ( fx );
-
-    cout                   << "  "
-         << setw(8)  << fx << "  "
-         << setw(14) << x1 << "  "
-         << setw(14) << x2 << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test026 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST026 tests EULER_NUMBER and EULER_NUMBER_VALUES.
+//    EULER_NUMBER_TEST tests EULER_NUMBER.
 //
 //  Licensing:
 //
@@ -2405,9 +2154,8 @@ void test026 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST026\n";
+  cout << "EULER_NUMBER_TEST\n";
   cout << "  EULER_NUMBER computes Euler numbers.\n";
-  cout << "  EULER_NUMBER_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  N  exact   EULER_NUMBER\n";
   cout << "\n";
@@ -2436,13 +2184,13 @@ void test026 ( )
 }
 //****************************************************************************80
 
-void test0265 ( )
+void euler_number2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0265 tests EULER_NUMBER2 and EULER_NUMBER_VALUES.
+//    EULER_NUMBER2_TEST tests EULER_NUMBER2.
 //
 //  Licensing:
 //
@@ -2463,9 +2211,8 @@ void test0265 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0265\n";
+  cout << "EULER_NUMBER2_TEST\n";
   cout << "  EULER_NUMBER2 computes Euler numbers.\n";
-  cout << "  EULER_NUMBER_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  N  exact   EULER_NUMBER2\n";
   cout << "\n";
@@ -2494,13 +2241,13 @@ void test0265 ( )
 }
 //****************************************************************************80
 
-void test028 ( )
+void euler_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST028 tests EULER_POLY.
+//    EULER_POLY_TEST tests EULER_POLY.
 //
 //  Licensing:
 //
@@ -2523,7 +2270,7 @@ void test028 ( )
   x = 0.5;
  
   cout << "\n";
-  cout << "TEST028\n";
+  cout << "EULER_POLY_TEST\n";
   cout << "  EULER_POLY evaluates Euler polynomials.\n";
   cout << "\n";
   cout << "  N         X              F(X)\n";
@@ -2543,13 +2290,13 @@ void test028 ( )
 }
 //****************************************************************************80
 
-void test027 ( )
+void eulerian_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST027 tests EULERIAN.
+//    EULERIAN_TEST tests EULERIAN.
 //
 //  Licensing:
 //
@@ -2571,7 +2318,7 @@ void test027 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST027\n";
+  cout << "EULERIAN_TEST\n";
   cout << "  EULERIAN evaluates Eulerian numbers.\n";
   cout << "\n";
  
@@ -2591,13 +2338,13 @@ void test027 ( )
 }
 //****************************************************************************80
 
-void test029 ( )
+void f_hofstadter_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST029 tests F_HOFSTADTER.
+//    F_HOFSTADTER_TEST tests F_HOFSTADTER.
 //
 //  Licensing:
 //
@@ -2616,7 +2363,7 @@ void test029 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST029\n";
+  cout << "F_HOFSTADTER_TEST\n";
   cout << "  F_HOFSTADTER evaluates Hofstadter's recursive\n";
   cout << "  F function.\n";
   cout << "\n";
@@ -2636,13 +2383,13 @@ void test029 ( )
 }
 //****************************************************************************80
 
-void test031 ( )
+void fibonacci_direct_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST031 tests FIBONACCI_DIRECT.
+//    FIBONACCI_DIRECT_TEST tests FIBONACCI_DIRECT.
 //
 //  Licensing:
 //
@@ -2662,7 +2409,7 @@ void test031 ( )
   int n = 20;
 
   cout << "\n";
-  cout << "TEST031\n";
+  cout << "FIBONACCI_DIRECT_TEST\n";
   cout << "  FIBONACCI_DIRECT evalutes a Fibonacci number directly.\n";
   cout << "\n";
   
@@ -2679,13 +2426,13 @@ void test031 ( )
 }
 //****************************************************************************80
 
-void test032 ( )
+void fibonacci_floor_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST032 tests FIBONACCI_FLOOR.
+//    FIBONACCI_FLOOR_TEST tests FIBONACCI_FLOOR.
 //
 //  Licensing:
 //
@@ -2705,7 +2452,7 @@ void test032 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST032\n";
+  cout << "FIBONACCI_FLOOR_TEST\n";
   cout << "  FIBONACCI_FLOOR computes the largest Fibonacci number\n";
   cout << "  less than or equal to a given positive integer.\n";
   cout << "\n";
@@ -2726,13 +2473,13 @@ void test032 ( )
 }
 //****************************************************************************80
 
-void test033 ( )
+void fibonacci_recursive_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST033 tests FIBONACCI_RECURSIVE.
+//    FIBONACCI_RECURSIVE_TEST tests FIBONACCI_RECURSIVE.
 //
 //  Licensing:
 //
@@ -2753,7 +2500,7 @@ void test033 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST033\n";
+  cout << "FIBONACCI_RECURSIVE_TEST\n";
   cout << "  FIBONACCI_RECURSIVE computes the Fibonacci sequence.\n";
   cout << "\n";
  
@@ -2771,13 +2518,13 @@ void test033 ( )
 }
 //****************************************************************************80
 
-void test034 ( )
+void g_hofstadter_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST034 tests G_HOFSTADTER.
+//    G_HOFSTADTER_TEST tests G_HOFSTADTER.
 //
 //  Licensing:
 //
@@ -2795,7 +2542,7 @@ void test034 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST034\n";
+  cout << "G_HOFSTADTER_TEST\n";
   cout << "  G_HOFSTADTER evaluates Hofstadter's recursive\n";
   cout << "  G function.\n";
   cout << "\n";
@@ -2813,130 +2560,13 @@ void test034 ( )
 }
 //****************************************************************************80
 
-void test036 ( )
+void gegenbauer_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST036 tests R8_GAMMA_LOG and GAMMA_LOG_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double fx;
-  double fx2;
-  int n_data;
-  double x;
-
-  cout << "\n";
-  cout << "TEST036:\n";
-  cout << "  R8_GAMMA_LOG evaluates the logarithm of the Gamma function.\n";
-  cout << "  GAMMA_LOG_VALUES returns some exact values.\n";
-  cout << "\n";
-  cout << "     X       Exact F       R8_GAMMA_LOG(X)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    gamma_log_values ( &n_data, &x, &fx );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    fx2 = r8_gamma_log ( x );
-
-    cout                    << "  "
-         << setw(8)  << x   << "  "
-         << setw(10) << fx  << "  "
-         << setw(10) << fx2 << "\n";
-
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test0365 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST0365 tests LGAMMA and GAMMA_LOG_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double fx;
-  double fx2;
-  int n_data;
-  double x;
-
-  cout << "\n";
-  cout << "TEST0365:\n";
-  cout << "  LGAMMA is a C math library function which evaluates\n";
-  cout << "  the logarithm of the Gamma function.\n";
-  cout << "  GAMMA_LOG_VALUES returns some exact values.\n";
-  cout << "\n";
-  cout << "     X       Exact F       LGAMMA(X)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    gamma_log_values ( &n_data, &x, &fx );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    fx2 = lgamma ( x );
-
-    cout                    << "  "
-         << setw(8)  << x   << "  "
-         << setw(10) << fx  << "  "
-         << setw(10) << fx2 << "\n";
-
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test037 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST037 tests GEGENBAUER_POLY and GEGENBAUER_POLY_VALUES.
+//    GEGENBAUER_POLY_TEST tests GEGENBAUER_POLY.
 //
 //  Licensing:
 //
@@ -2960,10 +2590,8 @@ void test037 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST037\n";
+  cout << "GEGENBAUER_POLY_TEST\n";
   cout << "  GEGENBAUER_POLY evaluates the Gegenbauer polynomials.\n";
-  cout << "  GEGENBAUER_POLY_VALUES returns some exact values of\n";
-  cout << "  the Gegenbauer polynomials.\n";
   cout << "\n";
   cout << "        N       A       X       GPV      GEGENBAUER\n";
   cout << "\n";
@@ -2999,13 +2627,147 @@ void test037 ( )
 }
 //****************************************************************************80
 
-void test038 ( )
+void gen_hermite_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST038 tests GUD and GUD_VALUES.
+//    GEN_HERMITE_POLY_TEST tests GEN_HERMITE_POLY.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    10 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+# define N_TEST 6
+
+  double c[N+1];
+  int i;
+  int j;
+  double mu;
+  double mu_test[N_TEST] = { 0.0, 0.0, 0.1, 0.1, 0.5, 1.0 };
+  double x;
+  double x_test[N_TEST] = { 0.0, 1.0, 0.0, 0.5, 0.5, 0.5 };
+
+  cout << "\n";
+  cout << "GEN_HERMITE_POLY_TEST\n";
+  cout << "  GEN_HERMITE_POLY evaluates the generalized Hermite\n";
+  cout << "  polynomial.\n";
+
+  for ( i = 0; i < N_TEST; i++ )
+  {
+
+    x = x_test[i];
+    mu = mu_test[i];
+
+    cout << "\n";
+    cout << "  Table of H(N,MU)(X) for\n";
+    cout << "\n";
+    cout << "    N(max) = " << N << "\n";
+    cout << "    MU =     " << mu << "\n";
+    cout << "    X =      " << x << "\n";
+    cout << "\n";
+  
+    gen_hermite_poly ( N, x, mu, c );
+ 
+    for ( j = 0; j <= N; j++ )
+    {
+      cout                     << "  "
+           << setw(6)  << j    << "  "
+           << setw(14) << c[j] << "\n";
+    }
+  }
+ 
+  return;
+# undef N
+# undef N_TEST
+}
+//****************************************************************************80
+
+void gen_laguerre_poly_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    GEN_LAGUERRE_POLY_TEST tests GEN_LAGUERRE_POLY.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 May 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+# define N_TEST 6
+
+  double alpha;
+  double alpha_test[N_TEST] = { 0.0, 0.0, 0.1, 0.1, 0.5, 1.0 };
+  double c[N+1];
+  int i;
+  int j;
+  double x;
+  double x_test[N_TEST] = { 0.0, 1.0, 0.0, 0.5, 0.5, 0.5 };
+
+  cout << "\n";
+  cout << "GEN_LAGUERRE_POLY_TEST\n";
+  cout << "  GEN_LAGUERRE_POLY evaluates the generalized Laguerre\n";
+  cout << "  functions.\n";
+
+  for ( i = 0; i < N_TEST; i++ )
+  {
+
+    x = x_test[i];
+    alpha = alpha_test[i];
+
+    cout << "\n";
+    cout << "  Table of L(N,ALPHA)(X) for\n";
+    cout << "\n";
+    cout << "    N(max) = " << N << "\n";
+    cout << "    ALPHA =  " << alpha << "\n";
+    cout << "    X =      " << x << "\n";
+    cout << "\n";
+  
+    gen_laguerre_poly ( N, alpha, x, c );
+ 
+    for ( j = 0; j <= N; j++ )
+    {
+      cout                     << "  "
+           << setw(6)  << j    << "  "
+           << setw(14) << c[j] << "\n";
+    }
+  }
+ 
+  return;
+# undef N
+# undef N_TEST
+}
+//****************************************************************************80
+
+void gud_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    GUD_TEST tests GUD.
 //
 //  Licensing:
 //
@@ -3026,9 +2788,8 @@ void test038 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST038:\n";
+  cout << "GUD_TEST:\n";
   cout << "  GUD evaluates the Gudermannian function.\n";
-  cout << "  GUD_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     X      Exact F       GUD(X)\n";
   cout << "\n";
@@ -3056,13 +2817,13 @@ void test038 ( )
 }
 //****************************************************************************80
 
-void test039 ( )
+void hail_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST039 tests HAIL.
+//    HAIL_TEST tests HAIL.
 //
 //  Licensing:
 //
@@ -3080,7 +2841,7 @@ void test039 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST039\n";
+  cout << "HAIL_TEST\n";
   cout << "  HAIL(I) computes the length of the hail sequence\n";
   cout << "  for I, also known as the 3*N+1 sequence.\n";
   cout << "\n";
@@ -3098,13 +2859,13 @@ void test039 ( )
 }
 //****************************************************************************80
 
-void test040 ( )
+void h_hofstadter_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST040 tests H_HOFSTADTER.
+//    H_HOFSTADTER_TEST tests H_HOFSTADTER.
 //
 //  Licensing:
 //
@@ -3122,7 +2883,7 @@ void test040 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST040\n";
+  cout << "H_HOFSTADTER_TEST\n";
   cout << "  H_HOFSTADTER evaluates Hofstadter's recursive\n";
   cout << "  H function.\n";
 
@@ -3141,13 +2902,13 @@ void test040 ( )
 }
 //****************************************************************************80
 
-void test041 ( )
+void hermite_poly_phys_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST041 tests HERMITE_POLY and HERMITE_POLY_VALUES.
+//    HERMITE_POLY_PHYS_TEST tests HERMITE_POLY_PHYS.
 //
 //  Licensing:
 //
@@ -3171,9 +2932,8 @@ void test041 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST041:\n";
-  cout << "  HERMITE_POLY evaluates the Hermite polynomial.\n";
-  cout << "  HERMITE_POLY_VALUES returns some exact values.\n";
+  cout << "HERMITE_POLY_PHYS_TEST:\n";
+  cout << "  HERMITE_POLY_PHYS evaluates the physicist's Hermite polynomial.\n";
   cout << "\n";
   cout << "     N      X        Exact F       H(N)(X)\n";
   cout << "\n";
@@ -3182,14 +2942,14 @@ void test041 ( )
 
   for ( ; ; )
   {
-    hermite_poly_values ( &n_data, &n, &x, &fx );
+    hermite_poly_phys_values ( &n_data, &n, &x, &fx );
 
     if ( n_data == 0 )
     {
       break;
     }
 
-    hermite_poly ( n, x, fx2 );
+    hermite_poly_phys ( n, x, fx2 );
 
     cout                       << "  "
          << setw(8)  << n      << "  "
@@ -3203,13 +2963,13 @@ void test041 ( )
 }
 //****************************************************************************80
 
-void test042 ( )
+void hermite_poly_phys_coef_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST042 tests HERMITE_POLY_COEF.
+//    HERMITE_POLY_PHYS_COEF_TEST tests HERMITE_POLY_PHYS_COEF.
 //
 //  Licensing:
 //
@@ -3231,10 +2991,10 @@ void test042 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST042\n";
-  cout << "  HERMITE_POLY_COEF determines Hermite polynomial coefficients.\n";
+  cout << "HERMITE_POLY_PHYS_COEF_TEST\n";
+  cout << "  HERMITE_POLY_PHYS_COEF: physicist's Hermite polynomial coefficients.\n";
 
-  hermite_poly_coef ( N, c );
+  hermite_poly_phys_coef ( N, c );
  
   for ( i = 0; i <= N; i++ )
   {
@@ -3263,77 +3023,13 @@ void test042 ( )
 }
 //****************************************************************************80
 
-void test0425 ( )
+void i4_choose_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0425 tests R8_HYPER_2F1.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 February 2008
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double a;
-  double b;
-  double c;
-  double fx;
-  double fx2;
-  int n_data;
-  double x;
-
-  cout << "\n";
-  cout << " TEST0425:\n";
-  cout << "   R8_HYPER_2F1 evaluates the hypergeometric function 2F1.\n";
-  cout << "\n";
-  cout << "      A       B       C       X      ";
-  cout << " 2F1                       2F1                     DIFF\n";
-  cout << "                                     ";
-  cout << "(tabulated)               (computed)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    hyper_2f1_values ( &n_data, &a, &b, &c, &x, &fx );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    fx2 = r8_hyper_2f1 ( a, b, c, x );
-
-    cout << "  " << setw(6)  << setprecision(2)  << a
-         << "  " << setw(6)  << setprecision(2)  << b  
-         << "  " << setw(6)  << setprecision(2)  << c  
-         << "  " << setw(6)  << setprecision(2)  << x  
-         << "  " << setw(24) << setprecision(16) << fx
-         << "  " << setw(24) << setprecision(16) << fx2
-         << "  " << setw(10) << setprecision(4)  << r8_abs ( fx - fx2 ) << "\n";
-  }
-  return;
-}
-//****************************************************************************80
-
-void test023 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST023 tests I4_CHOOSE.
+//    I4_CHOOSE_TEST tests I4_CHOOSE.
 //
 //  Licensing:
 //
@@ -3353,7 +3049,7 @@ void test023 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST023\n";
+  cout << "I4_CHOOSE_TEST\n";
   cout << "  I4_CHOOSE evaluates C(N,K).\n";
   cout << "\n";
   cout << "   N     K    CNK\n";
@@ -3374,16 +3070,70 @@ void test023 ( )
 
   return;
 }
-
 //****************************************************************************80
 
-void test043 ( )
+void i4_factor_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST043 tests I4_FACTORIAL and I4_FACTORIAL_VALUES.
+//    I4_FACTOR_TEST tests I4_FACTOR.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int j;
+  int maxfactor = 10;
+  int n;
+  int n_test[3] = { 60, 664048, 8466763 };
+  int nfactor;
+  int nleft;
+  int factor[10];
+  int power[10];
+
+  cout << "\n";
+  cout << "I4_FACTOR_TEST:\n";
+  cout << "  I4_FACTOR tries to factor an I4\n";
+
+  for ( i = 0; i < 3; i++ )
+  {
+    n = n_test[i];
+    i4_factor ( n, maxfactor, nfactor, factor, power, nleft );
+    cout << "\n";
+    cout << "  Factors of N = " << n << "\n";
+    for ( j = 0; j < nfactor; j++ )
+    {
+      cout << "    " << factor[j] << "^" <<  power[j] << "\n";
+    }
+    if ( nleft != 1 )
+    {
+      cout << "  Unresolved factor NLEFT = " << nleft << "\n";
+    }
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void i4_factorial_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_FACTORIAL_TEST tests I4_FACTORIAL.
 //
 //  Licensing:
 //
@@ -3404,9 +3154,8 @@ void test043 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST043:\n";
+  cout << "I4_FACTORIAL_TEST:\n";
   cout << "  I4_FACTORIAL evaluates the factorial function.\n";
-  cout << "  I4_FACTORIAL_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     X       Exact F       I4_FACTORIAL(X)\n";
   cout << "\n";
@@ -3435,13 +3184,13 @@ void test043 ( )
 }
 //****************************************************************************80
 
-void test044 ( )
+void i4_factorial2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST044 tests I4_FACTORIAL2 and I4_FACTORIAL2_VALUES.
+//    I4_FACTORIAL2_TEST tests I4_FACTORIAL2.
 //
 //  Licensing:
 //
@@ -3462,7 +3211,7 @@ void test044 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST044:\n";
+  cout << "I4_FACTORIAL2_TEST:\n";
   cout << "  I4_FACTORIAL2 evaluates the double factorial function.\n";
   cout << "\n";
   cout << "   N   Exact  I4_FACTORIAL2(N)\n";
@@ -3491,13 +3240,13 @@ void test044 ( )
 }
 //****************************************************************************80
 
-void test045 ( )
+void i4_is_triangular_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST045 tests PARTITION_COUNT_VALUES.
+//    I4_IS_TRIANGULAR_TEST tests I4_IS_TRIANGULAR.
 //
 //  Licensing:
 //
@@ -3512,45 +3261,40 @@ void test045 ( )
 //    John Burkardt
 //
 {
-  int c;
-  int n;
-  int n_data;
+  int i;
+  int i2;
+  int j;
+  int k;
+  int k2;
+  bool l;
 
   cout << "\n";
-  cout << "TEST045:\n";
-  cout << "  For the number of partitions of an integer,\n";
-  cout << "  PARTITION_COUNT_VALUES returns some exact values.\n";
+  cout << "I4_IS_TRIANGULAR_TEST\n";
+  cout << "  I4_IS_TRIANGULAR returns 0 or 1 depending on\n";
+  cout << "  whether I is triangular.\n";
   cout << "\n";
-  cout << "     N       Exact F\n";
+  cout << "   I  =>   0/1\n";
   cout << "\n";
 
-  n_data = 0;
-
-  for ( ; ; )
+  for ( i = 0; i <= 20; i++ )
   {
-    partition_count_values ( &n_data, &n, &c );
+    l = i4_is_triangular ( i );
 
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    cout                  << "  "
-         << setw(10) << n << "  "
-         << setw(10) << c << "\n";
+    cout << "  " << setw(4) << i  
+         << "  " << setw(1) << l << "\n";
   }
-
+ 
   return;
 }
 //****************************************************************************80
 
-void test046 ( )
+void i4_partition_distinct_count_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST046 tests I4_PARTITION_DISTINCT_COUNT and PARTITION_DISTINCT_COUNT_VALUES.
+//    I4_PARTITION_DISTINCT_COUNT_TEST tests I4_PARTITION_DISTINCT_COUNT.
 //
 //  Licensing:
 //
@@ -3572,11 +3316,10 @@ void test046 ( )
   int n_max = 20;
 
   cout << "\n";
-  cout << "TEST046:\n";
+  cout << "I4_PARTITION_DISTINCT_COUNT_TEST:\n";
   cout << "  For the number of partitions of an integer\n";
   cout << "  into distinct parts,\n";
   cout << "  I4_PARTITION_DISTINCT_COUNT computes any value.\n";
-  cout << "  PARTITION_DISTINCT_COUNT_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N       Exact F    Q(N)\n";
   cout << "\n";
@@ -3610,13 +3353,13 @@ void test046 ( )
 }
 //****************************************************************************80
 
-void test047 ( )
+void i4_to_triangle_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST047 tests I4_POCHHAMMER.
+//    I4_TO_TRIANGLE_TEST tests I4_TO_TRIANGLE.
 //
 //  Licensing:
 //
@@ -3624,7 +3367,7 @@ void test047 ( )
 //
 //  Modified:
 //
-//    02 June 2007
+//    13 April 2015
 //
 //  Author:
 //
@@ -3636,110 +3379,33 @@ void test047 ( )
   int k;
 
   cout << "\n";
-  cout << "TEST047\n";
-  cout << "  I4_POCHHAMMER evaluates the integer Pochhammer function.\n";
-  cout << "\n";
-  cout << "   I   J   I4_Pochhammer(I,J)\n";
-  cout << "\n";
-
-  i = 3;
-  j = 3;
-  k = i4_pochhammer ( i, j );
-
-  cout                 << "  "
-       << setw(4) << i << "  "
-       << setw(4) << j << "  "
-       << setw(4) << k << "\n";
-
-  i = 3;
-  j = 4;
-  k = i4_pochhammer ( i, j );
-
-  cout                 << "  "
-       << setw(4) << i << "  "
-       << setw(4) << j << "  "
-       << setw(4) << k << "\n";
-
-  i = 3;
-  j = 5;
-  k = i4_pochhammer ( i, j );
-
-  cout                 << "  "
-       << setw(4) << i << "  "
-       << setw(4) << j << "  "
-       << setw(4) << k << "\n";
-
-  return;
-}
-//****************************************************************************80
-
-void test048 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST048 tests I4_IS_TRIANGULAR, I4_TO_TRIANGLE and TRIANGLE_TO_I4.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    02 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int i;
-  int i2;
-  int j;
-  int k;
-  int k2;
-  bool l;
-
-  cout << "\n";
-  cout << "TEST048\n";
+  cout << "I4_TO_TRIANGLE_TEST\n";
   cout << "  I4_TO_TRIANGLE converts a linear index to a\n";
   cout << "  triangular one.\n";
-  cout << "  TRIANGLE_TO_I4 converts a triangular index to a\n";
-  cout << "  linear one.\n";
-  cout << "  I4_IS_TRIANGULAR returns 0 or 1 depending on\n";
-  cout << "  whether I is triangular.\n";
   cout << "\n";
-  cout << "   I  =>   J   K  =>   I   0/1\n";
+  cout << "     K  => I     J\n";
   cout << "\n";
 
-  for ( i = 0; i <= 20; i++ )
+  for ( k = 0; k <= 20; k++ )
   {
-    i4_to_triangle ( i, &j, &k );
+    i4_to_triangle ( k, &i, &j );
 
-    i2 = triangle_to_i4 ( j, k );
-
-    l = i4_is_triangular ( i );
-
-    cout                  << "  "
-         << setw(4) << i  << "  "
-         << setw(4) << j  << "  "
-         << setw(4) << k  << "  "
-         << setw(4) << i2 << "  "
-         << setw(1) << l  << "\n";
+    cout << "  " << setw(4) << k  
+         << "  " << setw(4) << i
+         << "  " << setw(4) << j << "\n";
   }
  
   return;
 }
 //****************************************************************************80
 
-void test049 ( )
+void jacobi_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST049 tests JACOBI_POLY and JACOBI_POLY_VALUES.
+//    JACOBI_POLY_TEST tests JACOBI_POLY.
 //
 //  Licensing:
 //
@@ -3764,9 +3430,8 @@ void test049 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST049\n";
+  cout << "JACOBI_POLY_TEST\n";
   cout << "  JACOBI_POLY evaluates the Jacobi polynomials.\n";
-  cout << "  JACOBI_POLY_VALUES returns some exact values of\n";
   cout << "  the Jacobi polynomials.\n";
   cout << "\n";
   cout << "        N       A       B      X       JPV      JACOBI\n";
@@ -3802,13 +3467,13 @@ void test049 ( )
 }
 //****************************************************************************80
 
-void test050 ( )
+void jacobi_symbol_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST050 tests JACOBI_SYMBOL.
+//    JACOBI_SYMBOL_TEST tests JACOBI_SYMBOL.
 //
 //  Licensing:
 //
@@ -3831,7 +3496,7 @@ void test050 ( )
   int q;
 
   cout << "\n";
-  cout << "TEST050\n";
+  cout << "JACOBI_SYMBOL_TEST\n";
   cout << "  JACOBI_SYMBOL computes the Jacobi symbol\n";
   cout << "  (Q/P), which records if Q is a quadratic\n";
   cout << "  residue modulo the number P.\n";
@@ -3855,13 +3520,13 @@ void test050 ( )
 }
 //****************************************************************************80
 
-void test0505 ( )
+void krawtchouk_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0505 tests KRAWTCHOUK.
+//    KRAWTCHOUK_TEST tests KRAWTCHOUK.
 //
 //  Licensing:
 //
@@ -3890,7 +3555,7 @@ void test0505 ( )
   double value[N+1];
 
   cout << "\n";
-  cout << "TEST0505:\n";
+  cout << "KRAWTCHOUK_TEST:\n";
   cout << "  KRAWTCHOUK evaluates Krawtchouk polynomials.\n";
   cout << "\n";
   cout << "        N         P         X          M      K(N,P,X,M)\n";
@@ -3930,13 +3595,13 @@ void test0505 ( )
 }
 //****************************************************************************80
 
-void test051 ( )
+void laguerre_associated_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST051 tests LAGUERRE_ASSOCIATED.
+//    LAGUERRE_ASSOCIATED_TEST tests LAGUERRE_ASSOCIATED.
 //
 //  Licensing:
 //
@@ -3963,7 +3628,7 @@ void test051 ( )
   double x_test[N_TEST] = { 0.0, 1.0, 0.0, 0.5, 0.5, 0.5 };
 
   cout << "\n";
-  cout << "TEST051\n";
+  cout << "LAGUERRE_ASSOCIATED_TEST\n";
   cout << "  LAGUERRE_ASSOCIATED evaluates the associated Laguerre\n";
   cout << "  polynomials.\n";
 
@@ -3997,80 +3662,13 @@ void test051 ( )
 }
 //****************************************************************************80
 
-void test052 ( )
+void laguerre_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST052 tests GEN_LAGUERRE_POLY.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-# define N 10
-# define N_TEST 6
-
-  double alpha;
-  double alpha_test[N_TEST] = { 0.0, 0.0, 0.1, 0.1, 0.5, 1.0 };
-  double c[N+1];
-  int i;
-  int j;
-  double x;
-  double x_test[N_TEST] = { 0.0, 1.0, 0.0, 0.5, 0.5, 0.5 };
-
-  cout << "\n";
-  cout << "TEST052\n";
-  cout << "  GEN_LAGUERRE_POLY evaluates the generalized Laguerre\n";
-  cout << "  functions.\n";
-
-  for ( i = 0; i < N_TEST; i++ )
-  {
-
-    x = x_test[i];
-    alpha = alpha_test[i];
-
-    cout << "\n";
-    cout << "  Table of L(N,ALPHA)(X) for\n";
-    cout << "\n";
-    cout << "    N(max) = " << N << "\n";
-    cout << "    ALPHA =  " << alpha << "\n";
-    cout << "    X =      " << x << "\n";
-    cout << "\n";
-  
-    gen_laguerre_poly ( N, alpha, x, c );
- 
-    for ( j = 0; j <= N; j++ )
-    {
-      cout                     << "  "
-           << setw(6)  << j    << "  "
-           << setw(14) << c[j] << "\n";
-    }
-  }
- 
-  return;
-# undef N
-# undef N_TEST
-}
-//****************************************************************************80
-
-void test054 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST054 tests LAGUERRE_POLY and LAGUERRE_POLYNOMIAL_VALUES.
+//    LAGUERRE_POLY_TEST tests LAGUERRE_POLY.
 //
 //  Licensing:
 //
@@ -4094,9 +3692,8 @@ void test054 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST054:\n";
+  cout << "LAGUERRE_POLY_COEF:\n";
   cout << "  LAGUERRE_POLY evaluates the Laguerre polynomial.\n";
-  cout << "  LAGUERRE_POLYNOMIAL_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N      X        Exact F       L(N)(X)\n";
   cout << "\n";
@@ -4126,7 +3723,7 @@ void test054 ( )
 }
 //****************************************************************************80
 
-void test055 ( )
+void laguerre_poly_coef_test ( )
 
 //****************************************************************************80
 //
@@ -4155,7 +3752,7 @@ void test055 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST055\n";
+  cout << "LAGUERRE_POLY_COEF_TEST\n";
   cout << "  LAGUERRE_POLY_COEF determines Laguerre \n";
   cout << "  polynomial coefficients.\n";
 
@@ -4210,13 +3807,13 @@ void test055 ( )
 }
 //****************************************************************************80
 
-void test057 ( )
+void legendre_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST057 tests LEGENDRE_POLY and LEGENDRE_POLY_VALUES.
+//    LEGENDRE_POLY_TEST tests LEGENDRE_POLY.
 //
 //  Licensing:
 //
@@ -4241,9 +3838,8 @@ void test057 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST057:\n";
+  cout << "LEGENDRE_POLY_TEST:\n";
   cout << "  LEGENDRE_POLY evaluates the Legendre PN function.\n";
-  cout << "  LEGENDRE_POLY_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N      X        Exact F       P(N)(X)\n";
   cout << "\n";
@@ -4274,13 +3870,13 @@ void test057 ( )
 }
 //****************************************************************************80
 
-void test058 ( )
+void legendre_poly_coef_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST058 tests LEGENDRE_POLY_COEF.
+//    LEGENDRE_POLY_COEF_TEST tests LEGENDRE_POLY_COEF.
 //
 //  Licensing:
 //
@@ -4302,7 +3898,7 @@ void test058 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST58\n";
+  cout << "LEGENDRE_POLY_COEF_TEST\n";
   cout << "  LEGENDRE_POLY_COEF determines the Legendre P \n";
   cout << "  polynomial coefficients.\n";
 
@@ -4335,13 +3931,13 @@ void test058 ( )
 }
 //****************************************************************************80
 
-void test059 ( )
+void legendre_associated_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST059 tests LEGENDRE_ASSOCIATED and LEGENDRE_ASSOCIATED_VALUES.
+//    LEGENDRE_ASSOCIATED_TEST tests LEGENDRE_ASSOCIATED.
 //
 //  Licensing:
 //
@@ -4366,9 +3962,8 @@ void test059 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST059:\n";
+  cout << "LEGENDRE_ASSOCIATED_TEST:\n";
   cout << "  LEGENDRE_ASSOCIATED evaluates associated Legendre functions.\n";
-  cout << "  LEGENDRE_ASSOCIATED_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      N       M    X     Exact F     PNM(X)\n";
   cout << "\n";
@@ -4400,13 +3995,13 @@ void test059 ( )
 }
 //****************************************************************************80
 
-void test0595 ( )
+void legendre_associated_normalized_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0595 tests LEGENDRE_ASSOCIATED_NORMALIZED and LEGENDRE_ASSOCIATED_NORMALIZED_VALUES.
+//    LEGENDRE_ASSOCIATED_NORMALIZED_TEST tests LEGENDRE_ASSOCIATED_NORMALIZED.
 //
 //  Licensing:
 //
@@ -4414,7 +4009,7 @@ void test0595 ( )
 //
 //  Modified:
 //
-//    01 September 2010
+//    20 February 2015
 //
 //  Author:
 //
@@ -4431,10 +4026,9 @@ void test0595 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0595:\n";
+  cout << "LEGENDRE_ASSOCIATED_NORMALIZED_TEST:\n";
   cout << "  LEGENDRE_ASSOCIATED_NORMALIZED evaluates \n";
   cout << "  normalized associated Legendre functions.\n";
-  cout << "  LEGENDRE_ASSOCIATED_NORMALIZED_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      N       M    X     Exact F     PNM(X)\n";
   cout << "\n";
@@ -4443,7 +4037,7 @@ void test0595 ( )
 
   for ( ; ; )
   {
-    legendre_associated_normalized_values ( &n_data, &n, &m, &x, &fx );
+    legendre_associated_normalized_sphere_values ( n_data, n, m, x, fx );
 
     if ( n_data == 0 )
     {
@@ -4466,13 +4060,13 @@ void test0595 ( )
 }
 //****************************************************************************80
 
-void test060 ( )
+void legendre_function_q_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST060 tests LEGENDRE_FUNCTION_Q and LEGENDRE_FUNCTION_Q_VALUES.
+//    LEGENDRE_FUNCTION_Q_TEST tests LEGENDRE_FUNCTION_Q.
 //
 //  Licensing:
 //
@@ -4496,9 +4090,8 @@ void test060 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST060:\n";
+  cout << "LEGENDRE_FUNCTION_Q_TEST:\n";
   cout << "  LEGENDRE_FUNCTION_Q evaluates the Legendre Q function.\n";
-  cout << "  LEGENDRE_FUNCTION_Q_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N      X        Exact F       Q(N)(X)\n";
   cout << "\n";
@@ -4529,13 +4122,13 @@ void test060 ( )
 }
 //****************************************************************************80
 
-void test061 ( )
+void legendre_symbol_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST061 tests LEGENDRE_SYMBOL.
+//    LEGENDRE_SYMBOL_TEST tests LEGENDRE_SYMBOL.
 //
 //  Licensing:
 //
@@ -4559,7 +4152,7 @@ void test061 ( )
   int q;
 
   cout << "\n";
-  cout << "TEST061\n";
+  cout << "LEGENDRE_SYMBOL_TEST\n";
   cout << "  LEGENDRE_SYMBOL computes the Legendre\n";
   cout << "  symbol (Q/P) which records whether Q is \n";
   cout << "  a quadratic residue modulo the prime P.\n";
@@ -4584,13 +4177,13 @@ void test061 ( )
 }
 //****************************************************************************80
 
-void test0615 ( )
+void lerch_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0615 tests LERCH and LERCH_VALUES.
+//    LERCH_TEST tests LERCH.
 //
 //  Licensing:
 //
@@ -4613,9 +4206,8 @@ void test0615 ( )
   double z;
 
   cout << "\n";
-  cout << "TEST0615:\n";
+  cout << "LERCH_TEST:\n";
   cout << "  LERCH evaluates the Lerch function.\n";
-  cout << "  LERCH_VALUES returns some tabulated values.\n";
   cout << "\n";
   cout << "       Z       S       A         Lerch           Lerch\n";
   cout << "                             Tabulated        Computed\n";
@@ -4646,13 +4238,71 @@ void test0615 ( )
 }
 //****************************************************************************80
 
-void test062 ( )
+void lgamma_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST062 tests LOCK.
+//    LGAMMA_TEST tests LGAMMA.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 May 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  double fx2;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "LGAMMA_TEST:\n";
+  cout << "  LGAMMA is a C math library function which evaluates\n";
+  cout << "  the logarithm of the Gamma function.\n";
+  cout << "\n";
+  cout << "     X       Exact F       LGAMMA(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_log_values ( &n_data, &x, &fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    fx2 = lgamma ( x );
+
+    cout                    << "  "
+         << setw(8)  << x   << "  "
+         << setw(10) << fx  << "  "
+         << setw(10) << fx2 << "\n";
+
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void lock_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LOCK_TEST tests LOCK.
 //
 //  Licensing:
 //
@@ -4673,7 +4323,7 @@ void test062 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST062\n";
+  cout << "LOCK_TEST\n";
   cout << "  LOCK counts the combinations on a button lock.\n";
   cout << "\n";
   cout << "  I,  LOCK(I)\n";
@@ -4693,13 +4343,13 @@ void test062 ( )
 }
 //****************************************************************************80
 
-void test0623 ( )
+void meixner_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0623 tests MEIXNER.
+//    MEIXNER_TEST tests MEIXNER.
 //
 //  Licensing:
 //
@@ -4729,7 +4379,7 @@ void test0623 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST0623:\n";
+  cout << "MEIXNER_TEST:\n";
   cout << "  MEIXNER evaluates Meixner polynomials.\n";
   cout << "\n";
   cout << "       N      BETA         C         X        M(N,BETA,C,X)\n";
@@ -4765,13 +4415,13 @@ void test0623 ( )
 }
 //****************************************************************************80
 
-void test0625 ( )
+void mertens_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0625 tests MERTENS and MERTENS_VALUES.
+//    MERTENS_TEST tests MERTENS.
 //
 //  Licensing:
 //
@@ -4791,9 +4441,8 @@ void test0625 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0625\n";
+  cout << "MERTENS_TEST\n";
   cout << "  MERTENS computes the Mertens function.\n";
-  cout << "  MERTENS_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      N   Exact   MERTENS(N)\n";
   cout << "\n";
@@ -4819,13 +4468,13 @@ void test0625 ( )
 }
 //****************************************************************************80
 
-void test063 ( )
+void moebius_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST063 tests MOEBIUS and MOEBIUS_VALUES.
+//    MOEBIUS_TEST tests MOEBIUS.
 //
 //  Licensing:
 //
@@ -4845,9 +4494,8 @@ void test063 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST063\n";
+  cout << "MOEBIUS_TEST\n";
   cout << "  MOEBIUS computes the Moebius function.\n";
-  cout << "  MOEBIUS_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      N   Exact   MOEBIUS(N)\n";
   cout << "\n";
@@ -4873,13 +4521,13 @@ void test063 ( )
 }
 //****************************************************************************80
 
-void test0635 ( )
+void motzkin_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0635 tests MOTZKIN.
+//    MOTZKIN_TEST tests MOTZKIN.
 //
 //  Licensing:
 //
@@ -4900,7 +4548,7 @@ void test0635 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST0635\n";
+  cout << "MOTZKIN_TEST\n";
   cout << "  MOTZKIN computes the Motzkin numbers A(0:N).\n";
   cout << "  A(N) counts the paths from (0,0) to (N,0).\n";
   cout << "\n";
@@ -4921,13 +4569,69 @@ void test0635 ( )
 }
 //****************************************************************************80
 
-void test064 ( )
+void normal_01_cdf_inverse_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST064 tests OMEGA and OMEGA_VALUES.
+//    NORMAL_01_CDF_INVERSE_TEST tests NORMAL_01_CDF_INVERSE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x;
+  double x2;
+
+  cout << "\n";
+  cout << "NORMAL_01_CDF_INVERSE_TEST:\n";
+  cout << "  NORMAL_01_CDF_INVERSE inverts the normal 01 CDF.\n";
+  cout << "\n";
+  cout << "    FX      X    NORMAL_01_CDF_INVERSE(FX)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    normal_01_cdf_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    x2 = normal_01_cdf_inverse ( fx );
+
+    cout                    << "  "
+         << setw(8)  << fx   << "  "
+         << setw(14) << x  << "  "
+         << setw(14) << x2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void omega_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    OMEGA_TEST tests OMEGA.
 //
 //  Licensing:
 //
@@ -4947,9 +4651,8 @@ void test064 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST064\n";
+  cout << "OMEGA_TEST\n";
   cout << "  OMEGA computes the OMEGA function.\n";
-  cout << "  OMEGA_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "          N   Exact   OMEGA(N)\n";
   cout << "\n";
@@ -4976,13 +4679,13 @@ void test064 ( )
 }
 //****************************************************************************80
 
-void test065 ( )
+void pentagon_num_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST065 tests PENTAGON_NUM.
+//    PENTAGON_NUM_TEST tests PENTAGON_NUM.
 //
 //  Licensing:
 //
@@ -5000,28 +4703,27 @@ void test065 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST065\n";
+  cout << "PENTAGON_NUM_TEST\n";
   cout << "  PENTAGON_NUM computes the pentagonal numbers.\n";
   cout << "\n";
  
   for ( n = 1; n <= 10; n++ )
   {
-    cout                                  << "  "
-         << setw(4) << n                  << "  "
-         << setw(6) << pentagon_num ( n ) << "\n";
+    cout << "  " << setw(4) << n
+         << "  " << setw(6) << pentagon_num ( n ) << "\n";
   }
  
   return;
 }
 //****************************************************************************80
 
-void test066 ( )
+void phi_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST066 tests PHI and PHI_VALUES.
+//    PHI_TEST tests PHI.
 //
 //  Licensing:
 //
@@ -5041,9 +4743,8 @@ void test066 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST066\n";
+  cout << "PHI_TEST\n";
   cout << "  PHI computes the PHI function.\n";
-  cout << "  PHI_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  N   Exact   PHI(N)\n";
   cout << "\n";
@@ -5070,13 +4771,52 @@ void test066 ( )
 }
 //****************************************************************************80
 
-void test0665 ( )
+void plane_partition_num_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0665 tests POLY_BERNOULLI.
+//    PLANE_PARTITION_NUM_TEST tests PLANE_PARTITION_NUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    24 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n;
+
+  cout << "\n";
+  cout << "PLANE_PARTITION_NUM_TEST\n";
+  cout << "  PLANE_PARTITION_NUM computes the number of plane\n";
+  cout << "  partitions of an integer.\n";
+  cout << "\n";
+ 
+  for ( n = 1; n <= 10; n++ )
+  {
+    cout << "  " << setw(4) << n
+         << "  " << setw(6) << plane_partition_num ( n ) << "\n";
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void poly_bernoulli_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    POLY_BERNOULLI_TEST tests POLY_BERNOULLI.
 //
 //  Licensing:
 //
@@ -5096,7 +4836,7 @@ void test0665 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST0665\n";
+  cout << "POLY_BERNOULLI_TEST\n";
   cout << "  POLY_BERNOULLI computes the poly-Bernoulli numbers\n";
   cout << "  of negative index, B_n^(-k)\n";
   cout << "\n";
@@ -5120,13 +4860,13 @@ void test0665 ( )
 }
 //****************************************************************************80
 
-void test0667 ( )
+void poly_coef_count_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0667 tests POLY_COEF_COUNT.
+//    POLY_COEF_COUNT_TEST tests POLY_COEF_COUNT.
 //
 //  Licensing:
 //
@@ -5146,7 +4886,7 @@ void test0667 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST0667\n";
+  cout << "POLY_COEF_COUNT_TEST\n";
   cout << "  POLY_COEF_COUNT counts the number of coefficients\n";
   cout << "  in a polynomial of degree DEGREE and dimension DIM.\n";
   cout << "\n";
@@ -5167,13 +4907,67 @@ void test0667 ( )
 }
 //****************************************************************************80
 
-void test067 ( )
+void prime_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST067 tests PYRAMID_NUM.
+//    PRIME_TEST tests PRIME.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    05 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n;
+  int prime_max;
+
+  cout << "\n";
+  cout << "PRIME_TEST\n";
+  cout << "  PRIME returns primes from a table.\n";
+
+  n = -1;
+  prime_max = prime ( n );
+  cout << "\n";
+  cout << "  Number of primes stored is " << prime_max << "\n";
+  cout << "\n";
+  cout << "     I    Prime(I)\n";
+  cout << "\n";
+  for ( i = 1; i <= 10; i++ )
+  {
+    cout << "  "
+         << setw(4) << i << "  "
+         << setw(6) << prime ( i ) << "\n";
+  }
+  cout << "\n";
+  for ( i = prime_max - 10; i <= prime_max; i++ )
+  {
+    cout << "  "
+         << setw(4) << i << "  "
+         << setw(6) << prime ( i ) << "\n";
+  }
+  
+  return;
+}
+//****************************************************************************80
+
+void pyramid_num_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    PYRAMID_NUM_TEST tests PYRAMID_NUM.
 //
 //  Licensing:
 //
@@ -5191,7 +4985,7 @@ void test067 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST067\n";
+  cout << "PYRAMID_NUM_TEST\n";
   cout << "  PYRAMID_NUM computes the pyramidal numbers.\n";
   cout << "\n";
  
@@ -5206,13 +5000,171 @@ void test067 ( )
 }
 //****************************************************************************80
 
-void test0675 ( )
+void pyramid_square_num_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0675 tests R8_ACOSH.
+//    PYRAMID_SQUARE_NUM_TEST tests PYRAMID_SQUARE_NUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    04 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n;
+
+  cout << "\n";
+  cout << "PYRAMID_SQUARE_NUM_TEST\n";
+  cout << "  PYRAMID_SQUARE_NUM computes the pyramidal square numbers.\n";
+  cout << "\n";
+ 
+  for ( n = 1; n <= 10; n++ )
+  {
+    cout << "  "
+         << setw(6) << n << "  "
+         << setw(6) << pyramid_square_num ( n ) << "\n";
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_agm_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_AGM_TEST tests R8_AGM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 April 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double fx;
+  double fx2;
+  int n_data;
+
+  cout << "\n";
+  cout << "R8_AGM_TEST\n";
+  cout << "  R8_AGM computes the arithmetic geometric mean.\n";
+  cout << "\n";
+  cout << "           A           B         "
+       << "   AGM                       AGM               Diff\n";
+  cout << "                             "
+       << "      (Tabulated)             R8_AGM(A,B)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    agm_values ( n_data, a, b, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    fx2 = r8_agm ( a, b );
+
+    cout << "  " << setprecision(6)  << setw(10) << a   
+         << "  " << setprecision(6)  << setw(10) << b   
+         << "  " << setprecision(16) << setw(24) << fx  
+         << "  " << setprecision(16) << setw(24) << fx2 
+         << "  " << setprecision(6)  << setw(10) << fabs ( fx - fx2 ) << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_beta_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_BETA_TEST tests R8_BETA.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    01 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fxy;
+  double fxy2;
+  int n_data;
+  double x;
+  double y;
+
+  cout << "\n";
+  cout << "R8_BETA_TEST:\n";
+  cout << "  R8_BETA evaluates the Beta function.\n";
+  cout << "\n";
+  cout << "     X      Y        Exact F       R8_BETA(X,Y)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    beta_values ( &n_data, &x, &y, &fxy );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    fxy2 = r8_beta ( x, y );
+
+    cout                     << "  "
+         << setw(10) << x    << "  "
+         << setw(10) << y    << "  "
+         << setw(10) << fxy  << "  "
+         << setw(10) << fxy2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_choose_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_CHOOSE_TEST tests R8_CHOOSE.
 //
 //  Licensing:
 //
@@ -5227,42 +5179,214 @@ void test0675 ( )
 //    John Burkardt
 //
 {
-  double a;
-  int i;
-  double x;
-  double x2;
+  double cnk;
+  int k;
+  int n;
 
   cout << "\n";
-  cout << "TEST0675\n";
-  cout << "  R8_ACOSH computes the inverse hyperbolic cosine\n";
-  cout << "  of a given value.\n";
+  cout << "R8_CHOOSE_TEST\n";
+  cout << "  R8_CHOOSE evaluates C(N,K).\n";
   cout << "\n";
-  cout << "         X  R8_ACOSH(X)      COSH(R8_ACOSH(X))\n";
+  cout << "   N     K    CNK\n";
   cout << "\n";
 
-  for ( i = 0; i <= 10; i++ )
+  for ( n = 0; n <= 4; n++ )
   {
-    x = 1.0 + ( ( double ) i ) / 5.0;
-    a = r8_acosh ( x );
-    x2 = cosh ( a );
+    for ( k = 0; k <= n; k++ )
+    {
+      cnk = r8_choose ( n, k );
 
-    cout                   << "  "
-         << setw(10) << x  << "  "
-         << setw(10) << a  << "  "
-         << setw(10) << x2 << "\n";
+      cout                   << "  "
+           << setw(6) << n   << "  "
+           << setw(6) << k   << "  "
+           << setw(6) << cnk << "\n";
+    }
   }
 
   return;
 }
 //****************************************************************************80
 
-void test068 ( )
+void r8_erf_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST068 tests R8_FACTORIAL and R8_FACTORIAL_VALUES.
+//    R8_ERF_TEST tests R8_ERF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  double fx2;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "R8_ERF_TEST:\n";
+  cout << "  R8_ERF evaluates the error function.\n";
+  cout << "\n";
+  cout << "     X      Exact F     R8_ERF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    erf_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    fx2 = r8_erf ( x );
+
+    cout                    << "  "
+         << setw(8)  << x   << "  "
+         << setw(14) << fx  << "  "
+         << setw(14) << fx2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_erf_inverse_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ERF_INVERSE_TEST tests R8_ERF_INVERSE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 August 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x1;
+  double x2;
+
+  cout << "\n";
+  cout << "R8_ERF_INVERSE_TEST\n";
+  cout << "  R8_ERF_INVERSE inverts the error function.\n";
+  cout << "\n";
+  cout << "    FX           X1           X2\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    erf_values ( n_data, x1, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    x2 = r8_erf_inverse ( fx );
+
+    cout                   << "  "
+         << setw(8)  << fx << "  "
+         << setw(14) << x1 << "  "
+         << setw(14) << x2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_euler_constant_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_EULER_CONSTANT_TEST tests R8_EULER_CONSTANT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    30 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double g;
+  double g_approx;
+  int i;
+  int n;
+  double n_r8;
+  int test;
+
+  g = r8_euler_constant ( );
+
+  cout << "\n";
+  cout << "R8_EULER_CONSTANT_TEST:\n";
+  cout << "  R8_EULER_CONSTANT returns the Euler-Mascheroni constant\n";
+  cout << "  sometimes denoted by 'gamma'.\n";
+  cout << "\n";
+  cout << "  gamma = limit ( N -> oo ) ( sum ( 1 <= I <= N ) 1 / I ) - log ( N )\n";
+  cout << "\n";
+  cout << "  Numerically, g = " << g << "\n";
+  cout << "\n";
+  cout << "         N      Partial Sum    |gamma - partial sum|\n";
+  cout << "\n";
+
+  n = 1;
+  for ( test = 0; test <= 20; test++ )
+  {
+    n_r8 = ( double ) ( n );
+    g_approx = - log ( n_r8 );
+    for ( i = 1; i <= n; i++ )    
+    {
+      g_approx = g_approx + 1.0 / ( double ) ( i );
+    }
+    cout << "  " << setw(8) << n
+         << "  " << setw(14) << g_approx
+         << "  " << setw(14) <<  fabs ( g_approx - g ) << "\n";
+    n = n * 2;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_factorial_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_FACTORIAL_TEST tests R8_FACTORIAL.
 //
 //  Licensing:
 //
@@ -5282,9 +5406,8 @@ void test068 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST068:\n";
+  cout << "R8_FACTORIAL_TEST:\n";
   cout << "  R8_FACTORIAL evaluates the factorial function.\n";
-  cout << "  R8_FACTORIAL_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N       Exact F       R8_FACTORIAL(N)\n";
   cout << "\n";
@@ -5310,62 +5433,13 @@ void test068 ( )
 }
 //****************************************************************************80
 
-void test022 ( )
+void r8_factorial_log_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST022 tests R8_CHOOSE.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    02 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double cnk;
-  int k;
-  int n;
-
-  cout << "\n";
-  cout << "TEST022\n";
-  cout << "  R8_CHOOSE evaluates C(N,K).\n";
-  cout << "\n";
-  cout << "   N     K    CNK\n";
-  cout << "\n";
-
-  for ( n = 0; n <= 4; n++ )
-  {
-    for ( k = 0; k <= n; k++ )
-    {
-      cnk = r8_choose ( n, k );
-
-      cout                   << "  "
-           << setw(6) << n   << "  "
-           << setw(6) << k   << "  "
-           << setw(6) << cnk << "\n";
-    }
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test0685 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST0685 tests R8_FACTORIAL_LOG and R8_FACTORIAL_LOG_VALUES.
+//    R8_FACTORIAL_LOG_TEST tests R8_FACTORIAL_LOG.
 //
 //  Licensing:
 //
@@ -5385,10 +5459,9 @@ void test0685 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST0685:\n";
+  cout << "R8_FACTORIAL_LOG_TEST:\n";
   cout << "  R8_FACTORIAL_LOG evaluates the logarithm of the\n";
   cout << "  factorial function.\n";
-  cout << "  R8_FACTORIAL_LOG_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     N	   Exact F	 R8_FACTORIAL_LOG(N)\n";
   cout << "\n";
@@ -5415,13 +5488,13 @@ void test0685 ( )
 }
 //****************************************************************************80
 
-void test06855 ( )
+void r8_hyper_2f1_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST06855 tests R8_GAMMA, GAMMA, and GAMMA_VALUES.
+//    R8_HYPER_2F1_TEST tests R8_HYPER_2F1.
 //
 //  Licensing:
 //
@@ -5436,59 +5509,56 @@ void test06855 ( )
 //    John Burkardt
 //
 {
+  double a;
+  double b;
+  double c;
   double fx;
   double fx2;
-  double fx3;
   int n_data;
   double x;
 
   cout << "\n";
-  cout << "TEST06855:\n";
-  cout << "  R8_GAMMA evaluates the Gamma function.\n";
-  cout << "  GAMMA is a C MATH routine for the Gamma function.\n";
-  cout << "  GAMMA_VALUES returns some exact values.\n";
+  cout << " R8_HYPER_2F1_TEST:\n";
+  cout << "   R8_HYPER_2F1 evaluates the hypergeometric function 2F1.\n";
   cout << "\n";
-  cout << "         X                  Gamma(X)         " 
-       << "         Gamma(X)         " 
-       << "         Gamma(X)\n";
-  cout << "                         (Tabulated)         " 
-       << "       (R8_GAMMA)         "
-       << "       (GAMMA)\n";
+  cout << "      A       B       C       X      ";
+  cout << " 2F1                       2F1                     DIFF\n";
+  cout << "                                     ";
+  cout << "(tabulated)               (computed)\n";
   cout << "\n";
 
   n_data = 0;
 
   for ( ; ; )
   {
-    gamma_values ( &n_data, &x, &fx );
+    hyper_2f1_values ( &n_data, &a, &b, &c, &x, &fx );
 
     if ( n_data == 0 )
     {
       break;
     }
 
-    fx2 = r8_gamma ( x );
+    fx2 = r8_hyper_2f1 ( a, b, c, x );
 
-    fx3 = gamma ( x );
-
-    cout << "  " << setw(8)  << setprecision(2)  << x   
-         << "  " << setw(24) << setprecision(16) << fx  
-         << "  " << setw(24) << setprecision(16) << fx2 
-         << "  " << setw(24) << setprecision(16) << fx3 << "\n";
-
+    cout << "  " << setw(6)  << setprecision(2)  << a
+         << "  " << setw(6)  << setprecision(2)  << b  
+         << "  " << setw(6)  << setprecision(2)  << c  
+         << "  " << setw(6)  << setprecision(2)  << x  
+         << "  " << setw(24) << setprecision(16) << fx
+         << "  " << setw(24) << setprecision(16) << fx2
+         << "  " << setw(10) << setprecision(4)  << fabs ( fx - fx2 ) << "\n";
   }
-
   return;
 }
 //****************************************************************************80
 
-void test06856 ( )
+void r8_psi_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST06856 tests R8_PSI and PSI_VALUES.
+//    R8_PSI_TEST tests R8_PSI.
 //
 //  Licensing:
 //
@@ -5509,9 +5579,8 @@ void test06856 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST06856:\n";
+  cout << "R8_PSI_TEST:\n";
   cout << "  R8_PSI evaluates the Psi function.\n";
-  cout << "  PSI_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "         X                  Psi(X)           " 
        << "         Psi(X)          DIFF\n";
@@ -5535,7 +5604,7 @@ void test06856 ( )
     cout << "  " << setprecision(2) << setw(8)  << x   
          << "  " << setprecision(16) << setw(24) << fx  
          << "  " << setprecision(16) << setw(24) << fx2 
-         << "  " << setprecision(4) << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
 
   }
 
@@ -5543,13 +5612,165 @@ void test06856 ( )
 }
 //****************************************************************************80
 
-void test069 ( )
+void r8poly_degree_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST069 tests SIGMA and SIGMA_VALUES.
+//    R8POLY_DEGREE_TEST tests R8POLY_DEGREE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    06 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double c1[4] = { 1.0, 2.0, 3.0, 4.0 }; 
+  double c2[4] = { 1.0, 2.0, 3.0, 0.0 };
+  double c3[4] = { 1.0, 2.0, 0.0, 4.0 };
+  double c4[4] = { 1.0, 0.0, 0.0, 0.0 };
+  double c5[4] = { 0.0, 0.0, 0.0, 0.0 };
+  int d;
+  int m;
+ 
+  cout << "\n";
+  cout << "R8POLY_DEGREE_TEST\n";
+  cout << "  R8POLY_DEGREE determines the degree of an R8POLY.\n";
+
+  m = 3;
+
+  r8poly_print ( m, c1, "  The R8POLY:" );
+  d = r8poly_degree ( m, c1 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c2, "  The R8POLY:" );
+  d = r8poly_degree ( m, c2 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c3, "  The R8POLY:" );
+  d = r8poly_degree ( m, c3 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c4, "  The R8POLY:" );
+  d = r8poly_degree ( m, c4 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c5, "  The R8POLY:" );
+  d = r8poly_degree ( m, c5 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  return;
+}
+//****************************************************************************80
+
+void r8poly_print_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY_PRINT_TEST tests R8POLY_PRINT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double c[6] = { 2.0, -3.4, 56.0, 0.0, 0.78, 9.0 };
+  int m = 5;
+
+  cout << "\n";
+  cout << "R8POLY_PRINT_TEST\n";
+  cout << "  R8POLY_PRINT prints an R8POLY.\n";
+
+  r8poly_print ( m, c, "  The R8POLY:" );
+
+  return;
+}
+//****************************************************************************80
+
+void r8poly_value_horner_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY_VALUE_HORNER_TEST tests R8POLY_VALUE_HORNER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double c[5] = { 24.0, -50.0, +35.0, -10.0, 1.0 };
+  int i;
+  int m = 4;
+  int n = 16;
+  double p;
+  double *x;
+  double x_hi;
+  double x_lo;
+
+  cout << "\n";
+  cout << "R8POLY_VALUE_HORNER_TEST\n";
+  cout << "  R8POLY_VALUE_HORNER evaluates a polynomial at\n";
+  cout << "  one point, using Horner's method.\n";
+
+  r8poly_print ( m, c, "  The polynomial coefficients:" );
+
+  x_lo = 0.0;
+  x_hi = 5.0;
+  x = r8vec_linspace_new ( n, x_lo, x_hi );
+
+  cout << "\n";
+  cout << "   I    X    P(X)\n";
+  cout << "\n";
+
+  for ( i = 0; i < n; i++ )
+  {
+    p = r8poly_value_horner ( m, c, x[i] );
+    cout << "  " << setw(2) << i
+         << "  " << setw(8) << x[i]
+         << "  " << setw(14) << p << "\n";
+  }
+
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void sigma_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    SIGMA_TEST tests SIGMA.
 //
 //  Licensing:
 //
@@ -5569,9 +5790,8 @@ void test069 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST069\n";
+  cout << "SIGMA_TEST\n";
   cout << "  SIGMA computes the SIGMA function.\n";
-  cout << "  SIGMA_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  N   Exact   SIGMA(N)\n";
   cout << "\n";
@@ -5597,13 +5817,60 @@ void test069 ( )
 }
 //****************************************************************************80
 
-void test0695 ( )
+void simplex_num_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0695 tests SIN_POWER_INT and SIN_POWER_INT_VALUES.
+//    SIMPLEX_NUM_TEST tests SIMPLEX_NUM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int m;
+  int n;
+  int value;
+
+  cout << "\n";
+  cout << "SIMPLEX_NUM_TEST\n";
+  cout << "  SIMPLEX_NUM computes the N-th simplex number\n";
+  cout << "  in M dimensions.\n";
+  cout << "\n";
+  cout << "      M: 0     1     2     3     4     5\n";
+  cout << "   N\n";
+ 
+  for ( n = 0; n <= 10; n++ )
+  {
+    cout << "  " << setw(2) << n;
+    for ( m = 0; m <= 5; m++ )
+    {
+      value = simplex_num ( m, n );
+      cout << "  " << setw(4) << value;
+    }
+    cout << "\n";
+  } 
+  return;
+}
+//****************************************************************************80
+
+void sin_power_int_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    SIN_POWER_INT_TEST tests SIN_POWER_INT.
 //
 //  Licensing:
 //
@@ -5626,10 +5893,9 @@ void test0695 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0695:\n";
+  cout << "SIN_POWER_INT_TEST:\n";
   cout << "  SIN_POWER_INT computes the integral of the N-th power\n";
   cout << "  of the sine function.\n";
-  cout << "  SIN_POWER_INT_VALUES returns selected values.\n";
   cout << "\n";
   cout << "         A         B       N        Exact    Computed\n";
   cout << "\n";
@@ -5658,13 +5924,13 @@ void test0695 ( )
 }
 //****************************************************************************80
 
-void test0696 ( )
+void slice_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0696 tests SLICE.
+//    SLICE_TEST tests SLICE.
 //
 //  Licensing:
 //
@@ -5690,7 +5956,7 @@ void test0696 ( )
   int slice_num;
 
   cout << "\n";
-  cout << "TEST0696:\n";
+  cout << "SLICE_TEST:\n";
   cout << "  SLICE determines the maximum number of pieces created\n";
   cout << "  by SLICE_NUM slices in a DIM_NUM space.\n";
 
@@ -5711,13 +5977,13 @@ void test0696 ( )
 }
 //****************************************************************************80
 
-void test0697 ( )
+void spherical_harmonic_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0697 tests SPHERICAL_HARMONIC and SPHERICAL_HARMONIC_VALUES.
+//    SPHERICAL_HARMONIC_TEST tests SPHERICAL_HARMONIC.
 //
 //  Licensing:
 //
@@ -5747,9 +6013,8 @@ void test0697 ( )
   double yr2;
 
   cout << "\n";
-  cout << "TEST0697:\n";
+  cout << "SPHERICAL_HARMONIC_TEST:\n";
   cout << "  SPHERICAL_HARMONIC evaluates spherical harmonic functions.\n";
-  cout << "  SPHERICAL_HARMONIC_VALUES returns some exact values.\n";
   cout << "\n";
   cout << 
     "         N         M    THETA      PHI            YR            YI\n";
@@ -5793,13 +6058,13 @@ void test0697 ( )
 }
 //****************************************************************************80
 
-void test070 ( )
+void stirling1_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST070 tests STIRLING1.
+//    STIRLING1_TEST tests STIRLING1.
 //
 //  Licensing:
 //
@@ -5814,27 +6079,26 @@ void test070 ( )
 //    John Burkardt
 //
 {
-# define M 8
-# define N 8
-
   int i;
   int j;
+  int m = 8;
+  int n = 8;
   int *s1;
 
   cout << "\n";
-  cout << "TEST070\n";
+  cout << "STIRLING1_TEST\n";
   cout << "  STIRLING1: Stirling numbers of first kind.\n";
-  cout << "    Get rows 1 through " << M << "\n";
+  cout << "  Get rows 1 through " << m << "\n";
   cout << "\n";
  
-  s1 = stirling1 ( M, N );
+  s1 = stirling1 ( m, n );
  
-  for ( i = 0; i < M; i++ )
+  for ( i = 0; i < m; i++ )
   {
     cout << setw(6) << i+1 << "  ";
-    for ( j = 0; j < N; j++ )
+    for ( j = 0; j < n; j++ )
     {
-      cout << setw(6) << s1[i+j*M] << "  ";
+      cout << setw(6) << s1[i+j*m] << "  ";
     }
     cout << "\n";
   }
@@ -5842,18 +6106,16 @@ void test070 ( )
   delete [] s1;
  
   return;
-# undef M
-# undef N
 }
 //****************************************************************************80
 
-void test071 ( )
+void stirling2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST071 tests STIRLING2.
+//    STIRLING2_TEST tests STIRLING2.
 //
 //  Licensing:
 //
@@ -5876,7 +6138,7 @@ void test071 ( )
   int *s2;
 
   cout << "\n";
-  cout << "TEST071\n";
+  cout << "STIRLING2_TEST\n";
   cout << "  STIRLING2: Stirling numbers of second kind.\n";
   cout << "  Get rows 1 through " << M << "\n";
   cout << "\n";
@@ -5901,13 +6163,13 @@ void test071 ( )
 }
 //****************************************************************************80
 
-void test072 ( )
+void tau_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST072 tests TAU and TAU_VALUES.
+//    TAU_TEST tests TAU.
 //
 //  Licensing:
 //
@@ -5927,9 +6189,8 @@ void test072 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST072\n";
+  cout << "TAU_TEST\n";
   cout << "  TAU computes the Tau function.\n";
-  cout << "  TAU_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  N  exact C(I)  computed C(I)\n";
   cout << "\n";
@@ -5955,13 +6216,13 @@ void test072 ( )
 }
 //****************************************************************************80
 
-void test073 ( )
+void tetrahedron_num_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST073 tests TETRAHEDRON_NUM.
+//    TETRAHEDRON_NUM_TEST tests TETRAHEDRON_NUM.
 //
 //  Licensing:
 //
@@ -5979,7 +6240,7 @@ void test073 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST073\n";
+  cout << "TETRAHEDRON_NUM_TEST\n";
   cout << "  TETRAHEDRON_NUM computes the tetrahedron numbers.\n";
   cout << "\n";
  
@@ -5994,13 +6255,13 @@ void test073 ( )
 }
 //****************************************************************************80
 
-void test074 ( )
+void triangle_num_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST074 tests TRIANGLE_NUM.
+//    TRIANGLE_NUM_TEST tests TRIANGLE_NUM.
 //
 //  Licensing:
 //
@@ -6018,7 +6279,7 @@ void test074 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST074\n";
+  cout << "TRIANGLE_NUM_TEST\n";
   cout << "  TRIANGLE_NUM computes the triangular numbers.\n";
   cout << "\n";
  
@@ -6033,13 +6294,116 @@ void test074 ( )
 }
 //****************************************************************************80
 
-void test075 ( )
+void triangle_to_i4_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST075 tests V_HOFSTADTER.
+//    TRIANGLE_TO_I4_TEST tests TRIANGLE_TO_I4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    13 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int j;
+  int k;
+
+  cout << "\n";
+  cout << "TRIANGLE_TO_I4_TEST\n";
+  cout << "  TRIANGLE_TO_I4 converts a triangular index to a\n";
+  cout << "  linear one.\n";
+  cout << "\n";
+  cout << "     I     J ==>   K\n";
+  cout << "\n";
+
+  for ( i = 0; i <= 4; i++ )
+  {
+    for ( j = 0; j <= i; j++ )
+    {
+      k = triangle_to_i4 ( i, j );
+
+      cout << "  " << setw(4) << i
+           << "  " << setw(4) << j
+           << "    " << setw(4) << k << "\n";
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void trinomial_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRINOMIAL_TEST tests TRINOMIAL.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    11 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int j;
+  int k;
+  int t;
+
+  cout << "\n";
+  cout << "TRINOMIAL_TEST\n";
+  cout << "  TRINOMIAL evaluates the trinomial coefficient:\n";
+  cout << "\n";
+  cout << "  T(I,J,K) = (I+J+K)! / I! / J! / K!\n";
+  cout << "\n";
+  cout << "     I     J     K    T(I,J,K)\n";
+  cout << "\n";
+ 
+  for ( k = 0; k <= 4; k++ )
+  {
+    for ( j = 0; j <= 4; j++ )
+    {
+      for ( i = 0; i <= 4; i++ )
+      {
+        t = trinomial ( i, j, k );
+        cout << "  " << setw(4) << i
+             << "  " << setw(4) << j
+             << "  " << setw(4) << k
+             << "  " << setw(8) << t << "\n";
+      }
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void v_hofstadter_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    V_HOFSTADTER_TEST tests V_HOFSTADTER.
 //
 //  Licensing:
 //
@@ -6058,7 +6422,7 @@ void test075 ( )
   int v;
 
   cout << "\n";
-  cout << "TEST075\n";
+  cout << "V_HOFSTADTER_TEST\n";
   cout << "  V_HOFSTADTER evaluates Hofstadter's recursive\n";
   cout << "  V function.\n";
   cout << "\n";
@@ -6076,13 +6440,13 @@ void test075 ( )
 }
 //****************************************************************************80
 
-void test076 ( )
+void vibonacci_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST076 tests VIBONACCI.
+//    VIBONACCI_TEST tests VIBONACCI.
 //
 //  Licensing:
 //
@@ -6106,7 +6470,7 @@ void test076 ( )
   int v3[N];
 
   cout << "\n";
-  cout << "TEST076\n";
+  cout << "VIBONACCI_TEST\n";
   cout << "  VIBONACCI computes a Vibonacci sequence.\n";
   cout << "\n";
   cout << "  We compute the series 3 times.\n";
@@ -6116,9 +6480,9 @@ void test076 ( )
 
   seed = 123456789;
 
-  vibonacci ( N, &seed, v1 );
-  vibonacci ( N, &seed, v2 );
-  vibonacci ( N, &seed, v3 );
+  vibonacci ( N, seed, v1 );
+  vibonacci ( N, seed, v2 );
+  vibonacci ( N, seed, v3 );
 
   for ( i = 0; i < N; i++ )
   {
@@ -6134,13 +6498,13 @@ void test076 ( )
 }
 //****************************************************************************80
 
-void test077 ( )
+void zeckendorf_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST077 tests ZECKENDORF.
+//    ZECKENDORF_TEST tests ZECKENDORF.
 //
 //  Licensing:
 //
@@ -6166,7 +6530,7 @@ void test077 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST077\n";
+  cout << "ZECKENDORF_TEST\n";
   cout << "  ZECKENDORF computes the Zeckendorf decomposition of\n";
   cout << "  an integer N into nonconsecutive Fibonacci numbers.\n";
   cout << "\n";
@@ -6191,13 +6555,13 @@ void test077 ( )
 }
 //****************************************************************************80
 
-void test0773 ( )
+void zernike_poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0773 tests ZERNIKE_POLY and ZERNIKE_POLY_COEF.
+//    ZERNIKE_POLY_TEST tests ZERNIKE_POLY.
 //
 //  Licensing:
 //
@@ -6221,9 +6585,7 @@ void test0773 ( )
   double z2;
 
   cout << "\n";
-  cout << "TEST0773\n";
-  cout << "  ZERNIKE_POLY_COEF returns the coefficients of a\n";
-  cout << "  Zernike polynomial.\n";
+  cout << "ZERNIKE_POLY_TEST\n";
   cout << "  ZERNIKE_POLY evaluates a Zernike polynomial directly.\n";
   cout << "\n";
   cout << "  Table of polynomial coefficients:\n";
@@ -6264,7 +6626,7 @@ void test0773 ( )
     for ( m = 0; m <= n; m++ )
     {
       c = zernike_poly_coef ( m, n );
-      z1 = r8poly_value ( n + 1, c, rho );
+      z1 = r8poly_value_horner ( n, c, rho );
 
       z2 = zernike_poly ( m, n, rho );
       cout << "  " << setw(2)  << n
@@ -6280,13 +6642,13 @@ void test0773 ( )
 }
 //****************************************************************************80
 
-void test0775 ( )
+void zernike_poly_coef_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0775 tests ZERNIKE_POLY_COEF.
+//    ZERNIKE_POLY_COEF_TEST tests ZERNIKE_POLY_COEF.
 //
 //  Licensing:
 //
@@ -6306,7 +6668,7 @@ void test0775 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST0775\n";
+  cout << "ZERNIKE_POLY_COEF_TEST\n";
   cout << "  ZERNIKE_POLY_COEF determines the Zernike\n";
   cout << "  polynomial coefficients.\n";
 
@@ -6323,13 +6685,13 @@ void test0775 ( )
 }
 //****************************************************************************80
 
-void test078 ( )
+void zeta_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST078 tests ZETA and ZETA_VALUES.
+//    ZETA_TEST tests ZETA.
 //
 //  Licensing:
 //
@@ -6353,9 +6715,8 @@ void test078 ( )
   double z2;
 
   cout << "\n";
-  cout << "TEST078\n";
+  cout << "ZETA_TEST\n";
   cout << "  ZETA computes the Zeta function.\n";
-  cout << "  ZETA_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "       N            exact Zeta         computed Zeta\n";
   cout << "\n";

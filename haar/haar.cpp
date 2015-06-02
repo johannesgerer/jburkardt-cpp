@@ -18,13 +18,18 @@ void haar_1d ( int n, double x[] )
 //
 //    HAAR_1D computes the Haar transform of a vector.
 //
+//  Discussion:
+//
+//    For the classical Haar transform, N should be a power of 2.
+//    However, this is not required here.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    14 March 2011
+//    06 March 2014
 //
 //  Author:
 //
@@ -39,30 +44,38 @@ void haar_1d ( int n, double x[] )
 //
 {
   int i;
-  int m;
+  int k;
   double s;
   double *y;
 
   s = sqrt ( 2.0 );
 
   y = new double[n];
-
+//
+//  Initialize.
+//
   for ( i = 0; i < n; i++ )
   {
     y[i] = 0.0;
   }
-
-  m = n;
-  
-  while ( 1 < m )
+//
+//  Determine K, the largest power of 2 such that K <= N.
+//
+  k = 1;
+  while ( k * 2 <= n )
   {
-    m = m / 2;
-    for ( i = 0; i < m; i++ )
+    k = k * 2;
+  }
+  
+  while ( 1 < k )
+  {
+    k = k / 2;
+    for ( i = 0; i < k; i++ )
     {
       y[i]   = ( x[2*i] + x[2*i+1] ) / s;
-      y[i+m] = ( x[2*i] - x[2*i+1] ) / s;
+      y[i+k] = ( x[2*i] - x[2*i+1] ) / s;
     }
-    for ( i = 0; i < m * 2; i++ )
+    for ( i = 0; i < k * 2; i++ )
     {
       x[i] = y[i];
     }
@@ -84,8 +97,8 @@ void haar_1d_inverse ( int n, double x[] )
 //
 //  Discussion:
 //
-//    The current version of this function requires that N be a power of 2.
-//    Otherwise, the function will not properly invert the operation of HAAR_1D.
+//    For the classical Haar transform, N should be a power of 2.
+//    However, this is not required here.
 //
 //  Licensing:
 //
@@ -93,7 +106,7 @@ void haar_1d_inverse ( int n, double x[] )
 //
 //  Modified:
 //
-//    14 March 2011
+//    06 March 2014
 //
 //  Author:
 //
@@ -101,40 +114,41 @@ void haar_1d_inverse ( int n, double x[] )
 //
 //  Parameters:
 //
-//    Input, int N, the dimension of the vector.  For proper calculation,
-//    N must be a power of 2.
+//    Input, int N, the dimension of the vector.  
 //
 //    Input/output, double X[N], on input, the vector to be transformed.
 //    On output, the transformed vector.
 //
 {
   int i;
-  int m;
+  int k;
   double s;
   double *y;
 
   s = sqrt ( 2.0 );
 
   y = new double[n];
-
+//
+//  Initialize.
+//
   for ( i = 0; i < n; i++ )
   {
     y[i] = 0.0;
   }
 
-  m = 1;
-  while ( m * 2 <= n )
+  k = 1;
+  while ( k * 2 <= n )
   {
-    for ( i = 0; i < m; i++ )
+    for ( i = 0; i < k; i++ )
     {
-      y[2*i]   = ( x[i] + x[i+m] ) / s;
-      y[2*i+1] = ( x[i] - x[i+m] ) / s;
+      y[2*i]   = ( x[i] + x[i+k] ) / s;
+      y[2*i+1] = ( x[i] - x[i+k] ) / s;
     }
-    for ( i = 0; i < m * 2; i++ )
+    for ( i = 0; i < k * 2; i++ )
     {
       x[i] = y[i];
     }
-    m = m * 2;
+    k = k * 2;
   }
 
   delete [] y;
@@ -151,13 +165,18 @@ void haar_2d ( int m, int n, double u[] )
 //
 //    HAAR_2D computes the Haar transform of an array.
 //
+//  Discussion:
+//
+//    For the classical Haar transform, M and N should be a power of 2.
+//    However, this is not required here.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    17 March 2011
+//    06 March 2014
 //
 //  Author:
 //
@@ -166,7 +185,6 @@ void haar_2d ( int m, int n, double u[] )
 //  Parameters:
 //
 //    Input, int M, N, the dimensions of the array.
-//    M and N should be powers of 2.
 //
 //    Input/output, double U[M*N], the array to be transformed.
 //
@@ -189,10 +207,16 @@ void haar_2d ( int m, int n, double u[] )
     }
   }
 //
+//  Determine K, the largest power of 2 such that K <= M.
+//
+  k = 1;
+  while ( k * 2 <= m )
+  {
+    k = k * 2;
+  }
+//
 //  Transform all columns.
 //
-  k = m;
-
   while ( 1 < k )
   {
     k = k / 2;
@@ -214,10 +238,16 @@ void haar_2d ( int m, int n, double u[] )
     }
   }
 //
+//  Determine K, the largest power of 2 such that K <= N.
+//
+  k = 1;
+  while ( k * 2 <= n )
+  {
+    k = k * 2;
+  }
+//
 //  Transform all rows.
 //
-  k = n;
-
   while ( 1 < k )
   { 
     k = k / 2;
@@ -253,13 +283,18 @@ void haar_2d_inverse ( int m, int n, double u[] )
 //
 //    HAAR_2D_INVERSE inverts the Haar transform of an array.
 //
+//  Discussion:
+//
+//    For the classical Haar transform, M and N should be a power of 2.
+//    However, this is not required here.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    17 March 2011
+//    06 March 2014
 //
 //  Author:
 //
@@ -268,7 +303,6 @@ void haar_2d_inverse ( int m, int n, double u[] )
 //  Parameters:
 //
 //    Input, int M, N, the dimensions of the array.
-//    M and N should be powers of 2.
 //
 //    Input/output, double U[M*N], the array to be transformed.
 //
@@ -479,6 +513,71 @@ double *r8mat_copy_new ( int m, int n, double a1[] )
 }
 //****************************************************************************80
 
+double r8mat_dif_fro ( int m, int n, double a[], double b[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_DIF_FRO returns the Frobenius norm of the difference of R8MAT's.
+//
+//  Discussion: 							    
+//
+//    An R8MAT is a doubly dimensioned array of double precision values, which
+//    may be stored as a vector in column-major order.
+//
+//    The Frobenius norm is defined as
+//
+//      R8MAT_NORM_FRO = sqrt (
+//        sum ( 1 <= I <= M ) sum ( 1 <= j <= N ) A(I,J)^2 )
+//
+//    The matrix Frobenius norm is not derived from a vector norm, but
+//    is compatible with the vector L2 norm, so that:
+//
+//      r8vec_norm_l2 ( A * x ) <= r8mat_norm_fro ( A ) * r8vec_norm_l2 ( x ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 September 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, double A[M*N], double B[M*N], the matrices for which we
+//    want the Frobenius norm of the difference.
+//
+//    Output, double R8MAT_DIF_FRO, the Frobenius norm of ( A - B ).
+//
+{
+  int i;
+  int j;
+  double value;
+
+  value = 0.0;
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      value = value + pow ( a[i+j*m] - b[i+j*m], 2 );
+    }
+  }
+  value = sqrt ( value );
+
+  return value;
+}
+//****************************************************************************80
+
 void r8mat_print ( int m, int n, double a[], string title )
 
 //****************************************************************************80
@@ -631,7 +730,7 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 }
 //****************************************************************************80
 
-double *r8mat_uniform_01_new ( int m, int n, int *seed )
+double *r8mat_uniform_01_new ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -646,8 +745,8 @@ double *r8mat_uniform_01_new ( int m, int n, int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -686,7 +785,7 @@ double *r8mat_uniform_01_new ( int m, int n, int *seed )
 //
 //    Input, int M, N, the number of rows and columns.
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0, otherwise the output value of SEED
 //    will still be 0, and R8_UNIFORM will be 0.  On output, SEED has
 //    been updated.
@@ -705,19 +804,15 @@ double *r8mat_uniform_01_new ( int m, int n, int *seed )
   {
     for ( i = 0; i < m; i++ )
     {
-      k = *seed / 127773;
+      k = seed / 127773;
 
-      *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-      if ( *seed < 0 )
+      if ( seed < 0 )
       {
-        *seed = *seed + 2147483647;
+        seed = seed + 2147483647;
       }
-//
-//  Although SEED can be represented exactly as a 32 bit integer,
-//  it generally cannot be represented exactly as a 32 bit real number//
-//
-      r[i+j*m] = ( double ) ( *seed ) * 4.656612875E-10;
+      r[i+j*m] = ( double ) ( seed ) * 4.656612875E-10;
     }
   }
 
@@ -768,6 +863,58 @@ double *r8vec_copy_new ( int n, double a1[] )
     a2[i] = a1[i];
   }
   return a2;
+}
+//****************************************************************************80
+
+double r8vec_diff_norm ( int n, double a[], double b[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_DIFF_NORM returns the L2 norm of the difference of R8VEC's.
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//    The vector L2 norm is defined as:
+//
+//      R8VEC_NORM_L2 = sqrt ( sum ( 1 <= I <= N ) A(I)^2 ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    24 June 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of entries in A.
+//
+//    Input, double A[N], B[N], the vectors.
+//
+//    Output, double R8VEC_DIFF_NORM, the L2 norm of A - B.
+//
+{
+  int i;
+  double value;
+
+  value = 0.0;
+
+  for ( i = 0; i < n; i++ )
+  {
+    value = value + ( a[i] - b[i] ) * ( a[i] - b[i] );
+  }
+  value = sqrt ( value );
+
+  return value;
 }
 //****************************************************************************80
 
@@ -942,7 +1089,7 @@ void r8vec_transpose_print ( int n, double a[], string title )
 }
 //****************************************************************************80
 
-double *r8vec_uniform_01_new ( int n, int *seed )
+double *r8vec_uniform_01_new ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -1005,7 +1152,7 @@ double *r8vec_uniform_01_new ( int n, int *seed )
 //
 //    Input, int N, the number of entries in the vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R8VEC_UNIFORM_01_NEW[N], the vector of pseudorandom values.
 //
@@ -1015,7 +1162,7 @@ double *r8vec_uniform_01_new ( int n, int *seed )
   int k;
   double *r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R8VEC_UNIFORM_01_NEW - Fatal error!\n";
@@ -1027,16 +1174,16 @@ double *r8vec_uniform_01_new ( int n, int *seed )
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + i4_huge;
+      seed = seed + i4_huge;
     }
 
-    r[i] = ( double ) ( *seed ) * 4.656612875E-10;
+    r[i] = ( double ) ( seed ) * 4.656612875E-10;
   }
 
   return r;

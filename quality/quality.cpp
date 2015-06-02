@@ -191,21 +191,23 @@ double arc_cosine ( double c )
 //    Output, double ARC_COSINE, an angle whose cosine is C.
 //
 {
-# define PI 3.141592653589793
+  const double r8_pi = 3.141592653589793;
+  double value;
 
   if ( c <= -1.0 )
   {
-    return PI;
+    value = r8_pi;
   }
   else if ( 1.0 <= c )
   {
-    return 0.0;
+    value = 0.0;
   }
   else
   {
-    return acos ( c );
+    value = acos ( c );
   }
-# undef PI
+
+  return value;
 }
 //****************************************************************************80
 
@@ -3603,12 +3605,12 @@ double r8_epsilon ( )
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the R8 round off unit.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
 //    but
 //      1 = ( 1 + R / 2 )
@@ -3619,7 +3621,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -3627,19 +3629,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the floating point round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 

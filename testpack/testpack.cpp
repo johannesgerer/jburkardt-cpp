@@ -31,7 +31,7 @@ void multst ( int nsamp, int tstlim, int tstfns[], int tstmax, double difclt[],
     double wrkstr[], double *errest, double *finest, int *ifail ), 
   double rel_tol, int maxpts );
 double r8_abs ( double x );
-double r8_epsilon ( void );
+double r8_epsilon ( );
 double r8_max ( double x, double y );
 double r8_min ( double x, double y );
 double r8vec_dot ( int n, double a1[], double a2[] );
@@ -2175,7 +2175,7 @@ double r8_abs ( double x )
 }
 //****************************************************************************80
 
-double r8_epsilon ( void )
+double r8_epsilon ( )
 
 //****************************************************************************80
 //
@@ -2185,15 +2185,19 @@ double r8_epsilon ( void )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -2204,16 +2208,7 @@ double r8_epsilon ( void )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }

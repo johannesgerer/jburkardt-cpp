@@ -52,7 +52,7 @@
     <p>
       This library makes it possible to compare certain computations 
       that use normal random numbers, written in C, C++, FORTRAN77,
-      FORTRAN90 or MATLAB.
+      FORTRAN90, MATLAB or Python.
     </p>
 
     <h3 align = "center">
@@ -75,7 +75,8 @@
       <a href = "../../cpp_src/normal/normal.html">a C++ version</a> and 
       <a href = "../../f77_src/normal/normal.html">a FORTRAN77 version</a> and 
       <a href = "../../f_src/normal/normal.html">a FORTRAN90 version</a> and 
-      <a href = "../../m_src/normal/normal.html">a MATLAB version</a>
+      <a href = "../../m_src/normal/normal.html">a MATLAB version</a> and
+      <a href = "../../py_src/normal/normal.html">a Python version</a>.
     </p>
 
     <h3 align = "center">
@@ -97,73 +98,34 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/faure/faure.html">
-      FAURE</a>,  
+      <a href = "../../cpp_src/ranlib/ranlib.html">
+      RANLIB</a>,
       a C++ library which
-      computes Faure sequences.
+      produces random samples from Probability Density Functions (PDF's), 
+      including Beta, Chi-square Exponential, F, Gamma, Multivariate normal,
+      Noncentral chi-square, Noncentral F, Univariate normal, random permutations,
+      Real uniform, Binomial, Negative Binomial, Multinomial, Poisson
+      and Integer uniform,
+      by Barry Brown and James Lovato.
     </p>
 
     <p>
-      <a href = "../../cpp_src/halton/halton.html">
-      HALTON</a>,
+      <a href = "../../cpp_src/rnglib/rnglib.html">
+      RNGLIB</a>,
       a C++ library which
-      computes Halton sequences.
+      implements a random number generator (RNG) with splitting facilities,
+      allowing multiple independent streams to be computed,
+      by L'Ecuyer and Cote.
     </p>
 
     <p>
-      <a href = "../../cpp_src/hammersley/hammersley.html">
-      HAMMERSLEY</a>,  
-      a C++ library which
-      computes Hammersley sequences.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/hex_grid/hex_grid.html">
-      HEX_GRID</a>,  
-      a C++ library which
-      computes sets of points in a 2D hexagonal grid.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/ihs/ihs.html">
-      IHS</a>,  
-      a C++ library which
-      computes improved Latin Hypercube datasets.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/latin_center/latin_center.html">
-      LATIN_CENTER</a>,  
-      a C++ library which
-      computes Latin square data choosing the center value.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/latin_edge/latin_edge.html">
-      LATIN_EDGE</a>,  
-      a C++ library which
-      computes Latin square data choosing the edge value.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/latin_random/latin_random.html">
-      LATIN_RANDOM</a>, 
-      a C++ library which
-      computes Latin square data choosing a random value in the square.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/niederreiter2/niederreiter2.html">
-      NIEDERREITER2</a>,  
-      a C++ library which
-      computes Niederreiter sequences with base 2.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/sobol/sobol.html">
-      SOBOL</a>,  
-      a C++ library which
-      computes Sobol sequences.
+      <a href = "../../cpp_src/truncated_normal/truncated_normal.html">
+      TRUNCATED_NORMAL</a>,
+      a C++ library which 
+      works with the truncated normal distribution over [A,B], or
+      [A,+oo) or (-oo,B], returning the probability density function (PDF),
+      the cumulative density function (CDF), the inverse CDF, the mean,
+      the variance, and sample values.
     </p>
 
     <p>
@@ -286,37 +248,31 @@
           <b>I4_HUGE</b> returns a "huge" I4.
         </li>
         <li>
-          <b>I4_NORMAL</b> returns a scaled pseudonormal I4.
+          <b>I4_NORMAL_AB</b> returns a scaled pseudonormal I4.
         </li>
         <li>
-          <b>I8_NORMAL</b> returns a scaled pseudonormal I8.
+          <b>I8_NORMAL_AB</b> returns a scaled pseudonormal I8.
         </li>
         <li>
           <b>R4_NINT</b> returns the nearest I4 to an R4.
         </li>
         <li>
-          <b>R4_NORMAL</b> returns a scaled pseudonormal R4.
+          <b>R4_NORMAL_01</b> returns a unit pseudonormal R4.
         </li>
         <li>
-          <b>R4_NORMAL_01</b> returns a unit pseudonormal R4.
+          <b>R4_NORMAL_AB</b> returns a scaled pseudonormal R4.
         </li>
         <li>
           <b>R4_UNIFORM_01</b> returns a unit pseudorandom R4.
         </li>
         <li>
-          <b>R8_NORMAL</b> returns a scaled pseudonormal R8.
-        </li>
-        <li>
           <b>R8_NORMAL_01</b> returns a unit pseudonormal R8.
         </li>
         <li>
+          <b>R8_NORMAL_AB</b> returns a scaled pseudonormal R8.
+        </li>
+        <li>
           <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
-        </li>
-        <li>
-          <b>R8MAT_NORMAL</b> returns a scaled pseudonormal R8MAT.
-        </li>
-        <li>
-          <b>R8MAT_NORMAL_NEW</b> returns a scaled pseudonormal R8MAT.
         </li>
         <li>
           <b>R8MAT_NORMAL_01</b> returns a unit pseudonormal R8MAT.
@@ -325,16 +281,22 @@
           <b>R8MAT_NORMAL_01_NEW</b> returns a unit pseudonormal R8MAT.
         </li>
         <li>
-          <b>R8VEC_NORMAL</b> returns a scaled pseudonormal R8VEC.
+          <b>R8MAT_NORMAL_AB</b> returns a scaled pseudonormal R8MAT.
         </li>
         <li>
-          <b>R8VEC_NORMAL_NEW</b> returns a scaled pseudonormal R8VEC.
+          <b>R8MAT_NORMAL_AB_NEW</b> returns a scaled pseudonormal R8MAT.
         </li>
         <li>
           <b>R8VEC_NORMAL_01</b> returns a unit pseudonormal R8VEC.
         </li>
         <li>
           <b>R8VEC_NORMAL_01_NEW</b> returns a unit pseudonormal R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_NORMAL_AB</b> returns a scaled pseudonormal R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_NORMAL_AB_NEW</b> returns a scaled pseudonormal R8VEC.
         </li>
         <li>
           <b>R8VEC_UNIFORM_01_NEW</b> returns a new unit pseudorandom R8VEC.
@@ -353,7 +315,7 @@
     <hr>
 
     <i>
-      Last revised on 09 December 2009.
+      Last revised on 06 August 2013.
     </i>
 
     <!-- John Burkardt -->

@@ -298,7 +298,7 @@ void axis_limits ( double xmin, double xmax, int ndivs, double *pxmin,
 //
   if ( xmax != xmin )
   {
-    reldif = ( xmax - xmin ) / r8_max ( r8_abs ( xmax ), r8_abs ( xmin ) );
+    reldif = ( xmax - xmin ) / r8_max ( fabs ( xmax ), fabs ( xmin ) );
   }
   else
   {
@@ -5334,6 +5334,358 @@ int iset2_compare ( int x1, int y1, int x2, int y2 )
 }
 //****************************************************************************80
 
+void l4mat_print ( int m, int n, bool a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_PRINT prints an L4MAT.
+//
+//  Discussion:
+//
+//    An L4MAT is an array of L4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 November 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, bool A[M*N], the matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  l4mat_print_some ( m, n, a, 0, 0, m - 1, n - 1, title );
+
+  return;
+}
+//****************************************************************************80
+
+void l4mat_print_some ( int m, int n, bool a[], int ilo, int jlo, int ihi, 
+  int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_PRINT_SOME prints some of an L4MAT.
+//
+//  Discussion:
+//
+//    An L4MAT is an array of L4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 November 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, bool A[M*N], an M by N matrix to be printed.
+//
+//    Input, int ILO, JLO, the first row and column to print.
+//
+//    Input, int IHI, JHI, the last row and column to print.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int i2hi;
+  int i2lo;
+  int inc;
+  int incx = 35;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  for ( j2lo = jlo; j2lo <= i4_min ( jhi, n - 1 ); j2lo = j2lo + incx )
+  {
+    j2hi = j2lo + incx - 1;
+    if ( n - 1 < j2hi )
+    {
+      j2hi = n - 1;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
+
+    inc = j2hi + 1 - j2lo;
+
+    cout << "\n";
+
+    if ( 100 <= j2hi )
+    {
+      cout << "      ";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << " " << setw(1) << j / 100;
+      }
+      cout << "\n";
+    }
+
+    if ( 10 <= j2hi )
+    {
+      cout << "      ";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << " " << setw(1) << ( j / 10 ) % 10;
+      }
+      cout << "\n";
+    }
+
+    cout << "  Col ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << " " << setw(1) << j % 10;
+    }
+    cout << "\n";
+
+    cout << "  Row\n";
+    cout << "\n";
+
+    i2lo = 0;
+    if ( i2lo < ilo )
+    {
+      i2lo = ilo;
+    }
+    i2hi = m - 1;
+    if ( ihi < i2hi )
+    {
+      i2hi = ihi;
+    }
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(5) << i << ":";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << " " << setw(1) << a[i+j*m];
+      }
+      cout << "\n";
+    }
+  }
+  return;
+}
+//****************************************************************************80
+
+void l4mat_transpose_print ( int m, int n, bool a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_TRANSPOSE_PRINT prints an L4MAT, transposed.
+//
+//  Discussion:
+//
+//    An L4MAT is an array of L4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 November 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, bool A[M*N], an M by N matrix to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  l4mat_transpose_print_some ( m, n, a, 0, 0, m - 1, n - 1, title );
+
+  return;
+}
+//****************************************************************************80
+
+void l4mat_transpose_print_some ( int m, int n, bool a[], int ilo, int jlo, 
+  int ihi, int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_TRANSPOSE_PRINT_SOME prints some of an L4MAT, transposed.
+//
+//  Discussion:
+//
+//    An L4MAT is an array of L4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 November 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, bool A[M*N], an M by N matrix to be printed.
+//
+//    Input, int ILO, JLO, the first row and column to print.
+//
+//    Input, int IHI, JHI, the last row and column to print.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int i2hi;
+  int i2lo;
+  int inc;
+  int incx = 35;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  for ( i2lo = i4_max ( ilo, 0 ); i2lo <= i4_min ( ihi, m - 1 ); i2lo = i2lo + incx )
+  {
+    i2hi = i2lo + incx - 1;
+    i2hi = i4_min ( i2hi, m - 1 );
+    i2hi = i4_min ( i2hi, ihi );
+
+    inc = i2hi + 1 - i2lo;
+
+    cout << "\n";
+
+    if ( 100 <= i2hi )
+    {
+      cout << "      ";
+      for ( i = i2lo; i <= i2hi; i++ )
+      {
+        cout << " " << setw(1) << i / 100;
+      }
+      cout << "\n";
+    }
+
+    if ( 10 <= i2hi )
+    {
+      cout << "      ";
+      for ( i = i2lo; i <= i2hi; i++ )
+      {
+        cout << " " << setw(1) << ( i / 10 ) % 10;
+      }
+      cout << "\n";
+    }
+
+    cout << "  Row ";
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << " " << setw(1) << i % 10;
+    }
+    cout << "\n";
+
+    cout << "  Col\n";
+    cout << "\n";
+
+    j2lo = i4_max ( jlo, 0 );
+    j2hi = i4_min ( jhi, n - 1 );
+
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << setw(5) << j << ":";
+      for ( i = i2lo; i <= i2hi; i++ )
+      {
+        cout << " " << setw(1) << a[i+j*m];
+      }
+      cout << "\n";
+    }
+  }
+  return;
+}
+//****************************************************************************80
+
+void l4vec_print ( int n, bool a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4VEC_PRINT prints an L4VEC.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 April 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, bool A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+
+  cout << "\n";
+  cout << title << "\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ ) 
+  {
+    cout << "  " << setw(8) << i 
+         << ": " << setw(1) << a[i]  << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
 int lcm_12n ( int n )
 
 //****************************************************************************80
@@ -5397,302 +5749,6 @@ int lcm_12n ( int n )
   }
 
   return value;
-}
-//****************************************************************************80
-
-void lmat_print ( int m, int n, bool a[], string title )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LMAT_PRINT prints an LMAT.
-//
-//  Discussion:
-//
-//    An LMAT is an array of L values.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    03 November 2011
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int M, the number of rows in A.
-//
-//    Input, int N, the number of columns in A.
-//
-//    Input, bool A[M*N], the matrix.
-//
-//    Input, string TITLE, a title.
-//
-{
-  lmat_print_some ( m, n, a, 0, 0, m - 1, n - 1, title );
-
-  return;
-}
-//****************************************************************************80
-
-void lmat_print_some ( int m, int n, bool a[], int ilo, int jlo, int ihi, 
-  int jhi, string title )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LMAT_PRINT_SOME prints some of an LMAT.
-//
-//  Discussion:
-//
-//    An LMAT is an array of L values.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    03 November 2011
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int M, N, the number of rows and columns.
-//
-//    Input, bool A[M*N], an M by N matrix to be printed.
-//
-//    Input, int ILO, JLO, the first row and column to print.
-//
-//    Input, int IHI, JHI, the last row and column to print.
-//
-//    Input, string TITLE, a title.
-//
-{
-  int i;
-  int i2hi;
-  int i2lo;
-  int inc;
-  int incx = 35;
-  int j;
-  int j2;
-  int j2hi;
-  int j2lo;
-
-  cout << "\n";
-  cout << title << "\n";
-
-  for ( j2lo = i4_max ( jlo, 0 ); j2lo <= i4_min ( jhi, n - 1 ); j2lo = j2lo + incx )
-  {
-    j2hi = j2lo + incx - 1;
-    j2hi = i4_min ( j2hi, n - 1 );
-    j2hi = i4_min ( j2hi, jhi );
-
-    inc = j2hi + 1 - j2lo;
-
-    cout << "\n";
-
-    if ( 100 <= j2hi )
-    {
-      cout << "      ";
-      for ( j = j2lo; j <= j2hi; j++ )
-      {
-        cout << " " << setw(1) << j / 100;
-      }
-      cout << "\n";
-    }
-
-    if ( 10 <= j2hi )
-    {
-      cout << "      ";
-      for ( j = j2lo; j <= j2hi; j++ )
-      {
-        cout << " " << setw(1) << ( j / 10 ) % 10;
-      }
-      cout << "\n";
-    }
-
-    cout << "  Col ";
-    for ( j = j2lo; j <= j2hi; j++ )
-    {
-      cout << " " << setw(1) << j % 10;
-    }
-    cout << "\n";
-
-    cout << "  Row\n";
-    cout << "\n";
-
-    i2lo = i4_max ( ilo, 0 );
-    i2hi = i4_min ( ihi, m - 1 );
-
-    for ( i = i2lo; i <= i2hi; i++ )
-    {
-      cout << setw(5) << i << ":";
-      for ( j = j2lo; j <= j2hi; j++ )
-      {
-        cout << " " << setw(1) << a[i+j*m];
-      }
-      cout << "\n";
-    }
-  }
-  return;
-}
-//****************************************************************************80
-
-void lmat_transpose_print ( int m, int n, bool a[], string title )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LMAT_TRANSPOSE_PRINT prints an LMAT, transposed.
-//
-//  Discussion:
-//
-//    An LMAT is an array of L values.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    03 November 2011
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int M, N, the number of rows and columns.
-//
-//    Input, bool A[M*N], an M by N matrix to be printed.
-//
-//    Input, string TITLE, a title.
-//
-{
-  lmat_transpose_print_some ( m, n, a, 0, 0, m - 1, n - 1, title );
-
-  return;
-}
-//****************************************************************************80
-
-void lmat_transpose_print_some ( int m, int n, bool a[], int ilo, int jlo, 
-  int ihi, int jhi, string title )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LMAT_TRANSPOSE_PRINT_SOME prints some of an LMAT, transposed.
-//
-//  Discussion:
-//
-//    An LMAT is an array of L values.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    03 November 2011
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int M, N, the number of rows and columns.
-//
-//    Input, bool A[M*N], an M by N matrix to be printed.
-//
-//    Input, int ILO, JLO, the first row and column to print.
-//
-//    Input, int IHI, JHI, the last row and column to print.
-//
-//    Input, string TITLE, a title.
-//
-{
-  int i;
-  int i2;
-  int i2hi;
-  int i2lo;
-  int inc;
-  int incx = 35;
-  int j;
-  int j2hi;
-  int j2lo;
-
-  cout << "\n";
-  cout << title << "\n";
-
-  for ( j2lo = i4_max ( ilo, 0 ); j2lo <= i4_min ( ihi, m - 1 ); j2lo = j2lo + incx )
-  {
-    i2hi = i2lo + incx - 1;
-    i2hi = i4_min ( i2hi, m - 1 );
-    i2hi = i4_min ( i2hi, ihi );
-
-    inc = i2hi + 1 - i2lo;
-
-    cout << "\n";
-
-    if ( 100 <= i2hi )
-    {
-      cout << "      ";
-      for ( i = i2lo; i <= i2hi; i++ )
-      {
-        cout << " " << setw(1) << i / 100;
-      }
-      cout << "\n";
-    }
-
-    if ( 10 <= i2hi )
-    {
-      cout << "      ";
-      for ( i = i2lo; i <= i2hi; i++ )
-      {
-        cout << " " << setw(1) << ( i / 10 ) % 10;
-      }
-      cout << "\n";
-    }
-
-    cout << "  Row ";
-    for ( i = i2lo; i <= i2hi; i++ )
-    {
-      cout << " " << setw(1) << i % 10;
-    }
-    cout << "\n";
-
-    cout << "  Col\n";
-    cout << "\n";
-
-    j2lo = i4_max ( jlo, 0 );
-    j2hi = i4_min ( jhi, n - 1 );
-
-    for ( j = j2lo; j <= j2hi; j++ )
-    {
-      cout << setw(5) << j << ":";
-      for ( i = i2lo; i <= i2hi; i++ )
-      {
-        cout << " " << setw(1) << a[i+j*m];
-      }
-      cout << "\n";
-    }
-  }
-  return;
 }
 //****************************************************************************80
 
@@ -5768,50 +5824,6 @@ int luhn_check ( int digit_num, int digit[] )
   delete [] digit_copy;
 
   return check_sum;
-}
-//****************************************************************************80
-
-void lvec_print ( int n, bool a[], string title )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LVEC_PRINT prints a logical vector.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    03 April 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int N, the number of components of the vector.
-//
-//    Input, bool A[N], the vector to be printed.
-//
-//    Input, string TITLE, a title.
-//
-{
-  int i;
-
-  cout << "\n";
-  cout << title << "\n";
-  cout << "\n";
-  for ( i = 0; i < n; i++ ) 
-  {
-    cout << "  " << setw(8) << i 
-         << ": " << setw(1) << a[i]  << "\n";
-  }
-
-  return;
 }
 //****************************************************************************80
 
@@ -6883,47 +6895,6 @@ int r4_nint ( float x )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = - x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double r8_huge ( )
 
 //****************************************************************************80
@@ -7005,7 +6976,7 @@ double r8_log_10 ( double x )
   }
   else
   {
-    value = log10 ( r8_abs ( x ) );
+    value = log10 ( fabs ( x ) );
   }
 
   return value;
@@ -7122,7 +7093,7 @@ double r8_modp ( double x, double y )
 
   if ( value < 0.0 )
   {
-    value = value + r8_abs ( y );
+    value = value + fabs ( y );
   }
 
   return value;
@@ -7663,7 +7634,7 @@ void r8poly_print ( int n, double a[], string title )
     plus_minus = ' ';
   }
 
-  mag = r8_abs ( a[n2] );
+  mag = fabs ( a[n2] );
 
   if ( 2 <= n2 )
   {
@@ -7692,7 +7663,7 @@ void r8poly_print ( int n, double a[], string title )
       plus_minus = '+';
     }
 
-    mag = r8_abs ( a[i] );
+    mag = fabs ( a[i] );
 
     if ( mag != 0.0 )
     {

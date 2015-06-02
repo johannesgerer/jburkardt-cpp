@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    MACHAR_PRB runs the MACHAR tests.
+//    MACHAR_PRB tests the MACHAR library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "MACHAR_PRB\n";
   cout << "  C++ version\n";
@@ -52,7 +51,6 @@ int main ( )
   cout << "\n";
   cout << "MACHAR_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

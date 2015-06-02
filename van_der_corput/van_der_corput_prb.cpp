@@ -28,7 +28,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    VAN_DER_CORPUT_PRB calls a set of problems for VAN_DER_CORPUT.
+//    VAN_DER_CORPUT_PRB tests the VAN_DER_CORPUT library.
 //
 //  Licensing:
 //
@@ -44,7 +44,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "VAN_DER_CORPUT_PRB\n";
   cout << "  C++ version\n";
@@ -64,7 +63,6 @@ int main ( )
   cout << "\n";
   cout << "VAN_DER_CORPUT_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

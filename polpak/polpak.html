@@ -90,7 +90,8 @@
       <a href = "../../cpp_src/polpak/polpak.html">a C++ version</a> and
       <a href = "../../f77_src/polpak/polpak.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/polpak/polpak.html">a FORTRAN90 version</a> and
-      <a href = "../../m_src/polpak/polpak.html">a MATLAB version</a>.
+      <a href = "../../m_src/polpak/polpak.html">a MATLAB version</a> and
+      <a href = "../../py_src/polpak/polpak.html">a Python version</a>
     </p>
 
     <h3 align = "center">
@@ -98,8 +99,8 @@
     </h3>
 
     <p>
-      <a href = "../../cpp_src/bernstein/bernstein.html">
-      BERNSTEIN</a>,
+      <a href = "../../cpp_src/bernstein_polynomial/bernstein_polynomial.html">
+      BERNSTEIN_POLYNOMIAL</a>,
       a C++ library which
       evaluates the Bernstein polynomials, 
       useful for uniform approximation of functions;
@@ -165,18 +166,27 @@
     </p>
 
     <p>
+      <a href = "../../cpp_src/legendre_product_polynomial/legendre_product_polynomial.html">
+      LEGENDRE_PRODUCT_POLYNOMIAL</a>,
+      a C++ library which
+      defines Legendre product polynomials, creating a multivariate 
+      polynomial as the product of univariate Legendre polynomials.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lobatto_polynomial/lobatto_polynomial.html">
+      LOBATTO_POLYNOMIAL</a>,
+      a C++ library which
+      evaluates Lobatto polynomials, similar to Legendre polynomials
+      except that they are zero at both endpoints.
+    </p>
+
+    <p>
       <a href = " ../../cpp_src/test_values/test_values.html">
       TEST_VALUES</a>,
       a C++ library which 
       stores values of many mathematical functions, and can be used for
       testing.
-    </p>
-
-    <p>
-      <a href = " ../../f77_src/specfun/specfun.html">
-      SPECFUN</a>,
-      a FORTRAN77 library which 
-      evaluates a number of special functions.
     </p>
 
     <h3 align = "center">
@@ -525,6 +535,12 @@
           <b>CARDAN_POLY_COEF</b> computes the coefficients of the N-th Cardan polynomial.
         </li>
         <li>
+          <b>CARDINAL_COS</b> evaluates the J-th cardinal cosine basis function.
+        </li>
+        <li>
+          <b>CARDINAL_SIN</b> evaluates the J-th cardinal sine basis function.
+        </li>
+        <li>
           <b>CATALAN</b> computes the Catalan numbers, from C(0) to C(N).
         </li>
         <li>
@@ -537,28 +553,28 @@
           <b>CHARLIER</b> evaluates Charlier polynomials at a point.
         </li>
         <li>
-          <b>CHEBY_T_POLY</b> evaluates Chebyshev polynomials T(N)(X) of the first kind.
+          <b>CHEBY_T_POLY</b> evaluates Chebyshev polynomials T(n,x).
         </li>
         <li>
-          <b>CHEBY_T_POLY_COEF</b> evaluates the Chebyshev T polynomial coefficients.
+          <b>CHEBY_T_POLY_COEF</b> evaluates coefficients of Chebyshev polynomials T(n,x).
         </li>
         <li>
-          <b>CHEBY_T_POLY_VALUES</b> returns values of the Chebyshev T polynomial.
+          <b>CHEBY_T_POLY_VALUES</b> returns values of Chebyshev polynomials T(n,x).
         </li>
         <li>
-          <b>CHEBY_T_POLY_ZERO</b> returns zeroes of the Chebyshev polynomial T(N)(X).
+          <b>CHEBY_T_POLY_ZERO</b> returns zeroes of Chebyshev polynomials T(n,x).
         </li>
         <li>
-          <b>CHEBY_U_POLY</b> evaluates the Chebyshev polynomials of the second kind.
+          <b>CHEBY_U_POLY</b> evaluates Chebyshev polynomials U(n,x).
         </li>
         <li>
-          <b>CHEBY_U_POLY_COEF</b> evaluates the Chebyshev U polynomial coefficients.
+          <b>CHEBY_U_POLY_COEF</b> evaluates coefficients of Chebyshev polynomials U(n,x).
         </li>
         <li>
-          <b>CHEBY_U_POLY_VALUES</b> returns values of the Chebyshev U polynomial.
+          <b>CHEBY_U_POLY_VALUES</b> returns values of Chebyshev polynomials U(n,x).
         </li>
         <li>
-          <b>CHEBY_U_POLY_ZERO</b> returns zeroes of the Chebyshev polynomial U(N)(X).
+          <b>CHEBY_U_POLY_ZERO</b> returns zeroes of Chebyshev polynomials U(n,x).
         </li>
         <li>
           <b>CHEBYSHEV_DISCRETE</b> evaluates discrete Chebyshev polynomials at a point.
@@ -579,19 +595,16 @@
           <b>COMMUL</b> computes a multinomial combinatorial coefficient.
         </li>
         <li>
+          <b>COMPLETE_SYMMETRIC_POLY</b> evaluates a complete symmetric polynomial.
+        </li>
+        <li>
           <b>COS_DEG</b> returns the cosine of an angle given in degrees.
         </li>
         <li>
-          <b>COT</b> returns the cotangent of an angle.
+          <b>COS_POWER_INT</b> evaluates the cosine power integral.
         </li>
         <li>
-          <b>COT_DEG</b> returns the cotangent of an angle given in degrees.
-        </li>
-        <li>
-          <b>CSC</b> returns the cosecant of X.
-        </li>
-        <li>
-          <b>CSC_DEG</b> returns the cosecant of an angle given in degrees.
+          <b>COS_POWER_INT_VALUES</b> returns some values of the sine power integral.
         </li>
         <li>
           <b>E_CONSTANT</b> returns the value of the base of the natural logarithm system.
@@ -645,7 +658,7 @@
           <b>GAMMA_VALUES</b> returns some values of the Gamma function.
         </li>
         <li>
-          <b>GEGENBAUER_POLY</b> computes the Gegenbauer polynomials C(0:N,ALPHA)(X).
+          <b>GEGENBAUER_POLY</b> computes the Gegenbauer polynomials C(0:N,ALPHA,X).
         </li>
         <li>
           <b>GEGENBAUER_POLY_VALUES</b> returns some values of the Gegenbauer polynomials.
@@ -672,7 +685,7 @@
           <b>HERMITE_POLY</b> evaluates the Hermite polynomials at X.
         </li>
         <li>
-          <b>HERMITE_POLY_COEF</b> evaluates the Hermite polynomial coefficients.
+          <b>HERMITE_POLY_COEF</b> evaluates the coefficients of the physicist's Hermite polynomial H(n,x).
         </li>
         <li>
           <b>HERMITE_POLY_VALUES</b> returns some values of the Hermite polynomial.
@@ -732,7 +745,7 @@
           <b>I4_TO_TRIANGLE</b> converts an integer to triangular coordinates.
         </li>
         <li>
-          <b>I4_UNIFORM</b> returns a scaled pseudorandom I4.
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4.
         </li>
         <li>
           <b>I4MAT_PRINT</b> prints an I4MAT.
@@ -753,7 +766,7 @@
           <b>KRAWTCHOUK</b> evaluates the Krawtchouk polynomials at X.
         </li>
         <li>
-          <b>LAGUERRE_ASSOCIATED</b> evaluates the associated Laguerre polynomials L(N,M)(X) at X.
+          <b>LAGUERRE_ASSOCIATED</b> evaluates the associated Laguerre polynomials L(N,M,X) at X.
         </li>
         <li>
           <b>LAGUERRE_POLY</b> evaluates the Laguerre polynomials at X.
@@ -762,7 +775,7 @@
           <b>LAGUERRE_POLY_COEF</b> evaluates the Laguerre polynomial coefficients.
         </li>
         <li>
-          <b>LAGUERRE_POLY_VALUES</b> returns some values of the Laguerre polynomial.
+          <b>LAGUERRE_POLYNOMIAL_VALUES</b> returns some values of the Laguerre polynomial.
         </li>
         <li>
           <b>LEGENDRE_ASSOCIATED</b> evaluates the associated Legendre functions.
@@ -846,6 +859,9 @@
           <b>PHI_VALUES</b> returns some values of the PHI function.
         </li>
         <li>
+          <b>PLANE_PARTITION_NUM</b> returns the number of plane partitions of the integer N.
+        </li>
+        <li>
           <b>POLY_BERNOULLI</b> evaluates the poly-Bernolli numbers with negative index.
         </li>
         <li>
@@ -861,12 +877,6 @@
           <b>PYRAMID_NUM</b> returns the N-th pyramidal number.
         </li>
         <li>
-          <b>R4_ABS</b> returns the absolute value of an R4.
-        </li>
-        <li>
-          <b>R4_NINT</b> returns the nearest integer to an R4.
-        </li>
-        <li>
           <b>R8_ABS</b> returns the absolute value of an R8.
         </li>
         <li>
@@ -880,6 +890,18 @@
         </li>
         <li>
           <b>R8_CHOOSE</b> computes the combinatorial coefficient C(N,K).
+        </li>
+        <li>
+          <b>R8_COT</b> returns the cotangent of an angle.
+        </li>
+        <li>
+          <b>R8_COT_DEG</b> returns the cotangent of an angle given in degrees.
+        </li>
+        <li>
+          <b>R8_CSC</b> returns the cosecant of X.
+        </li>
+        <li>
+          <b>R8_CSC_DEG</b> returns the cosecant of an angle given in degrees.
         </li>
         <li>
           <b>R8_EPSILON</b> returns the R8 roundoff unit.
@@ -912,10 +934,13 @@
           <b>R8_HYPER_2F1</b> evaluates the hypergeometric function F(A,B,C,X).
         </li>
         <li>
-          <b>R8_MAX</b> returns the maximum of two real values.
+          <b>R8_MAX</b> returns the maximum of two R8's.
         </li>
         <li>
-          <b>R8_MIN</b> returns the minimum of two real values.
+          <b>R8_MIN</b> returns the minimum of two R8's.
+        </li>
+        <li>
+          <b>R8_MOP</b> returns the I-th power of -1 as an R8 value.
         </li>
         <li>
           <b>R8_NINT</b> returns the integer that is nearest to a real value.
@@ -937,6 +962,12 @@
         </li>
         <li>
           <b>R8POLY_VALUE</b> evaluates a double precision polynomial.
+        </li>
+        <li>
+          <b>R8VEC_LINSPACE_NEW</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
         </li>
         <li>
           <b>R8VEC_ZERO</b> zeroes a real vector.
@@ -1030,7 +1061,7 @@
     <hr>
 
     <i>
-      Last revised on 12 August 2011.
+      Last revised on 13 May 2014.
     </i>
 
     <!-- John Burkardt -->

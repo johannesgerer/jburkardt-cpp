@@ -1,0 +1,249 @@
+19 September 2014 10:06:49 AM
+
+RANLIB_PRB
+  C++ version
+  Test the RANLIB library.
+
+TEST_PHRTSD
+  Test PHRTST,
+  which generates two seeds from a phrase.
+
+  Randomizing phrase is "randomizer"
+
+  Seed1 = 316927234
+  Seed2 = 972931675
+
+TEST_BOT
+  Test the lower level random number generators.
+
+  Five of the 32 generators will be tested.
+  We generate 100000 numbers, reset the block
+  and do it again.  No disagreements should occur.
+
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+  Testing generator 0
+  Testing generator 4
+  Testing generator 9
+  Testing generator 19
+  Testing generator 31
+
+TEST_GENBET
+  Test GENBET,
+  which generates Beta deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+  A = 5.62734
+  B = 9.8901
+
+  Sample data range:                0.0716204        0.753428
+  Sample mean, variance:             0.357982       0.0132721
+  Distribution mean, variance        0.362646       0.0139933
+
+TEST_IGNBIN
+  Test IGNBIN,
+  which generates binomial deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 10000
+
+  Parameters:
+
+  NN = 10
+  PP = 0.987789
+
+  Sample data range:                        7              10
+  Sample mean, variance:               9.8836        0.115064
+  Distribution mean, variance         9.87789         0.12062
+
+TEST_GENCHI
+  Test GENCHI,
+  which generates Chi-square deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+  DF = 5.62734
+
+  Sample data range:                  0.25896         19.0622
+  Sample mean, variance:              5.63553         10.3557
+  Distribution mean, variance         5.62734         11.2547
+
+TEST_GENEXP
+  Test GENEXP,
+  which generates exponential deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+  MU = 5.38442
+
+  Sample data range:              0.000615049          54.076
+  Sample mean, variance:              5.22299         27.5365
+  Distribution mean, variance         5.38442         28.9919
+
+TEST_GENF
+  Test GENF,
+  which generates F deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 10000
+
+  Parameters:
+
+  DFN =   6.59904
+  DFD =   9.93894
+
+  Sample data range:                0.0295832         15.4262
+  Sample mean, variance:              1.24154         1.05389
+  Distribution mean, variance         1.25192         1.16278
+
+TEST_GENGAM
+  Test GENGAM,
+  which generates Gamma deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+  A = 5.62734
+  R = 9.8901
+
+  Sample data range:                 0.541996         3.69391
+  Sample mean, variance:               1.7552        0.288387
+  Distribution mean, variance         1.75751        0.312316
+
+TEST_IGNNBN
+  Test IGNNBN,
+  which generates negative binomial deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 10000
+
+  Parameters:
+
+  NN = 11
+  PP = 0.987789
+
+  Sample data range:                        0               3
+  Sample mean, variance:               0.1376        0.139672
+  Distribution mean, variance        0.135982        0.137663
+
+TEST_GENNCH
+  Test GENNCH,
+  which generates noncentral Chi-square deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+  DF =    6.11319
+  XNONC = 1.97558
+
+  Sample data range:                 0.538523         36.8874
+  Sample mean, variance:              8.30438         22.2955
+  Distribution mean, variance         8.08877         20.1287
+
+TEST_GENNF
+  Test GENNF,
+  which generates noncentral F deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 10000
+
+  Parameters:
+
+  DFN =   6.59904
+  DFD =   9.93894
+  XNONC = 1.60272
+
+  Sample data range:                0.0526301         21.7001
+  Sample mean, variance:              1.55255         1.70798
+  Distribution mean, variance         1.55598         1.75873
+
+TEST_GENNOR
+  Test GENNOR,
+  which generates normal deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+ '  MU =   0.282983
+ '  SD =   3.95421
+
+  Sample data range:                 -10.6242         14.7124
+  Sample mean, variance:              0.34814         15.2795
+  Distribution mean, variance        0.282983         15.6358
+
+TEST_IGNPOI
+  Test IGNPOI,
+  which generates Poisson deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+  MU = 10.5259
+
+  Sample data range:                        2              22
+  Sample mean, variance:               10.452         10.4702
+  Distribution mean, variance         10.5259         10.5259
+
+TEST_GENUNF
+  Test GENUNF,
+  which generates uniform deviates.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  N = 1000
+
+  Parameters:
+
+  A = 5.62734
+  B = 15.5174
+
+  Sample data range:                  5.62775         15.4968
+  Sample mean, variance:              10.4969         7.80242
+  Distribution mean, variance         10.5724         8.15117
+
+RANLIB_PRB
+  Normal end of execution.
+
+19 September 2014 10:06:49 AM

@@ -93,91 +93,13 @@ int get_seed ( )
 }
 //****************************************************************************80
 
-int i4_max ( int i1, int i2 )
+int i4_uniform_ab ( int a, int b, int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    I4_MAX returns the maximum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    05 May 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, two integers to be compared.
-//
-//    Output, int I4_MAX, the larger of I1 and I2.
-//
-{
-  if ( i2 < i1 ) 
-  {
-    return i1;
-  }
-  else 
-  {
-    return i2;
-  }
-
-}
-//****************************************************************************80
-
-int i4_min ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MIN returns the smaller of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    05 May 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, two integers to be compared.
-//
-//    Output, int I4_MIN, the smaller of I1 and I2.
-//
-{
-  if ( i1 < i2 ) 
-  {
-    return i1;
-  }
-  else 
-  {
-    return i2;
-  }
-
-}
-//****************************************************************************80
-
-int i4_uniform ( int a, int b, int *seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_UNIFORM returns a scaled pseudorandom I4.
+//    I4_UNIFORM_AB returns a scaled pseudorandom I4 between A and B.
 //
 //  Discussion:
 //
@@ -190,7 +112,7 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //  Modified:
 //
-//    12 November 2006
+//    02 October 2012
 //
 //  Author:
 //
@@ -200,82 +122,153 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //    Paul Bratley, Bennett Fox, Linus Schrage,
 //    A Guide to Simulation,
-//    Springer Verlag, pages 201-202, 1983.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley Interscience, page 95, 1998.
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
 //
 //    Bennett Fox,
 //    Algorithm 647:
 //    Implementation and Relative Efficiency of Quasirandom
 //    Sequence Generators,
 //    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, pages 362-376, 1986.
+//    Volume 12, Number 4, December 1986, pages 362-376.
 //
-//    Peter Lewis, Allen Goodman, James Miller
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
 //    A Pseudo-Random Number Generator for the System/360,
 //    IBM Systems Journal,
-//    Volume 8, pages 136-143, 1969.
+//    Volume 8, Number 2, 1969, pages 136-143.
 //
 //  Parameters:
 //
 //    Input, int A, B, the limits of the interval.
 //
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
+//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
 //    On output, SEED has been updated.
 //
 //    Output, int I4_UNIFORM, a number between A and B.
 //
 {
+  int c;
+  const int i4_huge = 2147483647;
   int k;
   float r;
   int value;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
-    cerr << "I4_UNIFORM - Fatal error!\n";
+    cerr << "I4_UNIFORM_AB - Fatal error!\n";
     cerr << "  Input value of SEED = 0.\n";
     exit ( 1 );
   }
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
+//
+//  Guarantee A <= B.
+//
+  if ( b < a )
   {
-    *seed = *seed + 2147483647;
+    c = a;
+    a = b;
+    b = c;
   }
 
-  r = ( float ) ( *seed ) * 4.656612875E-10;
+  k = seed / 127773;
+
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+  if ( seed < 0 )
+  {
+    seed = seed + i4_huge;
+  }
+
+  r = ( float ) ( seed ) * 4.656612875E-10;
 //
 //  Scale R to lie between A-0.5 and B+0.5.
 //
-  r = ( 1.0 - r ) * ( ( float ) ( i4_min ( a, b ) ) - 0.5 ) 
-    +         r   * ( ( float ) ( i4_max ( a, b ) ) + 0.5 );
+  r = ( 1.0 - r ) * ( ( float ) a - 0.5 ) 
+    +         r   * ( ( float ) b + 0.5 );
 //
 //  Use rounding to convert R to an integer between A and B.
 //
-  value = r4_nint ( r );
-
-  value = i4_max ( value, i4_min ( a, b ) );
-  value = i4_min ( value, i4_max ( a, b ) );
+  value = round ( r );
+//
+//  Guarantee A <= VALUE <= B.
+//
+  if ( value < a )
+  {
+    value = a;
+  }
+  if ( b < value )
+  {
+    value = b;
+  }
 
   return value;
 }
 //****************************************************************************80
 
-void latin_random ( int dim_num, int point_num, int *seed, double x[] )
+void i4vec_print ( int n, int a[], string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    LATIN_RANDOM returns points in a Latin Random square.
+//    I4VEC_PRINT prints an I4VEC.
+//
+//  Discussion:
+//
+//    An I4VEC is a vector of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 November 2003
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, int A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+
+  cout << "\n";
+  cout << title << "\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(8) << i
+         << ": " << setw(8) << a[i]  << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+double *latin_random_new ( int dim_num, int point_num, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LATIN_RANDOM_NEW returns points in a Latin Random square.
 //
 //  Discussion:
 //
@@ -303,55 +296,54 @@ void latin_random ( int dim_num, int point_num, int *seed, double x[] )
 //
 //    Input, int POINT_NUM, the number of points.
 //
-//    Input/output, int *SEED, a seed for UNIFORM.
+//    Input/output, int &SEED, a seed for UNIFORM.
 //
-//    Output, double X[DIM_NUM,POINT_NUM], the points.
+//    Output, double LATIN_RANDOM_NEW[DIM_NUM,POINT_NUM], the points.
 //
 {
-  int base = 0;
   int i;
   int j;
-  int k;
   int *perm;
   double r;
+  double *x;
+
+  x = r8mat_uniform_01_new ( dim_num, point_num, seed );
 //
 //  For spatial dimension I, 
 //    pick a random permutation of 1 to POINT_NUM,
 //    force the corresponding I-th components of X to lie in the
 //    interval ( PERM[J]-1, PERM[J] ) / POINT_NUM.
 //
-  k = 0;
   for ( i = 0; i < dim_num; i++ )
   {
-    perm = perm_uniform ( point_num, base, seed );
+    perm = perm_uniform_new ( point_num, seed );
 
     for ( j = 0; j < point_num; j++ )
     {
-      r = r8_uniform_01 ( seed );
-      x[k] = ( ( ( double ) perm[j] ) + r ) / ( ( double ) point_num );
-      k = k + 1;
+      x[i+j*dim_num] = ( ( ( double ) perm[j] ) + x[i+j*dim_num] ) 
+                       / ( ( double ) point_num );
     }
     delete [] perm;
   }
-  return;
+  return x;
 }
 //****************************************************************************80
 
-int *perm_uniform ( int n, int base, int *seed )
+int *perm_uniform_new ( int n, int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    PERM_UNIFORM selects a random permutation of N objects.
+//    PERM_UNIFORM_NEW selects a random permutation of N objects.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    31 October 2008
+//    26 February 2014
 //
 //  Author:
 //
@@ -368,12 +360,10 @@ int *perm_uniform ( int n, int base, int *seed )
 //
 //    Input, int N, the number of objects to be permuted.
 //
-//    Input, int BASE, is 0 for a 0-based permutation and 1 for 
-//    a 1-based permutation.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
-//
-//    Output, int PERM_UNIFORM[N], a permutation of (BASE, BASE+1, ..., BASE+N-1).
+//    Output, int PERM_UNIFORM_NEW[N], a permutation of
+//    (0, 1, ..., N-1).
 //
 {
   int i;
@@ -382,154 +372,231 @@ int *perm_uniform ( int n, int base, int *seed )
   int *p;
 
   p = new int[n];
- 
-  for ( i = 0; i < n; i++ )
-  {
-    p[i] = i + base;
-  }
 
   for ( i = 0; i < n; i++ )
   {
-    j = i4_uniform ( i, n - 1, seed );
+    p[i] = i;
+  }
+
+  for ( i = 0; i < n - 1; i++ )
+  {
+    j = i4_uniform_ab ( i, n - 1, seed );
     k    = p[i];
     p[i] = p[j];
     p[j] = k;
   }
- 
+
   return p;
 }
 //****************************************************************************80
 
-float r4_abs ( float x )
+void r8mat_transpose_print ( int m, int n, double a[], string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4_ABS returns the absolute value of an R4.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    01 December 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float X, the quantity whose absolute value is desired.
-//
-//    Output, float R4_ABS, the absolute value of X.
-//
-{
-  float value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-int r4_nint ( float x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4_NINT returns the nearest integer to an R4.
-//
-//  Example:
-//
-//        X         R4_NINT
-//
-//      1.3         1
-//      1.4         1
-//      1.5         1 or 2
-//      1.6         2
-//      0.0         0
-//     -0.7        -1
-//     -1.1        -1
-//     -1.6        -2
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float X, the value.
-//
-//    Output, int R4_NINT, the nearest integer to X.
-//
-{
-  int value;
-
-  if ( x < 0.0 )
-  {
-    value = - ( int ) ( r4_abs ( x ) + 0.5 );
-  }
-  else
-  {
-    value =   ( int ) ( r4_abs ( x ) + 0.5 );
-  }
-
-  return value;
-}
-//****************************************************************************80
-
-double r8_uniform_01 ( int *seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_UNIFORM_01 returns a unit pseudorandom R8.
+//    R8MAT_TRANSPOSE_PRINT prints an R8MAT, transposed.
 //
 //  Discussion:
 //
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 September 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, double A[M*N], an M by N matrix to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  r8mat_transpose_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
+  int ihi, int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_TRANSPOSE_PRINT_SOME prints some of an R8MAT, transposed.
+//
+//  Discussion:
+//
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 April 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, double A[M*N], an M by N matrix to be printed.
+//
+//    Input, int ILO, JLO, the first row and column to print.
+//
+//    Input, int IHI, JHI, the last row and column to print.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 5
+
+  int i;
+  int i2;
+  int i2hi;
+  int i2lo;
+  int i2lo_hi;
+  int i2lo_lo;
+  int inc;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+
+  if ( ilo < 1 )
+  {
+    i2lo_lo = 1;
+  }
+  else
+  {
+    i2lo_lo = ilo;
+  }
+
+  if ( ihi < m )
+  {
+    i2lo_hi = m;
+  }
+  else
+  {
+    i2lo_hi = ihi;
+  }
+
+  for ( i2lo = i2lo_lo; i2lo <= i2lo_hi; i2lo = i2lo + INCX )
+  {
+    i2hi = i2lo + INCX - 1;
+
+    if ( m < i2hi )
+    {
+      i2hi = m;
+    }
+    if ( ihi < i2hi )
+    {
+      i2hi = ihi;
+    }
+
+    inc = i2hi + 1 - i2lo;
+
+    cout << "\n";
+    cout << "  Row: ";
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(7) << i - 1 << "       ";
+    }
+    cout << "\n";
+    cout << "  Col\n";
+    cout << "\n";
+
+    if ( jlo < 1 )
+    {
+      j2lo = 1;
+    }
+    else
+    {
+      j2lo = jlo;
+    }
+    if ( n < jhi )
+    {
+      j2hi = n;
+    }
+    else
+    {
+      j2hi = jhi;
+    }
+
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << setw(5) << j - 1 << ":";
+      for ( i2 = 1; i2 <= inc; i2++ )
+      {
+        i = i2lo - 1 + i2;
+        cout << setw(14) << a[(i-1)+(j-1)*m];
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
+# undef INCX
+}
+//****************************************************************************80
+
+double *r8mat_uniform_01_new ( int m, int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_UNIFORM_01_NEW returns a unit pseudorandom R8MAT.
+//
+//  Discussion:
+//
+//    An R8MAT is a doubly dimensioned array of R8's,  stored as a vector
+//    in column-major order.
+//
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      r8_uniform_01 = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
 //
-//    If the initial seed is 12345, then the first three computations are
-//
-//      Input     Output      R8_UNIFORM_01
-//      SEED      SEED
-//
-//         12345   207482415  0.096616
-//     207482415  1790989824  0.833995
-//    1790989824  2035175616  0.947702
-//
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    11 August 2004
+//    03 October 2005
 //
 //  Author:
 //
@@ -541,12 +608,6 @@ double r8_uniform_01 ( int *seed )
 //    A Guide to Simulation,
 //    Springer Verlag, pages 201-202, 1983.
 //
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation
-//    edited by Jerry Banks,
-//    Wiley Interscience, page 95, 1998.
-//
 //    Bennett Fox,
 //    Algorithm 647:
 //    Implementation and Relative Efficiency of Quasirandom
@@ -554,44 +615,46 @@ double r8_uniform_01 ( int *seed )
 //    ACM Transactions on Mathematical Software,
 //    Volume 12, Number 4, pages 362-376, 1986.
 //
-//    Peter Lewis, Allen Goodman, James Miller,
+//    Philip Lewis, Allen Goodman, James Miller,
 //    A Pseudo-Random Number Generator for the System/360,
 //    IBM Systems Journal,
 //    Volume 8, pages 136-143, 1969.
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
-//    value should not be 0.  On output, SEED has been updated.
+//    Input, int M, N, the number of rows and columns.
 //
-//    Output, double R8_UNIFORM_01, a new pseudorandom variate, 
-//    strictly between 0 and 1.
+//    Input/output, int &SEED, the "seed" value.  Normally, this
+//    value should not be 0, otherwise the output value of SEED
+//    will still be 0, and R8_UNIFORM will be 0.  On output, SEED has
+//    been updated.
+//
+//    Output, double R8MAT_UNIFORM_01_NEW[M*N], a matrix of pseudorandom values.
 //
 {
+  int i;
+  const int i4_huge = 2147483647;
+  int j;
   int k;
-  double r;
+  double *r;
 
-  if ( *seed == 0 )
+  r = new double[m*n];
+
+  for ( j = 0; j < n; j++ )
   {
-    cerr << "\n";
-    cerr << "R8_UNIFORM_01 - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
+    for ( i = 0; i < m; i++ )
+    {
+      k = seed / 127773;
+
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+      if ( seed < 0 )
+      {
+        seed = seed + i4_huge;
+      }
+      r[i+j*m] = ( double ) ( seed ) * 4.656612875E-10;
+    }
   }
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
-  {
-    *seed = *seed + 2147483647;
-  }
-//
-//  Although SEED can be represented exactly as a 32 bit integer,
-//  it generally cannot be represented exactly as a 32 bit real number!
-//
-  r = ( double ) ( *seed ) * 4.656612875E-10;
 
   return r;
 }
@@ -611,11 +674,11 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    29 June 2009
+//    09 November 2014
 //
 //  Author:
 //
@@ -629,7 +692,7 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
 //
 //    Input, int N, the number of points.
 //
-//    Input, double TABLE[M*N], the table data.
+//    Input, double TABLE[M*N], the data.
 //
 {
   int i;
@@ -645,7 +708,7 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
     cerr << "\n";
     cerr << "R8MAT_WRITE - Fatal error!\n";
     cerr << "  Could not open the output file.\n";
-    return;
+    exit ( 1 );
   }
 //
 //  Write the data.
@@ -654,7 +717,8 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
   {
     for ( i = 0; i < m; i++ )
     {
-      output << "  " << setw(24) << setprecision(16) << table[i+j*m];
+      output << "  " << table[i+j*m];
+//    output << "  " << setw(24) << setprecision(16) << table[i+j*m];
     }
     output << "\n";
   }

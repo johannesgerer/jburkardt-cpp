@@ -1,0 +1,375 @@
+<html>
+
+  <head>
+    <title>
+      LEGENDRE_PRODUCT_POLYNOMIAL - Multivariate Products of Legendre Polynomials
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      LEGENDRE_PRODUCT_POLYNOMIAL <br> Multivariate Products of Legendre Polynomials
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>LEGENDRE_PRODUCT_POLYNOMIAL</b>,
+      a C++ library which
+      defines a Legendre product polynomial (LPP), creating a multivariate 
+      polynomial as the product of univariate Legendre polynomials.
+    </p>
+
+    <p>
+      The Legendre polynomials are a polynomial sequence L(I,X), 
+      with polynomial I having degree I.
+    </p>
+
+    <p>
+      The first few Legendre polynomials are
+      <pre>
+        0: 1
+        1: x
+        2: 3/2 x^2 - 1/2
+        3: 5/2 x^3 - 3/2 x
+        4: 35/8 x^4 - 30/8 x^2 + 3/8
+        5: 63/8 x^5 - 70/8 x^3 + 15/8 x
+      </pre>
+    </p>
+
+    <p>
+      A Legendre product polynomial may be defined in a space of M dimensions
+      by choosing M indices.  To evaluate the polynomial at a point X,
+      compute the product of the corresponding Legendre polynomials, with 
+      each the I-th polynomial evaluated at the I-th coordinate:
+      <pre>
+        L((I1,I2,...IM),X) = L(1,X(1)) * L(2,X(2)) * ... * L(M,X(M)).
+      </pre>
+    </p>
+
+    <p>
+      Families of polynomials which are formed in this way can have useful
+      properties for interpolation, derivable from the properties of the
+      1D family.
+    </p>
+
+    <p>
+      While it is useful to generate a Legendre product polynomial from
+      its index set, and it is easy to evaluate it directly, the sum of
+      two Legendre product polynomials cannot be reduced to a single
+      Legendre product polynomial.  Thus, it may be useful to generate
+      the Legendre product polynomial from its indices, but then to
+      convert it to a standard polynomial form.  
+    </p>
+
+    <p>
+      The representation of arbitrary multivariate polynomials can be
+      complicated.  In this library, we have chosen a representation involving
+      the spatial dimension M, and three pieces of data, O, C and E.
+      <ul>
+        <li>
+          O is the number of terms in the polynomial.
+        </li>
+        <li>
+          C() is a real vector of length O, containing the coefficients of each term.
+        </li>
+        <li>
+          E() is an integer vector of length O, which defines the index (the
+          exponents of X(1) through X(M)) of each term.  
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The exponent indexing is done in a natural way, suggested by the
+      following indexing for the case M = 2:
+      <pre>
+        1: x^0 y^0  
+        2: x^0 y^1
+        3: x^1 y^0
+        4: x^0 y^2
+        5: x^1 y^1
+        6; x^2 y^0
+        7: x^0 y^3
+        8: x^1 y^2
+        9: x^2 y^1
+       10: x^3 y^0
+       ...
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>LEGENDRE_PRODUCT_POLYNOMIAL</b> is available in
+      <a href = "../../c_src/legendre_product_polynomial/legendre_product_polynomial.html">a C version</a> and
+      <a href = "../../cpp_src/legendre_product_polynomial/legendre_product_polynomial.html">a C++ version</a> and
+      <a href = "../../f77_src/legendre_product_polynomial/legendre_product_polynomial.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/legendre_product_polynomial/legendre_product_polynomial.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/legendre_product_polynomial/legendre_product_polynomial.html">a MATLAB version</a> and
+      <a href = "../../py_src/legendre_product_polynomial/legendre_product_polynomial.html">a Python version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/combo/combo.html">
+      COMBO</a>,
+      a C library which
+      includes routines for ranking, unranking, enumerating and 
+      randomly selecting balanced sequences, cycles, graphs, Gray codes, 
+      subsets, partitions, permutations, restricted growth functions, 
+      Pruefer codes and trees.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hermite_product_polynomial/hermite_product_polynomial.html">
+      HERMITE_PRODUCT_POLYNOMIAL</a>,
+      a C++ library which
+      defines Hermite product polynomials, creating a multivariate 
+      polynomial as the product of univariate Hermite polynomials.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/legendre_polynomial/legendre_polynomial.html">
+      LEGENDRE_POLYNOMIAL</a>,
+      a C library which
+      evaluates the Legendre polynomial and associated functions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/monomial/monomial.html">
+      MONOMIAL</a>,
+      a C++ library which enumerates, lists, ranks, unranks and randomizes 
+      multivariate monomials in a space of M dimensions, with total degree 
+      less than N, equal to N, or lying within a given range.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polpak/polpak.html">
+      POLPAK</a>,
+      a C++ library which
+      evaluates a variety of mathematical functions, including
+      Chebyshev, Gegenbauer, Hermite, Jacobi, Laguerre, Legendre polynomials,
+      and the Collatz sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polynomial/polynomial.html">
+      POLYNOMIAL</a>,
+      a C++ library which
+      adds, multiplies, differentiates, evaluates and prints multivariate 
+      polynomials in a space of M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/subset/subset.html">
+      SUBSET</a>,
+      a C++ library which
+      enumerates, generates, ranks and unranks combinatorial objects
+      including combinations, compositions, Gray codes, index sets, partitions, 
+      permutations, subsets, and Young tables.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lpp.cpp">lpp.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "lpp.hpp">lpp.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "lpp.sh">lpp.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lpp_prb.cpp">lpp_prb.cpp</a>
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "lpp_prb.sh">lpp_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "lpp_prb_output.txt">lpp_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>COMP_ENUM</b> returns the number of compositions of the integer N into K parts.
+        </li>
+        <li>
+          <b>COMP_NEXT_GRLEX</b> returns the next composition in grlex order.
+        </li>
+        <li>
+          <b>COMP_RANDOM_GRLEX:</b> random composition with degree less than or equal to NC.
+        </li>
+        <li>
+          <b>COMP_RANK_GRLEX</b> computes the graded lexicographic rank of a composition.
+        </li>
+        <li>
+          <b>COMP_UNRANK_GRLEX</b> computes the composition of given grlex rank.
+        </li>
+        <li>
+          <b>I4_CHOOSE</b> computes the binomial coefficient C(N,K).
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4 between A and B.
+        </li>
+        <li>
+          <b>I4VEC_PERMUTE</b> permutes an I4VEC in place.
+        </li>
+        <li>
+          <b>I4VEC_PRINT</b> prints an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_SORT_HEAP_INDEX_A</b> does an indexed heap ascending sort of an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_SUM</b> sums the entries of an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_UNIFORM_AB_NEW</b> returns a scaled pseudorandom I4VEC.
+        </li>
+        <li>
+          <b>LP_COEFFICIENTS:</b> coefficients of Legendre polynomials P(n,x).
+        </li>
+        <li>
+          <b>LP_VALUE</b> evaluates the Legendre polynomials P(n,x).
+        </li>
+        <li>
+          <b>LP_VALUES</b> returns values of the Legendre polynomials P(n,x).
+        </li>
+        <li>
+          <b>LPP_TO_POLYNOMIAL</b> writes a Legendre Product Polynomial as a polynomial.
+        </li>
+        <li>
+          <b>LPP_VALUE</b> evaluates a Legendre Product Polynomial at several points X.
+        </li>
+        <li>
+          <b>MONO_NEXT_GRLEX</b> returns the next monomial in grlex order.
+        </li>
+        <li>
+          <b>MONO_PRINT</b> prints a monomial.
+        </li>
+        <li>
+          <b>MONO_RANK_GRLEX</b> computes the graded lexicographic rank of a monomial.
+        </li>
+        <li>
+          <b>MONO_UNRANK_GRLEX</b> computes the composition of given grlex rank.
+        </li>
+        <li>
+          <b>MONO_UPTO_ENUM</b> enumerates monomials in M dimensions of degree up to N.
+        </li>
+        <li>
+          <b>MONO_UPTO_NEXT_GRLEX:</b> grlex next monomial with total degree up to N.
+        </li>
+        <li>
+          <b>MONO_UPTO_RANDOM:</b> random monomial with total degree less than or equal to N.
+        </li>
+        <li>
+          <b>MONO_VALUE</b> evaluates a monomial.
+        </li>
+        <li>
+          <b>PERM_CHECK0</b> checks a 0-based permutation.
+        </li>
+        <li>
+          <b>PERM_UNIFORM_NEW</b> selects a random permutation of N objects.
+        </li>
+        <li>
+          <b>POLYNOMIAL_COMPRESS</b> compresses a polynomial.
+        </li>
+        <li>
+          <b>POLYNOMIAL_PRINT</b> prints a polynomial.
+        </li>
+        <li>
+          <b>POLYNOMIAL_SORT</b> sorts the information in a polynomial.
+        </li>
+        <li>
+          <b>POLYNOMIAL_VALUE</b> evaluates a polynomial.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_AB_NEW</b> returns a new scaled pseudorandom R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_PERMUTE</b> permutes an R8VEC in place.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_AB_NEW</b> returns a scaled pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 06 November 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -18,7 +18,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LLSQ_PRB tests LLSQ.
+//    MAIN is the main program for LLSQ_PRB.
+//
+//  Discussion:
+//
+//    LLSQ_PRB tests the LLSQ library.
 //
 //  Licensing:
 //

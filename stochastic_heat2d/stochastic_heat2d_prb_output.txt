@@ -1,0 +1,47 @@
+04 September 2013 09:17:10 AM
+
+STOCHASTIC_HEAT2D_PRB:
+  C++ version
+  Test the STOCHASTIC_HEAT2D library.
+
+TEST01:
+  Consider the steady heat equation in the unit square,
+  with 0 Dirichlet boundary conditions, 
+  and a heat source term F that is a Gaussian centered at (0.60,0.80).
+
+  Model the diffusivity coefficient as spatially varying,
+  with a stochastic dependence on parameters OMEGA(1:4),
+  as described in Babuska, Nobile, Tempone (BNT).
+
+  Compute and display the solution U for a given choice
+  of the parameters OMEGA.
+
+  Sampled OMEGA values:
+
+         0:        3.35808
+         1:      -0.945538
+         2:       -1.13212
+         3:      -0.462248
+
+  Created graphics data file 'solution_data.txt'
+  Created graphics command file 'solution_commands.txt'
+
+  Mean value of U is 0.337698
+
+TEST02:
+  Fix OMEGA(3) = 4, OMEGA(4) = 0, and
+  examine dependence of average temperature on OMEGA(1) and OMEGA(2)
+  over the range [-10,+10].
+
+  Omega(3) fixed at 4
+  Omega(4) fixed at 0
+
+  Created graphics data file 'umean_data.txt'
+  Created graphics command file 'umean_commands.txt'
+
+  U_Mean_Max = 0.641953
+
+STOCHASTIC_HEAT2D_PRB:
+  Normal end of execution.
+
+04 September 2013 09:17:24 AM

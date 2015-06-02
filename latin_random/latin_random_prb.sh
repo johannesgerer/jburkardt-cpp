@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include latin_random_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include latin_random_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling latin_random_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ latin_random_prb.o /$HOME/libcpp/$ARCH/latin_random.o -lm
 if [ $? -ne 0 ]; then

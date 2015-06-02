@@ -1,4 +1,4 @@
-18 March 2011 09:12:31 AM
+06 March 2014 08:40:23 AM
 
 HAAR_PRB
   C++ version
@@ -66,6 +66,8 @@ TEST01
    5           0     3.53553  7.85046e-16
    6           1    0.707107           1
    7           4    -2.12132           4
+
+  For N = 99, ||u-haar_1d_inverse(haar_1d(u))|| = 3.33568e-15
 
 TEST02
   HAAR_2D computes the Haar transform of an array.
@@ -137,7 +139,9 @@ TEST02
    14:     0.797287      0.692066      0.117707       0.01782  
    15:   0.00183837      0.561662      0.299329      0.501103  
 
+  M = 37, N = 53, ||haar_2d_inverse(haar_2d(u))-u|| = 2.54887e-14
+
 HAAR_PRB
   Normal end of execution.
 
-18 March 2011 09:12:31 AM
+06 March 2014 08:40:23 AM

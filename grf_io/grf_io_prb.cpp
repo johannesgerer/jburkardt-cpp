@@ -19,7 +19,11 @@ int main ( int argc, char *argv[] )
 //
 //  Purpose:
 //
-//    GRF_IO_PRB calls the GRF_IO test routines.
+//    MAIN is the main program for GRF_IO_PRB.
+//
+//  Discussion:
+//
+//    GRF_IO_PRB tests the GRF_IO library.
 //
 //  Licensing:
 //
@@ -48,7 +52,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "GRF_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

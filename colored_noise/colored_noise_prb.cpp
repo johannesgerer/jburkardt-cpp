@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN generates colored noise data for a sequence of values of ALPHA.
+//    MAIN is the main program for COLORED_NOISE_PRB.
+//
+//  Discussion:
+//
+//    COLORED_NOISE_PRB tests the COLORED_NOISE library.
 //
 //  Licensing:
 //
@@ -64,7 +68,6 @@ int main ( )
   cout << "\n";
   cout << "COLORED_NOISE_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

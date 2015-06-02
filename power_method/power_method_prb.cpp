@@ -23,13 +23,17 @@ int main ( )
 //
 //    MAIN is the main program for POWER_METHOD_PRB.
 //
+//  Discussion:
+//
+//    POWER_METHOD_PRB tests the POWER_METHOD library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    30 August 20008
+//    30 August 2008
 //
 //  Author:
 //
@@ -51,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "POWER_METHOD_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

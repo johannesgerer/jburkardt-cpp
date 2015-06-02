@@ -31,7 +31,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    HB_IO_PRB runs the HB_IO tests.
+//    MAIN is the main program for HB_IO_PRB.
+//
+//  Discussion:
+//
+//    HB_IO_PRB tests the HB_IO library.
 //
 //  Licensing:
 //
@@ -72,9 +76,7 @@ int main ( )
 //
   cout << "\n";
   cout << "HB_IO_PRB:\n";
-  cout << "  C++ version\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -135,7 +137,7 @@ void test01 ( string input_file )
   if ( !input )
   {
     cout << "\n";
-    cout << "TEST01 - Fatal error!\n";
+    cout << "TEST01 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -210,7 +212,7 @@ void test02 ( void )
   if ( !output )
   {
     cout << "\n";
-    cout << "TEST02 - Fatal error!\n";
+    cout << "TEST02 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -280,7 +282,7 @@ void test03 ( string input_file )
   if ( !input )
   {
     cout << "\n";
-    cout << "TEST03 - Fatal error!\n";
+    cout << "TEST03 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -304,9 +306,9 @@ void test03 ( string input_file )
   else
   {
     cout << "\n";
-    cout << "TEST03 - Fatal error!\n";
+    cout << "TEST03 - Warning!\n";
     cout << "  Illegal value of MXTYPE character 3 = " << mxtype[2] << "\n";
-    exit ( 1 );
+    return;
   }
 
   cout << "  Reading the structure.\n";
@@ -395,7 +397,7 @@ void test04 ( void )
   if ( !output )
   {
     cout << "\n";
-    cout << "TEST04 - Fatal error!\n";
+    cout << "TEST04 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -426,7 +428,7 @@ void test05 ( string input_file )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -457,7 +459,7 @@ void test05 ( string input_file )
   int totcrd;
   int valcrd;
   char *valfmt = NULL;
-  float *values = NULL;
+  double *values = NULL;
 
   cout << "\n";
   cout << "TEST05\n";
@@ -470,7 +472,7 @@ void test05 ( string input_file )
   if ( !input )
   {
     cout << "\n";
-    cout << "TEST05 - Fatal error!\n";
+    cout << "TEST05 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -494,9 +496,9 @@ void test05 ( string input_file )
   else
   {
     cout << "\n";
-    cout << "TEST05 - Fatal error!\n";
+    cout << "TEST05 - Warning!\n";
     cout << "  Illegal value of MXTYPE character 3.\n";
-    exit ( 1 );
+    return;
   }
 
   cout << "  Reading the structure.\n";
@@ -506,18 +508,18 @@ void test05 ( string input_file )
 
   if ( mxtype[2] == 'A' )
   {
-    values = new float[nnzero];
+    values = new double[nnzero];
   }
   else if ( mxtype[2] == 'E' )
   {
-    values =  new float[neltvl];
+    values =  new double[neltvl];
   }
   else
   {
     cout << "\n";
-    cout << "TEST05 - Fatal error!\n";
+    cout << "TEST05 - Warning!\n";
     cout << "  Illegal value of MXTYPE character 3 = " << mxtype[2] << "\n";
-    exit ( 1 );
+    return;
   }
 
   cout << "  Reading the values.\n";
@@ -559,7 +561,7 @@ void test06 ( void )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -574,7 +576,7 @@ void test06 ( void )
   string output_file = "rua_32_values.txt";
   int valcrd = 13;
   char valfmt[21] = "(10F7.1)";
-  float values[NNZERO] = {
+  double values[NNZERO] = {
   101.0,  102.0,  103.0,  104.0,  107.0, 
   126.0,  201.0,  202.0,  209.0,  221.0, 
   228.0,  302.0,  303.0,  306.0,  308.0, 
@@ -613,7 +615,7 @@ void test06 ( void )
   if ( !output )
   {
     cout << "\n";
-    cout << "TEST06 - Fatal error!\n";
+    cout << "TEST06 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -642,7 +644,7 @@ void test07 ( string input_file )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -650,8 +652,8 @@ void test07 ( string input_file )
 //
 {
   int *colptr = NULL;
-  float *exact = NULL;
-  float *guess = NULL;
+  double *exact = NULL;
+  double *guess = NULL;
   int i;
   int indcrd;
   char *indfmt = NULL;
@@ -674,14 +676,14 @@ void test07 ( string input_file )
   int *rhsind = NULL;
   int *rhsptr = NULL;
   char *rhstyp = NULL;
-  float *rhsval = NULL;
-  float *rhsvec = NULL;
+  double *rhsval = NULL;
+  double *rhsvec = NULL;
   int *rowind = NULL;
   char *title = NULL;
   int totcrd;
   int valcrd;
   char *valfmt = NULL;
-  float *values = NULL;
+  double *values = NULL;
 
   cout << "\n";
   cout << "TEST07\n";
@@ -697,7 +699,7 @@ void test07 ( string input_file )
   if ( !input )
   {
     cout << "\n";
-    cout << "TEST07 - Fatal error!\n";
+    cout << "TEST07 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -721,9 +723,9 @@ void test07 ( string input_file )
   else
   {
     cout << "\n";
-    cout << "TEST07 - Fatal error!\n";
+    cout << "TEST07 - Warning!\n";
     cout << "  Illegal value of MXTYPE character 3 = " << mxtype[2] << "\n";
-    exit ( 1 );
+    return;
   }
 
   cout << "  Reading the structure.\n";
@@ -733,18 +735,18 @@ void test07 ( string input_file )
 
   if ( mxtype[2] == 'A' )
   {
-    values = new float[nnzero];
+    values = new double[nnzero];
   }
   else if ( mxtype[2] == 'E' )
   {
-    values =  new float[neltvl];
+    values =  new double[neltvl];
   }
   else
   {
     cout << "\n";
-    cout << "TEST07 - Fatal error!\n";
+    cout << "TEST07 - Warning!\n";
     cout << "  Illegal value of MXTYPE character 3 = " << mxtype[2] << "\n";
-    exit ( 1 );
+    return;
   }
 
   cout << "  Reading the values.\n";
@@ -759,7 +761,7 @@ void test07 ( string input_file )
 
     if ( rhstyp[0] == 'F' )
     {
-      rhsval = new float[nrow*nrhs];
+      rhsval = new double[nrow*nrhs];
     }
     else if ( rhstyp[0] == 'M' )
     {
@@ -767,11 +769,11 @@ void test07 ( string input_file )
       {
         rhsptr = new int[nrhs+1];
         rhsind = new int [nrhsix];
-        rhsvec = new float[nrhsix];
+        rhsvec = new double[nrhsix];
       }
       else if ( mxtype[2] == 'E' )
       {
-        rhsval = new float [nnzero*nrhs];
+        rhsval = new double [nnzero*nrhs];
       }
     }
 
@@ -783,17 +785,17 @@ void test07 ( string input_file )
 
     if ( rhstyp[0] == 'F' )
     {
-      r4mat_print_some ( nrow, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
+      r8mat_print_some ( nrow, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
     }
     else if ( rhstyp[0] == 'M' && mxtype[2] == 'A' )
     {
       i4vec_print_part ( nrhs+1, rhsptr, 10, "  Part of RHSPTR" );
       i4vec_print_part ( nrhsix, rhsind, 10, "  Part of RHSIND" );
-      r4vec_print_part ( nrhsix, rhsvec, 10, "  Part of RHSVEC" );
+      r8vec_print_part ( nrhsix, rhsvec, 10, "  Part of RHSVEC" );
     }
     else if ( rhstyp[0] == 'M' && mxtype[2] == 'E' )
     {
-      r4mat_print_some ( nnzero, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
+      r8mat_print_some ( nnzero, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
     }
 //
 //  Read the starting guesses.
@@ -802,11 +804,11 @@ void test07 ( string input_file )
     {
       cout << "  Reading the starting guesses.\n";
 
-      guess = new float[nrow*nrhs];
+      guess = new double[nrow*nrhs];
 
       hb_guess_read ( input, nrow, nrhs, rhscrd, rhsfmt, rhstyp, guess );
 
-      r4mat_print_some ( nrow, nrhs, guess, 1, 1, 5, 5, "  Part of GUESS" );
+      r8mat_print_some ( nrow, nrhs, guess, 1, 1, 5, 5, "  Part of GUESS" );
     }
 //
 //  Read the exact solutions.
@@ -815,11 +817,11 @@ void test07 ( string input_file )
     {
       cout << "  Reading the exact solutions.\n";
 
-      exact = new float[nrow*nrhs];
+      exact = new double[nrow*nrhs];
 
       hb_exact_read ( input, nrow, nrhs, rhscrd, rhsfmt, rhstyp, exact );
 
-      r4mat_print_some ( nrow, nrhs, exact, 1, 1, 5, 5, "  Part of EXACT" );
+      r8mat_print_some ( nrow, nrhs, exact, 1, 1, 5, 5, "  Part of EXACT" );
     }
   }
 
@@ -880,7 +882,7 @@ void test08 ( void )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -893,12 +895,12 @@ void test08 ( void )
 # define NRHSIX 0
 # define NROW 32
 
-  float exact[NROW*NRHS] = {
+  double exact[NROW*NRHS] = {
     1.0,   2.0,   3.0,   4.0,   5.0,   6.0,   7.0,   8.0,   9.0,  10.0, 
    11.0,  12.0,  13.0,  14.0,  15.0,  16.0,  17.0,  18.0,  19.0,  20.0, 
    21.0,  22.0,  23.0,  24.0,  25.0,  26.0,  27.0,  28.0,  29.0,  30.0, 
    31.0,  32.0 };
-  float guess[NROW*NRHS] = {
+  double guess[NROW*NRHS] = {
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
@@ -912,12 +914,12 @@ void test08 ( void )
   char rhsfmt[21] = "(10F7.1)";
   int *rhsind = NULL;
   int *rhsptr = NULL;
-  float rhsval[NROW*NRHS] = {
+  double rhsval[NROW*NRHS] = {
     101.0, 102.0, 103.0, 104.0, 107.0, 126.0, 201.0, 202.0, 209.0, 221.0, 
     228.0, 302.0, 303.0, 306.0, 308.0, 309.0, 329.0, 403.0, 404.0, 405.0, 
     412.0, 503.0, 505.0, 523.0, 527.0, 601.0, 606.0, 616.0, 703.0, 707.0, 
     714.0, 721.0 };
-  float *rhsvec = NULL;
+  double *rhsvec = NULL;
   char rhstyp[4] = "FGX";
 
   cout << "\n";
@@ -933,7 +935,7 @@ void test08 ( void )
   if ( !output )
   {
     cout << "\n";
-    cout << "TEST08 - Fatal error!\n";
+    cout << "TEST08 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -977,7 +979,7 @@ void test09 ( string input_file )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -985,8 +987,8 @@ void test09 ( string input_file )
 //
 {
   int *colptr = NULL;
-  float *exact = NULL;
-  float *guess = NULL;
+  double *exact = NULL;
+  double *guess = NULL;
   int i;
   int indcrd;
   char *indfmt = NULL;
@@ -1009,14 +1011,14 @@ void test09 ( string input_file )
   int *rhsind = NULL;
   int *rhsptr = NULL;
   char *rhstyp = NULL;
-  float *rhsval = NULL;
-  float *rhsvec = NULL;
+  double *rhsval = NULL;
+  double *rhsvec = NULL;
   int *rowind = NULL;
   char *title = NULL;
   int totcrd;
   int valcrd;
   char *valfmt = NULL;
-  float *values = NULL;
+  double *values = NULL;
 
   cout << "\n";
   cout << "TEST09\n";
@@ -1031,7 +1033,7 @@ void test09 ( string input_file )
   if ( !input )
   {
     cout << "\n";
-    cout << "TEST09 - Fatal error!\n";
+    cout << "TEST09 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -1063,31 +1065,31 @@ void test09 ( string input_file )
 //
     if ( rhstyp[0] == 'F' )
     {
-      r4mat_print_some ( nrow, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
+      r8mat_print_some ( nrow, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
     }
     else if ( rhstyp[0] == 'M' && mxtype[2] == 'A' )
     {
       i4vec_print_part ( nrhs+1, rhsptr, 10, "  Part of RHSPTR" );
       i4vec_print_part ( nrhsix, rhsind, 10, "  Part of RHSIND" );
-      r4vec_print_part ( nrhsix, rhsvec, 10, "  Part of RHSVEC" );
+      r8vec_print_part ( nrhsix, rhsvec, 10, "  Part of RHSVEC" );
     }
     else if ( rhstyp[0] == 'M' && mxtype[2] == 'E' )
     {
-      r4mat_print_some ( nnzero, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
+      r8mat_print_some ( nnzero, nrhs, rhsval, 1, 1, 5, 5, "  Part of RHS" );
     }
 //
 //  Print a bit of the starting guesses.
 //
     if ( rhstyp[1] == 'G' )
     {
-      r4mat_print_some ( nrow, nrhs, guess, 1, 1, 5, 5, "  Part of GUESS" );
+      r8mat_print_some ( nrow, nrhs, guess, 1, 1, 5, 5, "  Part of GUESS" );
     }
 //
 //  Print a bit of the exact solutions.
 //
     if ( rhstyp[2] == 'X' )
     {
-      r4mat_print_some ( nrow, nrhs, exact, 1, 1, 5, 5, "  Part of EXACT" );
+      r8mat_print_some ( nrow, nrhs, exact, 1, 1, 5, 5, "  Part of EXACT" );
     }
 
   }
@@ -1149,7 +1151,7 @@ void test10 ( void )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -1168,12 +1170,12 @@ void test10 ( void )
      53,  58,  61,  63,  65,  68,  71,  74,  79,  82, 
      85,  88,  90,  94,  97, 102, 106, 110, 112, 117, 
     121, 124, 127 };
-  float exact[NROW*NRHS] = {
+  double exact[NROW*NRHS] = {
     1.0,   2.0,   3.0,   4.0,   5.0,   6.0,   7.0,   8.0,   9.0,  10.0, 
    11.0,  12.0,  13.0,  14.0,  15.0,  16.0,  17.0,  18.0,  19.0,  20.0, 
    21.0,  22.0,  23.0,  24.0,  25.0,  26.0,  27.0,  28.0,  29.0,  30.0, 
    31.0,  32.0 };
-  float guess[NROW*NRHS] = {
+  double guess[NROW*NRHS] = {
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
@@ -1190,13 +1192,13 @@ void test10 ( void )
   char rhsfmt[21] = "(10F7.1)";
   int *rhsind = NULL;
   int *rhsptr = NULL;
-  float rhsval[NROW*NRHS] = {
+  double rhsval[NROW*NRHS] = {
     101.0, 102.0, 103.0, 104.0, 107.0, 126.0, 201.0, 202.0, 209.0, 221.0, 
     228.0, 302.0, 303.0, 306.0, 308.0, 309.0, 329.0, 403.0, 404.0, 405.0, 
     412.0, 503.0, 505.0, 523.0, 527.0, 601.0, 606.0, 616.0, 703.0, 707.0, 
     714.0, 721.0 };
   char rhstyp[4] = "FGX";
-  float *rhsvec = NULL;
+  double *rhsvec = NULL;
   int rowind[NNZERO] = {
     1,    2,    3,    4,    7,   26,    1,    2,    9,   21, 
    28,    2,    3,    6,    8,    9,   29,    3,    4,    5, 
@@ -1215,7 +1217,7 @@ void test10 ( void )
   int totcrd = 36;
   int valcrd = 13;
   char valfmt[21] = "(10F7.1)";
-  float values[NNZERO] = { 
+  double values[NNZERO] = { 
   101.0,  102.0,  103.0,  104.0,  107.0, 
   126.0,  201.0,  202.0,  209.0,  221.0, 
   228.0,  302.0,  303.0,  306.0,  308.0, 
@@ -1254,7 +1256,7 @@ void test10 ( void )
   if ( !output )
   {
     cout << "\n";
-    cout << "TEST10 - Fatal error!\n";
+    cout << "TEST10 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -1290,7 +1292,7 @@ void test11 ( void )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -1309,7 +1311,7 @@ void test11 ( void )
      53,  58,  61,  63,  65,  68,  71,  74,  79,  82, 
      85,  88,  90,  94,  97, 102, 106, 110, 112, 117, 
     121, 124, 127 };
-  float exact[NROW*NRHS] = {
+  double exact[NROW*NRHS] = {
     0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   1.0, 
     0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0, 
     0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0, 
@@ -1318,7 +1320,7 @@ void test11 ( void )
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0 };
-  float guess[NROW*NRHS] = {
+  double guess[NROW*NRHS] = {
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
@@ -1339,9 +1341,9 @@ void test11 ( void )
   char rhsfmt[21] = "(10F7.1)";
   int *rhsind = NULL;
   int *rhsptr = NULL;
-  float *rhsval;
+  double *rhsval;
   char rhstyp[4] = "FGX";
-  float *rhsvec = NULL;
+  double *rhsvec = NULL;
   int rowind[NNZERO] = {
     1,    2,    3,    4,    7,   26,    1,    2,    9,   21, 
    28,    2,    3,    6,    8,    9,   29,    3,    4,    5, 
@@ -1360,7 +1362,7 @@ void test11 ( void )
   int totcrd = 36;
   int valcrd = 13;
   char valfmt[21] = "(10F7.1)";
-  float values[NNZERO] = { 
+  double values[NNZERO] = { 
   101.0,  102.0,  103.0,  104.0,  107.0, 
   126.0,  201.0,  202.0,  209.0,  221.0, 
   228.0,  302.0,  303.0,  306.0,  308.0, 
@@ -1408,7 +1410,7 @@ void test11 ( void )
   rhsval = hb_matvec_a_mem ( NROW, NCOL, NNZERO, NRHS, colptr, rowind, values,
     exact );
 
-  r4mat_print ( NROW, NRHS, rhsval,  "  The product vectors A*X" );
+  r8mat_print ( NROW, NRHS, rhsval,  "  The product vectors A*X" );
 
   cout << "\n";
   cout << "  Writing the file '" << output_file << "'.\n";
@@ -1418,7 +1420,7 @@ void test11 ( void )
   if ( !output )
   {
     cout << "\n";
-    cout << "TEST11 - Fatal error!\n";
+    cout << "TEST11 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }
@@ -1456,7 +1458,7 @@ void test12 ( void )
 //
 //  Modified:
 //
-//    01 March 2007
+//    21 January 2014
 //
 //  Author:
 //
@@ -1475,7 +1477,7 @@ void test12 ( void )
      53,  58,  61,  63,  65,  68,  71,  74,  79,  82, 
      85,  88,  90,  94,  97, 102, 106, 110, 112, 117, 
     121, 124, 127 };
-  float exact[NROW*NRHS] = {
+  double exact[NROW*NRHS] = {
     0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   1.0, 
     0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0, 
     0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0, 
@@ -1484,7 +1486,7 @@ void test12 ( void )
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0 };
-  float guess[NROW*NRHS] = {
+  double guess[NROW*NRHS] = {
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
     1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0,   1.0, 
@@ -1505,9 +1507,9 @@ void test12 ( void )
   char rhsfmt[21] = "(10F7.1)";
   int *rhsind = NULL;
   int *rhsptr = NULL;
-  float *rhsval;
+  double *rhsval;
   char rhstyp[4] = "FGX";
-  float *rhsvec = NULL;
+  double *rhsvec = NULL;
   int rowind[NNZERO] = {
     1,    2,    3,    4,    7,   26,    1,    2,    9,   21, 
    28,    2,    3,    6,    8,    9,   29,    3,    4,    5, 
@@ -1526,7 +1528,7 @@ void test12 ( void )
   int totcrd = 36;
   int valcrd = 13;
   char valfmt[21] = "(10F7.1)";
-  float values[NNZERO] = { 
+  double values[NNZERO] = { 
   101.0,  102.0,  103.0,  104.0,  107.0, 
   126.0,  201.0,  202.0,  209.0,  221.0, 
   228.0,  302.0,  303.0,  306.0,  308.0, 
@@ -1574,7 +1576,7 @@ void test12 ( void )
   rhsval = hb_vecmat_a_mem ( NROW, NCOL, NNZERO, NRHS, colptr, rowind, values,
     exact );
 
-  r4mat_print ( NCOL, NRHS, rhsval,  "  The product vectors A'*X" );
+  r8mat_print ( NCOL, NRHS, rhsval,  "  The product vectors A'*X" );
 
   cout << "\n";
   cout << "  Writing the file '" << output_file << "'.\n";
@@ -1584,7 +1586,7 @@ void test12 ( void )
   if ( !output )
   {
     cout << "\n";
-    cout << "TEST12 - Fatal error!\n";
+    cout << "TEST12 - Warning!\n";
     cout << "  Error opening the file.\n";
     return;
   }

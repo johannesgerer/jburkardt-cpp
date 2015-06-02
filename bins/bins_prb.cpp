@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    BINS_PRB tests routines from the  library.
+//    MAIN is the main program for BINS_PRB.
+//
+//  Discussion:
+//
+//    BINS_PRB tests the BINS library.
 //
 //  Licensing:
 //
@@ -37,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "BINS_PRB\n";
   cout << "  C++ version\n";
@@ -53,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "BINS_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -1,0 +1,184 @@
+<html>
+
+  <head>
+    <title>
+      BLAS2 - Matrix-Vector Basic Linear Algebra Subprograms
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      BLAS2 <br> Matrix-Vector Basic Linear Algebra Subprograms
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>BLAS2</b>
+      a C++ library which
+      constitutes the Level 2 Basic Linear Algebra Subprograms (BLAS),
+      for matrix-vector operations.
+    </p>
+
+    <p>
+      The BLAS are a small core library of linear algebra utilities,
+      which can be highly optimized for various architectures.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>BLAS2</b> is available in
+      <a href = "../../c_src/blas/blas.html">a C version</a> and
+      <a href = "../../cpp_src/blas/blas.html">a C++ version</a> and
+      <a href = "../../f77_src/blas/blas.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/blas/blas.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/blas/blas.html">a MATLAB version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/blas/blas.html">
+      BLAS</a>,
+      a C++ library which
+      contains the Basic Linear Algebra Subprograms (BLAS)
+      for level 1 (vector-vector operations), 
+      level 2 (matrix-vector operations) and 
+      level 3 (matrix-matrix operations), 
+      for single precision real arithmetic,
+      double precision real arithmetic,
+      single precision complex arithmetic, and
+      double precision complex arithmetic.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Anderson, Zhaojun Bai, Christian Bischof, Susan Blackford,
+          James Demmel, Jack Dongarra, Jeremy Du Croz, Anne Greenbaum,
+          Sven Hammarling, Alan McKenney, Danny Sorensen,<br>
+          LAPACK User's Guide,<br>
+          Third Edition,<br>
+          SIAM, 1999,<br>
+          ISBN: 0898714478,<br>
+          LC: QA76.73.F25L36.
+        </li>
+        <li>
+          Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,<br>
+          LINPACK User's Guide,<br>
+          SIAM, 1979,<br>
+          ISBN13: 978-0-898711-72-1,<br>
+          LC: QA214.L56.
+        </li>
+        <li>
+          Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,<br>
+          Algorithm 539:
+          Basic Linear Algebra Subprograms for Fortran Usage,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 5, Number 3, September 1979, pages 308-323.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "blas2.cpp">blas2.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "blas2.hpp">blas2.hpp</a>, the include file;
+        </li>
+        <li>
+          <a href = "blas2.sh">blas2.sh</a>, commands to compile
+          the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "blas2_prb.cpp">blas2_prb.cpp</a>, a calling program;
+        </li>
+        <li>
+          <a href = "blas2_prb.sh">blas2_prb.sh</a>, commands to
+          compile, link, load and run the calling program;
+        </li>
+        <li>
+          <a href = "blas2_prb_output.txt">blas2_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>DGEMV</b> computes y := alpha * A * x + beta * y for general matrix A.
+        </li>
+        <li>
+          <b>DGER</b> computes A := alpha*x*y' + A.
+        </li>
+        <li>
+          <b>DTRMV</b> computes x: = A*x or x = A'*x for a triangular matrix A.
+        </li>
+        <li>
+          <b>SGEMV</b> computes y := alpha * A * x + beta * y for general matrix A.
+        </li>
+        <li>
+          <b>SGER</b> computes A := alpha*x*y' + A.
+        </li>
+        <li>
+          <b>STRMV</b> computes x: = A*x or x = A'*x for a triangular matrix A.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 04 April 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

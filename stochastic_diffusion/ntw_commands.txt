@@ -1,0 +1,18 @@
+# ntw_commands.txt
+#
+# Usage:
+#  gnuplot < ntw_commands.txt
+#
+set term png
+set output 'ntw_contour.png'
+set xlabel '<---X--->'
+set ylabel '<---Y--->'
+set zlabel '<---DC(X,Y)--->'
+set title 'NTW Stochastic diffusivity function'
+set contour
+set timestamp
+set cntrparam levels 15
+#set view map
+set view 65, 65
+set key
+splot 'ntw_data.txt'

@@ -32,7 +32,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    CORDIC_PRB calls the CORDIC routines.
+//    CORDIC_PRB tests the CORDIC library.
 //
 //  Licensing:
 //
@@ -48,7 +48,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "CORDIC_PRB:\n";
   cout << "  C++ version,\n";
@@ -70,7 +69,6 @@ int main ( )
   cout << "\n";
   cout << "CORDIC_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

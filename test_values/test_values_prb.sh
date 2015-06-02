@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include test_values_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include test_values_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling test_values_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ test_values_prb.o /$HOME/libcpp/$ARCH/test_values.o -lm
 if [ $? -ne 0 ]; then

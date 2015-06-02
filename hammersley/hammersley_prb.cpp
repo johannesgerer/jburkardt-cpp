@@ -26,7 +26,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    HAMMERSLEY_PRB calls the HAMMERSLEY tests.
+//    MAIN is the main program for HAMMERSLEY_PRB.
+//
+//  Discussion:
+//
+//    HAMMERSLEY_PRB tests the HAMMERSLEY library.
 //
 //  Licensing:
 //
@@ -42,7 +46,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "HAMMERSLEY_PRB:\n";
   cout << "  C++ version\n";
@@ -62,7 +65,6 @@ int main ( )
   cout << "\n";
   cout << "HAMMERSLEY_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

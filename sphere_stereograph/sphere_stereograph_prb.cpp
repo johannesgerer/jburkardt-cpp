@@ -26,7 +26,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPHERE_STEREOGRAPH_PRB calls the SPHERE_STEREOGRAPH tests.
+//    SPHERE_STEREOGRAPH_PRB tests the SPHERE_STEREOGRAPH library.
 //
 //  Licensing:
 //
@@ -56,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "SPHERE_STEREOGRAPH_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

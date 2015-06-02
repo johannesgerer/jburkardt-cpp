@@ -1,0 +1,8772 @@
+<?xml version = "1.0" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg
+  width="409"
+  height="500"
+  viewbox="1,1,409,500"
+  xmlns="http://www.w3.org/2000/svg"
+  version="1.1">
+  <desc>
+    Triangulation created by triangulation_svg.cpp
+  </desc>
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      383,400
+      387,406
+      390,397
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      387,391
+      383,400
+      390,397
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      58,306
+      54,302
+      49,307
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      58,306
+      59,297
+      54,302
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      72,322
+      59,327
+      81,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      72,322
+      81,336
+      85,317
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      225,46
+      232,44
+      232,38
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      211,42
+      211,51
+      218,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      207,240
+      213,256
+      223,245
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      207,240
+      201,249
+      213,256
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      201,275
+      210,282
+      217,269
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      207,28
+      200,27
+      203,37
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      185,49
+      186,39
+      176,40
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      185,49
+      195,47
+      186,39
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      181,31
+      176,40
+      186,39
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      181,31
+      186,39
+      185,30
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      170,140
+      176,138
+      170,133
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      53,316
+      58,306
+      49,307
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      53,316
+      49,307
+      45,313
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      76,306
+      72,322
+      85,317
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      96,321
+      101,332
+      113,321
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      96,321
+      81,336
+      101,332
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      96,321
+      85,317
+      81,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      226,31
+      232,38
+      232,32
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      204,51
+      211,51
+      211,42
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      204,51
+      197,53
+      211,51
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      204,51
+      195,47
+      197,53
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      204,51
+      203,37
+      195,47
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      204,51
+      211,42
+      203,37
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      221,39
+      226,31
+      219,31
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      221,39
+      218,49
+      225,46
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      221,39
+      211,42
+      218,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      221,39
+      225,46
+      232,38
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      221,39
+      232,38
+      226,31
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      258,214
+      248,198
+      235,211
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      335,244
+      340,249
+      333,237
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      335,244
+      333,237
+      325,241
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      294,241
+      312,247
+      306,231
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      294,241
+      293,220
+      274,229
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      294,241
+      306,231
+      293,220
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      319,233
+      312,247
+      325,241
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      319,233
+      306,231
+      312,247
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      190,235
+      200,230
+      189,228
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      218,227
+      235,211
+      214,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      218,227
+      207,240
+      223,245
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      218,227
+      200,230
+      207,240
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      219,193
+      214,210
+      235,211
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      219,193
+      225,180
+      216,180
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      326,252
+      325,241
+      312,247
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      326,252
+      335,244
+      325,241
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      273,257
+      294,241
+      274,229
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      198,284
+      210,282
+      201,275
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      375,403
+      387,406
+      383,400
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      339,330
+      346,329
+      345,322
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      379,412
+      375,403
+      373,412
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      379,412
+      385,413
+      387,406
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      379,412
+      387,406
+      375,403
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      306,375
+      314,386
+      319,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      306,375
+      319,357
+      301,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      306,375
+      319,374
+      319,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,345
+      125,333
+      113,321
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,345
+      113,321
+      101,332
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      27,357
+      20,352
+      21,361
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      27,357
+      22,347
+      20,352
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      213,30
+      221,39
+      219,31
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      213,30
+      211,42
+      221,39
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      213,30
+      203,37
+      211,42
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      213,30
+      207,28
+      203,37
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      189,55
+      197,53
+      195,47
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      189,55
+      195,47
+      185,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      189,55
+      185,49
+      183,59
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,35
+      163,25
+      160,26
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,33
+      203,37
+      200,27
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,33
+      200,27
+      193,26
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,33
+      195,47
+      203,37
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,33
+      186,39
+      195,47
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,33
+      185,30
+      186,39
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,33
+      193,26
+      185,30
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,32
+      176,40
+      181,31
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,148
+      172,160
+      181,158
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,148
+      181,141
+      176,138
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,148
+      176,138
+      170,140
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,110
+      149,109
+      153,117
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,110
+      160,104
+      152,101
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,110
+      152,101
+      149,109
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      134,74
+      144,74
+      141,66
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      134,74
+      140,79
+      144,74
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      39,330
+      37,324
+      32,331
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      64,313
+      72,322
+      76,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      64,313
+      58,306
+      53,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      64,313
+      59,327
+      72,322
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      64,313
+      53,316
+      59,327
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,339
+      194,327
+      186,343
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      104,312
+      96,321
+      113,321
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      306,218
+      293,220
+      306,231
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      277,185
+      279,196
+      283,188
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      266,200
+      248,198
+      258,214
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      329,231
+      325,241
+      333,237
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      329,231
+      319,233
+      325,241
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      196,239
+      207,240
+      200,230
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      196,239
+      200,230
+      190,235
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      196,239
+      201,249
+      207,240
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,218
+      214,210
+      195,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,218
+      218,227
+      214,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,218
+      200,230
+      218,227
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,205
+      176,209
+      178,202
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,222
+      203,218
+      195,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,222
+      189,228
+      200,230
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,222
+      200,230
+      203,218
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,208
+      178,202
+      176,209
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      178,171
+      181,158
+      172,160
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,197
+      178,202
+      175,190
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,197
+      163,200
+      169,205
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,197
+      169,205
+      178,202
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,198
+      195,210
+      214,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,198
+      214,210
+      219,193
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      253,181
+      264,186
+      262,179
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      234,191
+      248,198
+      244,182
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      234,191
+      235,211
+      248,198
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      234,191
+      219,193
+      235,211
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      234,191
+      225,180
+      219,193
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      218,172
+      216,180
+      225,180
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      218,172
+      225,180
+      223,171
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      218,172
+      211,173
+      216,180
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,256
+      344,255
+      340,249
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,256
+      340,249
+      335,244
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,256
+      335,244
+      326,252
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      320,266
+      326,252
+      312,247
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      257,286
+      268,315
+      291,290
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      257,286
+      291,290
+      273,257
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      244,236
+      273,257
+      274,229
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      244,236
+      274,229
+      258,214
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      244,236
+      258,214
+      235,211
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      244,236
+      218,227
+      223,245
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      244,236
+      235,211
+      218,227
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,267
+      217,269
+      213,256
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,267
+      201,275
+      217,269
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      332,375
+      319,357
+      319,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      332,375
+      336,360
+      319,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,369
+      336,360
+      332,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      299,316
+      291,290
+      268,315
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      330,346
+      319,357
+      336,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      48,389
+      53,394
+      54,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      48,389
+      54,386
+      48,377
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      48,389
+      48,377
+      44,385
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      293,371
+      301,360
+      284,358
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      293,371
+      306,375
+      301,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,424
+      196,426
+      192,416
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,424
+      180,411
+      175,423
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,424
+      192,416
+      180,411
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      199,409
+      192,416
+      199,416
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      305,389
+      314,386
+      306,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      305,389
+      311,395
+      314,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      305,389
+      299,392
+      311,395
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,422
+      192,416
+      196,426
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,422
+      199,416
+      192,416
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      132,346
+      147,342
+      125,333
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      132,346
+      125,333
+      114,345
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      132,346
+      114,345
+      123,354
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,302
+      140,296
+      134,294
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      40,371
+      48,377
+      51,364
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      63,390
+      54,386
+      53,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      84,375
+      87,356
+      67,363
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      59,377
+      51,364
+      48,377
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      59,377
+      67,363
+      51,364
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      59,377
+      48,377
+      54,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      59,377
+      54,386
+      63,390
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      61,344
+      87,356
+      81,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      61,344
+      67,363
+      87,356
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      61,344
+      81,336
+      59,327
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      61,344
+      59,327
+      48,335
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      61,344
+      51,364
+      67,363
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      45,348
+      51,364
+      61,344
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      45,348
+      61,344
+      48,335
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,33
+      168,24
+      163,25
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,33
+      163,25
+      159,35
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,33
+      172,24
+      168,24
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,33
+      176,32
+      172,24
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,33
+      176,40
+      176,32
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,33
+      166,46
+      176,40
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,33
+      159,35
+      166,46
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      155,30
+      159,35
+      160,26
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      150,36
+      159,35
+      155,30
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      133,48
+      127,52
+      137,54
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      165,149
+      172,160
+      176,148
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      165,149
+      176,148
+      170,140
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,137
+      170,140
+      170,133
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,137
+      170,133
+      164,130
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,137
+      165,149
+      170,140
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,137
+      153,145
+      165,149
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,137
+      164,130
+      155,129
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,116
+      159,110
+      153,117
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      149,118
+      153,117
+      149,109
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      150,69
+      141,66
+      144,74
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      144,99
+      149,109
+      152,101
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,61
+      141,66
+      137,54
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,61
+      134,74
+      141,66
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,61
+      137,54
+      127,52
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      47,323
+      39,330
+      48,335
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      47,323
+      41,319
+      37,324
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      47,323
+      37,324
+      39,330
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      47,323
+      45,313
+      41,319
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      47,323
+      53,316
+      45,313
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      47,323
+      59,327
+      53,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      47,323
+      48,335
+      59,327
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      67,302
+      64,313
+      76,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      67,302
+      58,306
+      64,313
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      67,302
+      59,297
+      58,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      67,302
+      63,293
+      59,297
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      67,302
+      70,294
+      63,293
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,272
+      201,275
+      203,267
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,294
+      198,284
+      191,291
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,294
+      191,291
+      196,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      203,294
+      210,282
+      198,284
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      213,330
+      194,327
+      203,339
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      95,309
+      85,317
+      96,321
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      95,309
+      96,321
+      104,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      288,190
+      283,188
+      279,196
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      294,205
+      303,201
+      298,195
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      315,224
+      306,231
+      319,233
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      315,224
+      306,218
+      306,231
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      270,182
+      262,179
+      264,186
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,190
+      266,200
+      279,196
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,190
+      264,186
+      266,200
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,190
+      279,196
+      277,185
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,190
+      270,182
+      264,186
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,190
+      277,185
+      270,182
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      256,190
+      248,198
+      266,200
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      256,190
+      266,200
+      264,186
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      256,190
+      264,186
+      253,181
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      256,190
+      244,182
+      248,198
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      256,190
+      253,181
+      244,182
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,245
+      193,253
+      201,249
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,245
+      201,249
+      196,239
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,245
+      196,239
+      190,235
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      181,213
+      186,208
+      176,209
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      163,190
+      153,192
+      158,196
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      163,190
+      169,197
+      175,190
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      163,190
+      158,196
+      163,200
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      163,190
+      163,200
+      169,197
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      185,181
+      191,175
+      178,171
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,198
+      178,202
+      186,208
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,198
+      186,208
+      195,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,198
+      195,210
+      203,198
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,198
+      175,190
+      178,202
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,198
+      185,181
+      175,190
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,151
+      176,148
+      181,158
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,151
+      181,158
+      189,156
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,166
+      181,158
+      178,171
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,166
+      189,156
+      181,158
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,166
+      178,171
+      191,175
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      206,175
+      216,180
+      211,173
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      194,166
+      191,175
+      196,171
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      194,166
+      186,166
+      191,175
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      191,161
+      189,156
+      186,166
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      191,161
+      186,166
+      194,166
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      235,178
+      225,180
+      234,191
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      235,178
+      234,191
+      244,182
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      229,170
+      223,171
+      225,180
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      229,170
+      225,180
+      235,178
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      229,170
+      235,178
+      235,171
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      249,173
+      244,182
+      253,181
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      344,262
+      344,255
+      336,256
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      299,265
+      273,257
+      291,290
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      299,265
+      291,290
+      313,283
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      299,265
+      313,283
+      320,266
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      299,265
+      320,266
+      312,247
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      299,265
+      312,247
+      294,241
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      299,265
+      294,241
+      273,257
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,262
+      244,236
+      223,245
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,262
+      257,286
+      273,257
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,262
+      273,257
+      244,236
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,262
+      223,245
+      213,256
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,262
+      213,256
+      217,269
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      201,258
+      201,249
+      193,253
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      201,258
+      193,253
+      194,260
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      201,258
+      213,256
+      201,249
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      201,258
+      203,267
+      213,256
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      366,405
+      375,403
+      362,397
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      366,405
+      367,411
+      373,412
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      366,405
+      373,412
+      375,403
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      378,391
+      362,397
+      375,403
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      378,391
+      383,400
+      387,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      378,391
+      375,403
+      383,400
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      334,387
+      330,392
+      337,396
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      276,336
+      299,316
+      268,315
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      276,336
+      268,315
+      251,329
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      334,312
+      344,316
+      342,309
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      118,448
+      123,451
+      126,445
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      148,468
+      143,474
+      151,476
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      283,369
+      284,358
+      274,365
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      283,369
+      293,371
+      284,358
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      283,369
+      274,365
+      274,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,431
+      196,426
+      188,424
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      182,432
+      188,424
+      175,423
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      182,432
+      192,431
+      188,424
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      191,406
+      199,409
+      198,403
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      191,406
+      192,416
+      199,409
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      191,406
+      180,411
+      192,416
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      298,383
+      306,375
+      293,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      298,383
+      305,389
+      306,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      298,383
+      299,392
+      305,389
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      298,383
+      293,391
+      299,392
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      298,383
+      289,385
+      293,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      131,451
+      126,445
+      123,451
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      136,424
+      130,413
+      124,423
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      120,412
+      130,413
+      128,405
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      120,412
+      124,423
+      130,413
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      106,404
+      110,396
+      96,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,357
+      132,346
+      123,354
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,357
+      147,342
+      132,346
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      179,357
+      192,360
+      186,343
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      179,357
+      182,370
+      192,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      179,357
+      165,371
+      182,370
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      179,357
+      161,355
+      165,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      127,316
+      113,321
+      125,333
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      185,310
+      194,327
+      196,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      170,335
+      186,343
+      194,327
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      170,335
+      179,357
+      186,343
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      170,335
+      161,355
+      179,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      170,335
+      147,342
+      161,355
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      29,368
+      21,361
+      22,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      29,368
+      27,357
+      21,361
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      39,380
+      44,385
+      48,377
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      39,380
+      48,377
+      40,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      97,366
+      87,356
+      84,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,382
+      59,377
+      63,390
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,382
+      84,375
+      67,363
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,382
+      67,363
+      59,377
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      37,361
+      27,357
+      29,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      37,361
+      29,368
+      40,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      37,361
+      40,371
+      51,364
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      37,361
+      51,364
+      45,348
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      32,348
+      25,342
+      22,347
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      32,348
+      22,347
+      27,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      32,348
+      27,357
+      37,361
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      32,348
+      37,361
+      45,348
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      36,339
+      48,335
+      39,330
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      36,339
+      45,348
+      48,335
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      36,339
+      32,348
+      45,348
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      36,339
+      32,331
+      28,338
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      36,339
+      39,330
+      32,331
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      36,339
+      28,338
+      25,342
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      36,339
+      25,342
+      32,348
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,54
+      177,62
+      183,59
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,54
+      183,59
+      185,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,54
+      185,49
+      176,40
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      176,54
+      176,40
+      166,46
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      154,44
+      166,46
+      159,35
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      154,44
+      159,35
+      150,36
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      154,44
+      145,40
+      146,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      154,44
+      150,36
+      145,40
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,44
+      137,54
+      146,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,44
+      133,48
+      137,54
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,44
+      146,49
+      145,40
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      143,159
+      141,151
+      133,157
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      76,296
+      76,306
+      81,298
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      76,296
+      67,302
+      76,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      76,296
+      70,294
+      67,302
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      129,295
+      137,302
+      134,294
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      112,308
+      106,302
+      104,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      112,308
+      112,300
+      106,302
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      112,308
+      104,312
+      113,321
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      103,92
+      109,87
+      102,84
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,83
+      140,79
+      134,74
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,83
+      134,74
+      127,82
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      146,298
+      140,296
+      137,302
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      194,266
+      193,272
+      203,267
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      194,266
+      201,258
+      194,260
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      194,266
+      203,267
+      201,258
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,279
+      198,284
+      201,275
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,279
+      201,275
+      193,272
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      211,313
+      196,306
+      194,327
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      211,313
+      194,327
+      213,330
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      211,313
+      203,294
+      196,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,303
+      104,312
+      106,302
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,303
+      95,309
+      104,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      279,210
+      293,220
+      294,205
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      279,210
+      274,229
+      293,220
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      279,210
+      279,196
+      266,200
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      279,210
+      258,214
+      274,229
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      279,210
+      266,200
+      258,214
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      287,199
+      288,190
+      279,196
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      287,199
+      293,193
+      288,190
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      287,199
+      279,196
+      279,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      287,199
+      279,210
+      294,205
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      287,199
+      298,195
+      293,193
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      287,199
+      294,205
+      298,195
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      302,209
+      303,201
+      294,205
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      302,209
+      293,220
+      306,218
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      302,209
+      294,205
+      293,220
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,226
+      319,233
+      329,231
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,226
+      315,224
+      319,233
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      187,217
+      195,210
+      186,208
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      187,217
+      186,208
+      181,213
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      187,217
+      192,222
+      195,210
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      187,217
+      189,228
+      192,222
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      196,185
+      188,198
+      203,198
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      196,185
+      185,181
+      188,198
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      196,185
+      191,175
+      185,181
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      184,146
+      181,141
+      176,148
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      184,146
+      176,148
+      186,151
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      242,172
+      235,178
+      244,182
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      242,172
+      244,182
+      249,173
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      242,172
+      235,171
+      235,178
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      255,176
+      253,181
+      262,179
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      255,176
+      249,173
+      253,181
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      341,283
+      343,276
+      336,276
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      334,266
+      336,256
+      326,252
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      334,266
+      326,252
+      320,266
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      334,266
+      344,262
+      336,256
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,280
+      320,266
+      313,283
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,280
+      334,266
+      320,266
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,280
+      336,276
+      334,266
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      253,368
+      252,362
+      246,359
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      244,310
+      268,315
+      257,286
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      244,310
+      251,329
+      268,315
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,393
+      337,396
+      346,400
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,393
+      334,387
+      337,396
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      317,394
+      314,386
+      311,395
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      369,386
+      355,386
+      362,397
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      369,386
+      362,397
+      378,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,383
+      346,369
+      332,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,383
+      332,375
+      334,387
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,383
+      355,386
+      358,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,383
+      358,374
+      346,369
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,383
+      343,393
+      355,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,383
+      334,387
+      343,393
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,385
+      323,393
+      330,392
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,385
+      330,392
+      334,387
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,385
+      319,374
+      314,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,385
+      332,375
+      319,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,385
+      334,387
+      332,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,385
+      314,386
+      317,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      324,385
+      317,394
+      323,393
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,350
+      330,346
+      336,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      314,336
+      301,360
+      319,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      314,336
+      319,357
+      330,346
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      314,336
+      330,346
+      329,332
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      258,341
+      251,329
+      244,344
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      258,341
+      276,336
+      251,329
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,293
+      327,280
+      313,283
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,321
+      345,322
+      344,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,321
+      344,316
+      334,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,321
+      339,330
+      345,322
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,321
+      329,332
+      339,330
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      122,438
+      118,448
+      126,445
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,426
+      122,438
+      124,423
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,426
+      120,412
+      107,418
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,426
+      124,423
+      120,412
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,454
+      143,461
+      148,468
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,471
+      143,474
+      148,468
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,471
+      148,468
+      143,461
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      268,372
+      274,374
+      274,365
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      278,376
+      283,378
+      283,369
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      278,376
+      283,369
+      274,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,416
+      175,423
+      180,411
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,416
+      180,411
+      160,405
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,416
+      160,405
+      146,406
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      151,398
+      146,406
+      160,405
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      185,441
+      177,440
+      181,446
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      185,441
+      182,432
+      177,440
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      289,379
+      298,383
+      293,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      289,379
+      289,385
+      298,383
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      289,379
+      283,378
+      289,385
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      289,379
+      283,369
+      283,378
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      289,379
+      293,371
+      283,369
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      181,399
+      160,405
+      180,411
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      181,399
+      180,411
+      191,406
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      197,350
+      203,339
+      186,343
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      197,350
+      186,343
+      192,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      197,350
+      192,360
+      201,361
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      197,350
+      210,347
+      203,339
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      194,368
+      192,360
+      182,370
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      194,368
+      201,361
+      192,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      127,458
+      131,451
+      123,451
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,409
+      130,413
+      136,424
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,409
+      146,406
+      138,401
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,407
+      110,396
+      106,404
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,407
+      107,418
+      120,412
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,407
+      106,404
+      107,418
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      133,403
+      137,409
+      138,401
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      133,403
+      128,405
+      130,413
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      133,403
+      130,413
+      137,409
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,363
+      135,357
+      123,354
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,363
+      124,368
+      130,372
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,358
+      161,355
+      147,342
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,358
+      147,342
+      135,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,325
+      125,333
+      147,342
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,325
+      127,316
+      125,333
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,297
+      191,291
+      183,288
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,297
+      183,288
+      178,292
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,297
+      196,306
+      191,291
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,297
+      185,310
+      196,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,320
+      166,314
+      170,335
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,320
+      175,306
+      166,314
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,320
+      185,310
+      175,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,320
+      194,327
+      185,310
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,320
+      170,335
+      194,327
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      33,375
+      40,371
+      29,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      33,375
+      39,380
+      40,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      33,375
+      29,368
+      22,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      95,407
+      106,404
+      96,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      111,357
+      123,354
+      114,345
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      98,380
+      97,366
+      84,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,58
+      166,46
+      154,44
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,58
+      157,68
+      164,67
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,58
+      154,44
+      146,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,139
+      126,148
+      134,145
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,137
+      141,151
+      153,145
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,137
+      134,145
+      141,151
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,137
+      128,139
+      134,145
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,137
+      135,129
+      128,139
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      118,299
+      112,300
+      112,308
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      86,306
+      85,317
+      95,309
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      86,306
+      76,306
+      85,317
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      86,306
+      81,298
+      76,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      86,306
+      87,299
+      81,298
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      120,307
+      113,321
+      127,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      120,307
+      112,308
+      113,321
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      120,307
+      118,299
+      112,308
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      120,307
+      123,297
+      118,299
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      131,153
+      134,145
+      126,148
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      131,153
+      133,157
+      141,151
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      131,153
+      141,151
+      134,145
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      136,162
+      143,159
+      133,157
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      136,162
+      139,167
+      143,159
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      113,115
+      105,114
+      105,120
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      104,109
+      114,105
+      104,104
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      104,109
+      105,114
+      113,115
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      104,109
+      113,115
+      114,105
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      131,91
+      139,91
+      135,83
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      131,91
+      135,83
+      127,82
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      122,56
+      128,61
+      127,52
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      122,56
+      118,61
+      128,61
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,70
+      134,74
+      128,61
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,70
+      128,61
+      118,61
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,70
+      127,82
+      134,74
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,70
+      115,79
+      127,82
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,98
+      109,87
+      103,92
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,98
+      104,104
+      114,105
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,98
+      103,92
+      104,104
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,283
+      183,288
+      191,291
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,283
+      191,291
+      198,284
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      188,283
+      198,284
+      193,279
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      219,296
+      210,282
+      203,294
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      219,296
+      203,294
+      211,313
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      94,301
+      95,309
+      100,303
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      94,301
+      86,306
+      95,309
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      94,301
+      87,299
+      86,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      315,214
+      306,218
+      315,224
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      207,185
+      196,185
+      203,198
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      207,185
+      219,193
+      216,180
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      207,185
+      203,198
+      219,193
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      207,185
+      216,180
+      206,175
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,176
+      206,175
+      196,171
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,176
+      196,171
+      191,175
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,176
+      191,175
+      196,185
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,176
+      207,185
+      206,175
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,176
+      196,185
+      207,185
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,269
+      344,262
+      334,266
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,269
+      336,276
+      343,276
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      343,269
+      334,266
+      336,276
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      241,355
+      244,344
+      237,351
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      199,389
+      199,380
+      194,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      229,320
+      211,313
+      213,330
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      229,320
+      213,330
+      226,334
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      229,320
+      219,296
+      211,313
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      229,320
+      244,310
+      219,296
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      352,396
+      362,397
+      355,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      352,396
+      353,404
+      362,397
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      352,396
+      346,400
+      353,404
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      352,396
+      355,386
+      343,393
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      352,396
+      343,393
+      346,400
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      359,407
+      366,405
+      362,397
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      359,407
+      362,397
+      353,404
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      359,407
+      367,411
+      366,405
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      385,385
+      378,391
+      387,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      385,385
+      382,380
+      378,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      366,376
+      368,368
+      358,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      366,376
+      358,374
+      355,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      366,376
+      355,386
+      369,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      376,379
+      378,391
+      382,380
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      376,379
+      369,386
+      378,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      376,379
+      366,376
+      369,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      362,364
+      358,374
+      368,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      355,365
+      346,369
+      358,374
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      355,365
+      358,374
+      362,364
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      355,365
+      362,364
+      356,359
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,359
+      343,350
+      336,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,359
+      351,355
+      343,350
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,359
+      336,360
+      346,369
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,359
+      346,369
+      355,365
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,359
+      356,359
+      351,355
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,359
+      355,365
+      356,359
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      340,340
+      330,346
+      343,350
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      340,340
+      339,330
+      329,332
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      340,340
+      329,332
+      330,346
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      293,344
+      299,316
+      276,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      293,344
+      314,336
+      299,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      293,344
+      301,360
+      314,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      293,344
+      284,358
+      301,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      293,344
+      276,336
+      284,358
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      338,302
+      342,309
+      338,296
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      338,302
+      334,312
+      342,309
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      312,300
+      327,293
+      313,283
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      312,300
+      291,290
+      299,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      312,300
+      313,283
+      291,290
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,288
+      327,280
+      327,293
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,288
+      341,283
+      336,276
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,288
+      336,276
+      327,280
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,288
+      338,296
+      341,283
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      336,288
+      327,293
+      338,296
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,446
+      118,448
+      122,438
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,438
+      136,424
+      124,423
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,438
+      124,423
+      122,438
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,438
+      122,438
+      126,445
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,438
+      153,433
+      136,424
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      135,438
+      126,445
+      131,451
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,436
+      107,441
+      112,444
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,436
+      122,438
+      114,426
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,436
+      112,444
+      115,446
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,436
+      115,446
+      122,438
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      114,436
+      105,436
+      107,441
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      106,428
+      114,426
+      107,418
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      106,428
+      105,436
+      114,436
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      106,428
+      114,436
+      114,426
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,457
+      127,458
+      132,464
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,457
+      131,451
+      127,458
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      156,469
+      148,468
+      151,476
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      156,469
+      151,476
+      159,477
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      156,469
+      159,477
+      163,470
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      136,467
+      139,471
+      143,461
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      136,467
+      143,461
+      137,457
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      136,467
+      137,457
+      132,464
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      145,417
+      159,416
+      146,406
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      145,417
+      146,406
+      137,409
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      145,417
+      137,409
+      136,424
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      145,417
+      136,424
+      153,433
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      145,417
+      153,433
+      159,416
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,395
+      151,398
+      144,392
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      171,447
+      177,450
+      181,446
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      171,447
+      181,446
+      177,440
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      189,436
+      192,431
+      182,432
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      189,436
+      182,432
+      185,441
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,395
+      160,405
+      181,399
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,397
+      181,399
+      191,406
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,397
+      198,403
+      199,395
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,397
+      191,406
+      198,403
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,397
+      199,395
+      199,389
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      193,397
+      199,389
+      194,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      182,382
+      167,395
+      181,399
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      182,382
+      182,370
+      165,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,377
+      194,386
+      199,380
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,377
+      182,382
+      194,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,377
+      194,368
+      182,370
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      192,377
+      182,370
+      182,382
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      201,368
+      201,361
+      194,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      201,368
+      208,360
+      201,361
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      206,354
+      210,347
+      197,350
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      206,354
+      214,353
+      210,347
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      206,354
+      208,360
+      214,353
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      206,354
+      197,350
+      201,361
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      206,354
+      201,361
+      208,360
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      118,400
+      116,393
+      110,396
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      118,400
+      110,396
+      114,407
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      154,370
+      165,371
+      161,355
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      154,370
+      161,355
+      147,358
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      154,370
+      156,381
+      165,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,298
+      185,310
+      186,297
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,298
+      175,306
+      185,310
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,298
+      186,297
+      178,292
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,298
+      178,292
+      170,297
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      177,298
+      170,297
+      175,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      166,305
+      166,314
+      175,306
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      166,305
+      158,307
+      166,314
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      166,305
+      170,297
+      163,298
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      166,305
+      175,306
+      170,297
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,415
+      107,418
+      106,404
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,415
+      106,404
+      95,407
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      59,397
+      63,390
+      53,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      59,397
+      65,400
+      63,390
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,351
+      87,356
+      97,366
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,351
+      111,357
+      114,345
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,351
+      114,345
+      101,332
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,351
+      101,332
+      81,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      100,351
+      81,336
+      87,356
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      107,389
+      96,394
+      110,396
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      107,389
+      98,380
+      96,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      107,389
+      110,396
+      116,393
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      106,373
+      97,366
+      98,380
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      87,402
+      78,401
+      80,407
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      87,402
+      95,407
+      96,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      82,391
+      96,394
+      98,380
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      82,391
+      98,380
+      84,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      82,391
+      87,402
+      96,394
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      82,391
+      78,401
+      87,402
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      82,391
+      84,375
+      71,382
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      72,403
+      80,407
+      78,401
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,394
+      63,390
+      65,400
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,394
+      78,401
+      82,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,394
+      65,400
+      72,403
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,394
+      72,403
+      78,401
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,394
+      71,382
+      63,390
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      71,394
+      82,391
+      71,382
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      168,59
+      176,54
+      166,46
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      168,59
+      166,46
+      158,58
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      168,59
+      171,66
+      177,62
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      168,59
+      177,62
+      176,54
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      168,59
+      164,67
+      171,66
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      168,59
+      158,58
+      164,67
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      149,61
+      158,58
+      146,49
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      149,61
+      141,66
+      150,69
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      149,61
+      150,69
+      157,68
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      149,61
+      157,68
+      158,58
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      149,61
+      137,54
+      141,66
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      149,61
+      146,49
+      137,54
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,144
+      126,148
+      128,139
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,134
+      113,134
+      117,140
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,134
+      135,129
+      123,126
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,134
+      128,139
+      135,129
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,134
+      117,140
+      121,144
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      121,134
+      121,144
+      128,139
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      144,127
+      135,129
+      142,137
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      144,127
+      140,118
+      135,129
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      144,127
+      149,118
+      140,118
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      144,127
+      149,126
+      149,118
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,134
+      142,137
+      153,145
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,134
+      161,137
+      155,129
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,134
+      153,145
+      161,137
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,134
+      155,129
+      149,126
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,134
+      149,126
+      144,127
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,134
+      144,127
+      142,137
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,175
+      144,177
+      147,182
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      129,304
+      129,295
+      123,297
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      129,304
+      123,297
+      120,307
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      129,304
+      137,302
+      129,295
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      129,304
+      120,307
+      127,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,124
+      110,130
+      113,134
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,124
+      123,126
+      113,115
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,124
+      121,134
+      123,126
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,124
+      113,134
+      121,134
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,124
+      106,125
+      110,130
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,124
+      105,120
+      106,125
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,124
+      113,115
+      105,120
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      126,114
+      114,105
+      113,115
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      126,114
+      113,115
+      123,126
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      126,114
+      123,126
+      135,129
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      126,114
+      135,129
+      140,118
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,99
+      144,99
+      139,91
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,99
+      139,91
+      131,91
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      106,78
+      102,84
+      109,87
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      106,78
+      109,87
+      115,79
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      119,92
+      108,98
+      114,105
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      119,92
+      109,87
+      108,98
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      119,92
+      131,91
+      127,82
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      119,92
+      115,79
+      109,87
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      119,92
+      127,82
+      115,79
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,325
+      170,335
+      166,314
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,325
+      147,342
+      170,335
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,325
+      142,325
+      147,342
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,312
+      127,316
+      142,325
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,312
+      137,302
+      129,304
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      139,312
+      129,304
+      127,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      231,283
+      244,310
+      257,286
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      231,283
+      219,296
+      244,310
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      231,283
+      257,286
+      238,262
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      231,283
+      238,262
+      217,269
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      231,283
+      217,269
+      210,282
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      231,283
+      210,282
+      219,296
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      216,343
+      210,347
+      214,353
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      216,343
+      213,330
+      203,339
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      216,343
+      203,339
+      210,347
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      216,343
+      226,334
+      213,330
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      216,343
+      225,343
+      226,334
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      233,345
+      237,351
+      244,344
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      233,345
+      226,334
+      225,343
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      233,345
+      225,350
+      237,351
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      233,345
+      225,343
+      225,350
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      320,220
+      315,224
+      324,226
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      320,220
+      315,214
+      315,224
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      310,208
+      302,209
+      306,218
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      310,208
+      306,218
+      315,214
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      310,208
+      303,201
+      302,209
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,333
+      251,329
+      244,310
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,333
+      244,310
+      229,320
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,333
+      229,320
+      226,334
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,333
+      244,344
+      251,329
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,333
+      233,345
+      244,344
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      238,333
+      226,334
+      233,345
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      373,373
+      368,368
+      366,376
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      373,373
+      366,376
+      376,379
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      373,373
+      376,379
+      382,380
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,336
+      346,329
+      339,330
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      346,336
+      339,330
+      340,340
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      249,352
+      246,359
+      252,362
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      249,352
+      252,362
+      258,354
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      249,352
+      244,344
+      241,355
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      249,352
+      241,355
+      246,359
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      249,352
+      258,341
+      244,344
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      249,352
+      258,354
+      258,341
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      263,364
+      258,354
+      252,362
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      263,364
+      253,368
+      260,370
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      263,364
+      252,362
+      253,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      263,364
+      260,370
+      268,372
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      263,364
+      268,372
+      274,365
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,353
+      276,336
+      258,341
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,353
+      258,341
+      258,354
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,353
+      284,358
+      276,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,353
+      274,365
+      284,358
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,353
+      263,364
+      274,365
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      271,353
+      258,354
+      263,364
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      321,318
+      312,300
+      299,316
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      321,318
+      299,316
+      314,336
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      321,318
+      314,336
+      329,332
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      321,318
+      329,332
+      336,321
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      321,318
+      336,321
+      334,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,304
+      327,293
+      312,300
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,304
+      334,312
+      338,302
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,304
+      321,318
+      334,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,304
+      312,300
+      321,318
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,304
+      338,296
+      327,293
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      327,304
+      338,302
+      338,296
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,447
+      153,433
+      135,438
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,447
+      143,461
+      153,454
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,447
+      137,457
+      143,461
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,447
+      135,438
+      131,451
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      142,447
+      131,451
+      137,457
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,461
+      153,454
+      148,468
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,461
+      148,468
+      156,469
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,461
+      163,470
+      166,463
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      159,461
+      156,469
+      163,470
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,398
+      146,406
+      151,398
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,398
+      151,398
+      142,395
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,398
+      138,401
+      146,406
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      165,455
+      159,461
+      166,463
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      165,455
+      153,454
+      159,461
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,433
+      171,447
+      177,440
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,433
+      175,423
+      159,416
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,433
+      159,416
+      153,433
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,433
+      182,432
+      175,423
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      169,433
+      177,440
+      182,432
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      155,391
+      151,398
+      160,405
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      155,391
+      160,405
+      167,395
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      155,391
+      156,381
+      148,383
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      155,391
+      148,383
+      146,388
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      155,391
+      144,392
+      151,398
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      155,391
+      146,388
+      144,392
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,383
+      165,371
+      156,381
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,383
+      156,381
+      155,391
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,383
+      155,391
+      167,395
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,383
+      182,382
+      165,371
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,383
+      167,395
+      182,382
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,391
+      181,399
+      193,397
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,391
+      182,382
+      181,399
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,391
+      193,397
+      194,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      186,391
+      194,386
+      182,382
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,374
+      201,368
+      194,368
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,374
+      192,377
+      199,380
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      200,374
+      194,368
+      192,377
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      123,403
+      114,407
+      120,412
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      123,403
+      118,400
+      114,407
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      123,403
+      120,412
+      128,405
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      145,369
+      137,375
+      141,376
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      145,369
+      154,370
+      147,358
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      118,362
+      123,354
+      111,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      118,362
+      128,363
+      123,354
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      118,362
+      124,368
+      128,363
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,364
+      97,366
+      106,373
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,364
+      100,351
+      97,366
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,364
+      111,357
+      100,351
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,364
+      118,362
+      111,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,381
+      98,380
+      107,389
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      108,381
+      106,373
+      98,380
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      157,183
+      147,182
+      150,187
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      157,183
+      152,175
+      147,182
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      157,183
+      150,187
+      153,192
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      157,183
+      153,192
+      163,190
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,168
+      142,172
+      144,177
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,168
+      144,177
+      152,175
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,168
+      139,167
+      142,172
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,168
+      143,159
+      139,167
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,168
+      152,175
+      160,168
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,108
+      149,109
+      144,99
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,108
+      144,99
+      137,99
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,108
+      149,118
+      149,109
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,108
+      140,118
+      149,118
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      140,108
+      126,114
+      140,118
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      113,66
+      121,70
+      118,61
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,102
+      137,99
+      131,91
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,102
+      131,91
+      119,92
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,102
+      126,114
+      140,108
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,102
+      140,108
+      137,99
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,102
+      114,105
+      126,114
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      128,102
+      119,92
+      114,105
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,299
+      152,300
+      158,307
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,299
+      166,305
+      163,298
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      158,299
+      158,307
+      166,305
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,305
+      158,307
+      152,300
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,305
+      152,300
+      146,298
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,305
+      146,298
+      137,302
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,305
+      137,302
+      139,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      220,352
+      216,343
+      214,353
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      220,352
+      225,343
+      216,343
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      220,352
+      225,350
+      225,343
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      348,344
+      340,340
+      343,350
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      348,344
+      346,336
+      340,340
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      348,344
+      343,350
+      351,355
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      172,456
+      165,455
+      166,463
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      172,456
+      177,450
+      171,447
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      172,456
+      171,447
+      165,455
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,445
+      169,433
+      153,433
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,445
+      171,447
+      169,433
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,445
+      153,433
+      142,447
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,445
+      142,447
+      153,454
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,445
+      153,454
+      165,455
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      161,445
+      165,455
+      171,447
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,378
+      154,370
+      145,369
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,378
+      148,383
+      156,381
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,378
+      156,381
+      154,370
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,378
+      141,376
+      148,383
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      147,378
+      145,369
+      141,376
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,367
+      133,373
+      137,375
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,367
+      137,375
+      145,369
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,367
+      135,357
+      128,363
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,367
+      147,358
+      135,357
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,367
+      145,369
+      147,358
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,367
+      128,363
+      130,372
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      137,367
+      130,372
+      133,373
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      98,425
+      106,428
+      107,418
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      98,425
+      107,418
+      100,415
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      98,425
+      100,415
+      95,420
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      87,410
+      87,402
+      80,407
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      87,410
+      95,407
+      87,402
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      91,415
+      100,415
+      95,407
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      91,415
+      95,420
+      100,415
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      91,415
+      95,407
+      87,410
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,386
+      107,389
+      116,393
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,386
+      108,381
+      107,389
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      116,368
+      124,368
+      118,362
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      116,368
+      108,364
+      106,373
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      116,368
+      118,362
+      108,364
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      160,168
+      152,175
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      152,175
+      157,183
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      178,171
+      172,160
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      172,160
+      160,168
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      175,190
+      185,181
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      185,181
+      178,171
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      163,190
+      175,190
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      167,179
+      157,183
+      163,190
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,158
+      143,159
+      147,168
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,158
+      147,168
+      160,168
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,158
+      153,145
+      141,151
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,158
+      141,151
+      143,159
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,158
+      165,149
+      153,145
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,158
+      172,160
+      165,149
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      153,158
+      160,168
+      172,160
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      109,71
+      106,78
+      115,79
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      109,71
+      113,66
+      106,78
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      109,71
+      115,79
+      121,70
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      109,71
+      121,70
+      113,66
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,313
+      158,307
+      147,305
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,313
+      142,325
+      158,325
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,313
+      139,312
+      142,325
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,313
+      147,305
+      139,312
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,313
+      166,314
+      158,307
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      152,313
+      158,325
+      166,314
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      101,430
+      105,436
+      106,428
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      101,430
+      106,428
+      98,425
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      113,378
+      108,381
+      115,386
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      113,378
+      106,373
+      108,381
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,373
+      116,368
+      106,373
+  " />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="2"
+    points="
+      115,373
+      106,373
+      113,378
+  " />
+</svg>

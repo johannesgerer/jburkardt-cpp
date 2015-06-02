@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    RANDLC_PRB calls sample problems for the RANDLC library.
+//    MAIN is the main program for RANDLC_PRB.
+//
+//  Discussion:
+//
+//    RANDLC_PRB tests the RANDLC library.
 //
 //  Licensing:
 //
@@ -36,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "RANDLC_PRB\n";
   cout << "  C++ version:\n";
@@ -52,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "RANDLC_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

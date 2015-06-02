@@ -1,4 +1,4 @@
-11 October 2012 03:11:13 PM
+21 October 2013 09:27:43 PM
 
 SPHERE_GRID_PRB
   C++ version
@@ -376,7 +376,42 @@ TEST10
 
   Wrote data to "sphere_cubed_f10.xyz"
 
+TEST14
+  SPHERE_FIBONACCI_POINTS computes points on a sphere
+  that lie on a Fibonacci spiral.
+
+  Number of points N = 1000
+
+  Initial part of XYZ array:
+
+  Row:       0             1             2       
+  Col
+
+    0:    -0.0225281    -0.0386198        -0.999
+    1:    -0.0700116     0.0330058        -0.997
+    2:     0.0345279     0.0937167        -0.995
+    3:      0.113977    -0.0309876        -0.993
+    4:    -0.0236915     -0.131749        -0.991
+    5:     -0.147312     0.0133511        -0.989
+    6:    0.00045756       0.16072        -0.987
+    7:      0.171936     0.0145963        -0.985
+    8:     0.0314659     -0.180889        -0.983
+    9:     -0.187499    -0.0498316        -0.981
+   10:    -0.0693865      0.191689        -0.979
+   11:      0.193395     0.0898304        -0.977
+   12:      0.110867     -0.192571        -0.975
+   13:      -0.18919     -0.132205        -0.973
+   14:     -0.153553       0.18325        -0.971
+   15:       0.17477      0.174627        -0.969
+   16:      0.195148     -0.163794        -0.967
+   17:     -0.150392     -0.214843        -0.965
+   18:      -0.23345      0.134656        -0.963
+   19:      0.116705      0.250717        -0.961
+
+  Created data file "sphere_grid_test14_data.txt"
+  Created command file "sphere_grid_test14_commands.txt"
+
 SPHERE_GRID_PRB
   Normal end of execution.
 
-11 October 2012 03:11:13 PM
+21 October 2013 09:27:43 PM

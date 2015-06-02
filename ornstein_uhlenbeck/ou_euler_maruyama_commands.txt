@@ -1,0 +1,14 @@
+# ou_euler_maruyama_commands.txt
+#
+# Usage:
+#  gnuplot < ou_euler_maruyama_commands.txt
+#
+set term png
+set output 'ou_euler_maruyama.png'
+set xlabel '<--- T --->'
+set ylabel '<--- X(T) --->'
+set title 'Euler-Maruyama Solution of Ornstein-Uhlenbeck SDE'
+set grid
+set style data lines
+plot 'ou_euler_maruyama_data.txt' using 1:2 lw 3 linecolor rgb 'blue'
+quit

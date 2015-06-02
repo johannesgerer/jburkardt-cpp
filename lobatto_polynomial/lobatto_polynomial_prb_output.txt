@@ -1,0 +1,98 @@
+20 November 2014 02:40:04 PM
+
+LOBATTO_POLYNOMIAL_TEST:
+  C++ version.
+  Test the LOBATTO_POLYNOMIAL library.
+
+LOBATTO_POLYNOMIAL_VALUE_TEST:
+  LOBATTO_POLYNOMIAL_VALUES stores values of
+  the completed Lobatto polynomial L(n,x).
+  LOBATTO_POLYNOMIAL_VALUE evaluates the completed Lobatto polynomial.
+
+                                       Tabulated                 Computed
+     N        X                        L(N,X)                    L(N,X)        Error
+
+     1          0.25        0.9375        0.9375         0
+     2          0.25      0.703125      0.703125         0
+     3          0.25     -0.966797     -0.966797         0
+     4          0.25      -1.50146      -1.50146         0
+     5          0.25      0.363922      0.363922         0
+     6          0.25       2.00191       2.00191  4.44089e-16
+     7          0.25      0.659795      0.659795         0
+     8          0.25      -1.93444      -1.93444         0
+     9          0.25      -1.76994      -1.76994  4.44089e-16
+    10          0.25       1.21524       1.21524  -4.44089e-16
+     3            -1             0             0         0
+     3          -0.9       0.86925       0.86925  -1.11022e-16
+     3          -0.8         1.188         1.188  -2.22045e-16
+     3          -0.7       1.10925       1.10925  2.22045e-16
+     3          -0.6         0.768         0.768  2.22045e-16
+     3          -0.5       0.28125       0.28125         0
+     3          -0.4        -0.252        -0.252  -1.11022e-16
+     3          -0.3      -0.75075      -0.75075  -1.11022e-16
+     3          -0.2        -1.152        -1.152  2.22045e-16
+     3          -0.1      -1.41075      -1.41075         0
+     3             0          -1.5          -1.5         0
+     3           0.1      -1.41075      -1.41075         0
+     3           0.2        -1.152        -1.152  2.22045e-16
+     3           0.3      -0.75075      -0.75075  -1.11022e-16
+     3           0.4        -0.252        -0.252  -1.11022e-16
+     3           0.5       0.28125       0.28125         0
+     3           0.6         0.768         0.768  2.22045e-16
+     3           0.7       1.10925       1.10925  2.22045e-16
+     3           0.8         1.188         1.188  -2.22045e-16
+     3           0.9       0.86925       0.86925  -1.11022e-16
+     3             1             0             0         0
+
+LOBATTO_POLYNOMIAL_DERIVATIVE_TEST:
+  LOBATTO_POLYNOMIAL_DERIVATIVES stores derivatives of
+  the completed Lobatto polynomial L(n,x).
+  LOBATTO_POLYNOMIAL_DERIVATIVE evaluates the completed Lobatto polynomial.
+
+                                       Tabulated                 Computed
+     N        X                        L''(N,X)                   L''(N,X)       Error
+
+     1          0.25          -0.5          -0.5         0
+     2          0.25        2.4375        2.4375         0
+     3          0.25       4.03125       4.03125         0
+     4          0.25       -3.1543       -3.1543         0
+     5          0.25      -10.1917      -10.1917         0
+     6          0.25      -1.01962      -1.01962         0
+     7          0.25       15.6754       15.6754  5.32907e-15
+     8          0.25       10.9767       10.9767  -1.77636e-15
+     9          0.25      -15.9142      -15.9142  5.32907e-15
+    10          0.25       -24.332       -24.332  3.55271e-15
+     3            -1            12            12         0
+     3          -0.9          5.67          5.67  -1.77636e-15
+     3          -0.8          0.96          0.96  -2.22045e-15
+     3          -0.7         -2.31         -2.31         0
+     3          -0.6         -4.32         -4.32         0
+     3          -0.5         -5.25         -5.25         0
+     3          -0.4         -5.28         -5.28         0
+     3          -0.3         -4.59         -4.59         0
+     3          -0.2         -3.36         -3.36  4.44089e-16
+     3          -0.1         -1.77         -1.77  2.22045e-16
+     3             0             0             0         0
+     3           0.1          1.77          1.77  -2.22045e-16
+     3           0.2          3.36          3.36  -4.44089e-16
+     3           0.3          4.59          4.59         0
+     3           0.4          5.28          5.28         0
+     3           0.5          5.25          5.25         0
+     3           0.6          4.32          4.32         0
+     3           0.7          2.31          2.31         0
+     3           0.8         -0.96         -0.96  2.22045e-15
+     3           0.9         -5.67         -5.67  1.77636e-15
+     3             1           -12           -12         0
+
+LOBATTO_POLYNOMIAL_PLOT_TEST:
+  LOBATTO_POLYNOMIAL_PLOT plots Lobatto polynomials.
+
+  Lobatto value data in 'test_value_data.txt'
+  Lobatto value commands in 'test_value_commands.txt'
+  Lobatto derivative data stored in 'test_derivative_data.txt'
+  Lobatto derivative commands in 'test_derivative_commands.txt'
+
+LOBATTO_POLYNOMIAL_TEST
+  Normal end of execution.
+
+20 November 2014 02:40:04 PM

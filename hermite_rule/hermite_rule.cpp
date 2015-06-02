@@ -17,8 +17,8 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   double bj[] );
 void imtqlx ( int n, double d[], double e[], double z[] );
 void parchk ( int kind, int m, double alpha, double beta );
-double r8_abs ( double x );
 double r8_epsilon ( );
+double r8_gamma ( double x );
 double r8_huge ( );
 double r8_sign ( double x );
 void r8mat_write ( string output_filename, int m, int n, double table[] );
@@ -46,11 +46,26 @@ int main ( int argc, char *argv[] )
 //    This program computes a Gauss-Hermite quadrature rule 
 //    and writes it to a file.
 //
+//    The integral to be approximated has the form
+//
+//      C * Integral ( -oo < x < +oo ) f(x) rho(x) dx
+//
+//    where the weight rho(x) is:
+//
+//      rho(x) = exp ( - b * ( x - a )^2 ) * sqrt ( b / pi ) dx
+//
+//    and A and B are parameters.
+//
 //    The user specifies:
-//    * the ORDER (number of points) in the rule
+//    * N, the number of points in the rule
 //    * A, the center point;
 //    * B, a scale factor;
+//    * SCALE, is 1 if the weights are to be normalized;
 //    * FILENAME, the root name of the output files.
+//
+//    If SCALE = 0, then the factor C in front of the integrand is 1.
+//    If SCALE is nonzero, then the factor C is sqrt ( B ) / sqrt ( PI ).
+//    which means that the function f(x)=1 will integrate to 1.
 //
 //  Licensing:
 //
@@ -58,7 +73,7 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    23 February 2010
+//    06 February 2014
 //
 //  Author:
 //
@@ -70,9 +85,12 @@ int main ( int argc, char *argv[] )
   double b;
   double beta;
   string filename;
+  int i;
   int kind;
-  int order;
+  int n;
+  double pi = 3.14159265358979323846264338327950;
   double *r;
+  int scale;
   double *w;
   double *x;
 
@@ -81,25 +99,21 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "HERMITE_RULE\n";
   cout << "  C++ version\n";
-  cout << "\n";
   cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
   cout << "\n";
-  cout << "  Compute a Gauss-Hermite quadrature rule for approximating\n";
+  cout << "  Compute a Gauss-Hermite quadrature rule for\n";
+  cout << "    Integral ( -oo < x < +oo ) f(x) rho(x) dx\n";
+  cout << "  where the weight rho(x) is:\n";
+  cout << "    exp ( - b * ( x - a )^2 ) * sqrt ( b / pi ) dx\n";
+  cout << "  using N points.\n";
   cout << "\n";
-  cout << "    Integral ( -oo < x < +oo ) f(x) exp ( - b * ( x - a )^2 ) dx\n";
+  cout << "  The user specifies N, A, B, SCALE, and FILENAME.\n";
   cout << "\n";
-  cout << "  of order ORDER.\n";
-  cout << "\n";
-  cout << "  The user specifies ORDER, A, B, and FILENAME.\n";
-  cout << "\n";
-  cout << "  ORDER is the number of points;\n";
-  cout << "\n";
-  cout << "  A is the center point:\n";
-  cout << "\n";
-  cout << "  B is a scale factor;\n";
-  cout << "\n";
+  cout << "  N is the number of points;\n";
+  cout << "  A is the center point, usually 0.0:\n";
+  cout << "  B is a scale factor, usually 0.5 or 1.0;\n";
+  cout << "  SCALE is a normalization option (0/1)\n";
   cout << "  FILENAME is used to generate 3 files:\n";
-  cout << "\n";
   cout << "    filename_w.txt - the weight file\n";
   cout << "    filename_x.txt - the abscissa file.\n";
   cout << "    filename_r.txt - the region file.\n";
@@ -109,17 +123,17 @@ int main ( int argc, char *argv[] )
   alpha = 0.0;
   beta = 0.0;
 //
-//  Get ORDER.
+//  Get N.
 //
   if ( 1 < argc )
   {
-    order = atoi ( argv[1] );
+    n = atoi ( argv[1] );
   }
   else
   {
     cout << "\n";
-    cout << "  Enter ORDER (1 or greater)\n";
-    cin >> order;
+    cout << "  Enter N (1 or greater)\n";
+    cin >> n;
   }
 //
 //  Get A.
@@ -139,7 +153,7 @@ int main ( int argc, char *argv[] )
 //
   if ( 3 < argc )
   {
-    b = atoi ( argv[3] );
+    b = atof ( argv[3] );
   }
   else
   {
@@ -148,11 +162,24 @@ int main ( int argc, char *argv[] )
     cin >> b;
   }
 //
-//  Get FILENAME:
+//  Get SCALE.
 //
   if ( 4 < argc )
   {
-    filename = argv[4];
+    scale = atoi ( argv[4] );
+  }
+  else
+  {
+    cout << "\n";
+    cout << "  Enter SCALE, the normalization option (0/1)\n";
+    cin >> scale;
+  }
+//
+//  Get FILENAME:
+//
+  if ( 5 < argc )
+  {
+    filename = argv[5];
   }
   else
   {
@@ -164,27 +191,40 @@ int main ( int argc, char *argv[] )
 //  Input summary.
 //
   cout << "\n";
-  cout << "  ORDER =  " << order << "\n";
-  cout << "  ALPHA = " << alpha << "\n";
+  cout << "  N =  " << n << "\n";
   cout << "  A = " << a << "\n";
   cout << "  B = " << b << "\n";
+  cout << "  SCALE = " << scale << "\n";
   cout << "  FILENAME = \"" << filename << "\".\n";
 //
 //  Construct the rule.
 //
-  w = new double[order];
-  x = new double[order];
+  w = new double[n];
+  x = new double[n];
   
   kind = 6;
-  cgqf ( order, kind, alpha, beta, a, b, x, w );
+  cgqf ( n, kind, alpha, beta, a, b, x, w );
 //
-//  Write the rule.
+//  Normalize the rule.
+//  This way, the weights add up to 1.
+//
+  if ( scale == 1 )
+  {
+    for ( i = 0; i < n; i++ )
+    {
+      w[i] = w[i] * sqrt ( b ) / sqrt ( pi );
+    }
+  }
+//
+//  Set the R values to suggest an infinite interval.
 //
   r = new double[2];
   r[0] = - r8_huge ( );
   r[1] =   r8_huge ( );
-
-  rule_write ( order, filename, x, w, r );
+//
+//  Write the rule to a file.
+//
+  rule_write ( n, filename, x, w, r );
 //
 //  Free memory.
 //
@@ -197,7 +237,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "HERMITE_RULE:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -473,7 +512,7 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
 
   temp2 = 0.5;
 
-  if ( 500.0 * temp < r8_abs ( pow ( gamma ( temp2 ), 2 ) - pi ) )
+  if ( 500.0 * temp < fabs ( pow ( r8_gamma ( temp2 ), 2 ) - pi ) )
   {
     cout << "\n";
     cout << "CLASS_MATRIX - Fatal error!\n";
@@ -517,8 +556,8 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   else if ( kind == 3 )
   {
     ab = alpha * 2.0;
-    zemu = pow ( 2.0, ab + 1.0 ) * pow ( gamma ( alpha + 1.0 ), 2 )
-      / gamma ( ab + 2.0 );
+    zemu = pow ( 2.0, ab + 1.0 ) * pow ( r8_gamma ( alpha + 1.0 ), 2 )
+      / r8_gamma ( ab + 2.0 );
 
     for ( i = 0; i < m; i++ )
     {
@@ -535,8 +574,8 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   {
     ab = alpha + beta;
     abi = 2.0 + ab;
-    zemu = pow ( 2.0, ab + 1.0 ) * gamma ( alpha + 1.0 ) 
-      * gamma ( beta + 1.0 ) / gamma ( abi );
+    zemu = pow ( 2.0, ab + 1.0 ) * r8_gamma ( alpha + 1.0 ) 
+      * r8_gamma ( beta + 1.0 ) / r8_gamma ( abi );
     aj[0] = ( beta - alpha ) / abi;
     bj[0] = sqrt ( 4.0 * ( 1.0 + alpha ) * ( 1.0 + beta ) 
       / ( ( abi + 1.0 ) * abi * abi ) );
@@ -553,7 +592,7 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   }
   else if ( kind == 5 )
   {
-    zemu = gamma ( alpha + 1.0 );
+    zemu = r8_gamma ( alpha + 1.0 );
 
     for ( i = 1; i <= m; i++ )
     {
@@ -563,7 +602,7 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   }
   else if ( kind == 6 )
   {
-    zemu = gamma ( ( alpha + 1.0 ) / 2.0 );
+    zemu = r8_gamma ( ( alpha + 1.0 ) / 2.0 );
 
     for ( i = 0; i < m; i++ )
     {
@@ -595,8 +634,8 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   else if ( kind == 8 )
   {
     ab = alpha + beta;
-    zemu = gamma ( alpha + 1.0 ) * gamma ( - ( ab + 1.0 ) ) 
-      / gamma ( - beta );
+    zemu = r8_gamma ( alpha + 1.0 ) * r8_gamma ( - ( ab + 1.0 ) ) 
+      / r8_gamma ( - beta );
     apone = alpha + 1.0;
     aba = ab * apone;
     aj[0] = - apone / ( ab + 2.0 );
@@ -726,7 +765,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
           break;
         }
 
-        if ( r8_abs ( e[m-1] ) <= prec * ( r8_abs ( d[m-1] ) + r8_abs ( d[m] ) ) )
+        if ( fabs ( e[m-1] ) <= prec * ( fabs ( d[m-1] ) + fabs ( d[m] ) ) )
         {
           break;
         }
@@ -746,7 +785,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
       j = j + 1;
       g = ( d[l] - p ) / ( 2.0 * e[l-1] );
       r =  sqrt ( g * g + 1.0 );
-      g = d[m-1] - p + e[l-1] / ( g + r8_abs ( r ) * r8_sign ( g ) );
+      g = d[m-1] - p + e[l-1] / ( g + fabs ( r ) * r8_sign ( g ) );
       s = 1.0;
       c = 1.0;
       p = 0.0;
@@ -758,7 +797,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
         f = s * e[i-1];
         b = c * e[i-1];
 
-        if ( r8_abs ( g ) <= r8_abs ( f ) )
+        if ( fabs ( g ) <= fabs ( f ) )
         {
           c = g / f;
           r =  sqrt ( c * c + 1.0 );
@@ -914,47 +953,6 @@ void parchk ( int kind, int m, double alpha, double beta )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double r8_epsilon ( )
 
 //****************************************************************************80
@@ -965,19 +963,19 @@ double r8_epsilon ( )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -988,16 +986,253 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
+  const double value = 2.220446049250313E-016;
+
+  return value;
+}
+//****************************************************************************80
+
+double r8_gamma ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_GAMMA evaluates Gamma(X) for an R8.
+//
+//  Discussion:
+//
+//    The C MATH library includes a function GAMMA ( X ) which should be
+//    invoked instead of this function.
+//
+//    This routine calculates the gamma function for a real argument X.
+//
+//    Computation is based on an algorithm outlined in reference 1.
+//    The program uses rational functions that approximate the gamma
+//    function to at least 20 significant decimal digits.  Coefficients
+//    for the approximation over the interval (1,2) are unpublished.
+//    Those for the approximation for 12 <= X are from reference 2.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    18 January 2008
+//
+//  Author:
+//
+//    Original FORTRAN77 version by William Cody, Laura Stoltz.
+//    C++ version by John Burkardt.
+//
+//  Reference:
+//
+//    William Cody,
+//    An Overview of Software Development for Special Functions,
+//    in Numerical Analysis Dundee, 1975,
+//    edited by GA Watson,
+//    Lecture Notes in Mathematics 506,
+//    Springer, 1976.
+//
+//    John Hart, Ward Cheney, Charles Lawson, Hans Maehly,
+//    Charles Mesztenyi, John Rice, Henry Thatcher,
+//    Christoph Witzgall,
+//    Computer Approximations,
+//    Wiley, 1968,
+//    LC: QA297.C64.
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the function.
+//
+//    Output, double R8_GAMMA, the value of the function.
+//
+{
+  double c[7] = {
+   -1.910444077728E-03, 
+    8.4171387781295E-04, 
+   -5.952379913043012E-04, 
+    7.93650793500350248E-04, 
+   -2.777777777777681622553E-03, 
+    8.333333333333333331554247E-02, 
+    5.7083835261E-03 };
+  double eps = 2.22E-16;
+  double fact;
+  int i;
+  int n;
+  double p[8] = {
+  -1.71618513886549492533811E+00,
+   2.47656508055759199108314E+01, 
+  -3.79804256470945635097577E+02,
+   6.29331155312818442661052E+02, 
+   8.66966202790413211295064E+02,
+  -3.14512729688483675254357E+04, 
+  -3.61444134186911729807069E+04,
+   6.64561438202405440627855E+04 };
+  bool parity;
+  const double pi = 3.1415926535897932384626434;
+  double q[8] = {
+  -3.08402300119738975254353E+01,
+   3.15350626979604161529144E+02, 
+  -1.01515636749021914166146E+03,
+  -3.10777167157231109440444E+03, 
+   2.25381184209801510330112E+04,
+   4.75584627752788110767815E+03, 
+  -1.34659959864969306392456E+05,
+  -1.15132259675553483497211E+05 };
+  double res;
+  const double sqrtpi = 0.9189385332046727417803297;
+  double sum;
   double value;
+  double xbig = 171.624;
+  double xden;
+  double xinf = 1.79E+308;
+  double xminin = 2.23E-308;
+  double xnum;
+  double y;
+  double y1;
+  double ysq;
+  double z;
 
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
+  parity = false;
+  fact = 1.0;
+  n = 0;
+  y = x;
+//
+//  Argument is negative.
+//
+  if ( y <= 0.0 )
   {
-    value = value / 2.0;
+    y = - x;
+    y1 = ( double ) ( int ) ( y );
+    res = y - y1;
+
+    if ( res != 0.0 )
+    {
+      if ( y1 != ( double ) ( int ) ( y1 * 0.5 ) * 2.0 )
+      {
+        parity = true;
+      }
+
+      fact = - pi / sin ( pi * res );
+      y = y + 1.0;
+    }
+    else
+    {
+      res = xinf;
+      value = res;
+      return value;
+    }
+  }
+//
+//  Argument is positive.
+//
+  if ( y < eps )
+  {
+//
+//  Argument < EPS.
+//
+    if ( xminin <= y )
+    {
+      res = 1.0 / y;
+    }
+    else
+    {
+      res = xinf;
+      value = res;
+      return value;
+    }
+  }
+  else if ( y < 12.0 )
+  {
+    y1 = y;
+//
+//  0.0 < argument < 1.0.
+//
+    if ( y < 1.0 )
+    {
+      z = y;
+      y = y + 1.0;
+    }
+//
+//  1.0 < argument < 12.0.
+//  Reduce argument if necessary.
+//
+    else
+    {
+      n = ( int ) ( y ) - 1;
+      y = y - ( double ) ( n );
+      z = y - 1.0;
+    }
+//
+//  Evaluate approximation for 1.0 < argument < 2.0.
+//
+    xnum = 0.0;
+    xden = 1.0;
+    for ( i = 0; i < 8; i++ )
+    {
+      xnum = ( xnum + p[i] ) * z;
+      xden = xden * z + q[i];
+    }
+    res = xnum / xden + 1.0;
+//
+//  Adjust result for case  0.0 < argument < 1.0.
+//
+    if ( y1 < y )
+    {
+      res = res / y1;
+    }
+//
+//  Adjust result for case 2.0 < argument < 12.0.
+//
+    else if ( y < y1 )
+    {
+      for ( i = 1; i <= n; i++ )
+      {
+        res = res * y;
+        y = y + 1.0;
+      }
+    }
+  }
+  else
+  {
+//
+//  Evaluate for 12.0 <= argument.
+//
+    if ( y <= xbig )
+    {
+      ysq = y * y;
+      sum = c[6];
+      for ( i = 0; i < 6; i++ )
+      {
+        sum = sum / ysq + c[i];
+      }
+      sum = sum / y - y + sqrtpi;
+      sum = sum + ( y - 0.5 ) * log ( y );
+      res = exp ( sum );
+    }
+    else
+    {
+      res = xinf;
+      value = res;
+      return value;
+    }
+  }
+//
+//  Final adjustments and return.
+//
+  if ( parity )
+  {
+    res = - res;
   }
 
-  value = 2.0 * value;
+  if ( fact != 1.0 )
+  {
+    res = fact / res;
+  }
+
+  value = res;
 
   return value;
 }
@@ -1304,7 +1539,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = 0.0;
     be = 0.0;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1318,7 +1553,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = -0.5;
     be = -0.5;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1332,7 +1567,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = alpha;
     be = alpha;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1347,7 +1582,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
     al = alpha;
     be = beta;
 
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1389,7 +1624,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = alpha;
     be = 0.0;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1417,7 +1652,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = 0.5;
     be = 0.5;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";

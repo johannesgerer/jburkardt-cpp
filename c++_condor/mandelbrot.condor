@@ -1,0 +1,65 @@
+#  mandelbrot.condor
+#
+#  Discussion:
+#
+#    This file can be used to submit a job to the CONDOR queueing system
+#    which will run a C++ program on a remote compute system.
+#
+#  Licensing:
+#
+#    This code is distributed under the GNU LGPL license.
+#
+#  Modified:
+#
+#    29 August 2013
+#
+#  Author:
+#
+#    John Burkardt
+#
+
+#
+#  Specify the simplest CONDOR environment.
+#
+universe = vanilla
+#
+#  The program to be run is the executable program "mandelbrot",
+#  which we must compile in advance on the CONDOR login node.
+#
+executable = mandelbrot
+#
+#  There are no commandline arguments.
+#
+arguments = 
+#
+#  CONDOR has to copy the "executable" from our machine.
+#
+transfer_executable = TRUE
+#
+#  Because the FSU CONDOR system does not use a shared file system,
+#  we do need to transfer files.
+#
+should_transfer_files = yes
+#
+#  Transfer all output files back when the job is done.
+#
+when_to_transfer_output = ON_EXIT
+#
+#  The machine must be just like the login node
+#  (otherwise, our compiled program won't run!)
+#
+requirements = ( OpSys == "LINUX" && Arch == "X86_64" )
+#
+#  Name the LOG, ERROR and OUTPUT files.
+#
+log = mandelbrot_log.txt
+error = mandelbrot_error.txt
+output = mandelbrot_output.txt
+#
+#  We don't want CONDOR to try to email us on completion of the job.
+#
+notification = NEVER
+#
+#  This command causes CONDOR to submit our job.
+#
+queue

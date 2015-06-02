@@ -54,7 +54,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "CHEBYSHEV_POLYNOMIAL_PRB\n";
   cout << "  C++ version\n";
@@ -84,7 +83,6 @@ int main ( )
   cout << "\n";
   cout << "CHEBYSHEV_POLYNOMIAL_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -792,7 +790,7 @@ void test09 ( )
     r = 0.0;
     for ( i = 0; i < m; i++ )
     {
-      r = r8_max ( r, r8_abs ( v[i] - exp ( x[i] ) ) );
+      r = r8_max ( r, fabs ( v[i] - exp ( x[i] ) ) );
     }
     cout << "  " << setw(2) << n
          << "  " << setw(14) << r << "\n";
@@ -860,7 +858,7 @@ void test10 ( )
     r = 0.0;
     for ( i = 0; i < m; i++ )
     {
-      r = r8_max ( r, r8_abs ( v[i] - exp ( x[i] ) ) );
+      r = r8_max ( r, fabs ( v[i] - exp ( x[i] ) ) );
     }
     cout << "  " << setw(2) << n
          << "  " << setw(14) << r << "\n";

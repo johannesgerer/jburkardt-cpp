@@ -1,23 +1,28 @@
-void bashforth_set ( int n, double x[], double weight[] );
-void bdf_set ( int n, double alpha[], double *beta, double *gamma );
+void bashforth_set ( int n, double x[], double w[] );
+void bdf_set ( int n, double alpha[], double &beta, double &gamma );
 void bdfc_set ( int n, double x[], double w[] );
-void bdfp_set ( int order, double xtab[], double weight[] );
-double bdf_sum ( double func ( double x ), int order, double xtab[], 
-  double weight[] );
+void bdfp_set ( int n, double x[], double w[] );
+double bdf_sum ( double func ( double x ), int order, double x[], 
+  double w[] );
 char ch_cap ( char ch );
-void cheb_set ( int order, double xtab[], double weight[] );
-void chebyshev1_compute ( int order, double xtab[], double weight[] );
+void chebyshev_set ( int n, double x[], double w[] );
+void chebyshev1_compute ( int n, double xtab[], double weight[] );
 double chebyshev1_integral ( int expon );
-void chebyshev2_compute ( int order, double xtab[], double weight[] );
+void chebyshev2_compute ( int n, double xtab[], double weight[] );
 double chebyshev2_integral ( int expon );
-void chebyshev3_compute ( int order, double xtab[], double weight[] );
+
+void chebyshev2_set ( int n, double x[], double w[] );
+void chebyshev3_compute ( int n, double xtab[], double weight[] );
+
+double chebyshev3_integral ( int expon );
+void chebyshev3_set ( int n, double x[], double w[] );
 void clenshaw_curtis_compute ( int n, double x[], double w[] );
-void clenshaw_curtis_set ( int order, double xtab[], double weight[] );
+void clenshaw_curtis_set ( int n, double xtab[], double weight[] );
 void fejer1_compute ( int n, double x[], double w[] );
-void fejer1_set ( int order, double xtab[], double weight[] );
+void fejer1_set ( int n, double xtab[], double weight[] );
 void fejer2_compute ( int n, double x[], double w[] );
-void fejer2_set ( int order, double xtab[], double weight[] );
-void gegenbauer_compute ( int order, double alpha, double xtab[], 
+void fejer2_set ( int n, double xtab[], double weight[] );
+void gegenbauer_compute ( int n, double alpha, double xtab[], 
   double weight[] );
 double gegenbauer_integral ( int expon, double alpha );
 void gegenbauer_recur ( double *p2, double *dp2, double *p1, double x, int order, 
@@ -43,7 +48,9 @@ void hermite_gk22_set ( int n, double x[], double w[] );
 void hermite_gk24_set ( int n, double x[], double w[] );
 double hermite_integral ( int n );
 double hermite_integral2 ( double a );
+void hermite_probabilist_set ( int n, double x[], double w[] );
 void hermite_set ( int order, double xtab[], double weight[] );
+void hermite_1_set ( int order, double xtab[], double weight[] );
 void hermite_ss_compute ( int order, double xtab[], double weight[] );
 void hermite_ss_recur ( double *p2, double *dp2, double *p1, double x, int order );
 void hermite_ss_root ( double *x, int order, double *dp2, double *p1 );
@@ -64,6 +71,7 @@ void kronrod_set ( int order, double xtab[], double weight[] );
 void laguerre_ek_compute ( int order, double xtab[], double weight[] );
 double laguerre_integral ( int expon );
 void laguerre_set ( int order, double xtab[], double weight[] );
+void laguerre_1_set ( int order, double xtab[], double weight[] );
 void laguerre_ss_compute ( int order, double xtab[], double weight[] );
 void laguerre_ss_recur ( double *p2, double *dp2, double *p1, double x, 
   int order, double b[], double c[] );

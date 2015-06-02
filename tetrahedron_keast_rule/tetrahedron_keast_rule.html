@@ -1,0 +1,385 @@
+<html>
+
+  <head>
+    <title>
+      TETRAHEDRON_KEAST_RULE - Quadrature Rules for a Tetrahedron
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TETRAHEDRON_KEAST_RULE <br> Quadrature Rules for a Tetrahedron
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TETRAHEDRON_KEAST_RULE</b> 
+      is a C++ library which 
+      defines ten quadrature rules, of degree of exactness 0 through 8,
+      over the interior of the tetrahedron in 3D.
+    </p>
+
+    <p>
+      The ten rules have the following orders and precisions:
+      <table border="1" align="center">
+        <tr>
+          <th>Rule</th><th>Order</th><th>Precision</th>
+        </tr>
+        <tr>
+          <td> 1</td><td> 1</td><td> 0</td>
+        </tr>
+        <tr>
+          <td> 2</td><td> 4</td><td> 1</td>
+        </tr>
+        <tr>
+          <td> 3</td><td> 5</td><td> 2</td>
+        </tr>
+        <tr>
+          <td> 4</td><td>10</td><td> 3</td>
+        </tr>
+        <tr>
+          <td> 5</td><td>11</td><td> 4</td>
+        </tr>
+        <tr>
+          <td> 6</td><td>14</td><td> 4</td>
+        </tr>
+        <tr>
+          <td> 7</td><td>15</td><td> 5</td>
+        </tr>
+        <tr>
+          <td> 8</td><td>24</td><td> 6</td>
+        </tr>
+        <tr>
+          <td> 9</td><td>31</td><td> 7</td>
+        </tr>
+        <tr>
+          <td>10</td><td>45</td><td> 8</td>
+        </tr>
+      </table>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TETRAHEDRON_KEAST_RULE</b> is available in
+      <a href = "../../cpp_src/tetrahedron_keast_rule/tetrahedron_keast_rule.html">a C++ version</a> and
+      <a href = "../../f_src/tetrahedron_keast_rule/tetrahedron_keast_rule.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/tetrahedron_keast_rule/tetrahedron_keast_rule.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cube_felippa_rule/cube_felippa_rule.html">
+      CUBE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a cube in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pyramid_felippa_rule/pyramid_felippa_rule.html">
+      PYRAMID_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a pyramid in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/simplex_gm_rule/simplex_gm_rule.html">
+      SIMPLEX_GM_RULE</a>,
+      a C++ library which
+      defines Grundmann-Moeller quadrature rules 
+      over the interior of a simplex in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/square_felippa_rule/square_felippa_rule.html">
+      SQUARE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a square in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/stroud/stroud.html">
+      STROUD</a>, 
+      a C++ library which
+      contains quadrature
+      rules for a variety of unusual areas, surfaces and volumes in 2D,
+      3D and N-dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_arbq_rule/tetrahedron_arbq_rule.html">
+      TETRAHEDRON_ARBQ_RULE</a>,
+      a C++ library which
+      returns quadrature rules, 
+      with exactness up to total degree 15,
+      over the interior of a tetrahedron in 3D,
+      by Hong Xiao and Zydrunas Gimbutas.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_exactness/tetrahedron_exactness.html">
+      TETRAHEDRON_EXACTNESS</a>,
+      a C++ program which
+      investigates the polynomial exactness of a quadrature rule 
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_felippa_rule/tetrahedron_felippa_rule.html">
+      TETRAHEDRON_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_integrals/tetrahedron_integrals.html">
+      TETRAHEDRON_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_monte_carlo/tetrahedron_monte_carlo.html">
+      TETRAHEDRON_MONTE_CARLO</a>,
+      a C++ library which
+      uses the Monte Carlo method to estimate integrals 
+      over the interior of the unit tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_ncc_rule/tetrahedron_ncc_rule.html">
+      TETRAHEDRON_NCC_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Closed (NCC) quadrature rules 
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_nco_rule/tetrahedron_nco_rule.html">
+      TETRAHEDRON_NCO_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Open (NCO) quadrature rules
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_fekete_rule/triangle_fekete_rule.html">
+      TRIANGLE_FEKETE_RULE</a>,
+      a C++ library which
+      defines Fekete rules for interpolation or quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_felippa_rule/triangle_felippa_rule.html">
+      TRIANGLE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wedge_felippa_rule/wedge_felippa_rule.html">
+      WEDGE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns quadratures rules for approximating integrals
+      over the interior of the unit wedge in 3D.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Patrick Keast,<br>
+          Moderate Degree Tetrahedral Quadrature Formulas,<br>
+          Computer Methods in Applied Mechanics and Engineering,<br>
+          Volume 55, Number 3, May 1986, pages 339-348.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "tetrahedron_keast_rule.cpp">tetrahedron_keast_rule.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "tetrahedron_keast_rule.hpp">tetrahedron_keast_rule.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "tetrahedron_keast_rule.sh">tetrahedron_keast_rule.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "tetrahedron_keast_rule_prb.cpp">tetrahedron_keast_rule_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "tetrahedron_keast_rule_prb.sh">tetrahedron_keast_rule_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "tetrahedron_keast_rule_prb_output.txt">tetrahedron_keast_rule_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>COMP_NEXT</b> computes the compositions of the integer N into K parts.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of I4 division.
+        </li>
+        <li>
+          <b>I4_WRAP</b> forces an I4 to lie between given limits by wrapping.
+        </li>
+        <li>
+          <b>KEAST_DEGREE</b> returns the degree of a Keast rule for the triangle.
+        </li>
+        <li>
+          <b>KEAST_ORDER_NUM</b> returns the order of a Keast rule for the triangle.
+        </li>
+        <li>
+          <b>KEAST_RULE</b> returns the points and weights of a Keast rule.
+        </li>
+        <li>
+          <b>KEAST_RULE_NUM</b> returns the number of Keast rules available.
+        </li>
+        <li>
+          <b>KEAST_SUBORDER</b> returns the suborders for a Keast rule.
+        </li>
+        <li>
+          <b>KEAST_SUBORDER_NUM</b> returns the number of suborders for a Keast rule.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE</b> returns a compressed Keast rule.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_01</b> returns a compressed Keast rule 1.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_02</b> returns a compressed Keast rule 2.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_03</b> returns a compressed Keast rule 3.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_04</b> returns a compressed Keast rule 4.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_05</b> returns a compressed Keast rule 5.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_06</b> returns a compressed Keast rule 6.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_07</b> returns a compressed Keast rule 7.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_08</b> returns a compressed Keast rule 8.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_08</b> returns a compressed Keast rule 8.
+        </li>
+        <li>
+          <b>KEAST_SUBRULE_10</b> returns a compressed Keast rule 10.
+        </li>
+        <li>
+          <b>MONOMIAL_VALUE</b> evaluates a monomial.
+        </li>
+        <li>
+          <b>R8_HUGE</b> returns a "huge" R8.
+        </li>
+        <li>
+          <b>R8_NINT</b> returns the nearest integer to an R8.
+        </li>
+        <li>
+          <b>R8MAT_DET_4D</b> computes the determinant of a 4 by 4 R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_DOT</b> computes the dot product of a pair of R8VEC's.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>TETRAHEDRON_REFERENCE_TO_PHYSICAL</b> maps reference points to physical points.
+        </li>
+        <li>
+          <b>TETRAHEDRON_VOLUME</b> computes the volume of a tetrahedron in 3D.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 June 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

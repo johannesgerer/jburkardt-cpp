@@ -1,0 +1,17 @@
+# test01_commands.txt
+#
+# Usage:
+#  gnuplot < test01_commands.txt
+#
+set term png
+set output 'test01.png'
+set xlabel '<---X--->'
+set ylabel '<---Y--->'
+set zlabel '<---U(X,Y)--->'
+set title 'Sample Solution'
+set contour
+set timestamp
+set cntrparam levels 10
+set view 75, 75
+unset key
+splot 'test01_data.txt'

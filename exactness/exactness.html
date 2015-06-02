@@ -1,0 +1,250 @@
+<html>
+
+  <head>
+    <title>
+      EXACTNESS - Exactness of Quadrature Rules
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      EXACTNESS <br> Exactness of Quadrature Rules
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>EXACTNESS</b>
+      is a C++ library which
+      investigates the exactness of quadrature rules that estimate the
+      integral of a function with a density, such as 1, exp(-x) or
+      exp(-x^2), over an interval such as [-1,+1], [0,+oo) or (-oo,+oo).
+    </p>
+
+    <p>
+      A 1D quadrature rule estimates I(f), the integral of a function f(x)
+      over an interval [a,b] with density rho(x):
+      <pre>
+        I(f) = integral ( a < x < b ) f(x) rho(x) dx
+      </pre>
+      by a n-point quadrature rule of weights w and points x:
+      <pre>
+        Q(f) = sum ( 1 <= i <= n ) w(i) f(x(i))
+      </pre>
+    </p>
+
+    <p>
+      Most quadrature rules come in a family of various sizes.  A quadrature
+      rule of size n is said to have exactness p if it is true that the
+      quadrature estimate is exactly equal to the exact integral for every
+      monomial (and hence, polynomial) whose degree is p or less.
+    </p>
+
+    <p>
+      This program allows the user to specify a quadrature rule, a size n,
+      and a degree p_max.  It then computes and compares the exact integral
+      and quadrature estimate for monomials of degree 0 through p_max, so
+      that the user can analyze the results.
+    </p>
+
+    <p>
+      Common quadrature rules include:
+      <ul>
+        <li>
+          Gauss-Hermite quadrature, with density exp(-x^2), over (-oo,+oo);
+          exactness = 2 * n - 1;
+        </li>
+        <li>
+          Gauss-Laguerre quadrature, with density exp(-1), over [0,+oo);
+          exactness = 2 * n - 1;
+        </li>
+        <li>
+          Gauss-Legendre quadrature, with density 1, over [-1,+1];
+          exactness = 2 * n - 1;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>EXACTNESS</b> is available in
+      <a href = "../../c_src/exactness/exactness.html">a C version</a> and
+      <a href = "../../cpp_src/exactness/exactness.html">a C++ version</a> and
+      <a href = "../../f77_src/exactness/exactness.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/exactness/exactness.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/exactness/exactness.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/exactness_2d/exactness_2d.html">
+      EXACTNESS_2D</a>,
+      a C++ library which
+      investigates the exactness of 2D quadrature rules that estimate the
+      integral of a function f(x,y) over a 2D domain.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hermite_exactness/hermite_exactness.html">
+      HERMITE_EXACTNESS</a>,
+      a C++ program which
+      tests the monomial exactness of Gauss-Hermite quadrature rules
+      for estimating the integral of a function with density exp(-x^2)
+      over the interval (-oo,+oo).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/laguerre_exactness/laguerre_exactness.html">
+      LAGUERRE_EXACTNESS</a>,
+      a C++ program which
+      tests the monomial exactness of Gauss-Laguerre quadrature rules
+      for estimating the integral of a function with density exp(-x)
+      over the interval [0,+oo).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/legendre_exactness/legendre_exactness.html">
+      LEGENDRE_EXACTNESS</a>,
+      a C++ program which
+      tests the monomial exactness of Gauss-Legendre quadrature rules 
+      for estimating the integral of a function with density 1
+      over the interval [-1,+1].
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Philip Davis, Philip Rabinowitz,<br>
+          Methods of Numerical Integration,<br>
+          Second Edition,<br>
+          Dover, 2007,<br>
+          ISBN: 0486453391,<br>
+          LC: QA299.3.D28.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "exactness.cpp">exactness.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "exactness.hpp">exactness.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "exactness.sh">exactness.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "exactness_prb.cpp">exactness_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "exactness_prb.sh">exactness_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "exactness_prb_output.txt">exactness_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>HERMITE_EXACTNESS</b> investigates exactness of Hermite quadrature.
+        </li>
+        <li>
+          <b>HERMITE_INTEGRAL</b> evaluates a monomial Hermite integral.
+        </li>
+        <li>
+          <b>HERMITE_MONOMIAL_QUADRATURE</b> applies a quadrature rule to a monomial.
+        </li>
+        <li>
+          <b>LAGUERRE_EXACTNESS</b> investigates exactness of Laguerre quadrature.
+        </li>
+        <li>
+          <b>LAGUERRE_INTEGRAL</b> evaluates a monomial integral associated with L(n,x).
+        </li>
+        <li>
+          <b>LAGUERRE_MONOMIAL_QUADRATURE</b> applies Laguerre quadrature to a monomial.
+        </li>
+        <li>
+          <b>LEGENDRE_EXACTNESS</b> investigates exactness of Legendre quadrature.
+        </li>
+        <li>
+          <b>LEGENDRE_INTEGRAL</b> evaluates a monomial Legendre integral.
+        </li>
+        <li>
+          <b>LEGENDRE_MONOMIAL_QUADRATURE</b> applies a quadrature rule to a monomial.
+        </li>
+        <li>
+          <b>R8_FACTORIAL</b> computes the factorial of N.
+        </li>
+        <li>
+          <b>R8_FACTORIAL2</b> computes the double factorial function.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 18 May 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

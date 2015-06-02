@@ -1,0 +1,25 @@
+
+DGESV_TEST
+  Demonstrate the use of DGESV to solve a linear system
+  using double precision real arithmetic.
+
+  Coefficient matrix:
+
+               1              -1               2              -1
+               2              -2               3              -3
+               1               1               1               0
+               1              -1               4               3
+
+  Right hand side:
+
+              -8
+             -20
+              -2
+               4
+
+  Computed solution:
+
+              -7
+               3
+               2
+               2

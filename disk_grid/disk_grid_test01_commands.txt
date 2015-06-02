@@ -1,0 +1,17 @@
+# circle_grid_test01_commands.txt
+#
+# Usage:
+#  gnuplot < circle_grid_test01_commands.txt
+#
+set term png
+set output 'circle_grid_test01.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title 'Circle Grid'
+set grid
+set key off
+set size ratio -1
+set style data lines
+plot 'circle_grid_test01_data.txt' using 1:2 with points lt 3 pt 3,\
+    'circle_grid_test01_boundary.txt' using 1:2 lw 3 linecolor rgb 'black'
+quit

@@ -25,7 +25,8 @@ int main ( )
 //
 //  Discussion:
 //
-//    PIECEWISE_LINEAR_PRODUCT_INTEGRAL_PRB tests PIECEWISE_LINEAR_PRODUCT_INTEGRAL.
+//    PIECEWISE_LINEAR_PRODUCT_INTEGRAL_PRB tests the 
+//    PIECEWISE_LINEAR_PRODUCT_INTEGRAL library.
 //
 //  Licensing:
 //
@@ -41,7 +42,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "PIECEWISE_LINEAR_PRODUCT_INTEGRAL_PRB\n";
   cout << "  C++ version\n";
@@ -57,7 +57,6 @@ int main ( )
   cout << "\n";
   cout << "PIECEWISE_LINEAR_PRODUCT_INTEGRAL_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

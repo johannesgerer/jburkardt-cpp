@@ -40,12 +40,22 @@
       <a href = "../../c_src/c4lib/c4lib.html">a C version</a> and
       <a href = "../../cpp_src/c4lib/c4lib.html">a C++ version</a> and
       <a href = "../../f77_src/c4lib/c4lib.html">a FORTRAN77 version</a> and
-      <a href = "../../f_src/c4lib/c4lib.html">a FORTRAN90 version</a>.
+      <a href = "../../f_src/c4lib/c4lib.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/c4lib/c4lib.html">a MATLAB version</a> and
+      <a href = "../../py_src/c4lib/c4lib.html">a Python version</a>.
     </p>
 
     <h3 align = "center">
       Related Programs:
     </h3>
+
+    <p>
+      <a href = "../../cpp_src/c4_complex_lib/c4_complex_lib.html">
+      C4_COMPLEX_LIB</a>,
+      a C++ library which
+      defines a class called c4_complex for complex numbers with
+      single precision components.
+    </p>
 
     <p>
       <a href = "../../cpp_src/c8lib/c8lib.html">
@@ -151,13 +161,61 @@
           <b>C4_ABS</b> returns the absolute value of a C4.
         </li>
         <li>
-          <b>C4_ARGUMENT</b> returns the argument of a C4.
+          <b>C4_ACOS</b> evaluates the inverse cosine of a C4.
+        </li>
+        <li>
+          <b>C4_ACOSH</b> evaluates the inverse hyperbolic cosine of a C4.
+        </li>
+        <li>
+          <b>C4_ADD</b> adds two C4's.
+        </li>
+        <li>
+          <b>C4_ARG</b> returns the argument of a C4.
+        </li>
+        <li>
+          <b>C4_ASIN</b> evaluates the inverse sine of a C4.
+        </li>
+        <li>
+          <b>C4_ASINH</b> evaluates the inverse hyperbolic sine of a C4.
+        </li>
+        <li>
+          <b>C4_ATAN</b> evaluates the inverse tangent of a C4.
+        </li>
+        <li>
+          <b>C4_ATANH</b> evaluates the inverse hyperbolic tangent of a C4.
+        </li>
+        <li>
+          <b>C4_CONJ</b> conjugates a C4.
+        </li>
+        <li>
+          <b>C4_COPY</b> copies a C4.
+        </li>
+        <li>
+          <b>C4_COS</b> evaluates the cosine of a C4.
+        </li>
+        <li>
+          <b>C4_COSH</b> evaluates the hyperbolic cosine of a C4.
         </li>
         <li>
           <b>C4_CUBE_ROOT</b> returns the principal cube root of a C4.
         </li>
         <li>
+          <b>C4_DIV</b> divides two C4's.
+        </li>
+        <li>
+          <b>C4_DIV_R4</b> divides a C4 by an R4.
+        </li>
+        <li>
+          <b>C4_EXP</b> exponentiates a C4.
+        </li>
+        <li>
           <b>C4_I</b> returns the value of the imaginary unit, i as a C4.
+        </li>
+        <li>
+          <b>C4_IMAG</b> returns the imaginary part of a C4.
+        </li>
+        <li>
+          <b>C4_INV</b> inverts a C4.
         </li>
         <li>
           <b>C4_LE_L1</b> := X <= Y for C4 values, and the L1 norm.
@@ -169,7 +227,19 @@
           <b>C4_LE_LI</b> := X <= Y for C4 values, and the L-oo norm.
         </li>
         <li>
-          <b>C4_MAGNITUDE</b> returns the magnitude of a C4.
+          <b>C4_LOG</b> evaluates the logarithm of a C4.
+        </li>
+        <li>
+          <b>C4_MAG</b> returns the magnitude of a C4.
+        </li>
+        <li>
+          <b>C4_MUL</b> multiplies two C4's.
+        </li>
+        <li>
+          <b>C4_NEG</b> negates a C4.
+        </li>
+        <li>
+          <b>C4_NINT</b> returns the nearest complex integer of a C4.
         </li>
         <li>
           <b>C4_NORM_L1</b> evaluates the L1 norm of a C4.
@@ -190,10 +260,34 @@
           <b>C4_PRINT</b> prints a C4.
         </li>
         <li>
+          <b>C4_REAL</b> returns the real part of a C4.
+        </li>
+        <li>
+          <b>C4_SIN</b> evaluates the sine of a C4.
+        </li>
+        <li>
+          <b>C4_SINH</b> evaluates the hyperbolic sine of a C4.
+        </li>
+        <li>
           <b>C4_SQRT</b> returns the principal square root of a C4.
         </li>
         <li>
+          <b>C4_SUB</b> subtracts two C4's.
+        </li>
+        <li>
           <b>C4_SWAP</b> swaps two C4's.
+        </li>
+        <li>
+          <b>C4_TAN</b> evaluates the tangent of a C4.
+        </li>
+        <li>
+          <b>C4_TANH</b> evaluates the hyperbolic tangent of a C4.
+        </li>
+        <li>
+          <b>C4_TO_CARTESIAN</b> converts a C4 to Cartesian form.
+        </li>
+        <li>
+          <b>C4_TO_POLAR</b> converts a C4 to polar form.
         </li>
         <li>
           <b>C4_UNIFORM_01</b> returns a unit pseudorandom C4.
@@ -202,19 +296,52 @@
           <b>C4_ZERO</b> returns the value of 0 as a C4.
         </li>
         <li>
+          <b>C4MAT_ADD</b> combines two C4MAT's using complex scalar factors.
+        </li>
+        <li>
+          <b>C4MAT_ADD_R4</b> combines two C4MAT's using real scalar factors.
+        </li>
+        <li>
           <b>C4MAT_COPY</b> copies one C4MAT to another.
         </li>
         <li>
           <b>C4MAT_COPY_NEW</b> copies one C4MAT to a "new" C4MAT.
         </li>
         <li>
-          <b>C4MAT_IDENTITY</b> sets a C4MAT to the identity.
+          <b>C4MAT_FSS</b> factors and solves a system with multiple right hand sides.
+        </li>
+        <li>
+          <b>C4MAT_FSS_NEW</b> factors and solves a system with multiple right hand sides.
+        </li>
+        <li>
+          <b>C4MAT_IDENTITY_NEW</b> sets a C4MAT to the identity.
         </li>
         <li>
           <b>C4MAT_INDICATOR_NEW</b> returns the C4MAT indicator matrix.
         </li>
         <li>
+          <b>C4MAT_MINVM</b> returns inverse(A) * B for C4MAT's.
+        </li>
+        <li>
+          <b>C4MAT_MINVM_NEW</b> returns inverse(A) * B for C4MAT's.
+        </li>
+        <li>
+          <b>C4MAT_MM</b> multiplies two matrices.
+        </li>
+        <li>
+          <b>C4MAT_MM_NEW</b> multiplies two matrices.
+        </li>
+        <li>
           <b>C4MAT_NINT</b> rounds the entries of a C4MAT.
+        </li>
+        <li>
+          <b>C4MAT_NORM_FRO</b> returns the Frobenius norm of a C4MAT.
+        </li>
+        <li>
+          <b>C4MAT_NORM_L1</b> returns the matrix L1 norm of a C4MAT.
+        </li>
+        <li>
+          <b>C4MAT_NORM_LI</b> returns the matrix L-oo norm of a C4MAT.
         </li>
         <li>
           <b>C4MAT_PRINT</b> prints a C4MAT.
@@ -223,10 +350,19 @@
           <b>C4MAT_PRINT_SOME</b> prints some of a C4MAT.
         </li>
         <li>
+          <b>C4MAT_SCALE</b> scales a C4MAT by a complex scalar factor.
+        </li>
+        <li>
+          <b>C4MAT_SCALE_R4</b> scales a C4MAT by a real scalar factor.
+        </li>
+        <li>
           <b>C4MAT_UNIFORM_01</b> returns a unit pseudorandom C4MAT.
         </li>
         <li>
           <b>C4MAT_UNIFORM_01_NEW</b> returns a new unit pseudorandom C4MAT.
+        </li>
+        <li>
+          <b>C4MAT_ZERO_NEW</b> returns a new zeroed C4MAT.
         </li>
         <li>
           <b>C4VEC_COPY</b> copies a C4VEC.
@@ -236,6 +372,9 @@
         </li>
         <li>
           <b>C4VEC_INDICATOR_NEW</b> sets a C4VEC to the indicator vector.
+        </li>
+        <li>
+          <b>C4VEC_NINT</b> rounds the entries of a C4VEC.
         </li>
         <li>
           <b>C4VEC_NORM_L2</b> returns the L2 norm of a C4VEC.
@@ -250,6 +389,12 @@
           <b>C4VEC_PRINT_SOME</b> prints some of a C4VEC.
         </li>
         <li>
+          <b>C4VEC_SORT_A_L2</b> ascending sorts a C4VEC by L2 norm.
+        </li>
+        <li>
+          <b>C4VEC_SPIRAL</b> returns N points on a spiral between C1 and C2.
+        </li>
+        <li>
           <b>C4VEC_UNIFORM_01</b> returns a unit pseudorandom C4VEC.
         </li>
         <li>
@@ -259,13 +404,25 @@
           <b>C4VEC_UNITY</b> returns the N roots of unity in a C4VEC.
         </li>
         <li>
+          <b>CARTESIAN_TO_C4</b> converts a Cartesian form to a C4.
+        </li>
+        <li>
           <b>I4_MAX</b> returns the maximum of two I4's.
         </li>
         <li>
           <b>I4_MIN</b> returns the minimum of two I4's.
         </li>
         <li>
+          <b>POLAR_TO_C4</b> converts a polar form to a C4.
+        </li>
+        <li>
           <b>R4_ABS</b> returns the absolute value of an R4.
+        </li>
+        <li>
+          <b>R4_CSQRT</b> returns the complex square root of an R4.
+        </li>
+        <li>
+          <b>R4_FLOOR</b> rounds an R4 "down" (towards -oo) to the next integer.
         </li>
         <li>
           <b>R4_MAX</b> returns the maximum of two R4's.
@@ -274,7 +431,19 @@
           <b>R4_NINT</b> returns the nearest integer to an R4.
         </li>
         <li>
+          <b>R4_SIGN</b> returns the sign of an R4.
+        </li>
+        <li>
           <b>R4_UNIFORM_01</b> returns a unit pseudorandom R4.
+        </li>
+        <li>
+          <b>R4POLY2_ROOT</b> returns the two roots of a quadratic polynomial.
+        </li>
+        <li>
+          <b>R4POLY3_ROOT</b> returns the three roots of a cubic polynomial.
+        </li>
+        <li>
+          <b>R4POLY4_ROOT</b> returns the four roots of a quartic polynomial.
         </li>
         <li>
           <b>SORT_HEAP_EXTERNAL</b> externally sorts a list of items into ascending order.
@@ -293,7 +462,7 @@
     <hr>
 
     <i>
-      Last revised on 19 June 2010.
+      Last revised on 10 March 2014.
     </i>
 
     <!-- John Burkardt -->

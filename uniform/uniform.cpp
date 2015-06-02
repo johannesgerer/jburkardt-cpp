@@ -12,6 +12,174 @@ using namespace std;
 
 //****************************************************************************80
 
+void bvec_print ( int n, int bvec[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    BVEC_PRINT prints a binary integer vector, with an optional title.
+//
+//  Discussion:
+//
+//    A BVEC is a vector of binary digits representing an integer.  
+//
+//    BVEC[0] is 0 for positive values and 1 for negative values, which
+//    are stored in 2's complement form.
+//
+//    For positive values, BVEC[N-1] contains the units digit, BVEC[N-2]
+//    the coefficient of 2, BVEC[N-3] the coefficient of 4 and so on,
+//    so that printing the digits in order gives the binary form of the number.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    21 March 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, int BVEC[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int ihi;
+  int ilo;
+
+  if ( 0 < title.length ( ) )
+  {
+    cout << "\n";
+    cout << title << "\n";
+  }
+
+  for ( ilo = 0; ilo < n; ilo = ilo + 70 )
+  {
+    ihi = i4_min ( ilo + 70 - 1, n - 1 );
+    cout << "  ";
+
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << bvec[i];
+    }
+    cout << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+int *bvec_uniform_new ( int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    BVEC_UNIFORM_NEW returns a pseudorandom BVEC.
+//
+//  Discussion:
+//
+//    An BVEC is a vector of binary (0/1) values representing an integer.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    26 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre LEcuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
+//
+//  Parameters:
+//
+//    Input, int N, the order of the vector.
+//
+//    Input/output, int &SEED, the "seed" value, which should
+//    NOT be 0.  On output, SEED has been updated.
+//
+//    Output, int BVEC_UNIFORM_NEW[N], a pseudorandom binary vector.
+//
+{
+  int *bvec;
+  int i;
+  const int i4_huge      = 2147483647;
+  const int i4_huge_half = 1073741823;
+  int k;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "BVEC_UNIFORM_NEW - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  bvec = new int[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    k = seed / 127773;
+
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+    if ( seed < 0 )
+    {
+      seed = seed + i4_huge;
+    }
+    if ( i4_huge_half < seed )
+    {
+      bvec[i] = 0;
+    }
+    else
+    {
+      bvec[i] = 1;
+    }
+  }
+  return bvec;
+}
+//****************************************************************************80
+
 complex <float> c4_uniform_01 ( int &seed )
 
 //****************************************************************************80
@@ -76,9 +244,9 @@ complex <float> c4_uniform_01 ( int &seed )
 //    Output, complex <float> C4_UNIFORM_01, a pseudorandom complex value.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
-  float pi = 3.1415926E+00;
+  const float r4_pi = 3.1415926E+00;
   float r;
   float theta;
   complex <float> value;
@@ -111,12 +279,170 @@ complex <float> c4_uniform_01 ( int &seed )
     seed = seed + i4_huge;
   }
 
-  theta = 2.0 * pi *
+  theta = 2.0 * r4_pi *
     ( ( float ) ( seed ) * 4.656612875E-10 );
 
   value = complex <float> ( r * cos ( theta ), r * sin ( theta ) );
 
   return value;
+}
+//****************************************************************************80
+
+void c4mat_print ( int m, int n, complex <float> a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_PRINT prints a C4MAT.
+//
+//  Discussion:
+//
+//    A C4MAT is an array of complex <float> values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    11 June 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns in the matrix.
+//
+//    Input, complex <float> A[M*N], the matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  c4mat_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void c4mat_print_some ( int m, int n, complex <float> a[], int ilo, int jlo, 
+  int ihi, int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_PRINT_SOME prints some of a C4MAT.
+//
+//  Discussion:
+//
+//    A C4MAT is an array of complex <float> values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 April 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns in the matrix.
+//
+//    Input, complex <float> A[M*N], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  complex <float> c;
+  int i;
+  int i2hi;
+  int i2lo;
+  int inc;
+  int incx = 4;
+  int j;
+  int j2;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+//
+//  Print the columns of the matrix, in strips of INCX.
+//
+  for ( j2lo = jlo; j2lo <= i4_min ( jhi, n ); j2lo = j2lo + incx )
+  {
+    j2hi = j2lo + incx - 1;
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
+
+    inc = j2hi + 1 - j2lo;
+
+    cout << "\n";
+    cout << "  Col: ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      j2 = j + 1 - j2lo;
+      cout << "     " << setw(10) << j << "     ";
+    }
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "  ---\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    i2lo = ilo;
+    if ( i2lo < 1 )
+    {
+      i2lo = 1;
+    }
+    i2hi = ihi;
+    if ( m < i2hi )
+    {
+      i2hi = m;
+    }
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(5) << i << ":";
+//
+//  Print out (up to) INCX entries in row I, that lie in the current strip.
+//
+      for ( j2 = 1; j2 <= inc; j2++ )
+      {
+        j = j2lo - 1 + j2;
+        c = a[i-1+(j-1)*m];
+        cout << "  " << setw(8) << real ( c )
+             << "  " << setw(8) << imag ( c );
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -187,11 +513,11 @@ void c4mat_uniform_01 ( int m, int n, int seed, complex <float> c[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   float r;
   int k;
-  float pi = 3.1415926;
+  const float r4_pi = 3.1415926;
   float theta;
 
   if ( seed == 0 )
@@ -226,7 +552,7 @@ void c4mat_uniform_01 ( int m, int n, int seed, complex <float> c[] )
         seed = seed + i4_huge;
       }
 
-      theta = 2.0 * pi * ( ( float ) ( seed ) * 4.656612875E-10 );
+      theta = 2.0 * r4_pi * ( ( float ) ( seed ) * 4.656612875E-10 );
 
       c[i+j*m] = r * complex <float> ( cos ( theta ), sin ( theta ) );
     }
@@ -304,11 +630,11 @@ complex <float> *c4mat_uniform_01_new ( int m, int n, int &seed )
 {
   complex <float> *c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   float r;
   int k;
-  float pi = 3.1415926;
+  const float r4_pi = 3.1415926;
   float theta;
 
   if ( seed == 0 )
@@ -345,13 +671,63 @@ complex <float> *c4mat_uniform_01_new ( int m, int n, int &seed )
         seed = seed + i4_huge;
       }
 
-      theta = 2.0 * pi * ( ( float ) ( seed ) * 4.656612875E-10 );
+      theta = 2.0 * r4_pi * ( ( float ) ( seed ) * 4.656612875E-10 );
 
       c[i+j*m] = r * complex <float> ( cos ( theta ), sin ( theta ) );
     }
   }
 
   return c;
+}
+//****************************************************************************80
+
+void c4vec_print ( int n, complex <float> a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4VEC_PRINT prints a C4VEC.
+//
+//  Discussion:
+//
+//    A C4VEC is a vector of complex <float> values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    10 September 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, complex <float> A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(8) << i
+         << ": " << real ( a[i] )
+         << "  " << imag ( a[i] ) << "\n";
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -423,9 +799,9 @@ void c4vec_uniform_01 ( int n, int &seed, complex <float> c[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
-  float pi = 3.1415926;
+  const float r4_pi = 3.1415926;
   float r;
   float theta;
 
@@ -459,7 +835,7 @@ void c4vec_uniform_01 ( int n, int &seed, complex <float> c[] )
       seed = seed + i4_huge;
     }
 
-    theta = 2.0 * pi * ( ( float ) ( seed ) * 4.656612875E-10 );
+    theta = 2.0 * r4_pi * ( ( float ) ( seed ) * 4.656612875E-10 );
 
     c[i] = r * complex <float> ( cos ( theta ), sin ( theta ) );
   }
@@ -537,9 +913,9 @@ complex <float> *c4vec_uniform_01_new ( int n, int &seed )
 {
   complex <float> *c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
-  float pi = 3.1415926;
+  const float r4_pi = 3.1415926;
   float r;
   float theta;
 
@@ -575,7 +951,7 @@ complex <float> *c4vec_uniform_01_new ( int n, int &seed )
       seed = seed + i4_huge;
     }
 
-    theta = 2.0 * pi * ( ( float ) ( seed ) * 4.656612875E-10 );
+    theta = 2.0 * r4_pi * ( ( float ) ( seed ) * 4.656612875E-10 );
 
     c[i] = r * complex <float> ( cos ( theta ), sin ( theta ) );
   }
@@ -619,9 +995,9 @@ complex <double> c8_uniform_01 ( int &seed )
 //    Output, complex <double> C8_UNIFORM_01, a pseudorandom complex value.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double r;
   double theta;
   complex <double> value;
@@ -654,11 +1030,155 @@ complex <double> c8_uniform_01 ( int &seed )
     seed = seed + i4_huge;
   }
 
-  theta = 2.0 * pi * ( ( double ) ( seed ) * 4.656612875E-10 );
+  theta = 2.0 * r8_pi * ( ( double ) ( seed ) * 4.656612875E-10 );
 
   value = complex <double> ( r * cos ( theta ), r * sin ( theta ) );
 
   return value;
+}
+//****************************************************************************80
+
+void c8mat_print ( int m, int n, complex <double> a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C8MAT_PRINT prints a C8MAT.
+//
+//  Discussion:
+//
+//    A C8MAT is an array of complex <double> values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    22 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns in the matrix.
+//
+//    Input, complex <double> A[M*N], the matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  c8mat_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void c8mat_print_some ( int m, int n, complex <double> a[], int ilo, int jlo, 
+  int ihi, int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C8MAT_PRINT_SOME prints some of a C8MAT.
+//
+//  Discussion:
+//
+//    A C8MAT is an array of complex <double> values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns in the matrix.
+//
+//    Input, complex <double> A[M*N], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  complex <double> c;
+  int i;
+  int i2hi;
+  int i2lo;
+  int inc;
+  int incx = 4;
+  int j;
+  int j2;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+//
+//  Print the columns of the matrix, in strips of INCX.
+//
+  for ( j2lo = jlo; j2lo <= i4_min ( jhi, n ); j2lo = j2lo + incx )
+  {
+    j2hi = j2lo + incx - 1;
+    j2hi = i4_min ( j2hi, n );
+    j2hi = i4_min ( j2hi, jhi );
+
+    inc = j2hi + 1 - j2lo;
+
+    cout << "\n";
+    cout << "  Col: ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      j2 = j + 1 - j2lo;
+      cout << "     " << setw(10) << j << "     ";
+    }
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "  ---\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    i2lo = i4_max ( ilo, 1 );
+    i2hi = i4_min ( ihi, m );
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(5) << i << ":";
+//
+//  Print out (up to) INCX entries in row I, that lie in the current strip.
+//
+      for ( j2 = 1; j2 <= inc; j2++ )
+      {
+        j = j2lo - 1 + j2;
+        c = a[i-1+(j-1)*m];
+        cout << "  " << setw(8) << real ( c )
+             << "  " << setw(8) << imag ( c );
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -702,11 +1222,11 @@ void c8mat_uniform_01 ( int m, int n, int &seed, complex <double> c[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   double r;
   int k;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double theta;
 
   if ( seed == 0 )
@@ -741,7 +1261,7 @@ void c8mat_uniform_01 ( int m, int n, int &seed, complex <double> c[] )
         seed = seed + i4_huge;
       }
 
-      theta = 2.0 * pi * ( ( double ) ( seed ) * 4.656612875E-10 );
+      theta = 2.0 * r8_pi * ( ( double ) ( seed ) * 4.656612875E-10 );
 
       c[i+j*m] = r * complex <double> ( cos ( theta ), sin ( theta ) );
     }
@@ -792,11 +1312,11 @@ complex <double> *c8mat_uniform_01_new ( int m, int n, int &seed )
 {
   complex <double> *c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   double r;
   int k;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double theta;
 
   if ( seed == 0 )
@@ -833,13 +1353,63 @@ complex <double> *c8mat_uniform_01_new ( int m, int n, int &seed )
         seed = seed + i4_huge;
       }
 
-      theta = 2.0 * pi * ( ( double ) ( seed ) * 4.656612875E-10 );
+      theta = 2.0 * r8_pi * ( ( double ) ( seed ) * 4.656612875E-10 );
 
       c[i+j*m] = r * complex <double> ( cos ( theta ), sin ( theta ) );
     }
   }
 
   return c;
+}
+//****************************************************************************80
+
+void c8vec_print ( int n, complex <double> a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C8VEC_PRINT prints a C8VEC.
+//
+//  Discussion:
+//
+//    A C8VEC is a vector of complex <double> values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    10 September 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, complex <double> A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(8) << i
+         << ": " << real ( a[i] )
+         << "  " << imag ( a[i] ) << "\n";
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -884,9 +1454,9 @@ void c8vec_uniform_01 ( int n, int &seed, complex <double> c[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double r;
   double theta;
 
@@ -920,7 +1490,7 @@ void c8vec_uniform_01 ( int n, int &seed, complex <double> c[] )
       seed = seed + i4_huge;
     }
 
-    theta = 2.0 * pi * ( ( double ) ( seed ) * 4.656612875E-10 );
+    theta = 2.0 * r8_pi * ( ( double ) ( seed ) * 4.656612875E-10 );
 
     c[i] = r * complex <double> ( cos ( theta ), sin ( theta ) );
   }
@@ -971,9 +1541,9 @@ complex <double> *c8vec_uniform_01_new ( int n, int &seed )
 {
   complex <double> *c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double r;
   double theta;
 
@@ -1009,7 +1579,7 @@ complex <double> *c8vec_uniform_01_new ( int n, int &seed )
       seed = seed + i4_huge;
     }
 
-    theta = 2.0 * pi * ( ( double ) ( seed ) * 4.656612875E-10 );
+    theta = 2.0 * r8_pi * ( ( double ) ( seed ) * 4.656612875E-10 );
 
     c[i] = r * complex <double> ( cos ( theta ), sin ( theta ) );
   }
@@ -1122,15 +1692,10 @@ int congruence ( int a, int b, int c, bool *error )
   int g;
   int k;
   int n;
-  float norm_new;
-  float norm_old;
   int q[N_MAX];
   bool swap;
-  int temp;
   int x;
-  int xnew;
   int y;
-  int ynew;
   int z;
 //
 //  Defaults for output parameters.
@@ -1383,8 +1948,7 @@ int get_seed ( )
 //
 {
   time_t clock;
-  int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int ihour;
   int imin;
   int isec;
@@ -1739,7 +2303,7 @@ int i4_seed_advance ( int seed )
 //
 //  Modified:
 //
-//    23 April 2008
+//    05 April 2013
 //
 //  Author:
 //
@@ -1781,13 +2345,20 @@ int i4_seed_advance ( int seed )
 //    Output, int I4_SEED_ADVANCE, the "next" seed.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   int seed_new;
 
-  k = seed / 127773;
+  seed_new = seed;
 
-  seed_new = 16807 * ( seed - k * 127773 ) - k * 2836;
+  if ( seed_new < 0 )
+  {
+    seed_new = seed_new + i4_huge;
+  }
+
+  k = seed_new / 127773;
+
+  seed_new = 16807 * ( seed_new - k * 127773 ) - k * 2836;
 
   if ( seed_new < 0 )
   {
@@ -2011,10 +2582,10 @@ int i4_uniform_0i ( int &seed )
 //    IP = 2^31-1
 //
 {
-  int ia = 16807;
-  int ib15 = 32768;
-  int ib16 = 65536;
-  int ip = 2147483647;
+  const int ia = 16807;
+  const int ib15 = 32768;
+  const int ib16 = 65536;
+  const int ip = 2147483647;
   int iprhi;
   int ixhi;
   int k;
@@ -2132,7 +2703,7 @@ int i4_uniform_ab ( int a, int b, int &seed )
 //
 {
   int c;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   float r;
   int value;
@@ -2186,6 +2757,175 @@ int i4_uniform_ab ( int a, int b, int &seed )
   }
 
   return value;
+}
+//****************************************************************************80
+
+void i4mat_print ( int m, int n, int a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4MAT_PRINT prints an I4MAT.
+//
+//  Discussion:
+//
+//    An I4MAT is an MxN array of I4's, stored by (I,J) -> [I+J*M].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 September 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, int A[M*N], the M by N matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  i4mat_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void i4mat_print_some ( int m, int n, int a[], int ilo, int jlo, int ihi,
+  int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4MAT_PRINT_SOME prints some of an I4MAT.
+//
+//  Discussion:
+//
+//    An I4MAT is an MxN array of I4's, stored by (I,J) -> [I+J*M].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 August 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows of the matrix.
+//    M must be positive.
+//
+//    Input, int N, the number of columns of the matrix.
+//    N must be positive.
+//
+//    Input, int A[M*N], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, designate the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 10
+
+  int i;
+  int i2hi;
+  int i2lo;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+//
+//  Print the columns of the matrix, in strips of INCX.
+//
+  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
+  {
+    j2hi = j2lo + INCX - 1;
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
+
+    cout << "\n";
+//
+//  For each column J in the current range...
+//
+//  Write the header.
+//
+    cout << "  Col:";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << "  " << setw(6) << j - 1;
+    }
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    if ( 1 < ilo )
+    {
+      i2lo = ilo;
+    }
+    else
+    {
+      i2lo = 1;
+    }
+    if ( ihi < m )
+    {
+      i2hi = ihi;
+    }
+    else
+    {
+      i2hi = m;
+    }
+
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+//
+//  Print out (up to INCX) entries in row I, that lie in the current strip.
+//
+      cout << setw(5) << i - 1 << ":";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << "  " << setw(6) << a[i-1+(j-1)*m];
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
+# undef INCX
 }
 //****************************************************************************80
 
@@ -2265,7 +3005,7 @@ void i4mat_uniform_ab ( int m, int n, int a, int b, int &seed, int x[] )
 {
   int c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
   float r;
@@ -2406,7 +3146,7 @@ int *i4mat_uniform_ab_new ( int m, int n, int a, int b, int &seed )
 {
   int c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
   float r;
@@ -2634,6 +3374,53 @@ int i4vec_min ( int n, int a[] )
 }
 //****************************************************************************80
 
+void i4vec_print ( int n, int a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4VEC_PRINT prints an I4VEC.
+//
+//  Discussion:
+//
+//    An I4VEC is a vector of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 November 2003
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, int A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+
+  cout << "\n";
+  cout << title << "\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(8) << i
+         << ": " << setw(8) << a[i]  << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
 void i4vec_uniform_ab ( int n, int a, int b, int &seed, int x[] )
 
 //****************************************************************************80
@@ -2704,7 +3491,7 @@ void i4vec_uniform_ab ( int n, int a, int b, int &seed, int x[] )
 {
   int c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   float r;
   int value;
@@ -2836,7 +3623,7 @@ int *i4vec_uniform_ab_new ( int n, int a, int b, int &seed )
 {
   int c;
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   float r;
   int value;
@@ -2959,236 +3746,17 @@ float i4vec_variance ( int n, int x[] )
 }
 //****************************************************************************80
 
-long long int i8_huge ( )
+bool l4_uniform ( int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    I8_HUGE returns a "huge" I8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    12 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Output, long long int I8_HUGE, a "huge" I8.
-//
-{
-  long long int value;
-
-  value = 9223372036854775807LL;
-
-  return value;
-}
-//****************************************************************************80
-
-long long int i8_max ( long long int i1, long long int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I8_MAX returns the maximum of two I8's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    12 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, long long int I1, I2, two integers to be compared.
-//
-//    Output, long long int I8_MAX, the larger of I1 and I2.
-//
-{
-  long long value;
-
-  if ( i2 < i1 ) 
-  {
-    value = i1;
-  }
-  else 
-  {
-    value = i2;
-  }
-  return value;
-}
-//****************************************************************************80
-
-long long int i8_min ( long long int i1, long long int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I8_MIN returns the smaller of two I8's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    12 May 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, long long int I1, I2, two integers to be compared.
-//
-//    Output, long long int I8_MIN, the smaller of I1 and I2.
-//
-{
-  long long int value;
-
-  if ( i1 < i2 ) 
-  {
-    value = i1;
-  }
-  else 
-  {
-    value = i2;
-  }
-  return value;
-}
-//****************************************************************************80
-
-long long int i8_uniform_ab ( long long int a, long long int b, int &seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I8_UNIFORM_AB returns a scaled pseudorandom I8.
+//    L4_UNIFORM returns a pseudorandom L.
 //
 //  Discussion:
 //
-//    The pseudorandom number should be uniformly distributed
-//    between A and B.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
-//  Parameters:
-//
-//    Input, long long int A, B, the limits of the interval.
-//
-//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
-//    On output, SEED has been updated.
-//
-//    Output, long long int I8_UNIFORM_AB, a number between A and B.
-//
-{
-  int i4_huge = 2147483647;
-  long long int k;
-  double r;
-  long long int value;
-
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "I8_UNIFORM_AB - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  k = seed / 127773;
-
-  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-  if ( seed < 0 )
-  {
-    seed = seed + i4_huge;
-  }
-
-  r = ( double ) ( seed ) * 4.656612875E-10;
-//
-//  Scale R to lie between A-0.5 and B+0.5.
-//
-  r = ( 1.0 - r ) * ( ( double ) ( i8_min ( a, b ) ) - 0.5 ) 
-    +         r   * ( ( double ) ( i8_max ( a, b ) ) + 0.5 );
-//
-//  Use rounding to convert R to an integer between A and B.
-//
-  value = ( long long int ) ( r );
-
-  value = i8_max ( value, i8_min ( a, b ) );
-  value = i8_min ( value, i8_max ( a, b ) );
-
-  return value;
-}
-//****************************************************************************80
-
-bool l_uniform ( int &seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    L_UNIFORM returns a pseudorandom L.
-//
-//  Discussion:
-//
-//    An L is a LOGICAL value.
+//    An L4 is a LOGICAL value.
 //
 //  Licensing:
 //
@@ -3236,18 +3804,18 @@ bool l_uniform ( int &seed )
 //    Input/output, int &SEED, the "seed" value, which should
 //    NOT be 0.  On output, SEED has been updated.
 //
-//    Output, bool L_UNIFORM, a pseudorandom logical value.
+//    Output, bool L4_UNIFORM, a pseudorandom logical value.
 //
 {
-  int i4_huge      = 2147483647;
-  int i4_huge_half = 1073741823;
+  const int i4_huge      = 2147483647;
+  const int i4_huge_half = 1073741823;
   int  k;
   bool value;
 
   if ( seed == 0 )
   {
     cerr << "\n";
-    cerr << "L_UNIFORM - Fatal error!\n";
+    cerr << "L4_UNIFORM - Fatal error!\n";
     cerr << "  Input value of SEED = 0.\n";
     exit ( 1 );
   }
@@ -3263,6 +3831,506 @@ bool l_uniform ( int &seed )
   value = ( i4_huge_half < seed );
 
   return value;
+}
+//****************************************************************************80
+
+void l4mat_print ( int m, int n, bool a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_PRINT prints an L4MAT.
+//
+//  Discussion:
+//
+//    An L4MAT is an array of L4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 November 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, bool A[M*N], the matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  l4mat_print_some ( m, n, a, 0, 0, m - 1, n - 1, title );
+
+  return;
+}
+//****************************************************************************80
+
+void l4mat_print_some ( int m, int n, bool a[], int ilo, int jlo, int ihi, 
+  int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_PRINT_SOME prints some of an L4MAT.
+//
+//  Discussion:
+//
+//    An L4MAT is an array of L4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 November 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, bool A[M*N], an M by N matrix to be printed.
+//
+//    Input, int ILO, JLO, the first row and column to print.
+//
+//    Input, int IHI, JHI, the last row and column to print.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int i2hi;
+  int i2lo;
+  int inc;
+  int incx = 35;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + incx )
+  {
+    j2hi = j2lo + incx - 1;
+    if ( n - 1 < j2hi )
+    {
+      j2hi = n - 1;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
+
+    inc = j2hi + 1 - j2lo;
+
+    cout << "\n";
+
+    if ( 100 <= j2hi )
+    {
+      cout << "      ";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << " " << setw(1) << j / 100;
+      }
+      cout << "\n";
+    }
+
+    if ( 10 <= j2hi )
+    {
+      cout << "      ";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << " " << setw(1) << ( j / 10 ) % 10;
+      }
+      cout << "\n";
+    }
+
+    cout << "  Col ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << " " << setw(1) << j % 10;
+    }
+    cout << "\n";
+
+    cout << "  Row\n";
+    cout << "\n";
+
+    i2lo = 0;
+    if ( i2lo < ilo )
+    {
+      i2lo = ilo;
+    }
+    i2hi = m - 1;
+    if ( ihi < i2hi )
+    {
+      i2hi = ihi;
+    }
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(5) << i << ":";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << " " << setw(1) << a[i+j*m];
+      }
+      cout << "\n";
+    }
+  }
+  return;
+}
+//****************************************************************************80
+
+void l4mat_uniform ( int m, int n, int &seed, bool l4mat[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_UNIFORM returns a pseudorandom L4MAT.
+//
+//  Discussion:
+//
+//    An L4MAT is a two dimensional array of LOGICAL values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 April 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
+//
+//  Parameters:
+//
+//    Input, int M, N, the order of the matrix.
+//
+//    Input/output, int &SEED, the "seed" value, which should
+//    NOT be 0.  On output, SEED has been updated.
+//
+//    Output, bool L4MAT[M*N], a pseudorandom logical matrix.
+//
+{
+  const int i4_huge      = 2147483647;
+  const int i4_huge_half = 1073741823;
+  int i;
+  int j;
+  int k;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "L4MAT_UNIFORM - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      k = seed / 127773;
+
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+      if ( seed < 0 )
+      {
+        seed = seed + i4_huge;
+      }
+
+      l4mat[i+j*m] = ( i4_huge_half < seed );
+    }
+  }
+
+  return;
+}
+//****************************************************************************80
+
+bool *l4mat_uniform_new ( int m, int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4MAT_UNIFORM_NEW returns a new pseudorandom L4MAT.
+//
+//  Discussion:
+//
+//    An L4MAT is a two dimensional array of LOGICAL values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 April 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
+//
+//  Parameters:
+//
+//    Input, int M, N, the order of the matrix.
+//
+//    Input/output, int &SEED, the "seed" value, which should
+//    NOT be 0.  On output, SEED has been updated.
+//
+//    Output, bool L4MAT_UNIFORM_NEW[M*N], a pseudorandom logical matrix.
+//
+{
+  const int i4_huge      = 2147483647;
+  const int i4_huge_half = 1073741823;
+  int i;
+  int j;
+  int k;
+  bool *l4mat;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "L4MAT_UNIFORM_NEW - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  l4mat = new bool[m*n];
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      k = seed / 127773;
+
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+      if ( seed < 0 )
+      {
+        seed = seed + i4_huge;
+      }
+
+      l4mat[i+j*m] = ( i4_huge_half < seed );
+    }
+  }
+
+  return l4mat;
+}
+//****************************************************************************80
+
+void l4vec_print ( int n, bool a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4VEC_PRINT prints an L4VEC.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 April 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, bool A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+
+  cout << "\n";
+  cout << title << "\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ ) 
+  {
+    cout << "  " << setw(8) << i 
+         << ": " << setw(1) << a[i]  << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+bool *l4vec_uniform_new ( int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4VEC_UNIFORM_NEW returns a pseudorandom L4VEC.
+//
+//  Discussion:
+//
+//    An L4VEC is a vector of LOGICAL values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    09 April 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre LEcuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
+//
+//  Parameters:
+//
+//    Input, int N, the order of the vector.
+//
+//    Input/output, int &SEED, the "seed" value, which should
+//    NOT be 0.  On output, SEED has been updated.
+//
+//    Output, bool L4VEC_UNIFORM_NEW[N], a pseudorandom logical vector.
+//
+{
+  const int i4_huge      = 2147483647;
+  const int i4_huge_half = 1073741823;
+  int i;
+  int k;
+  bool *l4vec;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "L4VEC_UNIFORM_NEW - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  l4vec = new bool[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    k = seed / 127773;
+
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+    if ( seed < 0 )
+    {
+      seed = seed + i4_huge;
+    }
+    l4vec[i] = ( i4_huge_half < seed );
+  }
+  return l4vec;
 }
 //****************************************************************************80
 
@@ -3674,300 +4742,6 @@ int lcrg_seed ( int a, int b, int c, int n, int seed )
 }
 //****************************************************************************80
 
-void lmat_uniform ( int m, int n, int &seed, bool lmat[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LMAT_UNIFORM returns a pseudorandom LMAT.
-//
-//  Discussion:
-//
-//    An LMAT is a two dimensional array of LOGICAL values.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
-//  Parameters:
-//
-//    Input, int M, N, the order of the matrix.
-//
-//    Input/output, int &SEED, the "seed" value, which should
-//    NOT be 0.  On output, SEED has been updated.
-//
-//    Output, bool LMAT_UNIFORM[M*N], a pseudorandom logical matrix.
-//
-{
-  int i4_huge      = 2147483647;
-  int i4_huge_half = 1073741823;
-  int i;
-  int j;
-  int k;
-
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "LMAT_UNIFORM - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      k = seed / 127773;
-
-      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-      if ( seed < 0 )
-      {
-        seed = seed + i4_huge;
-      }
-
-      lmat[i+j*m] = ( i4_huge_half < seed );
-    }
-  }
-
-  return;
-}
-//****************************************************************************80
-
-bool *lmat_uniform_new ( int m, int n, int &seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LMAT_UNIFORM_NEW returns a new pseudorandom LMAT.
-//
-//  Discussion:
-//
-//    An LMAT is a two dimensional array of LOGICAL values.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
-//  Parameters:
-//
-//    Input, int M, N, the order of the matrix.
-//
-//    Input/output, int &SEED, the "seed" value, which should
-//    NOT be 0.  On output, SEED has been updated.
-//
-//    Output, bool LMAT_UNIFORM_NEW[M*N], a pseudorandom logical matrix.
-//
-{
-  int i4_huge      = 2147483647;
-  int i4_huge_half = 1073741823;
-  int i;
-  int j;
-  int k;
-  bool *lmat;
-
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "LMAT_UNIFORM_NEW - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  lmat = new bool[m*n];
-
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      k = seed / 127773;
-
-      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-      if ( seed < 0 )
-      {
-        seed = seed + i4_huge;
-      }
-
-      lmat[i+j*m] = ( i4_huge_half < seed );
-    }
-  }
-
-  return lmat;
-}
-//****************************************************************************80
-
-bool *lvec_uniform_new ( int n, int &seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LVEC_UNIFORM_NEW returns a pseudorandom LVEC.
-//
-//  Discussion:
-//
-//    An LVEC is a vector of LOGICAL values.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    09 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre LEcuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
-//  Parameters:
-//
-//    Input, int N, the order of the vector.
-//
-//    Input/output, int &SEED, the "seed" value, which should
-//    NOT be 0.  On output, SEED has been updated.
-//
-//    Output, bool LVEC_UNIFORM_NEW[N], a pseudorandom logical vector.
-//
-{
-  int i4_huge      = 2147483647;
-  int i4_huge_half = 1073741823;
-  int i;
-  int k;
-  bool *lvec;
-
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "LVEC_UNIFORM_NEW - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    return NULL;
-  }
-
-  lvec = new bool[n];
-
-  for ( i = 0; i < n; i++ )
-  {
-    k = seed / 127773;
-
-    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-    if ( seed < 0 )
-    {
-      seed = seed + i4_huge;
-    }
-    lvec[i] = ( i4_huge_half < seed );
-  }
-  return lvec;
-}
-//****************************************************************************80
-
 int power_mod ( int a, int n, int m )
 
 //****************************************************************************80
@@ -4211,7 +4985,7 @@ float r4_uniform_ab ( float a, float b, int &seed )
 //    Output, float R4_UNIFORM_AB, a number strictly between A and B.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   float value;
 
@@ -4317,7 +5091,7 @@ float r4_uniform_01 ( int &seed )
 //    0 and 1.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   float r;
 
@@ -4338,6 +5112,391 @@ float r4_uniform_01 ( int &seed )
     seed = seed + i4_huge;
   }
   r = ( float ) ( seed ) * 4.656612875E-10;
+
+  return r;
+}
+//****************************************************************************80
+
+void r4mat_print ( int m, int n, float a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4MAT_PRINT prints an R4MAT.
+//
+//  Discussion:
+//
+//    An R4MAT is a doubly dimensioned array of R4 values, stored as a vector
+//    in column-major order.
+//
+//    Entry A(I,J) is stored as A[I+J*M]
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 September 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, float A[M*N], the M by N matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  r4mat_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
+  int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4MAT_PRINT_SOME prints some of an R4MAT.
+//
+//  Discussion:
+//
+//    An R4MAT is a doubly dimensioned array of R4 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 August 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows of the matrix.
+//    M must be positive.
+//
+//    Input, int N, the number of columns of the matrix.
+//    N must be positive.
+//
+//    Input, float A[M*N], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, designate the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 5
+
+  int i;
+  int i2hi;
+  int i2lo;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+//
+//  Print the columns of the matrix, in strips of 5.
+//
+  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
+  {
+    j2hi = j2lo + INCX - 1;
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
+
+    cout << "\n";
+//
+//  For each column J in the current range...
+//
+//  Write the header.
+//
+    cout << "  Col:    ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << setw(7) << j - 1 << "       ";
+    }
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    if ( 1 < ilo )
+    {
+      i2lo = ilo;
+    }
+    else
+    {
+      i2lo = 1;
+    }
+    if ( ihi < m )
+    {
+      i2hi = ihi;
+    }
+    else
+    {
+      i2hi = m;
+    }
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+//
+//  Print out (up to) 5 entries in row I, that lie in the current strip.
+//
+      cout << setw(5) << i - 1 << ": ";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << setw(12) << a[i-1+(j-1)*m] << "  ";
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
+# undef INCX
+}
+//****************************************************************************80
+
+void r4mat_uniform_01 ( int m, int n, int &seed, float r[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4MAT_UNIFORM_01 returns a unit pseudorandom R4MAT.
+//
+//  Discussion:
+//
+//    An R4MAT is an array of R4's.
+//
+//    This routine implements the recursion
+//
+//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
+//      u = seed / ( 2^31 - 1 )
+//
+//    The integer arithmetic never requires more than 32 bits,
+//    including a sign bit.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 April 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input/output, int &SEED, the "seed" value.  Normally, this
+//    value should not be 0, otherwise the output value of SEED
+//    will still be 0.  On output, SEED has been updated.
+//
+//    Output, float R[M*N], a matrix of pseudorandom values.
+//
+{
+  int i;
+  const int i4_huge = 2147483647;
+  int j;
+  int k;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "R4MAT_UNIFORM_01 - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      k = seed / 127773;
+
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+      if ( seed < 0 )
+      {
+        seed = seed + i4_huge;
+      }
+      r[i+j*m] = ( float ) ( seed ) * 4.656612875E-10;
+    }
+  }
+
+  return;
+}
+//****************************************************************************80
+
+float *r4mat_uniform_01_new ( int m, int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4MAT_UNIFORM_01_NEW returns a new unit pseudorandom R4MAT.
+//
+//  Discussion:
+//
+//    An R4MAT is an array of R4's.
+//
+//    This routine implements the recursion
+//
+//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
+//      u = seed / ( 2^31 - 1 )
+//
+//    The integer arithmetic never requires more than 32 bits,
+//    including a sign bit.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 April 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input/output, int &SEED, the "seed" value.  Normally, this
+//    value should not be 0, otherwise the output value of SEED
+//    will still be 0.  On output, SEED has been updated.
+//
+//    Output, float R4MAT_UNIFORM_01[M*N], a matrix of pseudorandom values.
+//
+{
+  int i;
+  const int i4_huge = 2147483647;
+  int j;
+  int k;
+  float *r;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "R4MAT_UNIFORM_01_NEW - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  r = new float[m*n];
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      k = seed / 127773;
+
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+      if ( seed < 0 )
+      {
+        seed = seed + i4_huge;
+      }
+      r[i+j*m] = ( float ) ( seed ) * 4.656612875E-10;
+    }
+  }
 
   return r;
 }
@@ -4418,7 +5577,7 @@ void r4mat_uniform_ab ( int m, int n, float b, float c, int &seed, float r[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
 
@@ -4526,7 +5685,7 @@ float *r4mat_uniform_ab_new ( int m, int n, float b, float c, int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
   float *r;
@@ -4562,216 +5721,51 @@ float *r4mat_uniform_ab_new ( int m, int n, float b, float c, int &seed )
 }
 //****************************************************************************80
 
-void r4mat_uniform_01 ( int m, int n, int &seed, float r[] )
+void r4vec_print ( int n, float a[], string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4MAT_UNIFORM_01 returns a unit pseudorandom R4MAT.
+//    R4VEC_PRINT prints an R4VEC.
 //
 //  Discussion:
 //
-//    An R4MAT is an array of R4's.
-//
-//    This routine implements the recursion
-//
-//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
-//      u = seed / ( 2^31 - 1 )
-//
-//    The integer arithmetic never requires more than 32 bits,
-//    including a sign bit.
+//    An R4VEC is a vector of R4's.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    09 April 2012
+//    16 August 2004
 //
 //  Author:
 //
 //    John Burkardt
 //
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
 //  Parameters:
 //
-//    Input, int M, N, the number of rows and columns.
+//    Input, int N, the number of components of the vector.
 //
-//    Input/output, int &SEED, the "seed" value.  Normally, this
-//    value should not be 0, otherwise the output value of SEED
-//    will still be 0.  On output, SEED has been updated.
+//    Input, float A[N], the vector to be printed.
 //
-//    Output, float R[M*N], a matrix of pseudorandom values.
+//    Input, string TITLE, a title.
 //
 {
   int i;
-  int i4_huge = 2147483647;
-  int j;
-  int k;
 
-  if ( seed == 0 )
+  cout << "\n";
+  cout << title << "\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
   {
-    cerr << "\n";
-    cerr << "R4MAT_UNIFORM_01 - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      k = seed / 127773;
-
-      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-      if ( seed < 0 )
-      {
-        seed = seed + i4_huge;
-      }
-      r[i+j*m] = ( float ) ( seed ) * 4.656612875E-10;
-    }
+    cout << "  " << setw(8)  << i
+         << ": " << setw(14) << a[i]  << "\n";
   }
 
   return;
-}
-//****************************************************************************80
-
-float *r4mat_uniform_01_new ( int m, int n, int &seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4MAT_UNIFORM_01_NEW returns a new unit pseudorandom R4MAT.
-//
-//  Discussion:
-//
-//    An R4MAT is an array of R4's.
-//
-//    This routine implements the recursion
-//
-//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
-//      u = seed / ( 2^31 - 1 )
-//
-//    The integer arithmetic never requires more than 32 bits,
-//    including a sign bit.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
-//  Parameters:
-//
-//    Input, int M, N, the number of rows and columns.
-//
-//    Input/output, int &SEED, the "seed" value.  Normally, this
-//    value should not be 0, otherwise the output value of SEED
-//    will still be 0.  On output, SEED has been updated.
-//
-//    Output, float R4MAT_UNIFORM_01[M*N], a matrix of pseudorandom values.
-//
-{
-  int i;
-  int i4_huge = 2147483647;
-  int j;
-  int k;
-  float *r;
-
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "R4MAT_UNIFORM_01_NEW - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  r = new float[m*n];
-
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      k = seed / 127773;
-
-      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-      if ( seed < 0 )
-      {
-        seed = seed + i4_huge;
-      }
-      r[i+j*m] = ( float ) ( seed ) * 4.656612875E-10;
-    }
-  }
-
-  return r;
 }
 //****************************************************************************80
 
@@ -4848,7 +5842,7 @@ void r4vec_uniform_ab ( int n, float b, float c, int &seed, float r[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
 
   if ( seed == 0 )
@@ -4950,7 +5944,7 @@ float *r4vec_uniform_ab_new ( int n, float b, float c, int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   float *r;
 
@@ -5053,7 +6047,7 @@ void r4vec_uniform_01 ( int n, int &seed, float r[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
 
   if ( seed == 0 )
@@ -5153,7 +6147,7 @@ float *r4vec_uniform_01_new ( int n, int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   float *r;
 
@@ -5270,11 +6264,11 @@ int r8_nint ( double x )
 
   if ( x < 0.0 )
   {
-    value = - ( int ) ( r8_abs ( x ) + 0.5 );
+    value = - ( int ) ( fabs ( x ) + 0.5 );
   }
   else
   {
-    value =   ( int ) ( r8_abs ( x ) + 0.5 );
+    value =   ( int ) ( fabs ( x ) + 0.5 );
   }
 
   return value;
@@ -5316,7 +6310,7 @@ double r8_uniform_ab ( double a, double b, int &seed )
 //    Output, double R8_UNIFORM_AB, a number strictly between A and B.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double value;
 
@@ -5422,7 +6416,7 @@ double r8_uniform_01 ( int &seed )
 //    strictly between 0 and 1.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double r;
 
@@ -5448,13 +6442,13 @@ double r8_uniform_01 ( int &seed )
 }
 //****************************************************************************80
 
-double *r8col_uniform_ab_new ( int m, int n, double a[], double b[], int &seed )
+double *r8col_uniform_abvec_new ( int m, int n, double a[], double b[], int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8COL_UNIFORM_AB_NEW fills an R8COL with scaled pseudorandom numbers.
+//    R8COL_UNIFORM_ABVEC_NEW fills an R8COL with scaled pseudorandom numbers.
 //
 //  Discussion:
 //
@@ -5501,7 +6495,7 @@ double *r8col_uniform_ab_new ( int m, int n, double a[], double b[], int &seed )
 //    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has been updated.
 //
-//    Output, double R8COL_UNIFORM_AB_NEW[M*N], a matrix of pseudorandom values.
+//    Output, double R8COL_UNIFORM_ABVEC_NEW[M*N], a matrix of pseudorandom values.
 //
 {
   int i;
@@ -5532,30 +6526,28 @@ double *r8col_uniform_ab_new ( int m, int n, double a[], double b[], int &seed )
 }
 //****************************************************************************80
 
-double r8i8_uniform_ab ( double a, double b, long long int &seed )
+void r8mat_print ( int m, int n, double a[], string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8I8_UNIFORM_AB returns a scaled pseudorandom R8 using an I8 seed.
+//    R8MAT_PRINT prints an R8MAT.
 //
 //  Discussion:
 //
-//    An R8 is a double precision real value.
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
 //
-//    An I8 is a double precision integer value.
-//
-//    The pseudorandom number should be uniformly distributed
-//    between A and B.
+//    Entry A(I,J) is stored as A[I+J*M]
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    09 April 2012
+//    10 September 2009
 //
 //  Author:
 //
@@ -5563,144 +6555,145 @@ double r8i8_uniform_ab ( double a, double b, long long int &seed )
 //
 //  Parameters:
 //
-//    Input, double A, B, the limits of the interval.
+//    Input, int M, the number of rows in A.
 //
-//    Input/output, long long int &SEED, the "seed" value, which should
-//    NOT be 0.  On output, SEED has been updated.
+//    Input, int N, the number of columns in A.
 //
-//    Output, double R8I8_UNIFORM_AB, a number strictly between A and B.
+//    Input, double A[M*N], the M by N matrix.
+//
+//    Input, string TITLE, a title.
 //
 {
-  long long int k;
-  double value;
+  r8mat_print_some ( m, n, a, 1, 1, m, n, title );
 
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "R8I8_UNIFORM_AB - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  k = seed / 127773LL;
-
-  seed = 16807LL * ( seed - k * 127773LL ) - k * 2836LL;
-
-  if ( seed < 0 )
-  {
-    seed = seed + i8_huge ( );
-  }
-
-  value = a + ( b - a ) * ( double ) ( seed ) * 4.656612875E-10;
-
-  return value;
+  return;
 }
 //****************************************************************************80
 
-double r8i8_uniform_01 ( long long int &seed )
+void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
+  int jhi, string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8I8_UNIFORM_01 returns a unit pseudorandom R8 using an I8 seed.
+//    R8MAT_PRINT_SOME prints some of an R8MAT.
 //
 //  Discussion:
 //
-//    An R8 is a double precision real value.
-//
-//    An I8 is a double precision integer value.
-//
-//    This routine implements the recursion
-//
-//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
-//      r8_uniform_01 = seed / ( 2^31 - 1 )
-//
-//    The integer arithmetic never requires more than 32 bits,
-//    including a sign bit.
-//
-//    If the initial seed is 12345, then the first three computations are
-//
-//      Input     Output      R8I8_UNIFORM_01
-//      SEED      SEED
-//
-//         12345   207482415  0.096616
-//     207482415  1790989824  0.833995
-//    1790989824  2035175616  0.947702
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    09 April 2012
+//    26 June 2013
 //
 //  Author:
 //
 //    John Burkardt
 //
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
 //  Parameters:
 //
-//    Input/output, long long int &SEED, the "seed" value, which should
-//    NOT be 0. On output, SEED has been updated.
+//    Input, int M, the number of rows of the matrix.
+//    M must be positive.
 //
-//    Output, double R8I8_UNIFORM_01, a new pseudorandom variate,
-//    strictly between 0 and 1.
+//    Input, int N, the number of columns of the matrix.
+//    N must be positive.
+//
+//    Input, double A[M*N], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, designate the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
 //
 {
-  long long int k;
-  double value;
+# define INCX 5
 
-  if ( seed == 0 )
+  int i;
+  int i2hi;
+  int i2lo;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
   {
-    cerr << "\n";
-    cerr << "R8I8_UNIFORM_01 - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+//
+//  Print the columns of the matrix, in strips of 5.
+//
+  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
+  {
+    j2hi = j2lo + INCX - 1;
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
+    cout << "\n";
+//
+//  For each column J in the current range...
+//
+//  Write the header.
+//
+    cout << "  Col:    ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << setw(7) << j - 1 << "       ";
+    }
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    if ( 1 < ilo )
+    {
+      i2lo = ilo;
+    }
+    else
+    {
+      i2lo = 1;
+    }
+    if ( ihi < m )
+    {
+      i2hi = ihi;
+    }
+    else
+    {
+      i2hi = m;
+    }
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+//
+//  Print out (up to) 5 entries in row I, that lie in the current strip.
+//
+      cout << setw(5) << i - 1 << ": ";
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        cout << setw(12) << a[i-1+(j-1)*m] << "  ";
+      }
+      cout << "\n";
+    }
   }
 
-  k = seed / 127773LL;
-
-  seed = 16807LL * ( seed - k * 127773LL ) - k * 2836LL;
-
-  if ( seed < 0 )
-  {
-    seed = seed + i8_huge ( );
-  }
-
-  value = ( double ) ( seed ) * 4.656612875E-10;
-
-  return value;
+  return;
+# undef INCX
 }
 //****************************************************************************80
 
@@ -5777,7 +6770,7 @@ void r8mat_uniform_01 ( int m, int n, int &seed, double r[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
 
@@ -5883,7 +6876,7 @@ double *r8mat_uniform_01_new ( int m, int n, int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
   double *r;
@@ -5994,7 +6987,7 @@ void r8mat_uniform_ab ( int m, int n, double a, double b, int &seed, double r[] 
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
 
@@ -6102,7 +7095,7 @@ double *r8mat_uniform_ab_new ( int m, int n, double a, double b, int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int j;
   int k;
   double *r;
@@ -6138,234 +7131,13 @@ double *r8mat_uniform_ab_new ( int m, int n, double a, double b, int &seed )
 }
 //****************************************************************************80
 
-void r8mat_uniform_abvec ( int m, int n, double a[], double b[], int &seed, 
-  double r[] )
+double *r8row_uniform_abvec_new ( int m, int n, double a[], double b[], int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8MAT_UNIFORM_ABVEC returns a scaled pseudorandom R8MAT.
-//
-//  Discussion:
-//
-//    An R8MAT is an array of R8's.
-//
-//    This routine implements the recursion
-//
-//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
-//      u = seed / ( 2^31 - 1 )
-//
-//    The integer arithmetic never requires more than 32 bits,
-//    including a sign bit.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
-//  Parameters:
-//
-//    Input, int M, N, the number of rows and columns.
-//
-//    Input, double A[M], B[M], the limits of the pseudorandom values.
-//
-//    Input/output, int &SEED, the "seed" value.  Normally, this
-//    value should not be 0.  On output, SEED has 
-//    been updated.
-//
-//    Output, double R[M*N], a matrix of pseudorandom values.
-//
-{
-  int i;
-  int i4_huge = 2147483647;
-  int j;
-  int k;
-
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "R8MAT_UNIFORM_ABVEC - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      k = seed / 127773;
-
-      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-      if ( seed < 0 )
-      {
-        seed = seed + i4_huge;
-      }
-
-      r[i+j*m] = a[i] + ( b[i] - a[i] ) * ( double ) ( seed ) * 4.656612875E-10;
-    }
-  }
-
-  return;
-}
-//****************************************************************************80
-
-double *r8mat_uniform_abvec_new ( int m, int n, double a[], double b[], 
-  int &seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8MAT_UNIFORM_ABVEC_NEW returns a new scaled pseudorandom R8MAT.
-//
-//  Discussion:
-//
-//    An R8MAT is an array of R8's.
-//
-//    This routine implements the recursion
-//
-//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
-//      u = seed / ( 2^31 - 1 )
-//
-//    The integer arithmetic never requires more than 32 bits,
-//    including a sign bit.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
-//
-//  Parameters:
-//
-//    Input, int M, N, the number of rows and columns.
-//
-//    Input, double A[M], B[M], the limits of the pseudorandom values.
-//
-//    Input/output, int &SEED, the "seed" value.  Normally, this
-//    value should not be 0.  On output, SEED has 
-//    been updated.
-//
-//    Output, double R8MAT_UNIFORM_ABVEC_NEW[M*N], a matrix of pseudorandom values.
-//
-{
-  int i;
-  int i4_huge = 2147483647;
-  int j;
-  int k;
-  double *r;
-
-  if ( seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "R8MAT_UNIFORM_ABVEC_NEW - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  r = new double[m*n];
-
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      k = seed / 127773;
-
-      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
-
-      if ( seed < 0 )
-      {
-        seed = seed + i4_huge;
-      }
-
-      r[i+j*m] = a[i] + ( b[i] - a[i] ) * ( double ) ( seed ) * 4.656612875E-10;
-    }
-  }
-
-  return r;
-}
-//****************************************************************************80
-
-double *r8row_uniform_ab_new ( int m, int n, double a[], double b[], int &seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8ROW_UNIFORM_AB_NEW fills an R8ROW with scaled pseudorandom numbers.
+//    R8ROW_UNIFORM_ABVEC_NEW fills an R8ROW with scaled pseudorandom numbers.
 //
 //  Discussion:
 //
@@ -6412,7 +7184,7 @@ double *r8row_uniform_ab_new ( int m, int n, double a[], double b[], int &seed )
 //    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has been updated.
 //
-//    Output, double R8COL_UNIFORM_AB_NEW[M*N], a matrix of pseudorandom values.
+//    Output, double R8COL_UNIFORM_ABVEC_NEW[M*N], a matrix of pseudorandom values.
 //
 {
   int i;
@@ -6559,12 +7331,11 @@ double *r8vec_normal_01_new ( int n, int &seed )
 //    SAVED is 1.
 //
 {
-# define R8_PI 3.141592653589793
-
   int i;
   int m;
   static int made = 0;
   double *r;
+  const double r8_pi =  3.141592653589793;
   static int saved = 0;
   double *x;
   int x_hi;
@@ -6617,8 +7388,8 @@ double *r8vec_normal_01_new ( int n, int &seed )
   {
     r = r8vec_uniform_01_new ( 2, seed );
 
-    x[x_hi-1] = sqrt ( - 2.0 * log ( r[0] ) ) * cos ( 2.0 * R8_PI * r[1] );
-    y =         sqrt ( - 2.0 * log ( r[0] ) ) * sin ( 2.0 * R8_PI * r[1] );
+    x[x_hi-1] = sqrt ( - 2.0 * log ( r[0] ) ) * cos ( 2.0 * r8_pi * r[1] );
+    y =         sqrt ( - 2.0 * log ( r[0] ) ) * sin ( 2.0 * r8_pi * r[1] );
 
     saved = 1;
 
@@ -6637,8 +7408,8 @@ double *r8vec_normal_01_new ( int n, int &seed )
 
     for ( i = 0; i <= 2 * m - 2; i = i + 2 )
     {
-      x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * R8_PI * r[i+1] );
-      x[x_lo+i  ] = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * R8_PI * r[i+1] );
+      x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * r8_pi * r[i+1] );
+      x[x_lo+i  ] = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * r8_pi * r[i+1] );
     }
     made = made + x_hi - x_lo + 1;
 
@@ -6659,14 +7430,14 @@ double *r8vec_normal_01_new ( int n, int &seed )
 
     for ( i = 0; i <= 2 * m - 4; i = i + 2 )
     {
-      x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * R8_PI * r[i+1] );
-      x[x_lo+i  ] = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * R8_PI * r[i+1] );
+      x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * r8_pi * r[i+1] );
+      x[x_lo+i  ] = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * r8_pi * r[i+1] );
     }
 
     i = 2*m - 2;
 
-    x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * R8_PI * r[i+1] );
-    y           = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * R8_PI * r[i+1] );
+    x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * r8_pi * r[i+1] );
+    y           = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * r8_pi * r[i+1] );
 
     saved = 1;
 
@@ -6676,7 +7447,54 @@ double *r8vec_normal_01_new ( int n, int &seed )
   }
 
   return x;
-# undef R8_PI
+}
+//****************************************************************************80
+
+void r8vec_print ( int n, double a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_PRINT prints an R8VEC.
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 August 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, double A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+
+  cout << "\n";
+  cout << title << "\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(8)  << i
+         << ": " << setw(14) << a[i]  << "\n";
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -6749,7 +7567,7 @@ void r8vec_uniform_01 ( int n, int &seed, double r[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
 
   if ( seed == 0 )
@@ -6847,7 +7665,7 @@ double *r8vec_uniform_01_new ( int n, int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double *r;
 
@@ -6952,7 +7770,7 @@ void r8vec_uniform_ab ( int n, double a, double b, int &seed, double x[] )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
 
   if ( seed == 0 )
@@ -7054,7 +7872,7 @@ double *r8vec_uniform_ab_new ( int n, double a, double b, int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double *r;
 
@@ -7159,7 +7977,7 @@ void r8vec_uniform_abvec ( int n, double a[], double b[], int &seed, double x[] 
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
 
   if ( seed == 0 )
@@ -7261,7 +8079,7 @@ double *r8vec_uniform_abvec_new ( int n, double a[], double b[], int &seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double *r;
 

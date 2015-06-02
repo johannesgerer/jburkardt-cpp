@@ -312,47 +312,6 @@ void owen_values ( int &n_data, double &h, double &a, double &t )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double tfn ( double x, double fx )
 
 //****************************************************************************80
@@ -429,7 +388,7 @@ double tfn ( double x, double fx )
 //
 //  Test for X near zero.
 //
-  if ( r8_abs ( x ) < tv1 )
+  if ( fabs ( x ) < tv1 )
   {
     value = tp * atan ( fx );
     return value;
@@ -437,7 +396,7 @@ double tfn ( double x, double fx )
 //
 //  Test for large values of abs(X).
 //
-  if ( tv2 < r8_abs ( x ) )
+  if ( tv2 < fabs ( x ) )
   {
     value = 0.0;
     return value;
@@ -445,7 +404,7 @@ double tfn ( double x, double fx )
 //
 //  Test for FX near zero.
 //
-  if ( r8_abs ( fx ) < tv1 )
+  if ( fabs ( fx ) < tv1 )
   {
     value = 0.0;
     return value;
@@ -473,7 +432,7 @@ double tfn ( double x, double fx )
 
       fxs = x2 * x2;
 
-      if ( r8_abs ( x2 - x1 ) < tv4 )
+      if ( fabs ( x2 - x1 ) < tv4 )
       {
         break;
       }
@@ -610,28 +569,28 @@ double tha ( double h1, double h2, double a1, double a2 )
 
   a = a1 / a2;
 
-  if ( r8_abs ( h ) < 0.3 && 7.0 < r8_abs ( a ) )
+  if ( fabs ( h ) < 0.3 && 7.0 < fabs ( a ) )
   {
-    lam = r8_abs ( a * h );
+    lam = fabs ( a * h );
     ex = exp ( - lam * lam / 2.0 );
     g = alnorm ( lam, false );
     c1 = ( ex / lam + sqrt ( twopi ) * ( g - 0.5 ) ) / twopi;
     c2 = ( ( lam * lam + 2.0 ) * ex / lam / lam / lam
-    + sqrt ( twopi ) * ( g - 0.5 ) ) / ( 6.0 * twopi );
-    ah = r8_abs ( h );
+      + sqrt ( twopi ) * ( g - 0.5 ) ) / ( 6.0 * twopi );
+    ah = fabs ( h );
     value = 0.25 - c1 * ah + c2 * ah * ah * ah;
     if ( a < 0.0 )
     {
-      value = - r8_abs ( value );
+      value = - fabs ( value );
     }
     else
     {
-      value = r8_abs ( value );
+      value = fabs ( value );
     }
   }
   else
   {
-    absa = r8_abs ( a );
+    absa = fabs ( a );
 
     if ( absa <= 1.0 )
     {

@@ -50,6 +50,7 @@ double r8_abs ( double x );
 bool r8_is_int ( double r );
 double r8_max ( double x, double y );
 double r8_min ( double x, double y );
+double r8_sign ( double x );
 double r8_sign2 ( double x, double y );
 void r8_swap ( double *x, double *y );
 double r8_uniform ( double rlo, double rhi, int *seed );
@@ -97,6 +98,14 @@ double *r83p_sl ( int n, double a[], double b[], int job, double work2[],
 double *r83p_to_r8ge ( int n, double a[] );
 double *r83p_vxm ( int n, double a[], double x[] );
 double *r83p_zero ( int n );
+//
+//  Real double precision Tridiagonal Scalar.
+//
+double *r83s_mxv ( int n, double a[], double x[] );
+void r83s_print ( int n, double a[], string title );
+void r83s_print_some ( int n, double a[], int ilo, int jlo, int ihi, 
+  int jhi, string title );
+double *r83s_random ( int n, int &seed );
 //
 //  Real double precision Pentagonal.
 //
@@ -337,6 +346,8 @@ double *r8ge_sl_it ( int n, double a[], double alu[], int pivot[], double b[],
   int job, double x[] );
 double *r8ge_sl_new ( int n, double a[], int pivot[], double b[], int job );
 double *r8ge_to_r8gb ( int m, int n, int ml, int mu, double a[] );
+void r8ge_to_r8ri ( int n, double a[], int nz, int ija[], double sa[] );
+int r8ge_to_r8ri_size ( int n, double a[] );
 double *r8ge_to_r8vec ( int m, int n, double *a );
 int r8ge_trf ( int m, int n, double a[], int pivot[] );
 double *r8ge_trs ( int n, int nrhs, char trans, double a[], int pivot[], double b[] );
@@ -361,8 +372,11 @@ double *r8lt_zero ( int m, int n );
 //  R8MAT utilities.
 //
 void r8mat_print ( int m, int n, double a[], string title );
+void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
+  int jhi, string title );
+double *r8mat_uniform_01_new ( int m, int n, int &seed );
 //
-//  Real double precision Nonsymmetric Cooordinate Format.
+//  Real double precision Nonsymmetric Coordinate Format.
 //
 double *r8ncf_indicator ( int m, int n, int nz_num, int rowcol[] );
 void r8ncf_print ( int m, int n, int nz_num, int rowcol[], double a[], 
@@ -429,6 +443,10 @@ double *r8pp_random ( int n, int *seed );
 double *r8pp_sl ( int n, double a[], double b[] );
 double *r8pp_to_r8ge ( int n, double a[] );
 double *r8pp_zero ( int n );
+//
+//  Real double precision Row Indexed.
+//
+double *r8ri_to_r8ge ( int nz, int ija[], double sa[], int n );
 //
 //  Utilities for double precision matrices, considered as arrays of rows.
 //
@@ -574,19 +592,26 @@ double *r8ut_sl ( int n, double a[], double b[], int job );
 double *r8ut_vxm ( int m, int n, double a[], double x[] );
 double *r8ut_zero ( int m, int n );
 //
+//  Real double precision Upper Triangular Packed.
+//
+void r8utp_print ( int n, double a[], string title );
+void r8utp_print_some ( int n, double a[], int ilo, int jlo, int ihi, 
+  int jhi, string title );
+//
 //  R8VEC utilities.
 //
 double r8vec_dot_product ( int n, double x[], double y[] );
 double *r8vec_indicator_new ( int n );
 void r8vec_print ( int n, double a[], string title );
-void r8vec_print_some ( int n, double a[], int max_print, string title );
+void r8vec_print_some ( int n, double a[], int i_lo, int i_hi, string title );
 double *r8vec_random ( int n, double alo, double ahi, int *seed );
 double *r8vec_read ( string input_file, int n );
 int r8vec_read_size ( string input_file );
 double *r8vec_to_r8cb ( int m, int n, int ml, int mu, double *x );
 double *r8vec_to_r8gb ( int m, int n, int ml, int mu, double *x );
 double *r8vec_to_r8ge ( int m, int n, double *x );
-void r8vec_write ( int n, double r[], string output_file );
+double *r8vec_uniform_01_new ( int n, int &seed );
+void r8vec_write ( string output_filename, int n, double x[] );
 //
 //  R8VEC2 Utilities.
 //
@@ -600,8 +625,9 @@ double *r8vm_mxv ( int m, int n, double a[], double x[] );
 void r8vm_print ( int m, int n, double a[], string title );
 void r8vm_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi, 
   int jhi, string title );
-double *r8vm_random ( int m, int n, int *seed );
-double *r8vm_sl ( int n, double a[], double b[], int job, int *info );
+double *r8vm_random ( int m, int n, int &seed );
+void r8vm_sl ( int n, double a[], double b[], int job, double x[], int *info );
+double *r8vm_sl_new ( int n, double a[], double b[], int job, int *info );
 double *r8vm_to_r8ge ( int m, int n, double a[] );
 double *r8vm_vxm ( int m, int n, double a[], double x[] );
 double *r8vm_zero ( int m, int n );

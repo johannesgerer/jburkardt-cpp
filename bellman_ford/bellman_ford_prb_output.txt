@@ -1,0 +1,64 @@
+11 November 2014 10:10:40 PM
+
+BELLMAN_FORD_PRB
+  C++ version
+  Test the BELLMAN_FORD library.
+
+TEST01:
+  Bellman-Ford shortest path algorithm.
+
+  Number of vertices = 6
+  Number of edges = 10
+  The reference vertex is 0
+
+  The edge array:
+
+  Row:      0       1  
+  Col
+
+    0:     1       0  
+    1:     4       1  
+    2:     1       2  
+    3:     2       4  
+    4:     4       0  
+    5:     2       5  
+    6:     5       0  
+    7:     3       2  
+    8:     5       3  
+    9:     3       0  
+
+  The edge weights:
+
+         0:             -3
+         1:              6
+         2:             -4
+         3:             -1
+         4:              4
+         5:             -2
+         6:              2
+         7:              8
+         8:             -3
+         9:              3
+
+  The shortest distances:
+
+         0:              0
+         1:             -6
+         2:             -2
+         3:              3
+         4:              0
+         5:              0
+
+  The vertex predecessor parents for the shortest paths:
+
+         0:       -1
+         1:        2
+         2:        5
+         3:        0
+         4:        1
+         5:        3
+
+BELLMAN_FORD_PRB
+  Normal end of execution.
+
+11 November 2014 10:10:40 PM

@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    FEM_IO_PRB runs the FEM_IO tests.
+//    MAIN is the main program for FEM_IO_PRB.
+//
+//  Discussion:
+//
+//    FEM_IO_PRB tests the FEM_IO library.
 //
 //  Licensing:
 //
@@ -35,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "FEM_IO_PRB:\n";
   cout << "  C++ version\n";
@@ -49,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "FEM_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

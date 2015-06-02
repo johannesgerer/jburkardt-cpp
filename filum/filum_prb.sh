@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include filum_prb.cpp >& compiler.txt
+g++ -c filum_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling filum_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ filum_prb.o /$HOME/libcpp/$ARCH/filum.o -lm
 if [ $? -ne 0 ]; then

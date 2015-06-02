@@ -95,15 +95,15 @@ int isbn_check ( string isbn );
 void isbn_fill ( string isbn );
 int isbn_to_i4 ( char c );
 int iset2_compare ( int x1, int y1, int x2, int y2 );
-int lcm_12n ( int n );
-void lmat_print ( int m, int n, bool a[], string title );
-void lmat_print_some ( int m, int n, bool a[], int ilo, int jlo, int ihi, 
+void l4mat_print ( int m, int n, bool a[], string title );
+void l4mat_print_some ( int m, int n, bool a[], int ilo, int jlo, int ihi, 
   int jhi, string title );
-void lmat_transpose_print ( int m, int n, bool a[], string title );
-void lmat_transpose_print_some ( int m, int n, bool a[], int ilo, int jlo, 
+void l4mat_transpose_print ( int m, int n, bool a[], string title );
+void l4mat_transpose_print_some ( int m, int n, bool a[], int ilo, int jlo, 
   int ihi, int jhi, string title );
+void l4vec_print ( int n, bool a[], string title );
+int lcm_12n ( int n );
 int luhn_check ( int digit_num, int digit[] ) ;
-void lvec_print ( int n, bool a[], string title );
 int pause_input ( );
 void pause_seconds ( int seconds );
 bool perm_check ( int n, int p[], int base );
@@ -116,7 +116,6 @@ double pounds_to_kilograms ( double lb );
 int prime ( int n );
 int prime_ge ( int n );
 int r4_nint ( float x );
-double r8_abs ( double x );
 double r8_huge ( );
 double r8_log_10 ( double x );
 double r8_max ( double x, double y );

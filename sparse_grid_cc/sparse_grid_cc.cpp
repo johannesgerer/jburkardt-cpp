@@ -8,9 +8,7 @@
 
 using namespace std;
 
-# include "sparse_grid_cc.H"
-
-namespace webbur {
+# include "sparse_grid_cc.hpp"
 
 //****************************************************************************80
 
@@ -122,11 +120,11 @@ int *abscissa_level_closed_nd ( int level_max, int dim_num, int test_num,
     return test_level;
   }
 
-  order = webbur::i4_power ( 2, level_max ) + 1;
+  order = i4_power ( 2, level_max ) + 1;
 
   for ( j = 0; j < test_num; j++ )
   {
-    test_level[j] = webbur::index_to_level_closed ( dim_num, test_val+j*dim_num, 
+    test_level[j] = index_to_level_closed ( dim_num, test_val+j*dim_num, 
       order, level_max );
   }
 
@@ -174,20 +172,20 @@ double cc_abscissa ( int order, int i )
 
   if ( order < 1 )
   {
-    cout << "\n";
-    cout << "CC_ABSCISSA - Fatal error!\n";
-    cout << "  Input value of ORDER < 1.\n";
-    cout << "  Input value of ORDER = " << order << "\n";
+    cerr << "\n";
+    cerr << "CC_ABSCISSA - Fatal error!\n";
+    cerr << "  Input value of ORDER < 1.\n";
+    cerr << "  Input value of ORDER = " << order << "\n";
     exit ( 1 );
   }
 
   if ( i < 1 || order < i )
   {
-    cout << "\n";
-    cout << "CC_ABSCISSA - Fatal error!\n";
-    cout << "  1 <= I <= ORDER is required.\n";
-    cout << "  I = " << i << "\n";
-    cout << "  ORDER = " << order << "\n";
+    cerr << "\n";
+    cerr << "CC_ABSCISSA - Fatal error!\n";
+    cerr << "  1 <= I <= ORDER is required.\n";
+    cerr << "  I = " << i << "\n";
+    cerr << "  ORDER = " << order << "\n";
     exit ( 1 );
   }
 
@@ -288,81 +286,6 @@ double *cc_weights ( int n )
   w[n-1] = w[n-1] / ( double ) ( n - 1 );
 
   return w;
-}
-//****************************************************************************80
-
-int choose ( int n, int k )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    CHOOSE computes the binomial coefficient C(N,K).
-//
-//  Discussion:
-//
-//    The value is calculated in such a way as to avoid overflow and
-//    roundoff.  The calculation is done in integer arithmetic.
-//
-//    The formula used is:
-//
-//      C(N,K) = N! / ( K! * (N-K)! )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    09 November 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    ML Wolfson, HV Wright,
-//    Algorithm 160:
-//    Combinatorial of M Things Taken N at a Time,
-//    Communications of the ACM,
-//    Volume 6, Number 4, April 1963, page 161.
-//
-//  Parameters:
-//
-//    Input, int N, K, the values of N and K.
-//
-//    Output, int CHOOSE, the number of combinations of N
-//    things taken K at a time.
-//
-{
-  int i;
-  int mn;
-  int mx;
-  int value;
-
-  mn = i4_min ( k, n - k );
-
-  if ( mn < 0 )
-  {
-    value = 0;
-  }
-  else if ( mn == 0 )
-  {
-    value = 1;
-  }
-  else
-  {
-    mx = webbur::i4_max ( k, n - k );
-    value = mx + 1;
-
-    for ( i = 2; i <= mn; i++ )
-    {
-      value = ( value * ( mx + i ) ) / i;
-    }
-  }
-
-  return value;
 }
 //****************************************************************************80
 
@@ -505,6 +428,81 @@ void comp_next ( int n, int k, int a[], bool *more, int *h, int *t )
   *more = ( a[k-1] != n );
 
   return;
+}
+//****************************************************************************80
+
+int i4_choose ( int n, int k )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_CHOOSE computes the binomial coefficient C(N,K).
+//
+//  Discussion:
+//
+//    The value is calculated in such a way as to avoid overflow and
+//    roundoff.  The calculation is done in integer arithmetic.
+//
+//    The formula used is:
+//
+//      C(N,K) = N! / ( K! * (N-K)! )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 November 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    ML Wolfson, HV Wright,
+//    Algorithm 160:
+//    Combinatorial of M Things Taken N at a Time,
+//    Communications of the ACM,
+//    Volume 6, Number 4, April 1963, page 161.
+//
+//  Parameters:
+//
+//    Input, int N, K, the values of N and K.
+//
+//    Output, int I4_CHOOSE, the number of combinations of N
+//    things taken K at a time.
+//
+{
+  int i;
+  int mn;
+  int mx;
+  int value;
+
+  mn = i4_min ( k, n - k );
+
+  if ( mn < 0 )
+  {
+    value = 0;
+  }
+  else if ( mn == 0 )
+  {
+    value = 1;
+  }
+  else
+  {
+    mx = i4_max ( k, n - k );
+    value = mx + 1;
+
+    for ( i = 2; i <= mn; i++ )
+    {
+      value = ( value * ( mx + i ) ) / i;
+    }
+  }
+
+  return value;
 }
 //****************************************************************************80
 
@@ -652,9 +650,9 @@ int i4_modp ( int i, int j )
 
   if ( j == 0 )
   {
-    cout << "\n";
-    cout << "I4_MODP - Fatal error!\n";
-    cout << "  I4_MODP ( I, J ) called with J = " << j << "\n";
+    cerr << "\n";
+    cerr << "I4_MODP - Fatal error!\n";
+    cerr << "  I4_MODP ( I, J ) called with J = " << j << "\n";
     exit ( 1 );
   }
 
@@ -663,6 +661,52 @@ int i4_modp ( int i, int j )
   if ( value < 0 )
   {
     value = value + abs ( j );
+  }
+
+  return value;
+}
+//****************************************************************************80
+
+int i4_mop ( int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_MOP returns the I-th power of -1 as an I4 value.
+//
+//  Discussion:
+//
+//    An I4 is an int value.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 November 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I, the power of -1.
+//
+//    Output, int I4_MOP, the I-th power of -1.
+//
+{
+  int value;
+
+  if ( ( i % 2 ) == 0 )
+  {
+    value = 1;
+  }
+  else
+  {
+    value = -1;
   }
 
   return value;
@@ -707,9 +751,9 @@ int i4_power ( int i, int j )
     }
     else if ( i == 0 )
     {
-      cout << "\n";
-      cout << "I4_POWER - Fatal error!\n";
-      cout << "  I^J requested, with I = 0 and J negative.\n";
+      cerr << "\n";
+      cerr << "I4_POWER - Fatal error!\n";
+      cerr << "  I^J requested, with I = 0 and J negative.\n";
       exit ( 1 );
     }
     else
@@ -721,9 +765,9 @@ int i4_power ( int i, int j )
   {
     if ( i == 0 )
     {
-      cout << "\n";
-      cout << "I4_POWER - Fatal error!\n";
-      cout << "  I^J requested, with I = 0 and J = 0.\n";
+      cerr << "\n";
+      cerr << "I4_POWER - Fatal error!\n";
+      cerr << "  I^J requested, with I = 0 and J = 0.\n";
       exit ( 1 );
     }
     else
@@ -890,7 +934,7 @@ int index_to_level_closed ( int dim_num, int t[], int order, int level_max )
   {
     s = t[dim];
 
-    s = webbur::i4_modp ( s, order );
+    s = i4_modp ( s, order );
 
     if ( s == 0 )
     {
@@ -1016,7 +1060,7 @@ void level_to_order_closed ( int dim_num, int level[], int order[] )
     }
     else
     {
-      order[dim] = webbur::i4_power ( 2, level[dim] ) + 1 ;
+      order[dim] = i4_power ( 2, level[dim] ) + 1 ;
     }
   }
   return;
@@ -1121,11 +1165,11 @@ double monomial_quadrature ( int dim_num, int expon[], int point_num,
 //
 //  Get the exact value of the integral of the unscaled monomial.
 //
-  scale = webbur::monomial_int01 ( dim_num, expon );
+  scale = monomial_int01 ( dim_num, expon );
 //
 //  Evaluate the monomial at the quadrature points.
 //
-  value = webbur::monomial_value ( dim_num, point_num, x, expon );
+  value = monomial_value ( dim_num, point_num, x, expon );
 //
 //  Compute the weighted sum and divide by the exact value.
 //
@@ -1277,7 +1321,7 @@ int *multigrid_index0 ( int dim_num, int order_1d[], int order_nd )
 
   for ( ; ; )
   {
-    webbur::vec_colex_next2 ( dim_num, order_1d, a, &more );
+    vec_colex_next2 ( dim_num, order_1d, a, &more );
 
     if ( !more )
     {
@@ -1365,7 +1409,7 @@ void multigrid_scale_closed ( int dim_num, int order_nd, int level_max,
       }
       else
       {
-        order_max = webbur::i4_power ( 2, level_max ) + 1;
+        order_max = i4_power ( 2, level_max ) + 1;
       }
       for ( order = 0; order < order_nd; order++ )
       {
@@ -1374,7 +1418,7 @@ void multigrid_scale_closed ( int dim_num, int order_nd, int level_max,
     }
     else
     {
-      factor = webbur::i4_power ( 2, level_max - level_1d[dim] );
+      factor = i4_power ( 2, level_max - level_1d[dim] );
       for ( order = 0; order < order_nd; order++ )
       {
         grid_index[dim+order*dim_num] = grid_index[dim+order*dim_num] * factor;
@@ -1437,9 +1481,9 @@ double *product_weights_cc ( int dim_num, int order_1d[], int order_nd )
 
   for ( dim = 0; dim < dim_num; dim++ )
   {
-    w_1d = webbur::cc_weights ( order_1d[dim] );
+    w_1d = cc_weights ( order_1d[dim] );
 
-    webbur::r8vec_direct_product2 ( dim, order_1d[dim], w_1d, dim_num, 
+    r8vec_direct_product2 ( dim, order_1d[dim], w_1d, dim_num, 
       order_nd, w_nd );
 
     delete [] w_1d; 
@@ -1459,19 +1503,19 @@ double r8_epsilon ( )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    09 November 2007
+//    01 September 2012
 //
 //  Author:
 //
@@ -1482,16 +1526,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }
@@ -1541,7 +1576,7 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
     cerr << "\n";
     cerr << "R8MAT_WRITE - Fatal error!\n";
     cerr << "  Could not open the output file.\n";
-    return;
+    exit ( 1 );
   }
 //
 //  Write the data.
@@ -1792,7 +1827,7 @@ void sparse_grid_cc ( int dim_num, int level_max, int point_num,
 //  Determine the index vector, relative to the full product grid,
 //  that identifies the points in the sparse grid.
 //
-  grid_index = webbur::sparse_grid_cc_index ( dim_num, level_max, point_num );
+  grid_index = sparse_grid_cc_index ( dim_num, level_max, point_num );
 //
 //  Compute the physical coordinates of the abscissas.
 //
@@ -1810,13 +1845,13 @@ void sparse_grid_cc ( int dim_num, int level_max, int point_num,
     for ( dim = 0; dim < dim_num; dim++ )
     {
       grid_point[dim+point*dim_num] = 
-        webbur::cc_abscissa ( order_max, grid_index[dim+point*dim_num] + 1 );
+        cc_abscissa ( order_max, grid_index[dim+point*dim_num] + 1 );
     }
   }
 //
 //  Gather the weights.
 //
-  webbur::sparse_grid_cc_weights ( dim_num, level_max, point_num, grid_index, 
+  sparse_grid_cc_weights ( dim_num, level_max, point_num, grid_index, 
     grid_weight );
 
   delete [] grid_index;
@@ -1922,28 +1957,28 @@ int *sparse_grid_cc_index ( int dim_num, int level_max, int point_num )
 
     for ( ; ; )
     {
-      webbur::comp_next ( level, dim_num, level_1d, &more, &h, &t );
+      comp_next ( level, dim_num, level_1d, &more, &h, &t );
 //
 //  Transform each 1D level to a corresponding 1D order.
 //
-      webbur::level_to_order_closed ( dim_num, level_1d, order_1d );
+      level_to_order_closed ( dim_num, level_1d, order_1d );
 //
 //  The product of the 1D orders gives us the number of points in this grid.
 //
-      order_nd = webbur::i4vec_product ( dim_num, order_1d );
+      order_nd = i4vec_product ( dim_num, order_1d );
 //
 //  The inner (hidden) loop generates all points corresponding to given grid.
 //
-      grid_index2 = webbur::multigrid_index0 ( dim_num, order_1d, order_nd );
+      grid_index2 = multigrid_index0 ( dim_num, order_1d, order_nd );
 //
 //  Adjust these grid indices to reflect LEVEL_MAX.
 //
-      webbur::multigrid_scale_closed ( dim_num, order_nd, level_max, level_1d, 
+      multigrid_scale_closed ( dim_num, order_nd, level_max, level_1d, 
         grid_index2 );
 //
 //  Determine the first level of appearance of each of the points.
 //
-      grid_level = webbur::abscissa_level_closed_nd ( level_max, dim_num, order_nd, 
+      grid_level = abscissa_level_closed_nd ( level_max, dim_num, order_nd, 
         grid_index2 );
 //
 //  Only keep those points which first appear on this level.
@@ -1974,136 +2009,6 @@ int *sparse_grid_cc_index ( int dim_num, int level_max, int point_num )
   delete [] order_1d;
 
   return grid_index;
-}
-//****************************************************************************80
-
-int sparse_grid_cfn_size ( int dim_num, int level_max )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    SPARSE_GRID_CFN_SIZE sizes a sparse grid using Closed Fully Nested rules.
-//
-//  Discussion:
-//
-//    The grid is defined as the sum of the product rules whose LEVEL
-//    satisfies:
-//
-//      0 <= LEVEL <= LEVEL_MAX.
-//
-//    This calculation is much faster than a previous method.  It simply
-//    computes the number of new points that are added at each level in the
-//    1D rule, and then counts the new points at a given DIM_NUM dimensional
-//    level vector as the product of the new points added in each dimension.
-//
-//    This approach will work for nested families, and may be extensible
-//    to other families, and to mixed rules.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    22 December 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Fabio Nobile, Raul Tempone, Clayton Webster,
-//    A Sparse Grid Stochastic Collocation Method for Partial Differential
-//    Equations with Random Input Data,
-//    SIAM Journal on Numerical Analysis,
-//    Volume 46, Number 5, 2008, pages 2309-2345.
-//
-//  Parameters:
-//
-//    Input, int DIM_NUM, the spatial dimension.
-//
-//    Input, int LEVEL_MAX, the maximum value of LEVEL.
-//
-//    Output, int SPARSE_GRID_CFN_SIZE, the number of points in the grid.
-//
-{
-  int dim;
-  int h;
-  int j;
-  int l;
-  int level;
-  int *level_1d;
-  bool more;
-  int *new_1d;
-  int point_num;
-  int t;
-  int v;
-//
-//  Special case.
-//
-  if ( level_max < 0 )
-  {
-    point_num = 0;
-    return point_num;
-  }
-
-  if ( level_max == 0 )
-  {
-    point_num = 1;
-    return point_num;
-  }
-//
-//  Construct the vector that counts the new points in the 1D rule.
-//
-  new_1d = new int[level_max+1];
-
-  new_1d[0] = 1;
-  new_1d[1] = 2;
-
-  j = 1;
-  for ( l = 2; l <= level_max; l++ )
-  {
-    j = j * 2;
-    new_1d[l] = j;
-  }
-//
-//  Count the number of points by counting the number of new points 
-//  associated with each level vector.
-//
-  level_1d = new int[dim_num];
-
-  point_num = 0;
-
-  for ( level = 0; level <= level_max; level++ )
-  {
-    more = false;
-    h = 0;
-    t = 0;
-
-    for ( ; ;)
-    {
-      comp_next ( level, dim_num, level_1d, &more, &h, &t );
-
-      v = 1;
-      for ( dim = 0; dim < dim_num; dim++ )
-      {
-        v = v * new_1d[level_1d[dim]];
-      }
-
-      point_num = point_num + v;
-
-      if ( !more )
-      {
-        break;
-      }
-    }
-  }
-  delete [] level_1d;
-  delete [] new_1d;
-
-  return point_num;
 }
 //****************************************************************************80
 
@@ -2199,28 +2104,28 @@ int sparse_grid_cc_size_old ( int dim_num, int level_max )
 
     for ( ; ; )
     {
-      webbur::comp_next ( level, dim_num, level_1d, &more, &h, &t );
+      comp_next ( level, dim_num, level_1d, &more, &h, &t );
 //
 //  Transform each 1D level to a corresponding 1D order.
 //
-      webbur::level_to_order_closed ( dim_num, level_1d, order_1d );
+      level_to_order_closed ( dim_num, level_1d, order_1d );
 //
 //  The product of the 1D orders gives us the number of points in this grid.
 //
-      order_nd = webbur::i4vec_product ( dim_num, order_1d );
+      order_nd = i4vec_product ( dim_num, order_1d );
 //
 //  The inner (hidden) loop generates all points corresponding to given grid.
 //
-      grid_index = webbur::multigrid_index0 ( dim_num, order_1d, order_nd );
+      grid_index = multigrid_index0 ( dim_num, order_1d, order_nd );
 //
 //  Adjust these grid indices to reflect LEVEL_MAX.
 //
-      webbur::multigrid_scale_closed ( dim_num, order_nd, level_max, level_1d, 
+      multigrid_scale_closed ( dim_num, order_nd, level_max, level_1d, 
         grid_index );
 //
 //  Determine the first level of appearance of each of the points.
 //
-      grid_level = webbur::abscissa_level_closed_nd ( level_max, dim_num, order_nd, 
+      grid_level = abscissa_level_closed_nd ( level_max, dim_num, order_nd, 
         grid_index );
 //
 //  Only keep those points which first appear on this level.
@@ -2265,7 +2170,7 @@ void sparse_grid_cc_weights ( int dim_num, int level_max, int point_num,
 //
 //  Modified:
 //
-//    09 November 2007
+//    12 March 2013
 //
 //  Author:
 //
@@ -2299,6 +2204,7 @@ void sparse_grid_cc_weights ( int dim_num, int level_max, int point_num,
   bool all_equal;
   int coeff;
   int dim;
+  bool found;
   int *grid_index2;
   double *grid_weight2;
   int h;
@@ -2329,7 +2235,7 @@ void sparse_grid_cc_weights ( int dim_num, int level_max, int point_num,
     grid_weight[point] = 0.0;
   }
 
-  level_min = webbur::i4_max ( 0, level_max + 1 - dim_num );
+  level_min = i4_max ( 0, level_max + 1 - dim_num );
 
   for ( level = level_min; level <= level_max; level++ )
   {
@@ -2343,36 +2249,38 @@ void sparse_grid_cc_weights ( int dim_num, int level_max, int point_num,
 
     for ( ; ; )
     {
-      webbur::comp_next ( level, dim_num, level_1d, &more, &h, &t );
+      comp_next ( level, dim_num, level_1d, &more, &h, &t );
 //
 //  Transform each 1D level to a corresponding 1D order.
 //
-      webbur::level_to_order_closed ( dim_num, level_1d, order_1d );
+      level_to_order_closed ( dim_num, level_1d, order_1d );
 //
 //  The product of the 1D orders gives us the number of points in this grid.
 //
-      order_nd = webbur::i4vec_product ( dim_num, order_1d );
+      order_nd = i4vec_product ( dim_num, order_1d );
 //
 //  Generate the indices of the points corresponding to the grid.
 //
-      grid_index2 = webbur::multigrid_index0 ( dim_num, order_1d, order_nd );
+      grid_index2 = multigrid_index0 ( dim_num, order_1d, order_nd );
 //
 //  Compute the weights for this grid.
 //
-      grid_weight2 = webbur::product_weights_cc ( dim_num, order_1d, order_nd );
+      grid_weight2 = product_weights_cc ( dim_num, order_1d, order_nd );
 //
 //  Adjust the grid indices to reflect LEVEL_MAX.
 //
-      webbur::multigrid_scale_closed ( dim_num, order_nd, level_max, level_1d, 
+      multigrid_scale_closed ( dim_num, order_nd, level_max, level_1d, 
         grid_index2 );
 //
 //  Now determine the coefficient.
 //
-      coeff = webbur::i4_power ( -1, level_max - level ) 
-        * webbur::choose ( dim_num - 1, level_max - level );
+      coeff = i4_mop ( level_max - level ) 
+        * i4_choose ( dim_num - 1, level_max - level );
 
       for ( point2 = 0; point2 < order_nd; point2++ )
       {
+        found = false;
+
         for ( point = 0; point < point_num; point++ )
         {
           all_equal = true;
@@ -2389,8 +2297,16 @@ void sparse_grid_cc_weights ( int dim_num, int level_max, int point_num,
           {
             grid_weight[point] = grid_weight[point] 
               + ( double ) ( coeff ) * grid_weight2[point2];
+            found = true;
             break;
           }
+        }
+        if ( !found )
+        {
+          cerr << "\n";
+          cerr << "SPARSE_GRID_CC_WEIGHTS - Fatal error!\n";
+          cerr << "  Could not find a match for a point.\n";
+          exit ( 1 );
         }
       }
 
@@ -2511,6 +2427,136 @@ int sparse_grid_ccs_size ( int dim_num, int level_max )
     {
       new_1d[l] = 0;
     }
+  }
+//
+//  Count the number of points by counting the number of new points 
+//  associated with each level vector.
+//
+  level_1d = new int[dim_num];
+
+  point_num = 0;
+
+  for ( level = 0; level <= level_max; level++ )
+  {
+    more = false;
+    h = 0;
+    t = 0;
+
+    for ( ; ;)
+    {
+      comp_next ( level, dim_num, level_1d, &more, &h, &t );
+
+      v = 1;
+      for ( dim = 0; dim < dim_num; dim++ )
+      {
+        v = v * new_1d[level_1d[dim]];
+      }
+
+      point_num = point_num + v;
+
+      if ( !more )
+      {
+        break;
+      }
+    }
+  }
+  delete [] level_1d;
+  delete [] new_1d;
+
+  return point_num;
+}
+//****************************************************************************80
+
+int sparse_grid_cfn_size ( int dim_num, int level_max )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    SPARSE_GRID_CFN_SIZE sizes a sparse grid using Closed Fully Nested rules.
+//
+//  Discussion:
+//
+//    The grid is defined as the sum of the product rules whose LEVEL
+//    satisfies:
+//
+//      0 <= LEVEL <= LEVEL_MAX.
+//
+//    This calculation is much faster than a previous method.  It simply
+//    computes the number of new points that are added at each level in the
+//    1D rule, and then counts the new points at a given DIM_NUM dimensional
+//    level vector as the product of the new points added in each dimension.
+//
+//    This approach will work for nested families, and may be extensible
+//    to other families, and to mixed rules.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    22 December 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Fabio Nobile, Raul Tempone, Clayton Webster,
+//    A Sparse Grid Stochastic Collocation Method for Partial Differential
+//    Equations with Random Input Data,
+//    SIAM Journal on Numerical Analysis,
+//    Volume 46, Number 5, 2008, pages 2309-2345.
+//
+//  Parameters:
+//
+//    Input, int DIM_NUM, the spatial dimension.
+//
+//    Input, int LEVEL_MAX, the maximum value of LEVEL.
+//
+//    Output, int SPARSE_GRID_CFN_SIZE, the number of points in the grid.
+//
+{
+  int dim;
+  int h;
+  int j;
+  int l;
+  int level;
+  int *level_1d;
+  bool more;
+  int *new_1d;
+  int point_num;
+  int t;
+  int v;
+//
+//  Special case.
+//
+  if ( level_max < 0 )
+  {
+    point_num = 0;
+    return point_num;
+  }
+
+  if ( level_max == 0 )
+  {
+    point_num = 1;
+    return point_num;
+  }
+//
+//  Construct the vector that counts the new points in the 1D rule.
+//
+  new_1d = new int[level_max+1];
+
+  new_1d[0] = 1;
+  new_1d[1] = 2;
+
+  j = 1;
+  for ( l = 2; l <= level_max; l++ )
+  {
+    j = j * 2;
+    new_1d[l] = j;
   }
 //
 //  Count the number of points by counting the number of new points 
@@ -2695,7 +2741,4 @@ void vec_colex_next2 ( int dim_num, int base[], int a[], bool *more )
 
   return;
 }
-//
-//  Close the WEBBUR namespace.
-//
-}
+

@@ -41,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "CONDITION_PRB\n";
   cout << "  C++ version\n";
@@ -57,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "CONDITION_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA226_PRB calls the ASA226 routines.
+//    ASA226_PRB tests the ASA226 library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA226_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "ASA226_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -119,7 +117,7 @@ void test01 ( )
          << "  " << setprecision(4) << setw(10) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;

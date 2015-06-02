@@ -1,0 +1,386 @@
+<html>
+
+  <head>
+    <title>
+      TRIANGLE_NCO_RULE - Newton-Cotes Open Quadrature Rules for the Triangle
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TRIANGLE_NCO_RULE <br> Newton-Cotes Open Quadrature Rules for the Triangle
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRIANGLE_NCO_RULE</b>
+      is a C++ library which
+      defines the weights and abscisass for Newton-Cotes open quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      Newton-Cotes rules have the characteristic that the abscissas
+      are equally spaced.  For a triangle, this refers to spacing
+      in the unit reference triangle, or in the barycentric coordinate
+      system.  These rules may be mapped to an arbitrary triangle,
+      and will still be valid.
+    </p>
+
+    <p>
+      The rules are said to be "open" when they do not include points on
+      the boundary of the triangle.
+    </p>
+
+    <p>
+      The use of equally spaced abscissas may be important for your
+      application.  That may how your data was collected, for instance.
+      On the other hand, the use of equally spaced abscissas carries
+      a few costs.  In particular, for a given degree of polynomial
+      accuracy, there will be rules that achieve this accuracy, but
+      use fewer abscissas than Newton-Cotes.  Moreover, the Newton-Cotes
+      approach almost always results in negative weights for some
+      abscissas.  This is generally an undesirable feature, particularly
+      when higher order quadrature rules are being used.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TRIANGLE_NCO_RULE</b> is available in
+      <a href = "../../c_src/triangle_nco_rule/triangle_nco_rule.html">a C version</a> and
+      <a href = "../../cpp_src/triangle_nco_rule/triangle_nco_rule.html">a C++ version</a> and
+      <a href = "../../f_src/triangle_nco_rule/triangle_nco_rule.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/triangle_nco_rule/triangle_nco_rule.html">a MATLAB version</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cube_felippa_rule/cube_felippa_rule.html">
+      CUBE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a cube in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/line_nco_rule/line_nco_rule.html">
+      LINE_NCO_RULE</a>,
+      a C++ library which
+      computes a Newton Cotes Open (NCO) quadrature rule,
+      using equally spaced points,
+      over the interior of a line segment in 1D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pyramid_felippa_rule/pyramid_felippa_rule.html">
+      PYRAMID_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a pyramid in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/simplex_gm_rule/simplex_gm_rule.html">
+      SIMPLEX_GM_RULE</a>,
+      a C++ library which
+      defines Grundmann-Moeller quadrature rules 
+      over the interior of a triangle in 2D, a tetrahedron in 3D, or
+      over the interior of the simplex in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/square_felippa_rule/square_felippa_rule.html">
+      SQUARE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a square in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/stroud/stroud.html">
+      STROUD</a>,
+      a C++ library which
+      defines quadrature
+      rules for a variety of unusual areas, surfaces and volumes in 2D,
+      3D and N-dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_felippa_rule/tetrahedron_felippa_rule.html">
+      TETRAHEDRON_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_nco_rule/tetrahedron_nco_rule.html">
+      TETRAHEDRON_NCO_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes open (NCO) quadrature rules
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_dunavant_rule/triangle_dunavant_rule.html">
+      TRIANGLE_DUNAVANT_RULE</a>,
+      a C++ library which 
+      sets up a Dunavant quadrature rule 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_exactness/triangle_exactness.html">
+      TRIANGLE_EXACTNESS</a>,
+      a C++ program which
+      investigates the polynomial exactness of a quadrature rule 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_fekete_rule/triangle_fekete_rule.html">
+      TRIANGLE_FEKETE_RULE</a>,
+      a C++ library which
+      defines Fekete rules for interpolation or quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_felippa_rule/triangle_felippa_rule.html">
+      TRIANGLE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_lyness_rule/triangle_lyness_rule.html">
+      TRIANGLE_LYNESS_RULE</a>,
+      a C++ library which
+      returns Lyness-Jespersen quadrature rules 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_monte_carlo/triangle_monte_carlo.html">
+      TRIANGLE_MONTE_CARLO</a>,
+      a C++ program which
+      uses the Monte Carlo method to estimate integrals 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_ncc_rule/triangle_ncc_rule.html">
+      TRIANGLE_NCC_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes closed (NCC) quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_symq_rule/triangle_symq_rule.html">
+      TRIANGLE_SYMQ_RULE</a>,
+      a C++ library which
+      returns efficient symmetric quadrature rules, 
+      with exactness up to total degree 50,
+      over the interior of an arbitrary triangle in 2D,
+      by Hong Xiao and Zydrunas Gimbutas.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_wandzura_rule/triangle_wandzura_rule.html">
+      TRIANGLE_WANDZURA_RULE</a>, 
+      a C++ library which 
+      sets up a quadrature rule of exactness 5, 10, 15, 20, 25 or 30
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wedge_felippa_rule/wedge_felippa_rule.html">
+      WEDGE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns quadratures rules for approximating integrals
+      over the interior of the unit wedge in 3D.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Peter Silvester,<br>
+          Symmetric Quadrature Formulae for Simplexes,<br>
+          Mathematics of Computation,<br>
+          Volume 24, Number 109, January 1970, pages 95-100.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangle_nco_rule.cpp">triangle_nco_rule.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "triangle_nco_rule.hpp">triangle_nco_rule.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "triangle_nco_rule.sh">triangle_nco_rule.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangle_nco_rule_prb.cpp">triangle_nco_rule_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "triangle_nco_rule_prb.sh">triangle_nco_rule_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "triangle_nco_rule_prb_output.txt">triangle_nco_rule_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>FILE_NAME_INC</b> increments a partially numeric file name.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of I4 division.
+        </li>
+        <li>
+          <b>I4_WRAP</b> forces an I4 to lie between given limits by wrapping.
+        </li>
+        <li>
+          <b>R8_HUGE</b> returns a "huge" R8.
+        </li>
+        <li>
+          <b>R8_NINT</b> returns the nearest integer to an R8.
+        </li>
+        <li>
+          <b>REFERENCE_TO_PHYSICAL_T3</b> maps T3 reference points to physical points.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRIANGLE_AREA</b> computes the area of a triangle.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_DEGREE</b> returns the degree of an NCO rule for the triangle.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_ORDER_NUM</b> returns the order of an NCO rule for the triangle.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_RULE</b> returns the points and weights of an NCO rule.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_RULE_NUM</b> returns the number of NCO rules available.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBORDER</b> returns the suborders for an NCO rule.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBORDER_NUM</b> returns the number of suborders for an NCO rule.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE</b> returns a compressed NCO rule.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_01</b> returns a compressed NCO rule 1.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_02</b> returns a compressed NCO rule 2.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_03</b> returns a compressed NCO rule 3.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_04</b> returns a compressed NCO rule 4.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_05</b> returns a compressed NCO rule 5.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_06</b> returns a compressed NCO rule 6.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_07</b> returns a compressed NCO rule 7.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_08</b> returns a compressed NCO rule 8.
+        </li>
+        <li>
+          <b>TRIANGLE_NCO_SUBRULE_09</b> returns a compressed NCO rule 9.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 14 June 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -1,0 +1,265 @@
+<html>
+
+  <head>
+    <title>
+      SOLVE - Linear Solver for Double Dimensioned Arrays
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SOLVE <br> Linear Solver for Double Dimensioned Arrays
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SOLVE</b>
+      is a C++ library which
+      implements a linear solver which makes it easy to create 
+      doubly-dimensioned arrays and solve associated linear systems.
+    </p>
+
+    <p>
+      The purpose of the library is to allow the user to declare a square
+      matrix A of any size, access matrix entries using the usual double
+      indexing formula <b>A[i][j]=value;</b>, and call a linear solver
+      to solve A*x=b using a call like:
+      <pre>
+        x = solve ( n, A, b );
+      </pre>
+    </p>
+
+    <p>
+      In C and C++, it can be awkward to set up matrices in a way that makes it
+      easy to access them with the usual two index form, and to pass these
+      matrices back and forth to other functions.  This is because, when 
+      using the simplest interface to another function, it is necessary
+      that the second dimension, that is, the number of columns, be declared
+      as a fixed integer, not a variable.  Such an interface is impossible
+      to use with a general purpose linear solver.
+    </p>
+
+    <p>
+      These problems can be overcome by using a data structure known as
+      a pointer to a pointer.  However, creating and deleting such objects
+      can be unfamiliar to the average user.  This library hides the details
+      behind an object called an R8RMAT, that is, a double precision real (R8)
+      row-major (R) matrix (MAT).  A set of functions, with the "r8rmat_"
+      label, are provided to make it easy to create and delete such objects,
+      and more importantly, to solve an associated linear system.
+    </p>
+
+    <p>
+      The SOLVE library makes it possible to set up and solve linear systems
+      in a natural way, as long as the user does the following:
+      <ul>
+        <li>
+          declare the matrix as a "double **" quantity;
+        </li>
+        <li>
+          call <b>r8rmat_new()</b> or <b>r8rmat_zero()</b> to create,
+          or create and zero out, the matrix.
+        </li>
+        <li>
+          call <b>r8rmat_fs_new()</b> to solve the linear system.
+        </li>
+        <li>
+          call <b>r8rmat_delete()</b> to free the matrix memory when
+          no longer needed.
+        </li>
+      </ul> 
+    </p>
+
+    <p>
+      The library can also be useful because:
+      <ul>
+        <li>
+          it shows the steps involved in a simple Gauss-elimination procedure;
+        </li>
+        <li>
+          it can be used to count the number of operations in Gauss-elimination;
+        </li>
+        <li>
+          it can be used as a guide for writing a corresponding program
+          in another language;
+        </li>
+        <li>
+          its performance can be compared to corresponding versions in 
+          Fortran or Matlab;
+        </li>
+        <li>
+          it can be used as a starting point for exploring band storage,
+          sparse storage, iterative solutions and other topics in linear 
+          algebra.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SOLVE</b> is available in
+      <a href = "../../c_src/solve/solve.html">a C version</a> and
+      <a href = "../../cpp_src/solve/solve.html">a C++ version</a> and
+      <a href = "../../f77_src/solve/solve.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/solve/solve.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/solve/solve.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/allocatable_array/allocatable_array.html">
+      ALLOCATABLE_ARRAY</a>,
+      a C++ program which
+      demonstrates how a C++ function can declare a pointer to an array,
+      call a function, which can then allocate it and fill it with data,
+      and then return the allocated and initialized array to the 
+      calling function through the argument list.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cpp_arrays/cpp_arrays.html">
+      CPP_ARRAYS</a>,
+      C++ programs which
+      illustrate the use of vectors, matrices and tensors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linpack/linpack.html">
+      LINPACK</a>,
+      a C++ library which
+      solves linear systems for a variety of matrix storage schemes,
+      real or complex arithmetic, and single or double precision.
+      It includes a routine for computing the singular value decomposition (SVD)
+      of a rectangular matrix.
+      The original version of this library is 
+      by Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linplus/linplus.html">
+      LINPLUS</a>,
+      a C++ library which
+      carries out operations such as matrix-vector products, 
+      matrix factorization, direct and iterative linear solvers 
+      for matrices in a variety of formats, including banded, border-banded, 
+      circulant, lower triangular, pentadiagonal, sparse, symmetric,
+      toeplitz, tridiagonal, upper triangular and vandermonde formats.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/r8lib/r8lib.html">
+      R8LIB</a>,
+      a C++ library which
+      contains many utility routines 
+      using double precision real (R8) arithmetic.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "solve.cpp">solve.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "solve.hpp">solve.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "solve.sh">solve.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "solve_prb.cpp">solve_prb.cpp</a>
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "solve_prb.sh">solve_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "solve_prb_output.txt">solve_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>R8RMAT_COPY_NEW</b> makes a new copy of an R8RMAT .
+        </li>
+        <li>
+          <b>R8RMAT_DELETE</b> frees the memory set aside by R8RMAT_NEW.
+        </li>
+        <li>
+          <b>R8RMAT_FS_NEW</b> factors and solves an R8RMAT system with one right hand side.
+        </li>
+        <li>
+          <b>R8RMAT_NEW</b> sets up an R8RMAT of the desired dimensions.
+        </li>
+        <li>
+          <b>R8RMAT_ZERO</b> sets up and zeros an R8RMAT of the desired dimensions.
+        </li>
+        <li>
+          <b>R8VEC_COPY_NEW</b> copies an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 May 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

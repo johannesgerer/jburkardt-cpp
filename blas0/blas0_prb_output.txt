@@ -1,0 +1,58 @@
+25 March 2014 11:17:40 AM
+
+BLAS0_PRB
+  C++ version
+  Test the BLAS0 library.
+
+TEST01
+  R4_ABS returns the absolute value of an R4.
+
+    -1.25265     1.25265
+     4.65054     4.65054
+     3.63607     3.63607
+     1.49356     1.49356
+    0.322457    0.322457
+    -2.47105     2.47105
+   -0.939378    0.939378
+    -2.12035     2.12035
+    -2.64937     2.64937
+     2.07173     2.07173
+
+TEST015
+  R4_SIGN returns the sign of a number.
+
+     -1.25        -1
+     -0.25        -1
+         0         1
+       0.5         1
+         9         1
+
+TEST02
+  R8_ABS returns the absolute value of an R8.
+
+      X         R8_ABS(X)
+
+    -1.25265     1.25265
+     4.65054     4.65054
+     3.63607     3.63607
+     1.49356     1.49356
+    0.322457    0.322457
+    -2.47105     2.47105
+   -0.939378    0.939378
+    -2.12035     2.12035
+    -2.64937     2.64937
+     2.07173     2.07173
+
+TEST03
+  R8_SIGN returns the sign of a number.
+
+     -1.25        -1
+     -0.25        -1
+         0         1
+       0.5         1
+         9         1
+
+BLAS0_PRB
+  Normal end of execution.
+
+25 March 2014 11:17:40 AM

@@ -1,10 +1,26 @@
-19 October 2012 08:51:39 AM
+29 December 2014 09:31:29 AM
 
 UNIFORM_PRB
   C++ version:
   Test the UNIFORM library.
 
-TEST01
+BVEC_UNIFORM_NEW_TEST
+  BVEC_UNIFORM_NEW computes a binary vector.
+
+  The initial seed is 123456789
+
+  1000111110
+  1110010111
+  0011101101
+  0001001011
+  0101101100
+  1010010001
+  0010111011
+  1111110001
+  0010000111
+  0011000101
+
+C4_UNIFORM_01_TEST
   C4_UNIFORM_01 computes pseudorandom complex values
   uniformly distributed in the unit circle.
 
@@ -21,24 +37,43 @@ TEST01
        9     -0.560465      0.763795
       10      0.306357     0.0262752
 
-TEST02
+C4MAT_UNIFORM_01_NEW_TEST
+  C4MAT_UNIFORM_01_NEW computes pseudorandom complex values
+  uniformly distributed in the unit circle.
+
+  The initial seed is 123456789
+
+  Uniform C4MAT:
+
+  Col:               1                   2     
+  Row
+  ---
+    1:   0.44986  -0.126667  -0.236066  0.0774594
+    2:  -0.843197  -0.34428  0.0185991  -0.633214
+    3:  0.589627   0.26009   0.89285  0.0103136
+    4:   0.39114    0.3234  -0.560465  0.763795
+    5:  -0.139466  -0.156136  0.306357  0.0262752
+
+C4VEC_UNIFORM_01_NEW_TEST
   C4VEC_UNIFORM_01_NEW computes pseudorandom complex values
   uniformly distributed in the unit circle.
 
   The initial seed is 123456789
 
-       0       0.44986     -0.126667
-       1     -0.843197      -0.34428
-       2      0.589627       0.26009
-       3       0.39114        0.3234
-       4     -0.139466     -0.156136
-       5     -0.236066     0.0774594
-       6     0.0185991     -0.633214
-       7       0.89285     0.0103136
-       8     -0.560465      0.763795
-       9      0.306357     0.0262752
+  Uniform C4VEC:
 
-TEST93
+         0: 0.44986  -0.126667
+         1: -0.843197  -0.34428
+         2: 0.589627  0.26009
+         3: 0.39114  0.3234
+         4: -0.139466  -0.156136
+         5: -0.236066  0.0774594
+         6: 0.0185991  -0.633214
+         7: 0.89285  0.0103136
+         8: -0.560465  0.763795
+         9: 0.306357  0.0262752
+
+C8_UNIFORM_01_TEST
   C8_UNIFORM_01 computes pseudorandom C8 values
   uniformly distributed in the unit circle.
 
@@ -55,24 +90,43 @@ TEST93
        9     -0.560465      0.763795
       10      0.306357     0.0262752
 
-TEST04
+C8MAT_UNIFORM_01_NEW_TEST
+  C8MAT_UNIFORM_01_NEW computes pseudorandom complex values
+  uniformly distributed in the unit circle.
+
+  The initial seed is 123456789
+
+  Uniform C8MAT:
+
+  Col:               1                   2     
+  Row
+  ---
+    1:   0.44986  -0.126667  -0.236066  0.0774593
+    2:  -0.843197  -0.34428  0.0185993  -0.633214
+    3:  0.589627   0.26009   0.89285  0.0103136
+    4:   0.39114    0.3234  -0.560465  0.763795
+    5:  -0.139466  -0.156136  0.306357  0.0262752
+
+C8VEC_UNIFORM_01_NEW_TEST
   C8VEC_UNIFORM_01_NEW computes pseudorandom C8 values
   uniformly distributed in the unit circle.
 
   The initial seed is 123456789
 
-       0       0.44986     -0.126667
-       1     -0.843197      -0.34428
-       2      0.589627       0.26009
-       3       0.39114        0.3234
-       4     -0.139466     -0.156136
-       5     -0.236066     0.0774593
-       6     0.0185993     -0.633214
-       7       0.89285     0.0103136
-       8     -0.560465      0.763795
-       9      0.306357     0.0262752
+  Uniform C8VEC:
 
-TEST05
+         0: 0.44986  -0.126667
+         1: -0.843197  -0.34428
+         2: 0.589627  0.26009
+         3: 0.39114  0.3234
+         4: -0.139466  -0.156136
+         5: -0.236066  0.0774593
+         6: 0.0185993  -0.633214
+         7: 0.89285  0.0103136
+         8: -0.560465  0.763795
+         9: 0.306357  0.0262752
+
+CH_UNIFORM_AB_TEST
   CH_UNIFORM_AB computes pseudorandom characters
   in an interval [CLO,CHI].
 
@@ -91,7 +145,7 @@ TEST05
        9  'A'
       10  'G'
 
-TEST06
+GET_SEED_TEST
   GET_SEED picks an initial seed value for R8_UNIFORM_01.
   The value chosen should vary over time, because
   the seed is based on reading the clock.
@@ -108,54 +162,49 @@ TEST06
     0.177248
   0.00290613
 
-  New seed from GET_SEED is 1406800629
+  New seed from GET_SEED is 1525608174
 
   Next 3 values of R8_UNIFORM_01:
 
-    0.141197
-    0.097075
-     0.53972
+    0.972915
+    0.781095
+    0.858646
 
   Oops!
   Same seed returned for 10000 calls to GET_SEED!
   Could be a bad algorithm, slow clock, or fast machine!
   To avoid infinite loops, we take what we have now.
 
-  New seed from GET_SEED is 1406800629
+  New seed from GET_SEED is 1525608174
 
   Next 3 values of R8_UNIFORM_01:
 
-    0.141197
-    0.097075
-     0.53972
+    0.972915
+    0.781095
+    0.858646
 
   Oops!
   Same seed returned for 100000 calls to GET_SEED!
   Could be a bad algorithm, slow clock, or fast machine!
   To avoid infinite loops, we take what we have now.
 
-  New seed from GET_SEED is 1406800629
+  New seed from GET_SEED is 1525608174
 
   Next 3 values of R8_UNIFORM_01:
 
-    0.141197
-    0.097075
-     0.53972
+    0.972915
+    0.781095
+    0.858646
 
-  Oops!
-  Same seed returned for 1000000 calls to GET_SEED!
-  Could be a bad algorithm, slow clock, or fast machine!
-  To avoid infinite loops, we take what we have now.
-
-  New seed from GET_SEED is 1406800629
+  New seed from GET_SEED is 1525657884
 
   Next 3 values of R8_UNIFORM_01:
 
-    0.141197
-    0.097075
-     0.53972
+    0.361964
+    0.524543
+    0.999213
 
-TEST065
+I4_SEED_ADVANCE_TEST
   I4_SEED_ADVANCE advances the seed.
 
   Step        SEED input       SEED output
@@ -171,24 +220,27 @@ TEST065
      9        1256127050        1963079340
     10        1963079340        1683198519
 
-TEST07
-  I4_UNIFORM_AB computes pseudorandom values
-  in an interval [A,B].
+I4_UNIFORM_0I_TEST
+  I4_UNIFORM_0I samples a uniform random
+  integer distribution in [0,2**31-1].
 
-  The lower endpoint A = 6
-  The upper endpoint B = 10
-  The initial seed is 123456789
+  Starting with seed = 123456789
 
+  First few values:
 
-         I    Frequency
+       0  469049721
+       1  2053676357
+       2  1781357515
+       3  1206231778
+       4  891865166
 
-         6      2002
-         7      2037
-         8      1981
-         9      1962
-        10      2018
+  Number of values computed was N = 1000
+  Average value was 1.08027e+09
+  Minimum value was 3947872
+  Maximum value was 2142991809
+  Variance was 3.79689e+17
 
-TEST08
+I4_UNIFORM_AB_TEST
   I4_UNIFORM_AB computes pseudorandom values
   in an interval [A,B].
 
@@ -217,64 +269,58 @@ TEST08
         19       -72
         20       -96
 
-TEST09
-  I4_UNIFORM_0I samples a uniform random
-  integer distribution in [0,2**31-1].
-
-  Starting with seed = 123456789
-
-  First few values:
-
-       0  469049721
-       1  2053676357
-       2  1781357515
-       3  1206231778
-       4  891865166
-
-  Number of values computed was N = 1000
-  Average value was 1.08027e+09
-  Minimum value was 3947872
-  Maximum value was 2142991809
-  Variance was 3.79689e+17
-
-TEST10
-  I4VEC_UNIFORM_AB_NEW computes a vector of pseudorandom values
+I4MAT_UNIFORM_AB_NEW_TEST
+  I4MAT_UNIFORM_AB_NEW computes pseudorandom values
   in an interval [A,B].
 
-  The lower endpoint A = 6
-  The upper endpoint B = 10
+  The lower endpoint A = -100
+  The upper endpoint B = 200
   The initial seed is 123456789
 
+  Uniform I4MAT:
 
-         I    Frequency
+  Col:       0       1       2       3
+  Row
 
-         6      2002
-         7      2037
-         8      1981
-         9      1962
-        10      2018
+    0:     -35     -81     -82    -100
+    1:     187     -23      35     170
+    2:     149     -67      20       5
+    3:      69     -87     127     -72
+    4:      25      90     139     -96
 
-TEST11
-  I8_UNIFORM_AB computes pseudorandom values 
+I4VEC_UNIFORM_AB_NEW_TEST
+  I4VEC_UNIFORM_AB_NEW computes pseudorandom values
   in an interval [A,B].
 
-  The lower endpoint A = 1000000000
-  The upper endpoint B = 8000000000
-  The initial seed is    123456789
+  The lower endpoint A = -100
+  The upper endpoint B = 200
+  The initial seed is 123456789
 
-         1                2528928078
-         2                7694223036
-         3                6806564637
-         4                4931868099
-         5                3907149570
-         6                1462831143
-         7                2803044546
-         8                1769697554
-         9                1306802983
-        10                5437759986
+  Uniform I4VEC:
 
-TEST111
-  L_UNIFORM computes pseudorandom logical values.
+         0:      -35
+         1:      187
+         2:      149
+         3:       69
+         4:       25
+         5:      -81
+         6:      -23
+         7:      -67
+         8:      -87
+         9:       90
+        10:      -82
+        11:       35
+        12:       20
+        13:      127
+        14:      139
+        15:     -100
+        16:      170
+        17:        5
+        18:      -72
+        19:      -96
+
+L4_UNIFORM_TEST
+  L4_UNIFORM computes pseudorandom logical values.
 
   The initial seed is 123456789
 
@@ -289,28 +335,47 @@ TEST111
          9  0
         10  1
 
-TEST112
-  LVEC_UNIFORM_NEW computes a vector of
+L4MAT_UNIFORM_NEW_TEST
+  L4MAT_UNIFORM_NEW computes a vector of
   pseudorandom logical values.
 
   The initial seed is 123456789
 
-         1  0
-         2  1
-         3  1
-         4  1
-         5  0
-         6  0
-         7  0
-         8  0
-         9  0
-        10  1
+  Uniform L4MAT:
 
-TEST118
+  Col  0 1 2 3
+  Row
+
+    0: 0 0 0 0
+    1: 1 0 0 1
+    2: 1 0 0 0
+    3: 1 0 1 0
+    4: 0 1 1 0
+
+L4VEC_UNIFORM_NEW_TEST
+  L4VEC_UNIFORM_NEW computes a vector of
+  pseudorandom logical values.
+
+  The initial seed is 123456789
+
+  Uniform L4VEC:
+
+         0: 0
+         1: 1
+         2: 1
+         3: 1
+         4: 0
+         5: 0
+         6: 0
+         7: 0
+         8: 0
+         9: 1
+
+LCRG_ANBN_TEST
   LCRG_ANBN determines a linear congruential random
   number generator equivalent to N steps of a given one.
 
-  LCRG parameters:
+ LCRG parameters:
 
   A = 16807
   B = 0
@@ -329,16 +394,6 @@ TEST118
              8    1457850878             0
              9    1458777923             0
             10    2007237709             0
-
-TEST119
-  LCRG_ANBN determines a linear congruential random
-  number generator equivalent to N steps of a given one.
-
- LCRG parameters:
-
-  A = 16807
-  B = 0
-  C = 2147483647
 
                           N            In           Out
 
@@ -376,7 +431,7 @@ TEST119
              3            10     109854999    1683198519
              4            11    1644515420     715426902
 
-TEST13
+LCRG_SEED_TEST
   LCRG_SEED directly computes the updated value of a
   seed used by an linear congruential random number
   generator.
@@ -397,7 +452,24 @@ TEST13
      100    1549894482      99920864      99920864       0.0465293
     1000     890151694    1408436056    1408436056        0.655854
 
-TEST13
+R4_UNIFORM_01_TEST
+  R4_UNIFORM_01 computes pseudorandom values 
+  in the interval [0,1].
+
+  The initial seed is 123456789
+
+       1        0.218418
+       2        0.956318
+       3        0.829509
+       4        0.561695
+       5        0.415307
+       6       0.0661187
+       7        0.257578
+       8        0.109957
+       9        0.043829
+      10        0.633966
+
+R4_UNIFORM_AB_TEST
   R4_UNIFORM_AB computes pseudorandom values
   in an interval [A,B].
 
@@ -416,8 +488,60 @@ TEST13
        9         5.21914
       10         8.16983
 
-TEST14
-  R4_UNIFORM_01 computes pseudorandom values 
+R4MAT_UNIFORM_AB_NEW_TEST
+  R4MAT_UNIFORM_AB_NEW computes pseudorandom values
+  in an interval [A,B].
+
+  The lower endpoint A = -5
+  The upper endpoint B = 10
+  The initial seed is 123456789
+
+
+  Uniform R4MAT:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:     -1.72373      -4.00822      -4.07409      -4.97242  
+    1:      9.34476      -1.13633       1.74308       8.46256  
+    2:      7.44264      -3.35065       1.01959      0.261285  
+    3:      3.42543      -4.34257        6.3201      -3.58183  
+    4:      1.22961       4.50949        6.9593      -4.79575  
+
+R4VEC_UNIFORM_AB_NEW_TEST
+  R4VEC_UNIFORM_AB_NEW computes pseudorandom values
+  in an interval [A,B].
+
+  The lower endpoint A = -5
+  The upper endpoint B = 10
+  The initial seed is 123456789
+
+
+  Uniform R4VEC:
+
+         0:       -1.72373
+         1:        9.34476
+         2:        7.44264
+         3:        3.42543
+         4:        1.22961
+         5:       -4.00822
+         6:       -1.13633
+         7:       -3.35065
+         8:       -4.34257
+         9:        4.50949
+        10:       -4.07409
+        11:        1.74308
+        12:        1.01959
+        13:         6.3201
+        14:         6.9593
+        15:       -4.97242
+        16:        8.46256
+        17:       0.261285
+        18:       -3.58183
+        19:       -4.79575
+
+R8_UNIFORM_01_TEST
+  R8_UNIFORM_01 computes pseudorandom values 
   in the interval [0,1].
 
   The initial seed is 123456789
@@ -433,7 +557,7 @@ TEST14
        9        0.043829
       10        0.633966
 
-TEST15
+R8_UNIFORM_AB_TEST
   R8_UNIFORM_AB computes pseudorandom values
   in an interval [A,B].
 
@@ -452,176 +576,101 @@ TEST15
        9         5.21914
       10         8.16983
 
-TEST16
-  R8_UNIFORM_01 computes pseudorandom values 
-  in the interval [0,1].
+R8MAT_UNIFORM_AB_NEW_TEST
+  R8MAT_UNIFORM_AB_NEW computes pseudorandom values
+  in an interval [A,B].
 
+  The lower endpoint A = -5
+  The upper endpoint B = 10
   The initial seed is 123456789
 
-       1        0.218418
-       2        0.956318
-       3        0.829509
-       4        0.561695
-       5        0.415307
-       6       0.0661187
-       7        0.257578
-       8        0.109957
-       9        0.043829
-      10        0.633966
 
-TEST17
-  R8_UNIFORM_01 computes a sequence of uniformly distributed
-  pseudorandom numbers.
+  Uniform R8MAT:
 
-  Initial SEED = 12345
+  Col:          0             1             2             3       
+  Row
 
-  First 10 values:
+    0:     -1.72373      -4.00822      -4.07409      -4.97242  
+    1:      9.34476      -1.13633       1.74308       8.46256  
+    2:      7.44264      -3.35065       1.01959      0.261285  
+    3:      3.42543      -4.34257        6.3201      -3.58183  
+    4:      1.22961       4.50949        6.9593      -4.79575  
 
-       I         Input        Output   R8_UNIFORM_01
-                  SEED          SEED
-
-       1         12345     207482415   0.0966165
-       2     207482415    1790989824    0.833995
-       3    1790989824    2035175616    0.947702
-       4    2035175616      77048696   0.0358786
-       5      77048696      24794531   0.0115459
-       6      24794531     109854999   0.0511552
-       7     109854999    1644515420    0.765787
-       8    1644515420    1256127050     0.58493
-       9    1256127050    1963079340     0.91413
-      10    1963079340    1683198519      0.7838
-
-  Now call R8_UNIFORM_01 1000 times.
-
-  Average value = 0.493632
-  Expecting       0.5
-
-  Variance =      0.0816218
-  Expecting       0.0833333
-
-TEST18
-  R8_UNIFORM_01 computes a sequence of pseudorandom numbers
-  but all computations depend on the seed value.
-  In this test, we show how a sequence of "random"
-  values can be manipulated by accessing the seed.
-
-  Set SEED to 1066
-
-  Now call R8_UNIFORM_01 10 times, and watch SEED.
-
-       I         Input        Output   R8_UNIFORM_01
-                  SEED          SEED
-
-       1          1066      17916262  0.00834291
-       2      17916262     470904854    0.219282
-       3     470904854    1020641983    0.475273
-       4    1020641983    1977919692    0.921041
-       5    1977919692    1996891531    0.929875
-       6    1996891531     881526201    0.410493
-       7     881526201     321179554    0.149561
-       8     321179554    1438359167    0.669788
-       9    1438359167     279105490    0.129969
-      10     279105490     821685382    0.382627
-
-  Reset SEED to its value at step 5, = 1977919692
-
-  Now call R8_UNIFORM_01 10 times, and watch how SEED
-  and R8_UNIFORM_01 restart themselves.
-
-       I         Input        Output   R8_UNIFORM_01
-                  SEED          SEED
-
-       1    1977919692    1996891531    0.929875
-       2    1996891531     881526201    0.410493
-       3     881526201     321179554    0.149561
-       4     321179554    1438359167    0.669788
-       5    1438359167     279105490    0.129969
-       6     279105490     821685382    0.382627
-       7     821685382    1746365064    0.813215
-       8    1746365064    1498627099    0.697853
-       9    1498627099    1737440877    0.809059
-      10    1737440877    1833671480     0.85387
-
-  What happens with an initial negative SEED?
-
-       I         Input        Output   R8_UNIFORM_01
-                  SEED          SEED
-
-       1     -12345678     812103613    0.378165
-       2     812103613    1766847006    0.822752
-       3    1766847006    2141242773    0.997094
-       4    2141242773     336329385    0.156616
-       5     336329385     511014791     0.23796
-       6     511014791     838487984    0.390451
-       7     838487984     679855474    0.316582
-       8     679855474    1717949478    0.799983
-       9    1717949478     659242831    0.306984
-      10     659242831    1026125744    0.477827
-
-TEST14
-  R4_UNIFORM_01 computes pseudorandom values 
-  in the interval [0,1].
-
-  The initial seed is 123456789
-
-       1        0.218418
-       2        0.956318
-       3        0.829509
-       4        0.561695
-       5        0.415307
-       6       0.0661187
-       7        0.257578
-       8        0.109957
-       9        0.043829
-      10        0.633966
-
-TEST19
-  R8_UNIFORM_01 computes pseudorandom values one at a time.
-  R8MAT_UNIFORM_01_NEW computes a matrix of values.
-
-  For the same initial seed, the results should be identical,
-  but R8MAT_UNIFORM_01_NEW might be faster.
+R8VEC_UNIFORM_01_NEW_TEST
+  R8VEC_UNIFORM_01_NEW computes a random R8VEC.
 
   Initial seed is 123456789
 
-      I       J      A[I,J]        B[I,J]
-                 (R8_UNIFORM_01)  (R8MAT_UNIFORM_01_NEW)
+  Uniform R8VEC:
 
-      0       0      0.218418      0.218418
-      9       0      0.633966      0.633966
-     19       1      0.949176      0.949176
-     29       2      0.434341      0.434341
-     39       3       0.52206       0.52206
-     49       4      0.718851      0.718851
-     59       5      0.153587      0.153587
-     69       6      0.628049      0.628049
-     79       7      0.635605      0.635605
-     89       8      0.639914      0.639914
-     99       9      0.819771      0.819771
+         0:       0.218418
+         1:       0.956318
+         2:       0.829509
+         3:       0.561695
+         4:       0.415307
+         5:      0.0661187
+         6:       0.257578
+         7:       0.109957
+         8:       0.043829
+         9:       0.633966
 
-TEST20
-  R8_UNIFORM_01 computes pseudeorandom values one at a time.
-  R8VEC_UNIFORM_01_NEW computes a vector of values.
+R8VEC_UNIFORM_AB_NEW_TEST
+  R8VEC_UNIFORM_AB_NEW computes a random R8VEC.
 
-  For the same initial seed, the results should be identical,
-  but R8VEC_UNIFORM_01 might be faster.
+  -1 <= X <= 5
+  Initial seed is 123456789
+
+  Uniform R8VEC:
+
+         0:        0.31051
+         1:        4.73791
+         2:        3.97706
+         3:        2.37017
+         4:        1.49184
+         5:      -0.603288
+         6:       0.545467
+         7:      -0.340259
+         8:      -0.737026
+         9:        2.80379
+
+R8COL_UNIFORM_ABVEC_NEW_TEST
+  R8COL_UNIFORM_ABVEC_NEW computes a random R8COL.
 
   Initial seed is 123456789
 
-      I      A[I]          B[I]
-         (R8_UNIFORM_01)  (R8VEC_UNIFORM_01)
+     0         0:    0.218418  0.0661187  0.0617272  0.00183837    :       1
+     1       0.2:    0.247816  0.212879  0.222477  0.244875    :    0.25
+     2        10:     18.2951   11.0996   14.0131   13.5075    :      20
+     3        52:     53.1234   52.0877   53.5093   52.1891    :      54
+     4        -1:    -0.169386  0.267931  0.594574  -0.972766    :       1
 
-      1      0.956318      0.956318
-      2      0.829509      0.829509
-      3      0.561695      0.561695
-      4      0.415307      0.415307
-      5     0.0661187     0.0661187
-      6      0.257578      0.257578
-      7      0.109957      0.109957
-      8      0.043829      0.043829
-      9      0.633966      0.633966
+R8ROW_UNIFORM_ABVEC_NEW_TEST
+  R8ROW_UNIFORM_ABVEC_NEW computes a random R8ROW.
+
+  Initial seed is 123456789
+         1      0.25        20        54         1
+
+  0.218418  0.247816   18.2951   53.1234  -0.169386
+  0.0661187  0.212879   11.0996   52.0877  0.267931
+  0.0617272  0.222477   14.0131   53.5093  0.594574
+  0.00183837  0.244875   13.5075   52.1891  -0.972766
+
+         0       0.2        10        52        -1
+
+R8VEC_UNIFORM_ABVEC_NEW_TEST
+  R8VEC_UNIFORM_ABVEC_NEW computes a random R8VEC.
+
+  Initial seed is 123456789
+
+   I         A         X         B
+
+     0         0  0.218418         1
+     1       0.2  0.247816      0.25
+     2        10   18.2951        20
+     3        52   53.1234        54
+     4        -1  -0.169386         1
 
 UNIFORM_PRB
   Normal end of execution.
 
-19 October 2012 08:51:39 AM
+29 December 2014 09:31:30 AM

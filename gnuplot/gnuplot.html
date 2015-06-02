@@ -1,0 +1,498 @@
+<html>
+
+  <head>
+    <title>
+      GNUPLOT: Programs that Set Up GNUPLOT Graphics
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      GNUPLOT <br> Programs that Set Up GNUPLOT Graphics
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>GNUPLOT</b> 
+      is a set of C++ programs which
+      illustrate how commands and data for the GNUPLOT graphics program
+      can be generated, to illustrate the results of a calculation. 
+    </p>
+
+    <p>
+      Ordinarily, GNUPLOT is used interactively; that is, the user
+      invokes the program, and then describes the plot to be created.
+      The data for the plot is created either by a formula, or by
+      reference to some data file created earlier.  
+    </p>
+
+    <p>
+      It is often extremely important to be able to create graphical
+      images of the results of an executable program.  If the user is
+      familiar with GNUPLOT, then the program can be modified to create
+      a suitable data file, and, once the program has completed,
+      the user can run GNUPLOT and use that data file to create a graph.
+    </p>
+
+    <p>
+      However, if the program is going to create the data file, it can
+      just as easily create a file containing the appropriate commands
+      to GNUPLOT that will create the desired image.  In this way, 
+      the user can avoid having to recall the correct commands in the
+      correct order to create the plot.
+    </p>
+
+    <p>
+      Thus, the program might create two files, called, perhaps
+      <i>data.txt</i> and <i>commands.txt</i>.  The command file would
+      contain GNUPLOT commands, including one that refers to the data file
+      itself.  To create the graphics image, the user would simply type
+      <pre>
+        gnuplot &lt; commands.txt
+      </pre>
+    </p>
+
+    <p>
+      This directory includes some sample programs which carry out 
+      numerical calculations, creating data and command files that
+      are used in exactly this way.
+    </p>
+
+    <p>
+      By the way, every time I run gnuplot, I get the obnoxious warning
+      message
+      <pre>
+Could not find/open font when opening font "arial", using internal non-scalable font
+      </pre>
+      I had to fix this with the following lines added to my .bashrc file:
+      <pre>
+export GDFONTPATH=/usr/share/fonts/liberation
+export GNUPLOT_DEFAULT_GDFONT=LiberationSans-Regular
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>GNUPLOT</b> is available in
+      <a href = "../../examples/gnuplot/gnuplot.html">a non-language specific version</a> and
+      <a href = "../../c_src/gnuplot/gnuplot.html">a C version</a> and
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">a C++ version</a> and
+      <a href = "../../f77_src/gnuplot/gnuplot.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/gnuplot/gnuplot.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/gnuplot/gnuplot.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/analemma/analemma.html">
+      ANALEMMA</a>,
+      a C++ program which
+      evaluates the equation of time, a formula for the difference between
+      the uniform 24 hour day and the actual position of the sun, 
+      creating data that can be plotted by gnuplot,
+      based on a program by Brian Tung.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/brownian_motion_simulation/brownian_motion_simulation.html">
+      BROWNIAN_MOTION_SIMULATION</a>,
+      a C++ library which
+      simulates Brownian motion in an M-dimensional region,
+      creating graphics files that can be displayed with gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/disk_grid/disk_grid.html">
+      DISK_GRID</a>,
+      a C++ library which
+      computes grid points that lie 
+      inside a disk of user specified radius and center in 2D,
+      using GNUPLOT to create an image of the grid.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/dislin/dislin.html">
+      DISLIN</a>,
+      C++ programs which
+      illustrate the use of DISLIN, a scientific graphics package, 
+      by Helmut Michels.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/edge/edge.html">
+      EDGE</a>,
+      a C++ library which
+      defines some test functions in 1D, 2D and 3D for the detection 
+      of edges or discontinuities.  It uses GNUPLOT to display the
+      jumps in curves and surfaces.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fair_dice_simulation/fair_dice_simulation.html">
+      FAIR_DICE_SIMULATION</a>,
+      a C++ program which
+      simulates N games in which two fair dice are thrown and summed,
+      creating graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fd1d_advection_ftcs/fd1d_advection_ftcs.html">
+      FD1D_ADVECTION_FTCS</a>,
+      a C++ program which
+      applies the finite difference method (FDM) to solve the time-dependent
+      advection equation ut = - c * ux in one spatial dimension, with
+      a constant velocity, using the forward time, centered space (FTCS)
+      difference method, writing graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fd1d_advection_lax/fd1d_advection_lax.html">
+      FD1D_ADVECTION_LAX</a>,
+      a C++ program which
+      applies the finite difference method (FDM) to solve the time-dependent
+      advection equation ut = - c * ux in one spatial dimension, with
+      a constant velocity, using the Lax method to treat the time derivative,
+      writing graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fd1d_advection_lax_wendroff/fd1d_advection_lax_wendroff.html">
+      FD1D_ADVECTION_LAX_WENDROFF</a>,
+      a C++ program which
+      applies the finite difference method (FDM) to solve the time-dependent
+      advection equation ut = - c * ux in one spatial dimension, with
+      a constant velocity, 
+      using the Lax-Wendroff method to treat the time derivative,
+      writing graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot_i_examples/gnuplot_i_examples.html">
+      GNUPLOT_I_EXAMPLES</a>,
+      C++ programs which
+      demonstrate the use of the GNUPLOT_I library for interactive  
+      runtime gnuplot graphics.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/high_card_simulation/high_card_simulation.html">
+      HIGH_CARD_SIMULATION</a>,
+      a C++ program which
+      simulates a situation in which you see the cards in a deck one by one,
+      and must select the one you think is the highest and stop;
+      the program uses GNUPLOT for graphics.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ising_2d_simulation/ising_2d_simulation.html">
+      ISING_2D_SIMULATION</a>,
+      a C++ program which
+      carries out a Monte Carlo simulation of an Ising model,
+      a 2D array of positive and negative charges,
+      each of which is likely to flip to be in agreement with neighbors,
+      using gnuplot to make images of the initial and final configurations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lebesgue/lebesgue.html">
+      LEBESGUE</a>,
+      a C++ library which
+      is given a set of nodes in 1D, and
+      plots the Lebesgue function, and estimates the Lebesgue constant,
+      which measures the maximum magnitude of the potential error 
+      of Lagrange polynomial interpolation, and which uses gnuplot
+      to make plots of the Lebesgue function.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lobatto_polynomial/lobatto_polynomial.html">
+      LOBATTO_POLYNOMIAL</a>,
+      a C++ library which
+      evaluates Lobatto polynomials, similar to Legendre polynomials
+      except that they are zero at both endpoints.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lorenz_ode/lorenz_ode.html">
+      LORENZ_ODE</a>,
+      a C++ program which
+      approximates solutions to the Lorenz system,
+      creating output files that can be displayed by Gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/naca/naca.html">
+      NACA</a>,
+      a C++ library which
+      can take the parameters of certain NACA airfoils and return the
+      coordinates of a sequence of points that outline the wing shape.
+      The data can be displayed with gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/nearest_interp_1d/nearest_interp_1d.html">
+      NEAREST_INTERP_1D</a>,
+      a C++ library which
+      interpolates a set of data using a piecewise constant interpolant
+      defined by the nearest neighbor criterion,
+      creating graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ornstein_uhlenbeck/ornstein_uhlenbeck.html">
+      ORNSTEIN_UHLENBECK</a>,
+      a C++ library which 
+      approximates solutions of the Ornstein-Uhlenbeck 
+      stochastic ordinary differential equation (SODE) using the Euler method
+      and the Euler-Maruyama method, 
+      and creating graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/poisson_simulation/poisson_simulation.html">
+      POISSON_SIMULATION</a>,
+      a C++ library which
+      simulates a Poisson process in which events randomly occur with an
+      average waiting time of Lambda, creating output for graphics by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pwl_interp_1d/pwl_interp_1d.html">
+      PWL_INTERP_1D</a>,
+      a C++ library which
+      interpolates a set of data using a piecewise linear function,
+      creating graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sde/sde.html">
+      SDE</a>,
+      a C++ library which
+      illustrates properties of 
+      stochastic ordinary differential equations (SODE's), and
+      common algorithms for their analysis, including the Euler method,
+      the Euler-Maruyama method, and the Milstein method,
+      making graphics files for processing and display by gnuplot,
+      by Desmond Higham;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/spiral_data/spiral_data.html">
+      SPIRAL_DATA</a>,
+      a C++ program which
+      computes a velocity vector field that satisfies the continuity 
+      equation, writing the data to a file that can be plotted
+      by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/spring_ode2/spring_ode2.html">
+      SPRING_ODE2</a>,
+      a C++ program which
+      shows how gnuplot graphics can be used to illustrate
+      a solution of the ordinary differential equation (ODE) that describes
+      the motion of a weight attached to a spring.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/stochastic_diffusion/stochastic_diffusion.html">
+      STOCHASTIC_DIFFUSION</a>,
+      a C++ library which
+      implements several versions of a stochastic diffusivity coefficient,
+      and displays sample results using gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/stochastic_heat2d/stochastic_heat2d.html">
+      STOCHASTIC_HEAT2D</a>,
+      a C++ program which
+      implements a finite difference method (FDM) for the steady
+      (time independent) 2D heat equation, 
+      with a stochastic heat diffusivity coefficient,
+      using gnuplot to illustrate the results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/string_simulation/string_simulation.html">
+      STRING_SIMULATION</a>,
+      a C++ program which
+      simulates the behavior of a vibrating string,
+      creating files that can be displayed by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/svd_snowfall/svd_snowfall.html">
+      SVD_SNOWFALL</a>,
+      a C++ library which
+      reads a file containing historical snowfall data and 
+      analyzes the data with the Singular Value Decomposition (SVD),
+      and plots created by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/vandermonde_interp_1d/vandermonde_interp_1d.html">
+      VANDERMONDE_INTERP_1D</a>,
+      a C++ library which
+      finds a polynomial interpolant to data y(x) of a 1D argument, by
+      setting up and solving a linear system for the polynomial coefficients,
+      involving the Vandermonde matrix,
+      creating graphics files for processing by gnuplot.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Philipp Janert,<br>
+          Gnuplot in Action: Understanding Data with Graphs,<br>
+          Manning, 2010,<br>
+          ISBN13: 978-1-933988-39-8,<br>
+          LC: QA276.4.J37.
+        </li>
+        <li>
+          Thomas Williams, Colin Kelley,<br>
+          gnuplot 4.4, An Interactive Plotting Program,<br>
+          The Free Software Foundation, 2010.
+        </li>
+        <li>
+          <a href = "http://www.gnuplot.info/">The GNUPLOT Website</a>.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>CURVE_PLOT</b> is a function which allows the user to specify
+      N values X and Y, and a name.  It creates data and command files
+      that can be used by gnuplot to create a plot of the curve.
+      <ul>
+        <li>
+          <a href = "curve_plot.cpp">curve_plot.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "curve_plot.h">curve_plot.h</a>, a command file.
+        </li>
+        <li>
+          <a href = "curve_plot_prb.cpp">curve_plot_prb.cpp</a>, 
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "curve_plot_prb.sh">curve_plot_prb.sh</a>,
+          BASH commands to compile, link and load example.
+        </li>
+        <li>
+          <a href = "curve_plot_data.txt">curve_plot_data.txt</a>,
+          a file containing the data values.
+        </li>
+        <li>
+          <a href = "curve_plot_commands.txt">curve_plot_commands.txt</a>,
+          GNUPLOT commands that can create an image from the data file.
+        </li>
+        <li>
+          <a href = "curve_plot.png">curve_plot.png</a>,
+          an image of the data.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>DAMPED_SINE</b> evaluates the damped sine correlation function for a range
+      of values of its argument.  A plot of the function is desired.
+      <ul>
+        <li>
+          <a href = "damped_sine.cpp">damped_sine.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "damped_sine.sh">damped_sine.sh</a>,
+          BASH commands to compile, link and load the source code.
+        </li>
+        <li>
+          <a href = "damped_sine_output.txt">damped_sine_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "damped_sine_data.txt">damped_sine_data.txt</a>,
+          a file containing the data values.
+        </li>
+        <li>
+          <a href = "damped_sine_commands.txt">damped_sine_commands.txt</a>,
+          GNUPLOT commands that can create an image from the data file.
+        </li>
+        <li>
+          <a href = "damped_sine.png">damped_sine.png</a>,
+          an image of the data.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>STRING_SIMULATION</b> simulates the behavior of a string that obeys
+      the wave equation.  The shape of the string is to be plotted over successive
+      times.
+      <ul>
+        <li>
+          <a href = "string_simulation.cpp">string_simulation.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "string_simulation.sh">string_simulation.sh</a>,
+          BASH commands to compile, link and load the source code.
+        </li>
+        <li>
+          <a href = "string_simulation_output.txt">string_simulation_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "string_data.txt">string_data.txt</a>,
+          a file containing the data values.
+        </li>
+        <li>
+          <a href = "string_commands.txt">string_commands.txt</a>,
+          GNUPLOT commands that can create an image from the data file.
+        </li>
+        <li>
+          <a href = "string.png">string.png</a>,
+          an image of the data.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ directory</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 January 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

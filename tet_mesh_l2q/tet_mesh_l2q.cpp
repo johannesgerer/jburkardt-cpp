@@ -180,7 +180,7 @@ int main ( int argc, char *argv[] )
     cout << "\n";
     cout << "TET_MESH_L2Q - Fatal error!\n";
     cout << "  The tet mesh must have order 4.\n";
-    return 1;
+    exit ( 1 );
   }
 
   cout << "\n";
@@ -236,14 +236,16 @@ int main ( int argc, char *argv[] )
 
   cout << "  Wrote the file \"" << output_element_filename << "\".\n";
 //
-//  Deallocate memory.
+//  Free memory.
 //
   delete [] edge_data;
   delete [] node_xyz1;
   delete [] node_xyz2;
   delete [] element_node1;
   delete [] element_node2;
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "TET_MESH_L2Q:\n";
   cout << "  Normal end of execution.\n";

@@ -23,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA172_PRB calls the ASA172 routines.
+//    ASA172_PRB tests the ASA172 library.
 //
 //  Licensing:
 //
@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA172_PRB:\n";
   cout << "  C++ version\n";
@@ -47,11 +46,12 @@ int main ( )
 
   test01 ( );
   test02 ( );
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "ASA172_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

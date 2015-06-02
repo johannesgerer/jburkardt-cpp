@@ -1,5 +1,6 @@
 # include <cstdlib>
 # include <iostream>
+# include <fstream>
 # include <iomanip>
 # include <cmath>
 # include <ctime>
@@ -45,7 +46,7 @@ double arc_cosine ( double c )
 //
 {
   double angle;
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
 
   if ( c <= -1.0 )
   {
@@ -97,7 +98,7 @@ double arc_sine ( double s )
 //
 {
   double angle;
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
 
   if ( s <= -1.0 )
   {
@@ -160,7 +161,7 @@ double atan4 ( double y, double x )
 //    of its cosine and sine match those of X and Y.
 //
 {
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
 //
 //  Special cases:
 //
@@ -900,7 +901,7 @@ double r8_modp ( double x, double y )
 
   if ( value < 0.0 )
   {
-    value = value + r8_abs ( y );
+    value = value + fabs ( y );
   }
 
   return value;
@@ -1142,6 +1143,76 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
 
   return;
 # undef INCX
+}
+//****************************************************************************80
+
+void r8mat_write ( string output_filename, int m, int n, double table[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_WRITE writes an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    29 June 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string OUTPUT_FILENAME, the output filename.
+//
+//    Input, int M, the spatial dimension.
+//
+//    Input, int N, the number of points.
+//
+//    Input, double TABLE[M*N], the data.
+//
+{
+  int i;
+  int j;
+  ofstream output;
+//
+//  Open the file.
+//
+  output.open ( output_filename.c_str ( ) );
+
+  if ( !output )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_WRITE - Fatal error!\n";
+    cerr << "  Could not open the output file.\n";
+    exit ( 1 );
+  }
+//
+//  Write the data.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      output << "  " << setw(24) << setprecision(16) << table[i+j*m];
+    }
+    output << "\n";
+  }
+//
+//  Close the file.
+//
+  output.close ( );
+
+  return;
 }
 //****************************************************************************80
 
@@ -1508,13 +1579,13 @@ void r8vec_print ( int n, double a[], string title )
 }
 //****************************************************************************80
 
-double *sphere_cubed_ijk_to_xyz ( int n, int i, int j, int k )
+double *sphere_cubed_ijk_to_xyz_old ( int n, int i, int j, int k )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    SPHERE_CUBED_IJK_TO_XYZ: cubed sphere IJK to XYZ coordinates.
+//    SPHERE_CUBED_IJK_TO_XYZ_OLD: cubed sphere IJK to XYZ coordinates.
 //
 //  Licensing:
 //
@@ -1536,10 +1607,10 @@ double *sphere_cubed_ijk_to_xyz ( int n, int i, int j, int k )
 //    Input, int I, J, K, indices between 0 and N.  Normally,
 //    at least one of the indices should have the value 0 or N.
 //
-//    Output, double SPHERE_CUBED_IJK_TO_XYZ[3], coordinates of the point.
+//    Output, double SPHERE_CUBED_IJK_TO_XYZ_OLD[3], coordinates of the point.
 //
 {
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
   double xc;
   double *xyz;
   double xyzn;
@@ -1594,6 +1665,92 @@ double *sphere_cubed_ijk_to_xyz ( int n, int i, int j, int k )
   xyz[2] = zc / xyzn;
 
   return xyz;
+}
+//****************************************************************************80
+
+void sphere_cubed_ijk_to_xyz ( int n, int i, int j, int k, double *xyz )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    SPHERE_CUBED_IJK_TO_XYZ: cubed sphere IJK to XYZ coordinates.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    11 October 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of sections into which each 
+//    face of the cube is to be divided.
+//
+//    Input, int I, J, K, indices between 0 and N.  Normally,
+//    at least one of the indices should have the value 0 or N.
+//
+//    Output, double XYZ[3], coordinates of the point.
+//
+{
+  const double pi = 3.141592653589793;
+  double xc;
+  double xyzn;
+  double yc;
+  double zc;
+
+  if ( i == 0 )
+  {
+    xc = -1.0;
+  }
+  else if ( i == n )
+  {
+    xc = +1.0;
+  }
+  else
+  {
+    xc = tan ( ( double ) ( 2 * i - n ) * 0.25 * pi / ( double ) ( n ) );
+  }
+
+  if ( j == 0 )
+  {
+    yc = -1.0;
+  }
+  else if ( j == n )
+  {
+    yc = +1.0;
+  }
+  else
+  {
+    yc = tan ( ( double ) ( 2 * j - n ) * 0.25 * pi / ( double ) ( n ) );
+  }
+
+  if ( k == 0 )
+  {
+    zc = -1.0;
+  }
+  else if ( k == n )
+  {
+    zc = +1.0;
+  }
+  else
+  {
+    zc = tan ( ( double ) ( 2 * k - n ) * 0.25 * pi / ( double ) ( n ) );
+  }
+
+  xyzn = sqrt ( xc * xc + yc * yc + zc * zc );
+
+  xyz[0] = xc / xyzn;
+  xyz[1] = yc / xyzn;
+  xyz[2] = zc / xyzn;
+
+  return;
 }
 //****************************************************************************80
 
@@ -2180,7 +2337,7 @@ void sphere_cubed_points_face ( int n, int i1, int j1, int k1, int i2, int j2,
   int i;
   int j;
   int k;
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
   double xyzn;
   double xc;
   double yc;
@@ -3476,14 +3633,14 @@ int sphere_line_project ( double r, double pc[3], int n, double p[],
 //  If the angle is at least THETAMIN, (or it's the last point),
 //  then we will draw a line segment.
 //
-        if ( thetamin < r8_abs ( ang3d ) || i == n )
+        if ( thetamin < fabs ( ang3d ) || i == n )
         {
 //      
 //  Now we check to see if the line segment is too long.
 //
-          if ( thetamax < r8_abs ( ang3d ) )
+          if ( thetamax < fabs ( ang3d ) )
           {
-            nfill = ( int ) ( r8_abs ( ang3d ) / thetamax );
+            nfill = ( int ) ( fabs ( ang3d ) / thetamax );
 
             for ( j = 1; j < nfill; j++ )
             {
@@ -3750,7 +3907,7 @@ double *sphere_ll_points ( double r, double pc[3], int lat_num, int lon_num,
   int n;
   double *p;
   double phi;
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
   double theta;
 
   p = new double[3*point_num];
@@ -4036,7 +4193,7 @@ double *sphere_spiralpoints ( double r, double pc[3], int n )
   double cosphi = 0.0;
   int i;
   double *p;
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
   double sinphi = 0.0;
   double theta = 0.0;
 
@@ -4105,7 +4262,7 @@ double *sphere_unit_sample ( int n, int *seed )
 {
   int j;
   double phi;
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
   double theta;
   double vdot;
   double *x;

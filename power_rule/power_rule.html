@@ -112,7 +112,9 @@
 
     <p>
       <b>POWER_RULE</b> is available in
+      <a href = "../../c_src/power_rule/power_rule.html">a C version</a> and
       <a href = "../../cpp_src/power_rule/power_rule.html">a C++ version</a> and
+      <a href = "../../f77_src/power_rule/power_rule.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/power_rule/power_rule.html">a FORTRAN90 version</a> and
       <a href = "../../m_src/power_rule/power_rule.html">a MATLAB version</a>.
     </p>
@@ -211,6 +213,15 @@
       defines a set of integrands used to test multidimensional quadrature.
     </p>
 
+    <p>
+      <a href = "../../cpp_src/truncated_normal_rule/truncated_normal_rule.html">
+      TRUNCATED_NORMAL_RULE</a>,
+      a C++ program which 
+      computes a quadrature rule for a normal probability density function (PDF),
+      also called a Gaussian distribution, that has been
+      truncated to [A,+oo), (-oo,B] or [A,B].
+    </p>
+
     <h3 align = "center">
       Reference:
     </h3>
@@ -252,18 +263,18 @@
       As an example, we start with a 1D Clenshaw Curtis rule of order 3:
       <ul>
         <li>
-          <a href = "../../datasets/quadrature_rules/cc_d1_o003_x.txt">
-          cc_d1_o003_x.txt</a>,
+          <a href = "cc3_x.txt">
+          cc3_x.txt</a>,
           the abscissas of a 1D Clenshaw Curtis rule of order 3.
         </li>
         <li>
-          <a href = "../../datasets/quadrature_rules/cc_d1_o003_w.txt">
-          cc_d1_o003_w.txt</a>,
+          <a href = "cc3_w.txt">
+          cc3_w.txt</a>,
           the weights of a 1D Clenshaw Curtis rule of order 3.
         </li>
         <li>
-          <a href = "../../datasets/quadrature_rules/cc_d1_o003_r.txt">
-          cc_d1_o003_r.txt</a>,
+          <a href = "cc3_r.txt">
+          cc3_r.txt</a>,
           defines the range of the region.
         </li>
       </ul>
@@ -272,24 +283,29 @@
     <p>
       We give the command
       <blockquote>
-        <b>power_rule</b>  cc_d1_o003  2
+        <b>power_rule</b>  cc3  2
       </blockquote>
-      to create a Clenshaw Curtis product rule of order 9 for a 2D region.
+      to create a Clenshaw Curtis product rule of order 3x3 for a 2D region.
       The files which are created include:
       <ul>
         <li>
-          <a href = "../../datasets/quadrature_rules/cc_d2_o009_x.txt">
-          cc_d2_o009_x.txt</a>,
-          the abscissas of a 2D Clenshaw Curtis power rule of order 9.
+          <a href = "power_rule_output.txt">
+          power_rule_output.txt</a>,
+          the output file.
         </li>
         <li>
-          <a href = "../../datasets/quadrature_rules/cc_d2_o009_w.txt">
-          cc_d2_o009_w.txt</a>,
-          the weights of a 2D Clenshaw Curtis power rule of order 9.
+          <a href = "power_x.txt">
+          power_x.txt</a>,
+          the abscissas of the power rule.
         </li>
         <li>
-          <a href = "../../datasets/quadrature_rules/cc_d2_o009_r.txt">
-          cc_d2_o009_r.txt</a>,
+          <a href = "power_w.txt">
+          power_w.txt</a>,
+          the weights of the power rule.
+        </li>
+        <li>
+          <a href = "power_r.txt">
+          power_r.txt</a>,
           defines the range of the power region.
         </li>
       </ul>
@@ -308,19 +324,10 @@
           <b>CH_CAP</b> capitalizes a single character.
         </li>
         <li>
-          <b>CH_EQI</b> is a case insensitive comparison of two characters for equality.
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
         </li>
         <li>
           <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
-        </li>
-        <li>
-          <b>DTABLE_DATA_READ</b> reads data from a DTABLE file.
-        </li>
-        <li>
-          <b>DTABLE_HEADER_READ</b> reads the header from a DTABLE file.
-        </li>
-        <li>
-          <b>DTABLE_WRITE0</b> writes a DTABLE to a file.
         </li>
         <li>
           <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
@@ -329,10 +336,28 @@
           <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
         </li>
         <li>
-          <b>POWER_RULE</b> sets up a power rule.
+          <b>I4_POWER</b> returns the value of I^J.
+        </li>
+        <li>
+          <b>POWER_RULE_SET</b> sets up a power rule.
         </li>
         <li>
           <b>POWER_RULE_SIZE</b> returns the size of a power rule.
+        </li>
+        <li>
+          <b>R8_EPSILON</b> returns the R8 roundoff unit.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_WRITE</b> writes an R8MAT file with no header.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
         </li>
         <li>
           <b>S_TO_I4</b> reads an I4 from a string.
@@ -363,7 +388,7 @@
     <hr>
 
     <i>
-      Last revised on 08 November 2011.
+      Last revised on 03 February 2014.
     </i>
 
     <!-- John Burkardt -->

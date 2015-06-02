@@ -780,7 +780,7 @@ int *i4mat_data_read ( string input_filename, int m, int n )
 }
 //****************************************************************************80
 
-void i4mat_header_read ( string input_filename, int *m, int *n )
+void i4mat_header_read ( string input_filename, int &m, int &n )
 
 //****************************************************************************80
 //
@@ -808,14 +808,14 @@ void i4mat_header_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points
+//    Output, int &N, the number of points
 //
 {
-  *m = file_column_count ( input_filename );
+  m = file_column_count ( input_filename );
 
-  if ( *m <= 0 )
+  if ( m <= 0 )
   {
     cerr << "\n";
     cerr << "I4MAT_HEADER_READ - Fatal error!\n";
@@ -823,9 +823,9 @@ void i4mat_header_read ( string input_filename, int *m, int *n )
     exit ( 1 );
   }
 
-  *n = file_row_count ( input_filename );
+  n = file_row_count ( input_filename );
 
-  if ( *n <= 0 )
+  if ( n <= 0 )
   {
     cerr << "\n";
     cerr << "I4MAT_HEADER_READ - Fatal error!\n";
@@ -1002,8 +1002,14 @@ void i4mat_print_some ( int m, int n, int a[], int ilo, int jlo, int ihi,
   for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
   {
     j2hi = j2lo + INCX - 1;
-    j2hi = i4_min ( j2hi, n );
-    j2hi = i4_min ( j2hi, jhi );
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
 
     cout << "\n";
 //
@@ -1022,8 +1028,22 @@ void i4mat_print_some ( int m, int n, int a[], int ilo, int jlo, int ihi,
 //
 //  Determine the range of the rows in this strip.
 //
-    i2lo = i4_max ( ilo, 1 );
-    i2hi = i4_min ( ihi, m );
+    if ( 1 < ilo )
+    {
+      i2lo = 1;
+    }
+    else
+    {
+      i2lo = ilo;
+    }
+    if ( ihi < m )
+    {
+      i2hi = ihi;
+    }
+    else
+    {
+      i2hi = m;
+    }
 
     for ( i = i2lo; i <= i2hi; i++ )
     {
@@ -1044,7 +1064,7 @@ void i4mat_print_some ( int m, int n, int a[], int ilo, int jlo, int ihi,
 }
 //****************************************************************************80
 
-int *i4mat_read ( string input_filename, int *m, int *n )
+int *i4mat_read ( string input_filename, int &m, int &n )
 
 //****************************************************************************80
 //
@@ -1082,9 +1102,9 @@ int *i4mat_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points.  The program
+//    Output, int &N, the number of points.  The program
 //    will stop reading data once N values have been read.
 //
 //    Output, int I4MAT_READ[M*N], the data.
@@ -1094,7 +1114,7 @@ int *i4mat_read ( string input_filename, int *m, int *n )
 
   i4mat_header_read ( input_filename, m, n );
 
-  table = i4mat_data_read ( input_filename, *m, *n );
+  table = i4mat_data_read ( input_filename, m, n );
 
   return table;
 }
@@ -1170,17 +1190,253 @@ void i4mat_write ( string output_filename, int m, int n, int table[] )
 }
 //****************************************************************************80
 
-bool *lvec_data_read ( string input_filename, int n )
+void i4vec_data_read ( string input_filename, int n, int table[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    LVEC_DATA_READ reads data from an LVEC file.
+//    I4VEC_DATA_READ reads data from an I4VEC file.
 //
 //  Discussion:
 //
-//    An LVEC is a vector of L's.
+//    An I4VEC is a vector of I4's.
+//
+//    The file is assumed to contain one record per line.
+//
+//    Records beginning with '#' are comments, and are ignored.
+//    Blank lines are also ignored.
+//
+//    Each line that is not ignored is assumed to contain exactly one value.
+//
+//    There are assumed to be exactly (or at least) N such records.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Input, int N, the number of points.  The program
+//    will stop reading data once N values have been read.
+//
+//    Output, int TABLE[N], the data.
+//
+{
+  ifstream input;
+  int i;
+  int j;
+  int l;
+  string line;
+
+  input.open ( input_filename.c_str ( ) );
+
+  if ( !input )
+  {
+    cerr << "\n";
+    cerr << "I4VEC_DATA_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
+    exit ( 1 );
+  }
+
+  j = 0;
+
+  while ( j < n )
+  {
+    getline ( input, line );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+
+    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
+    {
+      continue;
+    }
+
+    table[j] = atoi ( line.c_str ( ) );
+    j = j + 1;
+  }
+
+  input.close ( );
+
+  return;
+}
+//****************************************************************************80
+
+int *i4vec_data_read_new ( string input_filename, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4VEC_DATA_READ_NEW reads data from an I4VEC file.
+//
+//  Discussion:
+//
+//    An I4VEC is a vector of I4's.
+//
+//    The file is assumed to contain one record per line.
+//
+//    Records beginning with '#' are comments, and are ignored.
+//    Blank lines are also ignored.
+//
+//    Each line that is not ignored is assumed to contain exactly one value.
+//
+//    There are assumed to be exactly (or at least) N such records.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Input, int N, the number of points.  The program
+//    will stop reading data once N values have been read.
+//
+//    Output, int I4VEC_DATA_READ_NEW[N], the data.
+//
+{
+  ifstream input;
+  int i;
+  int j;
+  int l;
+  string line;
+  int *table;
+
+  input.open ( input_filename.c_str ( ) );
+
+  if ( !input )
+  {
+    cerr << "\n";
+    cerr << "I4VEC_DATA_READ_NEW - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
+    exit ( 1 );
+  }
+
+  table = new int[n];
+
+  j = 0;
+
+  while ( j < n )
+  {
+    getline ( input, line );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+
+    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
+    {
+      continue;
+    }
+
+    table[j] = atoi ( line.c_str ( ) );
+    j = j + 1;
+  }
+
+  input.close ( );
+
+  return table;
+}
+//****************************************************************************80
+
+void i4vec_write ( string output_filename, int n, int table[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4VEC_WRITE writes an I4VEC to a file.
+//
+//  Discussion:
+//
+//    An I4VEC is a vector of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    12 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string OUTPUT_FILENAME, the output filename.
+//
+//    Input, int N, the number of points.
+//
+//    Input, int TABLE[N], the data.
+//
+{
+  int j;
+  ofstream output;
+//
+//  Open the file.
+//
+  output.open ( output_filename.c_str ( ) );
+
+  if ( !output )
+  {
+    cerr << "\n";
+    cerr << "I4VEC_WRITE - Fatal error!\n";
+    cerr << "  Could not open the output file.\n";
+    exit ( 1 );
+  }
+//
+//  Write the data.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    output << table[j] << "\n";
+  }
+//
+//  Close the file.
+//
+  output.close ( );
+
+  return;
+}
+//****************************************************************************80
+
+bool *l4vec_data_read_new ( string input_filename, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4VEC_DATA_READ_NEW reads data from an L4VEC file.
+//
+//  Discussion:
+//
+//    An L4VEC is a vector of L4's.
 //
 //    The file is assumed to contain one record per line.
 //
@@ -1211,7 +1467,7 @@ bool *lvec_data_read ( string input_filename, int n )
 //    Input, int N, the number of points.  The program
 //    will stop reading data once N values have been read.
 //
-//    Output, bool I4MAT_DATA_READ[N], the data.
+//    Output, bool L4VEC_DATA_READ_NEW[N], the data.
 //
 {
   ifstream input;
@@ -1226,7 +1482,7 @@ bool *lvec_data_read ( string input_filename, int n )
   if ( !input )
   {
     cerr << "\n";
-    cerr << "LVEC_DATA_READ - Fatal error!\n";
+    cerr << "L4VEC_DATA_READ_NEW - Fatal error!\n";
     cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
     exit ( 1 );
   }
@@ -1249,7 +1505,7 @@ bool *lvec_data_read ( string input_filename, int n )
       continue;
     }
 
-    table[j] = s_to_l ( line );
+    table[j] = s_to_l4 ( line );
     j = j + 1;
   }
 
@@ -1259,17 +1515,17 @@ bool *lvec_data_read ( string input_filename, int n )
 }
 //****************************************************************************80
 
-void lvec_header_read ( string input_filename, int *n )
+void l4vec_header_read ( string input_filename, int &n )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    LVEC_HEADER_READ reads the header from an LVEC file.
+//    L4VEC_HEADER_READ reads the header from an L4VEC file.
 //
 //  Discussion:
 //
-//    An LVEC is a vector of L's.
+//    An L4VEC is a vector of L4's.
 //
 //  Licensing:
 //
@@ -1287,15 +1543,15 @@ void lvec_header_read ( string input_filename, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *N, the number of points
+//    Output, int &N, the number of points
 //
 {
-  *n = file_row_count ( input_filename );
+  n = file_row_count ( input_filename );
 
-  if ( *n <= 0 )
+  if ( n <= 0 )
   {
     cerr << "\n";
-    cerr << "LVEC_HEADER_READ - Fatal error!\n";
+    cerr << "L4VEC_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_ROW_COUNT failed.\n";
     exit ( 1 );
   }
@@ -1304,19 +1560,19 @@ void lvec_header_read ( string input_filename, int *n )
 }
 //****************************************************************************80
 
-void lvec_write ( string output_filename, int n, bool table[] )
+void l4vec_write ( string output_filename, int n, bool table[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    LVEC_WRITE writes an LVEC to a file.
+//    L4VEC_WRITE writes an L4VEC to a file.
 //
 //  Discussion:
 //
-//    An LVEC is a vector of L's.
+//    An L4VEC is a vector of L4's.
 //
-//    An L is a boolean value (FALSE = 0 or TRUE = 1).
+//    An L4 is a boolean value (FALSE = 0 or TRUE = 1).
 //
 //  Licensing:
 //
@@ -1349,7 +1605,7 @@ void lvec_write ( string output_filename, int n, bool table[] )
   if ( !output )
   {
     cerr << "\n";
-    cerr << "LVEC_WRITE - Fatal error!\n";
+    cerr << "L4VEC_WRITE - Fatal error!\n";
     cerr << "  Could not open the output file.\n";
     exit ( 1 );
   }
@@ -1483,7 +1739,7 @@ float *r4mat_data_read ( string input_filename, int m, int n )
 }
 //****************************************************************************80
 
-void r4mat_header_read ( string input_filename, int *m, int *n )
+void r4mat_header_read ( string input_filename, int &m, int &n )
 
 //****************************************************************************80
 //
@@ -1511,14 +1767,14 @@ void r4mat_header_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points.
+//    Output, int &N, the number of points.
 //
 {
-  *m = file_column_count ( input_filename );
+  m = file_column_count ( input_filename );
 
-  if ( *m <= 0 )
+  if ( m <= 0 )
   {
     cerr << "\n";
     cerr << "R4MAT_HEADER_READ - Fatal error!\n";
@@ -1526,9 +1782,9 @@ void r4mat_header_read ( string input_filename, int *m, int *n )
     exit ( 1 );
   }
 
-  *n = file_row_count ( input_filename );
+  n = file_row_count ( input_filename );
 
-  if ( *n <= 0 )
+  if ( n <= 0 )
   {
     cerr << "\n";
     cerr << "R4MAT_HEADER_READ - Fatal error!\n";
@@ -1743,7 +1999,7 @@ void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
 }
 //****************************************************************************80
 
-float *r4mat_read ( string input_filename, int *m, int *n )
+float *r4mat_read ( string input_filename, int &m, int &n )
 
 //****************************************************************************80
 //
@@ -1781,9 +2037,9 @@ float *r4mat_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points.  The program
+//    Output, int &N, the number of points.  The program
 //    will stop reading data once N values have been read.
 //
 //    Output, float R4MAT_READ[M*N], the data.
@@ -1793,7 +2049,7 @@ float *r4mat_read ( string input_filename, int *m, int *n )
 
   r4mat_header_read ( input_filename, m, n );
 
-  table = r4mat_data_read ( input_filename, *m, *n );
+  table = r4mat_data_read ( input_filename, m, n );
 
   return table;
 }
@@ -1927,7 +2183,7 @@ void r4mat_transpose_print_some ( int m, int n, float a[], int ilo, int jlo,
 }
 //****************************************************************************80
 
-float *r4mat_uniform_01 ( int m, int n, int *seed )
+float *r4mat_uniform_01 ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -1941,8 +2197,8 @@ float *r4mat_uniform_01 ( int m, int n, int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -1981,7 +2237,7 @@ float *r4mat_uniform_01 ( int m, int n, int *seed )
 //
 //    Input, int M, N, the number of rows and columns.
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has
 //    been updated.
 //
@@ -1993,7 +2249,7 @@ float *r4mat_uniform_01 ( int m, int n, int *seed )
   int k;
   float *r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R4MAT_UNIFORM_01 - Fatal error!\n";
@@ -2007,16 +2263,16 @@ float *r4mat_uniform_01 ( int m, int n, int *seed )
   {
     for ( i = 0; i < m; i++ )
     {
-      k = *seed / 127773;
+      k = seed / 127773;
 
-      *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-      if ( *seed < 0 )
+      if ( seed < 0 )
       {
-        *seed = *seed + 2147483647;
+        seed = seed + 2147483647;
       }
 
-      r[i+j*m] = ( float ) ( *seed ) * 4.656612875E-10;
+      r[i+j*m] = ( float ) ( seed ) * 4.656612875E-10;
     }
   }
 
@@ -2347,7 +2603,7 @@ double *r8mat_data_read ( string input_filename, int m, int n )
 }
 //****************************************************************************80
 
-void r8mat_header_read ( string input_filename, int *m, int *n )
+void r8mat_header_read ( string input_filename, int &m, int &n )
 
 //****************************************************************************80
 //
@@ -2375,14 +2631,14 @@ void r8mat_header_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points.
+//    Output, int &N, the number of points.
 //
 {
-  *m = file_column_count ( input_filename );
+  m = file_column_count ( input_filename );
 
-  if ( *m <= 0 )
+  if ( m <= 0 )
   {
     cerr << "\n";
     cerr << "R8MAT_HEADER_READ - Fatal error!\n";
@@ -2390,9 +2646,9 @@ void r8mat_header_read ( string input_filename, int *m, int *n )
     exit ( 1 );
   }
 
-  *n = file_row_count ( input_filename );
+  n = file_row_count ( input_filename );
 
-  if ( *n <= 0 )
+  if ( n <= 0 )
   {
     cerr << "\n";
     cerr << "R8MAT_HEADER_READ - Fatal error!\n";
@@ -2518,7 +2774,8 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 //
 //  Discussion:
 //
-//    An R8MAT is an array of R8's.
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
 //
 //  Licensing:
 //
@@ -2526,7 +2783,7 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 //
 //  Modified:
 //
-//    09 April 2004
+//    26 June 2013
 //
 //  Author:
 //
@@ -2546,6 +2803,7 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 //    column, and the last row and column to be printed.
 //
 //    Input, string TITLE, a title.
+//
 {
 # define INCX 5
 
@@ -2558,15 +2816,27 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 
   cout << "\n";
   cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
 //
 //  Print the columns of the matrix, in strips of 5.
 //
   for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
   {
     j2hi = j2lo + INCX - 1;
-    j2hi = i4_min ( j2hi, n );
-    j2hi = i4_min ( j2hi, jhi );
-
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
     cout << "\n";
 //
 //  For each column J in the current range...
@@ -2576,30 +2846,43 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
     cout << "  Col:    ";
     for ( j = j2lo; j <= j2hi; j++ )
     {
-      cout << setw(7) << j << "       ";
+      cout << setw(7) << j - 1 << "       ";
     }
     cout << "\n";
     cout << "  Row\n";
-    cout << "  ---\n";
+    cout << "\n";
 //
 //  Determine the range of the rows in this strip.
 //
-    i2lo = i4_max ( ilo, 1 );
-    i2hi = i4_min ( ihi, m );
+    if ( 1 < ilo )
+    {
+      i2lo = ilo;
+    }
+    else
+    {
+      i2lo = 1;
+    }
+    if ( ihi < m )
+    {
+      i2hi = ihi;
+    }
+    else
+    {
+      i2hi = m;
+    }
 
     for ( i = i2lo; i <= i2hi; i++ )
     {
 //
 //  Print out (up to) 5 entries in row I, that lie in the current strip.
 //
-      cout << setw(5) << i << "  ";
+      cout << setw(5) << i - 1 << ": ";
       for ( j = j2lo; j <= j2hi; j++ )
       {
         cout << setw(12) << a[i-1+(j-1)*m] << "  ";
       }
       cout << "\n";
     }
-
   }
 
   return;
@@ -2607,7 +2890,7 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 }
 //****************************************************************************80
 
-double *r8mat_read ( string input_filename, int *m, int *n )
+double *r8mat_read ( string input_filename, int &m, int &n )
 
 //****************************************************************************80
 //
@@ -2645,9 +2928,9 @@ double *r8mat_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points.  The program
+//    Output, int &N, the number of points.  The program
 //    will stop reading data once N values have been read.
 //
 //    Output, double R8MAT_READ[M*N], the data.
@@ -2657,7 +2940,7 @@ double *r8mat_read ( string input_filename, int *m, int *n )
 
   r8mat_header_read ( input_filename, m, n );
 
-  table = r8mat_data_read ( input_filename, *m, *n );
+  table = r8mat_data_read ( input_filename, m, n );
 
   return table;
 }
@@ -2673,7 +2956,8 @@ void r8mat_transpose_print ( int m, int n, double a[], string title )
 //
 //  Discussion:
 //
-//    An R8MAT is an array of R8's.
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
 //
 //  Licensing:
 //
@@ -2681,7 +2965,7 @@ void r8mat_transpose_print ( int m, int n, double a[], string title )
 //
 //  Modified:
 //
-//    11 August 2004
+//    10 September 2009
 //
 //  Author:
 //
@@ -2713,7 +2997,8 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
 //
 //  Discussion:
 //
-//    An R8MAT is an array of R8's.
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
 //
 //  Licensing:
 //
@@ -2721,7 +3006,7 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
 //
 //  Modified:
 //
-//    11 August 2004
+//    07 April 2014
 //
 //  Author:
 //
@@ -2746,6 +3031,8 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
   int i2;
   int i2hi;
   int i2lo;
+  int i2lo_hi;
+  int i2lo_lo;
   int inc;
   int j;
   int j2hi;
@@ -2754,11 +3041,43 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
   cout << "\n";
   cout << title << "\n";
 
-  for ( i2lo = i4_max ( ilo, 1 ); i2lo <= i4_min ( ihi, m ); i2lo = i2lo + INCX )
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+
+  if ( ilo < 1 )
+  {
+    i2lo_lo = 1;
+  }
+  else
+  {
+    i2lo_lo = ilo;
+  }
+
+  if ( ihi < m )
+  {
+    i2lo_hi = m;
+  }
+  else
+  {
+    i2lo_hi = ihi;
+  }
+
+  for ( i2lo = i2lo_lo; i2lo <= i2lo_hi; i2lo = i2lo + INCX )
   {
     i2hi = i2lo + INCX - 1;
-    i2hi = i4_min ( i2hi, m );
-    i2hi = i4_min ( i2hi, ihi );
+
+    if ( m < i2hi )
+    {
+      i2hi = m;
+    }
+    if ( ihi < i2hi )
+    {
+      i2hi = ihi;
+    }
 
     inc = i2hi + 1 - i2lo;
 
@@ -2766,17 +3085,32 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
     cout << "  Row: ";
     for ( i = i2lo; i <= i2hi; i++ )
     {
-      cout << setw(7) << i << "       ";
+      cout << setw(7) << i - 1 << "       ";
     }
     cout << "\n";
     cout << "  Col\n";
+    cout << "\n";
 
-    j2lo = i4_max ( jlo, 1 );
-    j2hi = i4_min ( jhi, n );
+    if ( jlo < 1 )
+    {
+      j2lo = 1;
+    }
+    else
+    {
+      j2lo = jlo;
+    }
+    if ( n < jhi )
+    {
+      j2hi = n;
+    }
+    else
+    {
+      j2hi = jhi;
+    }
 
     for ( j = j2lo; j <= j2hi; j++ )
     {
-      cout << setw(5) << j << " ";
+      cout << setw(5) << j - 1 << ":";
       for ( i2 = 1; i2 <= inc; i2++ )
       {
         i = i2lo - 1 + i2;
@@ -2791,7 +3125,7 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
 }
 //****************************************************************************80
 
-double *r8mat_uniform_01 ( int m, int n, int *seed )
+double *r8mat_uniform_01 ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -2805,8 +3139,8 @@ double *r8mat_uniform_01 ( int m, int n, int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -2845,7 +3179,7 @@ double *r8mat_uniform_01 ( int m, int n, int *seed )
 //
 //    Input, int M, N, the number of rows and columns.
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has
 //    been updated.
 //
@@ -2857,7 +3191,7 @@ double *r8mat_uniform_01 ( int m, int n, int *seed )
   int k;
   double *r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R8MAT_UNIFORM_01 - Fatal error!\n";
@@ -2871,16 +3205,16 @@ double *r8mat_uniform_01 ( int m, int n, int *seed )
   {
     for ( i = 0; i < m; i++ )
     {
-      k = *seed / 127773;
+      k = seed / 127773;
 
-      *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-      if ( *seed < 0 )
+      if ( seed < 0 )
       {
-        *seed = *seed + 2147483647;
+        seed = seed + 2147483647;
       }
 
-      r[i+j*m] = ( double ) ( *seed ) * 4.656612875E-10;
+      r[i+j*m] = ( double ) ( seed ) * 4.656612875E-10;
     }
   }
 
@@ -2906,7 +3240,7 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
 //
 //  Modified:
 //
-//    29 June 2009
+//    09 November 2014
 //
 //  Author:
 //
@@ -2945,7 +3279,8 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
   {
     for ( i = 0; i < m; i++ )
     {
-      output << "  " << setw(24) << setprecision(16) << table[i+j*m];
+      output << "  " << table[i+j*m];
+//    output << "  " << setw(24) << setprecision(16) << table[i+j*m];
     }
     output << "\n";
   }
@@ -2958,7 +3293,7 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
 }
 //****************************************************************************80
 
-double *r8vec_data_read ( string input_filename, int n )
+void r8vec_data_read ( string input_filename, int n, double table[] )
 
 //****************************************************************************80
 //
@@ -2983,7 +3318,7 @@ double *r8vec_data_read ( string input_filename, int n )
 //
 //  Modified:
 //
-//    11 June 2012
+//    17 July 2014
 //
 //  Author:
 //
@@ -2996,17 +3331,14 @@ double *r8vec_data_read ( string input_filename, int n )
 //    Input, int N, the number of points.  The program
 //    will stop reading data once N values have been read.
 //
-//    Output, double R8VEC_DATA_READ[M*N], the data.
+//    Output, double TABLE[N], the data.
 //
 {
-  bool error;
   ifstream input;
   int i;
   int j;
   int lchar;
   string line;
-  double *table;
-  double x;
 
   input.open ( input_filename.c_str ( ) );
 
@@ -3014,6 +3346,90 @@ double *r8vec_data_read ( string input_filename, int n )
   {
     cerr << "\n";
     cerr << "R8VEC_DATA_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
+    exit ( 1 );
+  }
+
+  j = 0;
+
+  while ( j < n )
+  {
+    getline ( input, line );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+
+    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
+    {
+      continue;
+    }
+
+    table[j] = atof ( line.c_str ( ) );
+    j = j + 1;
+  }
+
+  input.close ( );
+
+  return;
+}
+//****************************************************************************80
+
+double *r8vec_data_read_new ( string input_filename, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_DATA_READ_NEW reads the data from an R8VEC file.
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//    The file is assumed to contain one record per line.
+//
+//    Records beginning with '#' are comments, and are ignored.
+//    Blank lines are also ignored.
+//
+//    There are assumed to be exactly (or at least) N such records.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Input, int N, the number of points.  The program
+//    will stop reading data once N values have been read.
+//
+//    Output, double R8VEC_DATA_READ_NEW[N], the data.
+//
+{
+  ifstream input;
+  int i;
+  int j;
+  int lchar;
+  string line;
+  double *table;
+
+  input.open ( input_filename.c_str ( ) );
+
+  if ( !input )
+  {
+    cerr << "\n";
+    cerr << "R8VEC_DATA_READ_NEW - Fatal error!\n";
     cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
     exit ( 1 );
   }
@@ -3036,14 +3452,7 @@ double *r8vec_data_read ( string input_filename, int n )
       continue;
     }
 
-    x = s_to_r8 ( line, &lchar, &error );
-
-    if ( error )
-    {
-      continue;
-    }
-
-    table[j] = x;
+    table[j] = atof ( line.c_str ( ) );
     j = j + 1;
   }
 
@@ -3053,7 +3462,7 @@ double *r8vec_data_read ( string input_filename, int n )
 }
 //****************************************************************************80
 
-void r8vec_header_read ( string input_filename, int *n )
+void r8vec_header_read ( string input_filename, int &n )
 
 //****************************************************************************80
 //
@@ -3081,12 +3490,12 @@ void r8vec_header_read ( string input_filename, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *N, the number of points.
+//    Output, int &N, the number of points.
 //
 {
-  *n = file_row_count ( input_filename );
+  n = file_row_count ( input_filename );
 
-  if ( *n <= 0 )
+  if ( n <= 0 )
   {
     cerr << "\n";
     cerr << "R8VEC_HEADER_READ - Fatal error!\n";
@@ -3116,7 +3525,7 @@ void r8vec_write ( string output_filename, int n, double x[] )
 //
 //  Modified:
 //
-//    10 July 2011
+//    09 November 2014
 //
 //  Author:
 //
@@ -3150,7 +3559,8 @@ void r8vec_write ( string output_filename, int n, double x[] )
 //
   for ( j = 0; j < n; j++ )
   {
-    output << "  " << setw(24) << setprecision(16) << x[j] << "\n";
+    output << "  " << x[j] << "\n";
+//  output << "  " << setw(24) << setprecision(16) << x[j] << "\n";
   }
 //
 //  Close the file.
@@ -3459,13 +3869,13 @@ bool s_to_i4vec ( string s, int n, int ivec[] )
 }
 //****************************************************************************80
 
-bool s_to_l ( string s )
+bool s_to_l4 ( string s )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    S_TO_L reads an L from a string.
+//    S_TO_L4 reads an L4 from a string.
 //
 //  Licensing:
 //
@@ -3483,7 +3893,7 @@ bool s_to_l ( string s )
 //
 //    Input, string S, the string to be read.
 //
-//    Output, bool S_TO_L, the logical value.
+//    Output, bool S_TO_L4, the logical value.
 //
 {
   int i;
@@ -3495,7 +3905,7 @@ bool s_to_l ( string s )
   if ( length < 1 )
   {
     cerr << "\n";
-    cerr << "S_TO_L - Fatal error!\n";
+    cerr << "S_TO_L4 - Fatal error!\n";
     cerr << "  Input string is empty.\n";
     exit ( 1 );
   }
@@ -3518,7 +3928,7 @@ bool s_to_l ( string s )
     }
   }
   cerr << "\n";
-  cerr << "S_TO_L - Fatal error!\n";
+  cerr << "S_TO_L4 - Fatal error!\n";
   cerr << "  Input did not contain boolean data.\n";
   exit ( 1 );
 }
@@ -3573,7 +3983,7 @@ float s_to_r4 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
@@ -3949,7 +4359,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //

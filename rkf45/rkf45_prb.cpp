@@ -34,7 +34,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    RKF45_PRB tests the RKF45 ODE integrator.
+//    RKF45_PRB tests the RKF45 library.
 //
 //  Licensing:
 //
@@ -50,7 +50,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "RKF45_PRB\n";
   cout << "  C++ version\n";
@@ -68,7 +67,6 @@ int main ( )
   cout << "\n";
   cout << "RKF45_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

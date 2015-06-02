@@ -7,6 +7,7 @@
 
 using namespace std;
 
+# include "blas0.hpp"
 # include "blas1_z.hpp"
 
 //****************************************************************************80
@@ -72,8 +73,8 @@ double dzasum ( int n, complex <double> x[], int incx )
   {
     for ( i = 0; i < n; i++ )
     {
-      value = value + r8_abs ( real ( x[i] ) )
-                    + r8_abs ( imag ( x[i] ) );
+      value = value + fabs ( real ( x[i] ) )
+                    + fabs ( imag ( x[i] ) );
     }
   }
   else
@@ -81,8 +82,8 @@ double dzasum ( int n, complex <double> x[], int incx )
     ix = 0;
     for ( i = 0; i < n; i++ )
     {
-      value = value + r8_abs ( real ( x[ix] ) )
-                    + r8_abs ( imag ( x[ix] ) );
+      value = value + fabs ( real ( x[ix] ) )
+                    + fabs ( imag ( x[ix] ) );
       ix = ix + incx;
     }
   }
@@ -160,7 +161,7 @@ double dznrm2 ( int n, complex <double> x[], int incx )
     {
       if ( real ( x[ix] ) != 0.0 )
       {
-        temp = r8_abs ( real ( x[ix] ) );
+        temp = fabs ( real ( x[ix] ) );
         if ( scale < temp )
         {
           ssq = 1.0 + ssq * pow ( scale / temp, 2 );
@@ -174,7 +175,7 @@ double dznrm2 ( int n, complex <double> x[], int incx )
 
       if ( imag ( x[ix] ) != 0.0 )
       {
-        temp = r8_abs ( imag ( x[ix] ) );
+        temp = fabs ( imag ( x[ix] ) );
         if ( scale < temp )
         {
           ssq = 1.0 + ssq * pow ( scale / temp, 2 );
@@ -188,88 +189,6 @@ double dznrm2 ( int n, complex <double> x[], int incx )
       ix = ix + incx;
     }
     value  = scale * sqrt ( ssq );
-  }
-  return value;
-}
-//****************************************************************************80
-
-int i4_max ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MAX returns the maximum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, are two integers to be compared.
-//
-//    Output, int I4_MAX, the larger of I1 and I2.
-//
-{
-  int value;
-
-  if ( i2 < i1 )
-  {
-    value = i1;
-  }
-  else
-  {
-    value = i2;
-  }
-  return value;
-}
-//****************************************************************************80
-
-int i4_min ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MIN returns the minimum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, two integers to be compared.
-//
-//    Output, int I4_MIN, the smaller of I1 and I2.
-//
-{
-  int value;
-
-  if ( i1 < i2 )
-  {
-    value = i1;
-  }
-  else
-  {
-    value = i2;
   }
   return value;
 }
@@ -371,364 +290,6 @@ int izamax ( int n, complex <double> x[], int incx )
       }
     }
   }
-
-  return value;
-}
-//****************************************************************************80
-
-bool lsame ( char ca, char cb )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LSAME returns TRUE if CA is the same letter as CB regardless of case.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 May 2005
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Cleve Moler, Jim Bunch, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for Fortran Usage,
-//    Algorithm 539,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, September 1979, pages 308-323.
-//
-//  Parameters:
-//
-//    Input, char CA, CB, the characters to compare.
-//
-//    Output, bool LSAME, is TRUE if the characters are equal,
-//    disregarding case.
-//
-{
-  if ( ca == cb )
-  {
-    return true;
-  }
-
-  if ( 'A' <= ca && ca <= 'Z' )
-  {
-    if ( ca - 'A' == cb - 'a' )
-    {
-      return true;
-    }
-  }
-  else if ( 'a' <= ca && ca <= 'z' )
-  {
-    if ( ca - 'a' == cb - 'A' )
-    {
-      return true;
-    }
-  }
-
-  return false;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of a double.
-//
-//  Discussion:
-//
-//    This routine uses double precision arithmetic.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 April 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_max ( double x, double y )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_MAX returns the maximum of two doubles.
-//
-//  Discussion:
-//
-//    This routine uses double precision arithmetic.
-//
-//  Modified:
-//
-//    18 August 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, Y, the quantities to compare.
-//
-//    Output, double R8_MAX, the maximum of X and Y.
-//
-{
-  double value;
-
-  if ( y < x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = y;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_sign ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_SIGN returns the sign of a double.
-//
-//  Discussion:
-//
-//    This routine uses double precision arithmetic.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    18 October 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the number whose sign is desired.
-//
-//    Output, double R8_SIGN, the sign of X.
-//
-{
-  double value;
-
-  if ( x < 0.0 )
-  {
-    value = -1.0;
-  }
-  else
-  {
-    value = 1.0;
-  }
-  return value;
-}
-//****************************************************************************80
-
-void xerbla ( char *srname, int info )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    XERBLA is an error handler for the LAPACK routines.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 May 2005
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Cleve Moler, Jim Bunch, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for Fortran Usage,
-//    Algorithm 539,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, September 1979, pages 308-323.
-//
-//  Parameters:
-//
-//    Input, char *SRNAME, the name of the routine
-//    which called XERBLA.
-//
-//    Input, int INFO, the position of the invalid parameter in
-//    the parameter list of the calling routine.
-//
-{
-  cout << "\n";
-  cout << "XERBLA - Fatal error!\n";
-  cout << "  On entry to routine " << srname << "\n";
-  cout << "  input parameter number " << info << " had an illegal value.\n";
-  exit ( 1 );
-}
-//****************************************************************************80
-
-double zabs1 ( complex <double> z )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ZABS1 returns the L1 norm of a complex <double>.
-//
-//  Discussion:
-//
-//    This routine uses double precision complex arithmetic.
-//
-//    The L1 norm of a complex number is the sum of the absolute values
-//    of the real and imaginary components.
-//
-//    ZABS1 ( Z ) = abs ( real ( Z ) ) + abs ( imaginary ( Z ) )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    15 April 2006
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Cleve Moler, Jim Bunch, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for FORTRAN usage,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, pages 308-323, 1979.
-//
-//  Parameters:
-//
-//    Input, complex <double> Z, the number whose norm is desired.
-//
-//    Output, double ZABS1, the L1 norm of Z.
-//
-{
-  double value;
-
-  value = r8_abs ( real ( z ) ) + r8_abs ( imag ( z ) );
-
-  return value;
-}
-//****************************************************************************80
-
-double zabs2 ( complex <double> z )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ZABS2 returns the L2 norm of a complex <double>.
-//
-//  Discussion:
-//
-//    This routine uses double precision complex arithmetic.
-//
-//    The L2 norm of a complex number is the square root of the sum
-//    of the squares of the real and imaginary components.
-//
-//    ZABS2 ( Z ) = sqrt ( ( real ( Z ) )**2 + ( imaginary ( Z ) )**2 )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    04 January 2011
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Cleve Moler, Jim Bunch, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for FORTRAN usage,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, pages 308-323, 1979.
-//
-//  Parameters:
-//
-//    Input, complex <double> Z, the number whose norm is desired.
-//
-//    Output, float ZABS2, the L2 norm of Z.
-//
-{
-  double value;
-  double zi;
-  double zr;
-
-  zr = real ( z );
-  zi = imag ( z );
-  value = sqrt ( zr * zr + zi * zi );
 
   return value;
 }
@@ -1326,150 +887,6 @@ void zdscal ( int n, double sa, complex <double> cx[], int incx )
 }
 //****************************************************************************80
 
-double zmach ( int job )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ZMACH computes machine parameters for complex <double> arithmetic.
-//
-//  Discussion:
-//
-//    Assume the computer has
-//
-//      B = base of arithmetic;
-//      T = number of base B digits;
-//      L = smallest possible exponent;
-//      U = largest possible exponent;
-//
-//    then
-//
-//      EPS = B**(1-T)
-//      TINY = 100.0 * B**(-L+T)
-//      HUGE = 0.01 * B**(U-T)
-//
-//    If complex division is done by
-//
-//      1 / (X+i*Y) = (X-i*Y) / (X**2+Y**2)
-//
-//    then
-//
-//      TINY = sqrt ( TINY )
-//      HUGE = sqrt ( HUGE )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    15 April 2006
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Cleve Moler, Jim Bunch, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for FORTRAN usage,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, pages 308-323, 1979.
-//
-//  Parameters:
-//
-//    Input, int JOB:
-//    1, EPS is desired;
-//    2, TINY is desired;
-//    3, HUGE is desired.
-//
-//    Output, double ZMACH, the requested value.
-//
-{
-  double eps;
-  double huge;
-  double s;
-  complex <double> temp1;
-  complex <double> temp2;
-  complex <double> temp3;
-  double tiny;
-  double value;
-
-  eps = 1.0;
-
-  for ( ; ; )
-  {
-    eps = eps / 2.0;
-    s = 1.0 + eps;
-    if ( s <= 1.0 )
-    {
-      break;
-    }
-  }
-
-  eps = 2.0 * eps;
-
-  s = 1.0;
-
-  for ( ; ; )
-  {
-    tiny = s;
-    s = s / 16.0;
-
-    if ( s * 1.0 == 0.0 )
-    {
-      break;
-    }
-  }
-
-  tiny = ( tiny / eps ) * 100.0;
-//
-//  Had to insert this manually!
-//
-  tiny = sqrt ( tiny );
-
-  if ( false )
-  {
-    temp1 = complex <double> ( 1.0,  0.0 );
-    temp2 = complex <double> ( tiny, 0.0 );
-    temp3 = temp1 / temp2;
-
-    s = real ( temp3 );
-
-    if ( s != 1.0 / tiny )
-    {
-      tiny = sqrt ( tiny );
-    }
-  }
-
-  huge = 1.0 / tiny;
-
-  if ( job == 1 )
-  {
-    value = eps;
-  }
-  else if ( job == 2 )
-  {
-    value = tiny;
-  }
-  else if ( job == 3 )
-  {
-    value = huge;
-  }
-  else
-  {
-    value = 0.0;
-  }
-
-  return value;
-}
-//****************************************************************************80
-
 void zrotg ( complex <double> *ca, complex <double> cb, double *c,
   complex <double> *s )
 
@@ -1494,7 +911,7 @@ void zrotg ( complex <double> *ca, complex <double> cb, double *c,
 //    If A /= 0:
 //
 //      ALPHA = A / abs ( A )
-//      NORM  = sqrt ( ( abs ( A ) )**2 + ( abs ( B ) )**2 )
+//      NORM  = sqrt ( ( abs ( A ) )^2 + ( abs ( B ) )^2 )
 //      R     = ALPHA * NORM
 //      C     = abs ( A ) / NORM
 //      S     = ALPHA * conj ( B ) / NORM
@@ -1633,104 +1050,6 @@ void zscal ( int n, complex <double> ca, complex <double> cx[], int incx )
     }
   }
   return;
-}
-//****************************************************************************80
-
-complex <double> zsign1 ( complex <double> z1, complex <double> z2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ZSIGN1 is a complex <double> transfer-of-sign function.
-//
-//  Discussion:
-//
-//    This routine uses double precision complex arithmetic.
-//
-//    The L1 norm is used.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    15 April 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, complex <double> Z1, Z2, the arguments.
-//
-//    Output, complex <double> ZSIGN1,  a complex value, with the magnitude of
-//    Z1, and the argument of Z2.
-//
-{
-  complex <double> value;
-
-  if ( zabs1 ( z2 ) == 0.0 )
-  {
-    value = complex <double> ( 0.0, 0.0 );
-  }
-  else
-  {
-    value = zabs1 ( z1 ) * ( z2 / zabs1 ( z2 ) );
-  }
-
-  return value;
-}
-//****************************************************************************80
-
-complex <double> zsign2 ( complex <double> z1, complex <double> z2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ZSIGN2 is a complex <double> transfer-of-sign function.
-//
-//  Discussion:
-//
-//    This routine uses double precision complex arithmetic.
-//
-//    The L2 norm is used.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    15 April 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, complex <double> Z1, Z2, the arguments.
-//
-//    Output, complex <double> ZSIGN2,  a complex value, with the magnitude of
-//    Z1, and the argument of Z2.
-//
-{
-  complex <double> value;
-
-  if ( zabs2 ( z2 ) == 0.0 )
-  {
-    value = complex <double> ( 0.0, 0.0 );
-  }
-  else
-  {
-    value = zabs2 ( z1 ) * ( z2 / zabs2 ( z2 ) );
-  }
-
-  return value;
 }
 //****************************************************************************80
 

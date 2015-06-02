@@ -8,8 +8,7 @@ using namespace std;
 # include "latin_random.hpp"
 
 int main ( );
-void test00 ( int *seed );
-void test01 ( int *seed );
+void test01 ( int &seed );
 
 //****************************************************************************80
 
@@ -19,7 +18,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LATIN_RANDOM_PRB tests the Latin Random Square routines.
+//    MAIN is the main program for LATIN_RANDOM_PRB.
+//
+//  Discussion:
+//
+//    LATIN_RANDOM_PRB tests the LATIN_RANDOM library.
 //
 //  Licensing:
 //
@@ -35,7 +38,7 @@ int main ( )
 //
 {
   int seed;
-  int seed_save;
+  int test;
 
   timestamp ( );
   cout << "\n";
@@ -43,30 +46,18 @@ int main ( )
   cout << "  C++ version\n";
   cout << "  Test the LATIN_RANDOM library.\n";
 
-  test00 ( &seed );
+  seed = 123456789;
 
-  seed_save = seed;
-  test01 ( &seed );
-
-  cout << "\n";
-  cout << "LATIN_RANDOM_PRB:\n";
-  cout << "  Repeat TEST01, but with different seed from first run.\n";
-
-  test01 ( &seed );
-
-  cout << "\n";
-  cout << "LATIN_PRB:\n";
-  cout << "  Repeat TEST01 with same seed as first run.\n";
-
-  seed = seed_save;
-  test01 ( &seed );
+  for ( test = 0; test < 3; test++ )
+  {
+    test01 ( seed );
+  }
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "LATIN_RANDOM_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -74,80 +65,53 @@ int main ( )
 }
 //****************************************************************************80
 
-void test00 ( int *seed )
+void test01 ( int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST00 tests GET_SEED, RANDOM_INITIALIZE.
+//    TEST01 tests LATIN_RANDOM_NEW.
 //
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
-{
-  cout << "\n";
-  cout << "TEST00\n";
-  cout << "  GET_SEED returns a seed for the random number\n";
-  cout << "  generator, based on the current time.\n";
-
-  *seed = get_seed ( );
-
-  cout << "\n";
-  cout << "  GET_SEED returns SEED = " << *seed << "\n";
-
-  return;
-}
-//****************************************************************************80
-
-void test01 ( int *seed )
-
-//****************************************************************************80
+//  Modified:
 //
-//  Purpose:
+//    12 November 2014
 //
-//    TEST01 tests LATIN_RANDOM.
+//  Author:
 //
-//  Licensing:
+//    John Burkardt
 //
-//    This code is distributed under the GNU LGPL license.
+//  Parameters:
+//
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 {
-# define DIM_NUM 2
-# define POINT_NUM 10
-
+  int m = 2;
   int i;
   int j;
   int k;
   int kk;
-  double x[DIM_NUM*POINT_NUM];
+  int n = 10;
+  double *x;
 
   cout << "\n";
   cout << "TEST01\n";
   cout << "  LATIN_RANDOM chooses a Latin Square cell arrangement,\n";
   cout << "  and then chooses a random point from each cell.\n";
   cout << "\n";
-  cout << "  Spatial dimension = " << DIM_NUM << "\n";
-  cout << "  Number of points =  " << POINT_NUM << "\n";
-  cout << "  Initial seed for UNIFORM = " << *seed << "\n";
+  cout << "  Spatial dimension = " << m << "\n";
+  cout << "  Number of points =  " << n << "\n";
+  cout << "  Initial seed for UNIFORM = " << seed << "\n";
 
-  latin_random ( DIM_NUM, POINT_NUM, seed, x );
+  x = latin_random_new ( m, n, seed );
 
-  cout << "\n";
-  cout << "  The Latin Random Square points:\n";
-  cout << "\n";
+  r8mat_transpose_print ( m, n, x, "  Latin Random Square:" );
 
-  for ( j = 0; j < POINT_NUM; j++ )
-  {
-    for ( i = 0; i < DIM_NUM; i++ )
-    {
-      cout << setw(10) << x[i+j*DIM_NUM] << "  ";
-    }
-    cout << "\n";
-  }
+  delete [] x;
 
   return;
-# undef POINT_NUM
-# undef DIM_NUM
 }

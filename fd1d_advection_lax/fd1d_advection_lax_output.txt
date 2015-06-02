@@ -1,0 +1,30 @@
+27 January 2013 06:51:25 PM
+
+FD1D_ADVECTION_LAX:
+  C++ version
+
+  Solve the constant-velocity advection equation in 1D,
+    du/dt = - c du/dx
+  over the interval:
+    0.0 <= x <= 1.0
+  with periodic boundary conditions, and
+  with a given initial condition
+    u(0,x) = (10x-4)^2 (6-10x)^2 for 0.4 <= x <= 0.6
+           = 0 elsewhere.
+
+  We modify the FTCS method using the Lax method:
+    du/dt = (u(t+dt,x)-0.5*u(t,x-dx)-0.5*u(t,x+dx))/dt
+    du/dx = (u(t,x+dx)-u(t,x-dx))/dx
+
+  Number of nodes NX = 101
+  Number of time steps NT = 1000
+  Constant velocity C = 1
+  CFL condition: dt (0.001) <= dx / c (0.01)
+
+  Plot data written to the file "advection_data.txt"
+  Gnuplot command data written to the file "advection_commands.txt"
+
+FD1D_ADVECTION_LAX
+  Normal end of execution.
+
+27 January 2013 06:51:25 PM

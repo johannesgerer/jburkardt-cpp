@@ -290,19 +290,19 @@ void basis_11_t3 ( double t[2*3], int i, double p[2], double *qi,
 
   if ( area == 0.0 )
   {
-    cout << "\n";
-    cout << "BASIS_11_T3 - Fatal error!\n";
-    cout << "  Element has zero area.\n";
-    cout << "  Area = " << area << "\n";
+    cerr << "\n";
+    cerr << "BASIS_11_T3 - Fatal error!\n";
+    cerr << "  Element has zero area.\n";
+    cerr << "  Area = " << area << "\n";
     exit ( 1 );
   }
 
   if ( i < 1 || 3 < i )
   {
-    cout << "\n";
-    cout << "BASIS_11_T3 - Fatal error!\n";
-    cout << "  Basis index I is not between 1 and 3.\n";
-    cout << "  I = " << i << "\n";
+    cerr << "\n";
+    cerr << "BASIS_11_T3 - Fatal error!\n";
+    cerr << "  Basis index I is not between 1 and 3.\n";
+    cerr << "  I = " << i << "\n";
     exit ( 1 );
   }
 
@@ -733,10 +733,10 @@ void basis_11_t6 ( double t[2*6], int i, double p[], double *bi,
 
   if ( i < 1 || 6 < i )
   {
-    cout << "\n";
-    cout << "BASIS_11_T6 - Fatal error!\n";
-    cout << "  Basis index I is not between 1 and 6.\n";
-    cout << "  I = " << i << "\n";
+    cerr << "\n";
+    cerr << "BASIS_11_T6 - Fatal error!\n";
+    cerr << "  Basis index I is not between 1 and 6.\n";
+    cerr << "  I = " << i << "\n";
     exit ( 1 );
   }
 //
@@ -1195,9 +1195,9 @@ void basis_mn_t3 ( double t[2*3], int n, double p[], double phi[],
 
   if ( area == 0.0 )
   {
-    cout << "\n";
-    cout << "BASIS_MN_T3 - Fatal error!\n";
-    cout << "  Element has zero area.\n";
+    cerr << "\n";
+    cerr << "BASIS_MN_T3 - Fatal error!\n";
+    cerr << "  Element has zero area.\n";
     exit ( 1 );
   }
 
@@ -2181,39 +2181,39 @@ void div_q4 ( int m, int n, double u[], double v[], double xlo, double xhi,
 
   if ( m <= 1 )
   {
-    cout << "\n";
-    cout << "DIV_Q4 - Fatal error!\n";
-    cout << "  M must be at least 2,\n";
-    cout << "  but the input value of M is " << m << "\n";
+    cerr << "\n";
+    cerr << "DIV_Q4 - Fatal error!\n";
+    cerr << "  M must be at least 2,\n";
+    cerr << "  but the input value of M is " << m << "\n";
     exit ( 1 );
   }
 
   if ( n <= 1 )
   {
-    cout << "\n";
-    cout << "DIV_Q4 - Fatal error!\n";
-    cout << "  N must be at least 2,\n";
-    cout << "  but the input value of N is " << n << "\n";
+    cerr << "\n";
+    cerr << "DIV_Q4 - Fatal error!\n";
+    cerr << "  N must be at least 2,\n";
+    cerr << "  but the input value of N is " << n << "\n";
     exit ( 1 );
   }
 
   if ( xhi == xlo )
   {
-    cout << "\n";
-    cout << "DIV_Q4 - Fatal error!\n";
-    cout << "  XHI and XLO must be distinct,\n";
-    cout << "  but the input value of XLO is " << xlo << "\n";
-    cout << "  and the input value of XHI is " << xhi << "\n";
+    cerr << "\n";
+    cerr << "DIV_Q4 - Fatal error!\n";
+    cerr << "  XHI and XLO must be distinct,\n";
+    cerr << "  but the input value of XLO is " << xlo << "\n";
+    cerr << "  and the input value of XHI is " << xhi << "\n";
     exit ( 1 );
   }
 
   if ( yhi == ylo )
   {
-    cout << "\n";
-    cout << "DIV_Q4 - Fatal error!\n";
-    cout << "  YHI and YLO must be distinct,\n";
-    cout << "  but the input value of YLO is " << ylo << "\n";
-    cout << "  and the input value of YHI is " << yhi << "\n";
+    cerr << "\n";
+    cerr << "DIV_Q4 - Fatal error!\n";
+    cerr << "  YHI and YLO must be distinct,\n";
+    cerr << "  but the input value of YLO is " << ylo << "\n";
+    cerr << "  and the input value of YHI is " << yhi << "\n";
     exit ( 1 );
   }
 
@@ -2572,9 +2572,9 @@ void elements_eps ( string file_name, int node_num, double node_xy[], string cod
 
   if ( !file_unit )
   {
-    cout << "\n";
-    cout << "ELEMENTS_EPS - Fatal error!\n";
-    cout << "  Could not open the output EPS file.\n";
+    cerr << "\n";
+    cerr << "ELEMENTS_EPS - Fatal error!\n";
+    cerr << "  Could not open the output EPS file.\n";
     exit ( 1 );
   }
 
@@ -2917,9 +2917,9 @@ int *grid_element ( string code, int element_order, int nelemx, int nelemy )
   else
   {
     element_node = NULL;
-    cout << "\n";
-    cout << "GRID_ELEMENT - Fatal error!\n";
-    cout << "  Illegal value of CODE = \"" << code << "\".\n";
+    cerr << "\n";
+    cerr << "GRID_ELEMENT - Fatal error!\n";
+    cerr << "  Illegal value of CODE = \"" << code << "\".\n";
     exit ( 1 );
   }
 
@@ -3008,9 +3008,9 @@ int grid_element_num ( string code, int nelemx, int nelemy )
   }
   else
   {
-    cout << "\n";
-    cout << "GRID_ELEMENT_NUM - Fatal error!\n";
-    cout << "  Illegal value of CODE = \"" << code << "\".\n";
+    cerr << "\n";
+    cerr << "GRID_ELEMENT_NUM - Fatal error!\n";
+    cerr << "  Illegal value of CODE = \"" << code << "\".\n";
     element_num = -1;
     exit ( 1 );
   }
@@ -3095,9 +3095,9 @@ int grid_node_num ( string code, int nelemx, int nelemy )
   }
   else
   {
-    cout << "\n";
-    cout << "GRID_NODE_NUM - Fatal error!\n";
-    cout << "  Illegal value of CODE = \"" << code << "\".\n";
+    cerr << "\n";
+    cerr << "GRID_NODE_NUM - Fatal error!\n";
+    cerr << "  Illegal value of CODE = \"" << code << "\".\n";
     node_num = -1;
     exit ( 1 );
   }
@@ -5681,9 +5681,9 @@ int i4_modp ( int i, int j )
 
   if ( j == 0 )
   {
-    cout << "\n";
-    cout << "I4_MODP - Fatal error!\n";
-    cout << "  I4_MODP ( I, J ) called with J = " << j << "\n";
+    cerr << "\n";
+    cerr << "I4_MODP - Fatal error!\n";
+    cerr << "  I4_MODP ( I, J ) called with J = " << j << "\n";
     exit ( 1 );
   }
 
@@ -6351,9 +6351,9 @@ void legendre_com ( int norder, double xtab[], double weight[] )
 
   if ( norder < 1 )
   {
-    cout << "\n";
-    cout << "LEGENDRE_COM - Fatal error!\n";
-    cout << "  Illegal value of NORDER = " << norder << "\n";
+    cerr << "\n";
+    cerr << "LEGENDRE_COM - Fatal error!\n";
+    cerr << "  Illegal value of NORDER = " << norder << "\n";
     exit ( 1 );
   }
  
@@ -8954,9 +8954,9 @@ double *map ( string code, int element_order )
 
   if ( info != 0 )
   {
-    cout << "\n";
-    cout << "MAP - Fatal error!\n";
-    cout << "  The Vandermonde matrix is singular.\n";
+    cerr << "\n";
+    cerr << "MAP - Fatal error!\n";
+    cerr << "  The Vandermonde matrix is singular.\n";
     exit ( 1 );
   }
 //
@@ -9018,6 +9018,178 @@ void map_test ( string code )
   delete [] w;
 
   return;
+}
+//****************************************************************************80
+
+double *mass_matrix_t3 ( int node_num, int element_num, int element_node[], 
+  double node_xy[] )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    MASS_MATRIX_T3 computes the mass matrix, using 3-node triangles.
+//
+//  Discussion:
+//
+//    The mass matrix to be estimated has the form:
+//
+//      A(I,J) = integral ( PHI(I)(X,Y) * PHI(J)(X,Y) ) d Region
+//
+//    where PHI(I) and PHI(J) are the shape functions associated with
+//    the I-th and J-th variables.
+//
+//  Element T3:
+//
+//    |
+//    1  3
+//    |  |\
+//    |  | \
+//    S  |  \
+//    |  |   \
+//    |  |    \
+//    0  1-----2
+//    |
+//    +--0--R--1-->
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    11 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int ELEMENT_NUM, the number of elements.
+//
+//    Input, int ELEMENT_NODE[3*ELEMENT_NUM], the nodes that make up each element.
+//
+//    Input, double NODE_XY[2*NODE_NUM], the nodes.
+//
+//    Output, double MASS_MATRIX_T3[NODE_NUM*NODE_NUM], the mass matrix.
+//
+{
+# define ELEMENT_ORDER 3
+
+  double *a;
+  double area;
+  double dwdr[ELEMENT_ORDER];
+  double dwds[ELEMENT_ORDER];
+  int element;
+  int global1;
+  int global2;
+  int local1;
+  int local2;
+  int norder;
+  int p1;
+  int p2;
+  int p3;
+  int quad;
+  int quad_num;
+  double r;
+  double *rtab;
+  int rule;
+  double s;
+  double *stab;
+  double w[ELEMENT_ORDER];
+  double *weight;
+
+  a = new double[node_num*node_num];
+//
+//  Zero out the matrix.
+//
+  for ( global2 = 0; global2 < node_num; global2++ )
+  {
+    for ( global1 = 0; global1 < node_num; global1++ )
+    {
+      a[global1+global2*node_num] = 0.0;
+    }
+  }
+//
+//  Get the weights and abscissas for a unit triangle.
+//
+  rule = 4;
+  quad_num = triangle_unit_size ( rule );
+
+  rtab = new double[quad_num];
+  stab = new double[quad_num];
+  weight = new double[quad_num];
+
+  triangle_unit_set ( rule, rtab, stab, weight );
+//
+//  For each element.
+//
+  for ( element = 0; element < element_num; element++ )
+  {
+    p1 = element_node[0+element*3] - 1;
+    p2 = element_node[1+element*3] - 1;
+    p3 = element_node[2+element*3] - 1;
+
+    area = 0.5 * r8_abs ( 
+        node_xy[0+p1*2] * ( node_xy[1+p2*2] - node_xy[1+p3*2] ) 
+      + node_xy[0+p2*2] * ( node_xy[1+p3*2] - node_xy[1+p1*2] ) 
+      + node_xy[0+p3*2] * ( node_xy[1+p1*2] - node_xy[1+p2*2] ) );
+
+    if ( area == 0.0 )
+    {
+      cerr << "\n";
+      cerr << "MASS_MATRIX_T3 - Fatal error!\n";
+      cerr << "  Zero area for element " << element << "\n";
+      cerr << "  Node 1 = " << p1 << "\n";
+      cerr << "  X = " << node_xy[0+p1*2] << "\n";
+      cerr << "  Y = " << node_xy[1+p1*2] << "\n";
+      cerr << "  Node 2 = " << p2 << "\n";
+      cerr << "  X = " << node_xy[0+p2*2] << "\n";
+      cerr << "  Y = " << node_xy[1+p2*2] << "\n";
+      cerr << "  Node 3 = " << p3 << "\n";
+      cerr << "  X = " << node_xy[0+p3*2] << "\n";
+      cerr << "  Y = " << node_xy[1+p3*2] << "\n";
+      exit ( 1 );
+    }
+//
+//  For each quadrature point in the element...
+//
+    for ( quad = 0; quad < quad_num; quad++ )
+    {
+      r = rtab[quad];
+      s = stab[quad];
+
+      shape_t3 ( r, s, w, dwdr, dwds );
+//
+//  For each basis function PHI(I) associated with a node in the element,
+//
+      for ( local1 = 0; local1 < 3; local1++ )
+      {
+        global1 = element_node[local1+element*3] - 1;
+//
+//  For each "neighbor" basis function PHI(J) associated with a node in
+//  the element.
+//
+        for ( local2 = 0; local2 < 3; local2++ )
+        {
+          global2 = element_node[local2+element*3] - 1;
+
+          a[global1+global2*node_num] = a[global1+global2*node_num] 
+            + area * weight[quad] * w[local1] * w[local2];
+        }
+      }
+    }
+  }
+
+  delete [] rtab;
+  delete [] stab;
+  delete [] weight;
+
+  return a;
+# undef ELEMENT_ORDER
 }
 //****************************************************************************80
 
@@ -9140,18 +9312,18 @@ double *mass_matrix_t6 ( int node_num, int element_num, int element_node[],
 
     if ( area == 0.0 )
     {
-      cout << "\n";
-      cout << "MASS_MATRIX_T6 - Fatal error!\n";
-      cout << "  Zero area for element " << element << "\n";
-      cout << "  Node 1 = " << p1 << "\n";
-      cout << "  X = " << node_xy[0+p1*2] << "\n";
-      cout << "  Y = " << node_xy[1+p1*2] << "\n";
-      cout << "  Node 2 = " << p2 << "\n";
-      cout << "  X = " << node_xy[0+p2*2] << "\n";
-      cout << "  Y = " << node_xy[1+p2*2] << "\n";
-      cout << "  Node 3 = " << p3 << "\n";
-      cout << "  X = " << node_xy[0+p3*2] << "\n";
-      cout << "  Y = " << node_xy[1+p3*2] << "\n";
+      cerr << "\n";
+      cerr << "MASS_MATRIX_T6 - Fatal error!\n";
+      cerr << "  Zero area for element " << element << "\n";
+      cerr << "  Node 1 = " << p1 << "\n";
+      cerr << "  X = " << node_xy[0+p1*2] << "\n";
+      cerr << "  Y = " << node_xy[1+p1*2] << "\n";
+      cerr << "  Node 2 = " << p2 << "\n";
+      cerr << "  X = " << node_xy[0+p2*2] << "\n";
+      cerr << "  Y = " << node_xy[1+p2*2] << "\n";
+      cerr << "  Node 3 = " << p3 << "\n";
+      cerr << "  X = " << node_xy[0+p3*2] << "\n";
+      cerr << "  Y = " << node_xy[1+p3*2] << "\n";
       exit ( 1 );
     }
 //
@@ -9219,7 +9391,9 @@ int next_boundary_node ( int node, string code )
 //    value of 0 (or any "unusual" value") indicates that the
 //    first edge node is desired.
 //
-//    Input, string CODE, the element type.
+//    Input, string CODE, identifies the element desired.
+//    Legal values include "Q4", "Q8", "Q9", "Q12", "Q16", "QL", 
+//    "T3", "T4", "T6" and "T10".
 //
 //    Output, int NEXT_BOUNDARY_NODE, the index of the next edge node.
 //
@@ -10160,9 +10334,9 @@ void node_reference ( string code, double r[], double s[], double *area )
   }
   else
   {
-    cout << "\n";
-    cout << "NODE_REFERENCE - Fatal error!\n";
-    cout << "  Illegal value of CODE = " << code << "\n";
+    cerr << "\n";
+    cerr << "NODE_REFERENCE - Fatal error!\n";
+    cerr << "  Illegal value of CODE = " << code << "\n";
     exit ( 1 );
   }
 
@@ -11306,9 +11480,9 @@ void points_plot ( string file_name, int node_num, double node_xy[],
 
   if ( !file_unit )
   {
-    cout << "\n";
-    cout << "POINTS_PLOT - Fatal error!\n";
-    cout << "  Could not open the output EPS file.\n";
+    cerr << "\n";
+    cerr << "POINTS_PLOT - Fatal error!\n";
+    cerr << "  Could not open the output EPS file.\n";
     exit ( 1 );
   }
 
@@ -11520,9 +11694,9 @@ void poly ( string code, int rexp[], int sexp[] )
   }
   else if ( code == "T4" )
   {
-    cout << "\n";
-    cout << "POLY - Fatal error!\n";
-    cout << "  The T4 element does not follow the pattern!\n";
+    cerr << "\n";
+    cerr << "POLY - Fatal error!\n";
+    cerr << "  The T4 element does not follow the pattern!\n";
     exit ( 1 );
   }
   else if ( code == "T6" )
@@ -11535,9 +11709,9 @@ void poly ( string code, int rexp[], int sexp[] )
   }
   else
   {
-    cout << "\n";
-    cout << "POLY - Fatal error!\n";
-    cout << "  Illegal value of CODE = " << code << "\n";
+    cerr << "\n";
+    cerr << "POLY - Fatal error!\n";
+    cerr << "  Illegal value of CODE = " << code << "\n";
     exit ( 1 );
   }
 
@@ -12202,23 +12376,23 @@ double r8_epsilon ( )
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the roundoff unit for R8's.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -12226,19 +12400,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -12570,9 +12737,9 @@ int r8ge_fa ( int n, double a[], int pivot[] )
 //
     if ( a[l-1+(k-1)*n] == 0.0 )
     {
-      cout << "\n";
-      cout << "R8GE_FA - Fatal error!\n";
-      cout << "  Zero pivot on step " << k << "\n";
+      cerr << "\n";
+      cerr << "R8GE_FA - Fatal error!\n";
+      cerr << "  Zero pivot on step " << k << "\n";
       return k;
     }
 //
@@ -12616,9 +12783,9 @@ int r8ge_fa ( int n, double a[], int pivot[] )
 
   if ( a[n-1+(n-1)*n] == 0.0 )
   {
-    cout << "\n";
-    cout << "R8GE_FA - Fatal error!\n";
-    cout << "  Zero pivot on step " << n << "\n";
+    cerr << "\n";
+    cerr << "R8GE_FA - Fatal error!\n";
+    cerr << "  Zero pivot on step " << n << "\n";
     return n;
   }
 
@@ -13052,9 +13219,9 @@ void reference_sample ( string code, int *seed, double *r, double *s )
   }
   else
   {
-    cout << "\n";
-    cout << "REFERENCE_SAMPLE - Fatal error!\n";
-    cout << "  Illegal code = \"" << code << "\".\n";
+    cerr << "\n";
+    cerr << "REFERENCE_SAMPLE - Fatal error!\n";
+    cerr << "  Illegal code = \"" << code << "\".\n";
     exit ( 1 );
   }
 
@@ -13861,9 +14028,9 @@ void shape ( string code, double r, double s, double t[],
   }
   else
   {
-    cout << "\n";
-    cout << "SHAPE - Fatal error!\n";
-    cout << "  Unrecognized code = " << code << "\n";
+    cerr << "\n";
+    cerr << "SHAPE - Fatal error!\n";
+    cerr << "  Unrecognized code = " << code << "\n";
     exit ( 1 );
   }
 
@@ -14889,9 +15056,9 @@ int sphere_grid_element_num ( string code, int nelemx, int nelemy )
   }
   else
   {
-    cout << "\n";
-    cout << "SPHERE_GRID_ELEMENT_NUM - Fatal error!\n";
-    cout << "  Illegal value of CODE = \"" << code << "\".\n";
+    cerr << "\n";
+    cerr << "SPHERE_GRID_ELEMENT_NUM - Fatal error!\n";
+    cerr << "  Illegal value of CODE = \"" << code << "\".\n";
     element_num = -1;
     exit ( 1 );
   }
@@ -14955,9 +15122,9 @@ int sphere_grid_node_num ( string code, int nelemx, int nelemy )
   }
   else
   {
-    cout << "\n";
-    cout << "SPHERE_GRID_NODE_NUM - Fatal error!\n";
-    cout << "  Illegal value of CODE = \"" << code << "\".\n";
+    cerr << "\n";
+    cerr << "SPHERE_GRID_NODE_NUM - Fatal error!\n";
+    cerr << "  Illegal value of CODE = \"" << code << "\".\n";
     node_num = -1;
     exit ( 1 );
   }
@@ -17755,9 +17922,9 @@ void triangle_unit_set ( int rule, double xtab[], double ytab[],
   }
   else
   {
-    cout << "\n";
-    cout << "TRIANGLE_UNIT_SET - Fatal error!\n";
-    cout << "  Illegal value of RULE = " << rule << "\n";
+    cerr << "\n";
+    cerr << "TRIANGLE_UNIT_SET - Fatal error!\n";
+    cerr << "  Illegal value of RULE = " << rule << "\n";
     exit ( 1 );
   }
 

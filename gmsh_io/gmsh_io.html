@@ -1,0 +1,265 @@
+<html>
+
+  <head>
+    <title>
+      GMSH_IO - Read and Write GMSH Mesh files
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      GMSH_IO <br> Read and Write GMSH Mesh files
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>GMSH_IO</b>
+      is a C++ library which
+      can read and write the files used by the GMSH meshing program.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>GMSH_IO</b> is available in
+      <a href = "../../c_src/gmsh_io/gmsh_io.html">a C version</a> and
+      <a href = "../../cpp_src/gmsh_io/gmsh_io.html">a C++ version</a> and
+      <a href = "../../f77_src/gmsh_io/gmsh_io.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/gmsh_io/gmsh_io.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/gmsh_io/gmsh_io.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../py_src/dolfin-convert/dolfin-convert.html">
+      DOLFIN-CONVERT</a>,
+      a Python program which
+      can convert a mesh file from Gmsh, MEDIT, METIS or SCOTCH format to an
+      XML format suitable for use by DOLFIN or FENICS,
+      by Anders Logg.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem_to_gmsh/fem_to_gmsh.html">
+      FEM_TO_GMSH</a>,
+      a C++ program which
+      reads FEM files definining a 1D, 2D or 3D mesh, namely
+      a file of node coordinates and a file of elements defined by
+      node indices, and creates a Gmsh mesh file.
+    </p>
+
+    <p>
+      <a href = "../../examples/gmsh/gmsh.html">
+      GMSH</a>,
+      examples which
+      illustrate the use of the Gmsh program,
+      a 1D, 2D or 3D mesh generator that can create meshes
+      suitable for use by the finite element method (FEM).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gmsh_to_fem/gmsh_to_fem.html">
+      GMSH_TO_FEM</a>,
+      a C++ program which
+      reads a mesh data file created by the GMSH program
+      and writes a pair of node and element files that correspond
+      to the FEM format.
+    </p>
+
+    <p>
+      <a href = "../../data/msh/msh.html">
+      MSH</a>,
+      a data directory of examples of MSH files,
+      the native 3D mesh format used by Gmsh.
+    </p>
+
+    <p>
+      <a href = "../../examples/tethex/tethex.html">
+      TETHEX</a>,
+      examples which
+      illustrate the use of TETHEX,
+      a C++ program which
+      can read a Gmsh file defining a mesh of triangles or tetrahedrons,
+      and subdivide the mesh into quadrilaterals or hexahedrons, which
+      are suitable for use by the DEALII finite element program,
+      by Mikhail Artemiev.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Christophe Geuzaine, Jean-Francois Remacle,<br>
+          Gmsh: a three-dimensional finite element mesh generator with
+          built-in pre- and post-processing facilities,<br>
+          International Journal for Numerical Methods in Engineering,<br>
+          Volume 79, Number 11, pages 1309-1331, 2009.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "gmsh_io.cpp">gmsh_io.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "gmsh_io.hpp">gmsh_io.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "gmsh_io.sh">gmsh_io.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "gmsh_io_prb.cpp">gmsh_io_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "gmsh_io_prb.sh">gmsh_io_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "gmsh_io_prb_output.txt">gmsh_io_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>GMSH_DATA_READ</b> reads data from a GMSH file.
+        </li>
+        <li>
+          <b>GMSH_SIZE_READ</b> reads sizes from a GMSH file.
+        </li>
+        <li>
+          <b>GMSH_MESH2D_ELEMENT_DATA_EXAMPLE</b> returns element information for the example.
+        </li>
+        <li>
+          <b>GMSH_MESH2D_ELEMENT_SIZE_EXAMPLE</b> returns element sizes for the example.
+        </li>
+        <li>
+          <b>GMSH_MESH2D_NODE_DATA_EXAMPLE</b> returns node information for the example.
+        </li>
+        <li>
+          <b>GMSH_MESH2D_NODE_SIZE_EXAMPLE</b> returns the sizes of node information for the example.
+        </li>
+        <li>
+          <b>GMSH_MESH1D_WRITE</b> writes 1d mesh data as a Gmsh mesh file.
+        </li>
+        <li>
+          <b>GMSH_MESH2D_WRITE</b> writes 2d mesh data as a Gmsh mesh file.
+        </li>
+        <li>
+          <b>GMSH_MESH3D_WRITE</b> writes 3D mesh data as a Gmsh mesh file.
+        </li>
+        <li>
+          <b>I4MAT_COPY_NEW</b> copies an I4MAT to a "new" I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT</b> prints an I4MAT, transposed.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT_SOME</b> prints some of an I4MAT, transposed.
+        </li>
+        <li>
+          <b>MESH_BASE_ONE</b> ensures that the element definition is one-based.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_MIN</b> returns the minimum of two R8's.
+        </li>
+        <li>
+          <b>R8MAT_COPY_NEW</b> copies one R8MAT to a "new" R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT</b> prints an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>S_BEGIN</b> reports whether string 1 begins with string 2, ignoring case.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 21 October 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

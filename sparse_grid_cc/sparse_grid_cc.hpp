@@ -1,14 +1,13 @@
-namespace webbur {
-
 int *abscissa_level_closed_nd ( int level_max, int dim_num, int test_num, 
   int test_val[] );
 double cc_abscissa ( int order, int i );
 double *cc_weights ( int n );
-int choose ( int n, int k );
 void comp_next ( int n, int k, int a[], bool *more, int *h, int *t );
+int i4_choose ( int n, int k );
 int i4_max ( int i1, int i2 );
 int i4_min ( int i1, int i2 );
 int i4_modp ( int i, int j );
+int i4_mop ( int i );
 int i4_power ( int i, int j );
 string i4_to_string ( int i4, string format );
 int i4vec_product ( int n, int a[] );
@@ -37,4 +36,3 @@ int sparse_grid_ccs_size ( int dim_num, int level_max );
 void timestamp ( );
 void vec_colex_next2 ( int dim_num, int base[], int a[], bool *more );
 
-}

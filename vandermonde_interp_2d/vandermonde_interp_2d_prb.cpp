@@ -23,7 +23,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    VANDERMONDE_INTERP_2D_PRB tests VANDERMONDE_INTERP_2D.
+//    MAIN is the main program for VANDERMONDE_INTERP_1D_PRB.
+//
+//  Discussion:
+//
+//    VANDERMONDE_INTERP_2D_PRB tests the VANDERMONDE_INTERP_2D library.
 //
 //  Licensing:
 //

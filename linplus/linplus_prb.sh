@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include linplus_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include linplus_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling linplus_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ linplus_prb.o /$HOME/libcpp/$ARCH/linplus.o -lm
 if [ $? -ne 0 ]; then

@@ -1,0 +1,22 @@
+22 May 2014 12:08:14 PM
+
+NACA_PRB:
+  C++ version
+  Test the NACA library.
+
+TEST01
+  NACA4_SYMMETRIC evaluates y(x) for a NACA
+  symmetric airfoil defined by a 4-digit code.
+  Data saved in file 'symmetric_data.txt'
+  Created command file 'symmetric_commands.txt'
+
+TEST02
+  NACA4_CAMBERED evaluates (xu,yu) and (xl,yl) for a NACA
+  cambered airfoil defined by a 4-digit code.
+  Data saved in file 'cambered_data.txt'
+  Created command file 'cambered_commands.txt'
+
+NACA_PRB:
+  Normal end of execution.
+
+22 May 2014 12:08:14 PM

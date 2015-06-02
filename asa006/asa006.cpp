@@ -157,7 +157,7 @@ void cholesky ( double a[], int n, int nn, double u[], int *nullty,
       {
         u[k-1] = 0.0;
 
-        if ( r8_abs ( x * a[k-1] ) < w * w )
+        if ( fabs ( x * a[k-1] ) < w * w )
         {
           *ifault = 2;
           return;
@@ -167,7 +167,7 @@ void cholesky ( double a[], int n, int nn, double u[], int *nullty,
 //
 //  End of row, estimate relative accuracy of diagonal element.
 //
-    if ( r8_abs ( w ) <= r8_abs ( eta * a[k-1] ) )
+    if ( fabs ( w ) <= fabs ( eta * a[k-1] ) )
     {
       u[k-1] = 0.0;
       *nullty = *nullty + 1;
@@ -184,47 +184,6 @@ void cholesky ( double a[], int n, int nn, double u[], int *nullty,
     j = j + icol;
   }
   return;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
 }
 //****************************************************************************80
 
@@ -405,7 +364,7 @@ void subchl ( double a[], int b[], int n, double u[], int *nullty,
       }
       else
       {
-        if ( r8_abs ( x * a[kk-1] ) < w * w )
+        if ( fabs ( x * a[kk-1] ) < w * w )
         {
           *ifault = 2;
           return;
@@ -415,7 +374,7 @@ void subchl ( double a[], int b[], int n, double u[], int *nullty,
       }
     }
 
-    if ( r8_abs ( eta * a[kk-1] ) <= r8_abs ( w ) )
+    if ( fabs ( eta * a[kk-1] ) <= fabs ( w ) )
     {
       if ( w < 0.0 )
       {

@@ -25,7 +25,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    CRC_PRB calls the CRC test routines.
+//    CRC_PRB tests the CRC library.
 //
 //  Licensing:
 //
@@ -41,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "CRC_PRB\n";
   cout << "  C++ version";
@@ -57,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "CRC_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

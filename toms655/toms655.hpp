@@ -11,7 +11,7 @@ double ceiqf ( int nt, double t[], int mlt[], int kind, double alpha,
 double ceiqfs ( int nt, double t[], int mlt[], int kind, double alpha, 
   double beta, double f ( double x, int i ) );
 void cgqf ( int nt, int kind, double alpha, double beta, double a, double b, 
-  double t[], double wts[] );
+  int lo, double t[], double wts[] );
 void cgqfs ( int nt, int kind, double alpha, double beta, int lo, double t[], 
   double wts[] );
 void chkqf ( double t[], double wts[], int mlt[], int nt, int nwts, int ndx[], 
@@ -42,6 +42,7 @@ void imtqlx ( int n, double d[], double e[], double z[] );
 void parchk ( int kind, int m, double alpha, double beta );
 double r8_abs ( double x );
 double r8_epsilon ( );
+double r8_gamma ( double x );
 double r8_max ( double x, double y );
 double r8_min ( double x, double y );
 double r8_sign ( double x );

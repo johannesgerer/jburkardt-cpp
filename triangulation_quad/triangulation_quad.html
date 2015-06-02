@@ -1,4 +1,4 @@
-7<html>
+<html>
 
   <head>
     <title>
@@ -45,7 +45,7 @@
       <blockquote>
         <b>triangulation_quad</b> <i>prefix</i>
       </blockquote>
-      where <i>'prefix'</i> is the common prefix for the node and triangle files
+      where <i>'prefix'</i> is the common prefix for the node, element, and value files
       <ul>
         <li>
           <i>prefix</i><b>_nodes.txt</b>,    the node coordinates;
@@ -90,13 +90,6 @@
     </h3>
 
     <p>
-      <a href = "../../cpp_src/quadrule/quadrule.html">
-      QUADRULE</a>,
-      a C++ library which
-      defines quadrature rules for 1D domains.
-    </p>
-
-    <p>
       <a href = "../../cpp_src/stroud/stroud.html">
       STROUD</a>,
       a C++ library which
@@ -104,11 +97,10 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/table_delaunay/table_delaunay.html">
-      TABLE_DELAUNAY</a>,
+      <a href = "../../cpp_src/tet_mesh_quad/tet_mesh_quad.html">
+      TET_MESH_QUAD</a>,
       a C++ program which
-      triangulates a set of nodes whose coordinates are
-      stored in a file.
+      estimates the integral of a function over a region defined by a tetrahedral mesh.
     </p>
 
     <p>
@@ -120,13 +112,6 @@
     </p>
 
     <p>
-      <a href = "../../c_src/triangle/triangle.html">
-      TRIANGLE</a>,
-      a C program which
-      computes a triangulation of a geometric region.
-    </p>
-
-    <p>
       <a href = "../../cpp_src/triangulation/triangulation.html">
       TRIANGULATION</a>,
       a C++ library which
@@ -135,137 +120,13 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/triangulation_boundary_nodes/triangulation_boundary_nodes.html">
-      TRIANGULATION_BOUNDARY_NODES</a>,
-      a C++ program which
-      reads data defining a triangulation, determines which nodes
-      lie on the boundary, and writes their coordinates to a file.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_corner/triangulation_corner.html">
-      TRIANGULATION_CORNER</a>,
-      a C++ program which
-      patches triangulations so that no triangle has two sides on the boundary.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_delaunay_discrepancy/triangulation_delaunay_discrepancy.html">
-      TRIANGULATION_DELAUNAY_DISCREPANCY</a>,
-      a C++ program which
-      measures the amount by which a triangulation fails the local Delaunay test;
-    </p>
-
-    <p>
-      <a href = "../../m_src/triangulation_display/triangulation_display.html">
-      TRIANGULATION_DISPLAY</a>,
-      a MATLAB program which
-      displays the nodes and elements of a triangulation on the MATLAB graphics screen;
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_display_opengl/triangulation_display_opengl.html">
-      TRIANGULATION_DISPLAY_OPENGL</a>,
-      a C++ program which
-      reads files defining a triangulation and displays an image using Open GL.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_histogram/triangulation_histogram.html">
-      TRIANGULATION_HISTOGRAM</a>,
-      a C++ program which
-      computes histograms of data over a triangulation.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_l2q/triangulation_l2q.html">
-      TRIANGULATION_L2Q</a>,
-      a C++ program which
-      reads data defining a 3-node triangulation and generates
-      midside nodes and writes out the corresponding 6-node triangulation.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_mask/triangulation_mask.html">
-      TRIANGULATION_MASK</a>,
-      a C++ program which
-      takes an existing triangulation and deletes triangles and
-      their corresponding nodes as requested by the user.
-    </p>
-
-    <p>
-      <a href = "../../data/triangulation_order3/triangulation_order3.html">
-      TRIANGULATION_ORDER3</a>,
-      a directory which
-      contains a description and
-      examples of order 3 triangulations.
-    </p>
-
-    <p>
-      <a href = "../../data/triangulation_order6/triangulation_order6.html">
-      TRIANGULATION_ORDER6</a>,
-      a directory which
-      contains a description and
-      examples of order 6 triangulations.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_orient/triangulation_orient.html">
-      TRIANGULATION_ORIENT</a>,
-      a C++ program which
-      reads data defining a triangulation, makes sure that
-      every triangle has positive orientation, and if not, writes a
-      corrected triangle file.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_plot/triangulation_plot.html">
-      TRIANGULATION_PLOT</a>,
-      a C++ program which
-      reads data defining a triangulation and creates a
-      PostScript image of the nodes and triangles.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_q2l/triangulation_q2l.html">
-      TRIANGULATION_Q2L</a>,
-      a C++ program which
-      reads data defining a 6-node triangulation, and subdivides
-      each triangle into 4 3-node triangles, writing the resulting
-      triangulation to a file.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_quality/triangulation_quality.html">
-      TRIANGULATION_QUALITY</a>,
-      a C++ program which
-      computes quality measures of a triangulation.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_rcm/triangulation_rcm.html">
-      TRIANGULATION_RCM</a>,
-      a C++ program which
-      reads data defining a triangulation, determines an ordering
-      of the nodes that will reduce the bandwidth of the adjacency
-      matrix, and writes the new triangulation information to a file.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_refine/triangulation_refine.html">
-      TRIANGULATION_REFINE</a>,
-      a C++ program which
-      reads data defining a triangulation, replaces each triangle
-      by four congruent smaller ones, and writes the new triangulation
-      information to a file.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation_triangle_neighbors/triangulation_triangle_neighbors.html">
-      TRIANGULATION_TRIANGLE_NEIGHBORS</a>,
-      a C++ program which
-      reads data defining a triangulation, determines the neighboring
-      triangles of each triangle, and writes that information to a file.
+      <a href = "../../cpp_src/triangulation_node_to_element/triangulation_node_to_element.html">
+      TRIANGULATION_NODE_TO_ELEMENT</a>,
+      a C++ program which 
+      reads files describing a set of nodes, their triangulation, and the
+      value of one or more quantities at each node, and outputs a file
+      that averages the quantities for each element.  This operation 
+      in effect creates an "order1" finite element model of the data.
     </p>
 
     <h3 align = "center">

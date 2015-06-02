@@ -2,14 +2,14 @@
 
   <head>
     <title>
-      UNIFORM - A Uniform Random Number Generator
+      UNIFORM - A Uniform Random Number Generator (RNG)
     </title>
   </head>
 
   <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
 
     <h1 align = "center">
-      UNIFORM <br> A Uniform Random Number Generator
+      UNIFORM <br> A Uniform Random Number Generator (RNG)
     </h1>
 
     <hr>
@@ -21,7 +21,7 @@
     </p>
 
     <p>
-      The fundamental underlying random number generator in <b>UNIFORM</b>
+      The fundamental underlying random number generator
       is based on a simple, old, and limited linear congruential random
       number generator originally used in the IBM System 360.  If you want
       state of the art random number generation, look elsewhere!
@@ -35,13 +35,16 @@
     <p>
       Rather, this library makes it possible to compare certain computations
       that use uniform random numbers, written in C, C++, FORTRAN77,
-      FORTRAN90, Mathematica or MATLAB.
+      FORTRAN90, Mathematica, MATLAB, or Python.
     </p>
 
     <p>
       Various types of random data can be computed.  The routine names
       are chosen to indicate the corresponding type:
       <ul>
+        <li>
+          <b>B</b>, an integer binary value of 0 or 1.
+        </li>
         <li>
           <b>C4</b>, complex &lt;float&gt;
         </li>
@@ -55,10 +58,7 @@
           <b>I4</b>, int
         </li>
         <li>
-          <b>I8</b>, long int
-        </li>
-        <li>
-          <b>L</b>, bool
+          <b>L4</b>, bool
         </li>
         <li>
           <b>R4</b>, float
@@ -88,12 +88,14 @@
       unit interval or region.  Routines are available which return
       these "unit" values, while other routines allow the user to
       specify limits between which the unit values are rescaled.
-      If a routine returns unit values, its name will include
-      a special indicator:
+      The name of a routine will usually include a tag
+      suggestig which is the case:
       <ul>
         <li>
-          <b>01</b>, the data that is being returned lies in a
-          unit interval or region;
+          <b>01</b>, the data lies in a nit interval or region;
+        </li>
+        <li>
+          <b>AB</b>, the data  lies in a scaled interval or region;
         </li>
       </ul>
     </p>
@@ -130,7 +132,8 @@
       <a href = "../../f77_src/uniform/uniform.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/uniform/uniform.html">a FORTRAN90 version</a> and
       <a href = "../../math_src/uniform/uniform.html">a Mathematica version</a> and
-      <a href = "../../m_src/uniform/uniform.html">a MATLAB version</a>
+      <a href = "../../m_src/uniform/uniform.html">a MATLAB version</a> and
+      <a href = "../../py_src/uniform/uniform.html">a Python version</a>.
     </p>
 
     <h3 align = "center">
@@ -141,7 +144,7 @@
       <a href = "../../cpp_src/asa183/asa183.html">
       ASA183</a>,
       a C++ library which
-      implements the Wichman-Hill pseudorandom number generator.
+      implements the Wichman-Hill random number generator (RNG).
     </p>
 
     <p>
@@ -158,13 +161,6 @@
       CPP_RANDOM</a>,
       C++ programs which
       illustrate the use of the C++ random number generator routines.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/cvt/cvt.html">
-      CVT</a>,
-      a C++ library which
-      computes elements of a Centroidal Voronoi Tessellation.
     </p>
 
     <p>
@@ -189,41 +185,6 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/hex_grid/hex_grid.html">
-      HEX_GRID</a>,
-      a C++ library which
-      computes elements of a hexagonal grid dataset.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/ihs/ihs.html">
-      IHS</a>,
-      a C++ library of routines for computing
-      improved Latin Hypercube datasets.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/latin_center/latin_center.html">
-      LATIN_CENTER</a>,
-      a C++ library which
-      computes elements of a Latin Hypercube dataset, choosing center points.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/latin_edge/latin_edge.html">
-      LATIN_EDGE</a>,
-      a C++ library which
-      computes elements of a Latin Hypercube dataset, choosing edge points.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/latin_random/latin_random.html">
-      LATIN_RANDOM</a>,
-      a C++ library which
-      computes elements of a Latin Hypercube dataset, choosing points at random.
-    </p>
-
-    <p>
       <a href = "../../cpp_src/niederreiter2/niederreiter2.html">
       NIEDERREITER2</a>,
       a C++ library which
@@ -243,6 +204,27 @@
       a C++ library which
       generates a sequence of pseudorandom numbers,
       used by the NAS Benchmark programs.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ranlib/ranlib.html">
+      RANLIB</a>,
+      a C++ library which
+      produces random samples from Probability Density Functions (PDF's), 
+      including Beta, Chi-square Exponential, F, Gamma, Multivariate normal,
+      Noncentral chi-square, Noncentral F, Univariate normal, random permutations,
+      Real uniform, Binomial, Negative Binomial, Multinomial, Poisson
+      and Integer uniform,
+      by Barry Brown and James Lovato.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rnglib/rnglib.html">
+      RNGLIB</a>,
+      a C++ library which
+      implements a random number generator (RNG) with splitting facilities,
+      allowing multiple independent streams to be computed,
+      by L'Ecuyer and Cote.
     </p>
 
     <p>

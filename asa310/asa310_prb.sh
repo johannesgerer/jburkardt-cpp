@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include asa310_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include asa310_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling asa310_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ asa310_prb.o /$HOME/libcpp/$ARCH/asa310.o -lm
 if [ $? -ne 0 ]; then

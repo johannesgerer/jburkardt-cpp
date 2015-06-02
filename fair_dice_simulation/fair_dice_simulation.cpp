@@ -1,5 +1,6 @@
 # include <cstdlib>
 # include <iostream>
+# include <fstream>
 # include <ctime>
 
 using namespace std;
@@ -32,7 +33,7 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    13 June 2011
+//    25 May 2013
 //
 //  Author:
 //
@@ -43,6 +44,10 @@ int main ( int argc, char *argv[] )
 //    Command line, int N, the number of times the dice are thrown.
 //
 {
+  ofstream command;
+  string command_filename = "fair_dice_commands.txt";
+  ofstream data;
+  string data_filename = "fair_dice_data.txt";
   int die1;
   int die2;
   int i;
@@ -51,14 +56,11 @@ int main ( int argc, char *argv[] )
   int score;
   int score_count[13];
 
-  if ( false )
-  {
-    timestamp ( );
-    cout << "\n";
-    cout << "FAIR_DICE_SIMULATION:\n";
-    cout << "  C++ version\n";
-    cout << "  Simulate N throws of a pair of fair dice.\n";
-  }
+  timestamp ( );
+  cout << "\n";
+  cout << "FAIR_DICE_SIMULATION:\n";
+  cout << "  C++ version\n";
+  cout << "  Simulate N throws of a pair of fair dice.\n";
 
   if ( 1 < argc )
   {
@@ -93,23 +95,46 @@ int main ( int argc, char *argv[] )
     score_count[score] = score_count[score] + 1;
   }
 //
-//  Print a table, suitable for treatement by GNUPLOT.
+//  Write the graphics data file.
 //
+  data.open ( data_filename.c_str ( ) );
   for ( score = 2; score <= 12; score++ )
   {
-    cout << "  " << score << "  " << score_count[score] << "\n";
+    data << "  " << score << "  " << score_count[score] << "\n";
   }
+  data.close ( );
+  cout << "\n";
+  cout << "  Created the graphics data file \"" << data_filename << "\".\n";
+//
+//  Write the graphics command file.
+//
+  command.open ( command_filename.c_str ( ) );
+  command << "# " << command_filename << "\n";
+  command << "#\n";
+  command << "# Usage:\n";
+  command << "#  gnuplot < " << command_filename << "\n";
+  command << "#\n";
+  command << "set term png\n";
+  command << "set output 'fair_dice.png'\n";
+  command << "set xlabel 'Score'\n";
+  command << "set ylabel 'Frequency'\n";
+  command << "set title 'Score frequency for a pair of fair dice'\n";
+  command << "set grid\n";
+  command << "set style fill solid\n";
+  command << "set yrange [0:*]\n";
+  command << "set timestamp\n";
+  command << "plot 'fair_dice_data.txt' using 1:2:(0.90):xtic(3) with boxes\n";
+  command << "quit\n";
+  command.close ( );
+  cout << "  Created the graphics command file \"" << command_filename << "\".\n";
 //
 //  Terminate.
 //
-  if ( false )
-  {
-    cout << "\n";
-    cout << "FAIR_DICE_SIMULATION:\n";
-    cout << "  Normal end of execution.\n";
-    cout << "\n";
-    timestamp ( );
-  }
+  cout << "\n";
+  cout << "FAIR_DICE_SIMULATION:\n";
+  cout << "  Normal end of execution.\n";
+  cout << "\n";
+  timestamp ( );
 
   return 0;
 }

@@ -1,0 +1,20 @@
+16 February 2014 10:52:56 AM
+
+RECTANGLE:
+  C version
+  Interpolation of the Franke function
+  on the unit square [0,1] x [0,1]
+  of degree = 60
+
+  Wrote F(x,y) at Padua points in 'rectangle_fpd.txt'
+  Wrote F(x,y) at target points in 'rectangle_ftg.txt'
+  Wrote I(F)(x,y) at target points in 'ellipse_itg.txt'
+
+  Estimated error:  2.60427e-10
+  Actual error:     2.46817e-11
+  Expected error:   2.468e-11
+
+RECTANGLE:
+  Normal end of execution.
+
+16 February 2014 10:52:56 AM

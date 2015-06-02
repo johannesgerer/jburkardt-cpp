@@ -1,0 +1,77 @@
+21 December 2012 02:26:20 PM
+
+TET_MESH_QUAD:
+  C++ version:
+  Estimate an integral over a region defined by a tetrahedral mesh.
+
+  Compiled on Dec 21 2012 at 14:26:00.
+
+  Read the header of "cube_4x4x4_nodes.txt".
+
+  Spatial dimension NODE_DIM = 3
+  Number of nodes NODE_NUM  = 64
+
+  Read the data in "cube_4x4x4_nodes.txt".
+
+  First 5 nodes:
+
+  Row:       1             2             3       
+  Col
+
+    1              0             0             0
+    2        1.33333             0             0
+    3        2.66667             0             0
+    4              4             0             0
+    5              0       1.33333             0
+
+ Read the header of "cube_4x4x4_elements.txt".
+
+  Element order      = 4
+  Number of elements = 162
+
+  Read the data in "cube_4x4x4_elements.txt".
+
+  First 5 elements:
+
+  Row:      1       2       3       4  
+  Col
+
+    1       8      23       7      19  
+    2       8       7       3      19  
+    3       8      19       3       4  
+    4       8      20      19       4  
+    5       8      20      23      19  
+
+  Read the header of "cube_4x4x4_values.txt".
+
+  VALUE dimension VALUE_DIM = 1
+  Number of nodes VALUE_NUM = 64
+
+  Read the data in "cube_4x4x4_values.txt".
+
+  First 5 values:
+
+  Row:       1       
+  Col
+
+    1              0
+    2         1.3333
+    3         2.6667
+    4              4
+    5         2.6667
+
+MESH_BASE_ZERO:
+  The element indexing appears to be 1-based!
+  This will be converted to 0-based.
+
+  Tet mesh volume = 64
+
+  Integral estimates:
+
+         0             768
+
+TET_MESH_QUAD:
+  Normal end of execution.
+
+21 December 2012 02:26:20 PM
+

@@ -1,0 +1,306 @@
+<html>
+
+  <head>
+    <title>
+      HIGH_CARD_SIMULATION - Guessing What the Highest Card Is
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      HIGH_CARD_SIMULATION <br> Guessing What the Highest Card Is
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>HIGH_CARD_SIMULATION</b>
+      is a C++ program which
+      simulates a game in which you have one chance to select the highest card
+      from a deck, using GNUPLOT to display the estimated and exact probabilities.
+    </p>
+
+    <p>
+      You are given a deck of DECK_SIZE cards.
+    </p>
+
+    <p>
+      Your goal is to select the high card.  For convenience, we can assume 
+      the cards are a permutation of the integers from 1 to DECK_SIZE, but in
+      fact the user mustn't see such values or else it's obvious which is the
+      largest card.  (For a truly difficult problem, we'd have to work harder
+      to disguise the range of values and the likely distribution!)
+    </p>
+
+    <p>
+      Your choice is made under the following rules:  You may turn over
+      one card at a time.  When a card is turned over, you may declare that to be
+      your choice, or else turn over another card.  If you have not chosen a card
+      by the end, then your choice is the final card.
+    </p>
+
+    <p>
+      If you have no idea what to do, and simply decide in advance to pick
+      a card "at random", that is, for example, you decide to pick the 15th card
+      before having seen any cards, then your probability of winning is 1/DECK_SIZE.
+    </p>
+
+    <p>
+      The question is, can you do better than that?
+    </p>
+
+    <p>
+      A good strategy is as follows: always look at the first SKIP_NUM cards
+      without choosing them.  Then choose the very next card you encounter 
+      that is larger than the cards you skipped.
+    </p>
+
+    <p>
+      Using this program, you can easily see that skipping 5 cards is much better
+      than picking one at random, skipping 10 is even better, and so on...up to some
+      point, when the benefit begins to disappear.  Of course,
+      you can't skip too many cards, and in fact, the results seem to be best for
+      somewhere around 30 to 35 cards skipped.  For problems like this, the
+      optimal value is somewhere around 1 / e, where E is the base of the natural
+      logarithm system.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>HIGH_CARD_SIMULATION</b> is available in
+      <a href = "../../c_src/high_card_simulation/high_card_simulation.html">a C version</a> and
+      <a href = "../../cpp_src/high_card_simulation/high_card_simulation.html">a C++ version</a> and
+      <a href = "../../f_src/high_card_simulation/high_card_simulation.html">a FORTRAN90 version</a> and
+      <a href = "../../f77_src/high_card_simulation/high_card_simulation.html">a FORTRAN77 version</a> and
+      <a href = "../../m_src/high_card_simulation/high_card_simulation.html">a MATLAB version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/brownian_motion_simulation/brownian_motion_simulation.html">
+      BROWNIAN_MOTION_SIMULATION</a>,
+      a C++ program which
+      simulates Brownian motion in an M-dimensional region.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/duel_simulation/duel_simulation.html">
+      DUEL_SIMULATION</a>, 
+      a C++ program which
+      simulates N repetitions of a duel between two players, each of
+      whom has a known firing accuracy.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fair_dice_simulation/fair_dice_simulation.html">
+      FAIR_DICE_SIMULATION</a>,
+      a C++ program which
+      simulates N tosses of 2 dice, making a histogram of the results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which illustrate how a program can write data 
+      and command files so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ising_2d_simulation/ising_2d_simulation.html">
+      ISING_2D_SIMULATION</a>,
+      a C++ program which
+      carries out a Monte Carlo simulation of an Ising model,
+      a 2D array of positive and negative charges,
+      each of which is likely to "flip" to be in agreement with neighbors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/poisson_simulation/poisson_simulation.html">
+      POISSON_SIMULATION</a>,
+      a C++ library which
+      simulates a Poisson process in which events randomly occur with an
+      average waiting time of Lambda.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/reactor_simulation/reactor_simulation.html">
+      REACTOR_SIMULATION</a>,
+      a C++ program which
+      a simple Monte Carlo simulation of the shielding effect of a slab
+      of a certain thickness in front of a neutron source.  This program was
+      provided as an example with the book "Numerical Methods and Software."
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/snakes_and_ladders/snakes_and_ladders.html">
+      SNAKES_AND_LADDERS</a>,
+      C++ programs which
+      simulate the game of Snakes and Ladders.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/string_simulation/string_simulation.html">
+      STRING_SIMULATION</a>,
+      a C++ program which
+      simulates the behavior of a vibrating string
+      by solving the corresponding initial boundary value problem (IBVP),
+      creating files that can be displayed by gnuplot.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/three_body_simulation/three_body_simulation.html">
+      THREE_BODY_SIMULATION</a>,
+      a C++ program which
+      simulates the behavior of three planets, constrained to lie in a plane,
+      and moving under the influence of gravity,
+      by Walter Gander and Jiri Hrebicek.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Paul Nahin,<br>
+          Digital Dice: Computational Solutions to Practical Probability Problems,<br>
+          Princeton University Press, 2008,<br>
+          ISBN13: 978-0-691-12698-2,<br>
+          LC: QA273.25.N34.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "high_card_simulation.cpp">high_card_simulation.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "high_card_simulation.hpp">high_card_simulation.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "high_card_simulation.sh">high_card_simulation.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "high_card_simulation_prb.cpp">high_card_simulation_prb.cpp</a>
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "high_card_simulation_prb.sh">high_card_simulation_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "high_card_simulation_prb_output.txt">high_card_simulation_prb_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "test02_commands.txt">test02_commands.txt</a>, 
+          the GNUPLOT command file;
+        </li>
+        <li>
+          <a href = "test02_data.txt">test02_data.txt</a>, 
+          the data file.
+        </li>
+        <li>
+          <a href = "test02.png">test02.png</a>, 
+          plots the exact chances of winning with various skips, and a deck of 100 cards.
+        </li>
+        <li>
+          <a href = "test03_commands.txt">test03_commands.txt</a>, 
+          the GNUPLOT command file;
+        </li>
+        <li>
+          <a href = "test03_data.txt">test03_data.txt</a>, 
+          the data file.
+        </li>
+        <li>
+          <a href = "test03.png">test03.png</a>, 
+          plots the exact chances of winning with various skips, and a deck of 100 cards.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>HIGH_CARD_PROBABILITY:</b> winning probabilities for the high card game.
+        </li>
+        <li>
+          <b>HIGH_CARD_SHUFFLE</b> generates a sequence of numeric "cards" for a game.
+        </li>
+        <li>
+          <b>HIGH_CARD_SIMULATION</b> simulates a game of choosing the highest card in a deck.
+        </li>
+        <li>
+          <b>I4_POWER</b> returns the value of I^J.
+        </li>
+        <li>
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4 between A and B.
+        </li>
+        <li>
+          <b>I4VEC_MAX</b> returns the value of the maximum element in an I4VEC.
+        </li>
+        <li>
+          <b>PERM_UNIFORM_NEW</b> selects a random permutation of N objects.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 26 February 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

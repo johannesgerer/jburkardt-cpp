@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "HAAR_PRB\n";
   cout << "  C++ version\n";
@@ -53,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "HAAR_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -61,7 +59,7 @@ int main ( )
 }
 //****************************************************************************80
 
-void test01 ( void )
+void test01 ( )
 
 //****************************************************************************80
 //
@@ -75,13 +73,14 @@ void test01 ( void )
 //
 //  Modified:
 //
-//    14 March 2011
+//    06 March 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
+  double err;
   int i;
   int n;
   int seed;
@@ -97,7 +96,7 @@ void test01 ( void )
 //
   n = 16;
   seed = 123456789;
-  u = r8vec_uniform_01_new ( n, &seed );
+  u = r8vec_uniform_01_new ( n, seed );
   v = r8vec_copy_new ( n, u );
 
   haar_1d ( n, v );
@@ -201,7 +200,28 @@ void test01 ( void )
   delete [] u;
   delete [] v;
   delete [] w;
+//
+//  N not a power of 2.
+//
+  n = 99;
+  seed = 123456789;
+  u = r8vec_uniform_01_new ( n, seed );
 
+  v = r8vec_copy_new ( n, u );
+  haar_1d ( n, v );
+
+  w = r8vec_copy_new ( n, v );
+  haar_1d_inverse ( n, w );
+
+  err = r8vec_diff_norm ( n, u, w );
+
+  cout << "\n";
+  cout << "  For N = " << n
+       << ", ||u-haar_1d_inverse(haar_1d(u))|| = " << err << "\n";
+
+  delete [] u;
+  delete [] v;
+  delete [] w;
   return;
 }
 //****************************************************************************80
@@ -220,13 +240,14 @@ void test02 ( )
 //
 //  Modified:
 //
-//    18 March 2011
+//    06 March 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
+  double err;
   int i;
   int j;
   int m = 16;
@@ -244,7 +265,7 @@ void test02 ( )
 //  Demonstrate successful inversion.
 //
   seed = 123456789;
-  u = r8mat_uniform_01_new ( m, n, &seed );
+  u = r8mat_uniform_01_new ( m, n, seed );
 
   r8mat_print ( m, n, u, "  Input array U:" );
 
@@ -259,6 +280,30 @@ void test02 ( )
   haar_2d_inverse ( m, n, w );
 
   r8mat_print ( m, n, w, "  Recovered array W:" );
+
+  delete [] u;
+  delete [] v;
+  delete [] w;
+//
+//  M, N not powers of 2.
+//
+  m = 37;
+  n = 53;
+  seed = 123456789;
+  u = r8mat_uniform_01_new ( m, n, seed );
+
+  v = r8mat_copy_new ( m, n, u );
+  haar_2d ( m, n, v );
+
+  w = r8mat_copy_new ( m, n, v );
+  haar_2d_inverse ( m, n, w );
+
+  err = r8mat_dif_fro ( m, n, u, w );
+
+  cout << "\n";
+  cout << "  M = " << m
+       << ", N = " << n
+       << ", ||haar_2d_inverse(haar_2d(u))-u|| = " << err << "\n";
 
   delete [] u;
   delete [] v;

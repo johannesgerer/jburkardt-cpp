@@ -54,23 +54,23 @@ float r4_epsilon ( )
 //
 //  Purpose:
 //
-//    R4_EPSILON returns the round off unit for floating arithmetic.
+//    R4_EPSILON returns the R4 roundoff unit.
 //
 //  Discussion:
 //
-//    R4_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -78,19 +78,12 @@ float r4_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, float R4_EPSILON, the floating point round-off unit.
+//    Output, double R4_EPSILON, the R4 round-off unit.
 //
 {
-  float r;
+  const float value = 1.19209290E-07;
 
-  r = 1.0;
-
-  while ( 1.0 < ( float ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -1107,23 +1100,23 @@ double r8_epsilon ( )
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the R8 round off unit.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -1134,16 +1127,9 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 

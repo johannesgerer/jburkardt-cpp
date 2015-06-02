@@ -1,0 +1,126 @@
+25 February 2014 11:43:26 AM
+
+TSG_PRB:
+  C++ version
+  Test the TSG library.
+
+TSG_TEST01
+  Make a classical 2D Smolyak grid using the Clenshaw-Curtis rule.
+  Integrate f(x,y) = exp ( -x^2 ) * cos ( y ) over [-1,+1]^2
+  The grid is of level 7
+  The grid uses 321 points.
+  The estimated integral is: 2.51372335405531810e+00
+  The exact integral is:     2.51372335406390501e+00
+  The error is:              8.5869e-12
+
+TSG_TEST02
+  Make a 2D Smolyak grid using the Clenshaw-Curtis rule
+  over the region [-1,+1]^2.
+  This grid interpolates polynomials of total degree 10 or less.
+  Consider f(x,y) = exp ( -x^2 ) * cos ( y )
+  Compare f(x,y) to the interpolant I(f)(x,y).
+  Compare the integral of f(x,y) to the estimated integral.
+
+  The grid has a total of 129 points.
+  For interpolation, function values are still needed for 129 grid points.
+
+  Compare F(X,Y) and its interpolant.
+
+  (X,Y) = ( -9.99999999999921840e-01, -9.98029210650699383e-01 ).
+  F(X,Y) =              1.99375801252707013e-01
+  Interpolant(F)(X,Y) = 1.99375801252707013e-01
+  Error =               0.0000e+00
+
+  (X,Y) = ( -9.16737996810773836e-01, -6.46714714914168098e-01 ).
+  F(X,Y) =              3.44393495912586278e-01
+  Interpolant(F)(X,Y) = 3.44393476505422791e-01
+  Error =               1.9407e-08
+
+  (X,Y) = ( -2.70795503218785427e-01, -8.17338775775411364e-01 ).
+  F(X,Y) =              6.35789941603377873e-01
+  Interpolant(F)(X,Y) = 6.35789862302504227e-01
+  Error =               7.9301e-08
+
+  (X,Y) = ( -8.15404704602649133e-01, -2.55655521063431479e-02 ).
+  F(X,Y) =              5.14164684686516771e-01
+  Interpolant(F)(X,Y) = 5.14164684226742663e-01
+  Error =               4.5977e-10
+
+  (X,Y) = ( 5.35005595242168397e-02, -9.11331525235112849e-02 ).
+  F(X,Y) =              9.93003891038639508e-01
+  Interpolant(F)(X,Y) = 9.93003890721293581e-01
+  Error =               3.1735e-10
+
+  The estimated integral is: 2.51372335057075302e+00
+  The exact integral is:     2.51372335406390501e+00
+  The error is: 3.4932e-09
+
+TSG_TEST03
+  Make a 2D Smolyak grid using the Gauss-Legendre rule
+  over the region [-1,+1]^2.
+  This grid interpolates polynomials of total degree 10 or less.
+  Consider f(x,y) = exp ( -x^2 ) * cos ( y )
+  Compare the integral of f(x,y) to the estimated integral.
+  
+  The grid uses 89 points.
+  The estimated integral is: 2.51371439548495257e+00
+  The exact integral is:     2.51372335406390501e+00
+  The error is:              8.9586e-06
+
+TSG_TEST04
+  Make a 2D Smolyak grid using the Gauss-Gegenbauer rule
+  over the region [-1,+1]^2.
+  This grid should be 8 times as dense in the Y direction as in X.
+  Consider f(x,y) = exp ( x - 2 )^3 * exp ( -y^2 )
+  Use the Gegenbauer-type product weight
+    rho(x,y) = ( 1 - x^2 )^0.4 * ( 1 - y^2 )^0.4
+  Compare the integral of f(x,y) * rho(x,y) to the estimate.
+  
+  The grid uses 40 points.
+  The estimated integral is: -2.02997951137452795e+01
+  The exact integral is:     -2.02997951148652405e+01
+  The error is:              1.1200e-09
+
+TSG_TEST05
+  Interpolate f(x,y) = exp ( -x^2 ) * cos ( y ) 
+  using adaptive piecewise local quadratic polynomials over [0,1]^2.
+  (This requires transform the grid from [-1,+1]^2 to [0,1]^2.)
+  Evaluate the interpolant at (0.3,07).
+  The exact value of f(x,y) there is 6.990131267703512e-01.
+
+  Iteration  Samples  f(x,y)                   I(f)(x,y)                error
+
+          0       29  6.99013126770351212e-01  6.98596857091054457e-01  4.1627e-04
+          1       65  6.99013126770351212e-01  6.99036987007129129e-01  2.3860e-05
+          2      145  6.99013126770351212e-01  6.99024528864131134e-01  1.1402e-05
+          3      317  6.99013126770351212e-01  6.99012561184928605e-01  5.6559e-07
+          4      615  6.99013126770351212e-01  6.99012889829098483e-01  2.3694e-07
+          5      699  6.99013126770351212e-01  6.99012955821804116e-01  1.7095e-07
+
+TSG_TEST06
+  Generate Clenshaw-Curtis sparse grids in 2D.
+  For the growth argument, compare all three options.
+
+  HYPER: Hyperbolic cross
+  LEVEL: Smolyak level
+  BASIS: Polynomial exactness criterion.
+
+  Level     HYPER     LEVEL     BASIS
+
+      0         *         *         1
+      1         1         1         5
+      2         5         5         9
+      3         9        13        13
+      4        21        29        21
+      5        37        65        29
+      6        77       145        49
+      7       141       321        49
+      8       285       705        65
+      9       545      1537        81
+     10      1089      3329       129
+     11      2113      7169       129
+
+TSG_PRB:
+  Normal end of execution.
+
+25 February 2014 11:43:26 AM

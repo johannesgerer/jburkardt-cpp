@@ -8,6 +8,7 @@ fi
 rm compiler.txt
 #
 g++ test_matrix_exponential_prb.o /$HOME/libcpp/$ARCH/test_matrix_exponential.o \
+                                  /$HOME/libcpp/$ARCH/c8lib.o \
                                   /$HOME/libcpp/$ARCH/r8lib.o -lm
 if [ $? -ne 0 ]; then
   echo "Errors linking and loading test_matrix_exponential_prb.o."

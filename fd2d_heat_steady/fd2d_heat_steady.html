@@ -1,0 +1,233 @@
+<html>
+
+  <head>
+    <title>
+      FD2D_HEAT_STEADY - 2D Steady State Heat Equation in a Rectangle
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FD2D_HEAT_STEADY <br> 2D Steady State Heat Equation in a Rectangle
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FD2D_HEAT_STEADY</b> 
+      is a C++ program which 
+      solves the steady state (time independent) heat equation in a 2D
+      rectangular region.
+    </p>
+
+    <p>
+      The physical region, and the boundary conditions, are suggested
+      by this diagram:
+      <pre>
+                   U = 0, Y = 1.0
+             +------------------+
+             |                  |
+    U = 10   |                  | U = 100
+    X = 0.0  |                  | X = 2.0
+             +------------------+
+                   U = 0, Y = 0.0
+      </pre>
+    </p>
+
+    <p>
+      The region is covered with a grid of NX by NY nodes, and an NX by NY
+      array U is used to record the temperature.  The correspondence between
+      array indices and locations in the region is suggested by giving the
+      indices of the four corners:
+      <pre>
+                  I = NY
+             +------------------+
+             |                  |
+      J = 1  |                  |  J = NX
+             |                  |
+             +------------------+
+                  I = 1
+      </pre>
+    </p>
+
+    <p>
+      The form of the steady heat equation is
+      <pre>
+        - d/dx K(x,y) du/dx - d/dy K(x,y) du/dy = F(x,y)
+      </pre>
+      where K(x,y) is the heat conductivity, and F(x,y) is a
+      heat source term.
+    </p>
+
+    <p>
+      By using a simple finite difference approximation, this single equation
+      can be replaced by NX * NY linear equations in NX * NY variables; 
+      each equation is associated with one of the nodes in the mesh.  Nodes
+      long the boundary generate boundary condition equations, while interior
+      nodes generate equations that approximate the steady heat equation.
+    </p>
+
+    <p>
+      The linear system is sparse, and can easily be solved directly in MATLAB.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>FD2D_HEAT_STEADY</b> is available in
+      <a href = "../../c_src/fd2d_heat_steady/fd2d_heat_steady.html">a C version</a> and
+      <a href = "../../cpp_src/fd2d_heat_steady/fd2d_heat_steady.html">a C++ version</a> and
+      <a href = "../../f77_src/fd2d_heat_steady/fd2d_heat_steady.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/fd2d_heat_steady/fd2d_heat_steady.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/fd2d_heat_steady/fd2d_heat_steady.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fd1d_heat_steady/fd1d_heat_steady.html">
+      FD1D_HEAT_STEADY</a>,
+      a C++ program which
+      uses the finite difference method to solve the 1D Time Independent
+      Heat Equations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem1d_heat_steady/fem1d_heat_steady.html">
+      FEM1D_HEAT_STEADY</a>,
+      a C++ program which
+      uses the finite element method to solve the 1D Time Independent
+      Heat Equations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_heat/fem2d_heat.html">
+      FEM2D_HEAT</a>, 
+      a C++ program which
+      solves the 2D time dependent heat equation on the unit square.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/heated_plate/heated_plate.html">
+      HEATED_PLATE</a>,
+      a C++ program which 
+      solves the steady state heat equation in a 2D
+      rectangular region, and is intended as
+      a starting point for a parallel version.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fd2d_heat_steady.cpp">fd2d_heat_steady.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "fd2d_heat_steady.hpp">fd2d_heat_steady.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "fd2d_heat_steady.sh">fd2d_heat_steady.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fd2d_heat_steady_prb.cpp">fd2d_heat_steady_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "fd2d_heat_steady_prb.sh">fd2d_heat_steady_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "fd2d_heat_steady_prb_output.txt">fd2d_heat_steady_prb_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "test01_data.txt">test01_data.txt</a>
+          data defining the solution.
+        </li>
+        <li>
+          <a href = "test01_commands.txt">test01_commands.txt</a>
+          GNUPLOT commands to make an image of the solution.
+        </li>
+        <li>
+          <a href = "test01.png">test01.png</a>
+          an image of the solution.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>FD2D_HEAT_STEADY</b> solves the steady 2D heat equation.
+        </li>
+        <li>
+          <b>INTERIOR</b> sets up the matrix and right hand side at interior nodes.
+        </li>
+        <li>
+          <b>R8MAT_FS</b> factors and solves a system with one right hand side.
+        </li>
+        <li>
+          <b>R8VEC_LINSPACE</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
+          <b>R8VEC_MESH_2D</b> creates a 2D mesh from X and Y vectors.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 29 August 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -24,7 +24,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    STOCHASTIC_RK_PRB calls a set of problems for STOCHASTIC_RK.
+//    STOCHASTIC_RK_PRB tests the STOCHASTIC_RK library.
 //
 //  Licensing:
 //
@@ -40,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "STOCHASTIC_RK_PRB\n";
   cout << "  C++ version\n";
@@ -53,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "STOCHASTIC_RK_PRB\n";
   cout << "  Normal end of execution.\n";
-   
   cout << "\n";
   timestamp ( );
 

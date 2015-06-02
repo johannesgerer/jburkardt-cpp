@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN is the main program for COMBINATION_LOCK.
+//    MAIN is the main program for COMBINATION_LOCK_PRB.
+//
+//  Discussion:
+//
+//    COMBINATION_LOCK_PRB tests the COMBINATION_LOCK library.
 //
 //  Licensing:
 //
@@ -37,7 +41,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "COMBINATION_LOCK\n";
+  cout << "COMBINATION_LOCK_PRB\n";
   cout << "  C++ version\n";
   cout << "  Test the COMBINATION_LOCK libary.\n";
 
@@ -47,7 +51,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "COMBINATION_LOCK\n";
+  cout << "COMBINATION_LOCK_PRB\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

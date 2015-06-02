@@ -27,7 +27,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SOBOL_PRB calls a set of problems for SOBOL.
+//    MAIN is the main program for SOBOL_PRB.
+//
+//  Discussion:
+//
+//    SOBOL_PRB tests the SOBOL library.
 //
 //  Licensing:
 //
@@ -43,7 +47,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "SOBOL_PRB\n";
   cout << "  C++ version\n";
@@ -65,7 +68,6 @@ int main ( )
   cout << "\n";
   cout << "SOBOL_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -456,7 +456,6 @@ void adj_perm_show ( int node_num, int adj_num, int adj_row[], int adj[],
   cout << "  Lower bandwidth = " << band_lo << "\n";
   cout << "  Lower envelope contains " << nonzero_num << " nonzeros.\n";
 
-
   return;
 }
 //****************************************************************************80
@@ -3180,7 +3179,7 @@ void rcm ( int root, int adj_num, int adj_row[], int adj[], int mask[],
 //
 //  Modified:
 //
-//    05 January 2007
+//    09 August 2013
 //
 //  Author:
 //
@@ -3200,20 +3199,20 @@ void rcm ( int root, int adj_num, int adj_row[], int adj[], int mask[],
 //
 //    Input, int ADJ_NUM, the number of adjacency entries.
 //
-//    Input, int ADJ_ROW(NODE_NUM+1).  Information about row I is stored
+//    Input, int ADJ_ROW[NODE_NUM+1].  Information about row I is stored
 //    in entries ADJ_ROW(I) through ADJ_ROW(I+1)-1 of ADJ.
 //
-//    Input, int ADJ(ADJ_NUM), the adjacency structure.
+//    Input, int ADJ[ADJ_NUM], the adjacency structure.
 //    For each row, it contains the column indices of the nonzero entries.
 //
-//    Input/output, int MASK(NODE_NUM), a mask for the nodes.  Only
+//    Input/output, int MASK[NODE_NUM], a mask for the nodes.  Only
 //    those nodes with nonzero input mask values are considered by the
 //    routine.  The nodes numbered by RCM will have their mask values
 //    set to zero.
 //
-//    Output, int PERM(NODE_NUM), the RCM ordering.
+//    Output, int PERM[NODE_NUM], the RCM ordering.
 //
-//    Output, int ICCSZE, the size of the connected component
+//    Output, int *ICCSZE, the size of the connected component
 //    that has been numbered.
 //
 //    Input, int NODE_NUM, the number of nodes.
@@ -3239,26 +3238,66 @@ void rcm ( int root, int adj_num, int adj_row[], int adj[], int mask[],
   int nbr;
   int node;
 //
-//  Find the degrees of the nodes in the component specified by MASK and ROOT.
+//  If node_num out of bounds, something is wrong.
+//
+  if ( node_num < 1 )
+  {
+    cerr << "\n";
+    cerr << "RCM - Fatal error!\n";
+    cerr << "  Unacceptable input value of NODE_NUM = " << node_num << "\n";
+    exit ( 1 );
+  }
+//
+//  If the root is out of bounds, something is wrong.
+//
+  if ( root < 1 || node_num < root )
+  {
+    cerr << "\n";
+    cerr << "RCM - Fatal error!\n";
+    cerr << "  Unacceptable input value of ROOT = " << root << "\n";
+    cerr << "  Acceptable values are between 1 and " << node_num << ", inclusive.\n";
+    exit ( 1 );
+  }
+//
+//  Allocate memory for the degree array.
 //
   deg = new int[node_num];
-
+//
+//  Find the degrees of the nodes in the component specified by MASK and ROOT.
+//
   degree ( root, adj_num, adj_row, adj, mask, deg, iccsze, perm, node_num );
-
+//
+//  If the connected component size is less than 1, something is wrong.
+//
+  if ( *iccsze < 1 )
+  {
+    cerr << "\n";
+    cerr << "RCM - Fatal error!\n";
+    cerr << "  Connected component size ICCSZE returned from DEGREE as "
+         << *iccsze << "\n";
+    exit ( 1 );
+  }
+//
+//  Set the mask value for the root.
+//
   mask[root-1] = 0;
-
-  if ( *iccsze <= 1 )
+//
+//  If the connected component is a singleton, there is no ordering necessary.
+//
+  if ( *iccsze == 1 )
   {
     delete [] deg;
     return;
   }
-
-  lvlend = 0;
-  lnbr = 1;
+//
+//  Carry out the reordering.
 //
 //  LBEGIN and LVLEND point to the beginning and
 //  the end of the current level respectively.
 //
+  lvlend = 0;
+  lnbr = 1;
+
   while ( lvlend < lnbr )
   {
     lbegin = lvlend + 1;
@@ -3327,10 +3366,13 @@ void rcm ( int root, int adj_num, int adj_row[], int adj[], int mask[],
     }
   }
 //
-//  We now have the Cuthill-McKee ordering.  Reverse it.
+//  We now have the Cuthill-McKee ordering.  
+//  Reverse it to get the Reverse Cuthill-McKee ordering.
 //
   i4vec_reverse ( *iccsze, perm );
-
+//
+//  Free memory.
+//
   delete [] deg;
 
   return;

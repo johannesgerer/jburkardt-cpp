@@ -18,9 +18,11 @@ int main ( int argc, char *argv[] )
 //
 //  Purpose:
 //
-//    TASK_DIVISION_PRB tests TASK_DIVISION.
+//    MAIN is the main program for TASK_DIVISION_PRB.
 //
 //  Discussion:
+//
+//    TASK_DIVISION_PRB tests the TASK_DIVISION library.
 //
 //    This program simply demonstrates how one might automate the
 //    assignment of T tasks to P processors, assuming that the assignment
@@ -51,10 +53,10 @@ int main ( int argc, char *argv[] )
   int task_number;
 
   timestamp ( );
-
   cout << "\n";
   cout << "TASK_DIVISION_PRB:\n";
   cout << "  C++ version\n";
+  cout << "  Test the TASK_DIVISION library.\n";
   cout << "  Demonstrate how to automate the division of\n";
   cout << "  T tasks among a range of P processors\n";
   cout << "  indexed from PROC_FIRST to PROC_LAST.\n";
@@ -99,7 +101,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "TASK_DIVISION_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SHEPARD_INTERP_2D_TEST tests SHEPARD_INTERP_2D.
+//    MAIN is the main program for SHEPARD_INTERP_2D_PRB.
+//
+//  Discussion:
+//
+//    SHEPARD_INTERP_2D_PRB tests the SHEPARD_INTERP_2D library.
 //
 //  Licensing:
 //

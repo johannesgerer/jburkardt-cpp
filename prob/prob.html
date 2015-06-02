@@ -96,7 +96,9 @@
 
     <p>
       <b>PROB</b> is available in
+      <a href = "../../c_src/prob/prob.html">a C version</a> and
       <a href = "../../cpp_src/prob/prob.html">a C++ version</a> and
+      <a href = "../../f77_src/prob/prob.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/prob/prob.html">a FORTRAN90 version</a> and
       <a href = "../../m_src/prob/prob.html">a MATLAB version</a>.
     </p>
@@ -150,16 +152,19 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/dcdflib/dcdflib.html">
-      DCDFLIB</a>,
+      <a href = "../../cpp_src/cdflib/cdflib.html">
+      CDFLIB</a>,
       a C++ library which
-      includes routines for evaluating and inverting a number of
-      distributions.
+      evaluates the cumulative density function (CDF), inverse CDF,
+      and certain other inverse functions, for distributions including
+      beta, binomial, chi-square, noncentral chi-square, F, noncentral F,
+      gamma, negative binomial, normal, Poisson, and students T,
+      by Barry Brown, James Lovato, Kathy Russell.
     </p>
 
     <p>
-      <a href = "../../cpp_src/discrete_pdf_sample/discrete_pdf_sample.html">
-      DISCRETE_PDF_SAMPLE</a>,
+      <a href = "../../cpp_src/discrete_pdf_sample_2d/discrete_pdf_sample_2d.html">
+      DISCRETE_PDF_SAMPLE_2D</a>,
       a C++ program which
       demonstrates how to construct a Probability Density Function (PDF)
       from a table of sample data, and then to use that PDF to create new samples.
@@ -192,6 +197,16 @@
       TEST_VALUES</a>,
       a C++ library which
       contains sample values for a number of distributions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/truncated_normal/truncated_normal.html">
+      TRUNCATED_NORMAL</a>,
+      a C++ library which 
+      works with the truncated normal distribution over [A,B], or
+      [A,+oo) or (-oo,B], returning the probability density function (PDF),
+      the cumulative density function (CDF), the inverse CDF, the mean,
+      the variance, and sample values.
     </p>
 
     <p>
@@ -740,6 +755,9 @@
           <b>BETA_CDF_INV</b> inverts the Beta CDF.
         </li>
         <li>
+          <b>BETA_CDF_INV_OLD</b> inverts the Beta CDF.
+        </li>
+        <li>
           <b>BETA_CHECK</b> checks the parameters of the Beta PDF.
         </li>
         <li>
@@ -845,7 +863,7 @@
           <b>BURR_CHECK</b> checks the parameters of the Burr CDF.
         </li>
         <li>
-          <b>URR_MEAN</b> returns the mean of the Burr PDF.
+          <b>BURR_MEAN</b> returns the mean of the Burr PDF.
         </li>
         <li>
           <b>BURR_PDF</b> evaluates the Burr PDF.
@@ -1023,9 +1041,6 @@
         </li>
         <li>
           <b>COUPON_VARIANCE</b> returns the variance of the Coupon PDF.
-        </li>
-        <li>
-          <b>CSC</b> returns the cosecant of X.
         </li>
         <li>
           <b>DERANGED_CDF</b> evaluates the Deranged CDF.
@@ -1553,7 +1568,7 @@
           <b>I4_MIN</b> returns the smaller of two I4's.
         </li>
         <li>
-          <b>I4_UNIFORM</b> returns a scaled pseudorandom I4.
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4.
         </li>
         <li>
           <b>I4ROW_MAX</b> returns the maximums of an I4ROW.
@@ -1832,7 +1847,7 @@
           <b>NEGATIVE_BINOMIAL_CDF_VALUES</b> returns values of the negative binomial CDF.
         </li>
         <li>
-          <b>NEGATIVE_BINOMIAL_CHECK</b> checks the parameters of the Negative Binomial PDF.
+          <b>NEGATIVE_BINOMIAL_CHECK</b> checks parameters of the Negative Binomial PDF.
         </li>
         <li>
           <b>NEGATIVE_BINOMIAL_MEAN</b> returns the mean of the Negative Binomial PDF.
@@ -1896,6 +1911,60 @@
         </li>
         <li>
           <b>NORMAL_VECTOR</b> samples the normal probability distribution.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_AB_CDF</b> evaluates the truncated Normal CDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_AB_CDF_INV</b> inverts the truncated Normal CDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_AB_MEAN</b> returns the mean of the truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_AB_PDF</b> evaluates the truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_AB_SAMPLE</b> samples the truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_AB_VARIANCE</b> returns the variance of the truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_A_CDF</b> evaluates the lower truncated Normal CDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_A_CDF_INV</b> inverts the lower truncated Normal CDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_A_MEAN</b> returns the mean of the lower truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_A_PDF</b> evaluates the lower truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_A_SAMPLE</b> samples the lower truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_A_VARIANCE:</b> variance of the lower truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_B_CDF</b> evaluates the upper truncated Normal CDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_B_CDF_INV</b> inverts the upper truncated Normal CDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_B_MEAN</b> returns the mean of the upper truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_B_PDF</b> evaluates the upper truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_B_SAMPLE</b> samples the upper truncated Normal PDF.
+        </li>
+        <li>
+          <b>NORMAL_TRUNCATED_B_VARIANCE</b> variance of the upper truncated Normal PDF.
         </li>
         <li>
           <b>OWEN_VALUES</b> returns some values of Owen's T function.
@@ -2043,6 +2112,9 @@
         </li>
         <li>
           <b>R8_CEILING</b> rounds an R8 "up" to the nearest integer.
+        </li>
+        <li>
+          <b>R8_CSC</b> returns the cosecant of X.
         </li>
         <li>
           <b>R8_EPSILON</b> returns the R8 round off unit.
@@ -2496,7 +2568,7 @@
     <hr>
 
     <i>
-      Last revised on 03 January 2012.
+      Last revised on 21 August 2013.
     </i>
 
     <!-- John Burkardt -->

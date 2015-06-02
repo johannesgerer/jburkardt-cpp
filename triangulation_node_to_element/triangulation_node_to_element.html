@@ -1,0 +1,264 @@
+<html>
+
+  <head>
+    <title>
+      TRIANGULATION_NODE_TO_ELEMENT - Average Node Data to Create Element Data
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TRIANGULATION_NODE_TO_ELEMENT <br> Average Node Data to Create Element Data
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRIANGULATION_NODE_TO_ELEMENT</b> 
+      is a C++ program which 
+      reads datafiles describing a set of nodes, their triangulation, and the
+      value of one or more quantities at each node, and outputs a file
+      that averages the quantities for each element.  This operation 
+      in effect creates an "order1" finite element model of the data.
+    </p>
+
+    <p>
+      The program reads three data files:
+      <ul>
+        <li>
+          a node file, containing 
+          X, Y coordinates of points;
+        </li>
+        <li>
+          an element file, 
+          containing a list of sets of three points making up each 
+          triangular element;  (if this file does not exist, the
+          program will generate the element data automatically).
+        </li>
+        <li>
+          a node values file, 
+          containing the values of one or more data items
+          at each node.
+        </li>
+      </ul>
+      and creates
+      <ul>
+        <li>
+          an element values file, 
+          containing the values of the data, averaged over 
+          the nodes in each element.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>triangulation_node_to_element</b> <i>prefix</i>
+      </blockquote>
+      where
+      <ul>
+        <li>
+          <i>prefix</i>_nodes.txt, lists the node coordinates;
+        </li>
+        <li>
+          <i>prefix</i>_elements.txt lists the indices of nodes that form elements
+          (this file is optional, and if not supplied, the information will
+          be generated internally);
+        </li>
+        <li>
+          <i>prefix</i>_values.txt contains the value assigned to each node.
+        </li>
+        <li>
+          <i>prefix</i>_element_values.txt will contain the values averaged
+          over the nodes in each element.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+ 
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TRIANGULATION_NODE_TO_ELEMENT</b> is available in
+      <a href = "../../c_src/triangulation_node_to_element/triangulation_node_to_element.html">a C version</a> and
+      <a href = "../../cpp_src/triangulation_node_to_element/triangulation_node_to_element.html">a C++ version</a> and
+      <a href = "../../f77_src/triangulation_node_to_element/triangulation_node_to_element.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/triangulation_node_to_element/triangulation_node_to_element.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/triangulation_node_to_element/triangulation_node_to_element.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/triangulation/triangulation.html">
+      TRIANGULATION</a>, 
+      a C++ library which
+      carries out various operations on order 3 ("linear") or order 6 
+      ("quadratic") triangulations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_l2q/triangulation_l2q.html">
+      TRIANGULATION_L2Q</a>,
+      a C++ program which
+      reads information about a 3-node (linear) triangulation and creates data
+      defining a corresponding 6-node (quadratic) triangulation;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_q2l/triangulation_q2l.html">
+      TRIANGULATION_Q2L</a>,
+      a C++ program which
+      reads information about a 6-node (quadratic) triangulation 
+      and creates data defining a corresponding 3-node (linear) triangulation;
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangulation_node_to_element.cpp">triangulation_node_to_element.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "triangulation_node_to_element.sh">triangulation_node_to_element.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lake_nodes.txt">lake_nodes.txt</a>,
+          the node coordinate file.
+        </li>
+        <li>
+          <a href = "lake_elements.txt">lake_elements.txt</a>,
+          the element file.
+        </li>
+        <li>
+          <a href = "lake_values.txt">lake_values.txt</a>,
+          the node values file.
+        </li>
+        <li>
+          <a href = "lake_element_values.txt">lake_element_values.txt</a>,
+          the element_values file created by the program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for TRIANGULATION_NODE_TO_ELEMENT.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is a case insensitive comparison of two characters for equality.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT_SOME</b> prints some of the transpose of an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_WRITE</b> writes an I4MAT file.
+        </li>
+        <li>
+          <b>MESH_BASE_ONE</b> ensures that the element definition is one-based.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8MAT_WRITE</b> writes an R8MAT file.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 April 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

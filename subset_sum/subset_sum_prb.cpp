@@ -21,6 +21,10 @@ int main ( )
 //
 //    MAIN is the main program for SUBSET_SUM_PRB.
 //
+//  Discussion:
+//
+//    SUBSET_SUM_PRB tests the SUBSET_SUM library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
@@ -58,7 +62,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "SUBSET_SUM_TEST:\n";
+  cout << "SUBSET_SUM_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the SUBSET_SUM library.\n";
 //
@@ -229,7 +233,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "SUBSET_SUM_TEST\n";
+  cout << "SUBSET_SUM_PRB\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

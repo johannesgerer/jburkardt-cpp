@@ -33,7 +33,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TOMS655_PRB calls a set of problems for DIVDIF.
+//    TOMS655_PRB tests the TOMS655 library.
 //
 //  Licensing:
 //
@@ -56,7 +56,6 @@ int main ( )
   int nt;
 
   timestamp ( );
-
   cout << "\n";
   cout << "TOMS655_PRB\n";
   cout << "  C++ version\n";
@@ -168,7 +167,6 @@ int main ( )
   cout << "\n";
   cout << "TOMS655_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -354,13 +352,14 @@ void test02 ( )
 //
 //  Have CGQF compute the knots and weights.
 //
+    lu = 6;
     t = new double[nt];
     wts = new double[nt];
 
     cout << "\n";
     cout << "  Knots and weights of Gauss quadrature formula\n";
     cout << "  computed by CGQF.\n";
-    cgqf ( nt, kind, alpha, beta, a, b, t, wts );
+    cgqf ( nt, kind, alpha, beta, a, b, lu, t, wts );
 //
 //  Now compute the weights for the same knots by CIQF.
 //
@@ -394,6 +393,12 @@ void test02 ( )
 //  in the usual order.
 //
     key = 1;
+//
+//  LU controls printing.
+//  A positive value requests that we compute and print weights, and
+//  conduct a moments check.
+//
+    lu = 6;
 
     cout << "\n";
     cout << "  Weights of Gauss quadrature formula computed from the\n";
@@ -687,7 +692,7 @@ void test06 ( )
 //
 //  Purpose:
 //
-//    TEST06 tests CEIQF.
+//    TEST06 tests CLIQF and EIQFS..
 //
 //  Licensing:
 //
@@ -1054,6 +1059,7 @@ void test11 ( int nt, int kind, double alpha, double beta, double a, double b )
 //
 {
   int i;
+  int lo;
   double *t;
   double *wts;
 
@@ -1068,10 +1074,11 @@ void test11 ( int nt, int kind, double alpha, double beta, double a, double b )
   cout << "  A =     " << a << "\n";
   cout << "  B  =    " << b << "\n";
 
+  lo = 0;
   t = new double[nt];
   wts = new double[nt];
 
-  cgqf ( nt, kind, alpha, beta, a, b, t, wts );
+  cgqf ( nt, kind, alpha, beta, a, b, lo, t, wts );
 
   cout << "\n";
   cout << " Index     Abscissas                 Weights\n";

@@ -1,0 +1,22 @@
+# test_derivative_commands.txt
+#
+# Usage:
+#  gnuplot < test_derivative_commands.txt
+#
+unset key
+set term png
+set timestamp
+set output 'test_derivative.png'
+set xlabel 'x'
+set ylabel 'L(n,x)'
+set title 'Lobatto derivatives'
+set grid
+set style data lines
+plot 'test_derivative_data.txt' using 1:2, \
+     'test_derivative_data.txt' using 1:3, \
+     'test_derivative_data.txt' using 1:4, \
+     'test_derivative_data.txt' using 1:5, \
+     'test_derivative_data.txt' using 1:6, \
+     'test_derivative_data.txt' using 1:7, \
+     'test_derivative_data.txt' using 1:8
+quit

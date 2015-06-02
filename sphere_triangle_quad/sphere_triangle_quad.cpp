@@ -11,27 +11,21 @@ using namespace std;
 
 //****************************************************************************80
 
-double arc_cosine ( double c )
+int i4_min ( int i1, int i2 )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    ARC_COSINE computes the arc cosine function, with argument truncation.
-//
-//  Discussion:
-//
-//    If you call your system ACOS routine with an input argument that is
-//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
-//    This routine truncates arguments outside the range.
+//    I4_MIN returns the minimum of two I4's.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    13 June 2002
+//    13 October 1998
 //
 //  Author:
 //
@@ -39,178 +33,22 @@ double arc_cosine ( double c )
 //
 //  Parameters:
 //
-//    Input, double C, the argument, the cosine of an angle.
+//    Input, int I1, I2, two integers to be compared.
 //
-//    Output, double ARC_COSINE, an angle whose cosine is C.
+//    Output, int I4_MIN, the smaller of I1 and I2.
 //
 {
-  double angle;
-  double pi = 3.141592653589793;
+  int value;
 
-  if ( c <= -1.0 )
+  if ( i1 < i2 )
   {
-    angle = pi;
-  } 
-  else if ( 1.0 <= c )
-  {
-    angle = 0.0;
+    value = i1;
   }
   else
   {
-    angle = acos ( c );
+    value = i2;
   }
-  return angle;
-}
-//****************************************************************************80
-
-double arc_sine ( double s )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ARC_SINE computes the arc sine function, with argument truncation.
-//
-//  Discussion:
-//
-//    If you call your system ASIN routine with an input argument that is
-//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
-//    This routine truncates arguments outside the range.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    13 June 2002
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double S, the argument, the sine of an angle.
-//
-//    Output, double ARC_SINE, an angle whose sine is S.
-//
-{
-  double angle;
-  double pi = 3.141592653589793;
-
-  if ( s <= -1.0 )
-  {
-    angle = - pi / 2.0;
-  } 
-  else if ( 1.0 <= s )
-  {
-    angle = pi / 2.0;
-  }
-  else
-  {
-    angle = asin ( s );
-  }
-  return angle;
-}
-//****************************************************************************80
-
-double atan4 ( double y, double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ATAN4 computes the inverse tangent of the ratio Y / X.
-//
-//  Discussion:
-//
-//    ATAN4 returns an angle whose tangent is ( Y / X ), a job which
-//    the built in functions ATAN and ATAN2 already do.
-//
-//    However:
-//
-//    * ATAN4 always returns a positive angle, between 0 and 2 PI,
-//      while ATAN and ATAN2 return angles in the interval [-PI/2,+PI/2]
-//      and [-PI,+PI] respectively;
-//
-//    * ATAN4 accounts for the signs of X and Y, (as does ATAN2).  The ATAN
-//     function by contrast always returns an angle in the first or fourth
-//     quadrants.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    13 June 2002
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double Y, X, two quantities which represent the tangent of
-//    an angle.  If Y is not zero, then the tangent is (Y/X).
-//
-//    Output, double ATAN4, an angle between 0 and 2 * PI, whose tangent is
-//    (Y/X), and which lies in the appropriate quadrant so that the signs
-//    of its cosine and sine match those of X and Y.
-//
-{
-  double pi = 3.141592653589793;
-//
-//  Special cases:
-//
-  if ( x == 0.0 )
-  {
-    if ( 0.0 < y )
-    {
-      return ( pi / 2.0 );
-    } 
-    else if ( y < 0.0 )
-    {
-      return ( 3.0 * pi / 2.0 );
-    } 
-    else if ( y == 0.0 )
-    {
-      return ( 0.0 );
-    }
-  } 
-  else if ( y == 0.0 )
-  {
-    if ( 0.0 < x )
-    {
-      return 0.0;
-    } 
-    else if ( x < 0.0 )
-    {
-      return pi;
-    }
-  }
-//
-//  We assume that ATAN2 is reliable when both arguments are positive.
-//
-  if        ( 0.0 < x && 0.0 < y )
-  {
-    return                  atan2 (  y,  x );
-  }
-  else if ( x < 0.0 && 0.0 < y )
-  {
-    return (           pi - atan2 (  y, -x ) );
-  }
-  else if ( x < 0.0 && y < 0.0 )
-  {
-    return (           pi + atan2 ( -y, -x ) );
-  }
-  else if ( 0.0 < x && y < 0.0 )
-  {
-    return ( 2.0 * pi - atan2 ( -y,  x ) );
-  }
-
-  return 0.0;
+  return value;
 }
 //****************************************************************************80
 
@@ -333,6 +171,221 @@ double r8_abs ( double x )
 }
 //****************************************************************************80
 
+double r8_acos ( double c )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ACOS computes the arc cosine function, with argument truncation.
+//
+//  Discussion:
+//
+//    If you call your system ACOS routine with an input argument that is
+//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
+//    This routine truncates arguments outside the range.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 June 2002
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double C, the argument, the cosine of an angle.
+//
+//    Output, double R8_ACOS, an angle whose cosine is C.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double value;
+
+  if ( c <= -1.0 )
+  {
+    value = r8_pi;
+  }
+  else if ( 1.0 <= c )
+  {
+    value = 0.0;
+  }
+  else
+  {
+    value = acos ( c );
+  }
+  return value;
+}
+//****************************************************************************80
+
+double r8_asin ( double s )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ASIN computes the arc sine function, with argument truncation.
+//
+//  Discussion:
+//
+//    If you call your system ASIN routine with an input argument that is
+//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
+//    This routine truncates arguments outside the range.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 June 2002
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double S, the argument, the sine of an angle.
+//
+//    Output, double R8_ASIN, an angle whose sine is S.
+//
+{
+  double angle;
+  const double r8_pi = 3.141592653589793;
+
+  if ( s <= -1.0 )
+  {
+    angle = - r8_pi / 2.0;
+  }
+  else if ( 1.0 <= s )
+  {
+    angle = r8_pi / 2.0;
+  }
+  else
+  {
+    angle = asin ( s );
+  }
+  return angle;
+}
+//****************************************************************************80
+
+double r8_atan ( double y, double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ATAN computes the inverse tangent of the ratio Y / X.
+//
+//  Discussion:
+//
+//    R8_ATAN returns an angle whose tangent is ( Y / X ), a job which
+//    the built in functions ATAN and ATAN2 already do.
+//
+//    However:
+//
+//    * R8_ATAN always returns a positive angle, between 0 and 2 PI,
+//      while ATAN and ATAN2 return angles in the interval [-PI/2,+PI/2]
+//      and [-PI,+PI] respectively;
+//
+//    * R8_ATAN accounts for the signs of X and Y, (as does ATAN2).  The ATAN
+//     function by contrast always returns an angle in the first or fourth
+//     quadrants.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 August 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double Y, X, two quantities which represent the tangent of
+//    an angle.  If Y is not zero, then the tangent is (Y/X).
+//
+//    Output, double R8_ATAN, an angle between 0 and 2 * PI, whose tangent is
+//    (Y/X), and which lies in the appropriate quadrant so that the signs
+//    of its cosine and sine match those of X and Y.
+//
+{
+  double abs_x;
+  double abs_y;
+  const double r8_pi = 3.141592653589793;
+  double theta;
+  double theta_0;
+//
+//  Special cases:
+//
+  if ( x == 0.0 )
+  {
+    if ( 0.0 < y )
+    {
+      theta = r8_pi / 2.0;
+    }
+    else if ( y < 0.0 )
+    {
+      theta = 3.0 * r8_pi / 2.0;
+    }
+    else if ( y == 0.0 )
+    {
+      theta = 0.0;
+    }
+  }
+  else if ( y == 0.0 )
+  {
+    if ( 0.0 < x )
+    {
+      theta = 0.0;
+    }
+    else if ( x < 0.0 )
+    {
+      theta = r8_pi;
+    }
+  }
+//
+//  We assume that ATAN2 is correct when both arguments are positive.
+//
+  else
+  {
+    abs_y = r8_abs ( y );
+    abs_x = r8_abs ( x );
+
+    theta_0 = atan2 ( abs_y, abs_x );
+
+    if ( 0.0 < x && 0.0 < y )
+    {
+      theta = theta_0;
+    }
+    else if ( x < 0.0 && 0.0 < y )
+    {
+      theta = r8_pi - theta_0;
+    }
+    else if ( x < 0.0 && y < 0.0 )
+    {
+      theta = r8_pi + theta_0;
+    }
+    else if ( 0.0 < x && y < 0.0 )
+    {
+      theta = 2.0 * r8_pi - theta_0;
+    }
+  }
+
+  return theta;
+}
+//****************************************************************************80
+
 double r8_max ( double x, double y )
 
 //****************************************************************************80
@@ -415,7 +468,7 @@ double r8_min ( double x, double y )
 }
 //****************************************************************************80
 
-double r8_uniform_01 ( int *seed )
+double r8_uniform_01 ( int &seed )
 
 //****************************************************************************80
 //
@@ -485,18 +538,18 @@ double r8_uniform_01 ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has been updated.
 //
 //    Output, double R8_UNIFORM_01, a new pseudorandom variate, 
 //    strictly between 0 and 1.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R8_UNIFORM_01 - Fatal error!\n";
@@ -504,19 +557,19 @@ double r8_uniform_01 ( int *seed )
     exit ( 1 );
   }
 
-  k = *seed / 127773;
+  k = seed / 127773;
 
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + i4_huge;
+    seed = seed + i4_huge;
   }
 //
 //  Although SEED can be represented exactly as a 32 bit integer,
 //  it generally cannot be represented exactly as a 32 bit real number.
 //
-  r = ( double ) ( *seed ) * 4.656612875E-10;
+  r = ( double ) ( seed ) * 4.656612875E-10;
 
   return r;
 }
@@ -699,6 +752,76 @@ void r8vec_polarize ( int n, double a[], double p[], double a_normal[],
 }
 //****************************************************************************80
 
+void r8vec_transpose_print ( int n, double a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_TRANSPOSE_PRINT prints an R8VEC "transposed".
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//  Example:
+//
+//    A = (/ 1.0, 2.1, 3.2, 4.3, 5.4, 6.5, 7.6, 8.7, 9.8, 10.9, 11.0 /)
+//    TITLE = 'My vector:  '
+//
+//    My vector:
+//        1.0    2.1    3.2    4.3    5.4
+//        6.5    7.6    8.7    9.8   10.9
+//       11.0
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    12 November 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, double A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int ihi;
+  int ilo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( n <= 0 )
+  {
+    cout << "  (Empty)\n";
+    return;
+  }
+
+  for ( ilo = 0; ilo < n; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 5, n );
+    for ( i = ilo; i < ihi; i++ )
+    {
+      cout << "  " << setw(12) << a[i];
+    }
+    cout << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
 double sphere01_distance_xyz ( double xyz1[3], double xyz2[3] )
 
 //****************************************************************************80
@@ -752,11 +875,11 @@ double sphere01_distance_xyz ( double xyz1[3], double xyz2[3] )
   double r;
   double top;
 
-  lat1 = arc_sine ( xyz1[2] );
-  lon1 = atan4 ( xyz1[1], xyz1[0] );
+  lat1 = r8_asin ( xyz1[2] );
+  lon1 = r8_atan ( xyz1[1], xyz1[0] );
 
-  lat2 = arc_sine ( xyz2[2] );
-  lon2 = atan4 ( xyz2[1], xyz2[0] );
+  lat2 = r8_asin ( xyz2[2] );
+  lon2 = r8_atan ( xyz2[1], xyz2[0] );
 
   top = pow ( cos ( lat2 ) * sin ( lon1 - lon2 ), 2 )
       + pow ( cos ( lat1 ) * sin ( lat2 ) 
@@ -773,7 +896,7 @@ double sphere01_distance_xyz ( double xyz1[3], double xyz2[3] )
 }
 //****************************************************************************80
 
-double *sphere01_sample ( int n, int *seed )
+double *sphere01_sample ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -797,7 +920,7 @@ double *sphere01_sample ( int n, int *seed )
 //
 //    Input, int N, the number of samples.
 //
-//    Input/output, int *SEED, a seed for the random 
+//    Input/output, int &SEED, a seed for the random 
 //    number generator.
 //
 //    Output, double SPHERE01_SAMPLE[3*N], the sample points.
@@ -805,7 +928,7 @@ double *sphere01_sample ( int n, int *seed )
 {
   int j;
   double phi;
-  double pi = 3.141592653589793;
+  double r8_pi = 3.141592653589793;
   double theta;
   double vdot;
   double *x;
@@ -825,13 +948,13 @@ double *sphere01_sample ( int n, int *seed )
     vdot = r8_uniform_01 ( seed );
     vdot = 2.0 * vdot - 1.0;
 
-    phi = acos ( vdot );
+    phi = r8_acos ( vdot );
 //
 //  Pick a uniformly random rotation between 0 and 2 Pi around the
 //  axis of the Z vector.
 //
     theta = r8_uniform_01 ( seed );
-    theta = 2.0 * pi * theta;
+    theta = 2.0 * r8_pi * theta;
 
     x[0+j*3] = cos ( theta ) * sin ( phi );
     x[1+j*3] = sin ( theta ) * sin ( phi );
@@ -887,9 +1010,9 @@ double sphere01_triangle_angles_to_area ( double a, double b, double c )
 //
 {
   double area;
-  double pi = 3.141592653589793;
+  double r8_pi = 3.141592653589793;
 
-  area = a + b + c - pi;
+  area = a + b + c - r8_pi;
 
   return area;
 }
@@ -1129,7 +1252,7 @@ double *sphere01_triangle_project2 ( double a_xyz[3], double b_xyz[3],
 //****************************************************************************80
 
 double sphere01_triangle_quad_00 ( int n, double v1[3], double v2[3], 
-  double v3[3], double f ( double x[] ), int *seed )
+  double v3[3], double f ( double x[] ), int &seed )
 
 //****************************************************************************80
 //
@@ -1165,7 +1288,7 @@ double sphere01_triangle_quad_00 ( int n, double v1[3], double v2[3],
 //
 //    Input, double F ( double x[] ), evaluates the integrand.
 //
-//    Input/output, integer *SEED, a seed for the random
+//    Input/output, integer &SEED, a seed for the random
 //    number generator.
 //
 //    Output, double SPHERE01_TRIANGLE_QUAD_00, the approximate integral.
@@ -1355,7 +1478,7 @@ double sphere01_triangle_quad_03 ( double v1[3], double v2[3], double v3[3],
 //****************************************************************************80
 
 double sphere01_triangle_quad_icos1c ( double a_xyz[3], double b_xyz[3],
-  double c_xyz[], int factor, double fun ( double x[] ), int *node_num )
+  double c_xyz[], int factor, double fun ( double x[] ), int &node_num )
 
 //****************************************************************************80
 //
@@ -1396,7 +1519,7 @@ double sphere01_triangle_quad_icos1c ( double a_xyz[3], double b_xyz[3],
 //
 //    Input, double FUN ( double x[] ), evaluates the integrand.
 //
-//    Output, int *NODE_NUM, the number of evaluation points.
+//    Output, int &NODE_NUM, the number of evaluation points.
 //
 //    Output, double SPHERE01_TRIANGLE_QUAD_ICOS1C, the estimated integral.
 //
@@ -1414,7 +1537,6 @@ double sphere01_triangle_quad_icos1c ( double a_xyz[3], double b_xyz[3],
   int f3;
   int i;
   double *node_xyz;
-  double pi = 3.141592653589793;
   double result;
   double v;
 //
@@ -1422,7 +1544,7 @@ double sphere01_triangle_quad_icos1c ( double a_xyz[3], double b_xyz[3],
 //
   result = 0.0;
   area_total = 0.0;
-  *node_num = 0;
+  node_num = 0;
 //
 //  Some subtriangles will have the same direction as the face.
 //  Generate each in turn, by determining the barycentric coordinates
@@ -1448,7 +1570,7 @@ double sphere01_triangle_quad_icos1c ( double a_xyz[3], double b_xyz[3],
 
       v = fun ( node_xyz );
 
-      *node_num = *node_num + 1;
+      node_num = node_num + 1;
       result = result + area * v;
       area_total = area_total + area;
 
@@ -1483,7 +1605,7 @@ double sphere01_triangle_quad_icos1c ( double a_xyz[3], double b_xyz[3],
 
       v = fun ( node_xyz );
 
-      *node_num = *node_num + 1;
+      node_num = node_num + 1;
       result = result + area * v;
       area_total = area_total + area;
 
@@ -1499,7 +1621,7 @@ double sphere01_triangle_quad_icos1c ( double a_xyz[3], double b_xyz[3],
 //****************************************************************************80
 
 double sphere01_triangle_quad_icos1m ( double a_xyz[3], double b_xyz[3],
-  double c_xyz[], int factor, double fun ( double x[] ), int *node_num )
+  double c_xyz[], int factor, double fun ( double x[] ), int &node_num )
 
 //****************************************************************************80
 //
@@ -1540,7 +1662,7 @@ double sphere01_triangle_quad_icos1m ( double a_xyz[3], double b_xyz[3],
 //
 //    Input, double FUN ( double x[] ), evaluates the integrand.
 //
-//    Output, int *NODE_NUM, the number of evaluation points.
+//    Output, int &NODE_NUM, the number of evaluation points.
 //
 //    Output, double SPHERE01_TRIANGLE_QUAD_ICOS1M, the estimated integral.
 //
@@ -1560,7 +1682,6 @@ double sphere01_triangle_quad_icos1m ( double a_xyz[3], double b_xyz[3],
   int f2;
   int f3;
   int i;
-  double pi = 3.141592653589793;
   double result;
   double va;
   double vb;
@@ -1570,7 +1691,7 @@ double sphere01_triangle_quad_icos1m ( double a_xyz[3], double b_xyz[3],
 //
   result = 0.0;
   area_total = 0.0;
-  *node_num = 0;
+  node_num = 0;
 //
 //  Some subtriangles will have the same direction as the face.
 //
@@ -1596,7 +1717,7 @@ double sphere01_triangle_quad_icos1m ( double a_xyz[3], double b_xyz[3],
       c3_xyz = sphere01_triangle_project ( a_xyz, b_xyz, c_xyz, 2 * f1 + 1, 
         2 * f2,     2 * f3 - 1 );
 
-      *node_num = *node_num + 3;
+      node_num = node_num + 3;
       va = fun ( a3_xyz );
       vb = fun ( b3_xyz );
       vc = fun ( c3_xyz );
@@ -1636,7 +1757,7 @@ double sphere01_triangle_quad_icos1m ( double a_xyz[3], double b_xyz[3],
       c3_xyz = sphere01_triangle_project ( a_xyz, b_xyz, c_xyz, 2 * f1 - 1, 
         2 * f2,     2 * f3 + 1 );
 
-      *node_num = *node_num + 3;
+      node_num = node_num + 3;
       va = fun ( a3_xyz );
       vb = fun ( b3_xyz );
       vc = fun ( c3_xyz );
@@ -1657,7 +1778,7 @@ double sphere01_triangle_quad_icos1m ( double a_xyz[3], double b_xyz[3],
 //****************************************************************************80
 
 double sphere01_triangle_quad_icos1v ( double a_xyz[3], double b_xyz[3],
-  double c_xyz[], int factor, double fun ( double x[] ), int *node_num )
+  double c_xyz[], int factor, double fun ( double x[] ), int &node_num )
 
 //****************************************************************************80
 //
@@ -1698,7 +1819,7 @@ double sphere01_triangle_quad_icos1v ( double a_xyz[3], double b_xyz[3],
 //
 //    Input, double FUN ( double x[] ), evaluates the integrand.
 //
-//    Output, int *NODE_NUM, the number of evaluation points.
+//    Output, int &NODE_NUM, the number of evaluation points.
 //
 //    Output, double SPHERE01_TRIANGLE_QUAD_ICOS1V, the estimated integral.
 //
@@ -1715,7 +1836,6 @@ double sphere01_triangle_quad_icos1v ( double a_xyz[3], double b_xyz[3],
   int f2;
   int f3;
   int i;
-  double pi = 3.141592653589793;
   double result;
   double va;
   double vb;
@@ -1725,7 +1845,7 @@ double sphere01_triangle_quad_icos1v ( double a_xyz[3], double b_xyz[3],
 //
   result = 0.0;
   area_total = 0.0;
-  *node_num = 0;
+  node_num = 0;
 //
 //  Some subtriangles will have the same direction as the face.
 //
@@ -1744,7 +1864,7 @@ double sphere01_triangle_quad_icos1v ( double a_xyz[3], double b_xyz[3],
 
       area = sphere01_triangle_vertices_to_area ( a2_xyz, b2_xyz, c2_xyz );
 
-      *node_num = *node_num + 1;
+      node_num = node_num + 1;
       va = fun ( a2_xyz );
       vb = fun ( b2_xyz );
       vc = fun ( c2_xyz );
@@ -1774,7 +1894,7 @@ double sphere01_triangle_quad_icos1v ( double a_xyz[3], double b_xyz[3],
 
       area = sphere01_triangle_vertices_to_area ( a2_xyz, b2_xyz, c2_xyz );
 
-      *node_num = *node_num + 1;
+      node_num = node_num + 1;
       va = fun ( a2_xyz );
       vb = fun ( b2_xyz );
       vc = fun ( c2_xyz );
@@ -1792,7 +1912,7 @@ double sphere01_triangle_quad_icos1v ( double a_xyz[3], double b_xyz[3],
 //****************************************************************************80
 
 double sphere01_triangle_quad_icos2v ( double a_xyz[3], double b_xyz[3],
-  double c_xyz[], int factor, double fun ( double x[] ), int *node_num )
+  double c_xyz[], int factor, double fun ( double x[] ), int &node_num )
 
 //****************************************************************************80
 //
@@ -1836,7 +1956,7 @@ double sphere01_triangle_quad_icos2v ( double a_xyz[3], double b_xyz[3],
 //
 //    Input, double FUN ( double x[] ), evaluates the integrand.
 //
-//    Output, int *NODE_NUM, the number of evaluation points.
+//    Output, int &NODE_NUM, the number of evaluation points.
 //
 //    Output, double SPHERE01_TRIANGLE_QUAD_ICOS2V, the estimated integral.
 //
@@ -1853,7 +1973,6 @@ double sphere01_triangle_quad_icos2v ( double a_xyz[3], double b_xyz[3],
   int f2;
   int f3;
   int i;
-  double pi = 3.141592653589793;
   double result;
   double va;
   double vb;
@@ -1863,7 +1982,7 @@ double sphere01_triangle_quad_icos2v ( double a_xyz[3], double b_xyz[3],
 //
   result = 0.0;
   area_total = 0.0;
-  *node_num = 0;
+  node_num = 0;
 //
 //  Some subtriangles will have the same direction as the face.
 //
@@ -1882,7 +2001,7 @@ double sphere01_triangle_quad_icos2v ( double a_xyz[3], double b_xyz[3],
 
       area = sphere01_triangle_vertices_to_area ( a2_xyz, b2_xyz, c2_xyz );
 
-      *node_num = *node_num + 1;
+      node_num = node_num + 1;
       va = fun ( a2_xyz );
       vb = fun ( b2_xyz );
       vc = fun ( c2_xyz );
@@ -1912,7 +2031,7 @@ double sphere01_triangle_quad_icos2v ( double a_xyz[3], double b_xyz[3],
 
       area = sphere01_triangle_vertices_to_area ( a2_xyz, b2_xyz, c2_xyz );
 
-      *node_num = *node_num + 1;
+      node_num = node_num + 1;
       va = fun ( a2_xyz );
       vb = fun ( b2_xyz );
       vc = fun ( c2_xyz );
@@ -1930,7 +2049,7 @@ double sphere01_triangle_quad_icos2v ( double a_xyz[3], double b_xyz[3],
 //****************************************************************************80
 
 double *sphere01_triangle_sample ( int n, double v1[3], double v2[3], 
-  double v3[3], int *seed )
+  double v3[3], int &seed )
 
 //****************************************************************************80
 //
@@ -1971,7 +2090,7 @@ double *sphere01_triangle_sample ( int n, double v1[3], double v2[3],
 //    Input, double V1[3], V2[3], V3[3], the XYZ coordinates of
 //    the vertices of the spherical triangle.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double SPHERE01_TRIANGLE_SAMPLE[3*N], the XYZ coordinates of the 
 //    sample points.
@@ -2002,9 +2121,9 @@ double *sphere01_triangle_sample ( int n, double v1[3], double v2[3],
   double xsi2;
   double z;
 
-  sphere01_triangle_vertices_to_sides ( v1, v2, v3, &a, &b, &c );
+  sphere01_triangle_vertices_to_sides ( v1, v2, v3, a, b, c );
 
-  sphere01_triangle_sides_to_angles ( a, b, c, &alpha, &beta, &gamma );
+  sphere01_triangle_sides_to_angles ( a, b, c, alpha, beta, gamma );
 
   area = sphere01_triangle_angles_to_area ( alpha, beta, gamma );
 
@@ -2088,7 +2207,7 @@ double *sphere01_triangle_sample ( int n, double v1[3], double v2[3],
 //****************************************************************************80
 
 void sphere01_triangle_sides_to_angles ( double as, double bs, double cs, 
-  double *a, double *b, double *c )
+  double &a, double &b, double &c )
 
 //****************************************************************************80
 //
@@ -2113,7 +2232,7 @@ void sphere01_triangle_sides_to_angles ( double as, double bs, double cs,
 //    Input, double AS, BS, CS, the (geodesic) length of the sides of the
 //    triangle.
 //
-//    Output, double *A, *B, *C, the spherical angles of the triangle.
+//    Output, double &A, &B, &C, the spherical angles of the triangle.
 //    Angle A is opposite the side of length AS, and so on.
 //
 {
@@ -2133,17 +2252,17 @@ void sphere01_triangle_sides_to_angles ( double as, double bs, double cs,
   tan_a2 = sqrt ( ( sin ( ssu - bsu ) * sin ( ssu - csu ) ) / 
                   ( sin ( ssu ) * sin ( ssu - asu )     ) );
 
-  *a = 2.0 * atan ( tan_a2 );
+  a = 2.0 * atan ( tan_a2 );
 
   tan_b2 = sqrt ( ( sin ( ssu - asu ) * sin ( ssu - csu ) ) / 
                   ( sin ( ssu ) * sin ( ssu - bsu )     ) );
 
-  *b = 2.0 * atan ( tan_b2 );
+  b = 2.0 * atan ( tan_b2 );
 
   tan_c2 = sqrt ( ( sin ( ssu - asu ) * sin ( ssu - bsu ) ) / 
                   ( sin ( ssu ) * sin ( ssu - csu )     ) );
 
-  *c = 2.0 * atan ( tan_c2 );
+  c = 2.0 * atan ( tan_c2 );
 
   return;
 }
@@ -2204,11 +2323,11 @@ double sphere01_triangle_vertices_to_area ( double v1[3], double v2[3],
 //
 //  Compute the lengths of the sides of the spherical triangle.
 //
-  sphere01_triangle_vertices_to_sides ( v1, v2, v3, &as, &bs, &cs );
+  sphere01_triangle_vertices_to_sides ( v1, v2, v3, as, bs, cs );
 //
 //  Get the spherical angles.
 //
-  sphere01_triangle_sides_to_angles ( as, bs, cs, &a, &b, &c );
+  sphere01_triangle_sides_to_angles ( as, bs, cs, a, b, c );
 //
 //  Get the area
 //
@@ -2371,19 +2490,13 @@ void sphere01_triangle_vertices_to_midpoints ( double v1[3], double v2[3],
 //****************************************************************************80
 
 void sphere01_triangle_vertices_to_sides ( double v1[3], double v2[3], 
-  double v3[3], double *as, double *bs, double *cs )
+  double v3[3], double &as, double &bs, double &cs )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
 //    SPHERE01_TRIANGLE_VERTICES_TO_SIDES_3D: sides of spherical triangle on unit sphere.
-//
-//  Discussion:
-//
-//    We can use the ACOS system call here, but the ARC_COSINE routine
-//    will automatically take care of cases where the input argument is
-//    (usually slightly) out of bounds.
 //
 //  Licensing:
 //
@@ -2406,9 +2519,9 @@ void sphere01_triangle_vertices_to_sides ( double v1[3], double v2[3],
 //    triangle.
 //
 {
-  *as = arc_cosine ( r8vec_dot_product ( 3, v2, v3 ) );
-  *bs = arc_cosine ( r8vec_dot_product ( 3, v3, v1 ) );
-  *cs = arc_cosine ( r8vec_dot_product ( 3, v1, v2 ) );
+  as = r8_acos ( r8vec_dot_product ( 3, v2, v3 ) );
+  bs = r8_acos ( r8vec_dot_product ( 3, v3, v1 ) );
+  cs = r8_acos ( r8vec_dot_product ( 3, v1, v2 ) );
 
   return;
 }

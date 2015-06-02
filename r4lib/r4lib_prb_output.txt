@@ -1,4 +1,4 @@
-22 December 2011 08:33:39 AM
+28 September 2014 12:27:44 PM
 
 R4LIB_PRB
   C++ version
@@ -43,12 +43,12 @@ TEST003
         0.523599         1.36603
         0.785398         1.41421
           1.0472         1.36603
-           1.309         1.22475
+           1.309         1.22474
           1.5708               1
           1.8326        0.707107
-         2.09439        0.366026
-         2.35619     3.57628e-07
-         2.61799       -0.366025
+          2.0944        0.366025
+         2.35619               0
+         2.61799       -0.366026
          2.87979       -0.707107
          3.14159              -1
 
@@ -99,7 +99,7 @@ TEST006
   Here, we get digits of 3.14159
 
    -2 -1  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
-    0  0  0  3  1  4  1  5  9  2  5  0  2  5  9  3  9  9  4  1  4  0  6
+    0  0  0  3  1  4  1  5  9  2  7  4  1  0  1  2  5  7  3  2  4  2  1
 
 TEST007
   R4_EPSILON produces the R4 roundoff unit.
@@ -125,7 +125,7 @@ TEST008
 TEST009
   R4_HUGE returns a large R4 value;
 
-  R4_HUGE =   1e+30
+  R4_HUGE =   3.40282e+38
 
 TEST010
   R4_LOG_2: computes the logarithm base 2.
@@ -227,7 +227,7 @@ TEST016
   Using initial random number seed = 123456789
 
      1.67904
-   -0.472769
+   -0.472768
     -0.56606
    -0.231124
      1.21293
@@ -237,8 +237,8 @@ TEST016
     -1.66609
     -1.86523
     -2.24246
-     0.73581
-   0.0396748
+    0.735809
+   0.0396751
     -1.35074
     0.673068
   0.00777484
@@ -359,6 +359,18 @@ TEST020
         19         3.141586303710938
         20         3.141590118408203
 
+TEST023
+  R4_SIGN returns the sign of an R4.
+  R4_SIGN3 returns the three-way sign of an R4.
+
+      R4    R4_SIGN(R4)  R4_SIGN3(R4)
+
+     -1.25        -1        -1
+     -0.25        -1        -1
+         0         1         0
+       0.5         1         1
+         9         1         1
+
 TEST0235
   R4_SWAP swaps two reals.
 
@@ -373,7 +385,7 @@ TEST0235
     Y = 1
 
 TEST026
-  R4_UNIFORM produces a random real in a given range.
+  R4_UNIFORM_AB produces a random real in a given range.
 
   Using range 10 <= A <= 25.
 
@@ -450,7 +462,23 @@ TEST028
   Average value was 0.5030398964881897
   Variance was      0.08233196288347244
 
+TEST012555
+  R4VEC_INDICATOR0_NEW returns an indicator vector.
+
+  Indicator0 vector:
+
+         0:              0
+         1:              1
+         2:              2
+         3:              3
+         4:              4
+         5:              5
+         6:              6
+         7:              7
+         8:              8
+         9:              9
+
 R4LIB_PRB
   Normal end of execution.
 
-22 December 2011 08:33:39 AM
+28 September 2014 12:27:44 PM

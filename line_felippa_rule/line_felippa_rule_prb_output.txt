@@ -1,0 +1,144 @@
+07 September 2014 09:41:32 PM
+
+LINE_FELIPPA_RULE_PRB
+  C++ version
+  Test the LINE_FELIPPA_RULE library.
+
+LINE_MONOMIAL_TEST
+  For a line segment in 1D,
+  LINE_MONOMIAL returns the exact value of the
+  integral of X^EXPON
+
+  Volume = 1
+
+     EXPON      INTEGRAL
+
+         0               1
+         1             0.5
+         2        0.333333
+         3            0.25
+         4             0.2
+
+LINE_QUAD_TEST
+  For a line segment in 1D,
+  we approximate monomial integrals with:
+  LINE_UNIT_O01, a 1 point rule.
+  LINE_UNIT_O02, a 2 point rule.
+  LINE_UNIT_O03, a 3 point rule.
+  LINE_UNIT_O04, a 4 point rule.
+  LINE_UNIT_O05, a 5 point rule.
+
+  Monomial exponent:   0
+
+       1               1
+       2               1
+       3               1
+       4               1
+       5               1
+
+   Exact               1
+
+  Monomial exponent:   1
+
+       1             0.5
+       2             0.5
+       3             0.5
+       4             0.5
+       5             0.5
+
+   Exact             0.5
+
+  Monomial exponent:   2
+
+       1            0.25
+       2        0.333333
+       3        0.333333
+       4        0.333333
+       5        0.333333
+
+   Exact        0.333333
+
+  Monomial exponent:   3
+
+       1           0.125
+       2            0.25
+       3            0.25
+       4            0.25
+       5            0.25
+
+   Exact            0.25
+
+  Monomial exponent:   4
+
+       1          0.0625
+       2        0.194444
+       3             0.2
+       4             0.2
+       5             0.2
+
+   Exact             0.2
+
+  Monomial exponent:   5
+
+       1         0.03125
+       2        0.152778
+       3        0.166667
+       4        0.166667
+       5        0.166667
+
+   Exact        0.166667
+
+  Monomial exponent:   6
+
+       1        0.015625
+       2         0.12037
+       3          0.1425
+       4        0.142857
+       5        0.142857
+
+   Exact        0.142857
+
+  Monomial exponent:   7
+
+       1       0.0078125
+       2       0.0949074
+       3         0.12375
+       4           0.125
+       5           0.125
+
+   Exact           0.125
+
+  Monomial exponent:   8
+
+       1      0.00390625
+       2       0.0748457
+       3        0.108458
+       4        0.111088
+       5        0.111111
+
+   Exact        0.111111
+
+  Monomial exponent:   9
+
+       1      0.00195312
+       2       0.0590278
+       3       0.0955625
+       4        0.099898
+       5             0.1
+
+   Exact             0.1
+
+  Monomial exponent:   10
+
+       1     0.000976562
+       2       0.0465535
+       3       0.0844563
+       4       0.0906414
+       5       0.0909077
+
+   Exact       0.0909091
+
+LINE_FELIPPA_RULE_PRB
+  Normal end of execution.
+
+07 September 2014 09:41:32 PM

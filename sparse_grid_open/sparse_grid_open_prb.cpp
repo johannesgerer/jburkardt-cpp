@@ -33,7 +33,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPARSE_GRID_OPEN_PRB calls the SPARSE_GRID_OPEN tests.
+//    SPARSE_GRID_OPEN_PRB tests the SPARSE_GRID_OPEN library.
 //
 //  Licensing:
 //
@@ -156,7 +156,6 @@ int main ( )
   cout << "\n";
   cout << "SPARSE_GRID_OPEN_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

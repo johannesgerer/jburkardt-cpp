@@ -16,7 +16,6 @@ void comp_next ( int n, int k, int a[], bool *more, int *h, int *t );
 int file_column_count ( string input_filename );
 int file_row_count ( string input_filename );
 double *monomial_value ( int dim_num, int point_num, double x[], int expon[] );
-double r8_abs ( double x );
 double *r8mat_data_read ( string input_filename, int m, int n );
 double r8mat_det_4d ( double a[4*4] );
 void r8mat_header_read ( string input_filename, int *m, int *n );
@@ -94,8 +93,6 @@ int main ( int argc, char *argv[] )
   cout << "TETRAHEDRON_EXACTNESS\n";
   cout << "  C++ version\n";
   cout << "\n";
-  cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
-  cout << "\n";
   cout << "  Investigate the polynomial exactness of a quadrature\n";
   cout << "  rule for the tetrahedron by integrating all monomials\n";
   cout << "  of a given degree.\n";
@@ -163,9 +160,9 @@ int main ( int argc, char *argv[] )
 
   if ( dim_num != 3 )
   {
-    cout << "\n";
-    cout << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature abscissas must be 3 dimensional.\n";
+    cerr << "\n";
+    cerr << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature abscissas must be 3 dimensional.\n";
     exit ( 1 );
   }
 
@@ -177,19 +174,19 @@ int main ( int argc, char *argv[] )
 
   if ( dim_num2 != 1 ) 
   {
-    cout << "\n";
-    cout << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature weight file should have exactly\n";
-    cout << "  one value on each line.\n";
+    cerr << "\n";
+    cerr << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature weight file should have exactly\n";
+    cerr << "  one value on each line.\n";
     exit ( 1 );
   }
 
   if ( point_num2 != point_num )
   {
-    cout << "\n";
-    cout << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature weight file should have exactly\n";
-    cout << "  the same number of lines as the abscissa file.\n";
+    cerr << "\n";
+    cerr << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature weight file should have exactly\n";
+    cerr << "  the same number of lines as the abscissa file.\n";
     exit ( 1 );
   }
 
@@ -201,19 +198,19 @@ int main ( int argc, char *argv[] )
 
   if ( dim_num3 != dim_num )
   {
-    cout << "\n";
-    cout << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature region file should have the same\n";
-    cout << "  number of values on each line as the abscissa file\n";
-    cout << "  does.\n";
+    cerr << "\n";
+    cerr << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature region file should have the same\n";
+    cerr << "  number of values on each line as the abscissa file\n";
+    cerr << "  does.\n";
     exit ( 1 );
   }
 
   if ( point_num3 != 4 )
   {
-    cout << "\n";
-    cout << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature region file should have 4 lines.\n";
+    cerr << "\n";
+    cerr << "TETRAHEDRON_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature region file should have 4 lines.\n";
     exit ( 1 );
   }
 
@@ -272,7 +269,9 @@ int main ( int argc, char *argv[] )
     }
     cout << "\n";
   }
-
+//
+//  Free memory.
+//
   delete [] expon;
   delete [] r;
   delete [] w;
@@ -407,7 +406,7 @@ int ch_to_digit ( char ch )
 //
 //    Input, char CH, the decimal digit, '0' through '9' or blank are legal.
 //
-//    Output, int CH_TO_DIGIT, the corresponding integer value.  If the 
+//    Output, int CH_TO_DIGIT, the corresponding value.  If the 
 //    character was 'illegal', then DIGIT is -1.
 //
 {
@@ -629,7 +628,7 @@ int file_column_count ( string filename )
     cerr << "FILE_COLUMN_COUNT - Fatal error!\n";
     cerr << "  Could not open the file:\n";
     cerr << "  \"" << filename << "\"\n";
-    return column_num;
+    exit ( 1 );
   }
 //
 //  Read one line, but skip blank lines and comment lines.
@@ -750,7 +749,7 @@ int file_row_count ( string input_filename )
     cerr << "\n";
     cerr << "FILE_ROW_COUNT - Fatal error!\n";
     cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return (-1);
+    exit ( 1 );
   }
 
   for ( ; ; )
@@ -856,47 +855,6 @@ double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double *r8mat_data_read ( string input_filename, int m, int n )
 
 //****************************************************************************80
@@ -956,7 +914,7 @@ double *r8mat_data_read ( string input_filename, int m, int n )
     cerr << "\n";
     cerr << "R8MAT_DATA_READ - Fatal error!\n";
     cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return NULL;
+    exit ( 1 );
   }
 
   table = new double[m*n];
@@ -1094,8 +1052,7 @@ void r8mat_header_read ( string input_filename, int *m, int *n )
     cerr << "\n";
     cerr << "R8MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
+    exit ( 1 );
   }
 
   *n = file_row_count ( input_filename );
@@ -1105,7 +1062,7 @@ void r8mat_header_read ( string input_filename, int *m, int *n )
     cerr << "\n";
     cerr << "R8MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
+    exit ( 1 );
   }
 
   return;
@@ -1379,7 +1336,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
@@ -1903,7 +1860,7 @@ double tet01_monomial_quadrature ( int dim_num, int expon[], int point_num,
 //  Error:
 //
   exact = 1.0;
-  quad_error = r8_abs ( quad - exact );
+  quad_error = fabs ( quad - exact );
 
   delete [] value;
 
@@ -2072,7 +2029,7 @@ double tetrahedron_volume ( double tetra[3*4] )
     a[i+j*4] = 1.0;
   }
 
-  volume = r8_abs ( r8mat_det_4d ( a ) ) / 6.0;
+  volume = fabs ( r8mat_det_4d ( a ) ) / 6.0;
 
   return volume;
 }

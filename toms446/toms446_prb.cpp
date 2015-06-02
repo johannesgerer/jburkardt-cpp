@@ -30,7 +30,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TOMS446_PRB calls the TOMS446 tests.
+//    TOMS446_PRB tests the TOMS446 library.
 //
 //  Licensing:
 //
@@ -62,7 +62,6 @@ int main ( )
   cout << "\n";
   cout << "TOMS446_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

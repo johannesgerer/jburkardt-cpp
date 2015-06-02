@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include machine_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include machine_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling machine_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ machine_prb.o /$HOME/libcpp/$ARCH/machine.o -lm
 if [ $? -ne 0 ]; then

@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include polpak_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include polpak_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling polpak_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ polpak_prb.o /$HOME/libcpp/$ARCH/polpak.o -lm
 if [ $? -ne 0 ]; then

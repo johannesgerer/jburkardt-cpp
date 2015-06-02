@@ -1,0 +1,24 @@
+25 February 2014 10:37:38 AM
+
+ALLOCATABLE:
+  C++ version
+  Show how a function can declare a pointer to an array,
+  but then call a function to allocate and initialize
+  the array, which is then returned in the argument list.
+
+  The array size is N = 7
+
+  The array contents:
+
+         0        96
+         1        83
+         2        56
+         3        41
+         4         6
+         5        26
+         6        11
+
+ALLOCATABLE:
+  Normal end of execution.
+
+25 February 2014 10:37:38 AM

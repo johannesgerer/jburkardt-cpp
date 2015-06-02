@@ -263,7 +263,7 @@ int bal_seq_enum ( int n )
 {
   int value;
 
-  value = binomial ( 2 * n, n ) / ( n + 1 );
+  value = i4_choose ( 2 * n, n ) / ( n + 1 );
 
   return value;
 }
@@ -738,7 +738,7 @@ int *bell_numbers ( int m )
     b[j] = 0;
     for ( i = 0; i < j; i++ )
     {
-      b[j] = b[j] + binomial ( j - 1, i ) * b[i];
+      b[j] = b[j] + i4_choose ( j - 1, i ) * b[i];
     }
   }
   return b;
@@ -816,7 +816,7 @@ void bell_values ( int *n_data, int *n, int *c )
 //
 //  Recursion:
 //
-//    B(I) = sum ( 1 <= J <=I ) Binomial ( I-1, J-1 ) * B(I-J)
+//    B(I) = sum ( 1 <= J <=I ) i4_choose ( I-1, J-1 ) * B(I-J)
 //
 //  Licensing:
 //
@@ -889,75 +889,6 @@ void bell_values ( int *n_data, int *n, int *c )
 }
 //****************************************************************************80
 
-int binomial ( int n, int k )
-
-//****************************************************************************80
-// 
-//  Purpose:
-//
-//    BINOMIAL computes the binomial coefficient C(N,K).
-// 
-//  Discussion:
-// 
-//    BINOMIAL(N,K) = C(N,K) = N! / ( K! * (N-K)! )
-// 
-//  Licensing:
-// 
-//    This code is distributed under the GNU LGPL license.
-// 
-//  Modified:
-// 
-//    24 July 2011
-// 
-//  Author:
-// 
-//    John Burkardt
-// 
-//  Reference:
-// 
-//    ML Wolfson, HV Wright,
-//    Algorithm 160:
-//    Combinatorial of M Things Taken N at a Time,
-//    Communications of the ACM,
-//    Volume 6, Number 4, April 1963, page 161.
-// 
-//  Parameters:
-// 
-//    Input, int N, K, are the values of N and K.
-// 
-//    Output, int BINOMIAL, the number of combinations of N
-//    things taken K at a time.
-// 
-{
-  int i;
-  int mn;
-  int mx;
-  int value;
-
-  mn = i4_min ( k, n - k );
-
-  if ( mn < 0 )
-  {
-    value = 0;
-  }
-  else if ( mn == 0 )
-  {
-    value = 1;
-  }
-  else
-  {
-    mx = i4_max ( k, n - k );
-    value = mx + 1;
-
-    for ( i = 2; i <= mn; i++ )
-    {
-      value = ( value * ( mx + i ) ) / i;
-    }
-  }
-  return value;
-}
-//****************************************************************************80
-
 double combin ( int n, int k )
 
 //****************************************************************************80
@@ -1010,7 +941,6 @@ double combin ( int n, int k )
 // 
 {
   double arg;
-  double cnk;
   double fack;
   double facn;
   double facnmk;
@@ -1299,7 +1229,7 @@ int dist_enum ( int k, int m )
 {
   int value;
 
-  value = binomial ( m + k - 1, m );
+  value = i4_choose ( m + k - 1, m );
 
   return value;
 }
@@ -2140,6 +2070,89 @@ int *gray_code_unrank ( int rank, int n )
     rank_copy = rank_copy - b * i4_power ( 2, i );
   }
   return t;
+}
+//****************************************************************************80
+
+int i4_choose ( int n, int k )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_CHOOSE computes the binomial coefficient C(N,K).
+//
+//  Discussion:
+//
+//    The value is calculated in such a way as to avoid overflow and
+//    roundoff.  The calculation is done in integer arithmetic.
+//
+//    The formula used is:
+//
+//      C(N,K) = N! / ( K! * (N-K)! )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    06 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    ML Wolfson, HV Wright,
+//    Algorithm 160:
+//    Combinatorial of M Things Taken N at a Time,
+//    Communications of the ACM,
+//    Volume 6, Number 4, April 1963, page 161.
+//
+//  Parameters:
+//
+//    Input, int N, K, the values of N and K.
+//
+//    Output, int I4_CHOOSE, the number of combinations of N
+//    things taken K at a time.
+//
+{
+  int i;
+  int mn;
+  int mx;
+  int value;
+
+  mn = k;
+  if ( n - k < mn )
+  {
+    mn = n - k;
+  }
+
+  if ( mn < 0 )
+  {
+    value = 0;
+  }
+  else if ( mn == 0 )
+  {
+    value = 1;
+  }
+  else
+  {
+    mx = k;
+    if ( mx < n - k )
+    {
+      mx = n - k;
+    }
+    value = mx + 1;
+
+    for ( i = 2; i <= mn; i++ )
+    {
+      value = ( value * ( mx + i ) ) / i;
+    }
+  }
+
+  return value;
 }
 //****************************************************************************80
 
@@ -3042,6 +3055,11 @@ void i4vec_part2 ( int n, int npart, int x[] )
 //
 //    I4VEC_PART2 partitions an integer N into NPART nearly equal parts.
 // 
+//  Discussion:
+//
+//    Thanks to John Nitao for pointing out a typographical error in 
+//    of the form "x[j=1]" for "x[j-1]", 14 April 2013.
+//
 //  Example:
 // 
 //    Input:
@@ -3058,7 +3076,7 @@ void i4vec_part2 ( int n, int npart, int x[] )
 // 
 //  Modified:
 // 
-//    25 July 2011
+//    14 April 2013
 // 
 //  Author:
 // 
@@ -3112,7 +3130,7 @@ void i4vec_part2 ( int n, int npart, int x[] )
     j = 1;
     for ( i = n; i <= -1; i++ )
     {
-      x[j-1] = x[j=1] - 1;
+      x[j-1] = x[j-1] - 1;
       j = j + 1;
       if ( npart < j )
       {
@@ -3169,8 +3187,6 @@ int *i4vec_part2_new ( int n, int npart )
 //    as N, and the "largest" entries occur first.
 // 
 {
-  int i;
-  int j;
   int *x;
 
   x = new int[npart];
@@ -4261,7 +4277,7 @@ int ksubset_colex_rank ( int k, int n, int t[] )
 
   for ( i = 0; i < k; i++ )
   {
-    rank = rank + binomial ( t[i] - 1, k - i );
+    rank = rank + i4_choose ( t[i] - 1, k - i );
   }
 
   return rank;
@@ -4472,13 +4488,13 @@ int *ksubset_colex_unrank ( int rank, int k, int n )
 
   for ( i = 1; i <= k; i++ )
   {
-    while ( rank_copy < binomial ( x, k + 1 - i ) )
+    while ( rank_copy < i4_choose ( x, k + 1 - i ) )
     {
       x = x - 1;
     }
 
     t[i-1] = x + 1;
-    rank_copy = rank_copy - binomial ( x, k + 1 - i );
+    rank_copy = rank_copy - i4_choose ( x, k + 1 - i );
   }
 
   return t;
@@ -4518,7 +4534,7 @@ int ksubset_enum ( int k, int n )
 {
   int value;
 
-  value = binomial ( n, k );
+  value = i4_choose ( n, k );
 
   return value;
 }
@@ -4681,7 +4697,7 @@ int ksubset_lex_rank ( int k, int n, int t[] )
     {
       for ( j = tim1 + 1; j <= t[i-1] - 1; j++ )
       {
-        rank = rank + binomial ( n - j, k - i );
+        rank = rank + i4_choose ( n - j, k - i );
       }
     }
   }
@@ -4890,9 +4906,9 @@ int *ksubset_lex_unrank ( int rank, int k, int n )
 
   for ( i = 1; i <= k; i++ )
   {
-    while ( binomial ( n - x, k - i ) <= rank_copy )
+    while ( i4_choose ( n - x, k - i ) <= rank_copy )
     {
-      rank_copy = rank_copy - binomial ( n - x, k - i );
+      rank_copy = rank_copy - i4_choose ( n - x, k - i );
       x = x + 1;
     }
 
@@ -4977,7 +4993,7 @@ int ksubset_revdoor_rank ( int k, int n, int t[] )
 
   for ( i = k; 1 <= i; i-- )
   {
-    rank = rank + s * binomial ( t[i-1], i );
+    rank = rank + s * i4_choose ( t[i-1], i );
     s = - s;
   }
 
@@ -5218,13 +5234,13 @@ int *ksubset_revdoor_unrank ( int rank, int k, int n )
 
   for ( i = k; 1 <= i; i-- )
   {
-    while ( rank_copy < binomial ( x, i ) )
+    while ( rank_copy < i4_choose ( x, i ) )
     {
       x = x - 1;
     }
 
     t[i-1] = x + 1;
-    rank_copy = binomial ( x + 1, i ) - rank_copy - 1;
+    rank_copy = i4_choose ( x + 1, i ) - rank_copy - 1;
   }
   return t;
 }
@@ -5437,7 +5453,7 @@ int mountain ( int n, int x, int y )
     a = 2 * n - x;
     b = n - ( x + y ) / 2;
     c = n - 1 - ( x + y ) / 2;
-    value = binomial ( a, b ) - binomial ( a, c );
+    value = i4_choose ( a, b ) - i4_choose ( a, c );
   }
   return value;
 }
@@ -7412,7 +7428,6 @@ int *perm_inv ( int n, int p[] )
 // 
 {
   int i;
-  int ierror;
   int *pinv;
 // 
 //  Check.
@@ -7475,7 +7490,6 @@ int perm_lex_rank ( int n, int p[] )
 // 
 {
   int i;
-  int ierror;
   int j;
   int *pcopy;
   int rank;
@@ -7570,7 +7584,6 @@ void perm_lex_successor ( int n, int p[], int &rank )
 // 
 {
   int i;
-  int ierror;
   int j;
   int temp;
 // 
@@ -7772,7 +7785,6 @@ int *perm_mul ( int n, int p[], int q[] )
 // 
 {
   int i;
-  int ierror;
   int *r;
 // 
 //  Check.
@@ -7852,7 +7864,6 @@ int perm_parity ( int n, int p[] )
   int *a;
   int c;
   int i;
-  int ierror;
   int j;
   int parity;
 // 
@@ -8036,7 +8047,6 @@ int perm_tj_rank ( int n, int p[] )
 // 
 {
   int i;
-  int ierror;
   int j;
   int k;
   int rank;
@@ -8124,7 +8134,6 @@ void perm_tj_successor ( int n, int p[], int &rank )
   int d;
   bool done;
   int i;
-  int ierror;
   int m;
   int par;
   int *q;
@@ -8365,7 +8374,6 @@ void perm_to_cycle ( int n, int p[], int &ncycle, int t[], int index[] )
 // 
 {
   int i;
-  int ierror;
   int j;
   int nset;
 // 
@@ -9275,7 +9283,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    11 August 2010
+//    01 September 2012
 //
 //  Author:
 //
@@ -9286,23 +9294,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double one;
-  double temp;
-  double test;
-  double value;
-
-  one = ( double ) ( 1 );
-
-  value = one;
-  temp = value / 2.0;
-  test = r8_add ( one, temp );
-
-  while ( one < test )
-  {
-    value = temp;
-    temp = value / 2.0;
-    test = r8_add ( one, temp );
-  }
+  const double value = 2.220446049250313E-016;
 
   return value;
 }
@@ -9998,7 +9990,7 @@ int rgf_enum ( int m )
       b[j] = 0;
       for ( i = 0; i < j; i++ )
       {
-        b[j] = b[j] + binomial ( j - 1, i ) * b[i];
+        b[j] = b[j] + i4_choose ( j - 1, i ) * b[i];
       }
     }
     value = b[m];
@@ -10672,7 +10664,7 @@ int setpart_enum ( int m )
       b[j] = 0;
       for ( i = 0; i < j; i++ )
       {
-        b[j] = b[j] + binomial ( j - 1, i ) * b[i];
+        b[j] = b[j] + i4_choose ( j - 1, i ) * b[i];
       }
     }
     value = b[m];
@@ -12129,7 +12121,7 @@ int tableau_enum ( int n )
 {
   int value;
 
-  value = binomial ( 2 * n, n ) / ( n + 1 );
+  value = i4_choose ( 2 * n, n ) / ( n + 1 );
 
   return value;
 }
@@ -12473,8 +12465,6 @@ int tree_rank ( int n, int t[] )
 //    Output, int RANK, the rank of the tree.
 // 
 {
-  int i;
-  int k;
   int *p;
   int rank;
 // 
@@ -12537,8 +12527,6 @@ void tree_successor ( int n, int t[], int &rank )
 // 
 {
   int i;
-  int ierror;
-  int k;
   int *p;
 // 
 //  Return the first element.
@@ -12735,9 +12723,7 @@ int *tree_unrank ( int rank, int n )
 //    as pairs of nodes.
 // 
 {
-  int i;
   int *p;
-  int rank_copy;
   int *t;
   int tree_num;
 // 

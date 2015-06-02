@@ -1,8 +1,8 @@
 # include <cstdlib>
 # include <iostream>
+# include <fstream>
 # include <iomanip>
 # include <cmath>
-# include <fstream>
 
 using namespace std;
 
@@ -20,6 +20,9 @@ void test07 ( );
 void test08 ( );
 void test09 ( );
 void test10 ( );
+void test11 ( );
+void test12 ( );
+void test13 ( );
 
 //****************************************************************************80
 
@@ -33,7 +36,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPHERE_GRID_PRB tests routines from the SPHERE_GRID library.
+//    SPHERE_GRID_PRB tests the SPHERE_GRID library.
 //
 //  Licensing:
 //
@@ -41,7 +44,7 @@ int main ( )
 //
 //  Modified:
 //
-//    04 October 2012
+//    21 October 2012
 //
 //  Author:
 //
@@ -49,7 +52,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "SPHERE_GRID_PRB\n";
   cout << "  C++ version\n";
@@ -64,14 +66,17 @@ int main ( )
   test07 ( );
   test08 ( );
   test09 ( );
+
   test10 ( );
+  test11 ( );
+  test12 ( );
+  test13 ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "SPHERE_GRID_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -206,22 +211,12 @@ void test02 ( )
 //
 //  Write the nodes to a file.
 //
-  if ( true )
-  {
-    filename = "sphere_icos1_points_f" + i4_to_string ( factor, "%d" ) + ".xyz";
+  filename = "sphere_icos1_points_f" + i4_to_string ( factor, "%d" ) + ".xyz";
 
-    output.open ( filename.c_str ( ) );
-    for ( node = 0; node < node_num; node++ )
-    {
-      output << "  " << node_xyz[0+node*3]
-             << "  " << node_xyz[1+node*3]
-             << "  " << node_xyz[2+node*3] << "\n";
-    }
-    output.close ( );
+  r8mat_write ( filename, 3, node_num, node_xyz );
 
-    cout << "\n";
-    cout << "  Wrote data to \"" << filename << "\"\n";
-  }
+  cout << "\n";
+  cout << "  Wrote data to \"" << filename << "\"\n";
 
   delete [] node_xyz;
 
@@ -280,22 +275,12 @@ void test03 ( )
 //
 //  Write the nodes to a file.
 //
-  if ( true )
-  {
-    filename = "sphere_icos2_points_f" + i4_to_string ( factor, "%d" ) + ".xyz";
+  filename = "sphere_icos2_points_f" + i4_to_string ( factor, "%d" ) + ".xyz";
 
-    output.open ( filename.c_str ( ) );
-    for ( node = 0; node < node_num; node++ )
-    {
-      output << "  " << node_xyz[0+node*3]
-             << "  " << node_xyz[1+node*3]
-             << "  " << node_xyz[2+node*3] << "\n";
-    }
-    output.close ( );
+  r8mat_write ( filename, 3, node_num, node_xyz );
 
-    cout << "\n";
-    cout << "  Wrote data to \"" << filename << "\"\n";
-  }
+  cout << "\n";
+  cout << "  Wrote data to \"" << filename << "\"\n";
 
   delete [] node_xyz;
 
@@ -437,22 +422,12 @@ void test05 ( )
 //
 //  Write the nodes to a file.
 //
-  if ( true )
-  {
-    filename = "sphere_grid_spiral_n" + i4_to_string ( node_num, "%d" ) + ".xyz";
+  filename = "sphere_grid_spiral_n" + i4_to_string ( node_num, "%d" ) + ".xyz";
 
-    output.open ( filename.c_str ( ) );
-    for ( node = 0; node < node_num; node++ )
-    {
-      output << "  " << node_xyz[0+node*3]
-             << "  " << node_xyz[1+node*3]
-             << "  " << node_xyz[2+node*3] << "\n";
-    }
-    output.close ( );
+  r8mat_write ( filename, 3, node_num, node_xyz );
 
-    cout << "\n";
-    cout << "  Wrote data to \"" << filename << "\"\n";
-  }
+  cout << "\n";
+  cout << "  Wrote data to \"" << filename << "\"\n";
 
   delete [] node_xyz;
 
@@ -648,22 +623,12 @@ void test09 ( )
 //
 //  Write the nodes to a file.
 //
-  if ( true )
-  {
-    filename = "sphere_sample_n" + i4_to_string ( node_num, "%d" ) + ".xyz";
+  filename = "sphere_sample_n" + i4_to_string ( node_num, "%d" ) + ".xyz";
 
-    output.open ( filename.c_str ( ) );
-    for ( node = 0; node < node_num; node++ )
-    {
-      output << "  " << node_xyz[0+node*3]
-             << "  " << node_xyz[1+node*3]
-             << "  " << node_xyz[2+node*3] << "\n";
-    }
-    output.close ( );
+  r8mat_write ( filename, 3, node_num, node_xyz );
 
-    cout << "\n";
-    cout << "  Wrote data to \"" << filename << "\"\n";
-  }
+  cout << "\n";
+  cout << "  Wrote data to \"" << filename << "\"\n";
 
   delete [] node_xyz;
 
@@ -713,27 +678,57 @@ void test10 ( )
   xyz = sphere_cubed_points ( n, ns );
 
   r8mat_transpose_print_some ( 3, ns, xyz, 1, 1, 3, 20, "  Initial part of XYZ array:" );
-/*
-  Write the nodes to a file.
-*/
-  if ( 1 )
-  {
-    filename = "sphere_cubed_f" + i4_to_string ( n, "%d" ) + ".xyz";
+//
+//  Write the nodes to a file.
+//
+  filename = "sphere_cubed_f" + i4_to_string ( n, "%d" ) + ".xyz";
 
-    output.open ( filename.c_str ( ) );
-    for ( j = 0; j < n; j++ )
-    {
-      output << "  " << xyz[0+j*3]
-             << "  " << xyz[1+j*3]
-             << "  " << xyz[2+j*3] << "\n";
-    }
-    output.close ( );
+  r8mat_write ( filename, 3, n, xyz );
 
-    cout << "\n";
-    cout << "  Wrote data to \"" << filename << "\"\n";
-  }
+  cout << "\n";
+  cout << "  Wrote data to \"" << filename << "\"\n";
 
   delete [] xyz;
 
   return;
 }
+//****************************************************************************80
+
+void test11 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST11 is a dummy file.  See the MATLAB source code for details.
+//
+{
+  return;
+}
+//****************************************************************************80
+
+void test12 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST12 is a dummy file.  See the MATLAB source code for details.
+//
+{
+  return;
+}
+//****************************************************************************80
+
+void test13 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST13 is a dummy file.  See the MATLAB source code for details.
+//
+{
+  return;
+}
+

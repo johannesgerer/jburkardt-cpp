@@ -1,0 +1,49 @@
+# umode_commands.txt
+#
+# Usage:
+#  gnuplot < umode_commands.txt
+#
+set term png
+set output 'umode1.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Monthly Snowfall Mode 1'
+set grid
+set style data lines
+plot 'umode_data.txt' using 1:2 lw 3 linecolor rgb 'blue'
+set output 'umode2.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Monthly Snowfall Mode 2'
+set grid
+set style data lines
+plot 'umode_data.txt' using 1:3 lw 3 linecolor rgb 'blue'
+set output 'umode3.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Monthly Snowfall Mode 3'
+set grid
+set style data lines
+plot 'umode_data.txt' using 1:4 lw 3 linecolor rgb 'blue'
+set output 'umode4.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Monthly Snowfall Mode 4'
+set grid
+set style data lines
+plot 'umode_data.txt' using 1:5 lw 3 linecolor rgb 'blue'
+set output 'umode5.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Monthly Snowfall Mode 5'
+set grid
+set style data lines
+plot 'umode_data.txt' using 1:6 lw 3 linecolor rgb 'blue'
+set output 'umode6.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Monthly Snowfall Mode 6'
+set grid
+set style data lines
+plot 'umode_data.txt' using 1:7 lw 3 linecolor rgb 'blue'
+quit

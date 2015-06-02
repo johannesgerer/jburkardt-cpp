@@ -29,11 +29,11 @@
     </h3>
 
     <p>
-      This program is a revised version of <b>FREE_FEM_POISSON</b>.
+      This program is a revised version of <b>FEM2D_POISSON</b>.
     </p>
 
     <p>
-      <b>FREE_FEM_POISSON</b> used a direct LINPACK/LAPACK banded matrix
+      <b>FEM2D_POISSON</b> used a direct LINPACK/LAPACK banded matrix
       solver.  The storage requirements for the banded solver are less than
       for a full storage solver, but still grow quickly as the
       problem size increases.
@@ -47,7 +47,7 @@
       row and column of every nonzero entry.  To solve the linear system,
       the <b>MGMRES</b> iterative solver was applied.  With these
       modifications, <b>FEM2D_POISSON_SPARSE</b> can handle problems much larger
-      than those that <b>FREE_FEM_POISSON</b> could.  A new issue
+      than those that <b>FEM2D_POISSON</b> could.  A new issue
       is that the iterative solver must be monitored to ensure that
       convergence is proceeding properly, and has reached the desired
       tolerance.
@@ -215,6 +215,33 @@
     </h3>
 
     <p>
+      <a href = "../../cpp_src/fem2d_poisson/fem2d_poisson.html">
+      FEM2D_POISSON</a>,
+      a C++ program  which
+      solves Poisson's equation on a triangulated region,
+      using the finite element method and a banded solver.  
+      In order to run, it requires
+      user-supplied routines that define problem data.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_poisson_cg/fem2d_poisson_cg.html">
+      FEM2D_POISSON_CG</a>,
+      a C++ program  which
+      solves Poisson's equation on a triangulated region,
+      using the finite element method, sparse storage, and a conjugate gradient solver.  
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_poisson_sparse_baffle/fem2d_poisson_sparse_baffle.html">
+      FEM2D_POISSON_SPARSE_BAFFLE</a>,
+      a C++ library which
+      defines the geometry of a rectangle channel containing 13 hexagonal baffles, 
+      as well as boundary conditions for a given Poisson problem, and is called by
+      fem2d_poisson_sparse as part of a solution procedure.
+    </p>
+
+    <p>
       <a href = "../../cpp_src/fem2d_poisson_sparse_ell/fem2d_poisson_sparse_ell.html">
       FEM2D_POISSON_SPARSE_ELL</a>,
       a C++ library which
@@ -230,6 +257,14 @@
       defines the geometry of a lake-shaped region, as well as boundary
       conditions for a given Poisson problem, and is called by
       <b>fem2d_poisson_sparse</b> as part of a solution procedure.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mgmres/mgmres.html">
+      MGMRES</a>,
+      a C++ library which
+      applies the restarted Generalized Minimum Residual (GMRES) algorithm 
+      to solve a sparse linear system, by Lili Ju.
     </p>
 
     <h3 align = "center">

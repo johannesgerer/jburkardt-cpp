@@ -1,0 +1,197 @@
+<html>
+
+  <head>
+    <title>
+      C4_COMPLEX_LIB - A C++ Class for Complex Arithmetic
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      C4_COMPLEX_LIB <br> A C++ Class for Complex Arithmetic
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>C4_COMPLEX_LIB</b>
+      is a C++ library which 
+      defines complex numbers and
+      the operations necessary to do arithmetic on them.
+    </p>
+
+    <p>
+      <i>Since the ANSI C++ standard library now includes a complex class,
+      the information described here is probably not of practical use.
+      On the other hand, it may be helpful as a practical demonstration
+      of how to define a useful arithmetic class.</i>
+    </p>
+
+    <p>
+      The <b>C4_COMPLEX</b> class defines a <i>c4_complex</i> number as a pair
+      of floats.  A variable <b>c</b> in this class 
+      may be declared by
+      <pre><code>
+        c4_complex c;
+      </code></pre>
+      The declaration can include an initialization:
+      <pre><code>
+        c4_complex c = c4_complex ( 1.0, 2.0 );
+      </code></pre>
+    </p>
+
+    <p>
+      A variable <b>c</b> declared as <i>c4_complex</i> may be assigned a value
+      using the <i>c4_complex()</i> function:
+      <pre><code>
+        c = c4_complex ( a, b )
+      </code></pre>
+      where <b>a</b> and <b>b</b> are float values; the assignment
+      <pre><code>
+        c = c4_complex ( a )
+      </code></pre>
+      sets the real part of <b>c</b> to <b>a</b>, and the imaginary part to 0.
+    </p>
+
+    <p>
+      A variable <b>c</b> declared as <i>c4_complex</i> may be used in addition,
+      subtraction, multiplication, or division with another c4_complex value,
+      or a float value:
+      <pre><code>
+        c3 = c1 + c2;
+        c3 = c1 - c2;
+        c3 = c1 * c2;
+        c3 = c1 / c2;
+      </code></pre>
+    </p>
+
+    <p>
+      A variable <b>c</b> declared as <i>c4_complex</i> may be conjugated, or
+      its real or imaginary part may be produced as a float value:
+      <pre><code>
+        c2 = ~c;
+        d1 = c1.real ( );
+        d2 = c1.imaginary ( );
+      </code></pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>C4_COMPLEX_LIB</b> is available in
+      <a href = "../../c_src/c4_complex_lib/c4_complex_lib.html">a C version</a> and
+      <a href = "../../cpp_src/c4_complex_lib/c4_complex_lib.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/c4lib/c4lib.html">
+      C4LIB</a>, 
+      a C++ library which
+      implements certain elementary functions for "C4" 
+      or single precision complex variables
+      using the C++ "complex <float>" datatype.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/c8_complex_lib/c8_complex_lib.html">
+      C8_COMPLEX_LIB</a>,
+      a C++ library which
+      defines a class called c8_complex for complex numbers with
+      double precision components.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cpp/cpp.html">
+      CPP</a>,
+      C++ programs which
+      includes an example of
+      the declaration and use of complex variables.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Steve Oualline,<br>
+          Practical C++ Programming,<br>
+          O'Reilly & Associates, 1997,<br>
+          ISBN: 1-56592-139-9
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "c4_complex_lib.cpp">c4_complex_lib.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "c4_complex_lib.hpp">c4_complex_lib.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "c4_complex_lib.sh">c4_complex_lib.sh</a>, 
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "c4_complex_lib_prb.cpp">c4_complex_lib_prb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "c4_complex_lib_prb.sh">c4_complex_lib_prb.sh</a>, 
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "c4_complex_lib_prb_output.txt">c4_complex_lib_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 September 2013.
+    </i>
+
+    <!-- John Burkardt -->
+ 
+  </body>
+
+</html>

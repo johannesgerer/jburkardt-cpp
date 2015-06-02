@@ -20,6 +20,10 @@ int main ( )
 //
 //    MAIN is the main program for WEEKDAY_PRB.
 //
+//  Discussion:
+//
+//    WEEKDAY_PRB tests the WEEKDAY library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
@@ -34,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "WEEKDAY_PRB:\n";
   cout << "  C++ version\n";
@@ -47,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "WEEKDAY_PRB:\n";
   cout << "  Noraml end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

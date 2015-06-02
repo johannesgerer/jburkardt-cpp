@@ -7,6 +7,7 @@
 
 using namespace std;
 
+# include "blas0.hpp"
 # include "blas1_c.hpp"
 
 int main ( );
@@ -27,8 +28,6 @@ void test14 ( );
 void test15 ( );
 void test16 ( );
 void test17 ( );
-complex <float> c4_uniform_01 ( int *seed );
-void timestamp ( );
 
 //****************************************************************************80
 
@@ -42,7 +41,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    BLAS1_C_PRB tests the BLAS1 single precision complex routines.
+//    BLAS1_C_PRB tests the BLAS1_C library.
 //
 //  Licensing:
 //
@@ -58,7 +57,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "BLAS1_C_PRB:\n";
   cout << "  C++ version\n";
@@ -88,7 +86,6 @@ int main ( )
   cout << "\n";
   cout << "BLAS1_C_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -132,14 +129,7 @@ void test01 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-//
-//  The compiler seems to be unhappy with the statement
-//
-//    c = 5.0 * c4_uniform_01 ( &seed );
-//
-//  Poor compiler.
-//
-    c = c4_uniform_01 ( &seed );
+    c = c4_uniform_01 ( seed );
     c = complex <float> ( 5.0 ) * c;
 
     c_norm = cabs1 ( c );
@@ -189,7 +179,7 @@ void test02 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    c = c4_uniform_01 ( &seed );
+    c = c4_uniform_01 ( seed );
     c = complex <float> ( 5.0 ) * c;
 
     c_norm = cabs2 ( c );
@@ -687,8 +677,8 @@ void test08 ( )
 
   for ( test = 1; test <= test_num; test++ )
   {
-    a = c4_uniform_01 ( &seed );
-    b = c4_uniform_01 ( &seed );
+    a = c4_uniform_01 ( seed );
+    b = c4_uniform_01 ( seed );
 
     sa = a;
     sb = b;
@@ -831,8 +821,8 @@ void test10 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    c1 = complex <float> ( 5.0 ) * c4_uniform_01 ( &seed );
-    c2 = complex <float> ( 5.0 ) * c4_uniform_01 ( &seed );
+    c1 = complex <float> ( 5.0 ) * c4_uniform_01 ( seed );
+    c2 = complex <float> ( 5.0 ) * c4_uniform_01 ( seed );
     c3 = csign1 ( c1, c2 );
 
     cout << "  " << setw(20) << c1
@@ -884,8 +874,8 @@ void test11 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    c1 = complex <float> ( 5.0 ) * c4_uniform_01 ( &seed );
-    c2 = complex <float> ( 5.0 ) * c4_uniform_01 ( &seed );
+    c1 = complex <float> ( 5.0 ) * c4_uniform_01 ( seed );
+    c2 = complex <float> ( 5.0 ) * c4_uniform_01 ( seed );
     c3 = csign2 ( c1, c2 );
 
     cout << "  " << setw(20) << c1
@@ -1358,123 +1348,5 @@ void test17 ( )
 
   return;
 # undef N
-}
-//****************************************************************************80
-
-complex <float> c4_uniform_01 ( int *seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    C4_UNIFORM_01 returns a unit complex pseudorandom number.
-//
-//  Discussion:
-//
-//    The angle should be uniformly distributed between 0 and 2 * PI,
-//    the square root of the radius uniformly distributed between 0 and 1.
-//
-//    This results in a uniform distribution of values in the unit circle.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    12 April 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
-//    On output, SEED has been updated.
-//
-//    Output, complex <float> C4_UNIFORM_01, a pseudorandom complex value.
-//
-{
-  float r;
-  int k;
-  float pi = 3.1415926;
-  float theta;
-  complex <float> value;
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
-  {
-    *seed = *seed + 2147483647;
-  }
-
-  r = sqrt ( ( float ) ( ( double ) ( *seed ) * 4.656612875E-10 ) );
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
-  {
-    *seed = *seed + 2147483647;
-  }
-
-  theta = 2.0 * pi * ( float )
-    ( ( double ) ( *seed ) * 4.656612875E-10 );
-
-  value = complex <float> ( r * cos ( theta ), r * sin ( theta ) );
-
-  return value;
-}
-//****************************************************************************80
-
-void timestamp ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TIMESTAMP prints the current YMDHMS date as a time stamp.
-//
-//  Example:
-//
-//    31 May 2001 09:45:54 AM
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    24 September 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    None
-//
-{
-# define TIME_SIZE 40
-
-  static char time_buffer[TIME_SIZE];
-  const struct tm *tm;
-  size_t len;
-  time_t now;
-
-  now = time ( NULL );
-  tm = localtime ( &now );
-
-  len = strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
-
-  cout << time_buffer << "\n";
-
-  return;
-# undef TIME_SIZE
 }
 

@@ -2,12 +2,11 @@
 #
 cp haar.hpp /$HOME/include
 #
-g++ -c -g -I /$HOME/include haar.cpp >& compiler.txt
+g++ -c -I /$HOME/include haar.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling haar.cpp"
   exit
 fi
-rm compiler.txt
 #
 mv haar.o ~/libcpp/$ARCH/haar.o
 #

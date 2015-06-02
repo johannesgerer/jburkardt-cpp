@@ -2327,7 +2327,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -2335,19 +2335,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 

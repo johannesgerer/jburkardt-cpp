@@ -1,0 +1,46 @@
+01 May 2013 10:13:02 PM
+
+MICE_READER:
+  C++ version
+  Read a file of strings, one line at a time.
+
+TEST01:
+  Read a line at a time, using getline().
+  Input terminates when on EOF().
+  getline() sees initial and trailing blanks.
+  It sees blank lines.
+
+1: "Three blind mice,"
+2: "  See    how    they    run:"
+3: ""
+4: "  They_all_ran after the_farmer's wife!"
+5: ""
+
+TEST02:
+  Read one character at a time.
+  The << operator won't return a blank or newline
+  when asked to retrieve a character.
+
+"Threeblindmice,Seehowtheyrun:They_all_ranafterthe_farmer'swife!"
+
+TEST03:
+  Read one string (word) at a time.
+  The << operator won't return blanks
+  when asked to retrieve a string.
+
+1: "Three"
+2: "blind"
+3: "mice,"
+4: "See"
+5: "how"
+6: "they"
+7: "run:"
+8: "They_all_ran"
+9: "after"
+10: "the_farmer's"
+11: "wife!"
+
+MICE_READER:
+  Normal end of execution.
+
+01 May 2013 10:13:02 PM

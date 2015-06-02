@@ -25,7 +25,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    NIEDERREITER_PRB calls a set of problems for NIEDERREITER.
+//    NIEDERREITER_PRB tests the NIEDERREITER library.
 //
 //  Licensing:
 //
@@ -44,7 +44,6 @@ int main ( )
   int dim_num;
 
   timestamp ( );
-
   cout << "\n";
   cout << "NIEDERREITER_PRB\n";
   cout << "  C++ version\n";
@@ -78,7 +77,6 @@ int main ( )
   cout << "\n";
   cout << "NIEDERREITER_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

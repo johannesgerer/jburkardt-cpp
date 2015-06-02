@@ -40,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "BURGERS_SOLUTION_PRB\n";
   cout << "  C++ version\n";
@@ -54,7 +53,6 @@ int main ( )
   cout << "\n";
   cout << "BURGERS_SOLUTION_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

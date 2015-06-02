@@ -1,0 +1,14 @@
+# snakes_commands.txt
+#
+# Usage:
+#  gnuplot < snakes_commands.txt
+#
+unset key
+set term png
+set output 'snakes.png'
+set size ratio -1
+set xlabel '<--- J --->'
+set ylabel '<--- I --->'
+set title '496 nonzeros for "snakes"'
+set timestamp
+plot [y=0:100] [x=100:0] 'snakes_data.txt' with points pt 5

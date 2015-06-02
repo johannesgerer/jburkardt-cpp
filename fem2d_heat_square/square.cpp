@@ -12,7 +12,7 @@ double rhs ( int node_num, double node_xy[], double time );
 
 //****************************************************************************80
 
-double dirichlet_condition ( int node_num, double node_xy[], double time )
+double *dirichlet_condition ( int node_num, double node_xy[], double time )
 
 //****************************************************************************80
 //
@@ -39,7 +39,7 @@ double dirichlet_condition ( int node_num, double node_xy[], double time )
 //
 //  Modified:
 //
-//    08 January 2007
+//    04 December 2013
 //
 //  Author:
 //

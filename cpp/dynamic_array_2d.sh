@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c dynamic_array_2d.cpp >& compiler.txt
+g++ -c dynamic_array_2d.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling dynamic_array_2d.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ dynamic_array_2d.o
 if [ $? -ne 0 ]; then

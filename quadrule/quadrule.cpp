@@ -345,7 +345,7 @@ void bashforth_set ( int n, double x[], double weight[] )
 }
 //****************************************************************************80
 
-void bdf_set ( int n, double alpha[], double *beta, double *gamma )
+void bdf_set ( int n, double alpha[], double &beta, double &gamma )
 
 //****************************************************************************80
 //
@@ -376,34 +376,34 @@ void bdf_set ( int n, double alpha[], double *beta, double *gamma )
 //
 //    Input, int N, the order, between 1 and 6.
 //
-//    Output, double ALPHA[N], *BETA, *GAMMA, the weights.
+//    Output, double ALPHA[N], &BETA, &GAMMA, the weights.
 //
 {
   if ( n == 1 )
   {
-    *beta =      1.0;
-    *gamma =     1.0;
+    beta =      1.0;
+    gamma =     1.0;
     alpha[0] = 1.0;
   }
   else if ( n == 2 )
   {
-    *beta =        2.0;
-    *gamma =       3.0;
+    beta =        2.0;
+    gamma =       3.0;
     alpha[0] =   4.0;
     alpha[1] = - 1.0;
   }
   else if ( n == 3 )
   {
-    *beta =        6.0;
-    *gamma =      11.0;
+    beta =        6.0;
+    gamma =      11.0;
     alpha[0] =  18.0;
     alpha[1] = - 9.0;
     alpha[2] =   2.0;
   }
   else if ( n == 4 )
   {
-    *beta =        12.0;
-    *gamma =       25.0;
+    beta =        12.0;
+    gamma =       25.0;
     alpha[0] =   48.0;
     alpha[1] = - 36.0;
     alpha[2] =   16.0;
@@ -411,8 +411,8 @@ void bdf_set ( int n, double alpha[], double *beta, double *gamma )
   }
   else if ( n == 5 )
   {
-    *beta =         60.0;
-    *gamma =       137.0;
+    beta =         60.0;
+    gamma =       137.0;
     alpha[0] =   300.0;
     alpha[1] = - 300.0;
     alpha[2] =   200.0;
@@ -421,8 +421,8 @@ void bdf_set ( int n, double alpha[], double *beta, double *gamma )
   }
   else if ( n == 6 )
   {
-    *beta =         60.0;
-    *gamma =       147.0;
+    beta =         60.0;
+    gamma =       147.0;
     alpha[0] =   360.0;
     alpha[1] = - 450.0;
     alpha[2] =   400.0;
@@ -563,7 +563,7 @@ void bdfc_set ( int n, double x[], double w[] )
 }
 //****************************************************************************80
 
-void bdfp_set ( int order, double x[], double weight[] )
+void bdfp_set ( int n, double x[], double w[] )
 
 //****************************************************************************80
 //
@@ -587,7 +587,7 @@ void bdfp_set ( int order, double x[], double weight[] )
 //
 //    The quadrature rule:
 //
-//      Sum ( 1 <= I <= ORDER ) WEIGHT(I) * BD^(I-1) F ( 0 ),
+//      Sum ( 1 <= I <= N ) W(I) * BD^(I-1) F ( 0 ),
 //
 //    Here, "BD^(I-1) F ( 0 )" denotes the (I-1)st backward difference
 //    of F at X = 0, using a spacing of 1.  In particular,
@@ -629,18 +629,18 @@ void bdfp_set ( int order, double x[], double weight[] )
 //
 //  Parameters:
 //
-//    Input, int ORDER, the order.
-//    ORDER can be any value from 1 to 19.
+//    Input, int N, the order.
+//    N can be any value from 1 to 19.
 //
-//    Output, double X[ORDER], the abscissas.
+//    Output, double X[N], the abscissas.
 //
-//    Output, double WEIGHT[ORDER], the weight.
+//    Output, double W[N], the weights.
 //
 {
-# define ORDER_MAX 19
+# define N_MAX 19
 
   int i;
-  double w[ORDER_MAX] = {
+  double w_save[N_MAX] = {
                         1.0,
                         1.0 /                2.0,
                         5.0 /               12.0,
@@ -661,31 +661,27 @@ void bdfp_set ( int order, double x[], double weight[] )
            85455477715379.0 /      34237292544.0,
      12600467236042756559.0 / 5109094217170944.0 };
 
-  if ( ORDER_MAX < order )
+  if ( N_MAX < n )
   {
     cerr << "\n";
     cerr << "BDFP_SET - Fatal error!\n";
-    cerr << "  Input order ORDER = " << order << "\n";
-    cerr << "  exceeds maximum order ORDER_MAX = " << ORDER_MAX << "\n";
+    cerr << "  Input order N = " << n << "\n";
+    cerr << "  exceeds maximum order N_MAX = " << N_MAX << "\n";
     exit ( 1 );
   }
 
-  for ( i = 0; i < order; i++ )
+  for ( i = 0; i < n; i++ )
   {
-    weight[i] = w[i];
-  }
-  for ( i = 0; i < order; i++ )
-  {
+    w[i] = w_save[i];
     x[i] = ( double ) ( - i );
   }
 
   return;
-# undef ORDER_MAX
+# undef N_MAX
 }
 //****************************************************************************80
 
-double bdf_sum ( double func ( double x ), int order, double x[], 
-  double weight[] )
+double bdf_sum ( double func ( double x ), int n, double x[], double w[] )
 
 //****************************************************************************80
 //
@@ -701,11 +697,11 @@ double bdf_sum ( double func ( double x ), int order, double x[],
 //
 //    The quadrature rule:
 //
-//      RESULT = Sum ( 1 <= I <= ORDER ) WEIGHT(I) * BDF**(I-1) FUNC ( 0 )
+//      RESULT = Sum ( 1 <= I <= N ) W(I) * BDF^(I-1) FUNC ( 0 )
 //
 //    The integral from 0 to 1 is approximated using data at X = 0,
-//    -1, -2, ..., -ORDER+1.  This is a form of extrapolation, and
-//    the approximation can become poor as ORDER increases.
+//    -1, -2, ..., -N+1.  This is a form of extrapolation, and
+//    the approximation can become poor as N increases.
 //
 //  Licensing:
 //
@@ -724,11 +720,11 @@ double bdf_sum ( double func ( double x ), int order, double x[],
 //    Input, double FUNC ( double X ), the name of the function which 
 //    evaluates the integrand.
 //
-//    Input, int ORDER, the order.
+//    Input, int N, the order.
 //
-//    Input, double X[ORDER], the abscissas.
+//    Input, double X[N], the abscissas.
 //
-//    Input, double WEIGHT[ORDER], the weights.
+//    Input, double W[N], the weights.
 //
 //    Output, double BDF_SUM, the approximate value of the integral.
 //
@@ -738,22 +734,22 @@ double bdf_sum ( double func ( double x ), int order, double x[],
   int j;
   double result;
 
-  diftab = new double[order];
+  diftab = new double[n];
 
-  for ( i = 0; i < order; i++ )
+  for ( i = 0; i < n; i++ )
   {
     diftab[i] = func ( x[i] );
   }
 
-  for ( i = 2; i <= order; i++ )
+  for ( i = 2; i <= n; i++ )
   {
-    for ( j = i; j <= order; j++ )
+    for ( j = i; j <= n; j++ )
     {
-      diftab[order+i-j-1] = ( diftab[order+i-j-2] - diftab[order+i-j-1] );
+      diftab[n+i-j-1] = ( diftab[n+i-j-2] - diftab[n+i-j-1] );
     }
   }
 
-  result = r8vec_dot_product ( order, weight, diftab );
+  result = r8vec_dot_product ( n, w, diftab );
 
   delete [] diftab;
 
@@ -801,23 +797,23 @@ char ch_cap ( char ch )
 }
 //****************************************************************************80
 
-void cheb_set ( int n, double xtab[], double w[] )
+void chebyshev_set ( int n, double x[], double w[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    CHEB_SET sets abscissas and weights for Chebyshev quadrature.
+//    CHEBYSHEV_SET sets abscissas and weights for Chebyshev quadrature.
 //
 //  Discussion:
 //
-//    The integral:
+//    The integral to be estimated:
 //
-//      Integral ( -1 <= X <= 1 ) F(X) dX
+//      I(f) = integral ( -1 <= X <= 1 ) F(X) dX
 //
 //    The quadrature rule:
 //
-//      Sum ( 1 <= I <= N ) WEIGHT(I) * F ( xtab[I) )
+//      Q(f,n) = sum ( 1 <= I <= N ) W[I] * F ( X[I] )
 //
 //    The Chebyshev rule is distinguished by using equal weights.
 //
@@ -861,7 +857,7 @@ void cheb_set ( int n, double xtab[], double w[] )
 //    N may only have the values 1, 2, 3, 4, 5, 6, 7 or 9.
 //    There are NO other Chebyshev rules with real abscissas.
 //
-//    Output, double XTAB[N], the abscissas.
+//    Output, double X[N], the abscissas.
 //
 //    Output, double W[N], the weights.
 //
@@ -870,69 +866,69 @@ void cheb_set ( int n, double xtab[], double w[] )
 
   if ( n == 1 )
   {
-    xtab[0] = 0.0;
+    x[0] = 0.0;
   }
   else if ( n == 2 )
   {
-    xtab[0] = - 1.0 / sqrt ( 3.0 );
-    xtab[1] =   1.0 / sqrt ( 3.0 );
+    x[0] = - 1.0 / sqrt ( 3.0 );
+    x[1] =   1.0 / sqrt ( 3.0 );
   }
   else if ( n == 3 )
   {
-    xtab[0] = - 1.0 / sqrt ( 2.0 );
-    xtab[1] =   0.0;
-    xtab[2] =   1.0 / sqrt ( 2.0 );
+    x[0] = - 1.0 / sqrt ( 2.0 );
+    x[1] =   0.0;
+    x[2] =   1.0 / sqrt ( 2.0 );
   }
   else if ( n == 4 )
   {
-    xtab[0] =   - sqrt ( ( 1.0 + 2.0/ sqrt ( 5.0 ) ) / 3.0 );
-    xtab[1] =   - sqrt ( ( 1.0 - 2.0/ sqrt ( 5.0 ) ) / 3.0 );
-    xtab[2] =     sqrt ( ( 1.0 - 2.0/ sqrt ( 5.0 ) ) / 3.0 );
-    xtab[3] =     sqrt ( ( 1.0 + 2.0/ sqrt ( 5.0 ) ) / 3.0 );
+    x[0] =   - sqrt ( ( 1.0 + 2.0 / sqrt ( 5.0 ) ) / 3.0 );
+    x[1] =   - sqrt ( ( 1.0 - 2.0 / sqrt ( 5.0 ) ) / 3.0 );
+    x[2] =     sqrt ( ( 1.0 - 2.0 / sqrt ( 5.0 ) ) / 3.0 );
+    x[3] =     sqrt ( ( 1.0 + 2.0 / sqrt ( 5.0 ) ) / 3.0 );
   }
   else if ( n == 5 )
   {
-    xtab[0] = - sqrt ( ( 5.0 + sqrt ( 11.0 ) ) / 12.0 );
-    xtab[1] = - sqrt ( ( 5.0 - sqrt ( 11.0 ) ) / 12.0 );
-    xtab[2] =   0.0;
-    xtab[3] =   sqrt ( ( 5.0 - sqrt ( 11.0 ) ) / 12.0 );
-    xtab[4] =   sqrt ( ( 5.0 + sqrt ( 11.0 ) ) / 12.0 );
+    x[0] = - sqrt ( ( 5.0 + sqrt ( 11.0 ) ) / 12.0 );
+    x[1] = - sqrt ( ( 5.0 - sqrt ( 11.0 ) ) / 12.0 );
+    x[2] =   0.0;
+    x[3] =   sqrt ( ( 5.0 - sqrt ( 11.0 ) ) / 12.0 );
+    x[4] =   sqrt ( ( 5.0 + sqrt ( 11.0 ) ) / 12.0 );
   }
   else if ( n == 6 )
   {
-    xtab[0] = - 0.866246818107820591383598;
-    xtab[1] = - 0.422518653761111529118546;
-    xtab[2] = - 0.266635401516704720331534;
-    xtab[3] =   0.266635401516704720331534;
-    xtab[4] =   0.422518653761111529118546;
-    xtab[5] =   0.866246818107820591383598;
+    x[0] = - 0.866246818107820591383598;
+    x[1] = - 0.422518653761111529118546;
+    x[2] = - 0.266635401516704720331534;
+    x[3] =   0.266635401516704720331534;
+    x[4] =   0.422518653761111529118546;
+    x[5] =   0.866246818107820591383598;
   }
   else if ( n == 7 )
   {
-    xtab[0] = - 0.883861700758049035704224;
-    xtab[1] = - 0.529656775285156811385048;
-    xtab[2] = - 0.323911810519907637519673;
-    xtab[3] =   0.0;
-    xtab[4] =   0.323911810519907637519673;
-    xtab[5] =   0.529656775285156811385048;
-    xtab[6] =   0.883861700758049035704224;
+    x[0] = - 0.883861700758049035704224;
+    x[1] = - 0.529656775285156811385048;
+    x[2] = - 0.323911810519907637519673;
+    x[3] =   0.0;
+    x[4] =   0.323911810519907637519673;
+    x[5] =   0.529656775285156811385048;
+    x[6] =   0.883861700758049035704224;
   }
   else if ( n == 9 )
   {
-    xtab[0] = - 0.911589307728434473664949;
-    xtab[1] = - 0.601018655380238071428128;
-    xtab[2] = - 0.528761783057879993260181;
-    xtab[3] = - 0.167906184214803943068031;
-    xtab[4] =   0.0;
-    xtab[5] =   0.167906184214803943068031;
-    xtab[6] =   0.528761783057879993260181;
-    xtab[7] =   0.601018655380238071428128;
-    xtab[8] =   0.911589307728434473664949;
+    x[0] = - 0.911589307728434473664949;
+    x[1] = - 0.601018655380238071428128;
+    x[2] = - 0.528761783057879993260181;
+    x[3] = - 0.167906184214803943068031;
+    x[4] =   0.0;
+    x[5] =   0.167906184214803943068031;
+    x[6] =   0.528761783057879993260181;
+    x[7] =   0.601018655380238071428128;
+    x[8] =   0.911589307728434473664949;
   }
   else
   {
     cerr << "\n";
-    cerr << "CHEB_SET - Fatal error!\n";
+    cerr << "CHEBYSHEV_SET - Fatal error!\n";
     cerr << "  Illegal value of N = " << n << "\n";
     cerr << "  Legal values are 1 through 7, and 9.\n";
     exit ( 1 );
@@ -997,7 +993,7 @@ void chebyshev1_compute ( int n, double x[], double w[] )
 //
 {
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   if ( n < 1 )
   {
@@ -1009,12 +1005,12 @@ void chebyshev1_compute ( int n, double x[], double w[] )
 
   for ( i = 0; i < n; i++ )
   {
-    w[i] = pi / ( double ) ( n );
+    w[i] = r8_pi / ( double ) ( n );
   }
   for ( i = 0; i < n; i++ )
   {
-    x[i] = cos ( pi * ( double ) ( 2 * n - 1 - 2 * i ) 
-                    / ( double ) ( 2 * n ) );
+    x[i] = cos ( r8_pi * ( double ) ( 2 * n - 1 - 2 * i ) 
+                       / ( double ) ( 2 * n ) );
   }
 
   return;
@@ -1057,7 +1053,7 @@ double chebyshev1_integral ( int expon )
   double bot;
   double exact;
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double top;
 //
 //  Get the exact value of the integral.
@@ -1072,7 +1068,7 @@ double chebyshev1_integral ( int expon )
       bot = bot *   i;
     }
 	
-    exact = pi * ( double ) ( top ) / ( double ) ( bot );
+    exact = r8_pi * ( double ) ( top ) / ( double ) ( bot );
   }
   else
   {
@@ -1080,6 +1076,199 @@ double chebyshev1_integral ( int expon )
   }
 
   return exact;
+}
+//****************************************************************************80
+
+void chebyshev1_set ( int n, double x[], double w[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CHEBYSHEV1_SET sets a Chebyshev Type 1 quadrature rule.
+//
+//  Discussion:
+//
+//    The integral:
+//
+//      integral ( -1 <= x <= 1 ) f(x) / sqrt ( 1 - x * x ) dx
+//
+//    The quadrature rule:
+//
+//      sum ( 1 <= i <= n ) w(i) * f ( x(i) )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    27 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order.
+//    N must be between 1 and 10.
+//
+//    Output, double X[N], the abscissas.
+//
+//    Output, double W[N], the weights.
+//
+{
+  if ( n == 1 )
+  {
+    x[0] =   0.0;
+    w[0] =    3.141592653589793;
+  }
+  else if ( n == 2 )
+  {
+    x[0] =  -0.7071067811865475;
+    x[1] =   0.7071067811865476;
+    w[0] =    1.570796326794897;
+    w[1] =    1.570796326794897;
+  }
+  else if ( n == 3 )
+  {  
+    x[0] =  -0.8660254037844387;
+    x[1] =   0.0;
+    x[2] =   0.8660254037844387;
+    w[0] =    1.047197551196598;
+    w[1] =    1.047197551196598;
+    w[2] =    1.047197551196598;
+  }
+  else if ( n == 4 )
+  {
+    x[0] =  -0.9238795325112867;    
+    x[1] =  -0.3826834323650897;    
+    x[2] =   0.3826834323650898;    
+    x[3] =   0.9238795325112867;    
+    w[0] =   0.7853981633974483;    
+    w[1] =   0.7853981633974483;    
+    w[2] =   0.7853981633974483;
+    w[3] =   0.7853981633974483;
+  }
+  else if ( n == 5 )
+  {
+    x[0] =  -0.9510565162951535;    
+    x[1] =  -0.5877852522924730;
+    x[2] =   0.0;
+    x[3] =   0.5877852522924731;    
+    x[4] =   0.9510565162951535;    
+    w[0] =   0.6283185307179586;    
+    w[1] =   0.6283185307179586;    
+    w[2] =   0.6283185307179586;    
+    w[3] =   0.6283185307179586;    
+    w[4] =   0.6283185307179586;
+  }
+  else if ( n == 6 )
+  {
+    x[0] =  -0.9659258262890682;    
+    x[1] =  -0.7071067811865475;    
+    x[2] =  -0.2588190451025206;    
+    x[3] =   0.2588190451025207;    
+    x[4] =   0.7071067811865476;    
+    x[5] =   0.9659258262890683;    
+    w[0] =   0.5235987755982988;    
+    w[1] =   0.5235987755982988;    
+    w[2] =   0.5235987755982988;    
+    w[3] =   0.5235987755982988;    
+    w[4] =   0.5235987755982988;    
+    w[5] =   0.5235987755982988;
+  }
+  else if ( n == 7 )
+  {
+    x[0] =  -0.9749279121818237;    
+    x[1] =  -0.7818314824680295;    
+    x[2] =  -0.4338837391175581;    
+    x[3] =   0.0;
+    x[4] =   0.4338837391175582;    
+    x[5] =   0.7818314824680298;    
+    x[6] =   0.9749279121818236;    
+    w[0] =   0.4487989505128276;    
+    w[1] =   0.4487989505128276;    
+    w[2] =   0.4487989505128276;    
+    w[3] =   0.4487989505128276;    
+    w[4] =   0.4487989505128276;    
+    w[5] =   0.4487989505128276;    
+    w[6] =   0.4487989505128276;
+  }
+  else if ( n == 8 )
+  {
+    x[0] =  -0.9807852804032304;    
+    x[1] =  -0.8314696123025453;    
+    x[2] =  -0.5555702330196020;    
+    x[3] =  -0.1950903220161282;    
+    x[4] =   0.1950903220161283;    
+    x[5] =   0.5555702330196023;    
+    x[6] =   0.8314696123025452;    
+    x[7] =   0.9807852804032304;    
+    w[0] =   0.3926990816987241;    
+    w[1] =   0.3926990816987241;    
+    w[2] =   0.3926990816987241;    
+    w[3] =   0.3926990816987241;    
+    w[4] =   0.3926990816987241;    
+    w[5] =   0.3926990816987241;    
+    w[6] =   0.3926990816987241;    
+    w[7] =   0.3926990816987241;
+  }
+  else if ( n == 9 )
+  {
+    x[0] =  -0.9848077530122080;    
+    x[1] =  -0.8660254037844385;    
+    x[2] =  -0.6427876096865394;    
+    x[3] =  -0.3420201433256685;
+    x[4] =   0.0;
+    x[5] =   0.3420201433256688;    
+    x[6] =   0.6427876096865394;    
+    x[7] =   0.8660254037844387;    
+    x[8] =   0.9848077530122080;
+    w[0] =   0.3490658503988659;    
+    w[1] =   0.3490658503988659;    
+    w[2] =   0.3490658503988659;    
+    w[3] =   0.3490658503988659;    
+    w[4] =   0.3490658503988659;    
+    w[5] =   0.3490658503988659;    
+    w[6] =   0.3490658503988659;    
+    w[7] =   0.3490658503988659;    
+    w[8] =   0.3490658503988659; 
+  }
+  else if ( n == 10 )
+  {
+    x[0] =  -0.9876883405951377;    
+    x[1] =  -0.8910065241883678;    
+    x[2] =  -0.7071067811865475;    
+    x[3] =  -0.4539904997395467;    
+    x[4] =  -0.1564344650402306;    
+    x[5] =   0.1564344650402309;    
+    x[6] =   0.4539904997395468;    
+    x[7] =   0.7071067811865476;    
+    x[8] =   0.8910065241883679;    
+    x[9] =   0.9876883405951378;    
+    w[0] =   0.3141592653589793;    
+    w[1] =   0.3141592653589793;    
+    w[2] =   0.3141592653589793;    
+    w[3] =   0.3141592653589793;    
+    w[4] =   0.3141592653589793;    
+    w[5] =   0.3141592653589793;    
+    w[6] =   0.3141592653589793;    
+    w[7] =   0.3141592653589793;    
+    w[8] =   0.3141592653589793;
+    w[9] =   0.3141592653589793;
+  }
+  else
+  {
+    cerr << "\n";
+    cerr << "CHEBYSHEV1_SET - Fatal error!\n";
+    cerr << "  Illegal value of N = " << n << "\n";
+    cerr << "  Legal values are 1 through 10.\n";
+    exit ( 1 );
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -1134,7 +1323,7 @@ void chebyshev2_compute ( int n, double x[], double w[] )
 {
   double angle;
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   if ( n < 1 )
   {
@@ -1146,8 +1335,8 @@ void chebyshev2_compute ( int n, double x[], double w[] )
 
   for ( i = 0; i < n; i++ )
   {
-    angle = pi * ( double ) ( n - i ) / ( double ) ( n + 1 );
-    w[i] = pi / ( double ) ( n + 1 ) * pow ( sin ( angle ), 2 );
+    angle = r8_pi * ( double ) ( n - i ) / ( double ) ( n + 1 );
+    w[i] = r8_pi / ( double ) ( n + 1 ) * pow ( sin ( angle ), 2 );
     x[i] = cos ( angle );
   }
 
@@ -1191,7 +1380,7 @@ double chebyshev2_integral ( int expon )
   double bot;
   double exact;
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double top;
 //
 //  Get the exact value of the integral.
@@ -1206,9 +1395,9 @@ double chebyshev2_integral ( int expon )
       bot = bot *   i;
     }
 
-	bot = bot * ( double ) ( expon + 2 );
+    bot = bot * ( double ) ( expon + 2 );
 
-    exact = pi * ( double ) ( top ) / ( double ) ( bot );
+    exact = r8_pi * ( double ) ( top ) / ( double ) ( bot );
   }
   else
   {
@@ -1218,7 +1407,200 @@ double chebyshev2_integral ( int expon )
 }
 //****************************************************************************80
 
-void chebyshev3_compute ( int n, double xtab[], double w[] )
+void chebyshev2_set ( int n, double x[], double w[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CHEBYSHEV2_SET sets a Chebyshev Type 2 quadrature rule.
+//
+//  Discussion:
+//
+//    The integral:
+//
+//      integral ( -1 <= x <= 1 ) f(x) * sqrt ( 1 - x * x ) dx
+//
+//    The quadrature rule:
+//
+//      sum ( 1 <= i <= n ) w[i) * f ( x[i) )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    28 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order.
+//    N must be between 1 and 10.
+//
+//    Output, double X[N], the abscissas.
+//
+//    Output, double W[N], the weights.
+//
+{
+  if ( n == 1 )
+  {
+    x[0] =   0.0;
+    w[0] =    1.570796326794897;
+  }
+  else if ( n == 2 )
+  {
+    x[0] =  -0.5000000000000000;    
+    x[1] =   0.5000000000000000;    
+    w[0] =   0.7853981633974484;    
+    w[1] =   0.7853981633974481; 
+  }
+  else if ( n == 3 )
+  {   
+    x[0] =  -0.7071067811865475;    
+    x[1] =   0.0;
+    x[2] =   0.7071067811865476;    
+    w[0] =   0.3926990816987243;    
+    w[1] =   0.7853981633974483;    
+    w[2] =   0.3926990816987240;
+  }
+  else if ( n == 4 )
+  {   
+    x[0] =  -0.8090169943749473;    
+    x[1] =  -0.3090169943749473;    
+    x[2] =   0.3090169943749475;    
+    x[3] =   0.8090169943749475;    
+    w[0] =   0.2170787134227061;    
+    w[1] =   0.5683194499747424;    
+    w[2] =   0.5683194499747423;    
+    w[3] =   0.2170787134227060;
+  }
+  else if ( n == 5 )
+  {   
+    x[0] =  -0.8660254037844387;   
+    x[1] =  -0.5000000000000000;    
+    x[2] =   0.0;
+    x[3] =   0.5000000000000000;    
+    x[4] =   0.8660254037844387;    
+    w[0] =   0.1308996938995747;    
+    w[1] =   0.3926990816987242;    
+    w[2] =   0.5235987755982988;    
+    w[3] =   0.3926990816987240;    
+    w[4] =   0.1308996938995747;
+  }
+  else if ( n == 6 )
+  {  
+    x[0] =  -0.9009688679024190;    
+    x[1] =  -0.6234898018587335;    
+    x[2] =  -0.2225209339563143;    
+    x[3] =   0.2225209339563144;    
+    x[4] =   0.6234898018587336;    
+    x[5] =   0.9009688679024191;    
+    w[0] =   0.08448869089158863;
+    w[1] =   0.2743330560697779;    
+    w[2] =   0.4265764164360819;    
+    w[3] =   0.4265764164360819;    
+    w[4] =   0.2743330560697778;    
+    w[5] =   0.08448869089158857;
+  }
+  else if ( n == 7 )
+  {
+    x[0] =  -0.9238795325112867;    
+    x[1] =  -0.7071067811865475;    
+    x[2] =  -0.3826834323650897;    
+    x[3] =   0.0;
+    x[4] =   0.3826834323650898;    
+    x[5] =   0.7071067811865476;    
+    x[6] =   0.9238795325112867;    
+    w[0] =   0.05750944903191316;
+    w[1] =   0.1963495408493621;    
+    w[2] =   0.3351896326668110;    
+    w[3] =   0.3926990816987241;    
+    w[4] =   0.3351896326668110;    
+    w[5] =   0.1963495408493620;    
+    w[6] =   0.05750944903191313;
+  }
+  else if ( n == 8 )
+  {
+    x[0] =  -0.9396926207859083;    
+    x[1] =  -0.7660444431189779;    
+    x[2] =  -0.5000000000000000;    
+    x[3] =  -0.1736481776669303;    
+    x[4] =   0.1736481776669304;    
+    x[5] =   0.5000000000000000;    
+    x[6] =   0.7660444431189780;    
+    x[7] =   0.9396926207859084;    
+    w[0] =   0.04083294770910712;
+    w[1] =   0.1442256007956728;    
+    w[2] =   0.2617993877991495;    
+    w[3] =   0.3385402270935190;    
+    w[4] =   0.3385402270935190;    
+    w[5] =   0.2617993877991494;    
+    w[6] =   0.1442256007956727;    
+    w[7] =   0.04083294770910708;
+  }
+  else if ( n == 9 )
+  {
+    x[0] =  -0.9510565162951535;    
+    x[1] =  -0.8090169943749473;    
+    x[2] =  -0.5877852522924730;    
+    x[3] =  -0.3090169943749473;    
+    x[4] =   0.0;
+    x[5] =   0.3090169943749475;    
+    x[6] =   0.5877852522924731;    
+    x[7] =   0.8090169943749475;    
+    x[8] =   0.9510565162951535;    
+    w[0] =   0.02999954037160818;
+    w[1] =   0.1085393567113530;    
+    w[2] =   0.2056199086476263;    
+    w[3] =   0.2841597249873712;    
+    w[4] =   0.3141592653589793;    
+    w[5] =   0.2841597249873711;    
+    w[6] =   0.2056199086476263;    
+    w[7] =   0.1085393567113530;    
+    w[8] =   0.02999954037160816;
+  }
+  else if ( n == 10 )
+  {
+    x[0] =  -0.9594929736144974;    
+    x[1] =  -0.8412535328311811;    
+    x[2] =  -0.6548607339452850;    
+    x[3] =  -0.4154150130018863;    
+    x[4] =  -0.1423148382732850;    
+    x[5] =   0.1423148382732851;    
+    x[6] =   0.4154150130018864;    
+    x[7] =   0.6548607339452851;    
+    x[8] =   0.8412535328311812;    
+    x[9] =   0.9594929736144974;    
+    w[0] =   0.02266894250185884;
+    w[1] =   0.08347854093418908;
+    w[2] =   0.1631221774548166;    
+    w[3] =   0.2363135602034873;    
+    w[4] =   0.2798149423030966;    
+    w[5] =   0.2798149423030965;    
+    w[6] =   0.2363135602034873;    
+    w[7] =   0.1631221774548166;    
+    w[8] =   0.08347854093418902;
+    w[9] =   0.02266894250185884;
+  }
+  else
+  {
+    cerr << "\n";
+    cerr << "CHEBYSHEV2_SET - Fatal error!\n";
+    cerr << "  Illegal value of N = " << n << "\n";
+    cerr << "  Legal values are 1 through 10.\n";
+    exit ( 1 );
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void chebyshev3_compute ( int n, double x[], double w[] )
 
 //****************************************************************************80
 //
@@ -1234,7 +1616,7 @@ void chebyshev3_compute ( int n, double xtab[], double w[] )
 //
 //    The quadrature rule:
 //
-//      Sum ( 1 <= I <= N ) W(I) * F ( XTAB(I) )
+//      Sum ( 1 <= I <= N ) W(I) * F ( X(I) )
 //
 //    The N = 1 rule is exceptional.  It consists of a single
 //    point at 0, with weight PI.
@@ -1279,14 +1661,14 @@ void chebyshev3_compute ( int n, double xtab[], double w[] )
 //    Input, int N, the order.
 //    1 <= N.
 //
-//    Output, double XTAB[N], the abscissas.
+//    Output, double X[N], the abscissas.
 //
 //    Output, double W[N], the weights.
 //
 {
   double angle;
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   if ( n < 1 )
   {
@@ -1301,23 +1683,278 @@ void chebyshev3_compute ( int n, double xtab[], double w[] )
 //
   if ( n == 1 )
   {
-    xtab[0] = 0.0;
-    w[0] = pi;
+    x[0] = 0.0;
+    w[0] = r8_pi;
     return;
   }
 
   for ( i = 0; i < n; i++ )
   {
-    angle = ( double ) ( n - 1 - i ) * pi / ( double ) ( n - 1 );
-    xtab[i] = cos ( angle );
+    angle = ( double ) ( n - 1 - i ) * r8_pi / ( double ) ( n - 1 );
+    x[i] = cos ( angle );
   }
 
-  w[0] = pi / ( double ) ( 2 * ( n - 1 ) );
+  w[0] = r8_pi / ( double ) ( 2 * ( n - 1 ) );
   for ( i = 1; i < n - 1; i++ )
   {
-    w[i] = pi / ( double ) ( n - 1 );
+    w[i] = r8_pi / ( double ) ( n - 1 );
   }
-  w[n-1] = pi / ( double ) ( 2 * ( n - 1 ) );
+  w[n-1] = r8_pi / ( double ) ( 2 * ( n - 1 ) );
+
+  return;
+}
+//****************************************************************************80
+
+double chebyshev3_integral ( int expon )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CHEBYSHEV3_INTEGRAL evaluates a monomial Chebyshev type 3 integral.
+//
+//  Discussion:
+//
+//    The integral:
+//
+//      integral ( -1 <= x <= +1 ) x^n / sqrt ( 1 - x^2 ) dx
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    26 February 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int EXPON, the exponent.
+//
+//    Output, double CHEBYSHEV3_INTEGRAL, the value of the exact integral.
+//
+{
+  double bot;
+  double exact;
+  int i;
+  const double r8_pi = 3.141592653589793;
+  double top;
+//
+//  Get the exact value of the integral.
+//
+  if ( ( expon % 2 ) == 0 )
+  {
+    top = 1;
+    bot = 1;
+    for ( i = 2; i <= expon; i = i + 2 )
+    {
+      top = top * ( i - 1 );
+      bot = bot *   i;
+    }
+	
+    exact = r8_pi * ( double ) ( top ) / ( double ) ( bot );
+  }
+  else
+  {
+    exact = 0.0;	
+  }
+
+  return exact;
+}
+//****************************************************************************80
+
+void chebyshev3_set ( int n, double x[], double w[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CHEBYSHEV3_SET sets a Chebyshev Type 3 quadrature rule.
+//
+//  Discussion:
+//
+//    The integral:
+//
+//      integral ( -1 <= x <= 1 ) f(x) / sqrt ( 1 - x * x ) dx
+//
+//    The quadrature rule:
+//
+//      sum ( 1 <= i <= n ) w(i) * f ( x(i) )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    28 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, integer N, the order.
+//    N must be between 1 and 10.
+//
+//    Output, double X[N], the abscissas.
+//
+//    Output, double W[N], the weights.
+//
+{
+  if ( n == 1 )
+  {
+    x[0] =    0.000000000000000;
+    w[0] =    3.141592653589793;
+  }
+  else if ( n == 2 )
+  {    
+    x[0] =   -1.000000000000000;    
+    x[1] =    1.000000000000000;    
+    w[0] =    1.570796326794897;    
+    w[1] =    1.570796326794897;
+  }
+  else if ( n == 3 )
+  {  
+    x[0] =   -1.000000000000000;    
+    x[1] =   0.0;
+    x[2] =    1.000000000000000;    
+    w[0] =   0.7853981633974483;    
+    w[1] =    1.570796326794897;    
+    w[2] =   0.7853981633974483;
+  }
+  else if ( n == 4 )
+  {    
+    x[0] =   -1.000000000000000;    
+    x[1] =  -0.5000000000000000;    
+    x[2] =   0.5000000000000000;    
+    x[3] =    1.000000000000000;    
+    w[0] =   0.5235987755982988;    
+    w[1] =    1.047197551196598;    
+    w[2] =    1.047197551196598;    
+    w[3] =   0.5235987755982988;
+  }
+  else if ( n == 5 )
+  {    
+    x[0] =   -1.000000000000000;    
+    x[1] =  -0.7071067811865475;    
+    x[2] =   0.0;
+    x[3] =   0.7071067811865476;    
+    x[4] =    1.000000000000000;    
+    w[0] =   0.3926990816987241;    
+    w[1] =   0.7853981633974483;    
+    w[2] =   0.7853981633974483;    
+    w[3] =   0.7853981633974483;    
+    w[4] =   0.3926990816987241;
+  }
+  else if ( n == 6 )
+  {   
+    x[0] =   -1.000000000000000;    
+    x[1] =  -0.8090169943749473;    
+    x[2] =  -0.3090169943749473;    
+    x[3] =   0.3090169943749475;    
+    x[4] =   0.8090169943749475;    
+    x[5] =    1.000000000000000;    
+    w[0] =   0.3141592653589793;    
+    w[1] =   0.6283185307179586;    
+    w[2] =   0.6283185307179586;    
+    w[3] =   0.6283185307179586;    
+    w[4] =   0.6283185307179586;    
+    w[5] =   0.3141592653589793;
+  }
+  else if ( n == 7 )
+  {    
+    x[0] =   -1.000000000000000;    
+    x[1] =  -0.8660254037844387;    
+    x[2] =  -0.5000000000000000;    
+    x[3] =   0.0;
+    x[4] =   0.5000000000000001;    
+    x[5] =   0.8660254037844387;    
+    x[6] =    1.000000000000000;    
+    w[0] =   0.2617993877991494;    
+    w[1] =   0.5235987755982988;    
+    w[2] =   0.5235987755982988;    
+    w[3] =   0.5235987755982988;    
+    w[4] =   0.5235987755982988;    
+    w[5] =   0.5235987755982988;    
+    w[6] =   0.2617993877991494;
+  }
+  else if ( n == 8 )
+  {    
+    x[0] =   -1.000000000000000;    
+    x[1] =  -0.9009688679024190;    
+    x[2] =  -0.6234898018587335;    
+    x[3] =  -0.2225209339563143;    
+    x[4] =   0.2225209339563144;    
+    x[5] =   0.6234898018587336;    
+    x[6] =   0.9009688679024191;    
+    x[7] =    1.000000000000000;    
+    w[0] =   0.2243994752564138;    
+    w[1] =   0.4487989505128276;    
+    w[2] =   0.4487989505128276;    
+    w[3] =   0.4487989505128276;    
+    w[4] =   0.4487989505128276;    
+    w[5] =   0.4487989505128276;    
+    w[6] =   0.4487989505128276;    
+    w[7] =   0.2243994752564138;
+  }
+  else if ( n == 9 )
+  {    
+    x[0] =   -1.000000000000000;    
+    x[1] =  -0.9238795325112867;    
+    x[2] =  -0.7071067811865475;    
+    x[3] =  -0.3826834323650897;    
+    x[4] =   0.0;
+    x[5] =   0.3826834323650898;    
+    x[6] =   0.7071067811865476;    
+    x[7] =   0.9238795325112867;    
+    x[8] =    1.000000000000000;    
+    w[0] =   0.1963495408493621;    
+    w[1] =   0.3926990816987241;    
+    w[2] =   0.3926990816987241;    
+    w[3] =   0.3926990816987241;    
+    w[4] =   0.3926990816987241;    
+    w[5] =   0.3926990816987241;    
+    w[6] =   0.3926990816987241;    
+    w[7] =   0.3926990816987241;    
+    w[8] =   0.1963495408493621;
+  }
+  else if ( n == 10 )
+  {    
+    x[0] =   -1.000000000000000;    
+    x[1] =  -0.9396926207859083;    
+    x[2] =  -0.7660444431189779;    
+    x[3] =  -0.5000000000000000;    
+    x[4] =  -0.1736481776669303;    
+    x[5] =   0.1736481776669304;    
+    x[6] =   0.5000000000000001;    
+    x[7] =   0.7660444431189780;    
+    x[8] =   0.9396926207859084;    
+    x[9] =    1.000000000000000;    
+    w[0] =   0.1745329251994329;    
+    w[1] =   0.3490658503988659;    
+    w[2] =   0.3490658503988659;    
+    w[3] =   0.3490658503988659;    
+    w[4] =   0.3490658503988659;    
+    w[5] =   0.3490658503988659;    
+    w[6] =   0.3490658503988659; 
+    w[7] =   0.3490658503988659;    
+    w[8] =   0.3490658503988659;    
+    w[9] =   0.1745329251994329;    
+  }
+  else
+  {
+    cerr << "\n";
+    cerr << "CHEBYSHEV3_SET - Fatal error!\n";
+    cerr << "  Illegal value of N = " << n << "\n";
+    cerr << "  Legal values are 1 through 10.\n";
+    exit ( 1 );
+  }
 
   return;
 }
@@ -1405,7 +2042,7 @@ void clenshaw_curtis_compute ( int n, double x[], double w[] )
   double b;
   int i;
   int j;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double *theta;
 
   if ( n < 1 )
@@ -1427,7 +2064,7 @@ void clenshaw_curtis_compute ( int n, double x[], double w[] )
 
   for ( i = 1; i <= n; i++ )
   {
-    theta[i-1] = ( double ) ( i - 1 ) * pi 
+    theta[i-1] = ( double ) ( i - 1 ) * r8_pi 
                / ( double ) ( n - 1 );
   }
 
@@ -2443,7 +3080,7 @@ void fejer1_compute ( int n, double x[], double w[] )
 {
   int i;
   int j;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double *theta;
 
   if ( n < 1 )
@@ -2465,7 +3102,7 @@ void fejer1_compute ( int n, double x[], double w[] )
 
   for ( i = 1; i <= n; i++ )
   {
-    theta[i-1] = ( double ) ( 2 * ( n - i ) + 1 ) * pi
+    theta[i-1] = ( double ) ( 2 * ( n - i ) + 1 ) * r8_pi
                / ( double ) ( 2 * n     );
   }
 
@@ -2496,7 +3133,7 @@ void fejer1_compute ( int n, double x[], double w[] )
 }
 //****************************************************************************80
 
-void fejer1_set ( int order, double xtab[], double weight[] )
+void fejer1_set ( int n, double xtab[], double weight[] )
 
 //****************************************************************************80
 //
@@ -2537,20 +3174,20 @@ void fejer1_set ( int order, double xtab[], double weight[] )
 //
 //  Parameters:
 //
-//    Input, int ORDER, the order.  ORDER should be
+//    Input, int N, the order.  N should be
 //    between 1 and 10.
 //
-//    Output, double XTAB[ORDER], the abscissas.
+//    Output, double XTAB[N], the abscissas.
 //
-//    Output, double WEIGHT[ORDER], the weights.
+//    Output, double WEIGHT[N], the weights.
 //
 {
-  if ( order == 1 )
+  if ( n == 1 )
   {
     xtab[0]   =  0.000000000000000;
     weight[0] =  2.000000000000000;
   }
-  else if ( order == 2 )
+  else if ( n == 2 )
   {
     xtab[0] =   -0.7071067811865475;
     xtab[1] =    0.7071067811865475;
@@ -2558,7 +3195,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[0] =  1.000000000000000;
     weight[1] =  1.000000000000000;
   }
-  else if ( order == 3 )
+  else if ( n == 3 )
   {
     xtab[0] =  -0.8660254037844387;
     xtab[1] =   0.0000000000000000;
@@ -2568,7 +3205,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[1] =  1.111111111111111;
     weight[2] =  0.4444444444444444;
   }                  
-  else if ( order == 4 )
+  else if ( n == 4 )
   {
     xtab[0] =  -0.9238795325112867;
     xtab[1] =  -0.3826834323650897;
@@ -2580,7 +3217,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[2] = 0.7357022603955158;
     weight[3] = 0.2642977396044841;
   }
-  else if ( order == 5 )
+  else if ( n == 5 )
   {
     xtab[0] =  -0.9510565162951535;
     xtab[1] =  -0.5877852522924730;
@@ -2594,7 +3231,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[3] = 0.5255521048666498;
     weight[4] = 0.1677812284666835;
   }
-  else if ( order == 6 )
+  else if ( n == 6 )
   {
     xtab[0] =  -0.9659258262890682;
     xtab[1] =  -0.7071067811865475;
@@ -2610,7 +3247,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[4] = 0.3777777777777778;
     weight[5] = 0.1186610213812358;
   }
-  else if ( order == 7 )
+  else if ( n == 7 )
   {
     xtab[0] =  -0.9749279121818237;
     xtab[1] =  -0.7818314824680295;
@@ -2628,7 +3265,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[5] = 0.2878313947886919;
     weight[6] = 0.08671618072672234;
   }
-  else if ( order == 8 )
+  else if ( n == 8 )
   {
     xtab[0] =  -0.9807852804032304;
     xtab[1] =  -0.8314696123025453;
@@ -2648,7 +3285,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[6] = 0.2229879330145788;
     weight[7] = 0.06698294569858981;
  }
- else if ( order == 9 )
+ else if ( n == 9 )
  {
     xtab[0] =  -0.9848077530122080;
     xtab[1] =  -0.8660254037844385;
@@ -2670,7 +3307,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
     weight[7] = 0.1791887125220458;
     weight[8] = 0.05273664990990676;
   }
-  else if ( order == 10 )
+  else if ( n == 10 )
   {
     xtab[0] =  -0.9876883405951377;
     xtab[1] =  -0.8910065241883678;
@@ -2698,7 +3335,7 @@ void fejer1_set ( int order, double xtab[], double weight[] )
   {
     cerr << "\n";
     cerr << "FEJER1_SET - Fatal error!\n";
-    cerr << "  Illegal value of ORDER = " << order << "\n";
+    cerr << "  Illegal value of N = " << n << "\n";
     cerr << "  Legal values are 1 through 10.\n";
     exit ( 1 );
   }
@@ -2717,8 +3354,7 @@ void fejer2_compute ( int n, double x[], double w[] )
 //
 //  Discussion:
 //
-//    This method uses a direct approach.  The paper by Waldvogel
-//    exhibits a more efficient approach using Fourier transforms.
+//    This method uses a direct approach.
 //
 //    Thanks to Mike Neish, University of Toronto, for pointing out a
 //    memory leak in a previous version of this code, 13 October 2009.
@@ -2729,7 +3365,7 @@ void fejer2_compute ( int n, double x[], double w[] )
 //
 //  Modified:
 //
-//    13 October 2009
+//    18 May 2014
 //
 //  Author:
 //
@@ -2766,7 +3402,7 @@ void fejer2_compute ( int n, double x[], double w[] )
   int i;
   int j;
   double p;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double *theta;
 
   if ( n < 1 )
@@ -2783,12 +3419,20 @@ void fejer2_compute ( int n, double x[], double w[] )
     w[0] = 2.0;
     return;
   }
+  else if ( n == 2 )
+  {
+    x[0] = -0.5;
+    x[1] = +0.5;
+    w[0] = 1.0;
+    w[1] = 1.0;
+    return;
+  }
 
   theta = new double[n];
 
   for ( i = 1; i <= n; i++ )
   {
-    theta[i-1] = ( double ) ( n + 1 - i ) * pi
+    theta[i-1] = ( double ) ( n + 1 - i ) * r8_pi
                / ( double ) ( n + 1     );
   }
 
@@ -2826,7 +3470,7 @@ void fejer2_compute ( int n, double x[], double w[] )
 }
 //****************************************************************************80
 
-void fejer2_set ( int order, double xtab[], double weight[] )
+void fejer2_set ( int n, double xtab[], double weight[] )
 
 //****************************************************************************80
 //
@@ -2867,20 +3511,20 @@ void fejer2_set ( int order, double xtab[], double weight[] )
 //
 //  Parameters:
 //
-//    Input, int ORDER, the order.  
-//    ORDER should be between 1 and 10.
+//    Input, int N, the order.  
+//    N should be between 1 and 10.
 //
-//    Output, double XTAB[ORDER], the abscissas.
+//    Output, double XTAB[N], the abscissas.
 //
-//    Output, double WEIGHT[ORDER], the weights.
+//    Output, double WEIGHT[N], the weights.
 //
 {
-  if ( order == 1 )
+  if ( n == 1 )
   {
     xtab[0]   =  0.000000000000000;
     weight[0] =  2.000000000000000;
   }
-  else if ( order == 2 )
+  else if ( n == 2 )
   {
     xtab[0] =   -0.5000000000000000;
     xtab[1] =    0.5000000000000000;
@@ -2888,7 +3532,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[0] =  1.0000000000000000;
     weight[1] =  1.0000000000000000;
   }
-  else if ( order == 3 )
+  else if ( n == 3 )
   {
     xtab[0] =  -0.7071067811865476;
     xtab[1] =   0.0000000000000000;
@@ -2898,7 +3542,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[1] =  0.6666666666666666;
     weight[2] =  0.6666666666666666;
   }                  
-  else if ( order == 4 )
+  else if ( n == 4 )
   {
     xtab[0] =  -0.8090169943749475;
     xtab[1] =  -0.3090169943749475;
@@ -2910,7 +3554,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[2] = 0.5745355992499930;
     weight[3] = 0.4254644007500070;
   }
-  else if ( order == 5 )
+  else if ( n == 5 )
   {
     xtab[0] =  -0.8660254037844387;
     xtab[1] =  -0.5000000000000000;
@@ -2924,7 +3568,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[3] = 0.4000000000000000;
     weight[4] = 0.3111111111111111;
   }
-  else if ( order == 6 )
+  else if ( n == 6 )
   {
     xtab[0] =  -0.9009688679024191;
     xtab[1] =  -0.6234898018587336;
@@ -2940,7 +3584,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[4] = 0.3267938603769863;
     weight[5] = 0.2269152467244296;
   }
-  else if ( order == 7 )
+  else if ( n == 7 )
   {
     xtab[0] =  -0.9238795325112867;
     xtab[1] =  -0.7071067811865476;
@@ -2958,7 +3602,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[5] = 0.2476190476190476;
     weight[6] = 0.1779646809620499;
   }
-  else if ( order == 8 )
+  else if ( n == 8 )
   {
     xtab[0] =  -0.9396926207859084;
     xtab[1] =  -0.7660444431189780;
@@ -2978,7 +3622,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[6] = 0.2063696457302284;
     weight[7] = 0.1397697435050225;
   }
-  else if ( order == 9 )
+  else if ( n == 9 )
   {
     xtab[0] =  -0.9510565162951535;
     xtab[1] =  -0.8090169943749475;
@@ -3000,7 +3644,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
     weight[7] = 0.1654331942222276;
     weight[8] = 0.1147810750857217;
   }
-  else if ( order == 10 )
+  else if ( n == 10 )
   {
     xtab[0] =  -0.9594929736144974;
     xtab[1] =  -0.8412535328311812;
@@ -3028,7 +3672,7 @@ void fejer2_set ( int order, double xtab[], double weight[] )
   {
     cerr << "\n";
     cerr << "FEJER2_SET - Fatal error!\n";
-    cerr << "  Illegal value of ORDER = " << order << "\n";
+    cerr << "  Illegal value of N = " << n << "\n";
     cerr << "  Legal values are 1 through 10.\n";
     exit ( 1 );
   }
@@ -3142,9 +3786,9 @@ void gegenbauer_compute ( int order, double alpha, double xtab[],
           * ( alpha + alpha + ( double ) ( 2 * i - 3 ) ) );
   }
 
-  delta = gamma ( alpha         + 1.0 ) 
-        * gamma (         alpha + 1.0 ) 
-        / gamma ( alpha + alpha + 2.0 );
+  delta = tgamma ( alpha         + 1.0 ) 
+        * tgamma (         alpha + 1.0 ) 
+        / tgamma ( alpha + alpha + 2.0 );
 
   prod = 1.0;
   for ( i = 2; i <= order; i++ )
@@ -3176,7 +3820,7 @@ void gegenbauer_compute ( int order, double alpha, double xtab[],
         ( 1.0 + 0.12 * alpha ) / ( double ) ( order );
 
       r3 = 1.0 + 0.012 * alpha * 
-        ( 1.0 + 0.25 * r8_abs ( alpha ) ) / ( double ) ( order );
+        ( 1.0 + 0.25 * fabs ( alpha ) ) / ( double ) ( order );
 
       x = x - r1 * r2 * r3 * ( 1.0 - x );
     }
@@ -3310,9 +3954,9 @@ double gegenbauer_integral ( int expon, double alpha )
 
   value1 = r8_hyper_2f1 ( arg1, arg2, arg3, arg4 );
 
-  value = gamma ( 1.0 + c ) * 2.0 
-    * gamma ( 1.0 + alpha  ) * value1 
-    / gamma ( 2.0 + alpha  + c );
+  value = tgamma ( 1.0 + c ) * 2.0 
+    * tgamma ( 1.0 + alpha  ) * value1 
+    / tgamma ( 2.0 + alpha  + c );
 
   return value;
 }
@@ -3448,7 +4092,7 @@ void gegenbauer_root ( double *x, int order, double alpha,  double *dp2,
     d = p2 / ( *dp2 );
     *x = *x - d;
 
-    if ( r8_abs ( d ) <= eps * ( r8_abs ( *x ) + 1.0 ) )
+    if ( fabs ( d ) <= eps * ( fabs ( *x ) + 1.0 ) )
     {
       return;
     }
@@ -3515,7 +4159,7 @@ void gen_hermite_dr_compute ( int order, double alpha, double x[], double w[] )
   {
     arg = ( alpha + 1.0 ) / 2.0;
     x[0] = 0.0;
-    w[0] = gamma ( arg );
+    w[0] = tgamma ( arg );
     return;
   }
 
@@ -3572,7 +4216,7 @@ void gen_hermite_dr_compute ( int order, double alpha, double x[], double w[] )
     }
 
     arg = ( alpha + 1.0 ) / 2.0;
-    w[order_laguerre] = gamma ( arg );
+    w[order_laguerre] = tgamma ( arg );
     for ( i = 0; i < order_laguerre; i++ )
     {
       w[order_laguerre] = w[order_laguerre] - w_laguerre[i] / x_laguerre[i];
@@ -3650,7 +4294,7 @@ void gen_hermite_ek_compute ( int n, double alpha, double x[], double w[] )
 //
 //  Define the zero-th moment.
 //
-  zemu = gamma ( ( alpha + 1.0 ) / 2.0 );
+  zemu = tgamma ( ( alpha + 1.0 ) / 2.0 );
 //
 //  Define the Jacobi matrix.
 //
@@ -3755,7 +4399,7 @@ double gen_hermite_integral ( int expon, double alpha )
     else
     {
       arg = ( a + 1.0 ) / 2.0;
-      value = gamma ( arg );
+      value = tgamma ( arg );
     }
   }
   return value;
@@ -3828,7 +4472,7 @@ void gen_laguerre_ek_compute ( int n, double alpha, double x[], double w[] )
 //
 //  Define the zero-th moment.
 //
-  zemu = gamma ( alpha + 1.0 );
+  zemu = tgamma ( alpha + 1.0 );
 //
 //  Define the Jacobi matrix.
 //
@@ -3909,7 +4553,7 @@ double gen_laguerre_integral ( int expon, double alpha )
   double value;
 
   arg = alpha + ( double ) ( expon + 1.0 );
-  value = gamma ( arg );
+  value = tgamma ( arg );
 
   return value;
 }
@@ -3927,7 +4571,7 @@ void gen_laguerre_ss_compute ( int order, double alpha, double xtab[],
 //  Discussion:
 //
 //    In the simplest case, ALPHA is 0, and we are approximating the
-//    integral from 0 to +oo of EXP(-X) * F(X).  When this is so,
+//    integral from 0 to +oo of exp(-X) * F(X).  When this is so,
 //    it is easy to modify the rule to approximate the integral from
 //    A to +oo as well.
 //
@@ -3937,9 +4581,9 @@ void gen_laguerre_ss_compute ( int order, double alpha, double xtab[],
 //
 //    If the integral is:
 //
-//        Integral ( A <= X < +oo ) EXP ( - X ) * F(X) dX
+//        Integral ( A <= X < +oo ) exp ( - X ) * F(X) dX
 //      or
-//        Integral ( 0 <= X < +oo ) EXP ( - X ) * X**ALPHA * F(X) dX
+//        Integral ( 0 <= X < +oo ) exp ( - X ) * X^ALPHA * F(X) dX
 //
 //    then the quadrature rule is:
 //
@@ -3952,14 +4596,14 @@ void gen_laguerre_ss_compute ( int order, double alpha, double xtab[],
 //
 //        Integral ( A <= X < +oo ) F(X) dX
 //      or
-//        Integral ( 0 <= X < +oo ) X**ALPHA * F(X) dX
+//        Integral ( 0 <= X < +oo ) X^ALPHA * F(X) dX
 //
 //    then the quadrature rule is:
 //
-//      EXP ( - A ) * Sum ( 1 <= I <= ORDER ) 
-//        WEIGHT(I) * EXP(A+XTAB(I)) * F ( A+XTAB(I) )
+//      exp ( - A ) * Sum ( 1 <= I <= ORDER ) 
+//        WEIGHT(I) * exp(A+XTAB(I)) * F ( A+XTAB(I) )
 //    or
-//      Sum ( 1 <= I <= ORDER ) WEIGHT(I) * EXP(XTAB(I)) * F ( XTAB(I) )
+//      Sum ( 1 <= I <= ORDER ) WEIGHT(I) * exp(XTAB(I)) * F ( XTAB(I) )
 //
 //  Licensing:
 //
@@ -4026,7 +4670,7 @@ void gen_laguerre_ss_compute ( int order, double alpha, double xtab[],
   {
     prod = prod * c[i];
   }
-  cc = gamma ( alpha + 1.0 ) * prod;
+  cc = tgamma ( alpha + 1.0 ) * prod;
 
   for ( i = 0; i < order; i++ )
   {
@@ -4207,7 +4851,7 @@ void gen_laguerre_ss_root ( double *x, int order, double alpha, double *dp2,
     d = p2 / ( *dp2 );
     *x = *x - d;
 
-    if ( r8_abs ( d ) <= eps * ( r8_abs ( *x ) + 1.0 ) )
+    if ( fabs ( d ) <= eps * ( fabs ( *x ) + 1.0 ) )
     {
       break;
     }
@@ -4277,7 +4921,7 @@ void hermite_ek_compute ( int n, double x[], double w[] )
 //  Define the zero-th moment.
 //
   arg = 0.5;
-  zemu = gamma ( arg );
+  zemu = tgamma ( arg );
 //
 //  Define the Jacobi matrix.
 //
@@ -5525,7 +6169,7 @@ double hermite_integral ( int n )
 //    Output, double VALUE, the value of the integral.
 //
 {
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double value;
 
   if ( n < 0 )
@@ -5538,10 +6182,225 @@ double hermite_integral ( int n )
   }
   else
   {
-    value = r8_factorial2 ( n - 1 ) * sqrt ( pi ) / pow ( 2.0, n / 2 );
+    value = r8_factorial2 ( n - 1 ) * sqrt ( r8_pi ) / pow ( 2.0, n / 2 );
   }
 
   return value;
+}
+//****************************************************************************80
+
+void hermite_probabilist_set ( int n, double x[], double w[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    HERMITE_PROBABILIST_SET: probabilist Hermite quadrature.
+//
+//  Discussion:
+//
+//    The integral:
+//
+//      integral ( -oo < x < +oo ) f(x) * rho(x) dx
+//
+//    The weight:
+//
+//      rho(x) = exp ( - x * x / 2 ) / sqrt ( 2 * pi ) dx
+//
+//    The quadrature rule:
+//
+//      sum ( 1 <= i <= n ) w(i) * f ( x(i) )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 June 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input, int N, the order.
+//
+//    Output, double X[N], the abscissas.
+//
+//    Output, double W[N], the weights.
+//
+{
+  if ( n == 1 )
+  {
+    x[0] = 0.0;
+
+    w[0] = 1.00000000000000000000000000000;
+  }
+  else if ( n == 2 )
+  {
+    x[0] = -1.00000000000000000000000000000;
+    x[1] = +1.00000000000000000000000000000;
+
+    w[0] = 0.50000000000000000000000000000;
+    w[1] = 0.50000000000000000000000000000;
+  }
+  else if ( n == 3 )
+  {
+    x[0] = -1.73205080756887729352744634151;
+    x[1] =  0.0;
+    x[2] = +1.73205080756887729352744634151;
+
+    w[0] = 0.166666666666666666666666666667;
+    w[1] = 0.666666666666666666666666666667;
+    w[2] = 0.166666666666666666666666666667;
+  }
+  else if ( n == 4 )
+  {
+    x[0] = -2.33441421833897723931751226721;
+    x[1] = -0.741963784302725857648513596726;
+    x[2] = +0.741963784302725857648513596726;
+    x[3] = +2.33441421833897723931751226721;
+
+    w[0] = 0.0458758547680684918168929937745;
+    w[1] = 0.454124145231931508183107006225;
+    w[2] = 0.454124145231931508183107006225;
+    w[3] = 0.0458758547680684918168929937745;
+  }
+  else if ( n == 5 )
+  {
+    x[0] = -2.85697001387280565416230426401;
+    x[1] = -1.35562617997426586583052129087;
+    x[2] =  0.0;
+    x[3] = +1.35562617997426586583052129087;
+    x[4] = +2.85697001387280565416230426401;
+
+    w[0] = 0.0112574113277206889333702151856;
+    w[1] = 0.222075922005612644399963118148;
+    w[2] = 0.533333333333333333333333333333;
+    w[3] = 0.222075922005612644399963118148;
+    w[4] = 0.0112574113277206889333702151856;
+  }
+  else if ( n == 6 )
+  {
+    x[0] = -3.32425743355211895236183546247;
+    x[1] = -1.88917587775371067550566789858;
+    x[2] = -0.616706590192594152193686099399;
+    x[3] = +0.616706590192594152193686099399;
+    x[4] = +1.88917587775371067550566789858;
+    x[5] = +3.32425743355211895236183546247;
+
+    w[0] = 0.00255578440205624643060629074383;
+    w[1] = 0.0886157460419145274808558830057;
+    w[2] = 0.40882846955602922608853782625;
+    w[3] = 0.40882846955602922608853782625;
+    w[4] = 0.0886157460419145274808558830057;
+    w[5] = 0.00255578440205624643060629074383;
+  }
+  else if ( n == 7 )
+  {
+    x[0] = -3.75043971772574225630392202571;
+    x[1] = -2.36675941073454128861885646856;
+    x[2] = -1.15440539473996812723959775884;
+    x[3] =  0.0;
+    x[4] = +1.15440539473996812723959775884;
+    x[5] = +2.36675941073454128861885646856;
+    x[6] = +3.75043971772574225630392202571;
+
+    w[0] = 0.000548268855972217791621570532802;
+    w[1] = 0.0307571239675864970396450057164;
+    w[2] = 0.240123178605012713740161995179;
+    w[3] = 0.457142857142857142857142857143;
+    w[4] = 0.240123178605012713740161995179;
+    w[5] = 0.0307571239675864970396450057164;
+    w[6] = 0.000548268855972217791621570532802;
+  }
+  else if ( n == 8 )
+  {
+    x[0] = -4.14454718612589433206019783917;
+    x[1] = -2.80248586128754169911301080618;
+    x[2] = -1.63651904243510799922544657297;
+    x[3] = -0.539079811351375108072461918694;
+    x[4] = +0.539079811351375108072461918694;
+    x[5] = +1.63651904243510799922544657297;
+    x[6] = +2.80248586128754169911301080618;
+    x[7] = +4.14454718612589433206019783917;
+
+    w[0] = 0.00011261453837536777039380201687;
+    w[1] = 0.00963522012078826718691913771988;
+    w[2] = 0.117239907661759015117137525962;
+    w[3] = 0.373012257679077349925549534301;
+    w[4] = 0.373012257679077349925549534301;
+    w[5] = 0.117239907661759015117137525962;
+    w[6] = 0.00963522012078826718691913771988;
+    w[7] = 0.00011261453837536777039380201687;
+  }
+  else if ( n == 9 )
+  {
+    x[0] = -4.51274586339978266756667884317;
+    x[1] = -3.20542900285646994336567590292;
+    x[2] = -2.07684797867783010652215614374;
+    x[3] = -1.02325566378913252482814822581;
+    x[4] =  0.0;
+    x[5] = +1.02325566378913252482814822581;
+    x[6] = +2.07684797867783010652215614374;
+    x[7] = +3.20542900285646994336567590292;
+    x[8] = +4.51274586339978266756667884317;
+
+    w[0] = 0.0000223458440077465836484639907118;
+    w[1] = 0.00278914132123176862881344575164;
+    w[2] = 0.0499164067652178740433414693826;
+    w[3] = 0.2440975028949394361410220177;
+    w[4] = 0.406349206349206349206349206349;
+    w[5] = 0.2440975028949394361410220177;
+    w[6] = 0.0499164067652178740433414693826;
+    w[7] = 0.00278914132123176862881344575164;
+    w[8] = 0.0000223458440077465836484639907118;
+  }
+  else if ( n == 10 )
+  {
+    x[0] =  -4.85946282833231215015516494660;
+    x[1] =  -3.58182348355192692277623675546;
+    x[2] =  -2.48432584163895458087625118368;
+    x[3] =  -1.46598909439115818325066466416;
+    x[4] =  -0.484935707515497653046233483105;
+    x[5] =  +0.484935707515497653046233483105;
+    x[6] =  +1.46598909439115818325066466416;
+    x[7] =  +2.48432584163895458087625118368;
+    x[8] =  +3.58182348355192692277623675546;
+    x[9] =  +4.85946282833231215015516494660;
+
+    w[0] =  0.0000043106526307182867322209547262;
+    w[1] =  0.000758070934312217670069636036508;
+    w[2] =  0.0191115805007702856047383687629;
+    w[3] =  0.135483702980267735563431657727;
+    w[4] =  0.344642334932019042875028116518;
+    w[5] =  0.344642334932019042875028116518;
+    w[6] =  0.135483702980267735563431657727;
+    w[7] =  0.0191115805007702856047383687629;
+    w[8] =  0.000758070934312217670069636036508;
+    w[9] =  0.0000043106526307182867322209547262;
+  }
+  else
+  {
+    cerr << "\n";
+    cerr << "HERMITE_PROBABILIST_SET - Fatal error!\n";
+    cerr << "  Illegal value of N = " << n << "\n";
+    cerr << "  Legal values are 1 to 10.\n";
+    exit ( 1 );
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -5557,7 +6416,11 @@ void hermite_set ( int n, double x[], double w[] )
 //
 //    The integral:
 //
-//      integral ( -oo < x < +oo ) exp ( - x * x ) * f(x) dx
+//      integral ( -oo < x < +oo ) f(x) * rho(x) dx
+//
+//    The weight:
+//
+//      rho(x) = exp ( - x * x )
 //
 //    The quadrature rule:
 //
@@ -7580,6 +8443,203 @@ void hermite_set ( int n, double x[], double w[] )
 }
 //****************************************************************************80
 
+void hermite_1_set ( int n, double x[], double w[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    HERMITE_1_SET sets abscissas and weights for Hermite quadrature.
+//
+//  Discussion:
+//  
+//    This routine is for the case with unit density:
+//      integral ( -oo < x < +oo ) f(x) dx
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 May 2014
+//  
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order.
+//    N must be between 1 and 10.
+//
+//    Output, double X[N], the abscissas.
+//
+//    Output, double W[N], the weights.
+//
+{
+  if ( n == 1 )
+  {
+    x[0] = 0.0;
+
+    w[0] = 1.7724538509055161;
+  }
+  else if ( n == 2 )
+  {
+    x[0] = - 0.707106781186547524400844362105;
+    x[1] =   0.707106781186547524400844362105;
+
+    w[0] = 1.4611411826611391;
+    w[1] = 1.4611411826611391;
+  }
+  else if ( n == 3 )
+  {
+    x[0] = - 0.122474487139158904909864203735E+01;
+    x[1] =   0.0;
+    x[2] =   0.122474487139158904909864203735E+01;
+
+    w[0] = 1.3239311752136438; 
+    w[1] = 1.1816359006036774;
+    w[2] = 1.3239311752136438;
+  }
+  else if ( n == 4 )
+  {
+    x[0] = - 0.165068012388578455588334111112E+01;
+    x[1] = - 0.524647623275290317884060253835;
+    x[2] =   0.524647623275290317884060253835;
+    x[3] =   0.165068012388578455588334111112E+01;
+
+    w[0] = 1.2402258176958150;
+    w[1] = 1.0599644828949693;
+    w[2] = 1.0599644828949693;
+    w[3] = 1.2402258176958150;
+  }
+  else if ( n == 5 )
+  {
+    x[0] = - 0.202018287045608563292872408814E+01;
+    x[1] = - 0.958572464613818507112770593893;
+    x[2] =   0.0;
+    x[3] =   0.958572464613818507112770593893;
+    x[4] =   0.202018287045608563292872408814E+01;
+
+    w[0] = 1.1814886255359869;
+    w[1] = 0.98658099675142830;
+    w[2] = 0.94530872048294190;
+    w[3] = 0.98658099675142830;
+    w[4] = 1.1814886255359869;
+  }
+  else if ( n == 6 )
+  {
+    x[0] = - 0.235060497367449222283392198706E+01;
+    x[1] = - 0.133584907401369694971489528297E+01;
+    x[2] = - 0.436077411927616508679215948251;
+    x[3] =   0.436077411927616508679215948251;
+    x[4] =   0.133584907401369694971489528297E+01;
+    x[5] =   0.235060497367449222283392198706E+01;
+
+    w[0] = 1.1369083326745253;
+    w[1] = 0.93558055763118075;
+    w[2] = 0.87640133443623058;
+    w[3] = 0.87640133443623058;
+    w[4] = 0.93558055763118075;
+    w[5] = 1.1369083326745253;
+  }
+  else if ( n == 7 )
+  {
+    x[0] = - 0.265196135683523349244708200652E+01;
+    x[1] = - 0.167355162876747144503180139830E+01;
+    x[2] = - 0.816287882858964663038710959027;
+    x[3] =   0.0;
+    x[4] =   0.816287882858964663038710959027;
+    x[5] =   0.167355162876747144503180139830E+01;
+    x[6] =   0.265196135683523349244708200652E+01;
+
+    w[0] = 1.1013307296103216;
+    w[1] = 0.89718460022518409;
+    w[2] = 0.82868730328363926;
+    w[3] = 0.81026461755680734;
+    w[4] = 0.82868730328363926;
+    w[5] = 0.89718460022518409;
+    w[6] = 1.1013307296103216;
+  }
+  else if ( n == 8 )
+  {
+    x[0] = - 0.293063742025724401922350270524E+01;
+    x[1] = - 0.198165675669584292585463063977E+01;
+    x[2] = - 0.115719371244678019472076577906E+01;
+    x[3] = - 0.381186990207322116854718885584;
+    x[4] =   0.381186990207322116854718885584;
+    x[5] =   0.115719371244678019472076577906E+01;
+    x[6] =   0.198165675669584292585463063977E+01;
+    x[7] =   0.293063742025724401922350270524E+01;
+
+    w[0] = 1.0719301442479805;
+    w[1] = 0.86675260656338138;
+    w[2] = 0.79289004838640131;
+    w[3] = 0.76454412865172916;
+    w[4] = 0.76454412865172916;
+    w[5] = 0.79289004838640131;
+    w[6] = 0.86675260656338138;
+    w[7] = 1.0719301442479805;
+  }
+  else if ( n == 9 )
+  {
+    x[0] = - 0.319099320178152760723004779538E+01;
+    x[1] = - 0.226658058453184311180209693284E+01;
+    x[2] = - 0.146855328921666793166701573925E+01;
+    x[3] = - 0.723551018752837573322639864579;
+    x[4] =   0.0;
+    x[5] =   0.723551018752837573322639864579;
+    x[6] =   0.146855328921666793166701573925E+01;
+    x[7] =   0.226658058453184311180209693284E+01;
+    x[8] =   0.319099320178152760723004779538E+01;
+
+    w[0] = 1.0470035809766838;
+    w[1] = 0.84175270147867043;
+    w[2] = 0.76460812509455023;
+    w[3] = 0.73030245274509220;
+    w[4] = 0.72023521560605097;
+    w[5] = 0.73030245274509220;
+    w[6] = 0.76460812509455023;
+    w[7] = 0.84175270147867043;
+    w[8] = 1.0470035809766838;
+  }
+  else if ( n == 10 )
+  {
+    x[0] =  - 0.343615911883773760332672549432E+01;
+    x[1] =  - 0.253273167423278979640896079775E+01;
+    x[2] =  - 0.175668364929988177345140122011E+01;
+    x[3] =  - 0.103661082978951365417749191676E+01;
+    x[4] =  - 0.342901327223704608789165025557;
+    x[5] =    0.342901327223704608789165025557;
+    x[6] =    0.103661082978951365417749191676E+01;
+    x[7] =    0.175668364929988177345140122011E+01;
+    x[8] =    0.253273167423278979640896079775E+01;
+    x[9] =   0.343615911883773760332672549432E+01;
+
+    w[0] = 1.0254516913657352;
+    w[1] = 0.82066612640481640;
+    w[2] = 0.74144193194356511;
+    w[3] = 0.70329632310490608;
+    w[4] = 0.68708185395127341;
+    w[5] = 0.68708185395127341;
+    w[6] = 0.70329632310490608;
+    w[7] = 0.74144193194356511;
+    w[8] = 0.82066612640481640;
+    w[9] = 1.0254516913657352;
+  }
+  else
+  {
+    cerr << "\n";
+    cerr << "HERMITE_1_SET - Fatal error!\n";
+    cerr << "  Illegal value of N = " << n << "\n";
+    cerr << "  Legal values are 1 to 10.\n";
+    exit ( 1 );
+  }
+  return;
+}
+//****************************************************************************80
+
 void hermite_ss_compute ( int order, double xtab[], double weight[] )
 
 //****************************************************************************80
@@ -7633,11 +8693,11 @@ void hermite_ss_compute ( int order, double xtab[], double weight[] )
   double dp2;
   int i;
   double p1;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double s;
   double x;
 
-  cc = sqrt ( pi ) * gamma ( ( double ) ( order ) ) 
+  cc = sqrt ( r8_pi ) * tgamma ( ( double ) ( order ) ) 
     / pow ( 2.0, order - 1 );
 
   s = pow ( 2.0 * ( double ) ( order ) + 1.0, 1.0 / 6.0 );
@@ -7817,7 +8877,7 @@ void hermite_ss_root ( double *x, int order, double *dp2, double *p1 )
     d = p2 / ( *dp2 );
     *x = *x - d;
 
-    if ( r8_abs ( d ) <= eps * ( r8_abs ( *x ) + 1.0 ) )
+    if ( fabs ( d ) <= eps * ( fabs ( *x ) + 1.0 ) )
     {
       return;
     }
@@ -8114,7 +9174,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
           break;
         }
 
-        if ( r8_abs ( e[m-1] ) <= prec * ( r8_abs ( d[m-1] ) + r8_abs ( d[m] ) ) )
+        if ( fabs ( e[m-1] ) <= prec * ( fabs ( d[m-1] ) + fabs ( d[m] ) ) )
         {
           break;
         }
@@ -8134,7 +9194,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
       j = j + 1;
       g = ( d[l] - p ) / ( 2.0 * e[l-1] );
       r = sqrt ( g * g + 1.0 );
-      g = d[m-1] - p + e[l-1] / ( g + r8_abs ( r ) * r8_sign ( g ) );
+      g = d[m-1] - p + e[l-1] / ( g + fabs ( r ) * r8_sign ( g ) );
       s = 1.0;
       c = 1.0;
       p = 0.0;
@@ -8146,7 +9206,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
         f = s * e[i-1];
         b = c * e[i-1];
 
-        if ( r8_abs ( g ) <= r8_abs ( f ) )
+        if ( fabs ( g ) <= fabs ( f ) )
         {
           c = g / f;
           r = sqrt ( c * c + 1.0 );
@@ -8392,11 +9452,11 @@ double jacobi_integral ( int expon, double alpha, double beta )
 
   value2 = r8_hyper_2f1 ( arg1, arg2, arg3, arg4 );
 
-  value = gamma ( 1.0 + c ) * ( 
-      s * gamma ( 1.0 + beta  ) * value1 
-    / gamma ( 2.0 + beta  + c ) 
-    +     gamma ( 1.0 + alpha ) * value2 
-    / gamma ( 2.0 + alpha + c ) );
+  value = tgamma ( 1.0 + c ) * ( 
+      s * tgamma ( 1.0 + beta  ) * value1 
+    / tgamma ( 2.0 + beta  + c ) 
+    +     tgamma ( 1.0 + alpha ) * value2 
+    / tgamma ( 2.0 + alpha + c ) );
 
   return value;
 }
@@ -8559,7 +9619,7 @@ void jacobi_ss_compute ( int order, double alpha, double beta, double xtab[],
         ( 1.0 + 0.12 * alpha ) / ( double ) ( order );
 
       r3 = 1.0 + 0.012 * beta * 
-        ( 1.0 + 0.25 * r8_abs ( alpha ) ) / ( double ) ( order );
+        ( 1.0 + 0.25 * fabs ( alpha ) ) / ( double ) ( order );
 
       x = x - r1 * r2 * r3 * ( 1.0 - x );
     }
@@ -8757,7 +9817,7 @@ void jacobi_ss_root ( double *x, int order, double alpha, double beta,
     d = p2 / ( *dp2 );
     *x = *x - d;
 
-    if ( r8_abs ( d ) <= eps * ( r8_abs ( *x ) + 1.0 ) )
+    if ( fabs ( d ) <= eps * ( fabs ( *x ) + 1.0 ) )
     {
       return;
     }
@@ -11181,6 +12241,207 @@ void laguerre_set ( int n, double x[], double w[] )
 }
 //****************************************************************************80
 
+void laguerre_1_set ( int n, double x[], double w[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LAGUERRE_1_SET sets abscissas and weights for Laguerre quadrature.
+//
+//  Discussion:
+//
+//    This routine is specialized for the case where the density function is 1.
+//
+//    The integral:
+//      I(f) = integral ( 0 <= x < +oo ) f(x) dx
+//    The quadrature rule:
+//      Q(f) = sum ( 1 <= i <= n ) w(i) * f ( x(i) )
+//
+//  Licensing:
+//
+//   This code is distributed under the GNU LGPL license.
+// 
+//  Modified:
+//  
+//    16 May 2014
+//  
+//  Author:
+//  
+//    John Burkardt
+//  
+//  Parameters:
+//  
+//    Input, int N, the order.
+//    N must be between 1 and 10.
+//  
+//    Output, double X[N], the abscissas.
+//  
+//    Output, double W[N], the weights.
+//
+{
+  if ( n == 1 )
+  {
+    x[0] =  1.00000000000000000000000000000E+00;
+
+    w[0] =  2.7182818284590451;
+  }
+  else if ( n == 2 )
+  {
+    x[0] = 0.585786437626904951198311275790E+00;
+    x[1] = 3.41421356237309504880168872421E+00;
+
+    w[0] = 1.5333260331194167;
+    w[1] = 4.4509573350545928;
+  }
+  else if ( n == 3 )
+  {
+    x[0] = 0.415774556783479083311533873128E+00;
+    x[1] = 2.29428036027904171982205036136E+00;
+    x[2] = 6.28994508293747919686641576551E+00;
+
+    w[0] = 1.0776928592709207;
+    w[1] = 2.7621429619015876;
+    w[2] = 5.6010946254344267;
+  }
+  else if ( n == 4 )
+  {
+    x[0] = 0.322547689619392311800361459104E+00;
+    x[1] = 1.74576110115834657568681671252E+00;
+    x[2] = 4.53662029692112798327928538496E+00;
+    x[3] = 9.39507091230113312923353644342E+00;
+
+    w[0] = 0.83273912383788917;
+    w[1] = 2.0481024384542965;
+    w[2] = 3.6311463058215168;
+    w[3] = 6.4871450844076604;
+  }
+  else if ( n == 5 )
+  {
+    x[0] = 0.263560319718140910203061943361E+00;
+    x[1] = 1.41340305910651679221840798019E+00;
+    x[2] = 3.59642577104072208122318658878E+00;
+    x[3] = 7.08581000585883755692212418111E+00;
+    x[4] = 12.6408008442757826594332193066E+00;
+
+    w[0] = 0.67909404220775038;
+    w[1] = 1.6384878736027471;
+    w[2] = 2.7694432423708375;
+    w[3] = 4.3156569009208940;
+    w[4] = 7.2191863543544450;
+  }
+  else if ( n == 6 )
+  {
+    x[0] = 0.222846604179260689464354826787E+00;
+    x[1] = 1.18893210167262303074315092194E+00;
+    x[2] = 2.99273632605931407769132528451E+00;
+    x[3] = 5.77514356910451050183983036943E+00;
+    x[4] = 9.83746741838258991771554702994E+00;
+    x[5] = 15.9828739806017017825457915674E+00;
+
+    w[0] = 0.57353550742273818;
+    w[1] = 1.3692525907123045;
+    w[2] = 2.2606845933826722;
+    w[3] = 3.3505245823554555;
+    w[4] = 4.8868268002108213;
+    w[5] = 7.8490159455958279;
+  }
+  else if ( n == 7 )
+  {
+    x[0] = 0.193043676560362413838247885004E+00;
+    x[1] = 1.02666489533919195034519944317E+00;
+    x[2] = 2.56787674495074620690778622666E+00;
+    x[3] = 4.90035308452648456810171437810E+00;
+    x[4] = 8.18215344456286079108182755123E+00;
+    x[5] = 12.7341802917978137580126424582E+00;
+    x[6] = 19.3957278622625403117125820576E+00;
+
+    w[0] = 0.49647759753997234;
+    w[1] = 1.1776430608611976;
+    w[2] = 1.9182497816598063;
+    w[3] = 2.7718486362321113;
+    w[4] = 3.8412491224885148;
+    w[5] = 5.3806782079215330;
+    w[6] = 8.4054324868283103;
+  }
+  else if ( n == 8 )
+  {
+    x[0] = 0.170279632305100999788861856608E+00;
+    x[1] = 0.903701776799379912186020223555E+00;
+    x[2] = 2.25108662986613068930711836697E+00;
+    x[3] = 4.26670017028765879364942182690E+00;
+    x[4] = 7.04590540239346569727932548212E+00;
+    x[5] = 10.7585160101809952240599567880E+00;
+    x[6] = 15.7406786412780045780287611584E+00;
+    x[7] = 22.8631317368892641057005342974E+00;
+
+    w[0] = 0.43772341049291136;
+    w[1] = 1.0338693476655976;
+    w[2] = 1.6697097656587756;
+    w[3] = 2.3769247017585995;
+    w[4] = 3.2085409133479259;
+    w[5] = 4.2685755108251344;
+    w[6] = 5.8180833686719184;
+    w[7] = 8.9062262152922216;
+  }
+  else if ( n == 9 )
+  {
+    x[0] = 0.152322227731808247428107073127E+00;
+    x[1] = 0.807220022742255847741419210952E+00;
+    x[2] = 2.00513515561934712298303324701E+00;
+    x[3] = 3.78347397333123299167540609364E+00;
+    x[4] = 6.20495677787661260697353521006E+00;
+    x[5] = 9.37298525168757620180971073215E+00;
+    x[6] = 13.4662369110920935710978818397E+00;
+    x[7] = 18.8335977889916966141498992996E+00;
+    x[8] = 26.3740718909273767961410072937E+00;
+
+    w[0] = 0.39143112431563987;
+    w[1] = 0.92180502852896307;
+    w[2] = 1.4801279099429154;
+    w[3] = 2.0867708075492613;
+    w[4] = 2.7729213897119713;
+    w[5] = 3.5916260680922663;
+    w[6] = 4.6487660021402037;
+    w[7] = 6.2122754197471348;
+    w[8] = 9.3632182377057980;
+  }
+  else if ( n == 10 )
+  {
+    x[0] = 0.137793470540492430830772505653E+00;
+    x[1] = 0.729454549503170498160373121676E+00;
+    x[2] = 1.80834290174031604823292007575E+00;
+    x[3] = 3.40143369785489951448253222141E+00;
+    x[4] = 5.55249614006380363241755848687E+00;
+    x[5] = 8.33015274676449670023876719727E+00;
+    x[6] = 11.8437858379000655649185389191E+00;
+    x[7] = 16.2792578313781020995326539358E+00;
+    x[8] = 21.9965858119807619512770901956E+00;
+    x[9] = 29.9206970122738915599087933408E+00;
+
+    w[0] = 0.35400973860699630;
+    w[1] = 0.83190230104358065;
+    w[2] = 1.3302885617493283;
+    w[3] = 1.8630639031111309;
+    w[4] = 2.4502555580830108;
+    w[5] = 3.1227641551351848;
+    w[6] = 3.9341526955615240;
+    w[7] = 4.9924148721930299;
+    w[8] = 6.5722024851307994;
+    w[9] = 9.7846958403746243;
+  }
+  else
+  {
+    cerr << "\n";
+    cerr << "LAGUERRE_1_SET - Fatal error!\n";
+    cerr << "  Illegal value of N = " << n << "\n";
+    cerr << "  Legal values are 1 to 10\n";
+    exit ( 1 );
+  }
+  return;
+}
+//****************************************************************************80
+
 void laguerre_ss_compute ( int order, double xtab[], double weight[] )
 
 //****************************************************************************80
@@ -11437,7 +12698,7 @@ void laguerre_ss_root ( double *x, int order, double *dp2, double *p1,
     d = p2 / ( *dp2 );
     *x = *x - d;
 
-    if ( r8_abs ( d ) <= eps * ( r8_abs ( *x ) + 1.0 ) )
+    if ( fabs ( d ) <= eps * ( fabs ( *x ) + 1.0 ) )
     {
       break;
     }
@@ -11464,7 +12725,7 @@ double laguerre_sum ( double func ( double x ), double a, int order,
 //    A to +oo as well.
 //
 //    Another common Laguerre integral is the
-//    integral from 0 to +oo of EXP(-X) * X**ALPHA * F(X).
+//    integral from 0 to +oo of exp(-X) * X^ALPHA * F(X).
 //    This routine may be used to sum up the terms of the Laguerre
 //    rule for such an integral as well.  However, if ALPHA is nonzero,
 //    then there is no simple way to extend the rule to approximate the
@@ -11614,7 +12875,7 @@ void legendre_dr_compute ( int order, double xtab[], double weight[] )
   int ncopy;
   int nmove;
   double p;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double pk;
   double pkm1;
   double pkp1;
@@ -11640,7 +12901,7 @@ void legendre_dr_compute ( int order, double xtab[], double weight[] )
   {
     mp1mi = m + 1 - i;
 
-    t = ( double ) ( 4 * i - 1 ) * pi / ( double ) ( 4 * order + 2 );
+    t = ( double ) ( 4 * i - 1 ) * r8_pi / ( double ) ( 4 * order + 2 );
 
     x0 = cos ( t ) * ( 1.0 - ( 1.0 - 1.0 / ( double ) ( order ) ) 
       / ( double ) ( 8 * order * order ) );
@@ -17530,7 +18791,7 @@ void lobatto_compute ( int n, double x[], double w[] )
 //      Sum ( 1 <= I <= N ) WEIGHT(I) * F ( XTAB(I) )
 //
 //    The quadrature rule will integrate exactly all polynomials up to
-//    X**(2*N-3).
+//    X^(2*N-3).
 //
 //    The Lobatto rule is distinguished by the fact that both endpoints
 //    (-1 and 1) are always abscissas.
@@ -17575,7 +18836,7 @@ void lobatto_compute ( int n, double x[], double w[] )
 //
 //  Parameters:
 //
-//    Input, int N, the order.  N must be at least 2.
+//    Input, int N, the order.
 //
 //    Output, double X[N], the abscissas.
 //
@@ -17585,18 +18846,16 @@ void lobatto_compute ( int n, double x[], double w[] )
   int i;
   int j;
   double *p;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double test;
   double tolerance;
   double *xold;
 
-  if ( n < 2 )
+  if ( n == 1 )
   {
-    cerr << "\n";
-    cerr << "LOBATTO_COMPUTE - Fatal error!\n";
-    cerr << "  Illegal value of ORDER = " << n << "\n";
-    cerr << "  ORDER must be at least 2.\n";
-    exit ( 1 );
+    x[0] = -1.0;
+    w[0] = 2.0;
+    return;
   }
   tolerance = 100.0 * r8_epsilon ( );
 //
@@ -17604,7 +18863,7 @@ void lobatto_compute ( int n, double x[], double w[] )
 //
   for ( i = 0; i < n; i++ )
   {
-    x[i] = cos ( pi * ( double ) ( i ) / ( double ) ( n - 1 ) );
+    x[i] = cos ( r8_pi * ( double ) ( i ) / ( double ) ( n - 1 ) );
   }
 
   xold = new double[n];
@@ -17644,7 +18903,7 @@ void lobatto_compute ( int n, double x[], double w[] )
     test = 0.0;
     for ( i = 0; i < n; i++ )
     {
-      test = r8_max ( test, r8_abs ( x[i] - xold[i] ) );
+      test = r8_max ( test, fabs ( x[i] - xold[i] ) );
     }
 
   } while ( tolerance < test );
@@ -17682,7 +18941,7 @@ void lobatto_set ( int order, double xtab[], double weight[] )
 //      Sum ( 1 <= I <= ORDER ) WEIGHt[I) * F ( XTAb[I) )
 //
 //    The quadrature rule will integrate exactly all polynomials up to
-//    X**(2*ORDER-3).
+//    X^(2*ORDER-3).
 //
 //    The Lobatto rule is distinguished by the fact that both endpoints
 //    (-1 and 1) are always abscissas.
@@ -17693,7 +18952,7 @@ void lobatto_set ( int order, double xtab[], double weight[] )
 //
 //  Modified:
 //
-//    30 April 2006
+//    28 May 2014
 //
 //  Author:
 //
@@ -17721,14 +18980,19 @@ void lobatto_set ( int order, double xtab[], double weight[] )
 //  Parameters:
 //
 //    Input, int ORDER, the order.
-//    ORDER must be between 2 and 20.
+//    ORDER must be between 1 and 20.
 //
 //    Output, double XTAB[ORDER], the abscissas.
 //
 //    Output, double WEIGHT[ORDER], the weights.
 //
 {
-  if ( order == 2 )
+  if ( order == 1 )
+  {
+    xtab[0] = -1.0;
+    weight[0] = 2.0;
+  }
+  else if ( order == 2 )
   {
     xtab[0] =  - 1.0E+00;
     xtab[1] =    1.0E+00;
@@ -18227,7 +19491,7 @@ void lobatto_set ( int order, double xtab[], double weight[] )
     cerr << "\n";
     cerr << "LOBATTO_SET - Fatal error!\n";
     cerr << "  Illegal value of ORDER = " << order << "\n";
-    cerr << "  Legal values are between 2 and 20.\n";
+    cerr << "  Legal values are between 1 and 20.\n";
     exit ( 1 );
   }
 
@@ -22711,19 +23975,19 @@ double r8_epsilon ( )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the property 
-//    that, to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -22731,19 +23995,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -22945,7 +24202,6 @@ double r8_gamma ( double x )
   -3.61444134186911729807069E+04,
    6.64561438202405440627855E+04 };
   bool parity;
-  double pi = 3.1415926535897932384626434;
   double q[8] = {
   -3.08402300119738975254353E+01,
    3.15350626979604161529144E+02, 
@@ -22955,6 +24211,7 @@ double r8_gamma ( double x )
    4.75584627752788110767815E+03, 
   -1.34659959864969306392456E+05,
   -1.15132259675553483497211E+05 };
+  const double r8_pi = 3.1415926535897932384626434;
   double res;
   double sqrtpi = 0.9189385332046727417803297;
   double sum;
@@ -22992,7 +24249,7 @@ double r8_gamma ( double x )
         parity = true;
       }
 
-      fact = - pi / sin ( pi * res );
+      fact = - r8_pi / sin ( r8_pi * res );
       y = y + one;
     }
     else
@@ -23518,7 +24775,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   int nm;
   double pa;
   double pb;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double r;
   double r0;
   double r1;
@@ -23575,19 +24832,19 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   }
   else if ( 1.0 - x == eps && 0.0 < c - a - b )
   {
-    gc = gamma ( c );
-    gcab = gamma ( c - a - b );
-    gca = gamma ( c - a );
-    gcb = gamma ( c - b );
+    gc = tgamma ( c );
+    gcab = tgamma ( c - a - b );
+    gca = tgamma ( c - a );
+    gcb = tgamma ( c - b );
     hf = gc * gcab / ( gca * gcb );
     return hf;
   }
-  else if ( 1.0 + x <= eps && r8_abs ( c - a + b - 1.0 ) <= eps )
+  else if ( 1.0 + x <= eps && fabs ( c - a + b - 1.0 ) <= eps )
   {
-    g0 = sqrt ( pi ) * pow ( 2.0, - a );
-    g1 = gamma ( c );
-    g2 = gamma ( 1.0 + a / 2.0 - b );
-    g3 = gamma ( 0.5 + 0.5 * a );
+    g0 = sqrt ( r8_pi ) * pow ( 2.0, - a );
+    g1 = tgamma ( c );
+    g2 = tgamma ( 1.0 + a / 2.0 - b );
+    g3 = tgamma ( 0.5 + 0.5 * a );
     hf = g0 * g1 / ( g2 * g3 );
     return hf;
   }
@@ -23595,12 +24852,12 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   {
     if ( l2 )
     {
-      nm = ( int ) ( r8_abs ( a ) );
+      nm = ( int ) ( fabs ( a ) );
     }
 
     if ( l3 )
     {
-      nm = ( int ) ( r8_abs ( b ) );
+      nm = ( int ) ( fabs ( b ) );
     }
 
     hf = 1.0;
@@ -23619,12 +24876,12 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   {
     if ( l4 )
     {
-      nm = ( int ) ( r8_abs ( c - a ) );
+      nm = ( int ) ( fabs ( c - a ) );
     }
 
     if ( l5 )
     {
-      nm = ( int ) ( r8_abs ( c - b ) );
+      nm = ( int ) ( fabs ( c - b ) );
     }
 
     hf = 1.0;
@@ -23658,14 +24915,14 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   {
     gm = 0.0;
 
-    if ( r8_abs ( c - a - b - ( int ) ( c - a - b ) ) < 1.0E-15 )
+    if ( fabs ( c - a - b - ( int ) ( c - a - b ) ) < 1.0E-15 )
     {
-      m = int ( c - a - b );
-      ga = gamma ( a );
-      gb = gamma ( b );
-      gc = gamma ( c );
-      gam = gamma ( a + m );
-      gbm = gamma ( b + m );
+      m = ( int ) ( c - a - b );
+      ga = tgamma ( a );
+      gb = tgamma ( b );
+      gc = tgamma ( c );
+      gam = tgamma ( a + m );
+      gbm = tgamma ( b + m );
 
       pa = r8_psi ( a );
       pb = r8_psi ( b );
@@ -23733,7 +24990,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
           f1 = f1 + r1 * rp;
 
-          if ( r8_abs ( f1 - hw ) < r8_abs ( f1 ) * eps )
+          if ( fabs ( f1 - hw ) < fabs ( f1 ) * eps )
           {
             break;
           }
@@ -23781,7 +25038,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
           f1 = f1 + r1 * rp;
 
-          if ( r8_abs ( f1 - hw ) < r8_abs ( f1 ) * eps )
+          if ( fabs ( f1 - hw ) < fabs ( f1 ) * eps )
           {
             break;
           }
@@ -23794,13 +25051,13 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
     }
     else
     {
-      ga = gamma ( a );
-      gb = gamma ( b );
-      gc = gamma ( c );
-      gca = gamma ( c - a );
-      gcb = gamma ( c - b );
-      gcab = gamma ( c - a - b );
-      gabc = gamma ( a + b - c );
+      ga = tgamma ( a );
+      gb = tgamma ( b );
+      gc = tgamma ( c );
+      gca = tgamma ( c - a );
+      gcb = tgamma ( c - b );
+      gcab = tgamma ( c - a - b );
+      gabc = tgamma ( a + b - c );
       c0 = gc * gcab / ( gca * gcb );
       c1 = gc * gabc / ( ga * gb ) * pow ( 1.0 - x, c - a - b );
       hf = 0.0;
@@ -23818,7 +25075,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
         hf = hf + r0 + r1;
 
-        if ( r8_abs ( hf - hw ) < r8_abs ( hf ) * eps )
+        if ( fabs ( hf - hw ) < fabs ( hf ) * eps )
         {
           break;
         }
@@ -23849,7 +25106,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
       hf = hf + r;
 
-      if ( r8_abs ( hf - hw ) <= r8_abs ( hf ) * eps )
+      if ( fabs ( hf - hw ) <= fabs ( hf ) * eps )
       {
         break;
       }
@@ -24035,7 +25292,7 @@ double r8_psi ( double xx )
   double zero = 0.0;
 
   x = xx;
-  w = r8_abs ( x );
+  w = fabs ( x );
   aug = zero;
 //
 //  Check for valid arguments, then branch to appropriate algorithm.
@@ -24367,7 +25624,7 @@ void radau_compute ( int n, double x[], double w[] )
 //      Sum ( 1 <= I <= NORDER ) WEIGHT(I) * F ( XTAB(I) )
 //
 //    The quadrature rule will integrate exactly all polynomials up to
-//    X**(2*NORDER-2).
+//    X^(2*NORDER-2).
 //
 //  Licensing:
 //
@@ -24429,7 +25686,7 @@ void radau_compute ( int n, double x[], double w[] )
   int iterate_max = 25;
   int j;
   double *p;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double temp;
   double test;
   double tolerance;
@@ -24450,8 +25707,8 @@ void radau_compute ( int n, double x[], double w[] )
 //
   for ( i = 0; i < n; i++ )
   {
-    x[i] = - cos ( 2.0 * pi * ( double ) (         i ) 
-                            / ( double ) ( 2 * n - 1 ) );
+    x[i] = - cos ( 2.0 * r8_pi * ( double ) (         i ) 
+                               / ( double ) ( 2 * n - 1 ) );
   }
   xold = new double[n];
   p = new double[n*(n+1)];
@@ -24497,7 +25754,7 @@ void radau_compute ( int n, double x[], double w[] )
     test = 0.0;
     for ( i = 0; i < n; i++ )
     {
-      test = r8_max ( test, r8_abs ( x[i] - xold[i] ) );
+      test = r8_max ( test, fabs ( x[i] - xold[i] ) );
     }
     iterate = iterate + 1;
   } while ( tolerance < test && iterate < iterate_max );
@@ -24533,10 +25790,10 @@ void radau_set ( int order, double xtab[], double weight[] )
 //
 //    The quadrature rule:
 //
-//      Sum ( 1 <= I <= ORDER ) WEIGHt[I) * F ( XTAb[I) )
+//      Sum ( 1 <= I <= ORDER ) WEIGHT[I] * F ( XTAB[I] )
 //
 //    The quadrature rule will integrate exactly all polynomials up to
-//    X**(2*ORDER-2).
+//    X^(2*ORDER-2).
 //
 //  Licensing:
 //
@@ -25438,7 +26695,7 @@ void sum_sub_gk ( double func ( double x ), double a, double b, int nsub,
     }
     *resultg = *resultg + partg;
     *resultk = *resultk + partk;
-    *error = *error + r8_abs ( partk - partg );
+    *error = *error + fabs ( partk - partg );
   }
   return;
 }

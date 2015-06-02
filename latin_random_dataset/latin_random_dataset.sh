@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I$HOME/include latin_random_dataset.cpp >& compiler.txt
+g++ -c -I$HOME/include latin_random_dataset.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling latin_random_dataset.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ latin_random_dataset.o -lm
 if [ $? -ne 0 ]; then

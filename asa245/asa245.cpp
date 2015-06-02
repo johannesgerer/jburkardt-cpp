@@ -10,7 +10,7 @@ using namespace std;
 
 //****************************************************************************80
 
-double alngam ( double xvalue, int *ifault )
+double alngam ( double xvalue, int &ifault )
 
 //****************************************************************************80
 //
@@ -43,7 +43,7 @@ double alngam ( double xvalue, int *ifault )
 //
 //    Input, double XVALUE, the argument of the Gamma function.
 //
-//    Output, int IFAULT, error flag.
+//    Output, int &IFAULT, error flag.
 //    0, no error occurred.
 //    1, XVALUE is less than or equal to 0.
 //    2, XVALUE is too big.
@@ -103,17 +103,17 @@ double alngam ( double xvalue, int *ifault )
 //
   if ( xlgst <= x )
   {
-    *ifault = 2;
+    ifault = 2;
     return value;
   }
 
   if ( x <= 0.0 )
   {
-    *ifault = 1;
+    ifault = 1;
     return value;
   }
 
-  *ifault = 0;
+  ifault = 0;
 //
 //  Calculation for 0 < X < 0.5 and 0.5 <= X < 1.5 combined.
 //
@@ -214,7 +214,7 @@ double alngam ( double xvalue, int *ifault )
 }
 //****************************************************************************80
 
-void gamma_log_values ( int *n_data, double *x, double *fx )
+void gamma_log_values ( int &n_data, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -257,14 +257,14 @@ void gamma_log_values ( int *n_data, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 20
@@ -313,23 +313,23 @@ void gamma_log_values ( int *n_data, double *x, double *fx )
      20.00E+00,  
      30.00E+00 }; 
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -337,7 +337,7 @@ void gamma_log_values ( int *n_data, double *x, double *fx )
 }
 //****************************************************************************80
 
-double lngamma ( double z, int *ier )
+double lngamma ( double z, int &ier )
 
 //****************************************************************************80
 //
@@ -380,7 +380,7 @@ double lngamma ( double z, int *ier )
 //
 //    Input, double Z, the argument of the Gamma function.
 //
-//    Output, int *IER, error flag.
+//    Output, int &IER, error flag.
 //    0, no error occurred.
 //    1, Z is less than or equal to 0.
 //
@@ -404,12 +404,12 @@ double lngamma ( double z, int *ier )
 
   if ( z <= 0.0 )
   {
-    *ier = 1;
+    ier = 1;
     value = 0.0;
     return value;
   }
 
-  *ier = 0;
+  ier = 0;
 
   value = 0.0;
   tmp = z + 7.0;

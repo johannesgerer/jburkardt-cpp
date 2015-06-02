@@ -30,7 +30,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    TEST tests the LAGRANGE_INTERP_ND library.
+//    MAIN is the main program for LAGRANGE_INTERP_ND_PRB.
+//
+//  Discussion:
+//
+//    LAGRANGE_INTERP_ND_PRB tests the LAGRANGE_INTERP_ND library.
 //
 //  Licensing:
 //
@@ -47,7 +51,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "TEST:\n";
+  cout << "LAGRANGE_INTERP_ND_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the LAGRANGE_INTERP_ND library.\n";
 //
@@ -74,7 +78,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "TEST:\n";
+  cout << "LAGRANGE_INTERP_ND_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

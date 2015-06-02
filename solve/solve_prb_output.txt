@@ -1,0 +1,31 @@
+07 July 2014 04:45:47 PM
+
+SOLVE_PRB
+  C++ version
+  Test the SOLVE library.
+
+TEST01
+  Set up a linear system, and solve it by calling a function.
+  The linear system is to be accessed using the A[i][j] notation.
+  It is usually difficult to use this notation and still be able
+  to pass the array A to a function.  An ordinary doubly indexed
+  array would require the receiving function to know, IN ADVANCE,
+  the exact fixed value of the second dimension of A, which defeats
+  the goal of writing general usable library software.
+
+  Here, I think I have made it easy, at the cost of:
+  * declaring the array as a 'double **a'
+  * creating the array with r8rmat_new() or r8rmat_zero()
+  * solving the system with r8rmat_fs_new()
+  * deleting the array with r8rmat_delete()
+
+  Solution:
+
+         0:              1
+         1:              2
+         2:              3
+
+SOLVE_PRB
+  Normal end of execution.
+
+07 July 2014 04:45:47 PM

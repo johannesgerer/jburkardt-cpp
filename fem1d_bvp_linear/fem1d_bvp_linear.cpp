@@ -10,215 +10,6 @@ using namespace std;
 
 //****************************************************************************80
 
-double compute_l2_error ( int n, double x[], double u[], 
-  double exact ( double x ) )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    COMPUTE_L2_ERROR estimates the L2 error norm of a finite element solution.
-//
-//  Discussion:
-//
-//    We assume the finite element method has been used, over an interval [A,B]
-//    involving N nodes, with piecewise linear elements used for the basis.
-//    The coefficients U(1:N) have been computed, and a formula for the
-//    exact solution is known.
-//
-//    This function estimates the L2 norm of the error:
-//
-//      L2_NORM = Integral ( A <= X <= B ) ( U(X) - EXACT(X) )^2 dX
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    17 February 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int N, the number of nodes.
-//
-//    Input, double X[N], the mesh points.
-//
-//    Input, double U[N], the finite element coefficients.
-//
-//    Input, function EQ = EXACT ( X ), returns the value of the exact
-//    solution at the point X.
-//
-//    Output, double COMPUTE_L2_ERROR, the estimated L2 norm of the error.
-//
-{
-  double abscissa[2];
-  double eq;
-  int i;
-  double l2_error;
-  int q;
-  int quad_num;
-  double ul;
-  double ur;
-  double uq;
-  double weight[2];
-  double wq;
-  double xl;
-  double xq;
-  double xr;
-
-  l2_error = 0.0;
-//
-//  Quadrature definitions.
-//
-  quad_num = 2;
-  abscissa[0] = -0.577350269189625764509148780502;
-  abscissa[1] = +0.577350269189625764509148780502;
-  weight[0] = 1.0;
-  weight[1] = 1.0;
-//
-//  Integrate over each interval.
-//
-  for ( i = 0; i < n - 1; i++ )
-  {
-    xl = x[i];
-    xr = x[i+1];
-    ul = u[i];
-    ur = u[i+1];
-
-    for ( q = 0; q < quad_num; q++ )
-    {
-      xq = ( ( 1.0 - abscissa[q] ) * xl   
-           + ( 1.0 + abscissa[q] ) * xr ) 
-           /   2.0;
-
-      wq = weight[q] * ( xr - xl ) / 2.0;
-//
-//  Use the fact that U is a linear combination of piecewise linears.
-//
-      uq = ( ( xr - xq      ) * ul 
-           + (      xq - xl ) * ur ) 
-           / ( xr      - xl );
-
-      eq = exact ( xq );
-
-      l2_error = l2_error + wq * pow ( uq - eq, 2 );
-    }
-  }
-  l2_error = sqrt ( l2_error );
-
-  return l2_error;
-}
-//****************************************************************************80
-
-double compute_seminorm_error ( int n, double x[], double u[], 
-  double exact_ux ( double x ) )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    COMPUTE_SEMINORM_ERROR estimates the seminorm error of a finite element solution.
-//
-//  Discussion:
-//
-//    We assume the finite element method has been used, over an interval [A,B]
-//    involving N nodes, with piecewise linear elements used for the basis.
-//    The coefficients U(1:N) have been computed, and a formula for the
-//    exact derivative is known.
-//
-//    This function estimates the seminorm of the error:
-//
-//      SEMINORM = Integral ( A <= X <= B ) ( dU(X)/dx - EXACT_UX(X) )^2 dX
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    17 February 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int N, the number of nodes.
-//
-//    Input, double X(N), the mesh points.
-//
-//    Input, double U(N), the finite element coefficients.
-//
-//    Input, function EQ = EXACT_UX ( X ), returns the value of the exact
-//    derivative at the point X.
-//
-//    Output, double COMPUTE_SEMINORM_ERROR, the estimated seminorm of 
-//    the error.
-//
-{
-  double abscissa[2];
-  double exq;
-  int i;
-  int q;
-  int quad_num;
-  double seminorm_error;
-  double ul;
-  double ur;
-  double uxq;
-  double weight[2];
-  double wq;
-  double xl;
-  double xq;
-  double xr;
-
-  seminorm_error = 0.0;
-//
-//  Quadrature definitions.
-//
-  quad_num = 2;
-  abscissa[0] = -0.577350269189625764509148780502;
-  abscissa[1] = +0.577350269189625764509148780502;
-  weight[0] = 1.0;
-  weight[1] = 1.0;
-//
-//  Integrate over each interval.
-//
-  for ( i = 0; i < n - 1; i++ )
-  {
-    xl = x[i];
-    xr = x[i+1];
-    ul = u[i];
-    ur = u[i+1];
-
-    for ( q = 0; q < quad_num; q++ )
-    {
-      xq = ( ( 1.0 - abscissa[q] ) * xl   
-           + ( 1.0 + abscissa[q] ) * xr ) 
-           /   2.0;
-
-      wq = weight[q] * ( xr - xl ) / 2.0;
-//
-//  The piecewise linear derivative is a constant in the interval.
-//
-      uxq = ( ur - ul ) / ( xr - xl );
-
-      exq = exact_ux ( xq );
- 
-      seminorm_error = seminorm_error + wq * pow ( uxq - exq, 2);
-    }
-  }
-  seminorm_error = sqrt ( seminorm_error );
-
-  return seminorm_error;
-}
-//****************************************************************************80
-
 double *fem1d_bvp_linear ( int n, double a ( double x ), double c ( double x ), 
   double f ( double x ), double x[] )
 
@@ -227,6 +18,10 @@ double *fem1d_bvp_linear ( int n, double a ( double x ), double c ( double x ),
 //  Purpose:
 //
 //    FEM1D_BVP_LINEAR solves a two point boundary value problem.
+//
+//  Location:
+//
+//    http://people.sc.fsu.edu/~jburkardt/cpp_src/fem1d_bvp_linear/fem1d_bvp_linear.cpp
 //
 //  Discussion:
 //
@@ -292,7 +87,7 @@ double *fem1d_bvp_linear ( int n, double a ( double x ), double c ( double x ),
 //
 //  Modified:
 //
-//    20 August 2010
+//    18 June 2014
 //
 //  Author:
 //
@@ -319,31 +114,28 @@ double *fem1d_bvp_linear ( int n, double a ( double x ), double c ( double x ),
   double abscissa[QUAD_NUM] = {
     -0.577350269189625764509148780502,
     +0.577350269189625764509148780502 };
-  double al;
-  double am;
-  double ar;
   double *amat;
   double axq;
   double *b;
-  double bm;
   double cxq;
+  int e;
+  int e_num;
   double fxq;
-  double h;
   int i;
   int ierror;
+  int j;
+  int l;
   int q;
   int quad_num = QUAD_NUM;
+  int r;
   double *u;
   double weight[QUAD_NUM] = { 1.0, 1.0 };
   double wq;
   double vl;
   double vlp;
-  double vm;
-  double vmp;
   double vr;
   double vrp;
   double xl;
-  double xm;
   double xq;
   double xr;
 //
@@ -351,146 +143,78 @@ double *fem1d_bvp_linear ( int n, double a ( double x ), double c ( double x ),
 //
   amat = r8mat_zero_new ( n, n );
   b = r8vec_zero_new ( n );
-//
-//  Equation 1 is the left boundary condition, U(0.0) = 0.0;
-//
-  amat[0+0*n] = 1.0;
-  b[0] = 0.0;
-//
-//  Equation I involves the basis function at node I.
-//  This basis function is nonzero from X(I-1) to X(I+1).
-//  Equation I looks like this:
-//
-//    Integral A(X) U'(X) V'(I,X) 
-//           + C(X) * U(X) V(I,X) dx 
-//  = Integral F(X) V(I,X) dx
-//
-//  Then, we realize that U(X) = sum ( 1 <= J <= N ) U(J) * V(J,X), 
-//  (U(X) means the function; U(J) is the coefficient of V(J,X) ).
-//
-//  The only V functions that are nonzero when V(I,X) is nonzero are
-//  V(I-1,X) and V(I+1,X). 
-//
-//  Let's use the shorthand 
-//
-//    VL(X) = V(I-1,X)
-//    VM(X) = V(I,X)
-//    VR(X) = V(I+1,X)
-//
-//  So our equation becomes
-//
-//    Integral A(X) [ VL'(X) U(I-1) + VM'(X) U(I) + VR'(X) U(I+1) ] * VM'(X)
-//           + C(X) [ VL(X)  U(I-1) + VM(X)  U(I) + VR(X)  U(I+1) ] * VM(X) dx
-//  = Integral F(X) VM(X) dx.
-//
-//  
-//
-//  This is actually a set of N-2 linear equations for the N coefficients U.
-//
-//  Now gather the multipliers of U(I-1) to get the matrix entry A(I,I-1), 
-//  and so on.
-//
-  for ( i = 1; i < n - 1; i++ )
+
+  e_num = n - 1;
+
+  for ( e = 0; e < e_num; e++ )
   {
-//
-//  Get the left, right and middle coordinates.
-//
-    xl = x[i-1];
-    xm = x[i];
-    xr = x[i+1];
-//
-//  Make temporary variables for A(I,I-1), A(I,I), A(I,I+1) and B(I).
-//
-    al = 0.0;
-    am = 0.0;
-    ar = 0.0;
-    bm = 0.0;
-//
-//  We approximate the integrals by using a weighted sum of
-//  the integrand values at quadrature points.
-//
+    l = e;
+    r = e + 1;
+
+    xl = x[l];
+    xr = x[r];
+
     for ( q = 0; q < quad_num; q++ )
     {
-//
-//  Integrate over the LEFT interval, between XL and XM, where:
-//
-//  VL(X) = ( XM - X       ) / ( XM - XL )
-//  VM(X) = (      X  - XL ) / ( XM - XL )
-//  VR(X) = 0
-//
-//  VL'(X) =             - 1 / ( XM - XL )
-//  VM'(X) =             + 1 / ( XM - XL ) 
-//  VR'(X) = 0
-//
-      xq = ( ( 1.0 - abscissa[q] ) * xl 
-           + ( 1.0 + abscissa[q] ) * xm ) 
-           /   2.0;
-
-      wq = weight[q] * ( xm - xl ) / 2.0;
-
-      vl =  ( xm - xq ) / ( xm - xl );
-      vlp =      - 1.0  / ( xm - xl );
-
-      vm =  ( xq - xl ) / ( xm - xl );
-      vmp =      + 1.0  / ( xm - xl );
-
-      vr =  0.0;
-      vrp = 0.0;
-
-      axq = a ( xq );
-      cxq = c ( xq );
-      fxq = f ( xq );
-
-      al = al + wq * ( axq * vlp * vmp + cxq * vl * vm );
-      am = am + wq * ( axq * vmp * vmp + cxq * vm * vm );
-      ar = ar + wq * ( axq * vrp * vmp + cxq * vr * vm );
-      bm = bm + wq * ( fxq * vm );
-//
-//  Integrate over the RIGHT interval, between XM and XR, where:
-//
-//  VL(X) = 0
-//  VM(X) = ( XR - X       ) / ( XR - XM )
-//  VR(X) = (      X  - XM ) / ( XR - XM )
-//
-//  VL'(X) = 0
-//  VM'(X) =             - 1 / ( XR - XM )
-//  VR'(X) =             + 1 / ( XR - XM ) 
-//
-      xq = ( ( 1.0 - abscissa[q] ) * xm 
+      xq = ( ( 1.0 - abscissa[q] ) * xl   
            + ( 1.0 + abscissa[q] ) * xr ) 
            /   2.0;
 
-      wq = weight[q] * ( xr - xm ) / 2.0;
+      wq = weight[q] * ( xr - xl ) / 2.0;
 
-      vl = 0.0;
-      vlp = 0.0;
+      vl =  ( xr - xq ) / ( xr - xl );
+      vlp =      - 1.0  / ( xr - xl );
 
-      vm = ( xr - xq ) / ( xr - xm );
-      vmp =     - 1.0  / ( xr - xm );
-
-      vr = ( xq - xm ) / ( xr - xm );
-      vrp =      1.0   / ( xr - xm );
+      vr =  ( xq - xl ) / ( xr - xl );
+      vrp =  + 1.0      / ( xr - xl );
 
       axq = a ( xq );
       cxq = c ( xq );
       fxq = f ( xq );
 
-      al = al + wq * ( axq * vlp * vmp + cxq * vl * vm );
-      am = am + wq * ( axq * vmp * vmp + cxq * vm * vm );
-      ar = ar + wq * ( axq * vrp * vmp + cxq * vr * vm );
-      bm = bm + wq * ( fxq * vm );
-    }
-    amat[i+(i-1)*n] = al;
-    amat[i+ i   *n] = am;
-    amat[i+(i+1)*n] = ar;
+      amat[l+l*n] = amat[l+l*n] + wq * ( vlp * axq * vlp + vl * cxq * vl );
+      amat[l+r*n] = amat[l+r*n] + wq * ( vlp * axq * vrp + vl * cxq * vr );
+      b[l]        = b[l]        + wq * ( vl * fxq );
 
-    b[i] = bm;
+      amat[r+l*n] = amat[r+l*n] + wq * ( vrp * axq * vlp + vr * cxq * vl );
+      amat[r+r*n] = amat[r+r*n] + wq * ( vrp * axq * vrp + vr * cxq * vr );
+      b[r]        = b[r]        + wq * ( vr * fxq );
+    }
   }
+//
+//  Equation 1 is the left boundary condition, U(0.0) = 0.0;
+//
+  for ( j = 0; j < n; j++ )
+  {
+    amat[0+j*n] = 0.0;
+  }
+  b[0] = 0.0;
+  for ( i = 1; i < n; i++ )
+  {
+    b[i] = b[i] - amat[i+0*n] * b[0];
+  }
+  for ( i = 0; i < n; i++ )
+  {
+    amat[i+0*n] = 0.0;
+  }
+  amat[0+0*n] = 1.0;
 //
 //  Equation N is the right boundary condition, U(1.0) = 0.0;
 //
-  amat[n-1+(n-1)*n] = 1.0;
+  for ( j = 0; j < n; j++ )
+  {
+    amat[n-1+j*n] = 0.0;
+  }
   b[n-1] = 0.0;
+  for ( i = 0; i < n - 1; i++ )
+  {
+    b[i] = b[i] - amat[i+(n-1)*n] * b[n-1];
+  }
+  for ( i = 0; i < n; i++ )
+  {
+    amat[i+(n-1)*n] = 0.0;
+  }
+  amat[n-1+(n-1)*n] = 1.0;
 //
 //  Solve the linear system.
 //
@@ -500,6 +224,108 @@ double *fem1d_bvp_linear ( int n, double a ( double x ), double c ( double x ),
   delete [] b;
 
   return u;
+# undef QUAD_NUM
+}
+//****************************************************************************80
+
+double h1s_error_linear ( int n, double x[], double u[], 
+  double exact_ux ( double x ) )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    H1S_ERROR_LINEAR estimates the seminorm error of a finite element solution.
+//
+//  Discussion:
+//
+//    We assume the finite element method has been used, over an interval [A,B]
+//    involving N nodes, with piecewise linear elements used for the basis.
+//
+//    The coefficients U(1:N) have been computed, and a formula for the
+//    exact derivative is known.
+//
+//    This function estimates the seminorm of the error:
+//
+//      SEMINORM = Integral ( A <= X <= B ) ( dU(X)/dx - EXACT_UX(X) )^2 dX
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 February 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of nodes.
+//
+//    Input, double X[N], the mesh points.
+//
+//    Input, double U[N], the finite element coefficients.
+//
+//    Input, function EQ = EXACT_UX ( X ), returns the value of the exact
+//    derivative at the point X.
+//
+//    Output, double H1S_ERROR_LINEAR, the estimated seminorm of 
+//    the error.
+//
+{
+# define QUAD_NUM 2
+
+  double abscissa[QUAD_NUM] = {
+    -0.577350269189625764509148780502,
+    +0.577350269189625764509148780502 };
+  double exq;
+  int i;
+  int q;
+  int quad_num = QUAD_NUM;
+  double h1s;
+  double ul;
+  double ur;
+  double uxq;
+  double weight[QUAD_NUM] = { 1.0, 1.0 };
+  double wq;
+  double xl;
+  double xq;
+  double xr;
+
+  h1s = 0.0;
+//
+//  Integrate over each interval.
+//
+  for ( i = 0; i < n - 1; i++ )
+  {
+    xl = x[i];
+    xr = x[i+1];
+    ul = u[i];
+    ur = u[i+1];
+
+    for ( q = 0; q < quad_num; q++ )
+    {
+      xq = ( ( 1.0 - abscissa[q] ) * xl   
+           + ( 1.0 + abscissa[q] ) * xr ) 
+           /   2.0;
+
+      wq = weight[q] * ( xr - xl ) / 2.0;
+//
+//  The piecewise linear derivative is a constant in the interval.
+//
+      uxq = ( ur - ul ) / ( xr - xl );
+
+      exq = exact_ux ( xq );
+ 
+      h1s = h1s + wq * pow ( uxq - exq, 2);
+    }
+  }
+  h1s = sqrt ( h1s );
+
+  return h1s;
 # undef QUAD_NUM
 }
 //****************************************************************************80
@@ -548,21 +374,32 @@ int *i4vec_zero_new ( int n )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
+double l1_error ( int n, double x[], double u[], double exact ( double x ) )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_ABS returns the absolute value of an R8.
+//    L1_ERROR estimates the L1 error norm of a finite element solution.
+//
+//  Discussion:
+//
+//    We assume the finite element method has been used, over an interval [A,B]
+//    involving N nodes.
+//
+//    The coefficients U(1:N) have been computed, and a formula for the
+//    exact solution is known.
+//
+//    This function estimates the little l1 norm of the error:
+//      L1_NORM = sum ( 1 <= I <= N ) abs ( U(i) - EXACT(X(i)) )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    14 November 2006
+//    14 June 2014
 //
 //  Author:
 //
@@ -570,22 +407,134 @@ double r8_abs ( double x )
 //
 //  Parameters:
 //
-//    Input, double X, the quantity whose absolute value is desired.
+//    Input, int N, the number of nodes.
 //
-//    Output, double R8_ABS, the absolute value of X.
+//    Input, double X[N], the mesh points.
+//
+//    Input, double U[N], the finite element coefficients.
+//
+//    Input, function EQ = EXACT ( X ), returns the value of the exact
+//    solution at the point X.
+//
+//    Output, double L1_ERROR, the estimated L2 norm of the error.
 //
 {
-  double value;
+  int i;
+  double e1;
 
-  if ( 0.0 <= x )
+  e1 = 0.0;
+
+  for ( i = 0; i < n; i++ )
   {
-    value = + x;
-  } 
-  else
-  {
-    value = - x;
+    e1 = e1 + fabs ( u[i] - exact ( x[i] ) );
   }
-  return value;
+
+  e1 = e1 / ( double ) ( n );
+
+  return e1;
+}
+//****************************************************************************80
+
+double l2_error_linear ( int n, double x[], double u[], 
+  double exact ( double x ) )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L2_ERROR_LINEAR estimates the L2 error norm of a finite element solution.
+//
+//  Discussion:
+//
+//    We assume the finite element method has been used, over an interval [A,B]
+//    involving N nodes, with piecewise linear elements used for the basis.
+//
+//    The coefficients U(1:N) have been computed, and a formula for the
+//    exact solution is known.
+//
+//    This function estimates the L2 norm of the error:
+//
+//      L2_NORM = Integral ( A <= X <= B ) ( U(X) - EXACT(X) )^2 dX
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 June 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of nodes.
+//
+//    Input, double X[N], the mesh points.
+//
+//    Input, double U[N], the finite element coefficients.
+//
+//    Input, function EQ = EXACT ( X ), returns the value of the exact
+//    solution at the point X.
+//
+//    Output, double L2_ERROR_LINEAR, the estimated L2 norm of the error.
+//
+{
+# define QUAD_NUM 2
+
+  double abscissa[QUAD_NUM] = {
+    -0.577350269189625764509148780502,
+    +0.577350269189625764509148780502 };
+  double eq;
+  int i;
+  double e2;
+  int q;
+  int quad_num = QUAD_NUM;
+  double ul;
+  double ur;
+  double uq;
+  double weight[QUAD_NUM] = { 1.0, 1.0 };
+  double wq;
+  double xl;
+  double xq;
+  double xr;
+
+  e2 = 0.0;
+//
+//  Integrate over each interval.
+//
+  for ( i = 0; i < n - 1; i++ )
+  {
+    xl = x[i];
+    xr = x[i+1];
+    ul = u[i];
+    ur = u[i+1];
+
+    for ( q = 0; q < quad_num; q++ )
+    {
+      xq = ( ( 1.0 - abscissa[q] ) * xl   
+           + ( 1.0 + abscissa[q] ) * xr ) 
+           /   2.0;
+
+      wq = weight[q] * ( xr - xl ) / 2.0;
+//
+//  Use the fact that U is a linear combination of piecewise linears.
+//
+      uq = ( ( xr - xq      ) * ul 
+           + (      xq - xl ) * ur ) 
+           / ( xr      - xl );
+
+      eq = exact ( xq );
+
+      e2 = e2 + wq * pow ( uq - eq, 2 );
+    }
+  }
+  e2 = sqrt ( e2 );
+
+  return e2;
+# undef QUAD_NUM
 }
 //****************************************************************************80
 
@@ -670,10 +619,10 @@ double *r8mat_solve2 ( int n, double a[], double b[], int *ierror )
     {
       if ( piv[i-1] == 0 )
       {
-        if ( amax < r8_abs ( a[i-1+(k-1)*n] ) )
+        if ( amax < fabs ( a[i-1+(k-1)*n] ) )
         {
           imax = i;
-          amax = r8_abs ( a[i-1+(k-1)*n] );
+          amax = fabs ( a[i-1+(k-1)*n] );
         }
       }
     }

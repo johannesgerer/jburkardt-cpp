@@ -1,0 +1,163 @@
+<html>
+
+  <head>
+    <title>
+      SCVT_MPI - Parallel Program for Centroidal Voronoi Tessellations on Spheres
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SCVT_MPI <br> Parallel Program for Centroidal Voronoi Tessellations on Spheres
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SCVT_MPI</b>
+      is a C++ program which
+      carries out a procedure that produces 
+      Centroidal Voronoi Tessellations (CVT's) on the surface of a sphere.
+    </p>
+
+    <p>
+      A CVT is a kind of mesh.  Such meshes can be used for weather
+      or climate modeling on the Earth's surface, for instance.
+    </p>
+
+    <p>
+      The program uses Jonathan Shewchuk's triangle library, which
+      can triangulate a set of points in the plane.
+    </p>
+
+    <p>
+      The program uses the boost library of high-quality arithmetic
+      procedures, in particular, it refers to the boost mpi and 
+      boost serialization libraries.
+    </p>
+
+    <p>
+      The program relies on the boost mpi library to implement the parallel
+      execution of the algorithm.
+    </p>
+
+    <p>
+      The program relies on the boost serialization library to encode
+      a C++ structure as a sequence of bytes that can be recorded in a 
+      file or transmitted as a message, which can then be decoded by
+      a receiving program to recover the original C++ structure.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SCVT_MPI</b> is available in
+      <a href = "../../cpp_src/divdif/divdif.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/boost/boost.html">
+      BOOST</a>,
+      C++ programs which
+      demonstrate the use of the Boost libraries;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mpi/mpi.html">
+      MPI</a>,
+      C++ programs which
+      illustrate the use of the MPI application program interface
+      for carrying out parallel computations in a distributed memory environment.
+    </p>
+
+    <p>
+      <a href = "../../c_src/triangle/triangle.html">
+      TRIANGLE</a>,
+      a C program which
+      computes a triangulation of a geometric region,
+      by Jonathan Shewchuk.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Douglas Jacobsen, Max Gunzburger, Todd Ringler, 
+          John Burkardt, Janet Peterson,<br>
+          Parallel algorithms for planar and spherical Delaunay construction 
+          with an application to centroidal Voronoi tessellations,<br>
+          Geoscientific Model Development.
+        <li>
+          Jonathan Shewchuk,<br>
+          Delaunay Refinement Algorithms for Triangular Mesh Generation,<br>
+          Computational Geometry, Theory and Applications,<br>
+          Volume 23, pages 21-74, May 2002.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "scvt_mpi.cpp">scvt_mpi.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "triangle.h">triangle.h</a>, 
+          an include file for accessing the triangle library.
+        </li>
+        <li>
+          <a href = "triangulation.h">triangulation.h</a>, 
+          an include file containing useful definitions.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 25 February 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

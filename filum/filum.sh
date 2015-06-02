@@ -2,12 +2,11 @@
 #
 cp filum.hpp /$HOME/include
 #
-g++ -c -g -I /$HOME/include filum.cpp >& compiler.txt
+g++ -c -I /$HOME/include filum.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling filum.cpp"
   exit
 fi
-rm compiler.txt
 #
 mv filum.o ~/libcpp/$ARCH/filum.o
 #

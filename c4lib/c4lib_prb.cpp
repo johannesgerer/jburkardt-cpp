@@ -30,7 +30,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    C4LIB_PRB calls the C4LIB tests.
+//    C4LIB_PRB tests the C4LIB library.
 //
 //  Licensing:
 //
@@ -64,7 +64,6 @@ int main ( )
   cout << "\n";
   cout << "C4LIB_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -78,7 +77,7 @@ void test0061 ( )
 //
 //  Purpose:
 //
-//    TEST0061 tests C4_ARGUMENT.
+//    TEST0061 tests C4_ARG.
 //
 //  Licensing:
 //
@@ -101,20 +100,20 @@ void test0061 ( )
 
   cout << "\n";
   cout << "TEST0061\n";
-  cout << "  C4_ARGUMENT computes the argument of a C4.\n";
+  cout << "  C4_ARG computes the argument of a C4.\n";
   cout << "\n";
   cout << 
-    "            C1=random            ARG=C4_ARGUMENT(C1)\n";
+    "            C1=random            ARG=C4_ARG(C1)\n";
   cout << "\n";
 
   for ( test = 0; test < test_num; test++ )
   {
     c1 = c4_uniform_01 ( &seed );
-    argument = c4_argument ( c1 );
+    argument = c4_arg ( c1 );
 
-    cout << "  (" << setw(8) << real ( c1 )
-         << ",  " << setw(8) << imag ( c1 ) << ")"
-         << "  " << setw(8) << argument << "\n";
+    cout << "  (" << setw(10) << real ( c1 )
+         << ",  " << setw(10) << imag ( c1 ) << ")"
+         << "  " << setw(10) << argument << "\n";
   }
 
   return;
@@ -163,12 +162,12 @@ void test0062 ( )
     c2 = c4_cube_root ( c1 );
     c3 = c2 * c2 * c2;
 
-    cout << "  (" << setw(8) << real ( c1 )
-         << ",  " << setw(8) << imag ( c1 ) << ")"
-         << "  (" << setw(8) << real ( c2 )
-         << ",  " << setw(8) << imag ( c2 ) << ")"
-         << "  (" << setw(8) << real ( c3 )
-         << ",  " << setw(8) << imag ( c3 ) << ")\n";
+    cout << "  (" << setw(10) << real ( c1 )
+         << ",  " << setw(10) << imag ( c1 ) << ")"
+         << "  (" << setw(10) << real ( c2 )
+         << ",  " << setw(10) << imag ( c2 ) << ")"
+         << "  (" << setw(10) << real ( c3 )
+         << ",  " << setw(10) << imag ( c3 ) << ")\n";
   }
 
   return;
@@ -181,7 +180,7 @@ void test0063 ( )
 //
 //  Purpose:
 //
-//    TEST0063 tests C4_MAGNITUDE.
+//    TEST0063 tests C4_MAG.
 //
 //  Licensing:
 //
@@ -204,20 +203,20 @@ void test0063 ( )
 
   cout << "\n";
   cout << "TEST0063\n";
-  cout << "  C4_MAGNITUDE computes the magnitude of a C4.\n";
+  cout << "  C4_MAG computes the magnitude of a C4.\n";
   cout << "\n";
   cout << 
-    "            C1=random            MAG=C4_MAGNITUDE(C1)\n";
+    "            C1=random            MAG=C4_MAG(C1)\n";
   cout << "\n";
 
   for ( test = 0; test < test_num; test++ )
   {
     c1 = c4_uniform_01 ( &seed );
-    magnitude = c4_magnitude ( c1 );
+    magnitude = c4_mag ( c1 );
 
-    cout << "  (" << setw(8) << real ( c1 )
-         << ",  " << setw(8) << imag ( c1 ) << ")"
-         << "  " << setw(8) << magnitude << "\n";
+    cout << "  (" << setw(10) << real ( c1 )
+         << ",  " << setw(10) << imag ( c1 ) << ")"
+         << "  " << setw(10) << magnitude << "\n";
   }
 
   return;
@@ -260,8 +259,8 @@ void test0064 ( )
   for ( test = 1; test <= test_num; test++ )
   {
     x = c4_normal_01 ( &seed );
-    cout << "  " << setw(8) << real ( x ) 
-         << "  " << setw(8) << imag ( x ) << "\n";
+    cout << "  " << setw(10) << real ( x ) 
+         << "  " << setw(10) << imag ( x ) << "\n";
   }
 
   return;
@@ -310,12 +309,12 @@ void test0065 ( )
     c2 = c4_sqrt ( c1 );
     c3 = c2 * c2;
 
-    cout << "  (" << setw(8) << real ( c1 )
-         << ",  " << setw(8) << imag ( c1 ) << ")"
-         << "  (" << setw(8) << real ( c2 )
-         << ",  " << setw(8) << imag ( c2 ) << ")"
-         << "  (" << setw(8) << real ( c3 )
-         << ",  " << setw(8) << imag ( c3 ) << ")\n";
+    cout << "  (" << setw(10) << real ( c1 )
+         << ",  " << setw(10) << imag ( c1 ) << ")"
+         << "  (" << setw(10) << real ( c2 )
+         << ",  " << setw(10) << imag ( c2 ) << ")"
+         << "  (" << setw(10) << real ( c3 )
+         << ",  " << setw(10) << imag ( c3 ) << ")\n";
   }
 
   return;

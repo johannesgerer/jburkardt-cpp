@@ -23,7 +23,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    TABLE_IO_PRB calls the TABLE_IO test routines.
+//    MAIN is the main program for TABLE_IO_PRB.
+//
+//  Discussion:
+//
+//    TABLE tests the TABLE_IO library.
 //
 //  Licensing:
 //
@@ -39,7 +43,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TABLE_IO_PRB\n";
   cout << "  C++ version\n";
@@ -57,7 +60,6 @@ int main ( )
   cout << "\n";
   cout << "TABLE_IO_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -163,7 +165,7 @@ void test02 ( )
   cout << "  (Information about the dimension of the data)\n";
   cout << "  R8MAT_DATA_READ reads the data.\n";
 
-  r8mat_header_read ( input_filename, &m, &n );
+  r8mat_header_read ( input_filename, m, n );
 
   cout << "\n";
   cout << "  Read the header of \"" << input_filename << "\".\n";
@@ -278,7 +280,7 @@ void test04 ( )
   cout << "  (Information about the dimension of the data)\n";
   cout << "  I4MAT_DATA_READ reads the data.\n";
 
-  i4mat_header_read ( input_filename, &m, &n );
+  i4mat_header_read ( input_filename, m, n );
 
   cout << "\n";
   cout << "  Read the header of \"" << input_filename << "\".\n";
@@ -334,7 +336,7 @@ void test05 ( )
   cout << "  Spatial dimension M = " << M << "\n";
   cout << "  Number of points N =  " << N << "\n";
 
-  table = r8mat_uniform_01 ( M, N, &seed );
+  table = r8mat_uniform_01 ( M, N, seed );
 
   r8mat_print_some ( M, N, table, 1, 1, 5, 10, 
     "  5x10 portion of random real table dataset:" );

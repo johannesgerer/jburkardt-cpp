@@ -44,7 +44,7 @@ double uexact ( double x );
 
 int main ( void )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -486,11 +486,10 @@ int main ( void )
     {
       break;
     }
-//
-//  Solve the problem again, with the new nodes.
-//
   }
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "FEM1D_ADAPTIVE:\n";
   cout << "  Normal end of execution.\n";
@@ -1750,7 +1749,7 @@ double r8_max ( double x, double y )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -1767,14 +1766,17 @@ double r8_max ( double x, double y )
 //    Output, double R8_MAX, the maximum of X and Y.
 //
 {
+  double value;
+
   if ( y < x )
   {
-    return x;
-  } 
+    value = x;
+  }
   else
   {
-    return y;
+    value = y;
   }
+  return value;
 }
 //****************************************************************************80
 
@@ -2269,8 +2271,8 @@ void solvey ( double eta[], double f[], double h[], int n, int nu, double ul,
 
       for ( i = 1; i <= NY; i++ )
       {
-        yl = yn[i-2];
-        yr = yn[i-1];
+        yl = yn[i-1];
+        yr = yn[i];
 
         if ( i == 1 )
         {

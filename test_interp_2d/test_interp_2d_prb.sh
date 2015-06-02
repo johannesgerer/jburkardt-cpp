@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include test_interp_2d_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include test_interp_2d_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling test_interp_2d_prb.cpp."
   exit
 fi
-rm compiler.txt
 #
 g++ test_interp_2d_prb.o /$HOME/libcpp/$ARCH/test_interp_2d.o /$HOME/libcpp/$ARCH/r8lib.o -lm
 if [ $? -ne 0 ]; then

@@ -83,7 +83,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    FN_PRB calls the FN tests.
+//    FN_PRB tests the FN library.
 //
 //  Licensing:
 //
@@ -170,7 +170,6 @@ int main ( )
   cout << "\n";
   cout << "FN_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

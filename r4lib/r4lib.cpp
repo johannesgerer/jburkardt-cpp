@@ -503,7 +503,7 @@ int i4_sign ( int i )
 }
 //****************************************************************************80
 
-int i4_uniform ( int a, int b, int *seed )
+int i4_uniform ( int a, int b, int &seed )
 
 //****************************************************************************80
 //
@@ -556,7 +556,7 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //    Input, int A, B, the limits of the interval.
 //
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
+//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
 //    On output, SEED has been updated.
 //
 //    Output, int I4_UNIFORM, a number between A and B.
@@ -566,7 +566,7 @@ int i4_uniform ( int a, int b, int *seed )
   float r;
   int value;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "I4_UNIFORM - Fatal error!\n";
@@ -574,16 +574,16 @@ int i4_uniform ( int a, int b, int *seed )
     exit ( 1 );
   }
 
-  k = *seed / 127773;
+  k = seed / 127773;
 
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + 2147483647;
+    seed = seed + 2147483647;
   }
 
-  r = ( float ) ( *seed ) * 4.656612875E-10;
+  r = ( float ) ( seed ) * 4.656612875E-10;
 //
 //  Scale R to lie between A-0.5 and B+0.5.
 //
@@ -774,13 +774,13 @@ void i4vec_copy ( int n, int a1[], int a2[] )
 }
 //****************************************************************************80
 
-int *i4vec_indicator_new ( int n )
+int *i4vec_indicator0_new ( int n )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    I4VEC_INDICATOR_NEW sets an I4VEC to the indicator vector.
+//    I4VEC_INDICATOR0_NEW sets an I4VEC to the indicator vector {0,1,2,...}.
 //
 //  Discussion:
 //
@@ -792,7 +792,7 @@ int *i4vec_indicator_new ( int n )
 //
 //  Modified:
 //
-//    03 June 2009
+//    27 September 2014
 //
 //  Author:
 //
@@ -802,7 +802,51 @@ int *i4vec_indicator_new ( int n )
 //
 //    Input, int N, the number of elements of A.
 //
-//    Output, int I4VEC_INDICATOR_NEW[N], the array.
+//    Output, int I4VEC_INDICATOR0_NEW[N], the array.
+//
+{
+  int *a;
+  int i;
+
+  a = new int[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    a[i] = i;
+  }
+  return a;
+}
+//****************************************************************************80
+
+int *i4vec_indicator1_new ( int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4VEC_INDICATOR1_NEW sets an I4VEC to the indicator vector {1,2,3,...}.
+//
+//  Discussion:
+//
+//    An I4VEC is a vector of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    27 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of elements of A.
+//
+//    Output, int I4VEC_INDICATOR1_NEW[N], the array.
 //
 {
   int *a;
@@ -1161,7 +1205,7 @@ bool perm_check ( int n, int p[], int base )
 }
 //****************************************************************************80
 
-int *perm_uniform_new ( int n, int base, int *seed )
+int *perm_uniform_new ( int n, int base, int &seed )
 
 //****************************************************************************80
 //
@@ -1195,7 +1239,7 @@ int *perm_uniform_new ( int n, int base, int *seed )
 //    Input, int BASE, is 0 for a 0-based permutation and 1 for
 //    a 1-based permutation.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int PERM_UNIFORM_NEW[N], a permutation of
 //    (BASE, BASE+1, ..., BASE+N-1).
@@ -1348,7 +1392,7 @@ float r4_atan ( float y, float x )
 {
   float abs_x;
   float abs_y;
-  float pi = 3.141592653589793;
+  const float r4_pi = 3.141592653589793;
   float theta;
   float theta_0;
 //
@@ -1358,11 +1402,11 @@ float r4_atan ( float y, float x )
   {
     if ( 0.0 < y )
     {
-      theta = pi / 2.0;
+      theta = r4_pi / 2.0;
     }
     else if ( y < 0.0 )
     {
-      theta = 3.0 * pi / 2.0;
+      theta = 3.0 * r4_pi / 2.0;
     }
     else if ( y == 0.0 )
     {
@@ -1377,7 +1421,7 @@ float r4_atan ( float y, float x )
     }
     else if ( x < 0.0 )
     {
-      theta = pi;
+      theta = r4_pi;
     }
   }
 //
@@ -1396,18 +1440,57 @@ float r4_atan ( float y, float x )
     }
     else if ( x < 0.0 && 0.0 < y )
     {
-      theta = pi - theta_0;
+      theta = r4_pi - theta_0;
     }
     else if ( x < 0.0 && y < 0.0 )
     {
-      theta = pi + theta_0;
+      theta = r4_pi + theta_0;
     }
     else if ( 0.0 < x && y < 0.0 )
     {
-      theta = 2.0 * pi - theta_0;
+      theta = 2.0 * r4_pi - theta_0;
     }
   }
   return theta;
+}
+//****************************************************************************80
+
+float r4_big ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_BIG returns a "big" R4.
+//
+//  Discussion:
+//
+//    The value returned by this function is NOT required to be the
+//    maximum representable R4.  We simply want a "very large" but 
+//    non-infinite number.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    27 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Output, float R4_BIG, a "big" R4 value.
+//
+{
+  float value;
+
+  value = 1.0E+30;
+
+  return value;
 }
 //****************************************************************************80
 
@@ -1677,7 +1760,7 @@ complex <float> r4_csqrt ( float x )
 {
   float argument;
   float magnitude;
-  float pi = 3.141592653589793;
+  const float r4_pi = 3.141592653589793;
   complex <float> value;
 
   if ( 0.0 < x )
@@ -1693,7 +1776,7 @@ complex <float> r4_csqrt ( float x )
   else if ( x < 0.0 )
   {
     magnitude = -x;
-    argument = pi;
+    argument = r4_pi;
   }
 
   magnitude = sqrt ( magnitude );
@@ -1919,7 +2002,7 @@ int r4_digit ( float x, int idigit )
 }
 //****************************************************************************80
 
-double r4_epsilon ( )
+float r4_epsilon ( )
 
 //****************************************************************************80
 //
@@ -1952,7 +2035,7 @@ double r4_epsilon ( )
 //    Output, double R4_EPSILON, the R4 round-off unit.
 //
 {
-  static float value = 1.19209290E-07;
+  const float value = 1.19209290E-07;
 
   return value;
 }
@@ -2023,20 +2106,15 @@ float r4_exp ( float x )
 //
 //  Discussion:
 //
-//    My experience with the G95 compiler has included many unpleasant
-//    floating point exceptions when very small arguments are given to
-//    the exponential function.
-//
-//    This routine is designed to avoid such problems.
-//
-//    Ideally, the rule would be:
-//
-//                    X <= log ( TINY ) => R4_EXP ( X ) = 0
-//    log ( HUGE ) <= X                 => R4_EXP ( X ) = HUGE
-//
-//    However, the G95 math library seems to produce infinity for
-//    EXP ( LOG ( HUGE ( X ) ), rather than HUGE ( X ), so we've
-//    included a fudge factor.
+//    For arguments of very large magnitude, the evaluation of the
+//    exponential function can cause computational problems.  Some languages
+//    and compilers may return an infinite value or a "Not-a-Number".  
+//    An alternative, when dealing with a wide range of inputs, is simply
+//    to truncate the calculation for arguments whose magnitude is too large.
+//    Whether this is the right or convenient approach depends on the problem
+//    you are dealing with, and whether or not you really need accurate
+//    results for large magnitude inputs, or you just want your code to
+//    stop crashing.
 //
 //  Licensing:
 //
@@ -2044,7 +2122,7 @@ float r4_exp ( float x )
 //
 //  Modified:
 //
-//    21 April 2008
+//    19 September 2014
 //
 //  Author:
 //
@@ -2057,21 +2135,22 @@ float r4_exp ( float x )
 //    Output, float R4_EXP, the value of exp ( X ).
 //
 {
-  float log_max = 88.71397;
-  float log_min = -87.34528;
+  const float r4_big = 1.0E+30;
+  const float r4_log_max = +69.0776;
+  const float r4_log_min = -69.0776;
   float value;
 
-  if ( x <= log_min )
+  if ( x <= r4_log_min )
   {
     value = 0.0;
   }
-  else if ( x < log_max )
+  else if ( x < r4_log_max )
   {
     value = exp ( x );
   }
   else
   {
-    value = r4_huge ( );
+    value = r4_big;
   }
 
   return value;
@@ -2360,7 +2439,7 @@ float r4_huge ( )
 //
 //  Modified:
 //
-//    14 February 2009
+//    27 September 2014
 //
 //  Author:
 //
@@ -2373,7 +2452,7 @@ float r4_huge ( )
 {
   float value;
 
-  value = 1.0E+30;
+  value = 3.40282347E+38;
 
   return value;
 }
@@ -2441,7 +2520,7 @@ bool r4_is_int ( float r )
 //    Output, bool R4_IS_INT, is TRUE if R is an integer value.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   bool value;
 
   if ( ( float ) ( i4_huge ) < r )
@@ -2494,14 +2573,14 @@ float r4_log_10 ( float x )
 //    X should not be 0.
 //
 //    Output, float R4_LOG_10, the logarithm base 10 of the absolute
-//    value of X.  It should be true that |X| = 10**R_LOG_10.
+//    value of X.  It should be true that |X| = 10^R_LOG_10.
 //
 {
   float value;
 
   if ( x == 0.0 )
   {
-    value = - r4_huge ( );
+    value = - r4_big ( );
   }
   else
   {
@@ -2542,14 +2621,14 @@ float r4_log_2 ( float x )
 //    X should not be 0.
 //
 //    Output, float R4_LOG_2, the logarithm base 2 of the absolute
-//    value of X.  It should be true that |X| = 2**R_LOG_2.
+//    value of X.  It should be true that |X| = 2^R_LOG_2.
 //
 {
   float value;
 
   if ( x == 0.0 )
   {
-    value = - r4_huge ( );
+    value = - r4_big ( );
   }
   else
   {
@@ -2592,18 +2671,18 @@ float r4_log_b ( float x, float b )
 //    Input, float B, the base, which should not be 0, 1 or -1.
 //
 //    Output, float R4_LOG_B, the logarithm base B of the absolute
-//    value of X.  It should be true that |X| = |B|**R_LOG_B.
+//    value of X.  It should be true that |X| = |B|^R_LOG_B.
 //
 {
   float value;
 
   if ( b == 0.0 || b == 1.0 || b == -1.0 )
   {
-    value = - r4_huge ( );
+    value = - r4_big ( );
   }
   else if ( r4_abs ( x ) == 0.0 )
   {
-    value = - r4_huge ( );
+    value = - r4_big ( );
   }
   else
   {
@@ -3037,7 +3116,7 @@ int r4_nint ( float x )
 }
 //****************************************************************************80
 
-float r4_normal ( float a, float b, int *seed )
+float r4_normal ( float a, float b, int &seed )
 
 //****************************************************************************80
 //
@@ -3068,7 +3147,7 @@ float r4_normal ( float a, float b, int *seed )
 //
 //    Input, float B, the standard deviation of the PDF.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R4_NORMAL, a sample of the normal PDF.
 //
@@ -3081,7 +3160,7 @@ float r4_normal ( float a, float b, int *seed )
 }
 //****************************************************************************80
 
-float r4_normal_01 ( int *seed )
+float r4_normal_01 ( int &seed )
 
 //****************************************************************************80
 //
@@ -3111,15 +3190,14 @@ float r4_normal_01 ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R4_NORMAL_01, a normally distributed random value.
 //
 {
-# define PI 3.1415926
-
   float r1;
   float r2;
+  const float r4_pi = 3.141592653589793;
   static int used = -1;
   static int seed1 = 0;
   static int seed2 = 0;
@@ -3137,7 +3215,7 @@ float r4_normal_01 ( int *seed )
 //
   if ( ( used % 2 ) == 0 )
   {
-    seed1 = *seed;
+    seed1 = seed;
     r1 = r4_uniform_01 ( seed );
 
     if ( r1 == 0.0 )
@@ -3148,13 +3226,13 @@ float r4_normal_01 ( int *seed )
       exit ( 1 );
     }
 
-    seed2 = *seed;
+    seed2 = seed;
     r2 = r4_uniform_01 ( seed );
-    seed3 = *seed;
-    *seed = seed2;
+    seed3 = seed;
+    seed = seed2;
 
-    x = sqrt ( - 2.0 * log ( r1 ) ) * cos ( 2.0 * PI * r2 );
-    y = sqrt ( - 2.0 * log ( r1 ) ) * sin ( 2.0 * PI * r2 );
+    x = sqrt ( - 2.0 * log ( r1 ) ) * cos ( 2.0 * r4_pi * r2 );
+    y = sqrt ( - 2.0 * log ( r1 ) ) * sin ( 2.0 * r4_pi * r2 );
   }
 //
 //  Otherwise, return the second, saved, value and the corresponding
@@ -3163,7 +3241,7 @@ float r4_normal_01 ( int *seed )
   else
   {
     x = y;
-    *seed = seed3;
+    seed = seed3;
   }
 
   used = used + 1;
@@ -3198,7 +3276,7 @@ float r4_pi ( )
 //    Output, float R4_PI, the value of PI.
 //
 {
-  float value = 3.1415926;
+  float value = 3.141592653589793;
 
   return value;
 }
@@ -3504,6 +3582,61 @@ float r4_reverse_bytes ( float x )
 }
 //****************************************************************************80
 
+int r4_round_i4 ( float x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_ROUND_I4 rounds an R4, returning an I4.
+//
+//  Example:
+//
+//        X         Value
+//
+//      1.3         1
+//      1.4         1
+//      1.5         1 or 2
+//      1.6         2
+//      0.0         0
+//     -0.7        -1
+//     -1.1        -1
+//     -1.6        -2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float X, the value.
+//
+//    Output, int R4_ROUND_I4, the rounded value.
+//
+{
+  int value;
+
+  if ( x < 0.0 )
+  {
+    value = - floor ( - x + 0.5 );
+  }
+  else
+  {
+    value =   floor (   x + 0.5 );
+  }
+
+  return value;
+}
+//****************************************************************************80
+
 float r4_round2 ( int nplace, float x )
 
 //****************************************************************************80
@@ -3656,7 +3789,7 @@ float r4_roundb ( int base, int nplace, float x )
 //
 //    Assume that the input quantity X has the form
 //
-//      X = S * J * BASE**L
+//      X = S * J * BASE^L
 //
 //    where S is plus or minus 1, L is an integer, and J is a
 //    mantissa base BASE which is either exactly zero, or greater
@@ -3664,7 +3797,7 @@ float r4_roundb ( int base, int nplace, float x )
 //
 //    Then on return, XROUND will satisfy
 //
-//      XROUND = S * K * BASE**L
+//      XROUND = S * K * BASE^L
 //
 //    where S and L are unchanged, and K is a mantissa base BASE
 //    which agrees with J in the first NPLACE digits and is zero
@@ -3680,8 +3813,8 @@ float r4_roundb ( int base, int nplace, float x )
 //    1/BASE, 2/BASE, ..., (BASE-1)/BASE.
 //
 //    If NPLACE is 2, the mantissa of XROUND will be 0,
-//    BASE/BASE**2, (BASE+1)/BASE**2, ...,
-//    BASE**2-2/BASE**2, BASE**2-1/BASE**2.
+//    BASE/BASE^2, (BASE+1)/BASE^2, ...,
+//    BASE^2-2/BASE^2, BASE^2-1/BASE^2.
 //
 //  Licensing:
 //
@@ -4014,6 +4147,51 @@ float r4_sign ( float x )
 }
 //****************************************************************************80
 
+float r4_sign3 ( float x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_SIGN3 returns the threew-way sign of an R4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    28 October 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float X, the number whose sign is desired.
+//
+//    Output, float R4_SIGN3, the sign of X.
+//
+{
+  float value;
+
+  if ( x < 0.0 )
+  {
+    value = -1.0;
+  }
+  else if ( x == 0.0 )
+  {
+    value = 0.0;
+  }
+  else
+  {
+    value = 1.0;
+  }
+  return value;
+}
+//****************************************************************************80
+
 bool r4_sign_opposite ( float r1, float r2 )
 
 //****************************************************************************80
@@ -4098,7 +4276,7 @@ bool r4_sign_opposite_strict ( float r1, float r2 )
 }
 //****************************************************************************80
 
-void r4_swap ( float *x, float *y )
+void r4_swap ( float &x, float &y )
 
 //****************************************************************************80
 //
@@ -4120,21 +4298,21 @@ void r4_swap ( float *x, float *y )
 //
 //  Parameters:
 //
-//    Input/output, float *X, *Y.  On output, the values of X and
+//    Input/output, float &X, &Y.  On output, the values of X and
 //    Y have been interchanged.
 //
 {
   float z;
 
-  z = *x;
-  *x = *y;
-  *y = z;
+  z = x;
+  x = y;
+  y = z;
 
   return;
 }
 //****************************************************************************80
 
-void r4_swap3 ( float *x, float *y, float *z )
+void r4_swap3 ( float &x, float &y, float &z )
 
 //****************************************************************************80
 //
@@ -4166,15 +4344,15 @@ void r4_swap3 ( float *x, float *y, float *z )
 //
 //  Parameters:
 //
-//    Input/output, float *X, *Y, *Z, three values to be swapped.
+//    Input/output, float &X, &Y, &Z, three values to be swapped.
 //
 {
   double w;
 
-   w = *x;
-  *x = *y;
-  *y = *z;
-  *z =  w;
+  w = x;
+  x = y;
+  y = z;
+  z = w;
 
   return;
 }
@@ -4205,9 +4383,7 @@ float r4_tiny ( )
 //    Output, float R4_TINY, a "tiny" R4 value.
 //
 {
-  float value;
-
-  value = 0.1175494350822E-37;
+  const float value = 0.1175494350822E-37;
 
   return value;
 }
@@ -4438,71 +4614,7 @@ float r4_to_r4_discrete ( float r, float rmin, float rmax, int nr )
 }
 //****************************************************************************80
 
-float r4_uniform ( float a, float b, int *seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4_UNIFORM returns a scaled pseudorandom R4.
-//
-//  Discussion:
-//
-//    The pseudorandom number should be uniformly distributed
-//    between A and B.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    21 November 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float A, B, the limits of the interval.
-//
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
-//    On output, SEED has been updated.
-//
-//    Output, float R4_UNIFORM, a number strictly between A and B.
-//
-{
-  int i4_huge = 2147483647;
-  int k;
-  float value;
-
-  if ( *seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "R4_UNIFORM - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
-  {
-    *seed = *seed + i4_huge;
-  }
-
-  value = ( float ) ( *seed ) * 4.656612875E-10;
-
-  value = a + ( b - a ) * value;
-
-  return value;
-}
-//****************************************************************************80
-
-float r4_uniform_01 ( int *seed )
+float r4_uniform_01 ( int &seed )
 
 //****************************************************************************80
 //
@@ -4514,8 +4626,8 @@ float r4_uniform_01 ( int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      r4_uniform_01 = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      r4_uniform_01 = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -4567,7 +4679,7 @@ float r4_uniform_01 ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has been updated.
 //
 //    Output, float R4_UNIFORM_01, a new pseudorandom variate, strictly between
@@ -4577,7 +4689,7 @@ float r4_uniform_01 ( int *seed )
   int k;
   float value;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R4_UNIFORM_01 - Fatal error!\n";
@@ -4585,25 +4697,89 @@ float r4_uniform_01 ( int *seed )
     exit ( 1 );
   }
 
-  k = *seed / 127773;
+  k = seed / 127773;
 
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + 2147483647;
+    seed = seed + 2147483647;
   }
 //
 //  Although SEED can be represented exactly as a 32 bit integer,
 //  it generally cannot be represented exactly as a 32 bit real number.
 //
-  value = ( float ) ( *seed ) * 4.656612875E-10;
+  value = ( float ) ( seed ) * 4.656612875E-10;
 
   return value;
 }
 //****************************************************************************80
 
-void r4_unswap3 ( float *x, float *y, float *z )
+float r4_uniform_ab ( float a, float b, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_UNIFORM_AB returns a scaled pseudorandom R4.
+//
+//  Discussion:
+//
+//    The pseudorandom number should be uniformly distributed
+//    between A and B.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 November 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float A, B, the limits of the interval.
+//
+//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
+//    On output, SEED has been updated.
+//
+//    Output, float R4_UNIFORM_AB, a number strictly between A and B.
+//
+{
+  int i4_huge = 2147483647;
+  int k;
+  float value;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "R4_UNIFORM_AB - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  k = seed / 127773;
+
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+  if ( seed < 0 )
+  {
+    seed = seed + i4_huge;
+  }
+
+  value = ( float ) ( seed ) * 4.656612875E-10;
+
+  value = a + ( b - a ) * value;
+
+  return value;
+}
+//****************************************************************************80
+
+void r4_unswap3 ( float &x, float &y, float &z )
 
 //****************************************************************************80
 //
@@ -4635,15 +4811,15 @@ void r4_unswap3 ( float *x, float *y, float *z )
 //
 //  Parameters:
 //
-//    Input/output, float *X, *Y, *Z, three values to be swapped.
+//    Input/output, float &X, &Y, &Z, three values to be swapped.
 //
 {
   float w;
 
-   w = *z;
-  *z = *y;
-  *y = *x;
-  *x =  w;
+  w = z;
+  z = y;
+  y = x;
+  x = w;
 
   return;
 }
@@ -4757,7 +4933,7 @@ float *r42_cheby ( int n, float alo, float ahi )
   float *a;
   float arg;
   int i;
-  float pi = 3.141592653589793;
+  const float r4_pi = 3.141592653589793;
 
   a = new float[n];
 
@@ -4769,7 +4945,7 @@ float *r42_cheby ( int n, float alo, float ahi )
   {
     for ( i = 0; i < n; i++ )
     {
-      arg = ( float ) ( 2 * i + 1 ) * pi / ( float ) ( 2 * n );
+      arg = ( float ) ( 2 * i + 1 ) * r4_pi / ( float ) ( 2 * n );
 
       a[i] = 0.5 * ( ( 1.0 + cos ( arg ) ) * alo
                    + ( 1.0 - cos ( arg ) ) * ahi );
@@ -4826,7 +5002,7 @@ void r42_print ( float a[2], string title )
 }
 //****************************************************************************80
 
-void r42_uniform ( float b, float c, int *seed, float r[] )
+void r42_uniform ( float b, float c, int &seed, float r[] )
 
 //****************************************************************************80
 //
@@ -4854,7 +5030,7 @@ void r42_uniform ( float b, float c, int *seed, float r[] )
 //
 //    Input, float B, C, the minimum and maximum values.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R[2], the randomly chosen value.
 //
@@ -4863,7 +5039,7 @@ void r42_uniform ( float b, float c, int *seed, float r[] )
 
   for ( i = 0; i < 2; i++ )
   {
-    r[i] = r4_uniform ( b, c, seed );
+    r[i] = r4_uniform_ab ( b, c, seed );
   }
 
   return;
@@ -6656,6 +6832,59 @@ void r4block_print ( int l, int m, int n, float a[], string title )
 }
 //****************************************************************************80
 
+float *r4block_zero_new ( int l, int m, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4BLOCK_ZERO_NEW returns a new zeroed R4BLOCK.
+//
+//  Discussion:
+//
+//    An R4BLOCK is a triple dimensioned array of R4 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int L, M, N, the number of rows and columns.
+//
+//    Output, float R4BLOCK_ZERO_NEW[L*M*N], the new zeroed matrix.
+//
+{
+  float *a;
+  int i;
+  int j;
+  int k;
+
+  a = new float[l*m*n];
+
+  for ( k = 0; k < n; k++ )
+  {
+    for ( j = 0; j < m; j++ )
+    {
+      for ( i = 0; i < l; i++ )
+      {
+        a[i+j*l+k*l*m] = 0.0;
+      }
+    }
+  }
+  return a;
+}
+//****************************************************************************80
+
 int r4col_compare ( int m, int n, float a[], int i, int j )
 
 //****************************************************************************80
@@ -6762,7 +6991,7 @@ int r4col_compare ( int m, int n, float a[], int i, int j )
 }
 //****************************************************************************80
 
-float *r4col_duplicates ( int m, int n, int n_unique, int *seed )
+float *r4col_duplicates ( int m, int n, int n_unique, int &seed )
 
 //****************************************************************************80
 //
@@ -6799,7 +7028,7 @@ float *r4col_duplicates ( int m, int n, int n_unique, int *seed )
 //    Input, int N_UNIQUE, the number of unique columns in A.
 //    1 <= N_UNIQUE <= N.
 //
-//    Input/output, int *SEED, a seed for the random
+//    Input/output, int &SEED, a seed for the random
 //    number generator.
 //
 //    Output, float R4COL_DUPLICATES[M*N], the array.
@@ -8704,7 +8933,6 @@ int r4col_sorted_unique ( int m, int n, float a[] )
 //    Output, int UNIQUE_NUM, the number of unique columns.
 //
 {
-  float diff;
   bool equal;
   int i;
   int j1;
@@ -8783,7 +9011,6 @@ int r4col_sorted_unique_count ( int m, int n, float a[] )
 //    Output, int R4COL_SORTED_UNIQUE_COUNT, the number of unique columns.
 //
 {
-  float diff;
   bool equal;
   int i;
   int j1;
@@ -14709,7 +14936,7 @@ int r4mat_nullspace_size ( int m, int n, float a[] )
 }
 //****************************************************************************80
 
-float *r4mat_orth_uniform_new ( int n, int *seed )
+float *r4mat_orth_uniform_new ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -14788,7 +15015,7 @@ float *r4mat_orth_uniform_new ( int n, int *seed )
 //
 //    Input, int N, the order of A.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R4MAT_ORTH_UNIFORM_NEW[N*N], the orthogonal matrix.
 //
@@ -15252,7 +15479,6 @@ void r4mat_power_method ( int n, float a[], float *r, float v[] )
   }
   return;
 }
-
 //****************************************************************************80
 
 void r4mat_print ( int m, int n, float a[], string title )
@@ -15365,8 +15591,14 @@ void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
   for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
   {
     j2hi = j2lo + INCX - 1;
-    j2hi = i4_min ( j2hi, n );
-    j2hi = i4_min ( j2hi, jhi );
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
 
     cout << "\n";
 //
@@ -15385,8 +15617,22 @@ void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
 //
 //  Determine the range of the rows in this strip.
 //
-    i2lo = i4_max ( ilo, 1 );
-    i2hi = i4_min ( ihi, m );
+    if ( 1 < ilo )
+    {
+      i2lo = ilo;
+    }
+    else
+    {
+      i2lo = 1;
+    }
+    if ( ihi < m )
+    {
+      i2hi = ihi;
+    }
+    else
+    {
+      i2hi = m;
+    }
 
     for ( i = i2lo; i <= i2hi; i++ )
     {
@@ -16874,7 +17120,7 @@ float *r4mat_u1_inverse ( int n, float a[] )
 }
 //****************************************************************************80
 
-void r4mat_uniform_01 ( int m, int n, int *seed, float r[] )
+void r4mat_uniform_01 ( int m, int n, int &seed, float r[] )
 
 //****************************************************************************80
 //
@@ -16939,7 +17185,7 @@ void r4mat_uniform_01 ( int m, int n, int *seed, float r[] )
 //
 //    Input, int M, N, the number of rows and columns.
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has
 //    been updated.
 //
@@ -16951,7 +17197,7 @@ void r4mat_uniform_01 ( int m, int n, int *seed, float r[] )
   int j;
   int k;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R4MAT_UNIFORM_01 - Fatal error!\n";
@@ -16963,23 +17209,23 @@ void r4mat_uniform_01 ( int m, int n, int *seed, float r[] )
   {
     for ( i = 0; i < m; i++ )
     {
-      k = *seed / 127773;
+      k = seed / 127773;
 
-      *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-      if ( *seed < 0 )
+      if ( seed < 0 )
       {
-        *seed = *seed + i4_huge;
+        seed = seed + i4_huge;
       }
 
-      r[i+j*m] = ( float ) ( *seed ) * 4.656612875E-10;
+      r[i+j*m] = ( float ) ( seed ) * 4.656612875E-10;
     }
   }
   return;
 }
 //****************************************************************************80
 
-float *r4mat_uniform_new ( int m, int n, float a, float b, int *seed )
+float *r4mat_uniform_new ( int m, int n, float a, float b, int &seed )
 
 //****************************************************************************80
 //
@@ -17036,9 +17282,7 @@ float *r4mat_uniform_new ( int m, int n, float a, float b, int *seed )
 //
 //    Input, float A, B, the limits of the pseudorandom values.
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
-//    value should not be 0, otherwise the output value of SEED
-//    will still be 0, and R4_UNIFORM will be 0.  On output, SEED has
+//    Input/output, int &SEED, the "seed" value.  On output, SEED has
 //    been updated.
 //
 //    Output, float R4MAT_UNIFORM_NEW[M*N], a matrix of pseudorandom values.
@@ -17055,15 +17299,15 @@ float *r4mat_uniform_new ( int m, int n, float a, float b, int *seed )
   {
     for ( i = 0; i < m; i++ )
     {
-      k = *seed / 127773;
+      k = seed / 127773;
 
-      *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-      if ( *seed < 0 )
+      if ( seed < 0 )
       {
-        *seed = *seed + 2147483647;
+        seed = seed + 2147483647;
       }
-      r[i+j*m] = a + ( b - a ) * ( float ) ( *seed ) * 4.656612875E-10;
+      r[i+j*m] = a + ( b - a ) * ( float ) ( seed ) * 4.656612875E-10;
     }
   }
 
@@ -17071,7 +17315,7 @@ float *r4mat_uniform_new ( int m, int n, float a, float b, int *seed )
 }
 //****************************************************************************80
 
-float *r4mat_uniform_01_new ( int m, int n, int *seed )
+float *r4mat_uniform_01_new ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -17126,9 +17370,7 @@ float *r4mat_uniform_01_new ( int m, int n, int *seed )
 //
 //    Input, int M, N, the number of rows and columns.
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
-//    value should not be 0, otherwise the output value of SEED
-//    will still be 0, and R4_UNIFORM will be 0.  On output, SEED has
+//    Input/output, int &SEED, the "seed" value.  On output, SEED has
 //    been updated.
 //
 //    Output, float R4MAT_UNIFORM_01_NEW[M*N], a matrix of pseudorandom values.
@@ -17145,15 +17387,15 @@ float *r4mat_uniform_01_new ( int m, int n, int *seed )
   {
     for ( i = 0; i < m; i++ )
     {
-      k = *seed / 127773;
+      k = seed / 127773;
 
-      *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-      if ( *seed < 0 )
+      if ( seed < 0 )
       {
-        *seed = *seed + 2147483647;
+        seed = seed + 2147483647;
       }
-      r[i+j*m] = ( float ) ( *seed ) * 4.656612875E-10;
+      r[i+j*m] = ( float ) ( seed ) * 4.656612875E-10;
     }
   }
 
@@ -17324,7 +17566,7 @@ float *r4mat_zero_new ( int m, int n )
 //
 //    Input, int M, N, the number of rows and columns.
 //
-//    Output, float R4MAT_ZERO[M*N], the new zeroed matrix.
+//    Output, float R4MAT_ZERO_NEW[M*N], the new zeroed matrix.
 //
 {
   float *a;
@@ -19333,9 +19575,9 @@ void r4poly3_root ( float a, float b, float c, float d,
 //
 {
   complex <float> i;
-  float pi = 3.141592653589793;
   float q;
   float r;
+  const float r4_pi = 3.141592653589793;
   float s1;
   float s2;
   float temp;
@@ -19359,9 +19601,9 @@ void r4poly3_root ( float a, float b, float c, float d,
   if ( r * r < q * q * q )
   {
     theta = acos ( r / sqrt ( pow ( q, 3 ) ) );
-    *r1 = -2.0 * sqrt ( q ) * cos (   theta              / 3.0 );
-    *r2 = -2.0 * sqrt ( q ) * cos ( ( theta + 2.0 * pi ) / 3.0 );
-    *r3 = -2.0 * sqrt ( q ) * cos ( ( theta + 4.0 * pi ) / 3.0 );
+    *r1 = -2.0 * sqrt ( q ) * cos (   theta                 / 3.0 );
+    *r2 = -2.0 * sqrt ( q ) * cos ( ( theta + 2.0 * r4_pi ) / 3.0 );
+    *r3 = -2.0 * sqrt ( q ) * cos ( ( theta + 4.0 * r4_pi ) / 3.0 );
   }
   else if ( q * q * q <= r * r )
   {
@@ -22408,6 +22650,66 @@ float r4vec_correlation ( int n, float x[], float y[] )
   }
 
   return correlation;
+}
+//****************************************************************************80
+
+float r4vec_covar ( int n, float x[], float y[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4VEC_COVAR computes the covariance of two vectors.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 April 2013
+//
+//  Author:
+//
+//    John Burkardt.
+//
+//  Parameters:
+//
+//    Input, int N, the dimension of the two vectors.
+//
+//    Input, float X[N], Y[N], the two vectors.
+//
+//    Output, float R4VEC_COVAR, the covariance of the two vectors.
+//
+{
+  int i;
+  float value;
+  float x_average;
+  float y_average;
+
+  x_average = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    x_average = x_average + x[i];
+  }
+  x_average = x_average / ( float ) ( n );
+
+  y_average = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    y_average = y_average + x[i];
+  }
+  y_average = y_average / ( float ) ( n );
+
+  value = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    value = value + ( x[i] - x_average ) * ( y[i] - y_average );
+  }
+
+  value = value / ( float ) ( n - 1 );
+
+  return value;
 }
 //****************************************************************************80
 
@@ -26100,13 +26402,13 @@ int r4vec_indexed_heap_d_max ( int n, float a[], int indx[] )
 }
 //****************************************************************************80
 
-void r4vec_indicator ( int n, float a[] )
+void r4vec_indicator0 ( int n, float a[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4VEC_INDICATOR sets an R4VEC to the indicator vector.
+//    R4VEC_INDICATOR0 sets an R4VEC to the indicator vector {0,1,2,...}.
 //
 //  Licensing:
 //
@@ -26114,7 +26416,90 @@ void r4vec_indicator ( int n, float a[] )
 //
 //  Modified:
 //
-//    03 June 2009
+//    27 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of elements of A.
+//
+//    Output, float A[N], the array to be initialized.
+//
+{
+  int i;
+
+  for ( i = 0; i < n; i++ )
+  {
+    a[i] = ( float ) i;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+float *r4vec_indicator0_new ( int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4VEC_INDICATOR0_NEW sets an R4VEC to the indicator vector {0,1,2,...}.
+//
+//  Discussion:
+//
+//    An R4VEC is a vector of R4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    27 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of elements of A.
+//
+//    Output, float R4VEC_INDICATOR0_NEW[N], the indicator array.
+//
+{
+  float *a;
+  int i;
+
+  a = new float[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    a[i] = ( float ) i;
+  }
+
+  return a;
+}
+//****************************************************************************80
+
+void r4vec_indicator1 ( int n, float a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4VEC_INDICATOR1 sets an R4VEC to the indicator vector {1,2,3,...}.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    27 September 2014
 //
 //  Author:
 //
@@ -26138,13 +26523,13 @@ void r4vec_indicator ( int n, float a[] )
 }
 //****************************************************************************80
 
-float *r4vec_indicator_new ( int n )
+float *r4vec_indicator1_new ( int n )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4VEC_INDICATOR_NEW sets an R4VEC to the indicator vector {1,2,3...}.
+//    R4VEC_INDICATOR1_NEW sets an R4VEC to the indicator vector {1,2,3,...}.
 //
 //  Discussion:
 //
@@ -26156,7 +26541,7 @@ float *r4vec_indicator_new ( int n )
 //
 //  Modified:
 //
-//    20 September 2005
+//    27 September 2014
 //
 //  Author:
 //
@@ -26166,7 +26551,7 @@ float *r4vec_indicator_new ( int n )
 //
 //    Input, int N, the number of elements of A.
 //
-//    Output, float R4VEC_INDICATOR_NEW[N], the indicator array.
+//    Output, float R4VEC_INDICATOR1_NEW[N], the indicator array.
 //
 {
   float *a;
@@ -26174,7 +26559,7 @@ float *r4vec_indicator_new ( int n )
 
   a = new float[n];
 
-  for ( i = 0; i <= n-1; i++ )
+  for ( i = 0; i < n; i++ )
   {
     a[i] = ( float ) ( i + 1 );
   }
@@ -26701,17 +27086,17 @@ float r4vec_mean ( int n, float x[] )
 //
 {
   int i;
-  float mean;
+  float value;
 
-  mean = 0.0;
+  value = 0.0;
   for ( i = 0; i < n; i++ )
   {
-    mean = mean + x[i];
+    value = value + x[i];
   }
 
-  mean = mean / ( float ) n;
+  value = value / ( float ) n;
 
-  return mean;
+  return value;
 }
 //****************************************************************************80
 
@@ -26904,15 +27289,13 @@ float r4vec_min_pos ( int n, float a[] )
 //
 //    Input, float A[N], the array.
 //
-//    Output, float R4VEC_MIN_POS, the smallest positive entry,
-//    or R4_HUGE if no entry is positive.
+//    Output, float R4VEC_MIN_POS, the smallest positive entry.
 //
 {
   int i;
-  float r4_huge = 1.0E+30;
   float value;
 
-  value = r4_huge;
+  value = r4_huge ( );
 
   for ( i = 0; i < n; i++ )
   {
@@ -27500,7 +27883,7 @@ float r4vec_norm_lp ( int n, float a[], float p )
 }
 //****************************************************************************80
 
-float *r4vec_normal_01 ( int n, int *seed )
+float *r4vec_normal_01 ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -27548,7 +27931,7 @@ float *r4vec_normal_01 ( int n, int *seed )
 //    instead discarded.  This is useful if the user has reset the
 //    random number seed, for instance.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float X[N], a sample of the standard normal PDF.
 //
@@ -27578,8 +27961,8 @@ float *r4vec_normal_01 ( int n, int *seed )
   int i;
   int m;
   static int made = 0;
-  float pi = 3.141592653589793;
   float *r;
+  const float r4_pi = 3.141592653589793;
   static int saved = 0;
   float *x;
   int x_hi;
@@ -27632,8 +28015,8 @@ float *r4vec_normal_01 ( int n, int *seed )
   {
     r = r4vec_uniform_01_new ( 2, seed );
 
-    x[x_hi-1] = sqrt ( -2.0 * log ( r[0] ) ) * cos ( 2.0 * pi * r[1] );
-    y =         sqrt ( -2.0 * log ( r[0] ) ) * sin ( 2.0 * pi * r[1] );
+    x[x_hi-1] = sqrt ( -2.0 * log ( r[0] ) ) * cos ( 2.0 * r4_pi * r[1] );
+    y =         sqrt ( -2.0 * log ( r[0] ) ) * sin ( 2.0 * r4_pi * r[1] );
 
     saved = 1;
 
@@ -27648,12 +28031,12 @@ float *r4vec_normal_01 ( int n, int *seed )
   {
     m = ( x_hi - x_lo + 1 ) / 2;
 
-    r = r4vec_uniform_01_new ( 2*m, seed );
+    r = r4vec_uniform_01_new ( 2 * m, seed );
 
-    for ( i = 0; i <= 2*m-2; i = i + 2 )
+    for ( i = 0; i <= 2 * m - 2; i = i + 2 )
     {
-      x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
-      x[x_lo+i  ] = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
+      x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * r4_pi * r[i+1] );
+      x[x_lo+i  ] = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * r4_pi * r[i+1] );
     }
     made = made + x_hi - x_lo + 1;
 
@@ -27674,14 +28057,14 @@ float *r4vec_normal_01 ( int n, int *seed )
 
     for ( i = 0; i <= 2*m-4; i = i + 2 )
     {
-      x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
-      x[x_lo+i  ] = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
+      x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * r4_pi * r[i+1] );
+      x[x_lo+i  ] = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * r4_pi * r[i+1] );
     }
 
     i = 2*m - 2;
 
-    x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
-    y           = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
+    x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * r4_pi * r[i+1] );
+    y           = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * r4_pi * r[i+1] );
 
     saved = 1;
 
@@ -28424,7 +28807,7 @@ void r4vec_permute_cyclic ( int n, int k, float a[] )
 }
 //****************************************************************************80
 
-void r4vec_permute_uniform ( int n, float a[], int *seed )
+void r4vec_permute_uniform ( int n, float a[], int &seed )
 
 //****************************************************************************80
 //
@@ -28454,7 +28837,7 @@ void r4vec_permute_uniform ( int n, float a[], int *seed )
 //
 //    Input/output, float A[N], the array to be permuted.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 {
   int base = 0;
@@ -29240,7 +29623,6 @@ void r4vec_shift ( int shift, int n, float x[] )
   int i;
   int ihi;
   int ilo;
-  int j;
   float *y;
 
   y = new float[n];
@@ -30199,7 +30581,7 @@ int *r4vec_sort_heap_mask_a ( int n, float a[], int mask_num, int mask[] )
     return indx;
   }
 
-  indx = i4vec_indicator_new ( mask_num );
+  indx = i4vec_indicator1_new ( mask_num );
 
   l = mask_num / 2 + 1;
   ir = mask_num;
@@ -30372,7 +30754,7 @@ int *r4vec_sort_insert_index_a ( int n, float a[] )
     return NULL;
   }
 
-  indx = i4vec_indicator_new ( n );
+  indx = i4vec_indicator1_new ( n );
 
   for ( i = 2; i <= n; i++ )
   {
@@ -32178,7 +32560,7 @@ void r4vec_undex ( int x_num, float x_val[], int x_unique_num, float tol,
 }
 //****************************************************************************80
 
-void r4vec_uniform ( int n, float b, float c, int *seed, float r[] )
+void r4vec_uniform ( int n, float b, float c, int &seed, float r[] )
 
 //****************************************************************************80
 //
@@ -32245,7 +32627,7 @@ void r4vec_uniform ( int n, float b, float c, int *seed, float r[] )
 //
 //    Input, float B, C, the lower and upper limits of the pseudorandom values.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R[N], the vector of pseudorandom values.
 //
@@ -32254,7 +32636,7 @@ void r4vec_uniform ( int n, float b, float c, int *seed, float r[] )
   int i4_huge = 2147483647;
   int k;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R4VEC_UNIFORM - Fatal error!\n";
@@ -32264,23 +32646,23 @@ void r4vec_uniform ( int n, float b, float c, int *seed, float r[] )
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + i4_huge;
+      seed = seed + i4_huge;
     }
 
-    r[i] = b + ( c - b ) * ( float ) ( *seed ) * 4.656612875E-10;
+    r[i] = b + ( c - b ) * ( float ) ( seed ) * 4.656612875E-10;
   }
 
   return;
 }
 //****************************************************************************80
 
-float *r4vec_uniform_new ( int n, float b, float c, int *seed )
+float *r4vec_uniform_new ( int n, float b, float c, int &seed )
 
 //****************************************************************************80
 //
@@ -32347,7 +32729,7 @@ float *r4vec_uniform_new ( int n, float b, float c, int *seed )
 //
 //    Input, float B, C, the lower and upper limits of the pseudorandom values.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R4VEC_UNIFORM_NEW[N], the vector of pseudorandom values.
 //
@@ -32357,7 +32739,7 @@ float *r4vec_uniform_new ( int n, float b, float c, int *seed )
   int k;
   float *r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R4VEC_UNIFORM_NEW - Fatal error!\n";
@@ -32369,23 +32751,23 @@ float *r4vec_uniform_new ( int n, float b, float c, int *seed )
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + i4_huge;
+      seed = seed + i4_huge;
     }
 
-    r[i] = b + ( c - b ) * ( float ) ( *seed ) * 4.656612875E-10;
+    r[i] = b + ( c - b ) * ( float ) ( seed ) * 4.656612875E-10;
   }
 
   return r;
 }
 //****************************************************************************80
 
-void r4vec_uniform_01 ( int n, int *seed, float r[] )
+void r4vec_uniform_01 ( int n, int &seed, float r[] )
 
 //****************************************************************************80
 //
@@ -32450,7 +32832,7 @@ void r4vec_uniform_01 ( int n, int *seed, float r[] )
 //
 //    Input, int N, the number of entries in the vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R[N], the vector of pseudorandom values.
 //
@@ -32459,7 +32841,7 @@ void r4vec_uniform_01 ( int n, int *seed, float r[] )
   int i4_huge = 2147483647;
   int k;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R4VEC_UNIFORM_01 - Fatal error!\n";
@@ -32469,23 +32851,23 @@ void r4vec_uniform_01 ( int n, int *seed, float r[] )
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + i4_huge;
+      seed = seed + i4_huge;
     }
 
-    r[i] = ( float ) ( *seed ) * 4.656612875E-10;
+    r[i] = ( float ) ( seed ) * 4.656612875E-10;
   }
 
   return;
 }
 //****************************************************************************80
 
-float *r4vec_uniform_01_new ( int n, int *seed )
+float *r4vec_uniform_01_new ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -32550,7 +32932,7 @@ float *r4vec_uniform_01_new ( int n, int *seed )
 //
 //    Input, int N, the number of entries in the vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, float R4VEC_UNIFORM_01_NEW[N], the vector of pseudorandom values.
 //
@@ -32560,7 +32942,7 @@ float *r4vec_uniform_01_new ( int n, int *seed )
   int k;
   float *r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R4VEC_UNIFORM_01_NEW - Fatal error!\n";
@@ -32572,16 +32954,16 @@ float *r4vec_uniform_01_new ( int n, int *seed )
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + i4_huge;
+      seed = seed + i4_huge;
     }
 
-    r[i] = ( float ) ( *seed ) * 4.656612875E-10;
+    r[i] = ( float ) ( seed ) * 4.656612875E-10;
   }
 
   return r;

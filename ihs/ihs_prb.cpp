@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    IHS_PRB tests the improved hypercube sampling algorithm.
+//    MAIN is the main program for IHS_PRB.
+//
+//  Discussion:
+//
+//    IHS_PRB tests the IHS library.
 //
 //  Licensing:
 //
@@ -37,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "IHS_PRB\n";
   cout << "  C++ version\n";
@@ -53,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "IHS_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -104,8 +106,6 @@ void test01 ( )
 
   for ( dim_num = 1; dim_num <= 4; dim_num++ )
   {
-    x = new int [ dim_num * point_num ];
-
     seed = 17;
 
     opt = ( ( double ) point_num ) /
@@ -121,31 +121,20 @@ void test01 ( )
 //
 //  Get the points.
 //
-    ihs ( dim_num, point_num, duplication, &seed, x );
+    x = ihs ( dim_num, point_num, duplication, seed );
 //
 //  Compute the covariance.
 //
-    covariance ( dim_num, point_num, x, &average, &std, &covc );
+    covariance ( dim_num, point_num, x, average, std, covc );
 
     cout << "\n";
     cout << "  Average minimum distance " << average << "\n";
     cout << "  Standard deviation:      " << std << "\n";
     cout << "  Covariance:              " << covc << "\n";
 
-    cout << "\n";
-
-    for ( j = 0; j < point_num; j++ )
-    {
-      cout << setw(4) << j+1 << "    ";
-      for ( i = 0; i < dim_num; i++ )
-      {
-        cout << setw(4) << x[i+j*dim_num] << "  ";
-      }
-      cout << "\n";
-    }
+    i4mat_transpose_print ( dim_num, point_num, x, "  X:" );
 
     delete [] x;
-
   }
 
   return;
@@ -184,8 +173,8 @@ void test02 ( )
   double opt;
   int seed;
   double std;
-  int x[ DIM_NUM * POINT_NUM ];
-//
+  int *x;
+
   cout << "\n";
   cout << "TEST02\n";
   cout << "  IHS implements the IHS Algorithm\n";
@@ -213,29 +202,20 @@ void test02 ( )
 //
 //  Get the points.
 //
-    ihs ( DIM_NUM, POINT_NUM, duplication, &seed, x );
+    x = ihs ( DIM_NUM, POINT_NUM, duplication, seed );
 //
 //  Compute the covariance.
 //
-    covariance ( DIM_NUM, POINT_NUM, x, &average, &std, &covc );
+    covariance ( DIM_NUM, POINT_NUM, x, average, std, covc );
 
     cout << "\n";
     cout << "  Average minimum distance " << average << "\n";
     cout << "  Standard deviation:      " << std << "\n";
     cout << "  Covariance:              " << covc << "\n";
 
-    cout << "\n";
+    i4mat_transpose_print ( DIM_NUM, POINT_NUM, x, "  X:" );
 
-    for ( j = 0; j < POINT_NUM; j++ )
-    {
-      cout << setw(4) << j+1 << "    ";
-      for ( i = 0; i < DIM_NUM; i++ )
-      {
-        cout << setw(4) << x[i+j*DIM_NUM] << "  ";
-      }
-      cout << "\n";
-    }
-
+    delete [] x;
   }
 
   return;
@@ -297,8 +277,6 @@ void test03 ( )
   {
     point_num = 2 * point_num;
 
-    x = new int [ dim_num * point_num ];
-
     opt = ( ( double ) point_num ) /
       pow ( ( ( double ) point_num ),
       ( double ) ( 1.0E+00 / ( ( double ) dim_num ) ) );
@@ -312,11 +290,11 @@ void test03 ( )
 //
 //  Get the points.
 //
-    ihs ( dim_num, point_num, duplication, &seed, x );
+    x = ihs ( dim_num, point_num, duplication, seed );
 //
 //  Compute the covariance.
 //
-    covariance ( dim_num, point_num, x, &average, &std, &covc );
+    covariance ( dim_num, point_num, x, average, std, covc );
 
     cout << "\n";
     cout << "  Average minimum distance " << average << "\n";
@@ -381,7 +359,7 @@ void test04 ( )
   double opt;
   int seed;
   double std;
-  int x[ DIM_NUM * POINT_NUM ];
+  int *x;
 
   cout << "\n";
   cout << "TEST04\n";
@@ -411,29 +389,20 @@ void test04 ( )
 //
 //  Get the points.
 //
-    ihs ( DIM_NUM, POINT_NUM, duplication, &seed, x );
+    x = ihs ( DIM_NUM, POINT_NUM, duplication, seed );
 //
 //  Compute the covariance.
 //
-    covariance ( DIM_NUM, POINT_NUM, x, &average, &std, &covc );
+    covariance ( DIM_NUM, POINT_NUM, x, average, std, covc );
 
     cout << "\n";
     cout << "  Average minimum distance " << average << "\n";
     cout << "  Standard deviation:      " << std << "\n";
     cout << "  Covariance:              " << covc << "\n";
 
-    cout << "\n";
+    i4mat_transpose_print ( DIM_NUM, POINT_NUM, x, "  X:" );
 
-    for ( j = 0; j < POINT_NUM; j++ )
-    {
-      cout << setw(4) << j+1 << "    ";
-      for ( i = 0; i < DIM_NUM; i++ )
-      {
-        cout << setw(4) << x[i+j*DIM_NUM] << "  ";
-      }
-      cout << "\n";
-    }
-
+    delete [] x;
   }
 
   return;

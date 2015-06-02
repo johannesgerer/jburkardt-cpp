@@ -10,212 +10,8 @@ using namespace std;
 
 //****************************************************************************80
 
-double alngam ( double xvalue, int *ifault )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ALNGAM computes the logarithm of the gamma function.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    13 January 2008
-//
-//  Author:
-//
-//    Original FORTRAN77 version by Allan Macleod.
-//    C++ version by John Burkardt.
-//
-//  Reference:
-//
-//    Allan Macleod,
-//    Algorithm AS 245,
-//    A Robust and Reliable Algorithm for the Logarithm of the Gamma Function,
-//    Applied Statistics,
-//    Volume 38, Number 2, 1989, pages 397-402.
-//
-//  Parameters:
-//
-//    Input, double XVALUE, the argument of the Gamma function.
-//
-//    Output, int IFAULT, error flag.
-//    0, no error occurred.
-//    1, XVALUE is less than or equal to 0.
-//    2, XVALUE is too big.
-//
-//    Output, double ALNGAM, the logarithm of the gamma function of X.
-//
-{
-  double alr2pi = 0.918938533204673;
-  double r1[9] = {
-    -2.66685511495, 
-    -24.4387534237, 
-    -21.9698958928, 
-     11.1667541262, 
-     3.13060547623, 
-     0.607771387771, 
-     11.9400905721, 
-     31.4690115749, 
-     15.2346874070 };
-  double r2[9] = {
-    -78.3359299449, 
-    -142.046296688, 
-     137.519416416, 
-     78.6994924154, 
-     4.16438922228, 
-     47.0668766060, 
-     313.399215894, 
-     263.505074721, 
-     43.3400022514 };
-  double r3[9] = {
-    -2.12159572323E+05, 
-     2.30661510616E+05, 
-     2.74647644705E+04, 
-    -4.02621119975E+04, 
-    -2.29660729780E+03, 
-    -1.16328495004E+05, 
-    -1.46025937511E+05, 
-    -2.42357409629E+04, 
-    -5.70691009324E+02 };
-  double r4[5] = {
-     0.279195317918525, 
-     0.4917317610505968, 
-     0.0692910599291889, 
-     3.350343815022304, 
-     6.012459259764103 };
-  double value;
-  double x;
-  double x1;
-  double x2;
-  double xlge = 510000.0;
-  double xlgst = 1.0E+30;
-  double y;
-
-  x = xvalue;
-  value = 0.0;
-//
-//  Check the input.
-//
-  if ( xlgst <= x )
-  {
-    *ifault = 2;
-    return value;
-  }
-
-  if ( x <= 0.0 )
-  {
-    *ifault = 1;
-    return value;
-  }
-
-  *ifault = 0;
-//
-//  Calculation for 0 < X < 0.5 and 0.5 <= X < 1.5 combined.
-//
-  if ( x < 1.5 )
-  {
-    if ( x < 0.5 )
-    {
-      value = - log ( x );
-      y = x + 1.0;
-//
-//  Test whether X < machine epsilon.
-//
-      if ( y == 1.0 )
-      {
-        return value;
-      }
-    }
-    else
-    {
-      value = 0.0;
-      y = x;
-      x = ( x - 0.5 ) - 0.5;
-    }
-
-    value = value + x * (((( 
-        r1[4]   * y 
-      + r1[3] ) * y 
-      + r1[2] ) * y 
-      + r1[1] ) * y 
-      + r1[0] ) / (((( 
-                  y 
-      + r1[8] ) * y 
-      + r1[7] ) * y 
-      + r1[6] ) * y 
-      + r1[5] );
-
-    return value;
-  }
-//
-//  Calculation for 1.5 <= X < 4.0.
-//
-  if ( x < 4.0 )
-  {
-    y = ( x - 1.0 ) - 1.0;
-
-    value = y * (((( 
-        r2[4]   * x 
-      + r2[3] ) * x 
-      + r2[2] ) * x 
-      + r2[1] ) * x 
-      + r2[0] ) / (((( 
-                  x 
-      + r2[8] ) * x 
-      + r2[7] ) * x 
-      + r2[6] ) * x 
-      + r2[5] );
-  }
-//
-//  Calculation for 4.0 <= X < 12.0.
-//
-  else if ( x < 12.0 ) 
-  {
-    value = (((( 
-        r3[4]   * x 
-      + r3[3] ) * x 
-      + r3[2] ) * x 
-      + r3[1] ) * x 
-      + r3[0] ) / (((( 
-                  x 
-      + r3[8] ) * x 
-      + r3[7] ) * x 
-      + r3[6] ) * x 
-      + r3[5] );
-  }
-//
-//  Calculation for 12.0 <= X.
-//
-  else
-  {
-    y = log ( x );
-    value = x * ( y - 1.0 ) - 0.5 * y + alr2pi;
-
-    if ( x <= xlge )
-    {
-      x1 = 1.0 / x;
-      x2 = x1 * x1;
-
-      value = value + x1 * ( ( 
-             r4[2]   * 
-        x2 + r4[1] ) * 
-        x2 + r4[0] ) / ( ( 
-        x2 + r4[4] ) * 
-        x2 + r4[3] );
-    }
-  }
-
-  return value;
-}
-//****************************************************************************80
-
-void beta_inc_values ( int *n_data, double *a, double *b, double *x, 
-  double *fx )
+void beta_inc_values ( int &n_data, double &a, double &b, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -227,8 +23,8 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //    The incomplete Beta function may be written
 //
-//      BETA_INC(A,B,X) = Integral (0 to X) T^(A-1) * (1-T)^(B-1) dT
-//                      / Integral (0 to 1) T^(A-1) * (1-T)^(B-1) dT
+//      BETA_INC(A,B,X) = Integral (0 <= t <= X) T^(A-1) * (1-T)^(B-1) dT
+//                      / Integral (0 <= t <= 1) T^(A-1) * (1-T)^(B-1) dT
 //
 //    Thus,
 //
@@ -251,11 +47,11 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    04 January 2005
+//    25 September 2014
 //
 //  Author:
 //
@@ -282,217 +78,229 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *A, B, the parameters of the function.
+//    Output, double &A, &B, the parameters of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 42
+# define N_MAX 45
 
-  double a_vec[N_MAX] = { 
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      5.5E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     30.0E+00,  
-     30.0E+00,  
-     40.0E+00,
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.2E+01, 
-      0.3E+01, 
-      0.4E+01, 
-      0.5E+01 };
-
-  double b_vec[N_MAX] = { 
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      1.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      5.0E+00,  
-      0.5E+00,  
-      5.0E+00,  
-      5.0E+00,  
-     10.0E+00,  
-      5.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
+  static double a_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.5E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
      20.0E+00,
-      0.5E+00, 
-      0.5E+00, 
-      0.5E+00, 
-      0.5E+00, 
-      0.2E+01, 
-      0.3E+01, 
-      0.4E+01, 
-      0.5E+01, 
-      0.2E+01, 
-      0.2E+01, 
-      0.2E+01, 
-      0.2E+01 };
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     30.0E+00,
+     30.0E+00,
+     40.0E+00,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      1.30625,
+      1.30625,
+      1.30625 };
 
-  double fx_vec[N_MAX] = { 
-     0.6376856085851985E-01,  
-     0.2048327646991335E+00,  
-     0.1000000000000000E+01,  
-     0.0000000000000000E+00,  
-     0.5012562893380045E-02,  
-     0.5131670194948620E-01,  
-     0.2928932188134525E+00,  
-     0.5000000000000000E+00,  
-     0.2800000000000000E-01,  
-     0.1040000000000000E+00,  
-     0.2160000000000000E+00,  
-     0.3520000000000000E+00,  
-     0.5000000000000000E+00,  
-     0.6480000000000000E+00,  
-     0.7840000000000000E+00,  
-     0.8960000000000000E+00,  
-     0.9720000000000000E+00,  
-     0.4361908850559777E+00,  
-     0.1516409096347099E+00,  
-     0.8978271484375000E-01,  
-     0.1000000000000000E+01,  
-     0.5000000000000000E+00,  
-     0.4598773297575791E+00,  
-     0.2146816102371739E+00,  
-     0.9507364826957875E+00,  
-     0.5000000000000000E+00,  
-     0.8979413687105918E+00,  
-     0.2241297491808366E+00,  
-     0.7586405487192086E+00,  
+  static double b_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.0E+00,
+      0.5E+00,
+      5.0E+00,
+      5.0E+00,
+     10.0E+00,
+      5.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+     20.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+     11.7562, 
+     11.7562, 
+     11.7562 };
+
+  static double fx_vec[N_MAX] = {
+     0.6376856085851985E-01,
+     0.2048327646991335E+00,
+     0.1000000000000000E+01,
+     0.0000000000000000E+00,
+     0.5012562893380045E-02,
+     0.5131670194948620E-01,
+     0.2928932188134525E+00,
+     0.5000000000000000E+00,
+     0.2800000000000000E-01,
+     0.1040000000000000E+00,
+     0.2160000000000000E+00,
+     0.3520000000000000E+00,
+     0.5000000000000000E+00,
+     0.6480000000000000E+00,
+     0.7840000000000000E+00,
+     0.8960000000000000E+00,
+     0.9720000000000000E+00,
+     0.4361908850559777E+00,
+     0.1516409096347099E+00,
+     0.8978271484375000E-01,
+     0.1000000000000000E+01,
+     0.5000000000000000E+00,
+     0.4598773297575791E+00,
+     0.2146816102371739E+00,
+     0.9507364826957875E+00,
+     0.5000000000000000E+00,
+     0.8979413687105918E+00,
+     0.2241297491808366E+00,
+     0.7586405487192086E+00,
      0.7001783247477069E+00,
-     0.5131670194948620E-01, 
-     0.1055728090000841E+00, 
-     0.1633399734659245E+00, 
-     0.2254033307585166E+00, 
-     0.3600000000000000E+00, 
-     0.4880000000000000E+00, 
-     0.5904000000000000E+00, 
-     0.6723200000000000E+00, 
-     0.2160000000000000E+00, 
-     0.8370000000000000E-01, 
-     0.3078000000000000E-01, 
-     0.1093500000000000E-01 };
+     0.5131670194948620E-01,
+     0.1055728090000841E+00,
+     0.1633399734659245E+00,
+     0.2254033307585166E+00,
+     0.3600000000000000E+00,
+     0.4880000000000000E+00,
+     0.5904000000000000E+00,
+     0.6723200000000000E+00,
+     0.2160000000000000E+00,
+     0.8370000000000000E-01,
+     0.3078000000000000E-01,
+     0.1093500000000000E-01,
+     0.918884684620518,
+     0.21052977489419,
+     0.1824130512500673 };
 
-  double x_vec[N_MAX] = { 
-     0.01E+00,  
-     0.10E+00,  
-     1.00E+00,  
-     0.00E+00,  
-     0.01E+00,  
-     0.10E+00,  
-     0.50E+00,  
-     0.50E+00,  
-     0.10E+00,  
-     0.20E+00,  
-     0.30E+00,  
-     0.40E+00,  
-     0.50E+00,  
-     0.60E+00,  
-     0.70E+00,  
-     0.80E+00,  
-     0.90E+00,  
-     0.50E+00,  
-     0.90E+00,  
-     0.50E+00,  
-     1.00E+00,  
-     0.50E+00,  
-     0.80E+00,  
-     0.60E+00,  
-     0.80E+00,  
-     0.50E+00,  
-     0.60E+00,  
-     0.70E+00,  
-     0.80E+00,  
+  static double x_vec[N_MAX] = {
+     0.01E+00,
+     0.10E+00,
+     1.00E+00,
+     0.00E+00,
+     0.01E+00,
+     0.10E+00,
+     0.50E+00,
+     0.50E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.50E+00,
+     0.60E+00,
      0.70E+00,
-     0.10E+00, 
-     0.20E+00, 
-     0.30E+00, 
-     0.40E+00, 
-     0.20E+00, 
-     0.20E+00, 
-     0.20E+00, 
-     0.20E+00, 
-     0.30E+00, 
-     0.30E+00, 
-     0.30E+00, 
-     0.30E+00 };
+     0.80E+00,
+     0.90E+00,
+     0.50E+00,
+     0.90E+00,
+     0.50E+00,
+     1.00E+00,
+     0.50E+00,
+     0.80E+00,
+     0.60E+00,
+     0.80E+00,
+     0.50E+00,
+     0.60E+00,
+     0.70E+00,
+     0.80E+00,
+     0.70E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.225609,
+     0.0335568,
+     0.0295222 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0.0;
-    *b = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0.0;
+    b = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *b = b_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -500,7 +308,7 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 }
 //****************************************************************************80
 
-double betain ( double x, double p, double q, double beta, int *ifault )
+double betain ( double x, double p, double q, double beta, int &ifault )
 
 //****************************************************************************80
 //
@@ -514,7 +322,7 @@ double betain ( double x, double p, double q, double beta, int *ifault )
 //
 //  Modified:
 //
-//    23 January 2008
+//    25 September 2014
 //
 //  Author:
 //
@@ -539,7 +347,7 @@ double betain ( double x, double p, double q, double beta, int *ifault )
 //    Input, double BETA, the logarithm of the complete
 //    beta function.
 //
-//    Output, int *IFAULT, error flag.
+//    Output, int &IFAULT, error flag.
 //    0, no error.
 //    nonzero, an error occurred.
 //
@@ -563,20 +371,26 @@ double betain ( double x, double p, double q, double beta, int *ifault )
   double xx;
 
   value = x;
-  *ifault = 0;
+  ifault = 0;
 //
 //  Check the input arguments.
 //
   if ( p <= 0.0 || q <= 0.0 )
   {
-    *ifault = 1;
-    return value;
+    cerr << "\n";
+    cerr << "BETAIN - Fatal error!\n";
+    cerr << "  P <= 0.0 or Q <= 0.0\n";
+    ifault = 1;
+    exit ( 1 );
   }
 
   if ( x < 0.0 || 1.0 < x )
   {
-    *ifault = 2;
-    return value;
+    cerr << "\n";
+    cerr << "BETAIN - Fatal error!\n";
+    cerr << "  X < 0.0 or 1 < X\n";
+    ifault = 2;
+    exit ( 1 );
   }
 //
 //  Special cases.
@@ -625,7 +439,7 @@ double betain ( double x, double p, double q, double beta, int *ifault )
   {
     term = term * temp * rx / ( pp + ai );
     value = value + term;;
-    temp = r8_abs ( term );
+    temp = fabs ( term );
 
     if ( temp <= acu && temp <= acu * value )
     {
@@ -657,47 +471,6 @@ double betain ( double x, double p, double q, double beta, int *ifault )
     }
   }
 
-  return value;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
   return value;
 }
 //****************************************************************************80
@@ -743,7 +516,7 @@ double r8_max ( double x, double y )
 }
 //****************************************************************************80
 
-void timestamp ( void )
+void timestamp ( )
 
 //****************************************************************************80
 //
@@ -791,7 +564,7 @@ void timestamp ( void )
 }
 //****************************************************************************80
 
-double xinbta ( double p, double q, double beta, double alpha, int *ifault )
+double xinbta ( double p, double q, double beta, double alpha, int &ifault )
 
 //****************************************************************************80
 //
@@ -799,13 +572,19 @@ double xinbta ( double p, double q, double beta, double alpha, int *ifault )
 //
 //    XINBTA computes inverse of the incomplete Beta function.
 //
+//  Discussion:
+//
+//    The accuracy exponent SAE was loosened from -37 to -30, because
+//    the code would not otherwise accept the results of an iteration
+//    with p = 0.3, q = 3.0, alpha = 0.2.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    09 February 2008
+//    25 September 2014
 //
 //  Author:
 //
@@ -832,7 +611,7 @@ double xinbta ( double p, double q, double beta, double alpha, int *ifault )
 //    Input, double ALPHA, the value of the incomplete Beta
 //    function.  0 <= ALPHA <= 1.
 //
-//    Output, int *IFAULT, error flag.
+//    Output, int &IFAULT, error flag.
 //    0, no error occurred.
 //    nonzero, an error occurred.
 //
@@ -841,8 +620,7 @@ double xinbta ( double p, double q, double beta, double alpha, int *ifault )
 //
 //  Local Parameters:
 //
-//    Local, double SAE, the most negative decimal exponent
-//    which does not cause an underflow.
+//    Local, double SAE, requests an accuracy of about 10^SAE.
 //
 {
   double a;
@@ -858,7 +636,7 @@ double xinbta ( double p, double q, double beta, double alpha, int *ifault )
   double qq;
   double r;
   double s;
-  double sae = -37.0;
+  double sae = -30.0;
   double sq;
   double t;
   double tx;
@@ -870,25 +648,49 @@ double xinbta ( double p, double q, double beta, double alpha, int *ifault )
 
   fpu = pow ( 10.0, sae );
 
-  *ifault = 0;
+  ifault = 0;
   value = alpha;
 //
 //  Test for admissibility of parameters.
 //
-  if ( p <= 0.0 || q <= 0.0 )
+  if ( p <= 0.0 )
   {
-    *ifault = 1;
-    return value;
+    cerr << "\n";
+    cerr << "XINBTA - Fatal error!\n";
+    cerr << "  P <= 0.0.\n";
+    ifault = 1;
+    exit ( 1 );
+  }
+
+  if ( q <= 0.0 )
+  {
+    cerr << "\n";
+    cerr << "XINBTA - Fatal error!\n";
+    cerr << "  Q <= 0.0.\n";
+    ifault = 1;
+    exit ( 1 );
   }
 
   if ( alpha < 0.0 || 1.0 < alpha )
   {
-    *ifault = 2;
+    cerr << "\n";
+    cerr << "XINBTA - Fatal error!\n";
+    cerr << "  ALPHA not between 0 and 1.\n";
+    ifault = 2;
+    exit ( 1 );
+  }
+//
+//  If the answer is easy to determine, return immediately.
+//
+  if ( alpha == 0.0 )
+  {
+    value = 0.0;
     return value;
   }
 
-  if ( alpha == 0.0 || alpha == 1.0 )
+  if ( alpha == 1.0 )
   {
+    value = 1.0;
     return value;
   }
 //
@@ -973,15 +775,20 @@ double xinbta ( double p, double q, double beta, double alpha, int *ifault )
   iex = r8_max ( - 5.0 / pp / pp - 1.0 / pow ( a, 0.2 ) - 13.0, sae );
 
   acu = pow ( 10.0, iex );
-
+//
+//  Iteration loop.
+//
   for ( ; ; )
   {
     y = betain ( value, pp, qq, beta, ifault );
 
-    if ( *ifault != 0 )
+    if ( ifault != 0 )
     {
-      *ifault = 3;
-      return value;
+      cerr << "\n";
+      cerr << "XINBTA - Fatal error!\n";
+      cerr << "  BETAIN returned IFAULT = " << ifault << "\n";
+      ifault = 1;
+      exit ( 1 );
     }
 
     xin = value;
@@ -1012,18 +819,13 @@ double xinbta ( double p, double q, double beta, double alpha, int *ifault )
         }
         g = g / 3.0;
       }
-
-      if ( prev <= acu )
+//
+//  Check whether the current estimate is acceptable.
+//  The change "VALUE = TX" was suggested by Ivan Ukhov.
+//
+      if ( prev <= acu || y * y <= acu )
       {
-        if ( indx )
-        {
-          value = 1.0 - value;
-        }
-        return value;
-      }
-
-      if ( y * y <= acu )
-      {
+        value = tx;
         if ( indx )
         {
           value = 1.0 - value;

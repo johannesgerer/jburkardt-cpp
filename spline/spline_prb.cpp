@@ -72,7 +72,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPLINE_PRB tests the SPLINE routines.
+//    SPLINE_PRB tests the SPLINE library.
 //
 //  Licensing:
 //
@@ -88,7 +88,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "SPLINE_PRB\n";
   cout << "  C++ version:\n";
@@ -143,7 +142,6 @@ int main ( )
   cout << "\n";
   cout << "SPLINE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -2615,7 +2613,7 @@ void test12 ( )
 
     nsample = 2 * ndata + 1;
 
-    for ( i = 1; i<= nsample; i++ )
+    for ( i = 1; i <= nsample; i++ )
     {
       if ( nsample == 1 )
       {
@@ -3358,7 +3356,7 @@ void test145 ( )
          << setw(12) << ydata[i] << "\n";
     if ( i < NDATA -1 )
     {
-      cout << '  *'
+      cout << "  *"
             << setw(12) << tdata[i] << "\n";
     }
   }
@@ -3437,7 +3435,7 @@ void test15 ( )
 //
 //  Modified:
 //
-//    13 January 2007
+//    07 June 2013
 //
 //  Author:
 //
@@ -3476,8 +3474,8 @@ void test15 ( )
 
   for ( i = 0; i < N; i++ )
   {
-    t[i] =  ( ( double ) ( N - i     ) * (-1.0)
-            + ( double ) (     i - 1 ) * (+1.0) )
+    t[i] =  ( ( double ) ( N - i - 1 ) * (-1.0)
+            + ( double ) (     i     ) * (+1.0) )
             / ( double ) ( N     - 1 );
     y[i] =  frunge ( t[i] );
     cout << setw(6)  << i    << "  "
@@ -3485,9 +3483,9 @@ void test15 ( )
          << setw(10) << y[i] << "\n";
   }
 //
-//  Try all three types of boundary condition.
+//  Try various boundary conditions.
 //
-  for ( k = 0; k < 3; k++ )
+  for ( k = 0; k <= 4; k++ )
   {
     if ( k == 0 )
     {
@@ -3540,6 +3538,14 @@ void test15 ( )
       cout << "  Natural spline:\n";
       cout << "  YP''(left) =  " << ybcbeg << "\n";
       cout << "  YP''(right) = " << ybcend << "\n";
+    }
+    else if ( k == 4 )
+    {
+      ibcbeg = 3;
+      ibcend = 3;
+
+      cout << "\n";
+      cout << "  \"Not-a-knot\" spline:\n";
     }
 
     ypp = spline_cubic_set ( N, t, y, ibcbeg, ybcbeg, ibcend, ybcend );
@@ -3667,8 +3673,8 @@ void test16 ( )
 
   for ( i = 0; i < N; i++ )
   {
-    t[i] =  ( ( double ) ( N - i     ) * (-1.0)
-            + ( double ) (     i - 1 ) * (+1.0) )
+    t[i] =  ( ( double ) ( N - i - 1 ) * (-1.0)
+            + ( double ) (     i     ) * (+1.0) )
             / ( double ) ( N     - 1 );
     y[i] =  frunge ( t[i] );
     cout << setw(6)  << i    << "  "
@@ -4591,8 +4597,8 @@ void test21 ( )
 
   for ( i = 0; i < N; i++ )
   {
-    t[i] =  ( ( double ) ( N - i     ) * (-1.0)
-            + ( double ) (     i - 1 ) * (+1.0) )
+    t[i] =  ( ( double ) ( N - i - 1 ) * (-1.0)
+            + ( double ) (     i     ) * (+1.0) )
             / ( double ) ( N     - 1 );
     y[i] =  frunge ( t[i] );
   }
@@ -5227,8 +5233,8 @@ void test24 ( )
 
   for ( i = 0; i < N; i++ )
   {
-    t[i] =  ( ( double ) ( N - i     ) * (-1.0)
-            + ( double ) (     i - 1 ) * (+1.0) )
+    t[i] =  ( ( double ) ( N - i - 1 ) * (-1.0)
+            + ( double ) (     i     ) * (+1.0) )
             / ( double ) ( N     - 1 );
     y[i] =  frunge ( t[i] );
   }

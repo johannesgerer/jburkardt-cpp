@@ -36,7 +36,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    FILUM_PRB calls the FILUM tests.
+//    FILUM_PRB tests the FILUM library.
 //
 //  Licensing:
 //
@@ -52,7 +52,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "FILUM_PRB:\n";
   cout << "  C++ version\n";
@@ -81,7 +80,6 @@ int main ( )
   cout << "\n";
   cout << "FILUM_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -147,7 +145,7 @@ void test03 ( )
 //
 {
   int column_num;
-  string file_name = "filum_prb_4by5.txt";
+  string filename = "filum_prb_4by5.txt";
 
   cout << "\n";
   cout << "TEST03\n";
@@ -159,9 +157,9 @@ void test03 ( )
   cout << "  that is, the number of \"columns\" of text.\n";
 
   cout << "\n";
-  cout << "  Examining the file:\"" << file_name << "\".\n";
+  cout << "  Examining the file:\"" << filename << "\".\n";
 
-  column_num = file_column_count ( file_name );
+  column_num = file_column_count ( filename );
 
   cout << "\n";
   cout << "  Number of columns: " << column_num << "\n";
@@ -324,7 +322,7 @@ void test11 ( )
 //
 //  Purpose:
 //
-//    TEST11 tests FILE_NAME_DEC.
+//    TEST11 tests FILENAME_DEC.
 //
 //  Licensing:
 //
@@ -345,7 +343,7 @@ void test11 ( )
 
   cout << "\n";
   cout << "TEST11\n";
-  cout << "  FILE_NAME_DEC decrements a string\n";
+  cout << "  FILENAME_DEC decrements a string\n";
   cout << "\n";
   cout << "     Input             Output\n";
 
@@ -372,7 +370,7 @@ void test11 ( )
     {
       cout << "  " << setw(11) << filename << "  ";
 
-      file_name_dec ( &filename );
+      filename_dec ( &filename );
 
       cout << "  " << setw(11) << filename << "\n";
 
@@ -389,7 +387,7 @@ void test12 ( )
 //
 //  Purpose:
 //
-//    TEST12 tests FILE_NAME_EXT_GET.
+//    TEST12 tests FILENAME_EXT_GET.
 //
 //  Licensing:
 //
@@ -412,9 +410,9 @@ void test12 ( )
 
   cout << "\n";
   cout << "TEST12\n";
-  cout << "  FILE_NAME_EXT_GET finds a file extension.\n";
+  cout << "  FILENAME_EXT_GET finds a file extension.\n";
   cout << "\n";
-  cout << "  FILE_NAME     Begin    End\n";
+  cout << "  FILENAME     Begin    End\n";
   cout << "\n";
 
   for (  itest = 0; itest < ntest; itest++ )
@@ -440,7 +438,7 @@ void test12 ( )
       text = ".amos";
     }
 
-    file_name_ext_get ( text, &i, &j );
+    filename_ext_get ( text, &i, &j );
 
     cout << "  " << setw(10) << text 
          << "  " << setw(6)  << i
@@ -457,7 +455,7 @@ void test13 ( )
 //
 //  Purpose:
 //
-//    TEST13 tests FILE_NAME_EXT_SWAP.
+//    TEST13 tests FILENAME_EXT_SWAP.
 //
 //  Licensing:
 //
@@ -480,9 +478,9 @@ void test13 ( )
 
   cout << "\n";
   cout << "TEST13\n";
-  cout << "  FILE_NAME_EXT_SWAP changes a file extension.\n";
+  cout << "  FILENAME_EXT_SWAP changes a file extension.\n";
   cout << "\n";
-  cout << "  FILE_NAME   EXT   FILE_NAME_EXT_SWAP\n";
+  cout << "  FILENAME   EXT   FILENAME_EXT_SWAP\n";
   cout << "\n";
 
   for ( itest = 0; itest < ntest; itest++ )
@@ -517,7 +515,7 @@ void test13 ( )
          << "  " << setw(3)  << ext
          << "  ";
 
-    filename2 = file_name_ext_swap ( filename, ext );
+    filename2 = filename_ext_swap ( filename, ext );
 
     cout << "  " << setw(12) << filename2 << "\n";
   }
@@ -532,7 +530,7 @@ void test14 ( )
 //
 //  Purpose:
 //
-//    TEST14 tests FILE_NAME_INC.
+//    TEST14 tests FILENAME_INC.
 //
 //  Licensing:
 //
@@ -553,7 +551,7 @@ void test14 ( )
 
   cout << "\n";
   cout << "TEST14\n";
-  cout << "  FILE_NAME_INC increments a string\n";
+  cout << "  FILENAME_INC increments a string\n";
   cout << "\n";
   cout << "     Input             Output\n";
 
@@ -580,7 +578,7 @@ void test14 ( )
     {
       cout << "  " << setw(11) << filename << "  ";
 
-      file_name_inc ( &filename );
+      filename_inc ( &filename );
 
       cout << "  " << setw(11) << filename << "\n";
 
@@ -602,7 +600,7 @@ void test15 ( )
 //
 //  Purpose:
 //
-//    TEST15 tests FILE_NAME_INC.
+//    TEST15 tests FILENAME_INC.
 //
 //  Licensing:
 //
@@ -625,7 +623,7 @@ void test15 ( )
 
   cout << "\n";
   cout << "TEST15\n";
-  cout << "  FILE_NAME_INC increments a string.\n";
+  cout << "  FILENAME_INC increments a string.\n";
   cout << "\n";
   cout << "  In this example, the string is a file name.\n";
   cout << "  The user is going to carry out several simulations.\n";
@@ -641,13 +639,13 @@ void test15 ( )
     cout << "  Simulation " << sim << " begins.\n";
     cout << "\n";
 
-    file_name_inc ( &string1 );
+    filename_inc ( &string1 );
 
     filename = string1 + string2;
 
     for ( time_step = 0; time_step < 4; time_step++ )
     {
-      file_name_inc ( &filename );
+      filename_inc ( &filename );
 
       cout << "  " << setw(11) << filename << "\n";
     }
@@ -663,7 +661,7 @@ void test165 ( )
 //
 //  Purpose:
 //
-//    TEST165 tests FILE_NAME_INC_NOWRAP.
+//    TEST165 tests FILENAME_INC_NOWRAP.
 //
 //  Licensing:
 //
@@ -684,7 +682,7 @@ void test165 ( )
 
   cout << "\n";
   cout << "TEST165\n";
-  cout << "  FILE_NAME_INC_NOWRAP increments a string\n";
+  cout << "  FILENAME_INC_NOWRAP increments a string\n";
   cout << "\n";
   cout << "     Input             Output\n";
 
@@ -711,7 +709,7 @@ void test165 ( )
     {
       cout << "  " << setw(11) << filename << "  ";
 
-      file_name_inc_nowrap ( &filename );
+      filename_inc_nowrap ( &filename );
 
       cout << "  " << setw(11) << filename << "\n";
 

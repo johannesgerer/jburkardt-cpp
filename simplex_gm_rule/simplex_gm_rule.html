@@ -1,0 +1,414 @@
+<html>
+
+  <head>
+    <title>
+      SIMPLEX_GM_RULE - Grundmann-Moeller Quadrature Rules for the Simplex in M dimensions
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SIMPLEX_GM_RULE <br> Grundmann-Moeller Quadrature Rules for the Simplex in M dimensions
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SIMPLEX_GM_RULE</b>
+      is a C++ library which
+      defines Grundmann-Moeller quadrature rules 
+      over the interior of a simplex in M dimensions.
+    </p>
+
+    <p>
+      The user can choose the spatial dimension M, thus defining the region
+      to be a triangle (M = 2), tetrahedron (M = 3) or a general M-dimensional
+      simplex.
+    </p>
+
+    <p>
+      The user chooses the index <b>S</b> of the rule.  Rules are available
+      with index <b>S</b> = 0 on up.  A rule of index <b>S</b> will exactly
+      integrate any polynomial of total degree <b>2*S+1</b> or less.
+    </p>
+
+    <p>
+      The rules are defined on the unit M-dimensional simplex.  A simple
+      linear transformation can be used to map the vertices and weights
+      to an arbitrary simplex, while preserving the accuracy of the rule.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SIMPLEX_GM_RULE</b> is available in
+      <a href = "../../c_src/simplex_gm_rule/simplex_gm_rule.html">a C version</a> and
+      <a href = "../../cpp_src/simplex_gm_rule/simplex_gm_rule.html">a C++ version</a> and
+      <a href = "../../f77_src/simplex_gm_rule/simplex_gm_rule.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/simplex_gm_rule/simplex_gm_rule.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/simplex_gm_rule/simplex_gm_rule.html">a MATLAB version</a>.
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cube_felippa_rule/cube_felippa_rule.html">
+      CUBE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a cube in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pyramid_felippa_rule/pyramid_felippa_rule.html">
+      PYRAMID_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a pyramid in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/simplex_grid/simplex_grid.html">
+      SIMPLEX_GRID</a>,
+      a C++ library which
+      generates a regular grid of points 
+      over the interior of an arbitrary simplex in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/square_felippa_rule/square_felippa_rule.html">
+      SQUARE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a square in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_exactness/tetrahedron_exactness.html">
+      TETRAHEDRON_EXACTNESS</a>,
+      a C++ program which
+      investigates the monomial exactness of a quadrature rule 
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_felippa_rule/tetrahedron_felippa_rule.html">
+      TETRAHEDRON_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_integrals/tetrahedron_integrals.html">
+      TETRAHEDRON_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_keast_rule/tetrahedron_keast_rule.html">
+      TETRAHEDRON_KEAST_RULE</a>,
+      a C++ library which
+      defines ten quadrature rules, with exactness degrees 0 through 8,
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_monte_carlo/tetrahedron_monte_carlo.html">
+      TETRAHEDRON_MONTE_CARLO</a>,
+      a C++ program which
+      uses the Monte Carlo method to estimate integrals 
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_ncc_rule/tetrahedron_ncc_rule.html">
+      TETRAHEDRON_NCC_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Closed (NCC) quadrature rules 
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_nco_rule/tetrahedron_nco_rule.html">
+      TETRAHEDRON_NCO_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Open (NCO) quadrature rules
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_dunavant_rule/triangle_dunavant_rule.html">
+      TRIANGLE_DUNAVANT_RULE</a>,
+      a C++ library
+      which defines Dunavant quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_fekete_rule/triangle_fekete_rule.html">
+      TRIANGLE_FEKETE_RULE</a>,
+      a C++ library which
+      defines Fekete rules for interpolation or quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_felippa_rule/triangle_felippa_rule.html">
+      TRIANGLE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_lyness_rule/triangle_lyness_rule.html">
+      TRIANGLE_LYNESS_RULE</a>,
+      a C++ library which
+      returns Lyness-Jespersen quadrature rules for the triangle.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_monte_carlo/triangle_monte_carlo.html">
+      TRIANGLE_MONTE_CARLO</a>,
+      a C++ program which
+      uses the Monte Carlo method to estimate integrals over a triangle.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_ncc_rule/triangle_ncc_rule.html">
+      TRIANGLE_NCC_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Closed (NCC) quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_nco_rule/triangle_nco_rule.html">
+      TRIANGLE_NCO_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Open (NCO) quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_wandzura_rule/triangle_wandzura_rule.html">
+      TRIANGLE_WANDZURA_RULE</a>,
+      a C++ library which
+      defines Wandzura rules for quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wedge_felippa_rule/wedge_felippa_rule.html">
+      WEDGE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns quadratures rules for approximating integrals
+      over the interior of the unit wedge in 3D.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Paul Bratley, Bennett Fox, Linus Schrage,<br>
+          A Guide to Simulation,<br>
+          Second Edition,<br>
+          Springer, 1987,<br>
+          ISBN: 0387964673,<br>
+          LC: QA76.9.C65.B73.
+        </li>
+        <li>
+          Bennett Fox,<br>
+          Algorithm 647:
+          Implementation and Relative Efficiency of Quasirandom
+          Sequence Generators,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 12, Number 4, December 1986, pages 362-376.
+        </li>
+        <li>
+          Axel Grundmann, Michael Moeller,<br>
+          Invariant Integration Formulas for the N-Simplex
+          by Combinatorial Methods,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 15, Number 2, April 1978, pages 282-290.
+        </li>
+        <li>
+          Pierre LEcuyer,<br>
+          Random Number Generation,<br>
+          in Handbook of Simulation,<br>
+          edited by Jerry Banks,<br>
+          Wiley, 1998,<br>
+          ISBN: 0471134031,<br>
+          LC: T57.62.H37.
+        </li>
+        <li>
+          Peter Lewis, Allen Goodman, James Miller,<br>
+          A Pseudo-Random Number Generator for the System/360,<br>
+          IBM Systems Journal,<br>
+          Volume 8, 1969, pages 136-143.
+        </li>
+        <li>
+          Albert Nijenhuis, Herbert Wilf,<br>
+          Combinatorial Algorithms for Computers and Calculators,<br>
+          Second Edition,<br>
+          Academic Press, 1978,<br>
+          ISBN: 0-12-519260-6,<br>
+          LC: QA164.N54.
+        </li>
+        <li>
+          ML Wolfson, HV Wright,<br>
+          Algorithm 160:
+          Combinatorial of M Things Taken N at a Time,<br>
+          Communications of the ACM,<br>
+          Volume 6, Number 4, April 1963, page 161.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "simplex_gm_rule.cpp">simplex_gm_rule.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "simplex_gm_rule.hpp">simplex_gm_rule.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "simplex_gm_rule.sh">simplex_gm_rule.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "simplex_gm_rule_prb.cpp">simplex_gm_rule_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "simplex_gm_rule_prb.sh">simplex_gm_rule_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "simplex_gm_rule_prb_output.txt">simplex_gm_rule_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>COMP_NEXT</b> computes the compositions of the integer N into K parts.
+        </li>
+        <li>
+          <b>GM_RULE_SET</b> sets a Grundmann-Moeller rule.
+        </li>
+        <li>
+          <b>GM_RULE_SET_OLD</b> sets a Grundmann-Moeller rule.  (OBSOLETE VERSION)
+        </li>
+        <li>
+          <b>GM_RULE_SIZE</b> determines the size of a Grundmann-Moeller rule.
+        </li>
+        <li>
+          <b>I4_CHOOSE</b> computes the binomial coefficient C(N,K).
+        </li>
+        <li>
+          <b>I4_HUGE</b> returns a "huge" I4.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4_POWER</b> returns the value of I^J.
+        </li>
+        <li>
+          <b>MONOMIAL_VALUE</b> evaluates a monomial.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8_FACTORIAL</b> computes the factorial of N.
+        </li>
+        <li>
+          <b>R8VEC_DOT</b> computes the dot product of a pair of R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>SIMPLEX_UNIT_MONOMIAL_INT</b> integrates a monomial over a simplex.
+        </li>
+        <li>
+          <b>SIMPLEX_UNIT_MONOMIAL_QUADRATURE:</b> quadrature of monomials in a unit simplex.
+        </li>
+        <li>
+          <b>SIMPLEX_UNIT_SAMPLE</b> returns uniformly random points from a general simplex.
+        </li>
+        <li>
+          <b>SIMPLEX_UNIT_TO_GENERAL</b> maps the unit simplex to a general simplex.
+        </li>
+        <li>
+          <b>SIMPLEX_UNIT_VOLUME</b> computes the volume of the unit simplex.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 26 June 2008.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

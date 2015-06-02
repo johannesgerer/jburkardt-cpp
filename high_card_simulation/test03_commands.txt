@@ -1,0 +1,13 @@
+# test03_commands.txt
+#
+# Usage:
+#  gnuplot < test03_commands.txt
+#
+set term png
+set output 'test03.png'
+set xlabel '<--- Skip --->'
+set ylabel '<--- P(Correct) --->'
+set title 'Probability of Correct Guess after Skipping K Cards'
+set grid
+set style data lines
+plot 'test03_data.txt' using 1:2 lw 3 linecolor rgb 'red'

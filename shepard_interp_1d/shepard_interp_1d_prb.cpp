@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SHEPARD_INTERP_1D_TEST tests SHEPARD_INTERP_1D.
+//    MAIN is the main program for SHEPARD_INTERP_1D_PRB.
+//
+//  Discussion:
+//
+//    SHEPARD_INTERP_1D_PRB tests the SHEPARD_INTERP_1D library.
 //
 //  Licensing:
 //
@@ -46,7 +50,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "SHEPARD_INTERP_1D_TEST:\n";
+  cout << "SHEPARD_INTERP_1D_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the SHEPARD_INTERP_1D library.\n";
   cout << "  The R8LIB library is needed.\n";
@@ -66,7 +70,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "SHEPARD_INTERP_1D_TEST:\n";
+  cout << "SHEPARD_INTERP_1D_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

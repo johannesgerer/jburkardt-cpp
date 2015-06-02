@@ -1,0 +1,18 @@
+20 July 2014 11:35:53 PM
+
+UMFPACK_SIMPLE:
+  C++ version
+  Use UMFPACK to solve the sparse linear system A*x=b.
+
+  Computed solution:
+
+  x[0] = 1
+  x[1] = 2
+  x[2] = 3
+  x[3] = 4
+  x[4] = 5
+
+UMFPACK_SIMPLE:
+  Normal end of execution.
+
+20 July 2014 11:35:53 PM

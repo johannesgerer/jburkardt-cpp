@@ -1,9 +1,9 @@
 # include <cstdlib>
-# include <iostream>
-# include <iomanip>
 # include <cmath>
+# include <iostream>
+# include <fstream>
+# include <iomanip>
 # include <ctime>
-# include <string>
 
 using namespace std;
 
@@ -1708,6 +1708,75 @@ void easter_julian ( int y, int &m, int &d )
   m = 3 + ( s / 32 );
 //
 //  Use wrapping so that 1 <= D <= 31.
+//
+  d = i4_wrap ( s, 1, 31 );
+
+  return;
+}
+//****************************************************************************80
+
+void easter_julian2 ( int y, int &m, int &d )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    EASTER_JULIAN2 computes the date of Easter in the Julian calendar.
+//
+//  Discussion:
+//
+//    This computation for the date of Easter uses the Dionysian
+//    canon that applied to the Julian calendar.  The determination
+//    of the date of Easter changed at the same time that the calendar
+//    was modified to use the Gregorian system.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Edward Richards,
+//    Algorithm N,
+//    Mapping Time, The Calendar and Its History,
+//    Oxford, 1999, page 365.
+//
+//  Parameters:
+//
+//    Input, int Y, the year.
+//
+//    Output, int &M, &D, the month and day of the Julian calendar
+//    on which Easter occurs.
+//
+{
+  int a;
+  int b;
+  int s;
+
+  if ( y <= 0 )
+  {
+    m = -1;
+    d = -1;
+    return;
+  }
+
+  a = year_to_golden_number ( y );
+  a = a - 1;
+
+  b = 22 + ( ( 225 - 11 * a ) % 30 );
+  s = b + ( ( 56 + 6 * y - ( y / 4 ) - b ) % 7 );
+
+  m = 3 + ( s / 32 );
+//
+//  Use wrapping to ensure that 1 <= D <= 31.
 //
   d = i4_wrap ( s, 1, 31 );
 
@@ -4122,6 +4191,46 @@ char i4_to_a ( int i )
 }
 //****************************************************************************80
 
+string i4_to_string ( int i4, string format )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_TO_STRING converts an I4 to a C++ string.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 July 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I4, an integer.
+//
+//    Input, string FORMAT, the format string.
+//
+//    Output, string I4_TO_STRING, the string.
+//
+{
+  char i4_char[80];
+  string i4_string;
+
+  sprintf ( i4_char, format.c_str ( ), i4 );
+
+  i4_string = string ( i4_char );
+
+  return i4_string;
+}
+//****************************************************************************80
+
 int i4_wrap ( int ival, int ilo, int ihi )
 
 //****************************************************************************80
@@ -5518,7 +5627,7 @@ double jed_test ( int i )
   }
 //
 //  End of Current Mayan Great Cycle
-//  23 December 2012 CE/Gregorian
+//  21 December 2012 CE/Gregorian
 //
   else if ( i == 59 )
   {
@@ -12214,7 +12323,7 @@ double transition_to_jed_mayan_long ( )
 //
 //  Modified:
 //
-//    12 May 2010
+//    21 December 2012
 //
 //  Author:
 //
@@ -12228,7 +12337,7 @@ double transition_to_jed_mayan_long ( )
 {
   double jed;
 
-  jed = 2456284.5;
+  jed = 2456282.5;
 
   return jed;
 }

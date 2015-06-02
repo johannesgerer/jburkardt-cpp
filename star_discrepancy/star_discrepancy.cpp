@@ -103,7 +103,7 @@ int main ( int argc, char *argv[] )
 
   timestamp ( );
   cout << "\n";
-  cout << "TABLE_DISCREPANCY:\n";
+  cout << "STAR_DISCREPANCY:\n";
   cout << "  C++ version\n";
   cout << "\n";
   cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
@@ -122,7 +122,7 @@ int main ( int argc, char *argv[] )
   if ( s < 2 ) 
   {
     cout << "\n";
-    cout << "DISCRBOUND - Fatal error!\n";
+    cout << "STAR_DISCREPANCY - Fatal error!\n";
     cout << "  The spatial dimension S must be at least 2.\n";
     exit ( 1 );
   }
@@ -134,7 +134,7 @@ int main ( int argc, char *argv[] )
   if ( n_max < n )
   {
     cout << "\n";
-    cout << "DISCRBOUND - Fatal error!\n";
+    cout << "STAR_DISCREPANCY - Fatal error!\n";
     cout << "  The number of data points requested is N = " << n << ".\n";
     cout << "  The data file only contains N_MAX = " << n_max << ".\n";
     exit ( 1 );
@@ -153,7 +153,7 @@ int main ( int argc, char *argv[] )
       if ( points[j+i*s] < 0.0 || 1.0 < points[j+i*s] )
       {
         cout << "\n";
-        cout << "DISCRBOUND - Fatal error!\n";
+        cout << "STAR_DISCREPANCY - Fatal error!\n";
         cout << "  Every coordinate of every point must be between 0 and 1.\n";
         cout << "  However, coordinate " << j << " of point " << i << "\n";
         cout << "  is equal to " << points[j+i*s] << "\n";
@@ -211,21 +211,22 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << setw(12) << borne_inf << "  " 
        << setw(12) << borne_sup << "\n";
-
+//
+//  Terminate.
+//
   cout << "\n";
-  cout << "DISCRBOUND:\n";
+  cout << "STAR_DISCREPANCY:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
   return 0;
 }
-//****************************************************************************80*
+//****************************************************************************80
 
 bool ch_eqi ( char c1, char c2 )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -1444,7 +1445,7 @@ double s_to_r8 ( char *s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Modified:
 //

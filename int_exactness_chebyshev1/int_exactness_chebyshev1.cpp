@@ -16,7 +16,6 @@ double chebyshev1_integral ( int expon );
 int file_column_count ( string input_filename );
 int file_row_count ( string input_filename );
 double monomial_quadrature_chebyshev1 ( int expon, int order, double w[], double x[] );
-double r8_abs ( double x );
 double *r8mat_data_read ( string input_filename, int m, int n );
 void r8mat_header_read ( string input_filename, int *m, int *n );
 int s_len_trim ( string s );
@@ -640,7 +639,6 @@ int file_row_count ( string input_filename )
   int bad_num;
   int comment_num;
   ifstream input;
-  int i;
   string line;
   int record_num;
   int row_num;
@@ -749,55 +747,14 @@ double monomial_quadrature_chebyshev1 ( int expon, int order, double w[],
 //
   if ( exact == 0.0 )
   {
-    quad_error = r8_abs ( quad - exact );
+    quad_error = fabs ( quad - exact );
   }
   else
   {
-    quad_error = r8_abs ( ( quad - exact ) / exact );
+    quad_error = fabs ( ( quad - exact ) / exact );
   }
 
   return quad_error;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
 }
 //****************************************************************************80
 

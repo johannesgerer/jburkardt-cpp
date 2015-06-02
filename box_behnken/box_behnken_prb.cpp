@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN calls a set of problems for BOX_BEHNKEN.
+//    MAIN is the main program for BOX_BEHNKEN_PRB.
+//
+//  Discussion:
+//
+//    BOX_BEHNKEN_PRB tests the BOX_BEHNKEN library.
 //
 //  Licensing:
 //
@@ -37,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "BOX_BEHNKEN_PRB\n";
   cout << "  C++ version\n";
@@ -51,7 +54,6 @@ int main ( )
   cout << "\n";
   cout << "BOX_BEHNKEN_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -1,0 +1,18 @@
+# fxy5_commands.txt
+#
+# Usage:
+#  gnuplot < fxy5_commands.txt
+#
+set term png
+set output 'fxy5.png'
+set view 30, 45
+set hidden3d
+set timestamp
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set zlabel '<--- Z --->'
+set title '2D test function #5, the discontinuous medium wave, U(x,t)'
+set grid
+set style data lines
+splot 'fxy5_data.txt' with lines
+quit

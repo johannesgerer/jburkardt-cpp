@@ -21,6 +21,7 @@ void test105 ( );
 void test11 ( );
 void test12 ( );
 void test13 ( );
+void test135 ( );
 void test14 ( );
 void test15 ( );
 void test16 ( );
@@ -40,7 +41,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    FEM2D_PACK_PRB calls the various FEM2D_PACK tests.
+//    MAIN is the main program for FEM2D_PACK_PRB.
+//
+//  Discussion:
+//
+//    FEM2D_PACK_PRB tests the FEM2D_PACK library.
 //
 //  Licensing:
 //
@@ -48,7 +53,7 @@ int main ( )
 //
 //  Modified:
 //
-//    15 May 2008
+//    11 January 2013
 //
 //  Author:
 //
@@ -56,12 +61,12 @@ int main ( )
 //
 {
   int i;
-  timestamp ( );
 
+  timestamp ( );
   cout << "\n";
   cout << "FEM2D_PACK_PRB:\n";
   cout << "  C++ version\n";
-  cout << "  Test the routines in the FEM2D_PACK library.\n";
+  cout << "  Test the FEM2D_PACK library.\n";
 
   test01 ( );
   test02 ( );
@@ -77,6 +82,7 @@ int main ( )
   test11 ( );
   test12 ( );
   test13 ( );
+  test135 ( );
   test14 ( );
   test15 ( );
   test16 ( );
@@ -88,11 +94,12 @@ int main ( )
   test22 ( );
   test23 ( );
   test24 ( );
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "FEM2D_PACK_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -338,7 +345,7 @@ void test04 ( )
 //
 {
   cout << "\n";
-  cout << "TEST01\n";
+  cout << "TEST04\n";
   cout << "  Test the computation of basis functions by evaluating them\n";
   cout << "  at the nodes that define the basis functions.\n";
   cout << "\n";
@@ -1103,6 +1110,69 @@ void test13 ( )
   map_test ( "T10" );
 
   return;
+}
+//****************************************************************************80
+
+void test135 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST135 tests MASS_MATRIX_T3.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    11 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ELEMENT_NUM 8
+# define NODE_NUM 9
+
+  double *a;
+  int element_node[3*ELEMENT_NUM] = {
+    1, 4, 2, 
+    5, 2, 4, 
+    4, 7, 5, 
+    8, 5, 7, 
+    2, 5, 3, 
+    6, 3, 5, 
+    5, 8, 6, 
+    9, 6, 8 };
+  double node_xy[2*NODE_NUM] = {
+    0.0, 0.0,
+    0.0, 0.5,
+    0.0, 1.0,
+    0.5, 0.0,
+    0.5, 0.5,
+    0.5, 1.0,
+    1.0, 0.0,
+    1.0, 0.5,
+    1.0, 1.0 };
+
+  cout << "\n";
+  cout << "TEST135\n";
+  cout << "  MASS_MATRIX_T3 computes the mass matrix for\n";
+  cout << "  a finite element system using T3 elements\n";
+  cout << "  (linear triangles).\n";
+
+  a = mass_matrix_t3 ( NODE_NUM, ELEMENT_NUM, element_node, node_xy );
+
+  r8mat_print ( NODE_NUM, NODE_NUM, a, "  The T3 mass matrix:" );
+
+  delete [] a;
+
+  return;
+# undef ELEMENT_NUM
+# undef NODE_NUM
 }
 //****************************************************************************80
 

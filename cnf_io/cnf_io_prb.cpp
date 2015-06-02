@@ -25,6 +25,10 @@ int main ( )
 //
 //    MAIN is the main program for CNF_IO_PRB.
 //
+//  Discussion:
+//
+//    CNF_IO_PRB tests the CNF_IO library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 

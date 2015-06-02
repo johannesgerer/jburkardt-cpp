@@ -2975,13 +2975,13 @@ double *p09_fun ( int n, double x[] )
 {
   double *fx;
   int i;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   fx = new double[n];
 
   for ( i = 0; i < n; i++ )
   {
-    fx[i] = 2.0 / ( 2.0 + sin ( 10.0 * pi * x[i] ) );
+    fx[i] = 2.0 / ( 2.0 + sin ( 10.0 * r8_pi * x[i] ) );
   }
   return fx;
 }
@@ -3652,13 +3652,13 @@ double *p14_fun ( int n, double x[] )
 {
   double *fx;
   int i;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   static double x_max = 0.0;
 
   if ( x_max == 0.0 )
   {
     x_max = sqrt ( log ( r8_max ( r8_epsilon ( ), 1.0E-10 ) ) 
-      / ( - 50.0 * pi ) );
+      / ( - 50.0 * r8_pi ) );
   }
 
   fx = new double[n];
@@ -3672,7 +3672,7 @@ double *p14_fun ( int n, double x[] )
     }
     else
     {
-      fx[i] = sqrt ( 50.0 ) * exp ( - 50.0 * pi * x[i] * x[i] );
+      fx[i] = sqrt ( 50.0 ) * exp ( - 50.0 * r8_pi * x[i] * x[i] );
     }
   }
   return fx;
@@ -3932,13 +3932,13 @@ double *p16_fun ( int n, double x[] )
 {
   double *fx;
   int i;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   fx = new double[n];
 
   for ( i = 0; i < n; i++ )
   {
-    fx[i] = 50.0 / pi / ( 2500.0 * x[i] * x[i] + 1.0 );
+    fx[i] = 50.0 / r8_pi / ( 2500.0 * x[i] * x[i] + 1.0 );
   }
   return fx;
 }
@@ -4056,13 +4056,13 @@ double *p17_fun ( int n, double x[] )
 {
   double *fx;
   int i;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   fx = new double[n];
 
   for ( i = 0; i < n; i++ )
   {
-    fx[i] = pow ( sin ( 50.0 * pi * x[i] ), 2 );
+    fx[i] = pow ( sin ( 50.0 * r8_pi * x[i] ), 2 );
   }
   return fx;
 }
@@ -4657,9 +4657,9 @@ double p22_exact ( )
 //
 {
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  exact = 0.125 * log ( 9.0 ) + pi / sqrt ( 48.0 );
+  exact = 0.125 * log ( 9.0 ) + r8_pi / sqrt ( 48.0 );
 
   return exact;
 }
@@ -5009,7 +5009,7 @@ double *p24_fun ( int n, double x[] )
   int i;
   int j;
   static int n_term = 40;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   fx = new double[n];
 
@@ -5018,9 +5018,9 @@ double *p24_fun ( int n, double x[] )
     fx[i] = 0.0;
     for ( j = 1; j <= n_term; j++ )
     {
-      fx[i] = fx[i] + cos ( pow ( 7.0, j ) * pi * x[i] ) / pow ( 2.0, j );
+      fx[i] = fx[i] + cos ( pow ( 7.0, j ) * r8_pi * x[i] ) / pow ( 2.0, j );
     }
-    fx[i] = fx[i] / pi;
+    fx[i] = fx[i] / r8_pi;
   }
   return fx;
 }
@@ -5316,10 +5316,10 @@ void p26_lim ( double &a, double &b )
 //    Output, double &A, &B, the limits of integration.
 //
 {
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   a = 0.0;
-  b = 2.0 * pi;
+  b = 2.0 * r8_pi;
 
   return;
 }
@@ -5490,9 +5490,9 @@ double p28_exact ( )
 //
 {
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  exact = ( 50.0 / 2501.0 ) * ( 1.0 - exp ( - 2.0 * pi ) );
+  exact = ( 50.0 / 2501.0 ) * ( 1.0 - exp ( - 2.0 * r8_pi ) );
 
   return exact;
 }
@@ -5587,10 +5587,10 @@ void p28_lim ( double &a, double &b )
 //    Output, double &A, &B, the limits of integration.
 //
 {
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   a = 0.0;
-  b = 2.0 * pi;
+  b = 2.0 * r8_pi;
 
   return;
 }
@@ -6050,9 +6050,9 @@ double p32_exact ( )
 //
 {
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  exact = - 0.5 * ( exp ( pi ) + 1.0 );
+  exact = - 0.5 * ( exp ( r8_pi ) + 1.0 );
 
   return exact;
 }
@@ -6151,10 +6151,10 @@ void p32_lim ( double &a, double &b )
 //    Output, double &A, &B, the limits of integration.
 //
 {
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   a = 0.0;
-  b = pi;
+  b = r8_pi;
 
   return;
 }
@@ -6186,9 +6186,9 @@ double p33_exact ( )
 //
 {
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  exact = 0.5 * sqrt ( pi );
+  exact = 0.5 * sqrt ( r8_pi );
 
   return exact;
 }
@@ -6878,12 +6878,12 @@ double p37_exact ( )
 {
   double alpha;
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   alpha = p37_param_get ( );
 
-  exact = atan ( ( 4.0 - pi ) * pow ( 4.0, alpha - 1.0 ) ) 
-        + atan (         pi   * pow ( 4.0, alpha - 1.0 ) );
+  exact = atan ( ( 4.0 - r8_pi ) * pow ( 4.0, alpha - 1.0 ) ) 
+        + atan (         r8_pi   * pow ( 4.0, alpha - 1.0 ) );
 
   return exact;
 }
@@ -6949,7 +6949,7 @@ double *p37_fun ( int n, double x[] )
   double alpha;
   double *fx;
   int i;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   alpha = p37_param_get ( );
 
@@ -6958,7 +6958,7 @@ double *p37_fun ( int n, double x[] )
   for ( i = 0; i < n; i++ )
   {
     fx[i] = pow ( 4.0, -alpha ) 
-      / ( pow ( x[i] - 0.25 * pi, 2 ) + pow ( 16.0, - alpha ) );
+      / ( pow ( x[i] - 0.25 * r8_pi, 2 ) + pow ( 16.0, - alpha ) );
   }
   return fx;
 }
@@ -7163,14 +7163,14 @@ double p38_exact ( )
 {
   double alpha;
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double x;
 
   alpha = p38_param_get ( );
 
   x = pow ( 2.0, alpha );
 
-  exact = pi * r8_besj0 ( x );
+  exact = r8_pi * r8_besj0 ( x );
 
   return exact;
 }
@@ -7276,10 +7276,10 @@ void p38_lim ( double &a, double &b )
 //    Output, double &A, &B, the limits of integration.
 //
 {
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   a = 0.0;
-  b = pi;
+  b = r8_pi;
 
   return;
 }
@@ -7741,12 +7741,12 @@ double p40_exact ( )
 {
   double alpha;
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   alpha = p40_param_get ( );
 
-  exact = ( pow ( 1.0 - 0.25 * pi, alpha + 1.0 ) 
-          + pow (     + 0.25 * pi, alpha + 1.0 ) ) 
+  exact = ( pow ( 1.0 - 0.25 * r8_pi, alpha + 1.0 ) 
+          + pow (     + 0.25 * r8_pi, alpha + 1.0 ) ) 
           / ( alpha + 1.0 );
 
   return exact;
@@ -7813,7 +7813,7 @@ double *p40_fun ( int n, double x[] )
   double alpha;
   double *fx;
   int i;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   alpha = p40_param_get ( );
 
@@ -7821,7 +7821,7 @@ double *p40_fun ( int n, double x[] )
 
   for ( i = 0; i < n; i++ )
   {
-    fx[i] = pow ( r8_abs ( x[i] - 0.25 * pi ), alpha );
+    fx[i] = pow ( r8_abs ( x[i] - 0.25 * r8_pi ), alpha );
   }
   return fx;
 }
@@ -8026,11 +8026,11 @@ double p41_exact ( )
 {
   double alpha;
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   alpha = p41_param_get ( );
 
-  exact = pi / sqrt ( pow ( 1.0 + pow ( 2.0, - alpha ), 2 ) - 1.0 );
+  exact = r8_pi / sqrt ( pow ( 1.0 + pow ( 2.0, - alpha ), 2 ) - 1.0 );
 
   return exact;
 }
@@ -8446,10 +8446,10 @@ void p42_lim ( double &a, double &b )
 //    Output, double &A, &B, the limits of integration.
 //
 {
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   a = 0.0;
-  b = pi / 2.0;
+  b = r8_pi / 2.0;
 
   return;
 }
@@ -9227,14 +9227,14 @@ double p45_exact ( )
 {
   double alpha;
   double exact;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double t;
 
   alpha = p45_param_get ( );
 
   t = pow ( 2.0, alpha - 1.0 );
 
-  exact = pi * cos ( t ) * r8_besj0 ( t );
+  exact = r8_pi * cos ( t ) * r8_besj0 ( t );
 
   return exact;
 }
@@ -9632,10 +9632,10 @@ void p46_lim ( double &a, double &b )
 //    Output, double &A, &B, the limits of integration.
 //
 {
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   a = 0.0;
-  b = 2.0 * pi;
+  b = 2.0 * r8_pi;
 
   return;
 }
@@ -9676,12 +9676,12 @@ void p46_param ( string action, string name, double &value )
 //
 {
   static double alpha = 0.0;
-  static double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   static bool set = false;
 
   if ( !set )
   {
-    alpha = sin ( pi / 12.0 );
+    alpha = sin ( r8_pi / 12.0 );
     set = true;
   }
 
@@ -10227,10 +10227,10 @@ double p50_exact ( )
 //
 {
   double exact;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double t;
 
-  t = 10.0 * pi;
+  t = 10.0 * r8_pi;
 
   exact = ( - euler_constant ( ) - log ( t ) + r8_ci ( t ) ) / t;
 
@@ -10292,7 +10292,7 @@ double *p50_fun ( int n, double x[] )
 {
   double *fx;
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   fx = new double[n];
 
@@ -10304,7 +10304,7 @@ double *p50_fun ( int n, double x[] )
     }
     else
     {
-      fx[i] = log ( x[i] ) * sin ( 10.0 * pi * x[i] );
+      fx[i] = log ( x[i] ) * sin ( 10.0 * r8_pi * x[i] );
     }
   }
   return fx;
@@ -10369,10 +10369,10 @@ double p51_exact ( )
 //
 {
   double exact;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   exact = - ( r8_ci ( 1.0 ) * sin ( 1.0 ) + 
-    ( 0.5 * pi  - r8_si ( 1.0 ) ) * cos ( 1.0 ) ) / pi;
+    ( 0.5 * r8_pi  - r8_si ( 1.0 ) ) * cos ( 1.0 ) ) / r8_pi;
 
   return exact;
 }
@@ -10645,9 +10645,9 @@ double p53_exact ( )
 //
 {
   double exact;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
-  exact = 0.5 * pi - atan ( 1.0 / sqrt ( 2.0 ) ) + log ( 3.0 ) / 2.0;
+  exact = 0.5 * r8_pi - atan ( 1.0 / sqrt ( 2.0 ) ) + log ( 3.0 ) / 2.0;
 
   return exact;
 }
@@ -10846,13 +10846,13 @@ double *p54_fun ( int n, double x[] )
 {
   double *fx;
   int i;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   fx = new double[n];
 
   for ( i = 0; i < n; i++ )
   {
-    fx[i] = 2.0 / ( 2.0 + sin ( 10.0 * pi * x[i] ) );
+    fx[i] = 2.0 / ( 2.0 + sin ( 10.0 * r8_pi * x[i] ) );
   }
   return fx;
 }
@@ -10919,14 +10919,14 @@ double p55_exact ( )
   double b;
   double c;
   double exact;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double x0;
 
   p55_lim ( a, b );
   p55_param ( "get", "c", c );
   p55_param ( "get", "x0", x0 );
 
-  exact = sqrt ( pi ) * 
+  exact = sqrt ( r8_pi ) * 
     ( r8_erf ( c * ( b - x0 ) ) - r8_erf ( c * ( a - x0 ) ) ) 
     / ( 2.0 * c );
 
@@ -12040,7 +12040,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    11 August 2010
+//    01 September 2012
 //
 //  Author:
 //
@@ -12051,23 +12051,8 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double one;
-  double temp;
-  double test;
-  double value;
+  const double value = 2.220446049250313E-016;
 
-  one = ( double ) ( 1 );
-
-  value = one;
-  temp = value / 2.0;
-  test = r8_add ( one, temp );
-
-  while ( one < test )
-  {
-    value = temp;
-    temp = value / 2.0;
-    test = r8_add ( one, temp );
-  }
   return value;
 }
 //****************************************************************************80
@@ -12605,7 +12590,7 @@ double r8_gamma ( double x )
   int i;
   int n;
   static int ngcs = 0;
-  static double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.14159265358979323846264338327950;
   double sinpiy;
   static double sq2pil = 0.91893853320467274178032973640562;
   double value;
@@ -12726,7 +12711,7 @@ double r8_gamma ( double x )
       cerr << "  answer is half precision.\n";
     }
 
-    sinpiy = sin ( pi * y );
+    sinpiy = sin ( r8_pi * y );
 
     if ( sinpiy == 0.0 )
     {
@@ -12735,7 +12720,7 @@ double r8_gamma ( double x )
       cerr << "  X is a negative int.\n";
       exit ( 1 );
     }
-    value = - pi / ( y * sinpiy * value );
+    value = - r8_pi / ( y * sinpiy * value );
   }
   return value;
 }

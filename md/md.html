@@ -47,13 +47,18 @@
       OpenMP directives to run it in parallel.
     </p>
 
+    <p>
+      Note that this program exhibits a remarkable speedup if we simply
+      compile it with the "-O2" optimization option.
+    </p>
+
     <h3 align = "center">
       Usage:
     </h3>
 
     <p>
       <blockquote>
-        <b>md</b> <i>nd</i> <i>np</i> <i>step_num</i>
+        <b>md</b> <i>nd</i> <i>np</i> <i>step_num</i> <i>dt</i>
       </blockquote>
       where
       <ul>
@@ -65,6 +70,9 @@
         </li>
         <li>
           <i>step_num</i> is the number of time steps (500, for instance).
+        </li>
+        <li>
+          <i>dt</i> is the time step size (0.1, for instance).
         </li>
       </ul>
     </p>
@@ -89,7 +97,8 @@
       <a href = "../../cpp_src/md/md.html">a C++ version</a> and
       <a href = "../../f77_src/md/md.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/md/md.html">a FORTRAN90 version</a> and
-      <a href = "../../m_src/md/md.html">a MATLAB version</a>.
+      <a href = "../../m_src/md/md.html">a MATLAB version</a> and
+      <a href = "../../py_src/md/md.html">a Python version</a>.
     </p>
 
     <h3 align = "center">
@@ -242,8 +251,7 @@
         </li>
         <li>
           Furio Ercolessi,<br>
-          A Molecular Dynamics Primer,<br>
-          <a href = "../../pdf/ercolessi.pdf">ercolessi.pdf</a>
+          A Molecular Dynamics Primer
         </li>
         <li>
           Philipp Janert,<br>
@@ -290,6 +298,10 @@
     <p>
       <ul>
         <li>
+          <a href = "md_run.sh">md_run.sh</a>, 
+          BASH commands that runs the program.
+        </li>
+        <li>
           <a href = "md_output.txt">md_output.txt</a>, 
           the output file;
         </li>
@@ -309,10 +321,16 @@
           <b>COMPUTE</b> computes the forces and energies.
         </li>
         <li>
-          <b>DIST</b> computes the displacement and distance between two particles.
+          <b>CPU_TIME</b> reports the elapsed CPU time.
+        </li>
+        <li>
+          <b>DIST</b> computes the displacement (and its norm) between two particles.
         </li>
         <li>
           <b>INITIALIZE</b> initializes the positions, velocities, and accelerations.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_AB</b> returns a scaled pseudorandom R8MAT.
         </li>
         <li>
           <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
@@ -331,7 +349,7 @@
     <hr>
 
     <i>
-      Last revised on 15 July 2008.
+      Last revised on 27 December 2014.
     </i>
 
     <!-- John Burkardt -->

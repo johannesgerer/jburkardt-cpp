@@ -5108,7 +5108,7 @@ bool *triangulation_order3_boundary_node ( int node_num, int element_num,
 //
 //  Modified:
 //
-//    12 June 2005
+//    25 January 2013
 //
 //  Author:
 //
@@ -5215,6 +5215,8 @@ bool *triangulation_order3_boundary_node ( int node_num, int element_num,
     }
 
   }
+
+  delete [] edge;
 
   return node_boundary;
 }

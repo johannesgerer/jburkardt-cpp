@@ -35,7 +35,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SFTPACK_PRB calls the SFTPACK test routines.
+//    SFTPACK_PRB tests the SFTPACK library.
 //
 //  Licensing:
 //
@@ -51,7 +51,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "SFTPACK_PRB\n";
   cout << "  C++ version\n";
@@ -69,11 +68,12 @@ int main ( )
 
   test10 ( );
   test11 ( );
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "SFTPACK_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

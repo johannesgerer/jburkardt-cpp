@@ -23,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    MACHINE_PRB runs the MACHINE tests.
+//    MACHINE_PRB tests the MACHINE library.
 //
 //  Licensing:
 //
@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "MACHINE_PRB:\n";
   cout << "  C++ version\n";
@@ -54,7 +53,6 @@ int main ( )
   cout << "\n";
   cout << "MACHINE_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

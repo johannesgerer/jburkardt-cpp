@@ -1,0 +1,41 @@
+09 December 2013 01:02:52 AM
+
+ASA314_PRB:
+  C++ version
+  Test the ASA314 library.
+
+TEST01
+  INVMOD computes the inverse of a matrix
+  whose elements are subject to modulo arithmetic.
+
+  The matrix to be inverted:
+
+  Col:       0       1       2
+  Row
+
+    0:       1       1       2
+    1:       0       1       0
+    2:       0       0       1
+
+  The computed inverse:
+
+  Col:       0       1       2
+  Row
+
+    0:       1       2       1
+    1:       0       1       0
+    2:       0       0       1
+
+  The correct inverse:
+
+  Col:       0       1       2
+  Row
+
+    0:       1       2       1
+    1:       0       1       0
+    2:       0       0       1
+
+ASA314_PRB:
+  Normal end of execution.
+
+09 December 2013 01:02:52 AM

@@ -13,8 +13,6 @@ using namespace std;
 
 int main ( int argc, char *argv[] );
 unsigned long get_seed ( void );
-void get_svd_linpack ( int m, int n, double a[], double u[], double s[], 
-  double v[] );
 double *pseudo_inverse ( int m, int n, double u[], double s[], 
   double v[] );
 void pseudo_linear_solve_test ( int m, int n, double a[], 
@@ -26,6 +24,8 @@ double r8mat_norm_fro ( int m, int n, double a[] );
 void r8mat_print ( int m, int n, double a[], string title );
 void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi, 
   int jhi, string title );
+void r8mat_svd_linpack ( int m, int n, double a[], double u[], double s[], 
+  double v[] );
 double *r8mat_uniform_01_new ( int m, int n, int *seed );
 double r8vec_norm_l2 ( int n, double a[] );
 double *r8vec_uniform_01_new ( int n, int *seed );
@@ -205,7 +205,7 @@ int main ( int argc, char *argv[] )
 //
 //  Get the SVD from LINPACK.
 //
-  get_svd_linpack ( m, n, a, u, s, v );
+  r8mat_svd_linpack ( m, n, a, u, s, v );
 //
 //  Print the SVD.
 //
@@ -348,133 +348,6 @@ unsigned long get_seed ( void )
   return seed;
 
 # undef UNSIGNED_LONG_MAX
-}
-//****************************************************************************80
-
-void get_svd_linpack ( int m, int n, double a[], double u[], double s[], 
-  double v[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    GET_SVD_LINPACK gets the SVD of a matrix using a call to LINPACK.
-//
-//  Discussion:
-//
-//    The singular value decomposition of a real MxN matrix A has the form:
-//
-//      A = U * S * V'
-//
-//    where 
-//
-//      U is MxM orthogonal,
-//      S is MxN, and entirely zero except for the diagonal;
-//      V is NxN orthogonal.
-//
-//    Moreover, the nonzero entries of S are positive, and appear
-//    in order, from largest magnitude to smallest.
-//
-//    This routine calls the LINPACK routine DSVDC to compute the
-//    factorization.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 September 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int M, N, the number of rows and columns in the matrix A.
-//
-//    Input, double A[M*N], the matrix whose singular value
-//    decomposition we are investigating.
-//
-//    Output, double U[M*M], S[M*N], V[N*N], the factors
-//    that form the singular value decomposition of A.
-//
-{
-  double *a_copy;
-  double *e;
-  int i;
-  int info;
-  int j;
-  int lda;
-  int ldu;
-  int ldv;
-  int job;
-  int lwork;
-  double *sdiag;
-  double *work;
-//
-//  The correct size of E and SDIAG is min ( m+1, n).
-//
-  a_copy = new double[m*n];
-  e = new double[m+n];
-  sdiag = new double[m+n];
-  work = new double[m];
-//
-//  Compute the eigenvalues and eigenvectors.
-//
-  job = 11;
-  lda = m;
-  ldu = m;
-  ldv = n;
-//
-//  The input matrix is destroyed by the routine.  Since we need to keep
-//  it around, we only pass a copy to the routine.
-//
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    { 
-      a_copy[i+j*m] = a[i+j*m];
-    }
-  }
-  info = dsvdc ( a_copy, lda, m, n, sdiag, e, u, ldu, v, ldv, work, job );
- 
-  if ( info != 0 )
-  {
-    cout << "\n";
-    cout << "GET_SVD_LINPACK - Failure!\n";
-    cout << "  The SVD could not be calculated.\n";
-    cout << "  LINPACK routine DSVDC returned a nonzero\n";
-    cout << "  value of the error flag, INFO = " << info << "\n";
-    return;
-  }
-//
-//  Make the MxN matrix S from the diagonal values in SDIAG.
-//
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      if ( i == j )
-      {
-        s[i+j*m] = sdiag[i];
-      }
-      else
-      {
-        s[i+j*m] = 0.0;
-      }
-    }
-  }
-//
-//  Note that we do NOT need to transpose the V that comes out of LINPACK!
-//
-  delete [] a_copy;
-  delete [] e;
-  delete [] sdiag;
-  delete [] work;
-
-  return;
 }
 //****************************************************************************80
 
@@ -1433,6 +1306,133 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 
   return;
 # undef INCX
+}
+//****************************************************************************80
+
+void r8mat_svd_linpack ( int m, int n, double a[], double u[], double s[], 
+  double v[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_SVD_LINPACK gets the SVD of a matrix using a call to LINPACK.
+//
+//  Discussion:
+//
+//    The singular value decomposition of a real MxN matrix A has the form:
+//
+//      A = U * S * V'
+//
+//    where 
+//
+//      U is MxM orthogonal,
+//      S is MxN, and entirely zero except for the diagonal;
+//      V is NxN orthogonal.
+//
+//    Moreover, the nonzero entries of S are positive, and appear
+//    in order, from largest magnitude to smallest.
+//
+//    This routine calls the LINPACK routine DSVDC to compute the
+//    factorization.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 September 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns in the matrix A.
+//
+//    Input, double A[M*N], the matrix whose singular value
+//    decomposition we are investigating.
+//
+//    Output, double U[M*M], S[M*N], V[N*N], the factors
+//    that form the singular value decomposition of A.
+//
+{
+  double *a_copy;
+  double *e;
+  int i;
+  int info;
+  int j;
+  int lda;
+  int ldu;
+  int ldv;
+  int job;
+  int lwork;
+  double *sdiag;
+  double *work;
+//
+//  The correct size of E and SDIAG is min ( m+1, n).
+//
+  a_copy = new double[m*n];
+  e = new double[m+n];
+  sdiag = new double[m+n];
+  work = new double[m];
+//
+//  Compute the eigenvalues and eigenvectors.
+//
+  job = 11;
+  lda = m;
+  ldu = m;
+  ldv = n;
+//
+//  The input matrix is destroyed by the routine.  Since we need to keep
+//  it around, we only pass a copy to the routine.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    { 
+      a_copy[i+j*m] = a[i+j*m];
+    }
+  }
+  info = dsvdc ( a_copy, lda, m, n, sdiag, e, u, ldu, v, ldv, work, job );
+ 
+  if ( info != 0 )
+  {
+    cout << "\n";
+    cout << "R8MAT_SVD_LINPACK - Failure!\n";
+    cout << "  The SVD could not be calculated.\n";
+    cout << "  LINPACK routine DSVDC returned a nonzero\n";
+    cout << "  value of the error flag, INFO = " << info << "\n";
+    return;
+  }
+//
+//  Make the MxN matrix S from the diagonal values in SDIAG.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      if ( i == j )
+      {
+        s[i+j*m] = sdiag[i];
+      }
+      else
+      {
+        s[i+j*m] = 0.0;
+      }
+    }
+  }
+//
+//  Note that we do NOT need to transpose the V that comes out of LINPACK!
+//
+  delete [] a_copy;
+  delete [] e;
+  delete [] sdiag;
+  delete [] work;
+
+  return;
 }
 //****************************************************************************80
 

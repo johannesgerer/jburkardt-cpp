@@ -1,9 +1,9 @@
-17 October 2012 12:02:45 PM
+03 September 2013 08:50:22 PM
 
 TEST_MATRIX_EXPONENTIAL_TEST:
   C++ version
   Test the TEST_MATRIX_EXPONENTIAL library.
-  The R8LIB library is needed.
+  The C8LIB and R8LIB libraries are needed.
 
 TEST_MATRIX_EXPONENTIAL_TEST01:
   Retrieve the data for each matrix exponential test.
@@ -177,8 +177,8 @@ TEST_MATRIX_EXPONENTIAL_TEST01:
   Col:          0             1       
   Row
 
-    0:      2.71831       2.71828  
-    1:            0       2.71826  
+    0:      2.71828       2.71828  
+    1:            0       2.71828  
 
   Test #8
 
@@ -354,30 +354,30 @@ TEST_MATRIX_EXPONENTIAL_TEST01:
   Col:          0             1             2             3             4       
   Row
 
-    0:            0             0             0             0             0  
-    1:            0             0             0             0             0  
-    2:            0             0             0             0             0  
-    3:            0             0             0             0             0  
-    4:            0             0             0             0             0  
-    5:            0             0             0             0             0  
-    6:            0             0             0             0             0  
-    7:            0             0             0             0             0  
-    8:            0             0             0             0             0  
-    9:            0             0             0             0             0  
+    0:            1             1           0.5      0.166667     0.0416667  
+    1:  2.75573e-16             1             1           0.5      0.166667  
+    2:  2.48016e-15   2.75573e-16             1             1           0.5  
+    3:  1.98413e-14   2.48016e-15   2.75573e-16             1             1  
+    4:  1.38889e-13   1.98413e-14   2.48016e-15   2.75573e-16             1  
+    5:  8.33333e-13   1.38889e-13   1.98413e-14   2.48016e-15   2.75573e-16  
+    6:  4.16667e-12   8.33333e-13   1.38889e-13   1.98413e-14   2.48016e-15  
+    7:  1.66667e-11   4.16667e-12   8.33333e-13   1.38889e-13   1.98413e-14  
+    8:        5e-11   1.66667e-11   4.16667e-12   8.33333e-13   1.38889e-13  
+    9:        1e-10         5e-11   1.66667e-11   4.16667e-12   8.33333e-13  
 
   Col:          5             6             7             8             9       
   Row
 
-    0:            0             0             0             0             0  
-    1:            0             0             0             0             0  
-    2:            0             0             0             0             0  
-    3:            0             0             0             0             0  
-    4:            0             0             0             0             0  
-    5:            0             0             0             0             0  
-    6:            0             0             0             0             0  
-    7:            0             0             0             0             0  
-    8:            0             0             0             0             0  
-    9:            0             0             0             0             0  
+    0:   0.00833333    0.00138889   0.000198413   2.48016e-05   2.75573e-06  
+    1:    0.0416667    0.00833333    0.00138889   0.000198413   2.48016e-05  
+    2:     0.166667     0.0416667    0.00833333    0.00138889   0.000198413  
+    3:          0.5      0.166667     0.0416667    0.00833333    0.00138889  
+    4:            1           0.5      0.166667     0.0416667    0.00833333  
+    5:            1             1           0.5      0.166667     0.0416667  
+    6:  2.75573e-16             1             1           0.5      0.166667  
+    7:  2.48016e-15   2.75573e-16             1             1           0.5  
+    8:  1.98413e-14   2.48016e-15   2.75573e-16             1             1  
+    9:  1.38889e-13   1.98413e-14   2.48016e-15   2.75573e-16             1  
 
   Test #14
 
@@ -404,7 +404,79 @@ TEST_MATRIX_EXPONENTIAL_TEST01:
     1: -5.74307e+06     -0.015283  -4.52654e+06  
     2:     0.447723    1.5427e-09      0.463481  
 
+TEST_MATRIX_EXPONENTIAL_TEST02:
+  Retrieve the data for each matrix exponential test.
+
+  Test #1
+
+  This matrix is diagonal.
+  The diagonal entries are real.
+
+  Matrix order N = 2
+
+  Matrix A:
+
+  Col:               1                   2     
+  Row
+  ---
+    1:         1         0         0         0
+    2:         0         0         2         0
+
+  Exact Exponential exp(A):
+
+  Col:               1                   2     
+  Row
+  ---
+    1:   2.71828         0         0         0
+    2:         0         0   7.38906         0
+
+  Test #2
+
+  This matrix is diagonal.
+  The diagonal entries are pure imaginary.
+
+  Matrix order N = 2
+
+  Matrix A:
+
+  Col:               1                   2     
+  Row
+  ---
+    1:         0         3         0         0
+    2:         0         0         0        -4
+
+  Exact Exponential exp(A):
+
+  Col:               1                   2     
+  Row
+  ---
+    1:  -0.989992   0.14112         0         0
+    2:         0         0  -0.653644  0.756802
+
+  Test #3
+
+  This matrix is diagonal.
+  The diagonal entries are complex.
+
+  Matrix order N = 2
+
+  Matrix A:
+
+  Col:               1                   2     
+  Row
+  ---
+    1:         5         6         0         0
+    2:         0         0         7        -8
+
+  Exact Exponential exp(A):
+
+  Col:               1                   2     
+  Row
+  ---
+    1:   142.502  -41.4689         0         0
+    2:         0         0   -159.56  -1084.96
+
 TEST_MATRIX_EXPONENTIAL_TEST:
   Normal end of execution.
 
-17 October 2012 12:02:45 PM
+03 September 2013 08:50:22 PM

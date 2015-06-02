@@ -1,0 +1,30 @@
+18 January 2014 01:46:26 PM
+
+LINE_INTEGRALS_PRB
+  C++ version
+  Test the LINE_INTEGRALS library.
+
+TEST01
+  Compare exact and estimated integrals 
+  over the length of the unit line in 1D.
+
+  Number of sample points used is 4192
+
+   E     MC-Estimate      Exact           Error
+
+   0               1               1           0
+   1        0.498925             0.5  0.00107511
+   2        0.332937        0.333333  0.00039618
+   3        0.250201            0.25  0.000201173
+   4        0.200574             0.2  0.000573532
+   5        0.167439        0.166667  0.000772147
+   6        0.143718        0.142857  0.000861122
+   7        0.125885           0.125  0.000884574
+   8        0.111981        0.111111  0.00086949
+   9        0.100832             0.1  0.000832257
+  10       0.0916921       0.0909091  0.000783046
+
+LINE_INTEGRALS_PRB
+  Normal end of execution.
+
+18 January 2014 01:46:26 PM

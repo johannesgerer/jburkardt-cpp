@@ -1,0 +1,695 @@
+28 May 2014 11:09:13 PM
+
+EXACTNESS_PRB
+  C++ version
+  Test the EXACTNESS library.
+
+TEST01
+  Gauss-Legendre rules for the Legendre integral.
+  Density function rho(x) = 1.
+  Region: -1 <= x <= +1.
+  Exactness: 2*N-1.
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         1
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         0
+     3                         0
+     4                  0.444444
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2               1.66533e-16
+     3                         0
+     4               2.77556e-16
+     5                         0
+     6                      0.16
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         0
+     3                         0
+     4                         0
+     5                         0
+     6               1.94289e-16
+     7                         0
+     8                 0.0522449
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0                         0
+     1               2.77556e-17
+     2                         0
+     3               2.77556e-17
+     4               1.38778e-16
+     5                         0
+     6                         0
+     7               1.38778e-17
+     8                 1.249e-16
+     9                         0
+    10                  0.016125
+
+TEST015
+  Fejer Type 1 rules for the Legendre integral.
+  Density function rho(x) = 1.
+  Region: -1 <= x <= +1.
+  Exactness: N   for N odd,
+             N-1 for N even.
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         1
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                       0.5
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1                         0
+     2               1.66533e-16
+     3                         0
+     4                      0.25
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1               5.55112e-17
+     2               1.66533e-16
+     3               2.77556e-17
+     4                 0.0416667
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0                         0
+     1               5.55112e-17
+     2               1.66533e-16
+     3               8.32667e-17
+     4               2.77556e-16
+     5               2.77556e-17
+     6                 0.0208333
+
+TEST02
+  Fejer Type 2 rules for the Legendre integral.
+  Density function rho(x) = 1.
+  Region: -1 <= x <= +1.
+  Exactness: N   for N odd,
+             N-1 for N even.
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         1
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                      0.25
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2               1.66533e-16
+     3                         0
+     4                  0.166667
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2               1.66533e-16
+     3                         0
+     4                    0.0625
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1                         0
+     2               1.66533e-16
+     3               2.77556e-17
+     4               2.77556e-16
+     5                         0
+     6                    0.0375
+
+TEST03
+  Clenshaw-Curtis rules for the Legendre integral.
+  Density function rho(x) = 1.
+  Region: -1 <= x <= +1.
+  Exactness: N   for N odd,
+             N-1 for N even.
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         1
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         2
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1                         0
+     2                         0
+     3                         0
+     4                  0.666667
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0                         0
+     1               5.55112e-17
+     2               1.66533e-16
+     3                         0
+     4                  0.166667
+
+  Quadrature rule for the Legendre integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1               1.38778e-17
+     2               1.66533e-16
+     3               1.38778e-17
+     4               2.77556e-16
+     5               1.38778e-17
+     6                 0.0666667
+
+TEST04
+  Gauss-Laguerre rules for the Laguerre integral.
+  Density function rho(x) = exp(-x).
+  Region: 0 <= x < +oo.
+  Exactness: 2N-1.
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                       0.5
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         0
+     3                         0
+     4                  0.166667
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         0
+     3                         0
+     4                1.4803e-16
+     5               2.36848e-16
+     6                      0.05
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0                         0
+     1               1.11022e-16
+     2               1.11022e-16
+     3                1.4803e-16
+     4                         0
+     5               1.18424e-16
+     6               1.57898e-16
+     7               1.80455e-16
+     8                 0.0142857
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1                         0
+     2               1.11022e-16
+     3                1.4803e-16
+     4                1.4803e-16
+     5               2.36848e-16
+     6                         0
+     7               1.80455e-16
+     8               3.60911e-16
+     9               1.60405e-16
+    10                0.00396825
+
+TEST05
+  Gauss-Laguerre rules for the Laguerre integral.
+  Density function rho(x) = 1.
+  Region: 0 <= x < +oo.
+  Exactness: 2N-1.
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                       0.5
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         0
+     3                         0
+     4                  0.166667
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         0
+     3                         0
+     4                         0
+     5                         0
+     6                      0.05
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1               1.11022e-16
+     2               1.11022e-16
+     3                1.4803e-16
+     4                         0
+     5               1.18424e-16
+     6               1.57898e-16
+     7               1.80455e-16
+     8                 0.0142857
+
+  Quadrature rule for the Laguerre integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0               1.11022e-16
+     1                         0
+     2               2.22045e-16
+     3                1.4803e-16
+     4                1.4803e-16
+     5               2.36848e-16
+     6                         0
+     7               1.80455e-16
+     8               1.80455e-16
+     9               1.60405e-16
+    10                0.00396825
+
+TEST06
+  Gauss-Hermite rules for the Hermite integral.
+  Density function rho(x) = exp(-x^2).
+  Region: -oo < x < +oo.
+  Exactness: 2N-1.
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                   0.43581
+     1                         0
+     2                         1
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                   0.43581
+     1                         0
+     2                   0.43581
+     3                         0
+     4                  0.623874
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0                   0.43581
+     1                         0
+     2                   0.43581
+     3                         0
+     4                  0.128379
+     5                         0
+     6                   1.03108
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0                   0.43581
+     1               5.55112e-17
+     2                   0.43581
+     3                         0
+     4                  0.128379
+     5               1.11022e-16
+     6                   2.38514
+     7                         0
+     8                   9.44557
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0                   0.43581
+     1               2.77556e-17
+     2                   0.43581
+     3               2.77556e-17
+     4                  0.128379
+     5                         0
+     6                   2.38514
+     7                         0
+     8                   12.5406
+     9                         0
+    10                   58.1056
+
+TEST07
+  Gauss-Hermite rules for the Hermite integral.
+  Density function rho(x) = 1.
+  Region: -oo < x < +oo.
+  Exactness: 2N-1.
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                   0.43581
+     1                         0
+     2                         1
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                   0.43581
+     1                         0
+     2                   0.43581
+     3                         0
+     4                  0.623874
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0                   0.43581
+     1                         0
+     2                   0.43581
+     3                         0
+     4                  0.128379
+     5                         0
+     6                   1.03108
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0                   0.43581
+     1               2.77556e-17
+     2                   0.43581
+     3                         0
+     4                  0.128379
+     5                         0
+     6                   2.38514
+     7                         0
+     8                   9.44557
+
+  Quadrature rule for the Hermite integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0                   0.43581
+     1               2.77556e-17
+     2                   0.43581
+     3               2.77556e-17
+     4                  0.128379
+     5                         0
+     6                   2.38514
+     7                         0
+     8                   12.5406
+     9                         0
+    10                   58.1056
+
+TEST08
+  Gauss-Chebyshev1 rules for the Chebyshev1 integral.
+  Density function rho(x) = 1/sqrt(1-x^2).
+  Region: -1 <= x <= +1.
+  Exactness: 2N-1.
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         1
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0               2.82716e-16
+     1               2.22045e-16
+     2               2.82716e-16
+     3               3.33067e-16
+     4                  0.333333
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0               2.82716e-16
+     1                         0
+     2               5.65432e-16
+     3                         0
+     4               7.53909e-16
+     5                         0
+     6                       0.1
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0                         0
+     1               1.11022e-16
+     2                         0
+     3                         0
+     4                         0
+     5                         0
+     6               1.13086e-16
+     7                         0
+     8                 0.0285714
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0                         0
+     1               1.11022e-16
+     2                         0
+     3                         0
+     4               3.76955e-16
+     5                         0
+     6               3.39259e-16
+     7                         0
+     8               6.46208e-16
+     9                         0
+    10                0.00793651
+
+TEST085
+  Gauss-Chebyshev3 rules for the Chebyshev1 integral.
+  Density function rho(x) = 1/sqrt(1-x^2).
+  Region: -1 <= x <= +1.
+  Exactness: 2N-3.
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0                         0
+     1                         0
+     2                         1
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0               2.82716e-16
+     1                         0
+     2                         1
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0               1.41358e-16
+     1                         0
+     2                         0
+     3                         0
+     4                  0.333333
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0               1.41358e-16
+     1                         0
+     2                         0
+     3                         0
+     4                         0
+     5                         0
+     6                       0.1
+
+  Quadrature rule for the Chebyshev1 integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0                         0
+     1               5.55112e-17
+     2                         0
+     3               1.11022e-16
+     4                         0
+     5               1.66533e-16
+     6               1.13086e-16
+     7               1.11022e-16
+     8                 0.0285714
+
+TEST09
+  Gauss-Chebyshev2 rules for the Chebyshev2 integral.
+  Density function rho(x) = sqrt(1-x^2).
+  Region: -1 <= x <= +1.
+  Exactness: 2N-1.
+
+  Quadrature rule for the Chebyshev2 integral.
+  Rule of order N = 1
+  Degree          Relative Error
+
+     0               2.82716e-16
+     1                         0
+     2                         1
+
+  Quadrature rule for the Chebyshev2 integral.
+  Rule of order N = 2
+  Degree          Relative Error
+
+     0                         0
+     1               1.66533e-16
+     2                         0
+     3               4.16334e-17
+     4                       0.5
+
+  Quadrature rule for the Chebyshev2 integral.
+  Rule of order N = 3
+  Degree          Relative Error
+
+     0                         0
+     1               2.22045e-16
+     2                         0
+     3               5.55112e-17
+     4                         0
+     5               2.77556e-17
+     6                       0.2
+
+  Quadrature rule for the Chebyshev2 integral.
+  Rule of order N = 4
+  Degree          Relative Error
+
+     0               1.41358e-16
+     1               2.77556e-17
+     2                         0
+     3               1.38778e-17
+     4               1.41358e-16
+     5               1.38778e-17
+     6               2.26173e-16
+     7               6.93889e-18
+     8                 0.0714286
+
+  Quadrature rule for the Chebyshev2 integral.
+  Rule of order N = 5
+  Degree          Relative Error
+
+     0                         0
+     1               1.11022e-16
+     2                         0
+     3               2.77556e-17
+     4               2.82716e-16
+     5                         0
+     6               5.65432e-16
+     7               6.93889e-18
+     8                8.0776e-16
+     9                         0
+    10                 0.0238095
+
+EXACTNESS_PRB
+  Normal end of execution.
+
+28 May 2014 11:09:13 PM

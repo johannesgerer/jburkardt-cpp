@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TEST_ZERO_PRB demonstrates the use of the TEST_ZERO scalar test functions.
+//    TEST_ZERO_PRB tests the TEST_ZERO library.
 //
 //  Licensing:
 //
@@ -60,7 +60,6 @@ int main ( )
   double xrtol = 1.0E-06;
 
   timestamp ( );
-
   cout << "\n";
   cout << "TEST_ZERO_PRB\n";
   cout << "  C++ version\n";
@@ -239,7 +238,6 @@ int main ( )
   cout << "\n";
   cout << "TEST_ZERO_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

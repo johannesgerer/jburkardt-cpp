@@ -145,13 +145,6 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/hex_grid/hex_grid.html">
-      HEX_GRID</a>, 
-      a C++ library which 
-      computes elements of a hexagonal grid dataset.
-    </p>
-
-    <p>
       <a href = "../../cpp_src/md_openmp/md_openmp.html">
       MD_OPENMP</a>,
       a C++ program which
@@ -263,6 +256,12 @@
     <p>
       <ol>
         <li>
+          Philip Leong, Guanglie Zhang, Dong-U Lee, Wayne Luk, John Villasenor,<br>
+          A comment on the implementation of the ziggurat method,<br>
+          Journal of Statistical Software,<br>
+          Volume 12, Number 7, February 2005.
+        </li>
+        <li>
           George Marsaglia, Wai Wan Tsang,<br>
           The Ziggurat Method for Generating Random Variables,<br>
           Journal of Statistical Software,<br>
@@ -288,65 +287,16 @@
     </h3>
 
     <p>
-      <b>ZIGGURAT_LOCAL_G++</b> compiles, links, loads and runs the program
+      <b>ZIGGURAT_LOCAL</b> compiles, links, loads and runs the program
       using 1, 2 and 4 threads, the local interactive environment, 
       and the GNU G++ compiler.
       <ul>
         <li>
-          <a href = "ziggurat_local_g++.sh">ziggurat_local_g++.sh</a>, 
+          <a href = "ziggurat_local.sh">ziggurat_local.sh</a>, 
           BASH commands.
         </li>
         <li>
-          <a href = "ziggurat_local_g++_output.txt">ziggurat_local_g++_output.txt</a>, 
-          the output file;
-        </li>
-      </ul>
-    </p>
-
-    <p>
-      <b>ZIGGURAT_LOCAL_ICPC</b> compiles, links, loads and runs the program
-      using 1, 2 and 4 threads, the local interactive environment, 
-      and the Intel ICPC compiler.
-      <ul>
-        <li>
-          <a href = "ziggurat_local_icpc.sh">ziggurat_local_icpc.sh</a>, 
-          BASH commands.
-        </li>
-        <li>
-          <a href = "ziggurat_local_icpc_output.txt">ziggurat_local_icpc_output.txt</a>, 
-          the output file;
-        </li>
-      </ul>
-    </p>
-
-    <p>
-      <b>ZIGGURAT_ITHACA_G++</b> compiles, links, loads and runs the program
-      using 1, 2 and 4 threads, using the PBS queueing system on Virginia
-      Tech's Ithaca cluster, and the GNU G++ compiler.
-      <ul>
-        <li>
-          <a href = "ziggurat_ithaca_g++.sh">ziggurat_ithaca_g++.sh</a>, 
-          BASH commands.
-        </li>
-        <li>
-          <a href = "ziggurat_ithaca_g++_output.txt">ziggurat_ithaca_g++_output.txt</a>, 
-          the output file;
-        </li>
-      </ul>
-    </p>
-
-    <p>
-      <b>ZIGGURAT_ITHACA_ICPC</b> compiles, links, loads and runs the program
-      using 1, 2 and 4 threads, using the PBS queueing system on Virginia
-      Tech's Ithaca cluster,
-      and the Intel ICPC compiler.
-      <ul>
-        <li>
-          <a href = "ziggurat_ithaca_icpc.sh">ziggurat_ithaca_icpc.sh</a>, 
-          BASH commands.
-        </li>
-        <li>
-          <a href = "ziggurat_ithaca_icpc_output.txt">ziggurat_ithaca_icpc_output.txt</a>, 
+          <a href = "ziggurat_local_output.txt">ziggurat_local_output.txt</a>, 
           the output file;
         </li>
       </ul>
@@ -373,6 +323,27 @@
         <li>
           <b>TEST04</b> tests R4_EXP.
         </li>
+        <li>
+          <b>R4_EXP</b> returns an exponentially distributed single precision real value.
+        </li>
+        <li>
+          <b>R4_EXP_SETUP</b> sets data needed by R4_EXP.
+        </li>
+        <li>
+          <b>R4_NOR</b> returns a normally distributed single precision real value.
+        </li>
+        <li>
+          <b>R4_NOR_SETUP</b> sets data needed by R4_NOR.
+        </li>
+        <li>
+          <b>R4_UNI</b> returns a uniformly distributed real value.
+        </li>
+        <li>
+          <b>SHR3</b> evaluates the SHR3 generator for integers.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
       </ul>
     </p>
 
@@ -384,7 +355,7 @@
     <hr>
 
     <i>
-      Last revised on 24 March 2009.
+      Last revised on 04 October 2013.
     </i>
 
     <!-- John Burkardt -->

@@ -22,8 +22,6 @@ void lm_polynomial_values ( int &n_data, int &n, int &m, double &x,
   double &fx );
 double *lm_polynomial_zeros ( int n, int m );
 void lm_quadrature_rule ( int n, int m, double x[], double w[] );
-double r8_abs ( double x );
-double r8_add ( double x, double y );
 double r8_epsilon ( );
 double r8_factorial ( int n );
 double r8_gamma ( double x );

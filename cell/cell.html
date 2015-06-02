@@ -121,8 +121,12 @@
     <p>
       Cell arrays of type **CVV are most commonly useful, given how often
       triangular arrays and matrices occur, as well as lists, each of whose 
-      entries is in turn a list of varying length.  Currently, only cell
-      arrays of type R8CVV are implemented in this library.
+      entries is in turn a list of varying length.  
+    </p>
+
+    <p>
+      Currently, only cell
+      arrays of types I4CVV and R8CVV are implemented in this library.
     </p>
 
     <h3 align = "center">
@@ -215,7 +219,61 @@
     <p>
       <ul>
         <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>I4CVV_IGET</b> gets item J from row I in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_IINC</b> increments item J from row I in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_INDX</b> indexes item J from row I in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_ISET</b> sets item J from row I in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_NGET_NEW</b> gets N items JN(*) from rows IN(*) in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_NINC</b> increments items JN(*) from rows IN(*) in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_NNDX</b> gets N items JN(*) from rows IN(*) in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_NSET</b> sets items JN(*) from rows IN(*) in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_OFFSET</b> determines the row offsets of an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_PRINT</b> prints an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_RGET_NEW</b> gets row I from an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_RINC</b> increments row I in an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_RNDX</b> indexes row I from an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_RSET</b> sets row I from an I4CVV.
+        </li>
+        <li>
+          <b>I4CVV_SIZE</b> determines the size of an I4CVV.
+        </li>
+        <li>
+          <b>I4VEC_MAX</b> returns the value of the maximum element in an I4VEC.
+        </li>
+        <li>
           <b>I4VEC_PRINT</b> prints an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_TRANSPOSE_PRINT</b> prints an I4VEC "transposed".
         </li>
         <li>
           <b>R8CVV_IGET</b> gets item J from row I in an R8CVV.
@@ -224,16 +282,22 @@
           <b>R8CVV_IINC</b> increments item J from row I in an R8CVV.
         </li>
         <li>
+          <b>R8CVV_INDX</b> indexes item J from row I in an R8CVV.
+        </li>
+        <li>
           <b>R8CVV_ISET</b> sets item J from row I in an R8CVV.
         </li>
         <li>
-          <b>R8CVV_NGET</b> gets N items JN(*) from row IN(*) in an R8CVV.
+          <b>R8CVV_NGET_NEW</b> gets N items JN(*) from rows IN(*) in an R8CVV.
         </li>
         <li>
-          <b>R8CVV_NINC</b> increments items JN(*) from row IN(*) in an R8CVV.
+          <b>R8CVV_NINC</b> increments items JN(*) from rows IN(*) in an R8CVV.
         </li>
         <li>
-          <b>R8CVV_NSET</b> sets items JN(*) from row IN(*) in an R8CVV.
+          <b>R8CVV_NNDX</b> indexes N items JN(*) from rows IN(*) in an R8CVV.
+        </li>
+        <li>
+          <b>R8CVV_NSET</b> sets items JN(*) from rows IN(*) in an R8CVV.
         </li>
         <li>
           <b>R8CVV_OFFSET</b> determines the row offsets of an R8CVV.
@@ -242,10 +306,13 @@
           <b>R8CVV_PRINT</b> prints an R8CVV.
         </li>
         <li>
-          <b>R8CVV_RGET</b> gets row I from an R8CVV.
+          <b>R8CVV_RGET_NEW</b> gets row I from an R8CVV.
         </li>
         <li>
           <b>R8CVV_RINC</b> increments row I in an R8CVV.
+        </li>
+        <li>
+          <b>R8CVV_RNDX</b> indexes row I from an R8CVV.
         </li>
         <li>
           <b>R8CVV_RSET</b> sets row I from an R8CVV.
@@ -273,7 +340,7 @@
     <hr>
 
     <i>
-      Last revised on 16 November 2012.
+      Last revised on 07 December 2012.
     </i>
 
     <!-- John Burkardt -->

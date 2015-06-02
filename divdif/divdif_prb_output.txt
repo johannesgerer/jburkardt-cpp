@@ -1,4 +1,4 @@
-21 December 2011 04:28:42 PM
+04 June 2013 12:02:08 PM
 
 DIVDIF_PRB
   C++ version
@@ -108,7 +108,7 @@ TEST02
        7     12.1264  -0.0561433
        8     12.2343   0.0518261
 
-TEST04
+TEST03
   DIF_BASIS computes Lagrange basis polynomials
   in difference form.
 
@@ -145,42 +145,6 @@ TEST04
            5           0
 
 TEST05
-  POLY_BASIS computes Lagrange basis polynomials
-  in standard form.
-
-
-  The table of difference vectors defining the basis polynomials.
-  Each ROW represents a polynomial.
-
-         5    -6.41667     2.95833   -0.583333   0.0416667  
-       -10     17.8333    -9.83333     2.16667   -0.166667  
-        10       -19.5       12.25          -3        0.25  
-        -5     10.1667    -6.83333     1.83333   -0.166667  
-         1    -2.08333     1.45833   -0.416667   0.0416667  
-
-  One basis polynomial in standard form:
-
-  p(x) =       0.25 * x ^ 4
-       -          3 * x ^ 3
-       +      12.25 * x ^ 2
-       -       19.5 * x
-       +         10
-
-  Evaluate basis polynomial #3 at a set of points.
-
-      X        Y
-
-           1           0
-         1.5   -0.546875
-           2           0
-         2.5    0.703125
-           3           1
-         3.5    0.703125
-           4           0
-         4.5   -0.546875
-           5           0
-
-TEST06
   DIF_TO_R8POLY converts a difference table to a polynomial;
   DIF_SHIFT_ZERO shifts a divided difference table to 0;
 
@@ -227,41 +191,7 @@ TEST06
        +          3 * x
        -          4
 
-TEST07
-  NCC_RULE computes closed Newton Cotes formulas;
-
-
-  Newton-Cotes Closed Quadrature Rule:
-
-    Abscissa       Weight
-
-       1          -1   0.0869213
-       2   -0.714286    0.414005
-       3   -0.428571    0.153125
-       4   -0.142857    0.345949
-       5    0.142857    0.345949
-       6    0.428571    0.153125
-       7    0.714286    0.414005
-       8           1   0.0869213
-
-TEST08
-  NCO_RULE computes open Newton Cotes formulas.
-
-
-  Newton-Cotes Open Quadrature Rule:
-
-    Abscissa       Weight
-
-       1   -0.777778    0.797768
-       2   -0.555556    -1.25134
-       3   -0.333333     2.21741
-       4   -0.111111   -0.763839
-       5    0.111111   -0.763839
-       6    0.333333     2.21741
-       7    0.555556    -1.25134
-       8    0.777778    0.797768
-
-TEST09
+TEST06
   R8POLY_ANT_COF computes the coefficients of the
   antiderivative of a polynomial;
   R8POLY_ANT_VAL evaluates the antiderivative of
@@ -306,7 +236,95 @@ TEST09
            1          15           5          40
            2         129          62         222
 
-TEST10
+TEST07
+  R8POLY_BASIS computes Lagrange basis polynomials
+  in standard form.
+
+
+  The table of difference vectors defining the basis polynomials.
+  Each ROW represents a polynomial.
+
+         5    -6.41667     2.95833   -0.583333   0.0416667  
+       -10     17.8333    -9.83333     2.16667   -0.166667  
+        10       -19.5       12.25          -3        0.25  
+        -5     10.1667    -6.83333     1.83333   -0.166667  
+         1    -2.08333     1.45833   -0.416667   0.0416667  
+
+  One basis polynomial in standard form:
+
+  p(x) =       0.25 * x ^ 4
+       -          3 * x ^ 3
+       +      12.25 * x ^ 2
+       -       19.5 * x
+       +         10
+
+  Evaluate basis polynomial #3 at a set of points.
+
+      X        Y
+
+           1           0
+         1.5   -0.546875
+           2           0
+         2.5    0.703125
+           3           1
+         3.5    0.703125
+           4           0
+         4.5   -0.546875
+           5           0
+
+TEST08
+  R8POLY_SHIFT shifts polynomial coefficients.
+
+  Polynomial coefficients for argument X
+
+       0           6
+       1          -1
+       2           2
+
+  SCALE = 2
+  SHIFT = 3
+
+  Polynomial coefficients for argument Z = SCALE * X + SHIFT:
+
+       0          12
+       1        -3.5
+       2         0.5
+
+TEST16
+  NCC_RULE computes closed Newton Cotes formulas;
+
+
+  Newton-Cotes Closed Quadrature Rule:
+
+    Abscissa       Weight
+
+       1          -1   0.0869213
+       2   -0.714286    0.414005
+       3   -0.428571    0.153125
+       4   -0.142857    0.345949
+       5    0.142857    0.345949
+       6    0.428571    0.153125
+       7    0.714286    0.414005
+       8           1   0.0869213
+
+TEST17
+  NCO_RULE computes open Newton Cotes formulas.
+
+
+  Newton-Cotes Open Quadrature Rule:
+
+    Abscissa       Weight
+
+       1   -0.777778    0.797768
+       2   -0.555556    -1.25134
+       3   -0.333333     2.21741
+       4   -0.111111   -0.763839
+       5    0.111111   -0.763839
+       6    0.333333     2.21741
+       7    0.555556    -1.25134
+       8    0.777778    0.797768
+
+TEST18
   ROOTS_TO_DIF computes a divided difference
   polynomial with the given roots;
   DIF_TO_R8POLY converts it to a standard form polynomial.
@@ -360,7 +378,7 @@ TEST10
        -         50 * x
        +         24
 
-TEST11
+TEST19
   ROOTS_TO_R8POLY computes polynomial coefficients from roots.
 
 
@@ -412,25 +430,118 @@ TEST11
        -         50 * x
        +         24
 
-TEST12
-  R8POLY_SHIFT shifts polynomial coefficients.
+TEST20
+  For a divided difference polynomial:
+  DIF_DERIVK_TABLE computes the K-th derivative;
 
-  Polynomial coefficients for argument X
+  The divided difference polynomial P0:
 
-       0           6
-       1          -1
-       2           2
+  p(x) =                             0.333333
+       + ( x -         -2) * (      0.0416667
+       + ( x -         -1) * (       0.291667
+       + ( x -          0) * (      0.0833333
+       + ( x -          1) * (      0.0416667
+        ))))
 
-  SCALE = 2
-  SHIFT = 3
+  Using DIF_TO_R8POLY
 
-  Polynomial coefficients for argument Z = SCALE * X + SHIFT:
+  p(x) =   0.0416667 * x ^ 4
+       +   0.166667 * x ^ 3
+       +        0.5 * x ^ 2
+       +          1 * x
+       +          1
 
-       0          12
-       1        -3.5
-       2         0.5
+  Evaluate difference tables for the function P0
+  and its first four derivatives, P1...P4.
+
+      X         P0        P1        P2        P3        P4
+
+         0         1         1         1         1         1
+       0.2    1.2214   1.22133      1.22       1.2         1
+       0.4   1.49173   1.49067      1.48       1.4         1
+       0.6    1.8214     1.816      1.78       1.6         1
+       0.8    2.2224   2.20533      2.12       1.8         1
+         1   2.70833   2.66667       2.5         2         1
+       1.2    3.2944     3.208      2.92       2.2         1
+       1.4    3.9974   3.83733      3.38       2.4         1
+       1.6   4.83573   4.56267      3.88       2.6         1
+       1.8    5.8294     5.392      4.42       2.8         1
+         2         7   6.33333         5         3         1
+
+TEST21
+  DIF_BASIS_DERIV computes difference tables for
+  the first derivative of each Lagrange basis.
+
+  Lagrange basis derivative polynomial coefficients:
+
+  Row:       0             1       
+  Col
+
+    0:     -0.285714     0.0952381
+    1:          0.25     -0.166667
+    2:     0.0357143     0.0714286
+
+  P1'=-(2x-6)/21
+
+  p(x) =   0.0952381 * x
+       -   0.285714
+
+  P2'=-(2x-3)/12
+
+  p(x) = - 0.166667 * x
+       +       0.25
+
+  P3'=(2x+1)/28
+
+  p(x) =   0.0714286 * x
+       +  0.0357143
+
+TEST22
+  DIF_BASIS_DERIVK computes difference tables for
+  the K-th derivative of each Lagrange basis.
+
+  Lagrange basis K-th derivative polynomial coefficients:
+
+  Row:       0             1             2       
+  Col
+
+    0:       5.91667          -3.5           0.5
+    1:      -19.6667            13            -2
+    2:          24.5           -18             3
+    3:      -13.6667            11            -2
+    4:       2.91667          -2.5           0.5
+
+  P1''=(12x^2-84x+142)/24
+
+  p(x) =        0.5 * x ^ 2
+       -        3.5 * x
+       +    5.91667
+
+  P2''=-2x^2+13x-59/3
+
+  p(x) = -        2 * x ^ 2
+       +         13 * x
+       -    19.6667
+
+  P3''=3x^2-18x+49/2
+
+  p(x) =          3 * x ^ 2
+       -         18 * x
+       +       24.5
+
+  P4''=-2x^2+11x-41/3
+
+  p(x) = -        2 * x ^ 2
+       +         11 * x
+       -    13.6667
+
+  P5''=(6x^2-30x+35)/12
+
+  p(x) =        0.5 * x ^ 2
+       -        2.5 * x
+       +    2.91667
 
 DIVDIF_PRB
   Normal end of execution.
 
-21 December 2011 04:28:42 PM
+04 June 2013 12:02:08 PM

@@ -1,0 +1,14 @@
+# fx7_commands.txt
+#
+# Usage:
+#  gnuplot < fx7_commands.txt
+#
+set term png
+set output 'fx7.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title '1D Test Function #7'
+set grid
+set style data lines
+plot 'fx7_data.txt' using 1:2 with points lt 3 pt 4 linecolor rgb 'blue'
+quit

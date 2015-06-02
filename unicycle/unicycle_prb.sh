@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include unicycle_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include unicycle_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling unicycle_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ unicycle_prb.o /$HOME/libcpp/$ARCH/unicycle.o -lm
 if [ $? -ne 0 ]; then

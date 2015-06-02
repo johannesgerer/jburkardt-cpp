@@ -1,0 +1,13 @@
+20 July 2014 11:38:28 PM
+
+UMFPACK_WEST:
+  C++ version
+  Use UMFPACK to solve the sparse linear system A*x=b.
+  The matrix A is stored, in CC format, in 3 files.
+
+  Residual: ||A*x-b|| = 3.1988e-15
+
+UMFPACK_WEST:
+  Normal end of execution.
+
+20 July 2014 11:38:28 PM

@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    RBF_INTERP_1D_TEST tests RBF_INTERP_1D.
+//    MAIN is the main program for RBF_INTERP_1D_PRB.
+//
+//  Discussion:
+//
+//    RBF_INTERP_1D_PRB tests the RBF_INTERP_1D library.
 //
 //  Licensing:
 //
@@ -49,7 +53,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "RBF_INTERP_1D_TEST:\n";
+  cout << "RBF_INTERP_1D_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the RBF_INTERP_1D library.\n";
   cout << "  The R8LIB library is needed.\n";
@@ -83,7 +87,7 @@ int main ( )
   Terminate.
 */
   cout << "\n";
-  cout << "RBF_INTERP_1D_TEST:\n";
+  cout << "RBF_INTERP_1D_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

@@ -1,0 +1,61 @@
+23 September 2014 10:47:29 AM
+
+EDGE_PRB
+  C++ version.
+  Test the EDGE library.
+
+TEST01:
+  Plot 1D test functions.
+  Created data file 'fx1_data.txt'
+  Created command file 'fx1_commands.txt'
+  Created data file 'fx2_data.txt'
+  Created command file 'fx2_commands.txt'
+  Created data file 'fx3_data.txt'
+  Created command file 'fx3_commands.txt'
+  Created data file 'fx4_data.txt'
+  Created command file 'fx4_commands.txt'
+  Created data file 'fx5_data.txt'
+  Created command file 'fx5_commands.txt'
+  Created data file 'fx6_data.txt'
+  Created command file 'fx6_commands.txt'
+  Created data file 'fx7_data.txt'
+  Created command file 'fx7_commands.txt'
+
+TEST02:
+  Plot 2D test function #1 with jump along circle.
+  Created data file 'fxy1_data.txt'
+  Created command file 'fxy1_commands.txt'
+
+TEST03:
+  Plot 2D test function #2, the Shepp Logan phantom.
+  Created data file 'fxy2_data.txt'
+  Created command file 'fxy2_commands.txt'
+
+TEST035:
+  Plot 2D test function #3, the modified 2D Harten function.
+  Created data file 'fxy3_data.txt'
+  Created command file 'fxy3_commands.txt'
+
+TEST036:
+  Plot 2D test function #4, the discontinuous medium wave, P(x,t).
+  Created data file 'fxy4_data.txt'
+  Created command file 'fxy4_commands.txt'
+
+TEST037:
+  Plot 2D test function #5, the discontinuous medium wave, U(x,t).
+  Created data file 'fxy5_data.txt'
+  Created command file 'fxy5_commands.txt'
+
+TEST04:
+  Plot 3D test function #1, the Shepp Logan 3D phantom.
+  Created data file 'fxyz1_x_data.txt'
+  Created command file 'fxyz1_x_commands.txt'
+  Created data file 'fxyz1_y_data.txt'
+  Created command file 'fxyz1_y_commands.txt'
+  Created data file 'fxyz1_z_data.txt'
+  Created command file 'fxyz1_z_commands.txt'
+
+EDGE_PRB
+  Normal end of execution.
+
+23 September 2014 10:47:30 AM

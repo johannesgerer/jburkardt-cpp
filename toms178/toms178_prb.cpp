@@ -25,7 +25,11 @@ int main ( )
 //
 //  Discussion:
 //
-//    TOMS178_PRB calls the TOMS178 routines.
+//    TOMS178_PRB tests the TOMS178 library.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -37,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TOMS178_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +54,6 @@ int main ( )
   cout << "\n";
   cout << "TOMS178_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -66,6 +68,10 @@ void test01 ( )
 //  Purpose:
 //
 //    TEST01 tests HOOKE with the Rosenbrock function.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -158,6 +164,10 @@ void test02 ( )
 //
 //    The Hooke and Jeeves algorithm works well when RHO = 0.5, but
 //    does poorly when RHO = 0.6, and better when RHO = 0.8
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -253,6 +263,10 @@ double rosenbrock ( double x[], int n )
 //    The Hooke and Jeeves algorithm works reasonably well on
 //    Rosenbrock's test function, depending on the value of RHO chosen.
 //
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
 //  Modified:
 //
 //    12 February 2008
@@ -286,6 +300,10 @@ double woods ( double x[], int n )
 //  Purpose:
 //
 //    WOODS evaluates the Woods function.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //

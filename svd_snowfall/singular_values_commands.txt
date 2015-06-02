@@ -1,0 +1,14 @@
+# singular_values_commands.txt
+#
+# Usage:
+#  gnuplot < singular_values_commands.txt
+#
+set term png
+set output 'singular_values.png'
+set xlabel 'Index I'
+set ylabel 'S(I)'
+set title 'Snowfall Singular Values'
+set grid
+set style data lines
+plot 'singular_values_data.txt' using 1:2 lw 3 linecolor rgb 'blue'
+quit

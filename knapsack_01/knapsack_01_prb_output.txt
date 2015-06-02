@@ -1,0 +1,25 @@
+23 August 2014 09:02:40 AM
+
+KNAPSACK_01_TEST
+  C++ version.
+  Test the KNAPSACK_01 library.
+
+TEST01:
+  Knapsack maximum capacity is 100
+  Come as close as possible to filling the knapsack.
+
+   # 0/1  Weight
+
+   0  1    16
+   1  1    17
+   2  0    23
+   3  1    24
+   4  0    39
+   5  1    40
+
+  Total:   97
+
+KNAPSACK_01_TEST
+  Normal end of execution.
+
+23 August 2014 09:02:40 AM

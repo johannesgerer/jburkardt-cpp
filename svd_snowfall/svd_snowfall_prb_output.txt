@@ -1,0 +1,71 @@
+10 May 2013 08:33:10 AM
+
+SVD_SNOWFALL_TEST
+  C++ version
+  Test the SVD_SNOWFALL library.
+
+SVD_SNOWFALL_TEST01
+  Read, process, and return snowfall data in "snowfall.txt".
+
+  Number of data rows    M = 8
+  Number of data columns N = 123
+
+  Data has been read from the file.
+
+SVD_SNOWFALL_TEST02
+  Look at the singular values.
+  If the singular values are close, then the data is
+  well spread out.  If the singular values decay rapidly,
+  then the data exhibits patterns, or is constrained to
+  a lower-dimensional subspace.
+
+  The singular values:
+
+         0:        929.264
+         1:        233.192
+         2:        171.106
+         3:        143.153
+         4:        127.488
+         5:        79.4297
+         6:         37.935
+         7:        23.2132
+
+  Created data file "singular_values_data.txt".
+  Created command file "singular_values_commands.txt".
+
+  The cumulative energy:
+
+         0:              0
+         1:       0.870302
+         2:       0.925107
+         3:       0.954614
+         4:       0.975267
+         5:       0.991648
+         6:       0.998007
+         7:       0.999457
+         8:              1
+
+SVD_SNOWFALL_TEST03
+  Compute the rank 1 through rank 5 approximations to the data.
+  Compare each of these to the 2012 snowfall data.
+  Created data file "approx_data.txt".
+  Created command file 'approx_commands.txt'.
+
+SVD_SNOWFALL_TEST04
+  Look at the first 6 modes in the U matrix.
+  Each of these represents a pattern for snowfall over a year.
+  The first mode is the pattern that is strongest in the data.
+  Created data file "umode_data.txt".
+  Created command file 'umode_commands.txt'.
+
+SVD_SNOWFALL_TEST05
+  Look at the first 6 modes in the V matrix.
+  Each of these represents a pattern shared by all the months,
+  and extending across the 123 sampling years.
+  Created data file "vmode_data.txt".
+  Created command file 'vmode_commands.txt'.
+
+SVD_SNOWFALL_TEST
+  Normal end of execution.
+
+10 May 2013 08:33:10 AM

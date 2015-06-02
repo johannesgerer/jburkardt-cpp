@@ -15,6 +15,7 @@ int r4_nint ( float x );
 void r4mat_delete ( float **a, int m, int n );
 float **r4mat_new ( int m, int n );
 void r4mat_uniform ( int m, int n, float b, float c, int *seed, float **r );
+void timestamp ( );
 
 //****************************************************************************80
 
@@ -28,7 +29,11 @@ int main ( )
 //
 //  Discussion:
 //
-//    MGS_PRB gives some test data to the MGS function.
+//    MGS_PRB tests the MGS library.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -55,9 +60,11 @@ int main ( )
   int seed = 123456789;
   int test;
 
+  timestamp ( );
   cout << "\n";
   cout << "MGS_PRB:\n";
-  cout << "  Test cases for MGS.\n";
+  cout << "  C++ version\n";
+  cout << "  Test the MGS library.\n";
   cout << "\n";
 
   for ( test = 1; test <= 4; test++ )
@@ -136,6 +143,8 @@ int main ( )
   cout << "\n";
   cout << "MGS_PRB:\n";
   cout << "  Normal end of execution.\n";
+  cout << "\n";
+  timestamp ( );
 
   return 0;
 }
@@ -593,4 +602,52 @@ void r4mat_uniform ( int m, int n, float b, float c, int *seed, float **r )
   }
 
   return;
+}
+//****************************************************************************80
+
+void timestamp ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TIMESTAMP prints the current YMDHMS date as a time stamp.
+//
+//  Example:
+//
+//    31 May 2001 09:45:54 AM
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    08 July 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    None
+//
+{
+# define TIME_SIZE 40
+
+  static char time_buffer[TIME_SIZE];
+  const struct std::tm *tm_ptr;
+  size_t len;
+  std::time_t now;
+
+  now = std::time ( NULL );
+  tm_ptr = std::localtime ( &now );
+
+  len = std::strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm_ptr );
+
+  std::cout << time_buffer << "\n";
+
+  return;
+# undef TIME_SIZE
 }

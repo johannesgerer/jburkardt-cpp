@@ -11,6 +11,136 @@ using namespace std;
 
 //****************************************************************************80
 
+char digit_to_ch ( int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    DIGIT_TO_CH returns the base 10 digit character corresponding to a digit.
+//
+//  Example:
+//
+//     I     C
+//   -----  ---
+//     0    '0'
+//     1    '1'
+//   ...    ...
+//     9    '9'
+//    10    '*'
+//   -83    '*'
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 June 2003
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I, the digit, which should be between 0 and 9.
+//
+//    Output, char DIGIT_TO_CH, the appropriate character '0'
+//    through '9' or '*'.
+//
+{
+  char c;
+
+  if ( 0 <= i && i <= 9 )
+  {
+    c = '0' + i;
+  }
+  else
+  {
+    c = '*';
+  }
+
+  return c;
+}
+//****************************************************************************80
+
+int i4_log_10 ( int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_LOG_10 returns the whole part of the logarithm base 10 of an I4.
+//
+//  Discussion:
+//
+//    It should be the case that 10^I4_LOG_10(I) <= |I| < 10^(I4_LOG_10(I)+1).
+//    (except for I = 0).
+//
+//    The number of decimal digits in I is I4_LOG_10(I) + 1.
+//
+//  Example:
+//
+//        I    I4_LOG_10(I)
+//
+//        0     0
+//        1     0
+//        2     0
+//
+//        9     0
+//       10     1
+//       11     1
+//
+//       99     1
+//      100     2
+//      101     2
+//
+//      999     2
+//     1000     3
+//     1001     3
+//
+//     9999     3
+//    10000     4
+//    10001     4
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 June 2003
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I, the integer.
+//
+//    Output, int I4_LOG_10, the whole part of the logarithm of abs ( I ).
+//
+{
+  int ten_pow;
+  int value;
+
+  i = abs ( i );
+
+  ten_pow = 10;
+  value = 0;
+
+  while ( ten_pow <= i )
+  {
+    ten_pow = ten_pow * 10;
+    value = value + 1;
+  }
+
+  return value;
+}
+//****************************************************************************80
+
 int i4_max ( int i1, int i2 )
 
 //****************************************************************************80
@@ -90,6 +220,105 @@ int i4_min ( int i1, int i2 )
     value = i2;
   }
   return value;
+}
+//****************************************************************************80
+
+string i4_to_s ( int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_TO_S converts an I4 to a string.
+//
+//  Example:
+//
+//    INTVAL  S
+//
+//         1  1
+//        -1  -1
+//         0  0
+//      1952  1952
+//    123456  123456
+//   1234567  1234567
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 May 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I, an integer to be converted.
+//
+//    Output, string I4_TO_S, the representation of the integer.
+//
+{
+  int digit;
+  int j;
+  int length;
+  int ten_power;
+  string s;
+  char s_char[80];
+  static double ten = 10.0;
+
+  length = i4_log_10 ( i );
+
+  ten_power = ( int ) ( pow ( ten, length ) );
+
+  if ( i < 0 )
+  {
+    length = length + 1;
+  }
+//
+//  Add one position for the trailing null.
+//
+  length = length + 1;
+
+  if ( i == 0 )
+  {
+    s_char[0] = '0';
+    s_char[1] = '\0';
+    s = string ( s_char );
+    return s;
+  }
+//
+//  Now take care of the sign.
+//
+  j = 0;
+  if ( i < 0 )
+  {
+    s_char[j] = '-';
+    j = j + 1;
+    i = abs ( i );
+  }
+//
+//  Find the leading digit of I, strip it off, and stick it into the string.
+//
+  while ( 0 < ten_power )
+  {
+    digit = i / ten_power;
+    s_char[j] = digit_to_ch ( digit );
+    j = j + 1;
+    i = i - digit * ten_power;
+    ten_power = ten_power / 10;
+  }
+//
+//  Tack on the trailing NULL.
+//
+  s_char[j] = '\0';
+  j = j + 1;
+
+  s = string ( s_char );
+
+  return s;
 }
 //****************************************************************************80
 
@@ -194,7 +423,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
           break;
         }
 
-        if ( r8_abs ( e[m-1] ) <= prec * ( r8_abs ( d[m-1] ) + r8_abs ( d[m] ) ) )
+        if ( fabs ( e[m-1] ) <= prec * ( fabs ( d[m-1] ) + fabs ( d[m] ) ) )
         {
           break;
         }
@@ -214,7 +443,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
       j = j + 1;
       g = ( d[l] - p ) / ( 2.0 * e[l-1] );
       r =  sqrt ( g * g + 1.0 );
-      g = d[m-1] - p + e[l-1] / ( g + r8_abs ( r ) * r8_sign ( g ) );
+      g = d[m-1] - p + e[l-1] / ( g + fabs ( r ) * r8_sign ( g ) );
       s = 1.0;
       c = 1.0;
       p = 0.0;
@@ -226,7 +455,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
         f = s * e[i-1];
         b = c * e[i-1];
 
-        if ( r8_abs ( g ) <= r8_abs ( f ) )
+        if ( fabs ( g ) <= fabs ( f ) )
         {
           c = g / f;
           r =  sqrt ( c * c + 1.0 );
@@ -364,7 +593,7 @@ double *p_exponential_product ( int p, double b )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = p_polynomial ( 1, p, x_table + k );
+    h_table = p_polynomial_value ( 1, p, x_table + k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -434,13 +663,361 @@ double p_integral ( int n )
 }
 //****************************************************************************80
 
-double *p_polynomial ( int m, int n, double x[] )
+double *p_polynomial_coefficients ( int n )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    P_POLYNOMIAL evaluates the Legendre polynomials P(n,x).
+//    P_POLYNOMIAL_COEFFICIENTS: coefficients of Legendre polynomial P(n,x).
+//
+//  Discussion:
+//
+//     1
+//     0     1
+//    -1/2   0      3/2
+//     0    -3/2    0     5/2
+//     3/8   0    -30/8   0     35/8
+//     0    15/8    0   -70/8    0     63/8
+//    -5/16  0    105/16  0   -315/16   0    231/16
+//     0   -35/16   0   315/16   0   -693/16   0    429/16
+//
+//     1.00000
+//     0.00000  1.00000
+//    -0.50000  0.00000  1.50000
+//     0.00000 -1.50000  0.00000  2.5000
+//     0.37500  0.00000 -3.75000  0.00000  4.37500
+//     0.00000  1.87500  0.00000 -8.75000  0.00000  7.87500
+//    -0.31250  0.00000  6.56250  0.00000 -19.6875  0.00000  14.4375
+//     0.00000 -2.1875   0.00000  19.6875  0.00000 -43.3215  0.00000  26.8125
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    18 October 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Daniel Zwillinger, editor,
+//    CRC Standard Mathematical Tables and Formulae,
+//    30th Edition,
+//    CRC Press, 1996.
+//
+//  Parameters:
+//
+//    Input, int N, the highest order polynomial to evaluate.
+//    Note that polynomials 0 through N will be evaluated.
+//
+//    Output, double P_POLYNOMIAL_COEFFICIENTS[(N+1)*(N+1)], the coefficients of 
+//    the Legendre polynomials of degree 0 through N.
+//
+{
+  double *c;
+  int i;
+  int j;
+  double t;
+
+  if ( n < 0 )
+  {
+    return NULL;
+  }
+
+  c = new double[(n+1)*(n+1)];
+
+  for ( i = 0; i <= n; i++ )
+  {
+    for ( j = 0; j <= n; j++ )
+    {
+      c[i+j*(n+1)] = 0.0;
+    }
+  }
+
+  c[0+0*(n+1)] = 1.0;
+
+  if ( 0 < n )
+  {
+    c[1+1*(n+1)] = 1.0;
+  }
+
+  for ( i = 2; i <= n; i++ )
+  {
+    for ( j = 0; j <= i-2; j++ )
+    {
+      c[i+j*(n+1)] =          
+          ( double ) (   - i + 1 ) * c[i-2+j*(n+1)] / ( double ) i;
+    }
+    for ( j = 1; j <= i; j++ )
+    {
+      c[i+j*(n+1)] = c[i+j*(n+1)] 
+        + ( double ) ( i + i - 1 ) * c[i-1+(j-1)*(n+1)] / ( double ) i;
+    }
+  }
+
+  return c;
+}
+//****************************************************************************80
+
+double *p_polynomial_prime ( int m, int n, double x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P_POLYNOMIAL_PRIME evaluates the derivative of Legendre polynomials P(n,x).
+//
+//  Discussion:
+//
+//    P(0,X) = 1
+//    P(1,X) = X
+//    P(N,X) = ( (2*N-1)*X*P(N-1,X)-(N-1)*P(N-2,X) ) / N
+//
+//    P'(0,X) = 0
+//    P'(1,X) = 1
+//    P'(N,X) = ( (2*N-1)*(P(N-1,X)+X*P'(N-1,X)-(N-1)*P'(N-2,X) ) / N
+//
+//    Thanks to Dimitriy Morozov for pointing out a memory leak caused by
+//    not deleting the work array V before return, 19 March 2013.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    19 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Daniel Zwillinger, editor,
+//    CRC Standard Mathematical Tables and Formulae,
+//    30th Edition,
+//    CRC Press, 1996.
+//
+//  Parameters:
+//
+//    Input, int M, the number of evaluation points.
+//
+//    Input, int N, the highest order polynomial to evaluate.
+//    Note that polynomials 0 through N will be evaluated.
+//
+//    Input, double X[M], the evaluation points.
+//
+//    Output, double P_POLYNOMIAL_PRIME[M*(N+1)], the values of the derivatives 
+//    of the Legendre polynomials of order 0 through N at the points.
+//
+{
+  int i;
+  int j;
+  double *v;
+  double *vp;
+
+  if ( n < 0 )
+  {
+    return NULL;
+  }
+
+  vp = new double[m*(n+1)];
+
+  for ( i = 0; i < m; i++ )
+  {
+    vp[i+0*m] = 0.0;
+  }
+
+  if ( n < 1 )
+  {
+    return vp;
+  }
+
+  v = new double[m*(n+1)];
+
+  for ( i = 0; i < m; i++ )
+  {
+    v[i+0*m] = 1.0;
+  }
+
+  for ( i = 0; i < m; i++ )
+  {
+    v[i+1*m] = x[i];
+    vp[i+1*m] = 1.0;
+  }
+
+  for ( j = 2; j <= n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      v[i+j*m] = ( ( double ) ( 2 * j - 1 ) * x[i] * v[i+(j-1)*m]   
+                 - ( double ) (     j - 1 ) *        v[i+(j-2)*m] ) 
+                 / ( double ) (     j     );
+ 
+      vp[i+j*m] = ( ( double ) ( 2 * j - 1 ) * ( v[i+(j-1)*m] + x[i] * vp[i+(j-1)*m] ) 
+                  - ( double ) (     j - 1 ) *   vp[i+(j-2)*m]               ) 
+                  / ( double ) (     j     );
+    }
+  }
+ 
+  delete [] v;
+
+  return vp;
+}
+//****************************************************************************80
+
+double *p_polynomial_prime2 ( int m, int n, double x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P_POLYNOMIAL_PRIME2: second derivative of Legendre polynomials P(n,x).
+//
+//  Discussion:
+//
+//    P(0,X) = 1
+//    P(1,X) = X
+//    P(N,X) = ( (2*N-1)*X*P(N-1,X)-(N-1)*P(N-2,X) ) / N
+//
+//    P'(0,X) = 0
+//    P'(1,X) = 1
+//    P'(N,X) = ( (2*N-1)*(P(N-1,X)+X*P'(N-1,X)-(N-1)*P'(N-2,X) ) / N
+//
+//    P"(0,X) = 0
+//    P"(1,X) = 0
+//    P"(N,X) = ( (2*N-1)*(2*P'(N-1,X)+X*P"(N-1,X)-(N-1)*P"(N-2,X) ) / N
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 May 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Daniel Zwillinger, editor,
+//    CRC Standard Mathematical Tables and Formulae,
+//    30th Edition,
+//    CRC Press, 1996.
+//
+//  Parameters:
+//
+//    Input, int M, the number of evaluation points.
+//
+//    Input, int N, the highest order polynomial to evaluate.
+//    Note that polynomials 0 through N will be evaluated.
+//
+//    Input, double X[M], the evaluation points.
+//
+//    Output, double P_POLYNOMIAL_PRIME2[M*(N+1)], the second derivative
+//    of the Legendre polynomials of order 0 through N at the points.
+//
+{
+  int i;
+  int j;
+  double *v;
+  double *vp;
+  double *vpp;
+
+  if ( n < 0 )
+  {
+    return NULL;
+  }
+
+  vpp = new double[m*(n+1)];
+
+  for ( i = 0; i < m; i++ )
+  {
+    vpp[i+0*m] = 0.0;
+  }
+
+  if ( n < 1 )
+  {
+    return vpp;
+  }
+
+  v = new double[m*(n+1)];
+  vp = new double[m*(n+1)];
+
+  for ( i = 0; i < m; i++ )
+  {
+    v[i+0*m] = 1.0;
+    vp[i+0*m] = 0.0;
+  }
+
+  for ( i = 0; i < m; i++ )
+  {
+    v[i+1*m] = x[i];
+    vp[i+1*m] = 1.0;
+    vpp[i+1*m] = 0.0;
+  }
+
+  for ( j = 2; j <= n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      v[i+j*m] = 
+        ( ( double ) ( 2 * j - 1 ) * x[i] * v[i+(j-1)*m]   
+        - ( double ) (     j - 1 ) *        v[i+(j-2)*m] ) 
+        / ( double ) (     j     );
+ 
+      vp[i+j*m] = 
+        ( ( double ) ( 2 * j - 1 ) * ( v[i+(j-1)*m] + x[i] * vp[i+(j-1)*m] ) 
+        - ( double ) (     j - 1 ) *   vp[i+(j-2)*m]               ) 
+        / ( double ) (     j     );
+
+      vpp[i+j*m] = 
+        ( ( double ) ( 2 * j - 1 ) * ( 2.0 * vp[i+(j-1)*m] + x[i] * vpp[i+(j-1)*m] ) 
+        - ( double ) (     j - 1 ) *   vpp[i+(j-2)*m]               ) 
+        / ( double ) (     j     );
+    }
+  }
+ 
+  delete [] v;
+  delete [] vp;
+
+  return vpp;
+}
+//****************************************************************************80
+
+double *p_polynomial_value ( int m, int n, double x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P_POLYNOMIAL_VALUE evaluates the Legendre polynomials P(n,x).
 //
 //  Discussion:
 //
@@ -532,8 +1109,8 @@ double *p_polynomial ( int m, int n, double x[] )
 //
 //    Input, double X[M], the evaluation points.
 //
-//    Output, double P_POLYNOMIAL[M*(N+1)], the values of the Legendre polynomials 
-//    of order 0 through N.
+//    Output, double P_POLYNOMIAL_VALUE[M*(N+1)], the values of the Legendre
+//    polynomials of order 0 through N.
 //
 {
   int i;
@@ -573,223 +1150,6 @@ double *p_polynomial ( int m, int n, double x[] )
   }
  
   return v;
-}
-//****************************************************************************80
-
-double *p_polynomial_coefficients ( int n )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    P_POLYNOMIAL_COEFFICIENTS: coefficients of Legendre polynomials P(n,x).
-//
-//  First terms:
-//
-//     1
-//     0     1
-//    -1/2   0      3/2
-//     0    -3/2    0     5/2
-//     3/8   0    -30/8   0     35/8
-//     0    15/8    0   -70/8    0     63/8
-//    -5/16  0    105/16  0   -315/16   0    231/16
-//     0   -35/16   0   315/16   0   -693/16   0    429/16
-//
-//     1.00000
-//     0.00000  1.00000
-//    -0.50000  0.00000  1.50000
-//     0.00000 -1.50000  0.00000  2.5000
-//     0.37500  0.00000 -3.75000  0.00000  4.37500
-//     0.00000  1.87500  0.00000 -8.75000  0.00000  7.87500
-//    -0.31250  0.00000  6.56250  0.00000 -19.6875  0.00000  14.4375
-//     0.00000 -2.1875   0.00000  19.6875  0.00000 -43.3215  0.00000  26.8125
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 March 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Daniel Zwillinger, editor,
-//    CRC Standard Mathematical Tables and Formulae,
-//    30th Edition,
-//    CRC Press, 1996.
-//
-//  Parameters:
-//
-//    Input, int N, the highest order polynomial to evaluate.
-//    Note that polynomials 0 through N will be evaluated.
-//
-//    Output, double P_POLYNOMIAL_COEFFICIENTS[(N+1)*(N+1)], the coefficients of 
-//    the Legendre polynomials of degree 0 through N.
-//
-{
-  double *c;
-  int i;
-  int j;
-
-  if ( n < 0 )
-  {
-    return NULL;
-  }
-
-  c = new double[(n+1)*(n+1)];
-
-  for ( i = 0; i <= n; i++ )
-  {
-    for ( j = 0; j <= n; j++ )
-    {
-      c[i+j*(n+1)] = 0.0;
-    }
-  }
-
-  c[0+0*(n+1)] = 1.0;
-
-  if ( n <= 0 )
-  {
-    return c;
-  }
-
-  c[1+1*(n+1)] = 1.0;
-
-  for ( i = 2; i <= n; i++ )
-  {
-    for ( j = 0; j <= i-2; j++ )
-    {
-      c[i+j*(n+1)] =          
-          ( double ) (   - i + 1 ) * c[i-2+j*(n+1)] / ( double ) i;
-    }
-    for ( j = 1; j <= i; j++ )
-    {
-      c[i+j*(n+1)] = c[i+j*(n+1)] 
-        + ( double ) ( i + i - 1 ) * c[i-1+(j-1)*(n+1)] / ( double ) i;
-    }
-  }
-
-  return c;
-}
-//****************************************************************************80
-
-double *p_polynomial_prime ( int m, int n, double x[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    P_POLYNOMIAL_PRIME evaluates the derivative of Legendre polynomials P'(n,x).
-//
-//  Discussion:
-//
-//    P(0,X) = 1
-//    P(1,X) = X
-//    P(N,X) = ( (2*N-1)*X*P(N-1,X)-(N-1)*P(N-2,X) ) / N
-//
-//    P'(0,X) = 0
-//    P'(1,X) = 1
-//    P'(N,X) = ( (2*N-1)*(P(N-1,X)+X*P'(N-1,X)-(N-1)*P'(N-2,X) ) / N
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    13 March 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Daniel Zwillinger, editor,
-//    CRC Standard Mathematical Tables and Formulae,
-//    30th Edition,
-//    CRC Press, 1996.
-//
-//  Parameters:
-//
-//    Input, int M, the number of evaluation points.
-//
-//    Input, int N, the highest order polynomial to evaluate.
-//    Note that polynomials 0 through N will be evaluated.
-//
-//    Input, double X[M], the evaluation points.
-//
-//    Output, double P_POLYNOMIAL_PRIME[M*(N+1)], the values of the derivatives 
-//    of the Legendre polynomials of order 0 through N at the points.
-//
-{
-  int i;
-  int j;
-  double *v;
-  double *vp;
-
-  if ( n < 0 )
-  {
-    return NULL;
-  }
-
-  vp = new double[m*(n+1)];
-
-  for ( i = 0; i < m; i++ )
-  {
-    vp[i+0*m] = 0.0;
-  }
-
-  if ( n < 1 )
-  {
-    return vp;
-  }
-
-  v = new double[m*(n+1)];
-
-  for ( i = 0; i < m; i++ )
-  {
-    v[i+0*m] = 1.0;
-  }
-
-  for ( i = 0; i < m; i++ )
-  {
-    v[i+1*m] = x[i];
-    vp[i+1*m] = 1.0;
-  }
-
-  for ( j = 2; j <= n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      v[i+j*m] = ( ( double ) ( 2 * j - 1 ) * x[i] * v[i+(j-1)*m]   
-                 - ( double ) (     j - 1 ) *        v[i+(j-2)*m] ) 
-                 / ( double ) (     j     );
- 
-      vp[i+j*m] = ( ( double ) ( 2 * j - 1 ) * ( v[i+(j-1)*m] + x[i] * vp[i+(j-1)*m] ) 
-                  - ( double ) (     j - 1 ) *   vp[i+(j-2)*m]               ) 
-                  / ( double ) (     j     );
-    }
-  }
- 
-  return vp;
 }
 //****************************************************************************80
 
@@ -1066,7 +1426,7 @@ double *p_power_product ( int p, int e )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = p_polynomial ( 1, p, x_table + k );
+    h_table = p_polynomial_value ( 1, p, x_table + k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -1091,7 +1451,7 @@ double *p_power_product ( int p, int e )
         }
       }
     }
-    delete h_table;
+    delete [] h_table;
   }
 
   delete [] w_table;
@@ -1163,13 +1523,13 @@ void p_quadrature_rule ( int nt, double t[], double wts[] )
 }
 //****************************************************************************80
 
-double *pm_polynomial ( int mm, int n, int m, double x[] )
+double *pm_polynomial_value ( int mm, int n, int m, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    PM_POLYNOMIAL evaluates the Legendre polynomials Pm(n,m,x).
+//    PM_POLYNOMIAL_VALUE evaluates the Legendre polynomials Pm(n,m,x).
 //
 //  Differential equation:
 //
@@ -1265,7 +1625,7 @@ double *pm_polynomial ( int mm, int n, int m, double x[] )
 //    Input, double X[MM], the point at which the function is to be
 //    evaluated.
 //
-//    Output, double PM_POLYNOMIAL[MM*(N+1)], the function values.
+//    Output, double PM_POLYNOMIAL_VALUE[MM*(N+1)], the function values.
 //
 {
   double fact;
@@ -1466,13 +1826,13 @@ void pm_polynomial_values ( int &n_data, int &n, int &m, double &x, double &fx )
 }
 //****************************************************************************80
 
-double *pmn_polynomial ( int mm, int n, int m, double x[] )
+double *pmn_polynomial_value ( int mm, int n, int m, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    PMN_POLYNOMIAL: normalized Legendre polynomial Pmn(n,m,x).
+//    PMN_POLYNOMIAL_VALUE: normalized Legendre polynomial Pmn(n,m,x).
 //
 //  Licensing:
 //
@@ -1506,7 +1866,7 @@ double *pmn_polynomial ( int mm, int n, int m, double x[] )
 //
 //    Input, double X[MM], the evaluation points.
 //
-//    Output, double PMN_POLYNOMIAL[MM*(N+1)], the function values.
+//    Output, double PMN_POLYNOMIAL_VALUE[MM*(N+1)], the function values.
 //
 {
   double factor;
@@ -1514,7 +1874,7 @@ double *pmn_polynomial ( int mm, int n, int m, double x[] )
   int j;
   double *v;
 
-  v = pm_polynomial ( mm, n, m, x );
+  v = pm_polynomial_value ( mm, n, m, x );
 //
 //  Normalization.
 //
@@ -1683,13 +2043,13 @@ void pmn_polynomial_values ( int &n_data, int &n, int &m, double &x,
 }
 //****************************************************************************80
 
-double *pmns_polynomial ( int mm, int n, int m, double x[] )
+double *pmns_polynomial_value ( int mm, int n, int m, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    PMNS_POLYNOMIAL: sphere-normalized Legendre polynomial Pmn(n,m,x).
+//    PMNS_POLYNOMIAL_VALUE: sphere-normalized Legendre polynomial Pmn(n,m,x).
 //
 //  Licensing:
 //
@@ -1723,16 +2083,16 @@ double *pmns_polynomial ( int mm, int n, int m, double x[] )
 //
 //    Input, double X[MM], the evaluation points.
 //
-//    Output, double PMNS_POLYNOMIAL[MM*(N+1)], the function values.
+//    Output, double PMNS_POLYNOMIAL_VALUE[MM*(N+1)], the function values.
 //
 {
   double factor;
   int i;
   int j;
-  double pi = 3.141592653589793;
+  const double pi = 3.141592653589793;
   double *v;
 
-  v = pm_polynomial ( mm, n, m, x );
+  v = pm_polynomial_value ( mm, n, m, x );
 //
 //  Normalization.
 //
@@ -1901,78 +2261,6 @@ void pmns_polynomial_values ( int &n_data, int &n, int &m, double &x,
 }
 //****************************************************************************80
 
-double *pn_polynomial ( int m, int n, double x[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    PN_POLYNOMIAL evaluates the normalized Legendre polynomials Pn(n,x).
-//
-//  Discussion:
-//
-//    The normalized Legendre polynomials are orthonormal under the inner product 
-//    defined as integration from -1 to 1:
-//
-//      Integral ( -1 <= x <= +1 ) Pn(i,x) * Pn(j,x) dx = delta(i,j)
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 March 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Daniel Zwillinger, editor,
-//    CRC Standard Mathematical Tables and Formulae,
-//    30th Edition,
-//    CRC Press, 1996.
-//
-//  Parameters:
-//
-//    Input, int M, the number of evaluation points.
-//
-//    Input, int N, the highest order polynomial to evaluate.
-//    Note that polynomials 0 through N will be evaluated.
-//
-//    Input, double X[M], the evaluation points.
-//
-//    Output, double PN_POLYNOMIAL[M*(N+1)], the values of the Legendre polynomials 
-//    of order 0 through N.
-//
-{
-  int i;
-  int j;
-  double norm;
-  double *v;
-
-  v = p_polynomial ( m, n, x );
-
-  for ( j = 0; j <= n; j++ )
-  {
-    norm = sqrt ( 2 / ( double ) ( 2 * j + 1 ) );
-    for ( i = 0; i < m; i++ )
-    {
-      v[i+j*m] = v[i+j*m] / norm;
-    }
-  }
-  return v;
-}
-//****************************************************************************80
-
 double *pn_pair_product ( int p )
 
 //****************************************************************************80
@@ -2046,16 +2334,17 @@ double *pn_pair_product ( int p )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = pn_polynomial ( 1, p, x_table + k );
+    h_table = pn_polynomial_value ( 1, p, x_table + k );
 
     for ( i = 0; i <= p; i++ )
     {
       for ( j = 0; j <= p; j++ )
       {
-        table[i+j*(p+1)] = table[i+j*(p+1)] + w_table[k] * h_table[i] * h_table[j];
+        table[i+j*(p+1)] = table[i+j*(p+1)] 
+          + w_table[k] * h_table[i] * h_table[j];
       }
     }
-    delete h_table;
+    delete [] h_table;
   }
 
   delete [] w_table;
@@ -2065,79 +2354,190 @@ double *pn_pair_product ( int p )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
+double *pn_polynomial_coefficients ( int n )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_ABS returns the absolute value of an R8.
+//    PN_POLYNOMIAL_COEFFICIENTS: coefficients of normalized Legendre Pn(n,x).
+//
+//  Discussion:
+//
+//    Pn(n,x) = P(n,x) * sqrt ( (2n+1)/2 )
+//
+//          1       x       x^2     x^3     x^4      x^5    x^6     x^7
+//
+//    0   0.707
+//    1   0.000   1.224
+//    2  -0.790   0.000   2.371
+//    3   0.000  -2.806   0.000   4.677
+//    4   0.795   0.000  -7.954   0.000   9.280
+//    5   0.000   4.397   0.000 -20.520   0.000   18.468
+//    6  -0.796   0.000  16.731   0.000 -50.193    0.000  36.808
+//    7   0.000  -5.990   0.000  53.916   0.000 -118.616   0.000  73.429 
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license.
+//    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    14 November 2006
+//    18 October 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Daniel Zwillinger, editor,
+//    CRC Standard Mathematical Tables and Formulae,
+//    30th Edition,
+//    CRC Press, 1996.
+//
 //  Parameters:
 //
-//    Input, double X, the quantity whose absolute value is desired.
+//    Input, int N, the highest order polynomial to evaluate.
+//    Note that polynomials 0 through N will be evaluated.
 //
-//    Output, double R8_ABS, the absolute value of X.
+//    Output, double PN_POLYNOMIAL_COEFFICIENTS[(N+1)*(N+1)], the coefficients of 
+//    the normalized Legendre polynomials of degree 0 through N.
 //
 {
-  double value;
+  double *c;
+  int i;
+  int j;
+  double t;
 
-  if ( 0.0 <= x )
+  if ( n < 0 )
   {
-    value = + x;
+    return NULL;
   }
-  else
+//
+//  Compute P(i,x) coefficients.
+//
+  c = new double[(n+1)*(n+1)];
+
+  for ( i = 0; i <= n; i++ )
   {
-    value = - x;
+    for ( j = 0; j <= n; j++ )
+    {
+      c[i+j*(n+1)] = 0.0;
+    }
   }
-  return value;
+
+  c[0+0*(n+1)] = 1.0;
+
+  if ( 0 < n )
+  {
+    c[1+1*(n+1)] = 1.0;
+  }
+
+  for ( i = 2; i <= n; i++ )
+  {
+    for ( j = 0; j <= i-2; j++ )
+    {
+      c[i+j*(n+1)] =          
+          ( double ) (   - i + 1 ) * c[i-2+j*(n+1)] / ( double ) i;
+    }
+    for ( j = 1; j <= i; j++ )
+    {
+      c[i+j*(n+1)] = c[i+j*(n+1)] 
+        + ( double ) ( i + i - 1 ) * c[i-1+(j-1)*(n+1)] / ( double ) i;
+    }
+  }
+//
+//  Normalize them.
+//
+  for ( i = 0; i <= n; i++ )
+  {
+    t = sqrt ( ( double ) ( 2 * i + 1 ) / 2.0 );
+    for ( j = 0; j <= i; j++ )
+    {
+      c[i+j*(n+1)] = c[i+j*(n+1)] * t;
+    }
+  }
+
+  return c;
 }
 //****************************************************************************80
 
-double r8_add ( double x, double y )
+double *pn_polynomial_value ( int m, int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_ADD adds two R8's.
+//    PN_POLYNOMIAL_VALUE evaluates the normalized Legendre polynomials Pn(n,x).
+//
+//  Discussion:
+//
+//    The normalized Legendre polynomials are orthonormal under the inner product 
+//    defined as integration from -1 to 1:
+//
+//      Integral ( -1 <= x <= +1 ) Pn(i,x) * Pn(j,x) dx = delta(i,j)
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license.
+//    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    11 August 2010
+//    14 March 2012
 //
 //  Author:
 //
 //    John Burkardt
 //
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Daniel Zwillinger, editor,
+//    CRC Standard Mathematical Tables and Formulae,
+//    30th Edition,
+//    CRC Press, 1996.
+//
 //  Parameters:
 //
-//    Input, double X, Y, the numbers to be added.
+//    Input, int M, the number of evaluation points.
 //
-//    Output, double R8_ADD, the sum of X and Y.
+//    Input, int N, the highest order polynomial to evaluate.
+//    Note that polynomials 0 through N will be evaluated.
+//
+//    Input, double X[M], the evaluation points.
+//
+//    Output, double PN_POLYNOMIAL_VALUE[M*(N+1)], the values of the Legendre
+//    polynomials of order 0 through N.
 //
 {
-  double value;
+  int i;
+  int j;
+  double norm;
+  double *v;
 
-  value = x + y;
+  v = p_polynomial_value ( m, n, x );
 
-  return value;
+  for ( j = 0; j <= n; j++ )
+  {
+    norm = sqrt ( 2 / ( double ) ( 2 * j + 1 ) );
+    for ( i = 0; i < m; i++ )
+    {
+      v[i+j*m] = v[i+j*m] / norm;
+    }
+  }
+  return v;
 }
 //****************************************************************************80
 
@@ -2163,7 +2563,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    11 August 2010
+//    01 September 2012
 //
 //  Author:
 //
@@ -2174,23 +2574,8 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double one;
-  double temp;
-  double test;
-  double value;
+  const double value = 2.220446049250313E-016;
 
-  one = ( double ) ( 1 );
-
-  value = one;
-  temp = value / 2.0;
-  test = r8_add ( one, temp );
-
-  while ( one < test )
-  {
-    value = temp;
-    temp = value / 2.0;
-    test = r8_add ( one, temp );
-  }
   return value;
 }
 //****************************************************************************80
@@ -2476,6 +2861,66 @@ double r8vec_dot_product ( int n, double a1[], double a2[] )
     value = value + a1[i] * a2[i];
   }
   return value;
+}
+//****************************************************************************80
+
+double *r8vec_linspace_new ( int n, double a_first, double a_last )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_LINSPACE_NEW creates a vector of linearly spaced values.
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//    4 points evenly spaced between 0 and 12 will yield 0, 4, 8, 12.
+//
+//    In other words, the interval is divided into N-1 even subintervals,
+//    and the endpoints of intervals are used as the points.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    29 March 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of entries in the vector.
+//
+//    Input, double A_FIRST, A_LAST, the first and last entries.
+//
+//    Output, double R8VEC_LINSPACE_NEW[N], a vector of linearly spaced data.
+//
+{
+  double *a;
+  int i;
+
+  a = new double[n];
+
+  if ( n == 1 )
+  {
+    a[0] = ( a_first + a_last ) / 2.0;
+  }
+  else
+  {
+    for ( i = 0; i < n; i++ )
+    {
+      a[i] = ( ( double ) ( n - 1 - i ) * a_first 
+             + ( double ) (         i ) * a_last ) 
+             / ( double ) ( n - 1     );
+    }
+  }
+  return a;
 }
 //****************************************************************************80
 

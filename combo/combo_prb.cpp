@@ -79,7 +79,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "COMBO_PRB\n";
   cout << "  C++ version\n";
@@ -137,7 +136,6 @@ int main ( )
   cout << "\n";
   cout << "COMBO_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -365,7 +363,7 @@ void test04 ( )
 //
 //  Purpose:
 //
-//    TEST04 tests BINOMIAL.
+//    TEST04 tests I4_CHOOSE.
 //
 //  Licensing:
 //
@@ -373,7 +371,7 @@ void test04 ( )
 //
 //  Modified:
 //
-//    25 July 2011
+//    09 December 2013
 //
 //  Author:
 //
@@ -385,7 +383,7 @@ void test04 ( )
 
   cout << "\n";
   cout << "TEST04\n";
-  cout << "  BINOMIAL computes binomial coefficients.\n";
+  cout << "  I4_CHOOSE computes binomial coefficients.\n";
 
   for ( i = -1; i <= 5; i++ )
   {
@@ -393,7 +391,7 @@ void test04 ( )
     {
       cout << "  " << setw(4) << i
            << "  " << setw(4) << j
-           << "  " << setw(12) << binomial ( i, j ) << "\n";
+           << "  " << setw(12) << i4_choose ( i, j ) << "\n";
     }
   }
   return;

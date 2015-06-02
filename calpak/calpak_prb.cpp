@@ -25,7 +25,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    CALPAK_PRB calls the CALPAK tests.
+//    CALPAK_PRB tests the CALPAK library.
 //
 //  Licensing:
 //
@@ -55,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "CALPAK_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

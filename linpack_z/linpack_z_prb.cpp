@@ -63,7 +63,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LINPACK_Z_PRB tests the double precision complex LINPACK routines.
+//    MAIN is the main program for LINPACK_Z_PRB.
+//
+//  Discussion:
+//
+//    LINPACK_Z_PRB tests the LINPACK_Z library.
 //
 //  Licensing:
 //
@@ -79,7 +83,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "LINPACK_Z_PRB\n";
   cout << "  C++ version\n";
@@ -132,7 +135,6 @@ int main ( )
   cout << "\n";
   cout << "LINPACK_Z_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

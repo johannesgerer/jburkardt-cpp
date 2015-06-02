@@ -1,0 +1,18 @@
+# fxy3_commands.txt
+#
+# Usage:
+#  gnuplot < fxy3_commands.txt
+#
+set term png
+set output 'fxy3.png'
+set view 30, 75
+set hidden3d
+set timestamp
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set zlabel '<--- Z --->'
+set title '2D test function #3, the modified 2D Harten function'
+set grid
+set style data lines
+splot 'fxy3_data.txt' with lines
+quit

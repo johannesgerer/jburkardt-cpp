@@ -1,0 +1,11 @@
+set term png
+set output 'test02_motion.png'
+set grid
+set style data lines
+set timestamp
+unset key
+set xlabel '<---Iteration--->'
+set ylabel '<---Average Motion--->'
+set title 'Generator Motion with Iteration'
+plot 'test02_motion_data.txt' using 1:2 with points pt 7 ps 1
+quit

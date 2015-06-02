@@ -27,7 +27,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SANDIA_RULES2_PRB calls a set of tests for the SANDIA_RULES2 library.
+//    SANDIA_RULES2_PRB tests the SANDIA_RULES2 library.
 //
 //  Licensing:
 //
@@ -45,7 +45,6 @@ int main ( )
   int r;
 
   webbur::timestamp ( );
-
   std::cout << "\n";
   std::cout << "SANDIA_RULES2_PRB\n";
   std::cout << "  C++ version\n";
@@ -58,7 +57,6 @@ int main ( )
   std::cout << "\n";
   std::cout << "SANDIA_RULES2_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
  

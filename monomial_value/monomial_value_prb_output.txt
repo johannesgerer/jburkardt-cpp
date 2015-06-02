@@ -1,0 +1,47 @@
+18 August 2014 10:58:07 AM
+
+MONOMIAL_VALUE_PRB
+  C++ version
+  Test the MONOMIAL_VALUE library.
+
+TEST01
+  Using monomial_value to evaluate monomials in
+  dimensions 1 through 3.
+
+  Spatial dimension M = 1
+  Exponents:          -1
+
+   V(X)               X(0)
+
+      0.111111           9
+         0.125           8
+           0.2           5
+      0.333333           3
+            -1          -1
+
+  Spatial dimension M = 2
+  Exponents:          -1          -2
+
+   V(X)               X(0)      X(1)
+
+    -0.0277778          -1         6
+     -0.111111          -1         3
+    0.00680272           3         7
+       0.03125           8        -2
+     0.0277778           9         2
+
+  Spatial dimension M = 3
+  Exponents:          -3          -3           5
+
+   V(X)               X(0)      X(1)      X(2)
+
+        0.0625           8        -1        -2
+   -0.00137174           1         9        -1
+   0.000244141           2         8         1
+       1.21363           6         5         8
+      0.158766           3         9         5
+
+MONOMIAL_VALUE_PRB
+  Normal end of execution.
+
+18 August 2014 10:58:07 AM

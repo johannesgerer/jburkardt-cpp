@@ -1,0 +1,15 @@
+int cc_se_size ( int dim_num, int level_max );
+int cfn_e_size ( int dim_num, int level_max );
+void comp_next ( int n, int k, int a[], bool *more, int *h, int *t );
+int f2_se_size ( int dim_num, int level_max );
+int gp_se_size ( int dim_num, int level_max );
+int i4_choose ( int n, int k );
+int i4_max ( int i1, int i2 );
+int i4_min ( int i1, int i2 );
+int ofn_e_size ( int dim_num, int level_max );
+int onn_e_size ( int dim_num, int level_max );
+int onn_l_size ( int dim_num, int level_max );
+int own_e_size ( int dim_num, int level_max );
+int own_l2_size ( int dim_num, int level_max );
+int own_o_size ( int dim_num, int level_max );
+void timestamp ( );

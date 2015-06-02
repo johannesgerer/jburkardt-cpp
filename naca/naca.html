@@ -1,0 +1,186 @@
+<html>
+
+  <head>
+    <title>
+      NACA - NACA Airfoils
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      NACA <br> NACA Airfoils
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>NACA</b>
+      is a C++ library which
+      can take the parameters of certain NACA airfoils and return the
+      coordinates of a sequence of points that outline the wing shape.
+      The data can be displayed with gnuplot.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>NACA</b> is available in
+      <a href = "../../c_src/naca/naca.html">a C version</a> and
+      <a href = "../../cpp_src/naca/naca.html">a C++ version</a> and
+      <a href = "../../f77_src/naca/naca.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/naca/naca.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/naca/naca.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which
+      illustrate how a program can write data and command files
+      so that gnuplot can create plots of the program results.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Eastman Jacobs, Kenneth Ward, Robert Pinkerton,<br>
+          "The characteristics of 78 related airfoil sections from tests in
+          the variable-density wind tunnel",<br>
+          NACA Report 460, 1933.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "naca.cpp">naca.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "naca.hpp">naca.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "naca.sh">naca.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "naca_prb.cpp">naca_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "naca_prb.sh">naca_prb.sh</a>,
+          commands to compile and run the program.
+        </li>
+        <li>
+          <a href = "naca_prb_output.txt">naca_prb_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "symmetric_data.txt">symmetric_data.txt</a>,
+          the data outlining the NACA symmetric 4-digit airfoil.
+        </li>
+        <li>
+          <a href = "symmetric_commands.txt">symmetric_commands.txt</a>,
+          gnuplot commands to plot the data.
+        </li>
+        <li>
+          <a href = "symmetric.png">symmetric.png</a>,
+          a PNG image of the data.
+        </li>
+        <li>
+          <a href = "cambered_data.txt">cambered_data.txt</a>,
+          the data outlining the NACA cambered 4-digit airfoil.
+        </li>
+        <li>
+          <a href = "cambered_commands.txt">cambered_commands.txt</a>,
+          gnuplot commands to plot the data.
+        </li>
+        <li>
+          <a href = "cambered.png">cambered.png</a>,
+          a PNG image of the data.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>NACA4_CAMBERED:</b> (xu,yu), (xl,yl) for a NACA cambered 4-digit airfoil.
+        </li>
+        <li>
+          <b>NACA4_SYMMETRIC</b> evaluates y(x) for a NACA symmetric 4-digit airfoil.
+        </li>
+        <li>
+          <b>R8MAT_WRITE</b> writes an R8MAT file.
+        </li>
+        <li>
+          <b>R8VEC_LINSPACE</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
+          <b>R8VEC_MAX</b> returns the maximum value in an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_MIN</b> returns the minimum value of an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 22 May 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

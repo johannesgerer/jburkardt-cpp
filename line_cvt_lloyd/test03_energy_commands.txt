@@ -1,0 +1,11 @@
+set term png
+set output 'test03_energy.png'
+set grid
+set style data lines
+set timestamp
+unset key
+set xlabel '<---Iteration--->'
+set ylabel '<---Log(Energy)--->'
+set title 'Energy Decrease with Iteration'
+plot 'test03_energy_data.txt' using 1:2 with points pt 7 ps 1
+quit

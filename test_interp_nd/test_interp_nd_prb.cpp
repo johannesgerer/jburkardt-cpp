@@ -28,7 +28,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TEST_INTERP_ND_PRB calls the TEST_INTERP_ND tests.
+//    TEST_INTERP_ND_PRB tests the TEST_INTERP_ND library.
 //
 //  Licensing:
 //
@@ -47,7 +47,6 @@ int main ( )
   int n;
 
   timestamp (  );
-
   cout << "\n";
   cout << "TEST_INTERP_ND_PRB\n";
   cout << "  C++ version\n";
@@ -77,7 +76,6 @@ int main ( )
   cout << "\n";
   cout << "TEST_INTERP_ND_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

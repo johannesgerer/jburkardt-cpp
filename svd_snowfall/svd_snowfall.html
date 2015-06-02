@@ -1,0 +1,486 @@
+<html>
+
+  <head>
+    <title>
+      SVD_SNOWFALL - Singular Value Decomposition of Snowfall Data
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SVD_SNOWFALL <br> Singular Value Decomposition of Snowfall Data
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SVD_SNOWFALL</b>
+      is a C++ library which
+      demonstrates the use of the Singular Value Decomposition (SVD)
+      to analyze a set of historical snowfall data,
+      with plots created by GNUPLOT.
+    </p>
+
+    <p>
+     The snowfall data consists of records for the 123 seasons from 
+     1890 to 2012, of the snowfall in inches, over the months from
+     October to May, as measured at Michigan Tech.
+    </p>
+
+    <p>
+      This data can be regarded as an 8 by 123 matrix A.
+      Applying the singular value decomposition produces the
+      factors
+      <blockquote>
+        A = U * S * V'
+      </blockquote>
+      and it is the purpose of this library to consider what these
+      factors indicate about the snowfall data.
+    </p>
+
+    <p>
+      The sample problem writes files that can be processed by GNUPLOT
+      to create plots.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SVD_SNOWFALL</b> is available in
+      <a href = "../../c_src/svd_snowfall/svd_snowfall.html">a C version</a> and
+      <a href = "../../cpp_src/svd_snowfall/svd_snowfall.html">a C++ version</a> and
+      <a href = "../../f77_src/svd_snowfall/svd_snowfall.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/svd_snowfall/svd_snowfall.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/svd_snowfall/svd_snowfall.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../datasets/fingerprints/fingerprints.html">
+      FINGERPRINTS</a>,
+      a dataset directory which
+      contains a few images of fingerprints.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which
+      illustrate how a program can write data and command files
+      so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/svd_basis/svd_basis.html">
+      SVD_BASIS</a>,
+      a C++ program which
+      applies the Singular Value Decomposition (SVD) to a set of vectors,
+      extracting dominant modes;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/svd_demo/svd_demo.html">
+      SVD_DEMO</a>,
+      a C++ program which
+      demonstrates the singular value decomposition (SVD) for a simple example.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/svd_truncated/svd_truncated.html">
+      SVD_TRUNCATED</a>,
+      a C++ program which
+      demonstrates the computation of the reduced or truncated 
+      Singular Value Decomposition (SVD) that is useful for cases when
+      one dimension of the matrix is much smaller than the other.
+    </p>
+
+    <p>
+      <a href = "../../datasets/time_series/time_series.html">
+      TIME_SERIES</a>,
+      a dataset directory which
+      contains examples of files describing time series.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Anderson, Zhaojun Bai, Christian Bischof, Susan Blackford,
+          James Demmel, Jack Dongarra, Jeremy Du Croz, Anne Greenbaum,
+          Sven Hammarling, Alan McKenney, Danny Sorensen,<br>
+          LAPACK User's Guide,<br>
+          Third Edition,<br>
+          SIAM, 1999,<br>
+          ISBN: 0898714478,<br>
+          LC: QA76.73.F25L36
+        </li>
+        <li>
+          Gene Golub, Charles VanLoan,<br>
+          Matrix Computations,
+          Third Edition,<br>
+          Johns Hopkins, 1996,<br>
+          ISBN: 0-8018-4513-X,<br>
+          LC: QA188.G65.
+        </li>
+        <li>
+          David Kahaner, Cleve Moler, Steven Nash,<br>
+          Numerical Methods and Software,<br>
+          Prentice Hall, 1989,<br>
+          ISBN: 0-13-627258-4,<br>
+          LC: TA345.K34.
+        </li>
+        <li>
+          Lloyd Trefethen, David Bau,<br>
+          Numerical Linear Algebra,<br>
+          SIAM, 1997,<br>
+          ISBN: 0-89871-361-7,<br>
+          LC: QA184.T74.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "svd_snowfall.cpp">svd_snowfall.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "svd_snowfall.hpp">svd_snowfall.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "svd_snowfall.sh">svd_snowfall.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "svd_snowfall_prb.cpp">svd_snowfall_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "svd_snowfall_prb.sh">svd_snowfall_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "svd_snowfall_prb_output.txt">svd_snowfall_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The snowfall data itself must be read into the program from a file:
+      <ul>
+        <li>
+          <a href = "snowfall.txt">snowfall.txt</a>, 
+          the snowfall data.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The second test function writes "command" and "data" files that can be used
+      by gnuplot to create plots.
+      <ul>
+        <li>
+          <a href = "singular_values_commands.txt">singular_values_commands.txt</a>, 
+          a command file.
+        </li>
+        <li>
+          <a href = "singular_values_data.txt">singular_values_data.txt</a>, 
+          a data file.
+        </li>
+        <li>
+          <a href = "singular_values.png">singular_values.png</a>, 
+          the resulting plot.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The third test function writes "command" and "data" files that can be used
+      by gnuplot to create plots.
+      <ul>
+        <li>
+          <a href = "approx_commands.txt">approx_commands.txt</a>, 
+          a command file.
+        </li>
+        <li>
+          <a href = "approx_data.txt">approx_data.txt</a>, 
+          a data file.
+        </li>
+        <li>
+          <a href = "approx0.png">approx0.png</a>, 
+          the 2012 snowfall (red).
+        </li>
+        <li>
+          <a href = "approx1.png">approx1.png</a>, 
+          the 2012 snowfall (red) and rank 1 approximation (blue).
+        </li>
+        <li>
+          <a href = "approx2.png">approx2.png</a>, 
+          the 2012 snowfall (red) and rank 2 approximation (blue).
+        </li>
+        <li>
+          <a href = "approx3.png">approx3.png</a>, 
+          the 2012 snowfall (red) and rank 3 approximation (blue).
+        </li>
+        <li>
+          <a href = "approx4.png">approx4.png</a>, 
+          the 2012 snowfall (red) and rank 4 approximation (blue).
+        </li>
+        <li>
+          <a href = "approx5.png">approx5.png</a>, 
+          the 2012 snowfall (red) and rank 5 approximation (blue).
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The fourth test function writes "command" and "data" files that can be used
+      by gnuplot to create plots of the first 6 U modes, which form a basis
+      for average snowfall as a function of the month.
+      <ul>
+        <li>
+          <a href = "umode_commands.txt">umode_commands.txt</a>, 
+          a command file.
+        </li>
+        <li>
+          <a href = "umode_data.txt">umode_data.txt</a>, 
+          a data file.
+        </li>
+        <li>
+          <a href = "umode1.png">umode1.png</a>, 
+          basis vector 1 for snowfall as a function of month.
+        </li>
+        <li>
+          <a href = "umode2.png">umode2.png</a>, 
+          basis vector 2 for snowfall as a function of month.
+        </li>
+        <li>
+          <a href = "umode3.png">umode3.png</a>, 
+          basis vector 3 for snowfall as a function of month.
+        </li>
+        <li>
+          <a href = "umode4.png">umode4.png</a>, 
+          basis vector 4 for snowfall as a function of month.
+        </li>
+        <li>
+          <a href = "umode5.png">umode5.png</a>, 
+          basis vector 5 for snowfall as a function of month.
+        </li>
+        <li>
+          <a href = "umode6.png">umode6.png</a>, 
+          basis vector 6 for snowfall as a function of month.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The fifth test function writes "command" and "data" files that can be used
+      by gnuplot to create plots of the first 6 V modes, which form a basis
+      for total yearly snowfall behavior as a function of the year.
+      <ul>
+        <li>
+          <a href = "vmode_commands.txt">vmode_commands.txt</a>, 
+          a command file.
+        </li>
+        <li>
+          <a href = "vmode_data.txt">vmode_data.txt</a>, 
+          a data file.
+        </li>
+        <li>
+          <a href = "vmode1.png">vmode1.png</a>, 
+          basis vector 1 for total yearly snowfall as a function of year.
+        </li>
+        <li>
+          <a href = "vmode2.png">vmode2.png</a>, 
+          basis vector 2 for total yearly snowfall as a function of year.
+        </li>
+        <li>
+          <a href = "vmode3.png">vmode3.png</a>, 
+          basis vector 3 for total yearly snowfall as a function of year.
+        </li>
+        <li>
+          <a href = "vmode4.png">vmode4.png</a>, 
+          basis vector 4 for total yearly snowfall as a function of year.
+        </li>
+        <li>
+          <a href = "vmode5.png">vmode5.png</a>, 
+          basis vector 5 for total yearly snowfall as a function of year.
+        </li>
+        <li>
+          <a href = "umode6.png">umode6.png</a>, 
+          basis vector 6 for snowfall as a function of month.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is TRUE (1) if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DAXPY</b> computes constant times a vector plus a vector.
+        </li>
+        <li>
+          <b>DDOT</b> forms the dot product of two vectors.
+        </li>
+        <li>
+          <b>DNRM2</b> returns the euclidean norm of a vector.
+        </li>
+        <li>
+          <b>DROT</b> applies a plane rotation.
+        </li>
+        <li>
+          <b>DROTG</b> constructs a Givens plane rotation.
+        </li>
+        <li>
+          <b>DSCAL</b> scales a vector by a constant.
+        </li>
+        <li>
+          <b>DSVDC</b> computes the singular value decomposition of a real rectangular matrix.
+        </li>
+        <li>
+          <b>DSWAP</b> interchanges two vectors.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of a R8.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_SIGN</b> returns the sign of a R8.
+        </li>
+        <li>
+          <b>R8COL_NORMALIZE_LI</b> normalizes an R8COL with the column infinity norm.
+        </li>
+        <li>
+          <b>R8COL_REVERSE</b> reverses the order of columns in an R8COL.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_MM_NEW</b> multiplies two matrices.
+        </li>
+        <li>
+          <b>R8MAT_MMT_NEW</b> computes C = A * B'.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_SVD_LINPACK</b> gets the SVD of a matrix using a call to LINPACK.
+        </li>
+        <li>
+          <b>R8MAT_SVD_LOW_RANK</b> forms a rank R approximation using the SVD.
+        </li>
+        <li>
+          <b>R8ROW_REVERSE</b> reverses the order of the rows of an R8ROW.
+        </li>
+        <li>
+          <b>R8VEC_CUM0_NEW</b> computes the cumulutive sums of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_SUM</b> returns the sum of an R8VEC.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 value from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 May 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

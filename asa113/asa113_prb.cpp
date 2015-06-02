@@ -27,7 +27,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA136_PRB calls the ASA113 routines.
+//    ASA136_PRB tests the ASA113 library.
 //
 //  Licensing:
 //
@@ -43,7 +43,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA113_PRB:\n";
   cout << "  C++ version\n";
@@ -56,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "ASA113_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

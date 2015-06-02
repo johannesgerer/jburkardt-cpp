@@ -1012,7 +1012,7 @@ double *r8vec_uniform_01_new ( int n, int *seed )
 //
 {
   int i;
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double *r;
 

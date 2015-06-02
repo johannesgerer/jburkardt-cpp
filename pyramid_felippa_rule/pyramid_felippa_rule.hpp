@@ -1,0 +1,25 @@
+void comp_next ( int n, int k, int a[], bool *more, int *h, int *t );
+int i4_max ( int i1, int i2 );
+int i4_min ( int i1, int i2 );
+double *monomial_value ( int dim_num, int point_num, int expon[], double x[] );
+double pyramid_unit_monomial ( int expon[3] );
+void pyramid_unit_monomial_test ( int degree_max );
+void pyramid_unit_o01 ( double w[], double xyz[] );
+void pyramid_unit_o05 ( double w[], double xyz[] );
+void pyramid_unit_o06 ( double w[], double xyz[] );
+void pyramid_unit_o08 ( double w[], double xyz[] );
+void pyramid_unit_o08b ( double w[], double xyz[] );
+void pyramid_unit_o09 ( double w[], double xyz[] );
+void pyramid_unit_o13 ( double w[], double xyz[] );
+void pyramid_unit_o18 ( double w[], double xyz[] );
+void pyramid_unit_o27 ( double w[], double xyz[] );
+void pyramid_unit_o48 ( double w[], double xyz[] );
+void pyramid_unit_quad_test ( int degree_max );;
+double pyramid_unit_volume ( );
+double r8_choose ( int n, int k );
+double r8_mop ( int i );
+void r8vec_copy ( int n, double a1[], double a2[] );
+double r8vec_dot_product ( int n, double a1[], double a2[] );
+void subcomp_next ( int n, int k, int a[], bool *more, int *h, int *t );
+void timestamp ( );
+

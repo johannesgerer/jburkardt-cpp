@@ -23,6 +23,10 @@ int main ( )
 //
 //    MAIN is the main program for KRONROD_PRB.
 //
+//  Discussion:
+//
+//    KRONROD_PRB tests the KRONROD library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 
@@ -37,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "KRONROD_PRB:\n";
   cout << "  C++ version.\n";
@@ -52,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "KRONROD_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

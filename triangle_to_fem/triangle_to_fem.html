@@ -36,7 +36,8 @@
           <i>prefix</i><b>.node</b> contains the coordinates of the nodes;
         </li>
         <li>
-          <i>prefix</i><b>.ele</b> contains the indices of nodes forming each element.
+          <i>prefix</i><b>.ele</b> contains the indices of nodes forming each 
+          element.
         </li>
         <li>
           <i>prefix</i><b>_nodes.txt</b> will be the FEM node file created by the program.
@@ -58,8 +59,29 @@
     </p>
 
     <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TRIANGLE_TO_FEM</b> is available in
+      <a href = "../../c_src/triangle_to_fem/triangle_to_fem.html">a C version</a> and
+      <a href = "../../cpp_src/triangle_to_fem/triangle_to_fem.html">a C++ version</a> and
+      <a href = "../../f77_src/triangle_to_fem/triangle_to_fem.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/triangle_to_fem/triangle_to_fem.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/triangle_to_fem/triangle_to_fem.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
       Related Data and Programs:
     </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem_io/fem_io.html">
+      FEM_IO</a>,
+      a C++ library which
+      reads or writes node, element and data files defining a model
+      associated with the finite element method (FEM).
+    </p>
 
     <p>
       <a href = "../../data/fem2d/fem2d.html">
@@ -70,10 +92,21 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/fem_io/fem_io.html">
-      FEM_IO</a>,
-      a C++ library which
-      can read or write FEM files.
+      <a href = "../../cpp_src/gmsh_to_fem/gmsh_to_fem.html">
+      GMSH_TO_FEM</a>,
+      a C++ program which
+      reads a mesh data file created by the GMSH program
+      and writes a pair of node and element files that correspond
+      to the FEM format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/medit_to_fem/medit_to_fem.html">
+      MEDIT_TO_FEM</a>,
+      a C++ program which
+      reads a mesh file created by the MEDIT program
+      and writes a corresponding pair of node and element files that correspond
+      to the FEM format.
     </p>
 
     <p>
@@ -104,9 +137,8 @@
     <p>
       <a href = "../../data/triangle_files/triangle_files.html">
       TRIANGLE_FILES</a>,
-      a data directory of examples of files used by the
-      <a href = "../../c_src/triangle/triangle.html">triangle</a> and
-      <a href - "../../c_src/showme/showme.html">showme</a> programs.
+      a data directory of examples of files used by the triangle and
+      showme programs.
     </p>
 
     <p>
@@ -117,11 +149,28 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/triangle_to_mesh/triangle_to_mesh.html">
-      TRIANGLE_TO_MESH</a>,
-      a C++ program which
-      can read the node and element files from the TRIANGLE program and
-      produce a corresponding MESH file.
+      <a href = "../../cpp_src/triangle_to_medit/triangle_to_medit.html">
+      TRIANGLE_TO_MEDIT</a>,
+      a C++ program which reads the NODE and ELE files created by triangle() to
+      describe a triangular mesh, and writes a corresponding MESH file
+      for input to medit().
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_to_xml/triangle_to_xml.html">
+      TRIANGLE_TO_XML</a>,
+      a C++ program which reads the NODE and ELE files created by triangle() to
+      describe a triangular mesh in 2D, and writes out a corresponding XML mesh
+      file for use by DOLFIN or FENICS.
+    </p>
+
+    <p>
+      <a href = "../../py_src/xml_to_fem/xml_to_fem.html">
+      XML_TO_FEM</a>,
+      a Python program which
+      reads an XML file created by FENICS or DOLFIN, describing a mesh
+      in 1D, 2D, or 3D, and creates corresponding FEM files, namely,
+      a file of node coordinates, and a file of element connectivities.
     </p>
 
     <h3 align = "center">
@@ -130,11 +179,6 @@
 
     <p>
       <ol>
-        <li>
-          <a href = "../../txt/triangle.txt">
-                    "../../txt/triangle.txt" </a>,
-          the information that <b>TRIANGLE</b> will print in response to the "-h" switch;
-        </li>
         <li>
           <a href = "http://www-2.cs.cmu.edu/~quake/triangle.html">
                      http://www-2.cs.cmu.edu/~quake/triangle.html</a>,

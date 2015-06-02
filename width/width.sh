@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g width.cpp >& compiler.txt
+g++ -c width.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling width.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ width.o
 if [ $? -ne 0 ]; then

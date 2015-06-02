@@ -28,7 +28,7 @@ int main ( long argc, char *argv[] )
 //
 //  Discussion:
 //
-//    BMP_IO_PRB calls the BMP_IO built-in test routines.
+//    BMP_IO_PRB tests the BMP_IO library.
 //
 //  Licensing:
 //
@@ -49,7 +49,6 @@ int main ( long argc, char *argv[] )
   char *file_name3 = "bmp_08.bmp";
 
   timestamp ( );
-
   cout << "\n";
   cout << "BMP_IO_PRB\n";
   cout << "  C++ version\n";
@@ -78,7 +77,6 @@ int main ( long argc, char *argv[] )
   cout << "\n";
   cout << "BMP_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

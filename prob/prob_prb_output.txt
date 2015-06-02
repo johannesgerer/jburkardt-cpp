@@ -1,4 +1,4 @@
-03 January 2012 05:03:47 PM
+18 September 2013 02:50:46 PM
 
 PROB_PRB
   C++ version.
@@ -173,7 +173,7 @@ TEST010
 
 TEST0105:
   BESSEL_I0 evaluates the Bessel function of the
-    first kind and order 0;
+  first kind and order 0;
   BESSEL_I0_VALUES returns some exact values.
 
       X       Exact F       BESSEL_I0(X)
@@ -201,7 +201,7 @@ TEST0105:
 
 TEST0106:
   BESSEL_I1 evaluates the Bessel function of the
-    first kind and order 1;
+  first kind and order 1;
   BESSEL_I1_VALUES returns some exact values.
 
       X       Exact F       BESSEL_I1(X)
@@ -229,7 +229,7 @@ TEST0106:
 
 TEST011
   BETA evaluates the Beta function;
-  GAMMA evaluates the Gamma function.
+  TGAMMA evaluates the Gamma function.
 
   Argument A =                   2.2
   Argument B =                   3.7
@@ -247,22 +247,22 @@ TEST012
   PDF parameter A =      12
   PDF parameter B =      12
 
-       X            PDF           CDF            CDF_INV
+             A             B        X            PDF           CDF            CDF_INV
 
-      0.678986      0.855881      0.963719      0.678818
-      0.449603       3.45732      0.312092      0.449603
-      0.629299       1.80664      0.898948      0.629281
-      0.557035        3.3493      0.710504      0.557035
-      0.322395      0.877392     0.0374775       0.32185
-      0.301166      0.582322     0.0221188      0.299241
-      0.504229       3.86528      0.516356      0.504228
-      0.356011        1.4926     0.0768453      0.355968
-      0.470671       3.72441      0.387964      0.470671
-      0.539969       3.60494      0.651058      0.539969
+            12            12      0.678986      0.855881      0.963719      0.678986
+            12            12      0.401338       2.49915      0.166966      0.401337
+            12            12      0.635316       1.67553      0.909423      0.635317
+            12            12      0.594216       2.59905      0.821699      0.594216
+            12            12      0.504229       3.86528      0.516356      0.504229
+            12            12      0.802574     0.0256424      0.999472      0.802574
+            12            12      0.544908       3.53858      0.668704      0.544908
+            12            12      0.649115       1.38847      0.930537      0.649115
+            12            12      0.568142       3.14746      0.746604      0.568142
+            12            12      0.415317       2.80857      0.204083      0.415317
 
 TEST013:
   BETA_INC evaluates the normalized incomplete Beta
-    function BETA_INC(A,B,X).
+  function BETA_INC(A,B,X).
   BETA_INC_VALUES returns some exact values.
 
          A         B         X       Exact F       BETA_INC(A,B,X)
@@ -297,6 +297,21 @@ TEST013:
         30        10       0.7           0.22413           0.22413
         30        10       0.8          0.758641          0.758641
         40        20       0.7          0.700178          0.700178
+         1       0.5       0.1         0.0513167         0.0513167
+         1       0.5       0.2          0.105573          0.105573
+         1       0.5       0.3           0.16334           0.16334
+         1       0.5       0.4          0.225403          0.225403
+         1         2       0.2              0.36              0.36
+         1         3       0.2             0.488             0.488
+         1         4       0.2            0.5904            0.5904
+         1         5       0.2           0.67232           0.67232
+         2         2       0.3             0.216             0.216
+         3         2       0.3            0.0837            0.0837
+         4         2       0.3           0.03078           0.03078
+         5         2       0.3          0.010935          0.010935
+   1.30625   11.7562  0.225609          0.918885          0.918885
+   1.30625   11.7562  0.0335568           0.21053           0.21053
+   1.30625   11.7562  0.0295222          0.182413          0.182413
 
 TEST014
   For the Beta PDF:
@@ -311,10 +326,10 @@ TEST014
   PDF variance = 0.04
 
   Sample size =     1000
-  Sample mean =     0.403172
-  Sample variance = 0.04072
-  Sample maximum =  0.940639
-  Sample minimum =  0.00845055
+  Sample mean =     0.406579
+  Sample variance = 0.0410724
+  Sample maximum =  0.942944
+  Sample minimum =  0.00629773
 
 TEST015
   For the Beta Binomial PDF:
@@ -360,8 +375,8 @@ TEST016
 
 TEST020:
   BINOMIAL_CDF evaluates the cumulative distribution
-    function for the discrete binomial probability
-    density function.
+  function for the discrete binomial probability
+  density function.
   BINOMIAL_CDF_VALUES returns some exact values.
 
   A is the number of trials;
@@ -732,8 +747,8 @@ TEST0252
 
         10        10               3        0.141593
        100        98         3.06122       0.0803682
-     10000      9522          3.1506      0.00900596
-   1000000    955108         3.14101      0.00058661
+     10000      9557         3.13906      0.00253228
+   1000000    954728         3.14226      0.00066357
 
 TEST0253
   BUFFON_PDF evaluates the Buffon PDF, the probability
@@ -791,10 +806,10 @@ TEST0254
 
     Trials      Hits          Est(Pi)     Err
 
-        10         6         3.33333        0.191741
-       100        46         4.34783         1.20623
-     10000      6375         3.13725      0.00433775
-   1000000    636855         3.14043      0.00116037
+        10         4               5         1.85841
+       100        73         2.73973        0.401867
+     10000      6389         3.13038       0.0112123
+   1000000    637013         3.13965       0.0019393
 
 TEST026
   For the Burr PDF:
@@ -932,16 +947,16 @@ TEST030
 
        X            PDF           CDF            CDF_INV
 
-       4.66776      0.249667      0.661045       4.66797
-       3.69139      0.292127      0.387433       3.69141
-        5.6856      0.140774      0.860685       5.68555
-       7.01636     0.0391311      0.971355       7.01562
-       4.01933       0.29092       0.48346       4.01953
-       1.93024     0.0774572       0.02509       1.92969
-       5.38454      0.173412      0.813437       5.38477
-       5.19739      0.194258      0.779034       5.19727
-       5.11671      0.203205         0.763       5.11719
-       4.57428       0.25804      0.637312       4.57422
+       5.29456      0.183427      0.797383       5.29492
+       7.13704     0.0338961      0.975756       7.13672
+       2.45642      0.162283     0.0878118       2.45703
+       6.98388      0.040642       0.97006       6.98438
+       4.74497      0.242317      0.680042       4.74512
+        3.0281      0.245322      0.205594       3.02832
+        2.7946      0.214758      0.151764       2.79492
+       2.95034      0.235816      0.186883        2.9502
+       2.49461      0.168514     0.0941283       2.49414
+       2.35125      0.144944     0.0716542       2.35156
 
 TEST031
   For the Chi PDF:
@@ -957,15 +972,15 @@ TEST031
   PDF variance = 1.81408
 
   Sample size =     1000
-  Sample mean =     4.16297
-  Sample variance = 1.78593
-  Sample maximum =  8.34277
-  Sample minimum =  1.3536
+  Sample mean =     4.15337
+  Sample variance = 1.9332
+  Sample maximum =  9.32689
+  Sample minimum =  1.20601
 
 TEST032:
   CHI_SQUARE_CDF evaluates the cumulative
-    distribution function for the chi-square central
-    probability density function.
+  distribution function for the chi-square central
+  probability density function.
   CHI_SQUARE_CDF_VALUES returns some exact values.
 
       A     X   Exact F     CHI_SQUARE_CDF(A,X)
@@ -1002,16 +1017,16 @@ TEST033
 
        X            PDF           CDF            CDF_INV
 
-       3.41653      0.154752      0.509317       3.41653
-       4.47034      0.119552      0.653921       4.47034
-        11.825    0.00799795      0.981299        11.825
-       2.27914      0.182306      0.315431       2.27914
-       4.93364       0.10466      0.705825       4.93364
-        4.4932      0.118798      0.656645        4.4932
-       7.04083     0.0520795      0.866254       7.04083
-       1.12602      0.160315      0.109878       1.12602
-      0.483101      0.094858     0.0248749      0.483101
-       5.18019     0.0971452      0.730697       5.18019
+       6.22214     0.0693042      0.816838       6.22214
+       8.25908     0.0332227      0.917464       8.25908
+       9.02741     0.0247301      0.939582       9.02741
+       4.13727      0.130694      0.612253       4.13727
+      0.703353      0.123704     0.0490852      0.703353
+       1.44998      0.175567      0.164536       1.44998
+      0.634817      0.115542     0.0408827      0.634817
+       8.54272       0.02982      0.926397       8.54272
+       13.0901    0.00470332      0.989156       13.0901
+       1.46095      0.175928      0.166465       1.46095
 
 TEST034
   For the Chi Square PDF:
@@ -1024,10 +1039,10 @@ TEST034
   PDF variance =                20
 
   Sample size =     1000
-  Sample mean =     10.077
-  Sample variance = 20.2423
-  Sample maximum =  28.162
-  Sample minimum =  1.20358
+  Sample mean =     9.97738
+  Sample variance = 21.1882
+  Sample maximum =  31.1387
+  Sample minimum =  1.63719
 
 TEST035
   For the Chi Square Noncentral PDF:
@@ -1042,12 +1057,12 @@ TEST035
   PDF variance = 14
 
   Initial seed =     123456789
-  Final seed =       70876380
+  Final seed =       200382020
   Sample size =     1000
-  Sample mean =     5.11159
-  Sample variance = 14.5293
-  Sample maximum =  21.9163
-  Sample minimum =  0.0333674
+  Sample mean =     4.99931
+  Sample variance = 13.5745
+  Sample maximum =  22.5373
+  Sample minimum =  0.0271069
 
 TEST036
   For the Circle PDF:
@@ -1358,6 +1373,15 @@ TEST044:
 
       X   Exact F     DIGAMMA(X)
 
+       0.1          -10.4238          -10.4238
+       0.2          -5.28904          -5.28904
+       0.3          -3.50252          -3.50252
+       0.4          -2.56138          -2.56138
+       0.5          -1.96351          -1.96351
+       0.6          -1.54062          -1.54062
+       0.7          -1.22002          -1.22002
+       0.8         -0.965009         -0.965009
+       0.9         -0.754927         -0.754927
          1         -0.577216         -0.577216
        1.1         -0.423755         -0.423755
        1.2          -0.28904          -0.28904
@@ -1494,9 +1518,9 @@ TEST047
 
   Component Mean, Variance, Min, Max:
 
-       0      0.132469     0.0392217      0.986951   1.18379e-11
-       1      0.240464     0.0567061      0.986585   1.98104e-06
-       2      0.627067     0.0745858      0.999945    0.00490504
+       0      0.128337     0.0377062      0.975128    4.0796e-11
+       1       0.23718     0.0592189      0.976032   1.30377e-06
+       2      0.634483     0.0751289      0.999945   0.000245466
 
 TEST048
   For the Dirichlet PDF:
@@ -1550,9 +1574,9 @@ TEST049
 
   Component Mean, Variance, Max, Min:
 
-       0      0.280835     0.0578972      0.915616   4.28373e-11
-       1      0.171392     0.0361454      0.924155   4.77996e-07
-       2      0.547774     0.0603173      0.999813     0.0175771
+       0      0.278716     0.0546592      0.986951   3.62858e-10
+       1      0.170222     0.0397946      0.993637   5.84186e-08
+       2      0.551062      0.062022      0.998934    0.00518575
 
 TEST050
   For the Dirichlet mixture PDF:
@@ -1893,26 +1917,26 @@ TEST059
 
 X   -> Y = error_F(X) -> Z = error_f_inverse(Y)
 
-         1.67904         1.67904         1.67904
-       -0.472769       -0.472769       -0.472769
-        -0.56606        -0.56606        -0.56606
-       -0.231124       -0.231124       -0.231124
-         1.21293         1.21293         1.21293
-        0.535037        0.535037        0.535037
-         1.26938         1.26938         1.26938
-         1.04954         1.04954         1.04954
-        -1.66609        -1.66609        -1.66609
-        -1.86523        -1.86523        -1.86523
-        -2.24246        -2.24246        -2.24246
-        0.735809        0.735809        0.735809
-       0.0396749       0.0396749       0.0396749
-        -1.35074        -1.35074        -1.35074
-        0.673068        0.673068        0.673068
-      0.00777484      0.00777484      0.00777484
-       -0.275127       -0.275127       -0.275127
-         0.37494         0.37494         0.37494
-           2.164           2.164           2.164
-          0.1856          0.1856          0.1856
+         1.67904        0.982428         1.67904
+        -0.56606       -0.576596        -0.56606
+         1.21293        0.913719         1.21293
+         1.26938        0.927374         1.26938
+        -1.66609       -0.981537        -1.66609
+        -2.24246       -0.998483        -2.24246
+       0.0396749       0.0447449       0.0396749
+        0.673068        0.658833        0.673068
+       -0.275127        -0.30279       -0.275127
+           2.164        0.997789           2.164
+        0.297785        0.326341        0.297785
+         2.04454        0.996165         2.04454
+         1.39882        0.952097         1.39882
+        -1.24299       -0.921226        -1.24299
+      -0.0670837      -0.0755824      -0.0670837
+       -0.794396       -0.738752       -0.794396
+       -0.523768       -0.541137       -0.523768
+       -0.350567       -0.379948       -0.350567
+          0.1317        0.147753          0.1317
+         0.53738        0.552727         0.53738
 
 TEST060
   For the Exponential 01 PDF:
@@ -2030,8 +2054,8 @@ TEST065
 
 TEST066:
   F_CDF evaluates the cumulative
-    distribution function for the F
-    probability density function.
+  distribution function for the F
+  probability density function.
   F_CDF_VALUES returns some exact values.
 
       A     B     X   Exact F     F_CDF(A,B,X)
@@ -2068,16 +2092,16 @@ TEST067
 
        X            PDF           CDF
 
-       12.6132    0.00658382       0.82527
-       5.99838      0.018571      0.753218
-       5.13933     0.0228705      0.735525
-        1.4628      0.106864      0.560173
-      0.797869       0.19821      0.464137
-       9.28796     0.0101522      0.798156
-   0.000862763       10.8275     0.0186939
-       7494.37   4.90557e-07      0.992647
-      0.538447      0.281965      0.403009
-       135.944   0.000199354      0.945532
+       8.79828     0.0109522      0.792993
+      0.913042      0.174133      0.485526
+      0.552007      0.276048      0.406792
+    0.00347467       5.38129      0.037483
+     0.0161641       2.46383     0.0805067
+     0.0212137       2.14006     0.0920758
+       1.26646      0.124798      0.537509
+    0.00713115       3.74269     0.0536328
+       2.23222     0.0659146      0.624499
+      0.060063       1.22522      0.153005
 
 TEST068
   For the F PDF:
@@ -2092,10 +2116,10 @@ TEST068
   PDF variance = 3.375
 
   Sample size =     1000
-  Sample mean =     1.4476
-  Sample variance = 3.10414
-  Sample maximum =  27.6769
-  Sample minimum =  0.0641745
+  Sample mean =     1.65874
+  Sample variance = 29.2135
+  Sample maximum =  164.816
+  Sample minimum =  0.0826478
 
 TEST069
   FACTORIAL_LOG evaluates the log of the factorial function;
@@ -2126,8 +2150,8 @@ TEST069
 
 TEST070
   FACTORIAL_STIRLING computes Stirling's
-    approximate factorial function;
-  I_FACTORIAL evaluates the factorial function;
+  approximate factorial function;
+  I4_FACTORIAL evaluates the factorial function;
 
   N      Stirling     N!
 
@@ -2330,12 +2354,12 @@ TEST0745
   Sample minimum =  0.541476
 
 TEST075
-  GAMMA evaluates the Gamma function;
+  TGAMMA evaluates the Gamma function;
   GAMMA_LOG evaluates the log of the Gamma function;
   GAMMA_LOG_INT evaluates the log for integer argument;
-  D_FACTORIAL evaluates the factorial function.
+  I4_FACTORIAL evaluates the factorial function.
 
-  X, GAMMA(X), Exp(GAMMA_LOG(X)), Exp(GAMMA_LOG_INT(X)) D_FACTORIAL(X+1)
+  X, TGAMMA(X), Exp(GAMMA_LOG(X)), Exp(GAMMA_LOG_INT(X)) I4_FACTORIAL(X+1)
 
        1               1               1               1               1
        2               1               1               1               1
@@ -2350,31 +2374,31 @@ TEST075
 
 TEST076:
   GAMMA_INC evaluates the normalized incomplete Gamma
-    function GAMMA_INC(A,B,X).
+  function GAMMA_INC(A,B,X).
   GAMMA_INC_VALUES returns some exact values.
 
    A      X       Exact F       GAMMA_INC(A,X)
 
-       0.1      0.03          0.738235          0.738235
-       0.1       0.3          0.908358          0.908358
-       0.1       1.5          0.988656          0.988656
-       0.5     0.075          0.301465          0.301465
-       0.5      0.75          0.779329          0.779329
-       0.5       3.5          0.991849          0.991849
-         1       0.1         0.0951626         0.0951626
-         1         1          0.632121          0.632121
-         1         5          0.993262          0.993262
-       1.1       0.1         0.0720597         0.0720597
-       1.1         1          0.589181          0.589181
-       1.1         5          0.991537          0.991537
-         2      0.15         0.0101858         0.0101858
-         2       1.5          0.442175          0.442175
-         2         7          0.992705          0.992705
-         6       2.5          0.042021          0.042021
-         6        12          0.979659          0.979659
-        11        16          0.922604          0.922604
-        26        25          0.447079          0.447079
-        41        45          0.744455          0.744455
+       0.1      0.03            2.4903          0.738235
+       0.1       0.3          0.871837          0.908358
+       0.1       1.5          0.107921          0.988656
+       0.5     0.075           1.23812          0.301465
+       0.5      0.75           0.39113          0.779329
+       0.5       3.5         0.0144472          0.991849
+         1       0.1          0.904837         0.0951626
+         1         1          0.367879          0.632121
+         1         5        0.00673795          0.993262
+       1.1       0.1          0.882797         0.0720597
+       1.1         1          0.390833          0.589181
+       1.1         5        0.00805146          0.991537
+         2      0.15          0.989814         0.0101858
+         2       1.5          0.557825          0.442175
+         2         7        0.00729506          0.992705
+         6       2.5           114.957          0.042021
+         6        12           2.44092          0.979659
+        11        16            280855          0.922604
+        26        25       8.57648e+24          0.447079
+        41        45       2.08503e+47          0.744455
 
 TEST077
   For the Gamma PDF:
@@ -2389,15 +2413,15 @@ TEST077
        X            PDF           CDF
 
        9.78938     0.0326457      0.931465
-       3.71255      0.178685       0.27162
-       2.87613      0.149289      0.131701
-       6.15383      0.126698      0.667132
-       8.36485     0.0592491      0.867551
-       7.65229     0.0777327      0.818961
+       3.52763      0.175509      0.238845
+       4.49151      0.176127      0.411287
        7.07259     0.0953344      0.768902
-       1.63088     0.0387193     0.0090759
-        6.5162      0.113991      0.710734
-       4.76846      0.170586       0.45934
+       5.28905      0.156175      0.544577
+        14.503     0.0033268      0.993778
+       8.13457     0.0648279      0.853273
+       10.4424      0.024378       0.94997
+        5.8157      0.138588      0.622277
+       4.28548      0.178916       0.37469
 
 TEST078
   For the Gamma PDF:
@@ -2413,10 +2437,10 @@ TEST078
   PDF variance = 18
 
   Sample size =     1000
-  Sample mean =     7.03579
-  Sample variance = 19.6481
+  Sample mean =     7.13589
+  Sample variance = 18.7835
   Sample maximum =  32.6521
-  Sample minimum =  1.19639
+  Sample minimum =  1.12016
 
 TEST079
   For the Genlogistic PDF:
@@ -2685,15 +2709,15 @@ TEST093
        X            PDF           CDF
 
       0.559532      0.329239     0.0861168
-       2.40685      0.135119      0.515034
-       0.90974      0.311588      0.201254
-       2.19648        0.1502      0.485064
-      0.566488      0.330272     0.0884105
-      0.471548       0.30596     0.0580219
+       1.28731      0.251704      0.307572
+      0.853592      0.319635       0.18353
+       1.35825      0.241176      0.325052
        5.32365     0.0458954      0.744699
-      0.780629      0.328531       0.15987
-       3.24717     0.0928392      0.609153
-       2.78698      0.113031      0.562013
+      0.226285     0.0933236    0.00436661
+      0.366732      0.244354     0.0287975
+       2.59887      0.123228      0.539812
+      0.741461      0.332202      0.146927
+       1.89165      0.176781      0.435385
 
 TEST094
   For the Inverse Gaussian PDF:
@@ -2708,9 +2732,9 @@ TEST094
   PDF variance = 2.66667
 
   Sample size =     1000
-  Sample mean =     1.98986
-  Sample variance = 2.72314
-  Sample maximum =  13.5187
+  Sample mean =     1.95731
+  Sample variance = 2.26428
+  Sample maximum =  12.1368
   Sample minimum =  0.215551
 
 TEST095
@@ -2994,16 +3018,16 @@ TEST108
 
        X            PDF           CDF            CDF_INV
 
-       3.66776      0.249667      0.700353       3.66797
-       2.69139      0.292127      0.558307       2.69141
-        4.6856      0.140774      0.803679       4.68555
-       6.01636     0.0391311      0.889183       6.01562
-       3.01933       0.29092      0.611345       3.01953
-      0.930238     0.0774572      0.181875      0.930176
-       4.38454      0.173412      0.777177       4.38477
-       4.19739      0.194258      0.759077       4.19727
-       4.11671      0.203205      0.750866       4.11719
-       3.57428       0.25804      0.688745       3.57422
+       4.29456      0.183427      0.768636       4.29492
+       6.13704     0.0338961       0.89487       6.13672
+       1.45642      0.162283      0.307636       1.45605
+       5.98388      0.040642      0.887603       5.98438
+       3.74497      0.242317      0.709648       3.74414
+        2.0281      0.245322      0.433405       2.02832
+        1.7946      0.214758      0.383889       1.79492
+       1.95034      0.235816      0.417222        1.9502
+       1.49461      0.168514      0.316485       1.49463
+       1.35125      0.144944      0.282999       1.35156
 
 TEST109
   For the Maxwell PDF:
@@ -3016,16 +3040,16 @@ TEST109
   PDF variance =                1.81408
 
   Sample size =     1000
-  Sample mean =     3.16297
-  Sample variance = 1.78593
-  Sample maximum =  7.34277
-  Sample minimum =  0.353604
+  Sample mean =     3.15337
+  Sample variance = 1.9332
+  Sample maximum =  8.32689
+  Sample minimum =  0.206015
 
 TEST110
   MULTINOMIAL_COEF1 computes multinomial
-    coefficients using the Gamma function;
+  coefficients using the Gamma function;
   MULTINOMIAL_COEF2 computes multinomial
-    coefficients directly.
+  coefficients directly.
 
   Line 10 of the BINOMIAL table:
 
@@ -3200,15 +3224,15 @@ TEST115
        X            PDF           CDF            CDF_INV
 
          1.679040256736491     0.0974392      0.953428         1.679040256746338
-       -0.4727688004888129      0.356759      0.318189       -0.4727688004855372
        -0.5660598123302577      0.339884      0.285677       -0.5660598123353983
-       -0.2311241308033988      0.388428      0.408609       -0.2311241308099739
           1.21293421737931      0.191179      0.887423         1.212934217394378
-        0.5350371373557014      0.345739      0.703688        0.5350371373577746
          1.269380628984426      0.178244      0.897847         1.269380629005457
-         1.049542669494471      0.229993      0.853036         1.049542669511194
         -1.666086672831968     0.0995733     0.0478481        -1.666086672843646
-        -1.865227723476435     0.0700549     0.0310747        -1.865227723463066
+        -2.242464038261558     0.0322815     0.0124657        -2.242464038262084
+        0.0396749185148341      0.398628      0.515824       0.03967491851894145
+        0.6730681958483083      0.318081      0.749548        0.6730681958595057
+       -0.2751273507132183      0.384125      0.391609       -0.2751273507160336
+         2.164004788036971     0.0383732      0.984768         2.164004788031278
 
 TEST116
   For the Normal 01 PDF:
@@ -3220,8 +3244,8 @@ TEST116
   PDF variance = 1
 
   Sample size =     1000
-  Sample mean =     -0.0169444
-  Sample variance = 0.999622
+  Sample mean =     0.00581875
+  Sample variance = 0.998375
   Sample maximum =  3.32858
   Sample minimum =  -3.02975
 
@@ -3237,15 +3261,15 @@ TEST117
        X            PDF           CDF            CDF_INV
 
        125.186    0.00649595      0.953428       125.186
-       92.9085      0.023784      0.318189       92.9085
        91.5091     0.0226589      0.285677       91.5091
-       96.5331     0.0258952      0.408609       96.5331
        118.194     0.0127453      0.887423       118.194
-       108.026     0.0230493      0.703688       108.026
        119.041     0.0118829      0.897847       119.041
-       115.743     0.0153328      0.853036       115.743
        75.0087    0.00663822     0.0478481       75.0087
-       72.0216    0.00467033     0.0310747       72.0216
+        66.363     0.0021521     0.0124657        66.363
+       100.595     0.0265752      0.515824       100.595
+       110.096     0.0212054      0.749548       110.096
+       95.8731     0.0256084      0.391609       95.8731
+        132.46    0.00255821      0.984768        132.46
 
 TEST118
   For the Normal PDF:
@@ -3260,10 +3284,148 @@ TEST118
   PDF variance = 225
 
   Sample size =     1000
-  Sample mean =     99.7458
-  Sample variance = 224.915
+  Sample mean =     100.087
+  Sample variance = 224.634
   Sample maximum =  149.929
   Sample minimum =  54.5537
+
+TEST1184
+  For the Truncated Normal PDF:
+  NORMAL_TRUNCATED_AB_CDF evaluates the CDF.
+  NORMAL_TRUNCATED_AB_CDF_INV inverts the CDF.
+  NORMAL_TRUNCATED_AB_PDF evaluates the PDF.
+
+  The parent normal distribution has
+    mean =               100
+    standard deviation = 25
+  The parent distribution is truncated to
+  the interval [50,150]
+
+       X            PDF           CDF            CDF_INV
+
+           81.63       0.0127629        0.218418           81.63
+         137.962      0.00527826        0.956318         137.962
+         122.367       0.0112043        0.829509         122.367
+         103.704       0.0165359        0.561695         103.704
+          94.899        0.016374        0.415307          94.899
+         65.8326      0.00657044       0.0661187         65.8326
+         84.5743       0.0138204        0.257578         84.5743
+         71.5672      0.00875626        0.109957         71.5672
+         62.0654      0.00528716        0.043829         62.0654
+         108.155       0.0158521        0.633966         108.155
+
+TEST1185
+  For the Truncated Normal PDF:
+  NORMAL_TRUNCATED_AB_MEAN computes the mean;
+  NORMAL_TRUNCATED_AB_SAMPLE samples;
+  NORMAL_TRUNCATED_AB_VARIANCE computes the variance.
+
+  The parent normal distribution has
+    mean =               100
+    standard deviation = 25
+  The parent distribution is truncated to
+  the interval [50,150]
+
+  PDF mean      =               100
+  PDF variance =                483.588
+
+  Sample size =     1000
+  Sample mean =     100.123
+  Sample variance = 486.064
+  Sample maximum =  149.108
+  Sample minimum =  50.7873
+
+TEST1186
+  For the Lower Truncated Normal PDF:
+  NORMAL_TRUNCATED_A_CDF evaluates the CDF.
+  NORMAL_TRUNCATED_A_CDF_INV inverts the CDF.
+  NORMAL_TRUNCATED_A_PDF evaluates the PDF.
+
+  The parent normal distribution has
+    mean =               100
+    standard deviation = 25
+  The parent distribution is truncated to
+  the interval [50,+oo]
+
+       X            PDF           CDF            CDF_INV
+
+         82.0355       0.0126136        0.218418         82.0355
+         143.008      0.00371817        0.956318         143.008
+         124.191       0.0102245        0.829509         124.191
+         104.515        0.016065        0.561695         104.515
+         95.5021        0.016067        0.415307         95.5021
+         66.0709      0.00650134       0.0661187         66.0709
+         85.0161       0.0136446        0.257578         85.0161
+         71.8645      0.00866826        0.109957         71.8645
+         62.2618      0.00522585        0.043829         62.2618
+         109.115       0.0152792        0.633966         109.115
+
+TEST1187
+  For the Lower Truncated Normal PDF:
+  NORMAL_TRUNCATED_A_MEAN computes the mean;
+  NORMAL_TRUNCATED_A_SAMPLE samples;
+  NORMAL_TRUNCATED_A_VARIANCE computes the variance.
+
+  The parent normal distribution has
+    mean =               100
+    standard deviation = 25
+  The parent distribution is truncated to
+  the interval [50,+oo]
+
+  PDF mean      =               101.381
+  PDF variance =                554.032
+
+  Sample size =     1000
+  Sample mean =     101.504
+  Sample variance = 555.665
+  Sample maximum =  171.782
+  Sample minimum =  50.8055
+
+TEST1188
+  For the Upper Truncated Normal PDF:
+  NORMAL_TRUNCATED_B_CDF evaluates the CDF.
+  NORMAL_TRUNCATED_B_CDF_INV inverts the CDF.
+  NORMAL_TRUNCATED_B_PDF evaluates the PDF.
+
+  The parent normal distribution has
+    mean =               100
+    standard deviation = 25
+  The parent distribution is truncated to
+  the interval [-oo,150]
+
+       X            PDF           CDF            CDF_INV
+
+         80.1372       0.0119094        0.218418         80.1372
+         137.766      0.00521699        0.956318         137.766
+         122.006       0.0110844        0.829509         122.006
+         103.073       0.0162063        0.561695         103.073
+         94.0447       0.0158724        0.415307         94.0447
+         62.0713      0.00516592       0.0661187         62.0713
+         83.2727       0.0130542        0.257578         83.2727
+         68.9956      0.00756806        0.109957         68.9956
+         57.0318      0.00372825        0.043829         57.0318
+         107.607       0.0155905        0.633966         107.607
+
+TEST1189
+  For the Upper Truncated Normal PDF:
+  NORMAL_TRUNCATED_B_MEAN computes the mean;
+  NORMAL_TRUNCATED_B_SAMPLE samples;
+  NORMAL_TRUNCATED_B_VARIANCE computes the variance.
+
+  The parent normal distribution has
+    mean =               100
+    standard deviation = 25
+  The parent distribution is truncated to
+  the interval [-oo,150]
+
+  PDF mean      =               98.6188
+  PDF variance =                554.032
+
+  Sample size =     1000
+  Sample mean =     98.7101
+  Sample variance = 560.281
+  Sample maximum =  149.087
+  Sample minimum =  27.2041
 
 TEST119
   For the Pareto PDF:
@@ -3327,15 +3489,15 @@ TEST124
        X            PDF
 
          3.673     0.0788188
-      0.667852      0.261867
-       4.15261     0.0436289
-       2.32528      0.298879
-        1.9615      0.375246
-       1.14325      0.416449
-         4.185     0.0418554
-      0.920753       0.36247
+        3.0685      0.154193
+       2.78714      0.203171
+       5.41214    0.00777678
+       3.91626     0.0587186
+      0.782927      0.312254
        1.68781       0.41945
-       2.37886      0.287218
+        2.8936      0.183616
+       1.24248      0.429598
+       1.20762       0.42572
 
 TEST125
   For the Planck PDF:
@@ -3349,15 +3511,15 @@ TEST125
   PDF variance = 0
 
   Sample size =     1000
-  Sample mean =     1.95188
-  Sample variance = 1.08647
-  Sample maximum =  7.50765
-  Sample minimum =  0.177481
+  Sample mean =     1.93308
+  Sample variance = 0.99989
+  Sample maximum =  6.48678
+  Sample minimum =  0.165955
 
 TEST126:
   POISSON_CDF evaluates the cumulative distribution
-    function for the discrete Poisson probability
-    density function.
+  function for the discrete Poisson probability
+  density function.
   POISSON_CDF_VALUES returns some exact values.
 
   A is the expected mean number of successes per unit time;
@@ -3848,7 +4010,7 @@ TEST138
 
 TEST139:
   STUDENT_CDF evaluates the cumulative density function
-    for the Student's T PDF.
+  for the Student's T PDF.
   STUDENT_CDF_VALUES returns some exact values.
 
    A      B      C     X       Exact F       STUDENT_CDF(A,B,C,X)
@@ -3879,16 +4041,16 @@ TEST140
 
        X            PDF           CDF
 
-       2.57394      0.131079      0.830139
-      0.876652      0.368348      0.571585
-       1.15653      0.340916      0.623068
-      0.297695      0.378517      0.461363
-      0.287044      0.378065      0.459337
-      0.307008      0.378894      0.463135
-       0.11283      0.367552      0.426444
-      0.253776      0.376508      0.453019
-       0.52145      0.382685      0.504105
-      0.493987      0.382729      0.498849
+       1.23384      0.331326      0.636863
+      0.763175       0.37563      0.550194
+      0.320752      0.379419      0.465751
+      -2.11984     0.0746224      0.119069
+       0.50983      0.382723      0.501881
+       3.93888     0.0283131      0.931835
+      0.985322      0.359192      0.591825
+     -0.714645      0.259709      0.282948
+      0.144113       0.36986      0.432312
+      0.464835      0.382605      0.493271
 
 TEST141
   For the Student PDF:
@@ -3904,10 +4066,10 @@ TEST141
   PDF variance = 6
 
   Sample size =     1000
-  Sample mean =     0.373969
-  Sample variance = 3.067
-  Sample maximum =  6.66826
-  Sample minimum =  -23.2899
+  Sample mean =     0.472733
+  Sample variance = 3.15695
+  Sample maximum =  12.2574
+  Sample minimum =  -18.5475
 
 TEST142
   For the Noncentral Student PDF:
@@ -3924,6 +4086,12 @@ TEST1425
 
       H             A           T(H,A)          Exact
 
+          0.0625            0.25       0.0389119       0.0389119
+             6.5          0.4375     2.00058e-11     2.00058e-11
+               7         0.96875     6.39906e-13     6.39906e-13
+         4.78125          0.0625      1.0633e-07      1.0633e-07
+               2             0.5      0.00862508      0.00862508
+               1        0.999997       0.0667418       0.0667418
                1             0.5       0.0430647       0.0430647
                1               1       0.0667419       0.0667419
                1               2       0.0784682       0.0784682
@@ -4054,16 +4222,16 @@ TEST148
 
   Points on the sphere:
 
-       1      0.915568     -0.257797     -0.308668  
-       2     -0.171751      0.901345      0.397592  
-       3      0.541822      0.447986     -0.711152  
-       4     -0.620052     -0.745456      0.244603  
-       5     0.0262807     -0.894727       0.44584  
-       6     0.0167158      -0.59152      0.806117  
-       7      0.987108     0.0846611      0.135834  
-       8     -0.220974      0.974193     0.0460176  
-       9       0.67958     -0.416543     -0.603873  
-      10       0.93698    -0.0375368      0.347361  
+       1      0.781938     -0.263617       0.56487  
+       2      0.413678     -0.542961     -0.730797  
+       3     0.0544828      0.924277     -0.377813  
+       4      0.723278     0.0995291      0.683347  
+       5      0.747038     -0.663815     -0.035826  
+       6      -0.78339     -0.516512      -0.34571  
+       7      0.146773      0.598886      -0.78727  
+       8     -0.649577     -0.399299     -0.647001  
+       9      0.375237     -0.770087       0.51591  
+      10     -0.408985     0.0579096     -0.910702  
 
 TEST1485
   For the Uniform 01 PDF:
@@ -4423,4 +4591,4 @@ TEST162
 PROB_PRB
   Normal end of execution.
 
-03 January 2012 05:03:47 PM
+18 September 2013 02:50:46 PM

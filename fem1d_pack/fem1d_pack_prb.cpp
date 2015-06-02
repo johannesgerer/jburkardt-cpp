@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "FEM1D_PACK_PRB\n";
   cout << "  C++ version\n";
@@ -53,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "FEM1D_PACK_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

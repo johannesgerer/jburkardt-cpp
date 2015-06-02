@@ -39,7 +39,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    KMEANS_PRB calls the KMEANS tests.
+//    KMEANS_PRB tests the KMEANS library.
 //
 //  Licensing:
 //
@@ -83,7 +83,6 @@ int main ( )
   cout << "\n";
   cout << "KMEANS_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

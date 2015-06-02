@@ -17,7 +17,11 @@
     <p>
       <b>STROUD</b>
       is a C++ library which
-      implements multidimensional quadrature rules of Arthur Stroud.
+      defines quadrature rules for a variety of M-dimensional regions, 
+      including the interior of the square, cube and hypercube, the pyramid,
+      cone and ellipse, the hexagon, the M-dimensional octahedron,
+      the circle, sphere and hypersphere, the triangle, tetrahedron and simplex,
+      and the surface of the circle, sphere and hypersphere.
     </p>
 
     <p>
@@ -176,18 +180,11 @@
     </h3>
 
     <p>
-      <a href = "../../cpp_src/dunavant/dunavant.html">
-      DUNAVANT</a>,
+      <a href = "../../cpp_src/disk_rule/disk_rule.html">
+      DISK_RULE</a>,
       a C++ library which
-      defines Dunavant rules for quadrature
-      on a triangle.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/fekete/fekete.html">
-      FEKETE</a>,
-      a C++ library which
-      defines a Fekete rule for quadrature or interpolation over a triangle.
+      computes quadrature rules for the unit disk in 2D, that is, 
+      the interior of the circle of radius 1 and center (0,0).
     </p>
 
     <p>
@@ -199,92 +196,6 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/gm_rule/gm_rule.html">
-      GM_RULE</a>,
-      a C++ library which
-      defines a Grundmann-Moeller rule for quadrature over a triangle, tetrahedron, or general
-      M-dimensional simplex.
-    </p>
-
-    <p>
-      <a href = "../../f_src/intlib/intlib.html">
-      INTLIB</a>,
-      a FORTRAN90 library which
-      numerically estimates integrals in one dimension.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/keast/keast.html">
-      KEAST</a>,
-      a C++ library which
-      defines a number of quadrature rules
-      for a tetrahedron.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/lyness_rule/lyness_rule.html">
-      LYNESS_RULE</a>,
-      a C++ library which
-      returns Lyness-Jespersen quadrature rules for the triangle.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/ncc_tetrahedron/ncc_tetrahedron.html">
-      NCC_TETRAHEDRON</a>,
-      a C++ library which
-      defines Newton-Cotes closed quadrature
-      rules on a tetrahedron.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/ncc_triangle/ncc_triangle.html">
-      NCC_TRIANGLE</a>,
-      a C++ library which
-      defines Newton-Cotes closed quadrature
-      rules on a triangle.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/nco_tetrahedron/nco_tetrahedron.html">
-      NCO_TETRAHEDRON</a>,
-      a C++ library which
-      defines Newton-Cotes open quadrature
-      rules on a tetrahedron.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/nco_triangle/nco_triangle.html">
-      NCO_TRIANGLE</a>,
-      a C++ library which
-      defines Newton-Cotes open quadrature
-      rules on a triangle.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/nint_exactness/nint_exactness.html">
-      NINT_EXACTNESS</a>,
-      a C++ program which
-      demonstrates how to measure the
-      polynomial exactness of a multidimensional quadrature rule.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/nintlib/nintlib.html">
-      NINTLIB</a>,
-      a C++ library which
-      numerically estimates integrals
-      in multiple dimensions.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/product_rule/product_rule.html">
-      PRODUCT_RULE</a>,
-      a C++ program which
-      constructs a product rule
-      from 1D factor rules.
-    </p>
-
-    <p>
       <a href = "../../cpp_src/pyramid_rule/pyramid_rule.html">
       PYRAMID_RULE</a>,
       a C++ program which
@@ -292,154 +203,102 @@
     </p>
 
     <p>
-      <a href = "../../f_src/quadpack/quadpack.html">
-      QUADPACK</a>,
-      a FORTRAN90 library which
-      estimates integrals in one dimension.
-    </p>
-
-    <p>
-      <a href = "../../datasets/quadrature_rules/quadrature_rules.html">
-      QUADRATURE_RULES</a>,
-      a dataset directory which
-      contains sets of files that define quadrature
-      rules over various 1D intervals or multidimensional hypercubes.
-    </p>
-
-    <p>
-      <a href = "../../datasets/quadrature_rules_tet/quadrature_rules_tet.html">
-      QUADRATURE_RULES_TET</a>,
-      a dataset directory which
-      defines various quadrature
-      rules on tetrahedrons.
-    </p>
-
-    <p>
-      <a href = "../../datasets/quadrature_rules_tri/quadrature_rules_tri.html">
-      QUADRATURE_RULES_TRI</a>,
-      a dataset directory which
-      defines quadrature rules to be applied to triangular
-      regions.
-    </p>
-
-    <p>
-      <a href = "../../m_src/quadrature_test/quadrature_test.html">
-      QUADRATURE_TEST</a>,
-      a MATLAB program which
-      reads the definition of a
-      multidimensional quadrature rule from three files, applies
-      the rule to a number of test integrals, and prints the
-      results.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/quadrule/quadrule.html">
-      QUADRULE</a>,
+      <a href = "../../cpp_src/simplex_gm_rule/simplex_gm_rule.html">
+      SIMPLEX_GM_RULE</a>,
       a C++ library which
-      defines quadrature rules on a
-      variety of intervals with different weight functions.
+      defines Grundmann-Moeller quadrature rules 
+      over the interior of a triangle in 2D, a tetrahedron in 3D, or
+      over the interior of the simplex in M dimensions.
     </p>
 
     <p>
-      <a href = "../../f77_src/simpack/simpack.html">
-      SIMPACK</a>,
-      a FORTRAN77 library which
-      approximates the integral of a function or vector of functions
-      over a multidimensional simplex, or a region which is the
-      sum of multidimensional simplexes.
-    </p>
-
-    <p>
-      <a href = "../../datasets/sphere_lebedev_rule/sphere_lebedev_rule.html">
+      <a href = "../../cpp_src/sphere_lebedev_rule/sphere_lebedev_rule.html">
       SPHERE_LEBEDEV_RULE</a>,
-      a dataset directory which
-      contains sets of points on a sphere which can be used for
-      quadrature rules of a known precision;
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/sphere_quad/sphere_quad.html">
-      SPHERE_QUAD</a>,
       a C++ library which
-      approximates an integral over the surface of the unit sphere
-      by applying a triangulation to the surface;
+      computes Lebedev quadrature rules
+      on the surface of the unit sphere in 3D.
     </p>
 
     <p>
-      <a href = "../../cpp_src/test_nint/test_nint.html">
-      TEST_NINT</a>,
+      <a href = "../../cpp_src/tetrahedron_arbq_rule/tetrahedron_arbq_rule.html">
+      TETRAHEDRON_ARBQ_RULE</a>,
       a C++ library which
-      can be used to test N-dimensional quadrature routines.
+      returns quadrature rules, 
+      with exactness up to total degree 15,
+      over the interior of a tetrahedron in 3D,
+      by Hong Xiao and Zydrunas Gimbutas.
     </p>
 
     <p>
-      <a href = "../../cpp_src/test_tri_int/test_tri_int.html">
-      TEST_TRI_INT</a>,
+      <a href = "../../cpp_src/tetrahedron_keast_rule/tetrahedron_keast_rule.html">
+      TETRAHEDRON_KEAST_RULE</a>,
       a C++ library which
-      tests algorithms for quadrature over a triangle.
+      defines ten quadrature rules, with exactness degrees 0 through 8,
+      over the interior of a tetrahedron in 3D.
     </p>
 
     <p>
-      <a href = "../../f_src/testpack/testpack.html">
-      TESTPACK</a>,
-      a FORTRAN90 library which
-      define a set of integrands used to test multidimensional quadrature.
-    </p>
-
-    <p>
-      <a href = "../../datasets/tetrahedrons/tetrahedrons.html">
-      TETRAHEDRONS</a>,
-      a dataset directory which
-      contains examples of tetrahedrons;
-    </p>
-
-    <p>
-      <a href = "../../f77_src/toms351/toms351.html">
-      TOMS351</a>,
-      a FORTRAN77 library which
-      estimates an integral using Romberg integration.
-    </p>
-
-    <p>
-      <a href = "../../f77_src/toms379/toms379.html">
-      TOMS379</a>,
-      a FORTRAN77 library which
-      estimates an integral.
-    </p>
-
-    <p>
-      <a href = "../../f77_src/toms418/toms418.html">
-      TOMS418</a>,
-      a FORTRAN77 library which
-      estimates the integral of a function with a sine or cosine factor.
-    </p>
-
-    <p>
-      <a href = "../../f77_src/toms424/toms424.html">
-      TOMS424</a>,
-      a FORTRAN77 library which
-      estimates the integral of a function using Clenshaw-Curtis quadrature.
-    </p>
-
-    <p>
-      <a href = "../../f77_src/toms468/toms468.html">
-      TOMS468</a>,
-      a FORTRAN77 library which
-      attempts the "automatic" integration of a function.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/triangulation/triangulation.html">
-      TRIANGULATION</a>,
+      <a href = "../../cpp_src/tetrahedron_ncc_rule/tetrahedron_ncc_rule.html">
+      TETRAHEDRON_NCC_RULE</a>,
       a C++ library which
-      includes some quadrature rules on triangles.
+      defines Newton-Cotes Closed (NCC) quadrature rules 
+      over the interior of a tetrahedron in 3D.
     </p>
 
     <p>
-      <a href = "../../cpp_src/wandzura/wandzura.html">
-      WANDZURA</a>,
+      <a href = "../../cpp_src/tetrahedron_nco_rule/tetrahedron_nco_rule.html">
+      TETRAHEDRON_NCO_RULE</a>,
       a C++ library which
-      defines Wandzura rules for quadrature on a triangle.
+      defines Newton-Cotes Open (NCO) quadrature rules
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_dunavant_rule/triangle_dunavant_rule.html">
+      TRIANGLE_DUNAVANT_RULE</a>,
+      a C++ library which
+      defines Dunavant rules for quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_fekete/triangle_fekete.html">
+      TRIANGLE_FEKETE</a>,
+      a C++ library which
+      defines Fekete rules for interpolation or quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_lyness_rule/triangle_lyness_rule.html">
+      TRIANGLE_LYNESS_RULE</a>,
+      a C++ library which
+      returns Lyness-Jespersen quadrature rules 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_ncc_rule/triangle_ncc_rule.html">
+      TRIANGLE_NCC_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Closed (NCC) quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_nco_rule/triangle_nco_rule.html">
+      TRIANGLE_NCO_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Open (NCO) quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_wandzura_rule/triangle_wandzura_rule.html">
+      TRIANGLE_WANDZURA_RULE</a>,
+      a C++ library which
+      returns quadrature rules of exactness 5, 10, 15, 20, 25 and 30
+      over the interior of the triangle in 2D.
     </p>
 
     <h3 align = "center">
@@ -1559,7 +1418,7 @@
     <hr>
 
     <i>
-      Last revised on 03 March 2010.
+      Last revised on 12 July 2014.
     </i>
 
     <!-- John Burkardt -->

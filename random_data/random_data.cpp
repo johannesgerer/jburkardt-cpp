@@ -63,7 +63,7 @@ double arc_cosine ( double c )
 }
 //****************************************************************************80
 
-double *bad_in_simplex01 ( int dim_num, int point_num, int *seed )
+double *bad_in_simplex01 ( int dim_num, int point_num, int &seed )
 
 //****************************************************************************80
 //
@@ -102,7 +102,7 @@ double *bad_in_simplex01 ( int dim_num, int point_num, int *seed )
 //
 //    Input, int POINT_NUM, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random
+//    Input/output, int &SEED, a seed for the random
 //    number generator.
 //
 //    Output, double BAD_IN_SIMPLEX01[DIM_NUM*POINT_NUM], the points.
@@ -134,7 +134,7 @@ double *bad_in_simplex01 ( int dim_num, int point_num, int *seed )
 }
 //****************************************************************************80
 
-double *brownian ( int dim_num, int n, int *seed )
+double *brownian ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -168,7 +168,7 @@ double *brownian ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input, int *SEED, a seed for the random number generator.
+//    Input, int &SEED, a seed for the random number generator.
 //
 //    Output, double BROWNIAN[DIM_NUM*N], the Brownian motion points.
 //
@@ -519,7 +519,7 @@ double *dge_mxv ( int m, int n, double a[], double x[] )
 }
 //****************************************************************************80
 
-void direction_uniform_nd ( int dim_num, int *seed, double w[] )
+void direction_uniform_nd ( int dim_num, int &seed, double w[] )
 
 //****************************************************************************80
 //
@@ -547,7 +547,7 @@ void direction_uniform_nd ( int dim_num, int *seed, double w[] )
 //
 //    Input, int DIM_NUM, the dimension of the space.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double W[DIM_NUM], a random direction vector, with unit norm.
 //
@@ -573,178 +573,6 @@ void direction_uniform_nd ( int dim_num, int *seed, double w[] )
   for ( i = 0; i < dim_num; i++ )
   {
     w[i] = w[i] / norm;
-  }
-
-  return;
-}
-//****************************************************************************80
-
-int dpofa ( double a[], int lda, int n )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DPOFA factors a real symmetric positive definite matrix.
-//
-//  Discussion:
-//
-//    DPOFA is usually called by DPOCO, but it can be called
-//    directly with a saving in time if RCOND is not needed.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    23 May 2005
-//
-//  Author:
-//
-//    FORTRAN77 original version by Dongarra, Moler, Bunch, Stewart.
-//    C++ version by John Burkardt.
-//
-//  Reference:
-//
-//    Dongarra, Moler, Bunch and Stewart,
-//    LINPACK User's Guide,
-//    SIAM, (Society for Industrial and Applied Mathematics),
-//    3600 University City Science Center,
-//    Philadelphia, PA, 19104-2688.
-//    ISBN 0-89871-172-X
-//
-//  Parameters:
-//
-//    Input/output, double A[LDA*N].  On input, the symmetric matrix
-//    to be  factored.  Only the diagonal and upper triangle are used.
-//    On output, an upper triangular matrix R so that A = R'*R
-//    where R' is the transpose.  The strict lower triangle is unaltered.
-//    If INFO /= 0, the factorization is not complete.
-//
-//    Input, int LDA, the leading dimension of the array A.
-//
-//    Input, int N, the order of the matrix.
-//
-//    Output, int DPOFA, error flag.
-//    0, for normal return.
-//    K, signals an error condition.  The leading minor of order K is not
-//    positive definite.
-//
-{
-  int info;
-  int j;
-  int k;
-  double s;
-  double t;
-
-  for ( j = 1; j <= n; j++ )
-  {
-    s = 0.0;
-
-    for ( k = 1; k <= j-1; k++ )
-    {
-      t = a[k-1+(j-1)*lda] - ddot ( k-1, a+0+(k-1)*lda, 1, a+0+(j-1)*lda, 1 );
-      t = t / a[k-1+(k-1)*lda];
-      a[k-1+(j-1)*lda] = t;
-      s = s + t * t;
-    }
-
-    s = a[j-1+(j-1)*lda] - s;
-
-    if ( s <= 0.0 )
-    {
-      info = j;
-      return info;
-    }
-
-    a[j-1+(j-1)*lda] = sqrt ( s );
-  }
-
-  info = 0;
-
-  return info;
-}
-//****************************************************************************80
-
-void dposl ( double a[], int lda, int n, double b[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DPOSL solves a linear system factored by DPOCO or DPOFA.
-//
-//  Discussion:
-//
-//    To compute inverse(A) * C where C is a matrix with P columns:
-//
-//      call dpoco ( a, lda, n, rcond, z, info )
-//
-//      if ( rcond is not too small .and. info == 0 ) then
-//        do j = 1, p
-//          call dposl ( a, lda, n, c(1,j) )
-//        end do
-//      end if
-//
-//    A division by zero will occur if the input factor contains
-//    a zero on the diagonal.  Technically this indicates
-//    singularity but it is usually caused by improper subroutine
-//    arguments.  It will not occur if the subroutines are called
-//    correctly and INFO == 0.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    23 May 2005
-//
-//  Author:
-//
-//    FORTRAN77 original version by Dongarra, Moler, Bunch, Stewart.
-//    C++ version by John Burkardt.
-//
-//  Reference:
-//
-//    Dongarra, Moler, Bunch and Stewart,
-//    LINPACK User's Guide,
-//    SIAM, (Society for Industrial and Applied Mathematics),
-//    3600 University City Science Center,
-//    Philadelphia, PA, 19104-2688.
-//    ISBN 0-89871-172-X
-//
-//  Parameters:
-//
-//    Input, double A[LDA*N], the output from DPOCO or DPOFA.
-//
-//    Input, int LDA, the leading dimension of the array A.
-//
-//    Input, int N, the order of the matrix.
-//
-//    Input/output, double B[N].  On input, the right hand side.
-//    On output, the solution.
-//
-{
-  int k;
-  double t;
-//
-//  Solve R' * Y = B.
-//
-  for ( k = 1; k <= n; k++ )
-  {
-    t = ddot ( k-1, a+0+(k-1)*lda, 1, b, 1 );
-    b[k-1] = ( b[k-1] - t ) / a[k-1+(k-1)*lda];
-  }
-//
-//  Solve R * X = Y.
-//
-  for ( k = n; 1 <= k; k-- )
-  {
-    b[k-1] = b[k-1] / a[k-1+(k-1)*lda];
-    t = -b[k-1];
-    daxpy ( k-1, t, a+0+(k-1)*lda, 1, b, 1 );
   }
 
   return;
@@ -897,7 +725,7 @@ unsigned long get_seed ( )
 }
 //****************************************************************************80
 
-double *grid_in_cube01 ( int dim_num, int n, int center, int *seed )
+double *grid_in_cube01 ( int dim_num, int n, int center, int &seed )
 
 //****************************************************************************80
 //
@@ -911,7 +739,7 @@ double *grid_in_cube01 ( int dim_num, int n, int center, int *seed )
 //
 //    The points are to lie on a uniform grid of side N_SIDE.
 //
-//    Unless the N = N_SIDE**DIM_NUM for some N_SIDE, we can't use all the
+//    Unless the N = N_SIDE^DIM_NUM for some N_SIDE, we can't use all the
 //    points on a grid.  What we do is find the smallest N_SIDE
 //    that's big enough, and randomly omit some points.
 //
@@ -948,7 +776,7 @@ double *grid_in_cube01 ( int dim_num, int n, int center, int *seed )
 //    4: first point is 1/N, last point is 1;
 //    5: first point is 1/(2*N), last point is (2*N-1)/(2*N);
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double GRID_IN_CUBE01[DIM_NUM*N], the points.
 //
@@ -966,7 +794,7 @@ double *grid_in_cube01 ( int dim_num, int n, int center, int *seed )
 //
   n_side = grid_side ( dim_num, n );
 //
-//  We need to select N points out of N_SIDE**DIM_NUM set.
+//  We need to select N points out of N_SIDE^DIM_NUM set.
 //
   n_grid = ( int ) pow ( ( double ) n_side, dim_num );
 //
@@ -1395,7 +1223,7 @@ bool halton_base_check ( int dim_num, int base[] )
 }
 //****************************************************************************80
 
-double *halton_in_circle01_accept ( int dim_num, int n, int *seed )
+double *halton_in_circle01_accept ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -1427,7 +1255,7 @@ double *halton_in_circle01_accept ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double HALTON_IN_CIRCLE01_ACCEPT[DIM_NUM*N], the points.
 //
@@ -1466,11 +1294,11 @@ double *halton_in_circle01_accept ( int dim_num, int n, int *seed )
 
   while ( have < n )
   {
-    step = *seed;
+    step = seed;
 
     i4_to_halton ( dim_num, step, seed_vec, leap, base, u );
 
-    *seed = *seed + 1;
+    seed = seed + 1;
 
     total = 0.0;
     for ( i = 0; i < dim_num; i++ )
@@ -1499,7 +1327,7 @@ double *halton_in_circle01_accept ( int dim_num, int n, int *seed )
 }
 //****************************************************************************80
 
-double *halton_in_circle01_map ( int dim_num, int n, int *seed )
+double *halton_in_circle01_map ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -1529,7 +1357,7 @@ double *halton_in_circle01_map ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double HALTON_IN_CIRCLE01_MAP[DIM_NUM*N], the points.
 //
@@ -1551,7 +1379,7 @@ double *halton_in_circle01_map ( int dim_num, int n, int *seed )
   x = new double[dim_num*n];
 
   step = 0;
-  seed_vec[0] = *seed;
+  seed_vec[0] = seed;
   leap[0] = 1;
   base[0] = prime ( 1 );
 
@@ -1563,7 +1391,7 @@ double *halton_in_circle01_map ( int dim_num, int n, int *seed )
   }
 
   step = 0;
-  seed_vec[0] = *seed;
+  seed_vec[0] = seed;
   leap[0] = 1;
   base[0] = prime ( 2 );
 
@@ -1580,7 +1408,7 @@ double *halton_in_circle01_map ( int dim_num, int n, int *seed )
     x[1+j*dim_num] = r[j] * sin ( t[j] );
   }
 
-  *seed = *seed + n;
+  seed = seed + n;
 
   delete [] r;
   delete [] t;
@@ -1590,7 +1418,7 @@ double *halton_in_circle01_map ( int dim_num, int n, int *seed )
 }
 //****************************************************************************80
 
-double *halton_in_cube01 ( int dim_num, int n, int *seed )
+double *halton_in_cube01 ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -1616,7 +1444,7 @@ double *halton_in_cube01 ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of elements.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double HALTON_IN_CUBE01[DIM_NUM*N], the points
 //
@@ -1633,7 +1461,7 @@ double *halton_in_cube01 ( int dim_num, int n, int *seed )
   seed_vec = new int[dim_num];
   x = new double[dim_num*n];
 
-  step = *seed;
+  step = seed;
   for ( i = 0; i < dim_num; i++ )
   {
     seed_vec[i] = 0;
@@ -1649,7 +1477,7 @@ double *halton_in_cube01 ( int dim_num, int n, int *seed )
 
   i4_to_halton_sequence ( dim_num, n, step, seed_vec, leap, base, x );
 
-  *seed = *seed + n;
+  seed = seed + n;
 
   delete [] base;
   delete [] leap;
@@ -1708,7 +1536,7 @@ bool hammersley_base_check ( int dim_num, int base[] )
 }
 //****************************************************************************80
 
-double *hammersley_in_cube01 ( int dim_num, int n, int *seed )
+double *hammersley_in_cube01 ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -1734,7 +1562,7 @@ double *hammersley_in_cube01 ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of elements.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double HAMMERSLEY_IN_CUBE01[DIM_NUM*N], the points.
 //
@@ -1751,7 +1579,7 @@ double *hammersley_in_cube01 ( int dim_num, int n, int *seed )
   seed_vec = new int[dim_num];
   x = new double[dim_num*n];
 
-  step = *seed;
+  step = seed;
   for ( i = 0; i < dim_num; i++ )
   {
     seed_vec[i] = 0;
@@ -1768,7 +1596,7 @@ double *hammersley_in_cube01 ( int dim_num, int n, int *seed )
 
   i4_to_hammersley_sequence ( dim_num, n, step, seed_vec, leap, base, x );
 
-  *seed = *seed + n;
+  seed = seed + n;
 
   delete [] base;
   delete [] leap;
@@ -2594,13 +2422,13 @@ void i4_to_hammersley_sequence ( int dim_num, int n, int step, int seed[],
 }
 //****************************************************************************80
 
-int i4_uniform ( int a, int b, int *seed )
+int i4_uniform_ab ( int a, int b, int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    I4_UNIFORM returns a scaled pseudorandom I4.
+//    I4_UNIFORM_AB returns a scaled pseudorandom I4 between A and B.
 //
 //  Discussion:
 //
@@ -2609,11 +2437,11 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license.
+//    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    12 November 2006
+//    02 October 2012
 //
 //  Author:
 //
@@ -2623,70 +2451,94 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //    Paul Bratley, Bennett Fox, Linus Schrage,
 //    A Guide to Simulation,
-//    Springer Verlag, pages 201-202, 1983.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley Interscience, page 95, 1998.
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
 //
 //    Bennett Fox,
 //    Algorithm 647:
 //    Implementation and Relative Efficiency of Quasirandom
 //    Sequence Generators,
 //    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, pages 362-376, 1986.
+//    Volume 12, Number 4, December 1986, pages 362-376.
 //
-//    Peter Lewis, Allen Goodman, James Miller
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
 //    A Pseudo-Random Number Generator for the System/360,
 //    IBM Systems Journal,
-//    Volume 8, pages 136-143, 1969.
+//    Volume 8, Number 2, 1969, pages 136-143.
 //
 //  Parameters:
 //
 //    Input, int A, B, the limits of the interval.
 //
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
+//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
 //    On output, SEED has been updated.
 //
 //    Output, int I4_UNIFORM, a number between A and B.
 //
 {
+  int c;
+  int i4_huge = 2147483647;
   int k;
   float r;
   int value;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
-    cerr << "I4_UNIFORM - Fatal error!\n";
+    cerr << "I4_UNIFORM_AB - Fatal error!\n";
     cerr << "  Input value of SEED = 0.\n";
     exit ( 1 );
   }
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
+//
+//  Guarantee A <= B.
+//
+  if ( b < a )
   {
-    *seed = *seed + 2147483647;
+    c = a;
+    a = b;
+    b = c;
   }
 
-  r = ( float ) ( *seed ) * 4.656612875E-10;
+  k = seed / 127773;
+
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+  if ( seed < 0 )
+  {
+    seed = seed + i4_huge;
+  }
+
+  r = ( float ) ( seed ) * 4.656612875E-10;
 //
 //  Scale R to lie between A-0.5 and B+0.5.
 //
-  r = ( 1.0 - r ) * ( ( float ) ( i4_min ( a, b ) ) - 0.5 )
-    +         r   * ( ( float ) ( i4_max ( a, b ) ) + 0.5 );
+  r = ( 1.0 - r ) * ( ( float ) a - 0.5 ) 
+    +         r   * ( ( float ) b + 0.5 );
 //
 //  Use rounding to convert R to an integer between A and B.
 //
-  value = r4_nint ( r );
-
-  value = i4_max ( value, i4_min ( a, b ) );
-  value = i4_min ( value, i4_max ( a, b ) );
+  value = round ( r );
+//
+//  Guarantee A <= VALUE <= B.
+//
+  if ( value < a )
+  {
+    value = a;
+  }
+  if ( b < value )
+  {
+    value = b;
+  }
 
   return value;
 }
@@ -2782,7 +2634,7 @@ void i4vec_transpose_print ( int n, int a[], string title )
 }
 //****************************************************************************80
 
-void ksub_random2 ( int n, int k, int *seed, int a[] )
+void ksub_random2 ( int n, int k, int &seed, int a[] )
 
 //****************************************************************************80
 //
@@ -2817,7 +2669,7 @@ void ksub_random2 ( int n, int k, int *seed, int a[] )
 //    Input, int K, number of elements in desired subsets.  K must
 //    be between 0 and N.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int A[K].  A(I) is the I-th element of the
 //    output set.  The elements of A are in order.
@@ -2876,7 +2728,7 @@ void ksub_random2 ( int n, int k, int *seed, int a[] )
 }
 //****************************************************************************80
 
-double *normal ( int dim_num, int n, double r[], double mu[], int *seed )
+double *normal ( int dim_num, int n, double r[], double mu[], int &seed )
 
 //****************************************************************************80
 //
@@ -2889,7 +2741,7 @@ double *normal ( int dim_num, int n, double r[], double mu[], int *seed )
 //    The multivariate normal distribution for the DIM_NUM dimensional vector X
 //    has the form:
 //
-//      pdf(X) = (2*pi*det(V))**(-DIM_NUM/2) * exp(-0.5*(X-MU)'*inverse(V)*(X-MU))
+//      pdf(X) = (2*pi*det(V))^(-DIM_NUM/2) * exp(-0.5*(X-MU)'*inverse(V)*(X-MU))
 //
 //    where MU is the mean vector, and V is a positive definite symmetric
 //    matrix called the variance-covariance matrix.
@@ -2928,7 +2780,7 @@ double *normal ( int dim_num, int n, double r[], double mu[], int *seed )
 //
 //    Input, double MU[DIM_NUM], the mean vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double NORMAL[DIM_NUM*N], the random points.
 //
@@ -2966,7 +2818,7 @@ double *normal ( int dim_num, int n, double r[], double mu[], int *seed )
 }
 //****************************************************************************80
 
-double *normal_circular ( int dim_num, int n, int *seed )
+double *normal_circular ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -2998,7 +2850,7 @@ double *normal_circular ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double NORMAL_CIRULAR[DIM_NUM*N], the random points.
 //
@@ -3041,8 +2893,8 @@ double *normal_circular ( int dim_num, int n, int *seed )
 }
 //****************************************************************************80
 
-double *normal_multivariate ( int dim_num, int n, double r[], double mu[],
-  int *seed )
+double *normal_multivariate ( int m, int n, double r[], double mu[],
+  int &seed )
 
 //****************************************************************************80
 //
@@ -3052,15 +2904,15 @@ double *normal_multivariate ( int dim_num, int n, double r[], double mu[],
 //
 //  Discussion:
 //
-//    The multivariate normal distribution for the DIM_NUM dimensional vector X
+//    The multivariate normal distribution for the M dimensional vector X
 //    has the form:
 //
-//      pdf(X) = (2*pi*det(V))**(-DIM_NUM/2) * exp(-0.5*(X-MU)'*inverse(V)*(X-MU))
+//      pdf(X) = (2*pi*det(V))^(-M/2) * exp(-0.5*(X-MU)'*inverse(V)*(X-MU))
 //
 //    where MU is the mean vector, and V is a positive definite symmetric
 //    matrix called the variance-covariance matrix.
 //
-//    This routine samples points associated with the DIM_NUM dimensional
+//    This routine samples points associated with the M dimensional
 //    normal distribution with mean MU and covariance matrix V.
 //
 //    This routine requires that the user supply the upper triangular
@@ -3070,7 +2922,7 @@ double *normal_multivariate ( int dim_num, int n, double r[], double mu[],
 //
 //    This factorization always exists if V is actually symmetric and
 //    positive definite.  This factorization can be computed by the
-//    routine DPOFA.
+//    routine R8PO_FA.
 //
 //    The user also supplies the mean vector MU.
 //
@@ -3096,16 +2948,16 @@ double *normal_multivariate ( int dim_num, int n, double r[], double mu[],
 //
 //  Parameters:
 //
-//    Input, int DIM_NUM, the dimension of the space.
+//    Input, int M, the dimension of the space.
 //
 //    Input, int N, the number of points.
 //
-//    Input, double R[DIM_NUM*DIM_NUM], the upper triangular Cholesky factor
+//    Input, double R[M*M], the upper triangular Cholesky factor
 //    of the variance-covariance matrix.
 //
-//    Input, double MU[DIM_NUM], the mean vector.
+//    Input, double MU[M], the mean vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double NORMAL_MULTIVARIATE[DIM_NUM*N], corresponding
 //    points associated with the multivariate normal distribution.
@@ -3117,22 +2969,22 @@ double *normal_multivariate ( int dim_num, int n, double r[], double mu[],
   double *v;
   double *x;
 
-  v = new double[dim_num];
-  x = new double[dim_num*n];
+  v = new double[m];
+  x = new double[m*n];
 //
 //  Compute X = MU + R' * V.
 //  We actually carry out this computation in the equivalent form MU + V' * R.
 //
   for ( j = 0; j < n; j++ )
   {
-    r8vec_normal_01 ( dim_num, seed, v );
+    r8vec_normal_01 ( m, seed, v );
 
-    for ( i = 0; i < dim_num; i++ )
+    for ( i = 0; i < m; i++ )
     {
-      x[i+j*dim_num] = mu[i];
+      x[i+j*m] = mu[i];
       for ( k = 0; k <= i; k++ )
       {
-        x[i+j*dim_num] = x[i+j*dim_num] + v[k] * r[k+i*dim_num];
+        x[i+j*m] = x[i+j*m] + v[k] * r[k+i*m];
       }
     }
   }
@@ -3143,7 +2995,7 @@ double *normal_multivariate ( int dim_num, int n, double r[], double mu[],
 }
 //****************************************************************************80
 
-double *normal_simple ( int dim_num, int n, int *seed )
+double *normal_simple ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -3155,7 +3007,7 @@ double *normal_simple ( int dim_num, int n, int *seed )
 //
 //    The multivariate normal distribution has the form:
 //
-//      f(x) = (2*pi*det(V))**(-DIM_NUM/2) * exp(-0.5*(x-mu)'*inverse(V)*(x-mu))
+//      f(x) = (2*pi*det(V))^(-DIM_NUM/2) * exp(-0.5*(x-mu)'*inverse(V)*(x-mu))
 //
 //    where mu is the mean vector, and V is a positive definite symmetric
 //    matrix called the variance-covariance matrix.
@@ -3184,7 +3036,7 @@ double *normal_simple ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double NORMAL_SIMPLE[DIM_NUM*N], the random points.
 //
@@ -3641,12 +3493,12 @@ double r8_epsilon ( )
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the round off unit for double precision arithmetic.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
 //    but
 //      1 = ( 1 + R / 2 )
@@ -3657,7 +3509,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -3665,19 +3517,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -3812,7 +3657,7 @@ int r8_nint ( double x )
 }
 //****************************************************************************80
 
-double r8_normal_01 ( int *seed )
+double r8_normal_01 ( int &seed )
 
 //****************************************************************************80
 //
@@ -3834,7 +3679,7 @@ double r8_normal_01 ( int *seed )
 //
 //  Modified:
 //
-//    16 August 2004
+//    18 September 2004
 //
 //  Author:
 //
@@ -3842,28 +3687,31 @@ double r8_normal_01 ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int SEED, a seed for the random number generator.
 //
-//    Output, double R8_NORMAL_01, a sample of the standard normal PDF.
+//    Output, double R8_NORMAL_01, a normally distributed random value.
 //
 {
-# define PI 3.141592653589793
-
+  double pi = 3.141592653589793;
   double r1;
   double r2;
-  static int used = 0;
+  static int used = -1;
   double x;
   static double y = 0.0;
+
+  if ( used == -1 )
+  {
+    used = 0;
+  }
 //
-//  If we've used an even number of values so far, generate two more,
-//  return one and save one.
+//  If we've used an even number of values so far, generate two more, 
+//  return one, and save one.
 //
-  if ( ( used % 2 ) == 0 )
+  if ( ( used % 2 )== 0 )
   {
     for ( ; ; )
     {
       r1 = r8_uniform_01 ( seed );
-
       if ( r1 != 0.0 )
       {
         break;
@@ -3872,21 +3720,19 @@ double r8_normal_01 ( int *seed )
 
     r2 = r8_uniform_01 ( seed );
 
-    x = sqrt ( -2.0 * log ( r1 ) ) * cos ( 2.0 * PI * r2 );
-    y = sqrt ( -2.0 * log ( r1 ) ) * sin ( 2.0 * PI * r2 );
+    x = sqrt ( -2.0 * log ( r1 ) ) * cos ( 2.0 * pi * r2 );
+    y = sqrt ( -2.0 * log ( r1 ) ) * sin ( 2.0 * pi * r2 );
   }
-//
-//  Otherwise, return the second, saved, value.
-//
   else
   {
+
     x = y;
+
   }
 
   used = used + 1;
 
   return x;
-# undef PI
 }
 //****************************************************************************80
 
@@ -3919,31 +3765,40 @@ double r8_pi ( )
 }
 //****************************************************************************80
 
-double r8_uniform_01 ( int *seed )
+double r8_uniform_01 ( int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_UNIFORM_01 is a portable pseudorandom number generator.
+//    R8_UNIFORM_01 returns a unit pseudorandom R8.
 //
 //  Discussion:
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
+//      u = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
 //
+//    If the initial seed is 12345, then the first three computations are
+//
+//      Input     Output      R8_UNIFORM_01
+//      SEED      SEED
+//
+//         12345   207482415  0.096616
+//     207482415  1790989824  0.833995
+//    1790989824  2035175616  0.947702
+//
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license.
+//    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    11 August 2004
+//    09 April 2012
 //
 //  Author:
 //
@@ -3951,47 +3806,69 @@ double r8_uniform_01 ( int *seed )
 //
 //  Reference:
 //
-//    Paul Bratley, Bennett Fox, L E Schrage,
+//    Paul Bratley, Bennett Fox, Linus Schrage,
 //    A Guide to Simulation,
-//    Springer Verlag, pages 201-202, 1983.
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
 //
 //    Bennett Fox,
 //    Algorithm 647:
 //    Implementation and Relative Efficiency of Quasirandom
 //    Sequence Generators,
 //    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, pages 362-376, 1986.
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, the "seed" value.  Normally, this
+//    value should not be 0.  On output, SEED has been updated.
 //
-//    Output, double R8_UNIFORM_01, a new pseudorandom variate, strictly between
-//    0 and 1.
+//    Output, double R8_UNIFORM_01, a new pseudorandom variate, 
+//    strictly between 0 and 1.
 //
 {
+  int i4_huge = 2147483647;
   int k;
   double r;
 
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
+  if ( seed == 0 )
   {
-    *seed = *seed + 2147483647;
+    cerr << "\n";
+    cerr << "R8_UNIFORM_01 - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
   }
-//
-//  Although SEED can be represented exactly as a 32 bit integer,
-//  it generally cannot be represented exactly as a 32 bit real number!
-//
-  r = ( double ) ( *seed ) * 4.656612875E-10;
+
+  k = seed / 127773;
+
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+  if ( seed < 0 )
+  {
+    seed = seed + i4_huge;
+  }
+  r = ( double ) ( seed ) * 4.656612875E-10;
 
   return r;
 }
 //****************************************************************************80
 
-double *r8mat_normal_01_new ( int m, int n, int *seed )
+double *r8mat_normal_01_new ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -4005,7 +3882,7 @@ double *r8mat_normal_01_new ( int m, int n, int *seed )
 //
 //  Modified:
 //
-//    09 December 2009
+//    09 April 2012
 //
 //  Author:
 //
@@ -4033,7 +3910,7 @@ double *r8mat_normal_01_new ( int m, int n, int *seed )
 //
 //    Input, int M, N, the number of rows and columns in the array.
 //
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
+//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
 //    On output, SEED has been updated.
 //
 //    Output, double R8MAT_NORMAL_01_NEW[M*N], the array of pseudonormal values.
@@ -4195,22 +4072,23 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 }
 //****************************************************************************80
 
-double *r8mat_uniform_01_new ( int m, int n, int *seed )
+double *r8mat_uniform_01_new ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8MAT_UNIFORM_01_NEW returns a new unit pseudorandom R8MAT.
+//    R8MAT_UNIFORM_01_NEW returns a unit pseudorandom R8MAT.
 //
 //  Discussion:
 //
-//    An R8MAT is an array of R8's.
+//    An R8MAT is a doubly dimensioned array of R8's,  stored as a vector
+//    in column-major order.
 //
 //    This routine implements the recursion
 //
-//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
-//      u = seed / ( 2^31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -4231,55 +4109,36 @@ double *r8mat_uniform_01_new ( int m, int n, int *seed )
 //
 //    Paul Bratley, Bennett Fox, Linus Schrage,
 //    A Guide to Simulation,
-//    Second Edition,
-//    Springer, 1987,
-//    ISBN: 0387964673,
-//    LC: QA76.9.C65.B73.
+//    Springer Verlag, pages 201-202, 1983.
 //
 //    Bennett Fox,
 //    Algorithm 647:
 //    Implementation and Relative Efficiency of Quasirandom
 //    Sequence Generators,
 //    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, December 1986, pages 362-376.
+//    Volume 12, Number 4, pages 362-376, 1986.
 //
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation,
-//    edited by Jerry Banks,
-//    Wiley, 1998,
-//    ISBN: 0471134031,
-//    LC: T57.62.H37.
-//
-//    Peter Lewis, Allen Goodman, James Miller,
+//    Philip Lewis, Allen Goodman, James Miller,
 //    A Pseudo-Random Number Generator for the System/360,
 //    IBM Systems Journal,
-//    Volume 8, Number 2, 1969, pages 136-143.
+//    Volume 8, pages 136-143, 1969.
 //
 //  Parameters:
 //
 //    Input, int M, N, the number of rows and columns.
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
-//    value should not be 0.  On output, SEED has
+//    Input/output, int &SEED, the "seed" value.  Normally, this
+//    value should not be 0, otherwise the output value of SEED
+//    will still be 0, and R8_UNIFORM will be 0.  On output, SEED has
 //    been updated.
 //
-//    Output, double R8MAT_UNIFORM_01[M*N], a matrix of pseudorandom values.
+//    Output, double R8MAT_UNIFORM_01_NEW[M*N], a matrix of pseudorandom values.
 //
 {
   int i;
-  int i4_huge = 2147483647;
   int j;
   int k;
   double *r;
-
-  if ( *seed == 0 )
-  {
-    cerr << "\n";
-    cerr << "R8MAT_UNIFORM_01_NEW - Fatal error!\n";
-    cerr << "  Input value of SEED = 0.\n";
-    exit ( 1 );
-  }
 
   r = new double[m*n];
 
@@ -4287,16 +4146,15 @@ double *r8mat_uniform_01_new ( int m, int n, int *seed )
   {
     for ( i = 0; i < m; i++ )
     {
-      k = *seed / 127773;
+      k = seed / 127773;
 
-      *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-      if ( *seed < 0 )
+      if ( seed < 0 )
       {
-        *seed = *seed + i4_huge;
+        seed = seed + 2147483647;
       }
-
-      r[i+j*m] = ( double ) ( *seed ) * 4.656612875E-10;
+      r[i+j*m] = ( double ) ( seed ) * 4.656612875E-10;
     }
   }
 
@@ -4368,6 +4226,163 @@ void r8mat_write ( string output_filename, int m, int n, double table[] )
 //  Close the file.
 //
   output.close ( );
+
+  return;
+}
+//****************************************************************************80
+
+int r8po_fa ( double a[], int lda, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8PO_FA factors a real symmetric positive definite matrix.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 May 2005
+//
+//  Author:
+//
+//    FORTRAN77 original version by Dongarra, Moler, Bunch, Stewart.
+//    C++ version by John Burkardt.
+//
+//  Reference:
+//
+//    Dongarra, Moler, Bunch and Stewart,
+//    LINPACK User's Guide,
+//    SIAM, (Society for Industrial and Applied Mathematics),
+//    3600 University City Science Center,
+//    Philadelphia, PA, 19104-2688.
+//    ISBN 0-89871-172-X
+//
+//  Parameters:
+//
+//    Input/output, double A[LDA*N].  On input, the symmetric matrix
+//    to be  factored.  Only the diagonal and upper triangle are used.
+//    On output, an upper triangular matrix R so that A = R'*R
+//    where R' is the transpose.  The strict lower triangle is unaltered.
+//    If INFO /= 0, the factorization is not complete.
+//
+//    Input, int LDA, the leading dimension of the array A.
+//
+//    Input, int N, the order of the matrix.
+//
+//    Output, int R8PO_FA, error flag.
+//    0, for normal return.
+//    K, signals an error condition.  The leading minor of order K is not
+//    positive definite.
+//
+{
+  int info;
+  int j;
+  int k;
+  double s;
+  double t;
+
+  for ( j = 1; j <= n; j++ )
+  {
+    s = 0.0;
+
+    for ( k = 1; k <= j-1; k++ )
+    {
+      t = a[k-1+(j-1)*lda] - ddot ( k-1, a+0+(k-1)*lda, 1, a+0+(j-1)*lda, 1 );
+      t = t / a[k-1+(k-1)*lda];
+      a[k-1+(j-1)*lda] = t;
+      s = s + t * t;
+    }
+
+    s = a[j-1+(j-1)*lda] - s;
+
+    if ( s <= 0.0 )
+    {
+      info = j;
+      return info;
+    }
+
+    a[j-1+(j-1)*lda] = sqrt ( s );
+  }
+
+  info = 0;
+
+  return info;
+}
+//****************************************************************************80
+
+void r8po_sl ( double a[], int lda, int n, double b[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8PO_SL solves a linear system factored by R8PO_FA.
+//
+//  Discussion:
+//
+//    A division by zero will occur if the input factor contains
+//    a zero on the diagonal.  Technically this indicates
+//    singularity but it is usually caused by improper subroutine
+//    arguments.  It will not occur if the subroutines are called
+//    correctly and INFO == 0.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 May 2005
+//
+//  Author:
+//
+//    FORTRAN77 original version by Dongarra, Moler, Bunch, Stewart.
+//    C++ version by John Burkardt.
+//
+//  Reference:
+//
+//    Dongarra, Moler, Bunch and Stewart,
+//    LINPACK User's Guide,
+//    SIAM, (Society for Industrial and Applied Mathematics),
+//    3600 University City Science Center,
+//    Philadelphia, PA, 19104-2688.
+//    ISBN 0-89871-172-X
+//
+//  Parameters:
+//
+//    Input, double A[LDA*N], the output from R8PO_FA.
+//
+//    Input, int LDA, the leading dimension of the array A.
+//
+//    Input, int N, the order of the matrix.
+//
+//    Input/output, double B[N].  On input, the right hand side.
+//    On output, the solution.
+//
+{
+  int k;
+  double t;
+//
+//  Solve R' * Y = B.
+//
+  for ( k = 1; k <= n; k++ )
+  {
+    t = ddot ( k-1, a+0+(k-1)*lda, 1, b, 1 );
+    b[k-1] = ( b[k-1] - t ) / a[k-1+(k-1)*lda];
+  }
+//
+//  Solve R * X = Y.
+//
+  for ( k = n; 1 <= k; k-- )
+  {
+    b[k-1] = b[k-1] / a[k-1+(k-1)*lda];
+    t = -b[k-1];
+    daxpy ( k-1, t, a+0+(k-1)*lda, 1, b, 1 );
+  }
 
   return;
 }
@@ -4470,7 +4485,7 @@ double r8vec_norm ( int n, double a[] )
 }
 //****************************************************************************80
 
-void r8vec_normal_01 ( int n, int *seed, double x[] )
+void r8vec_normal_01 ( int n, int &seed, double x[] )
 
 //****************************************************************************80
 //
@@ -4516,7 +4531,7 @@ void r8vec_normal_01 ( int n, int *seed, double x[] )
 //    instead discarded.  This is useful if the user has reset the
 //    random number seed, for instance.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double X[N], a sample of the standard normal PDF.
 //
@@ -4636,7 +4651,7 @@ void r8vec_normal_01 ( int n, int *seed, double x[] )
 }
 //****************************************************************************80
 
-double *r8vec_normal_01_new ( int n, int *seed )
+double *r8vec_normal_01_new ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -4645,6 +4660,8 @@ double *r8vec_normal_01_new ( int n, int *seed )
 //    R8VEC_NORMAL_01_NEW returns a unit pseudonormal R8VEC.
 //
 //  Discussion:
+//
+//    An R8VEC is a vector of R8's.
 //
 //    The standard normal probability distribution function (PDF) has
 //    mean 0 and standard deviation 1.
@@ -4668,7 +4685,7 @@ double *r8vec_normal_01_new ( int n, int *seed )
 //
 //  Modified:
 //
-//    18 October 2004
+//    02 February 2005
 //
 //  Author:
 //
@@ -4682,7 +4699,7 @@ double *r8vec_normal_01_new ( int n, int *seed )
 //    instead discarded.  This is useful if the user has reset the
 //    random number seed, for instance.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R8VEC_NORMAL_01_NEW[N], a sample of the standard normal PDF.
 //
@@ -4693,7 +4710,7 @@ double *r8vec_normal_01_new ( int n, int *seed )
 //    the return value of N, so the user can get an accounting of
 //    how much work has been done.
 //
-//    Local, double R(N+1), is used to store some uniform random values.
+//    Local, double R[N+1], is used to store some uniform random values.
 //    Its dimension is N+1, but really it is only needed to be the
 //    smallest even number greater than or equal to N.
 //
@@ -4709,19 +4726,16 @@ double *r8vec_normal_01_new ( int n, int *seed )
 //    SAVED is 1.
 //
 {
-# define R8_PI 3.141592653589793
-
   int i;
   int m;
   static int made = 0;
+  double pi = 3.141592653589793;
   double *r;
   static int saved = 0;
   double *x;
   int x_hi;
   int x_lo;
   static double y = 0.0;
-
-  x = new double[n];
 //
 //  I'd like to allow the user to reset the internal data.
 //  But this won't work properly if we have a saved value Y.
@@ -4740,6 +4754,8 @@ double *r8vec_normal_01_new ( int n, int *seed )
   {
     return NULL;
   }
+
+  x = new double[n];
 //
 //  Record the range of X we need to fill in.
 //
@@ -4767,8 +4783,8 @@ double *r8vec_normal_01_new ( int n, int *seed )
   {
     r = r8vec_uniform_01_new ( 2, seed );
 
-    x[x_hi-1] = sqrt ( - 2.0 * log ( r[0] ) ) * cos ( 2.0 * R8_PI * r[1] );
-    y =         sqrt ( - 2.0 * log ( r[0] ) ) * sin ( 2.0 * R8_PI * r[1] );
+    x[x_hi-1] = sqrt ( -2.0 * log ( r[0] ) ) * cos ( 2.0 * pi * r[1] );
+    y =         sqrt ( -2.0 * log ( r[0] ) ) * sin ( 2.0 * pi * r[1] );
 
     saved = 1;
 
@@ -4785,10 +4801,10 @@ double *r8vec_normal_01_new ( int n, int *seed )
 
     r = r8vec_uniform_01_new ( 2*m, seed );
 
-    for ( i = 0; i <= 2 * m - 2; i = i + 2 )
+    for ( i = 0; i <= 2*m-2; i = i + 2 )
     {
-      x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * R8_PI * r[i+1] );
-      x[x_lo+i  ] = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * R8_PI * r[i+1] );
+      x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
+      x[x_lo+i  ] = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
     }
     made = made + x_hi - x_lo + 1;
 
@@ -4807,16 +4823,16 @@ double *r8vec_normal_01_new ( int n, int *seed )
 
     r = r8vec_uniform_01_new ( 2*m, seed );
 
-    for ( i = 0; i <= 2 * m - 4; i = i + 2 )
+    for ( i = 0; i <= 2*m-4; i = i + 2 )
     {
-      x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * R8_PI * r[i+1] );
-      x[x_lo+i  ] = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * R8_PI * r[i+1] );
+      x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
+      x[x_lo+i  ] = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
     }
 
     i = 2*m - 2;
 
-    x[x_lo+i-1] = sqrt ( - 2.0 * log ( r[i] ) ) * cos ( 2.0 * R8_PI * r[i+1] );
-    y           = sqrt ( - 2.0 * log ( r[i] ) ) * sin ( 2.0 * R8_PI * r[i+1] );
+    x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
+    y           = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
 
     saved = 1;
 
@@ -4826,7 +4842,6 @@ double *r8vec_normal_01_new ( int n, int *seed )
   }
 
   return x;
-# undef R8_PI
 }
 //****************************************************************************80
 
@@ -4929,20 +4944,20 @@ double r8vec_sum ( int n, double a[] )
 }
 //****************************************************************************80
 
-void r8vec_uniform_01 ( int n, int *seed, double r[] )
+void r8vec_uniform_01 ( int n, int &seed, double r[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8VEC_UNIFORM_01 fills a double precision vector with pseudorandom values.
+//    R8VEC_UNIFORM_01 returns a unit pseudorandom R8VEC.
 //
 //  Discussion:
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
+//      u = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -4961,48 +4976,73 @@ void r8vec_uniform_01 ( int n, int *seed, double r[] )
 //
 //  Reference:
 //
-//    Paul Bratley, Bennett Fox, L E Schrage,
+//    Paul Bratley, Bennett Fox, Linus Schrage,
 //    A Guide to Simulation,
-//    Springer Verlag, pages 201-202, 1983.
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
 //
 //    Bennett Fox,
 //    Algorithm 647:
 //    Implementation and Relative Efficiency of Quasirandom
 //    Sequence Generators,
 //    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, pages 362-376, 1986.
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
 //
 //  Parameters:
 //
 //    Input, int N, the number of entries in the vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R[N], the vector of pseudorandom values.
 //
 {
   int i;
+  int i4_huge = 2147483647;
   int k;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "R8VEC_UNIFORM_01 - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + 2147483647;
+      seed = seed + i4_huge;
     }
 
-    r[i] = ( double ) ( *seed ) * 4.656612875E-10;
+    r[i] = ( double ) ( seed ) * 4.656612875E-10;
   }
 
   return;
 }
 //****************************************************************************80
 
-double *r8vec_uniform_01_new ( int n, int *seed )
+double *r8vec_uniform_01_new ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -5065,7 +5105,7 @@ double *r8vec_uniform_01_new ( int n, int *seed )
 //
 //    Input, int N, the number of entries in the vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R8VEC_UNIFORM_01_NEW[N], the vector of pseudorandom values.
 //
@@ -5075,7 +5115,7 @@ double *r8vec_uniform_01_new ( int n, int *seed )
   int k;
   double *r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R8VEC_UNIFORM_01_NEW - Fatal error!\n";
@@ -5087,16 +5127,16 @@ double *r8vec_uniform_01_new ( int n, int *seed )
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + i4_huge;
+      seed = seed + i4_huge;
     }
 
-    r[i] = ( double ) ( *seed ) * 4.656612875E-10;
+    r[i] = ( double ) ( seed ) * 4.656612875E-10;
   }
 
   return r;
@@ -5299,9 +5339,10 @@ void scale_from_simplex01 ( int dim_num, int n, double t[], double x[] )
 //
 //    Input, int N, the number of points.
 //
-//    Input, double T[DIM_NUM*(DIM_NUM+1)], the coordinates of the DIM_NUM+1 points that
-//    define the simplex.  T[0:DIM_NUM-1,0] corresponds to the origin,
-//    and T[0:DIM_NUM-1,J] will be the image of the J-th unit coordinate vector.
+//    Input, double T[DIM_NUM*(DIM_NUM+1)], the coordinates of the DIM_NUM+1
+//    points that define the simplex.  T[0:DIM_NUM-1,0] corresponds to the
+//    origin, and T[0:DIM_NUM-1,J] will be the image of the J-th unit 
+//    coordinate vector.
 //
 //    Input/output, double X[DIM_NUM*N], the data to be modified.
 //
@@ -6006,7 +6047,7 @@ void tuple_next_fast ( int m, int n, int rank, int x[] )
 //****************************************************************************80
 
 double *uniform_in_annulus ( double pc[], double r1, double r2, int n,
-  int *seed )
+  int &seed )
 
 //****************************************************************************80
 //
@@ -6019,7 +6060,7 @@ double *uniform_in_annulus ( double pc[], double r1, double r2, int n,
 //    A circular annulus with center PC, inner radius R1 and
 //    outer radius R2, is the set of points P so that
 //
-//      R1**2 <= (P(1)-PC(1))**2 + (P(2)-PC(2))**2 <= R2**2
+//      R1^2 <= (P(1)-PC(1))^2 + (P(2)-PC(2))^2 <= R2^2
 //
 //  Licensing:
 //
@@ -6051,7 +6092,7 @@ double *uniform_in_annulus ( double pc[], double r1, double r2, int n,
 //
 //    Input, int N, the number of points to generate.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_ANNULUS[2*N], sample points.
 //
@@ -6087,7 +6128,7 @@ double *uniform_in_annulus ( double pc[], double r1, double r2, int n,
 //****************************************************************************80
 
 double *uniform_in_annulus_accept ( double pc[], double r1, double r2, int n,
-  int *seed )
+  int &seed )
 
 //****************************************************************************80
 //
@@ -6100,7 +6141,7 @@ double *uniform_in_annulus_accept ( double pc[], double r1, double r2, int n,
 //    A circular annulus with center PC, inner radius R1 and
 //    outer radius R2, is the set of points P so that
 //
-//      R1**2 <= (P(1)-PC(1))**2 + (P(2)-PC(2))**2 <= R2**2
+//      R1^2 <= (P(1)-PC(1))^2 + (P(2)-PC(2))^2 <= R2^2
 //
 //    The acceptance/rejection method is used.
 //
@@ -6124,7 +6165,7 @@ double *uniform_in_annulus_accept ( double pc[], double r1, double r2, int n,
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_ANNULUS_ACCEPT[2*N], the points.
 //
@@ -6187,7 +6228,7 @@ double *uniform_in_annulus_accept ( double pc[], double r1, double r2, int n,
 //****************************************************************************80
 
 double *uniform_in_annulus_sector ( double pc[], double r1, double r2,
-  double theta1, double theta2, int n, int *seed )
+  double theta1, double theta2, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6201,7 +6242,7 @@ double *uniform_in_annulus_sector ( double pc[], double r1, double r2,
 //    outer radius R2, and angles THETA1, THETA2, is the set of points
 //    P so that
 //
-//      R1**2 <= (P(1)-PC(1))**2 + (P(2)-PC(2))**2 <= R2**2
+//      R1^2 <= (P(1)-PC(1))^2 + (P(2)-PC(2))^2 <= R2^2
 //
 //    and
 //
@@ -6239,7 +6280,7 @@ double *uniform_in_annulus_sector ( double pc[], double r1, double r2,
 //
 //    Input, int N, the number of points to generate.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_ANNULUS_SECTOR[2*N], sample points.
 //
@@ -6276,7 +6317,7 @@ double *uniform_in_annulus_sector ( double pc[], double r1, double r2,
 }
 //****************************************************************************80
 
-double *uniform_in_circle01_map ( int n, int *seed )
+double *uniform_in_circle01_map ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6306,7 +6347,7 @@ double *uniform_in_circle01_map ( int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_CIRCLE01_MAP[DIM_NUM*N], the points.
 //
@@ -6349,7 +6390,7 @@ double *uniform_in_circle01_map ( int n, int *seed )
 }
 //****************************************************************************80
 
-double *uniform_in_cube01 ( int dim_num, int n, int *seed )
+double *uniform_in_cube01 ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6380,7 +6421,7 @@ double *uniform_in_cube01 ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_CUBE01[DIM_NUM*N], the points.
 //
@@ -6398,7 +6439,7 @@ double *uniform_in_cube01 ( int dim_num, int n, int *seed )
 //****************************************************************************80
 
 double *uniform_in_ellipsoid_map ( int dim_num, int n, double a[], double r,
-  int *seed )
+  int &seed )
 
 //****************************************************************************80
 //
@@ -6459,7 +6500,7 @@ double *uniform_in_ellipsoid_map ( int dim_num, int n, double a[], double r,
 //
 //    Input, double R, the right hand side of the ellipsoid equation.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_ELLIPSOID_MAP[DIM_NUM*N], the points.
 //
@@ -6483,13 +6524,13 @@ double *uniform_in_ellipsoid_map ( int dim_num, int n, double a[], double r,
     }
   }
 
-  info = dpofa ( u, dim_num, dim_num );
+  info = r8po_fa ( u, dim_num, dim_num );
 
   if ( info != 0 )
   {
     cerr << "\n";
     cerr << "UNIFORM_IN_ELLIPSOID_MAP - Fatal error!\n";
-    cerr << "  DPOFA reports that the matrix A\n";
+    cerr << "  R8PO_FA reports that the matrix A\n";
     cerr << "  is not positive definite symmetric.\n";
     exit ( 1 );
   }
@@ -6510,7 +6551,7 @@ double *uniform_in_ellipsoid_map ( int dim_num, int n, double a[], double r,
 //
   for ( j = 0; j < n; j++ )
   {
-    dposl ( u, dim_num, dim_num, x+j*dim_num );
+    r8po_sl ( u, dim_num, dim_num, x+j*dim_num );
   }
 
   delete [] u;
@@ -6520,7 +6561,7 @@ double *uniform_in_ellipsoid_map ( int dim_num, int n, double a[], double r,
 //****************************************************************************80
 
 double *uniform_in_parallelogram_map ( double v1[2], double v2[2],
-  double v3[2], int n, int *seed )
+  double v3[2], int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6559,7 +6600,7 @@ double *uniform_in_parallelogram_map ( double v1[2], double v2[2],
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_PARALLELOGRAM_MAP[2*N], the points.
 //
@@ -6592,7 +6633,7 @@ double *uniform_in_parallelogram_map ( double v1[2], double v2[2],
 }
 //****************************************************************************80
 
-double *uniform_in_polygon_map ( int nv, double v[], int n, int *seed )
+double *uniform_in_polygon_map ( int nv, double v[], int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6629,7 +6670,7 @@ double *uniform_in_polygon_map ( int nv, double v[], int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_POLYGON_MAP[2*N], the points.
 //
@@ -6752,7 +6793,7 @@ double *uniform_in_polygon_map ( int nv, double v[], int n, int *seed )
 //****************************************************************************80
 
 double *uniform_in_sector_map ( double r1, double r2, double t1,
-  double t2, int n, int *seed )
+  double t2, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6796,7 +6837,7 @@ double *uniform_in_sector_map ( double r1, double r2, double t1,
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_SECTOR_MAP[2*N], the points.
 //
@@ -6838,7 +6879,7 @@ double *uniform_in_sector_map ( double r1, double r2, double t1,
 }
 //****************************************************************************80
 
-double *uniform_in_simplex01_map ( int dim_num, int n, int *seed )
+double *uniform_in_simplex01_map ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6878,7 +6919,7 @@ double *uniform_in_simplex01_map ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_SIMPLEX01_MAP[DIM_NUM*N], the points.
 //
@@ -6923,7 +6964,7 @@ double *uniform_in_simplex01_map ( int dim_num, int n, int *seed )
 }
 //****************************************************************************80
 
-double *uniform_in_sphere01_map ( int dim_num, int n, int *seed )
+double *uniform_in_sphere01_map ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -6944,7 +6985,7 @@ double *uniform_in_sphere01_map ( int dim_num, int n, int *seed )
 //
 //  Modified:
 //
-//    17 August 2004
+//    14 August 2014
 //
 //  Author:
 //
@@ -6967,13 +7008,13 @@ double *uniform_in_sphere01_map ( int dim_num, int n, int *seed )
 //
 //  Parameters:
 //
-//    Input, int DIM_NUM, the dimension of the space.
+//    Input, int M, the dimension of the space.
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X[DIM_NUM*N], the points.
+//    Output, double X[M*N], the points.
 //
 {
   double exponent;
@@ -6983,31 +7024,25 @@ double *uniform_in_sphere01_map ( int dim_num, int n, int *seed )
   double r;
   double *v;
   double *x;
-//
-  exponent = 1.0 / ( double ) ( dim_num );
 
-  v = new double[dim_num];
-  x = new double[dim_num*n];
+  exponent = 1.0 / ( double ) ( m );
+
+  x = new double[m*n];
 
   for ( j = 0; j < n; j++ )
   {
 //
 //  Fill a vector with normally distributed values.
 //
-    r8vec_normal_01 ( dim_num, seed, v );
+    v = r8vec_normal_01_new ( m, seed );
 //
 //  Compute the length of the vector.
 //
-    norm = 0.0;
-    for ( i = 0; i < dim_num; i++ )
-    {
-      norm = norm + pow ( v[i], 2 );
-    }
-    norm = sqrt ( norm );
+    norm = r8vec_norm ( m, v );
 //
 //  Normalize the vector.
 //
-    for ( i = 0; i < dim_num; i++ )
+    for ( i = 0; i < m; i++ )
     {
       v[i] = v[i] / norm;
     }
@@ -7017,19 +7052,19 @@ double *uniform_in_sphere01_map ( int dim_num, int n, int *seed )
     r = r8_uniform_01 ( seed );
     r = pow ( r, exponent );
 
-    for ( i = 0; i < dim_num; i++ )
+    for ( i = 0; i < m; i++ )
     {
-      x[i+j*dim_num] = r * v[i];
+      x[i+j*m] = r * v[i];
     }
-  }
 
-  delete [] v;
+    delete [] v;
+  }
 
   return x;
 }
 //****************************************************************************80
 
-double *uniform_in_tetrahedron ( double v[], int n, int *seed )
+double *uniform_in_tetrahedron ( double v[], int n, int &seed )
 
 //****************************************************************************80
 //
@@ -7062,7 +7097,7 @@ double *uniform_in_tetrahedron ( double v[], int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random
+//    Input/output, int &SEED, a seed for the random
 //    number generator.
 //
 //    Output, double UNIFORM_IN_TETRAHEDRON[3*N], the points.
@@ -7116,7 +7151,7 @@ double *uniform_in_tetrahedron ( double v[], int n, int *seed )
 //****************************************************************************80
 
 double *uniform_in_triangle_map1 ( double v1[2], double v2[2], double v3[2],
-  int n, int *seed )
+  int n, int &seed )
 
 //****************************************************************************80
 //
@@ -7154,7 +7189,7 @@ double *uniform_in_triangle_map1 ( double v1[2], double v2[2], double v3[2],
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_TRIANGLE_MAP1[2*N], the points.
 //
@@ -7194,7 +7229,7 @@ double *uniform_in_triangle_map1 ( double v1[2], double v2[2], double v3[2],
 //****************************************************************************80
 
 double *uniform_in_triangle_map2 ( double v1[2], double v2[2], double v3[2],
-  int n, int *seed )
+  int n, int &seed )
 
 //****************************************************************************80
 //
@@ -7234,7 +7269,7 @@ double *uniform_in_triangle_map2 ( double v1[2], double v2[2], double v3[2],
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_IN_TRIANGLE_MAP2[2*N], the points.
 //
@@ -7272,7 +7307,7 @@ double *uniform_in_triangle_map2 ( double v1[2], double v2[2], double v3[2],
 }
 //****************************************************************************80
 
-double *uniform_in_triangle01_map ( int n, int *seed )
+double *uniform_in_triangle01_map ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -7302,7 +7337,7 @@ double *uniform_in_triangle01_map ( int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number geneator.
+//    Input/output, int &SEED, a seed for the random number geneator.
 //
 //    Output, double UNIFORM_IN_TRIANGLE01_MAP[2*N], the points.
 //
@@ -7345,8 +7380,189 @@ double *uniform_in_triangle01_map ( int n, int *seed )
 }
 //****************************************************************************80
 
+double *uniform_on_cube ( int m, int n, double c[], double r, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    UNIFORM_ON_CUBE returns random points on the surface of a cube.
+//
+//  Discussion:
+//
+//    The cube is assumed to be aligned with the coordinate axes.
+//
+//    The cube has center C and radius R.  Any point on the surface of
+//    the cube is described by
+//
+//      X = C + R * PM
+//
+//    where PM is an M-dimensional vector whose entries are between
+//    -1 and +1, and for which at least one value has norm 1.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the spatial dimension.
+//    1 <= M.
+//
+//    Input, int N, the number of points.
+//
+//    Input, double C[M], the coordinates of the center.
+//
+//    Input, double R, the radius.
+//
+//    Input/output, int &SEED, a seed for the random
+//    number generator.
+//
+//    Output, double UNIFORM_ON_CUBE[M*N], the coordinates of N points, chosen
+//    uniformly at random from the surface of the M-cube of center C and 
+//    radius R.
+//
+{
+  int i;
+  int j;
+  int k;
+  double *x;
+//
+//  Choose random points within the cube of radius 1.
+//
+  x = r8mat_uniform_01_new ( m, n, seed );
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      x[i+j*m] = 2.0 * x[i+j*m] - 1.0;
+    }
+  }
+//
+//  For each point, select a coordinate at random, and set it to +1 or -1.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    i = i4_uniform_ab ( 0, m - 1, seed );
+    k = i4_uniform_ab ( 0, 1, seed );
+    if ( k == 0 )
+    {
+      x[i+j*m] = 1.0;
+    }
+    else
+    {
+      x[i+j*m] = -1.0;
+    }
+  }
+//
+//  Shift by C and scale by R.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      x[i+j*m] = c[i] + r * x[i+j*m];
+    }
+  }
+
+  return x;
+}
+//****************************************************************************80
+
+double *uniform_on_cube01 ( int m, int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    UNIFORM_ON_CUBE01 returns random points on the surface of the unit cube.
+//
+//  Discussion:
+//
+//    The cube is assumed to be aligned with the coordinate axes.
+//
+//    The cube has center at the origin and radius 1. Any point on the surface
+//    of the cube is described by
+//
+//      X = PM
+//
+//    where PM is an M-dimensional vector whose entries are between
+//    -1 and +1, and for which at least one value has norm 1.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the spatial dimension.
+//    1 <= M.
+//
+//    Input, int N, the number of points.
+//
+//    Input/output, int &SEED, a seed for the random
+//    number generator.
+//
+//    Output, double UNIFORM_ON_CUBE[M*N], the coordinates of N points, chosen
+//    uniformly at random from the surface of the unit M-cube.
+//
+{
+  int i;
+  int j;
+  int k;
+  double *x;
+//
+//  Choose random points within the cube of radius 1.
+//
+  x = r8mat_uniform_01_new ( m, n, seed );
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      x[i+j*m] = 2.0 * x[i+j*m] - 1.0;
+    }
+  }
+//
+//  For each point, select a coordinate at random, and set it to +1 or -1.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    i = i4_uniform_ab ( 0, m - 1, seed );
+    k = i4_uniform_ab ( 0, 1, seed );
+    if ( k == 0 )
+    {
+      x[i+j*m] = 1.0;
+    }
+    else
+    {
+      x[i+j*m] = -1.0;
+    }
+  }
+
+  return x;
+}
+//****************************************************************************80
+
 double *uniform_on_ellipsoid_map ( int dim_num, int n, double a[],
-  double r, int *seed )
+  double r, int &seed )
 
 //****************************************************************************80
 //
@@ -7356,8 +7572,8 @@ double *uniform_on_ellipsoid_map ( int dim_num, int n, double a[],
 //
 //  Discussion:
 //
-//    The points X on the ellipsoid are described by a DIM_NUM by DIM_NUM positive
-//    definite symmetric matrix A, and a "radius" R, such that
+//    The points X on the ellipsoid are described by a DIM_NUM by DIM_NUM
+//    positive definite symmetric matrix A, and a "radius" R, such that
 //
 //      X' * A * X = R * R
 //
@@ -7407,7 +7623,7 @@ double *uniform_on_ellipsoid_map ( int dim_num, int n, double a[],
 //
 //    Input, double R, the right hand side of the ellipsoid equation.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_ON_ELLIPSOID_MAP[DIM_NUM*N], the points.
 //
@@ -7431,13 +7647,13 @@ double *uniform_on_ellipsoid_map ( int dim_num, int n, double a[],
     }
   }
 
-  info = dpofa ( a, dim_num, dim_num );
+  info = r8po_fa ( a, dim_num, dim_num );
 
   if ( info != 0 )
   {
     cerr << "\n";
     cerr << "UNIFORM_ON_ELLIPSOID_MAP - Fatal error!\n";
-    cerr << "  DPOFA reports that the matrix A \n";
+    cerr << "  R8PO_FA reports that the matrix A \n";
     cerr << "  is not positive definite symmetric.\n";
     exit ( 1 );
   }
@@ -7458,7 +7674,7 @@ double *uniform_on_ellipsoid_map ( int dim_num, int n, double a[],
 //
   for ( j = 0; j < n; j++ )
   {
-    dposl ( u, dim_num, dim_num, x+j*dim_num );
+    r8po_sl ( u, dim_num, dim_num, x+j*dim_num );
   }
 
   delete [] u;
@@ -7467,7 +7683,7 @@ double *uniform_on_ellipsoid_map ( int dim_num, int n, double a[],
 }
 //****************************************************************************80
 
-double *uniform_on_hemisphere01_phong ( int n, int m, int *seed )
+double *uniform_on_hemisphere01_phong ( int n, int m, int &seed )
 
 //****************************************************************************80
 //
@@ -7511,7 +7727,7 @@ double *uniform_on_hemisphere01_phong ( int n, int m, int *seed )
 //
 //    Input, int M, the Phong exponent.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_ON_HEMISPHERE01_PHONG[3*N], the points.
 //
@@ -7550,7 +7766,7 @@ double *uniform_on_hemisphere01_phong ( int n, int m, int *seed )
 }
 //****************************************************************************80
 
-double *uniform_on_simplex01_map ( int dim_num, int n, int *seed )
+double *uniform_on_simplex01_map ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -7596,7 +7812,7 @@ double *uniform_on_simplex01_map ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_ON_SIMPLEX01_MAP[DIM_NUM*N], the points.
 //
@@ -7647,7 +7863,7 @@ double *uniform_on_simplex01_map ( int dim_num, int n, int *seed )
 
     if ( area1 / ( area1 + area2 ) < r )
     {
-      i = i4_uniform ( 0, dim_num-1, seed );
+      i = i4_uniform_ab ( 0, dim_num-1, seed );
       x[i+j*dim_num] = 0.0;
     }
 
@@ -7658,7 +7874,7 @@ double *uniform_on_simplex01_map ( int dim_num, int n, int *seed )
 }
 //****************************************************************************80
 
-double *uniform_on_sphere01_map ( int dim_num, int n, int *seed )
+double *uniform_on_sphere01_map ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -7703,7 +7919,7 @@ double *uniform_on_sphere01_map ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_ON_SPHERE01_MAP[DIM_NUM*N], the points.
 //
@@ -7741,7 +7957,7 @@ double *uniform_on_sphere01_map ( int dim_num, int n, int *seed )
 //****************************************************************************80
 
 double *uniform_on_sphere01_patch_tp ( int n, double phi1, double phi2,
-  double theta1, double theta2, int *seed )
+  double theta1, double theta2, int &seed )
 
 //****************************************************************************80
 //
@@ -7795,7 +8011,7 @@ double *uniform_on_sphere01_patch_tp ( int n, double phi1, double phi2,
 //
 //    Input, double THETA1, THETA2, the longitudinal angle range.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_ON_SPHERE01_PATCH_TP[2*N], the TP points.
 //
@@ -7819,7 +8035,7 @@ double *uniform_on_sphere01_patch_tp ( int n, double phi1, double phi2,
 //****************************************************************************80
 
 double *uniform_on_sphere01_patch_xyz ( int n, double phi1, double phi2,
-  double theta1, double theta2, int *seed )
+  double theta1, double theta2, int &seed )
 
 //****************************************************************************80
 //
@@ -7873,7 +8089,7 @@ double *uniform_on_sphere01_patch_xyz ( int n, double phi1, double phi2,
 //
 //    Input, double THETA1, THETA2, the longitudinal angle range.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_ON_SPHERE01_PATCH_XYZ[3*N], the points.
 //
@@ -7910,7 +8126,7 @@ double *uniform_on_sphere01_patch_xyz ( int n, double phi1, double phi2,
 //****************************************************************************80
 
 double *uniform_on_sphere01_triangle_xyz ( int n, double v1[], double v2[],
-  double v3[], int *seed )
+  double v3[], int &seed )
 
 //****************************************************************************80
 //
@@ -7951,7 +8167,7 @@ double *uniform_on_sphere01_triangle_xyz ( int n, double v1[], double v2[],
 //    Input, double V1[3], V2[3], V3[3], the XYZ coordinates of
 //    the vertices of the spherical triangle.
 //
-//    Input/output, int *SEED, a seed for the random
+//    Input/output, int &SEED, a seed for the random
 //    number generator.
 //
 //    Output, double UNIFORM_ON_SPHERE01_TRIANGLE_XYZ[3*N], the XYZ
@@ -8078,7 +8294,193 @@ double *uniform_on_sphere01_triangle_xyz ( int n, double v1[], double v2[],
 }
 //****************************************************************************80
 
-double *uniform_walk ( int dim_num, int n, int *seed )
+double *uniform_on_triangle ( int n, double v[], int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    UNIFORM_ON_TRIANGLE maps uniform points onto the boundary of a triangle.
+//
+//  Discussion:
+//
+//    The triangle is defined by the three vertices V1, V2, V3.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 May 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int  N, the number of points.
+//
+//    Input, double V[2*3], the vertices of the triangle.
+//
+//    Input/output, int &SEED, a seed for the random
+//    number generator.
+//
+//    Output, double UNIFORM_ON_TRIANGLE[2*N], the points.
+//
+{
+  int j;
+  double l1;
+  double l2;
+  double l3;
+  int m = 2;
+  double r;
+  double s;
+  double t;
+  double *x;
+
+  l1 = sqrt ( pow ( v[0+1*2] - v[0+0*2], 2 )
+            + pow ( v[1+1*2] - v[1+0*2], 2 ) );
+
+  l2 = sqrt ( pow ( v[0+2*2] - v[0+1*2], 2 ) 
+            + pow ( v[1+2*2] - v[1+1*2], 2 ) );
+
+  l3 = sqrt ( pow ( v[0+0*2] - v[0+2*2], 2 ) 
+            + pow ( v[1+0*2] - v[1+2*2], 2 ) );
+  
+  x = new double[m*n];
+
+  for ( j = 0; j < n; j++ )
+  {
+//
+//  R can be regarded as the distance of the point on the perimeter,
+//  as measured from the origin, along the perimeter.
+//
+    r = ( l1 + l2 + l3 ) * r8_uniform_01 ( seed );
+//
+//  Case 1: between V1 and V2.
+//
+    if ( r <= l1 )
+    {
+      s = ( l1 - r ) / l1;
+      t =        r   / l1;
+      x[0+j*2] = s * v[0+0*2] + t * v[0+1*2];
+      x[1+j*2] = s * v[1+0*2] + t * v[1+1*2];
+    }
+//
+//  Case 2: between V2 and V3.
+//
+    else if ( r <= l1 + l2 )
+    {
+      s = ( l2 - r + l1 ) / l2;
+      t = (      r - l1 ) / l2;
+      x[0+j*2] = s * v[0+1*2] + t * v[0+2*2];
+      x[1+j*2] = s * v[1+1*2] + t * v[1+2*2];
+    }
+//
+//  Case 3: between V3 and V1.
+//
+    else
+    {
+      s = ( l3 - r + l1 + l2 ) / l3;
+      t = (      r - l1 - l2 ) / l3;
+      x[0+j*2] = s * v[0+2*2] + t * v[0+0*2];
+      x[1+j*2] = s * v[1+2*2] + t * v[1+0*2];
+    }
+  }
+
+  return x;
+}
+//****************************************************************************80
+
+double *uniform_on_triangle01 ( int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    UNIFORM_ON_TRIANGLE01 maps uniform points onto the unit triangle.
+//
+//  Discussion:
+//
+//    The unit triangle is defined by the three vertices (1,0), (0,1) and (0,0).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 May 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of points.
+//
+//    Input/output, int SEED, a seed for the random
+//    number generator.
+//
+//    Output, double X[2*N], the points.
+//
+{
+  double a;
+  double b;
+  int j;
+  int m = 2;
+  double r;
+  double s;
+  double *x;
+
+  s = sqrt ( 2.0 );
+
+  a =   1.0       / ( 2.0 + s );
+  b = ( 1.0 + s ) / ( 2.0 + s );
+  
+  x = new double[m*n];
+
+  for ( j = 0; j < n; j++ )
+  {
+//
+//  R can be regarded as the distance of the point on the perimeter,
+//  as measured from the origin, along the perimeter.
+//
+    r = ( 2.0 + s ) * r8_uniform_01 ( seed );
+//
+//  Case 1: between (0,0) and (1,0).
+//
+    if ( r <= a )
+    {
+      x[0+j*2] = 0.0;
+      x[1+j*2] = r;
+    }
+//
+//  Case 2: between (1,0) and (0,1).
+//
+    else if ( r <= b )
+    {
+      x[0+j*2] = 1.0 - ( r - a ) * sqrt ( 2.0 ) / 2.0;
+      x[1+j*2] = 0.0 + ( r - a ) * sqrt ( 2.0 ) / 2.0;
+    }
+//
+//  Case 3: between (0,1) and (0,0).
+//
+    else
+    {
+      x[0+j*2] = 0.0;
+      x[1+j*2] = 1.0 - ( r - b );
+    }
+  }
+
+  return x;
+}
+//****************************************************************************80
+
+double *uniform_walk ( int dim_num, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -8110,7 +8512,7 @@ double *uniform_walk ( int dim_num, int n, int *seed )
 //
 //    Input, int N, the number of points.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_WALK[DIM_NUM*N], the points.
 //

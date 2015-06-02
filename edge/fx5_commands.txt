@@ -1,0 +1,14 @@
+# fx5_commands.txt
+#
+# Usage:
+#  gnuplot < fx5_commands.txt
+#
+set term png
+set output 'fx5.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title '1D Test Function #5'
+set grid
+set style data lines
+plot 'fx5_data.txt' using 1:2 with points lt 3 pt 4 linecolor rgb 'blue'
+quit

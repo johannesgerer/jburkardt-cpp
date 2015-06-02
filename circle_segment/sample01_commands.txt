@@ -1,0 +1,17 @@
+# sample01_commands.txt
+#
+# Usage:
+#  gnuplot < sample01_commands.txt
+#
+set term png
+set output 'sample01.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title 'Circle Segment Sample'
+set grid
+set key off
+set size ratio -1
+set style data lines
+plot 'sample01_data.txt' using 1:2 with points lt 3 pt 3,\
+    'sample01_boundary.txt' using 1:2 lw 3 linecolor rgb 'black'
+quit

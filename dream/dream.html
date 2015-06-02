@@ -1,0 +1,530 @@
+<html>
+
+  <head>
+    <title>
+      DREAM - Markov Chain Monte Carlo acceleration by Differential Evolution
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      DREAM <br> Markov Chain Monte Carlo acceleration by Differential Evolution
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>DREAM</b>
+      is a C++ program which
+      implements the DREAM algorithm for accelerating 
+      Markov Chain Monte Carlo (MCMC) convergence using differential evolution,
+      by Guannan Zhang.
+    </p>
+
+    <p>
+      <b>DREAM</b> requires user input in the form of five C++
+      functions:
+      <ul>
+        <li>
+          <i>problem_size()</i>, defines the sizes of problem parameters;
+        </li>
+        <li>
+          <i>problem_value()</i>, defines the value of problem parameters;
+        </li>
+        <li>
+          <i>prior_density()</i>, evaluates the prior distribution;
+        </li>
+        <li>
+          <i>prior_sample()</i>, samples the prior distribution;
+        </li>
+        <li>
+          <i>sample_likelihood()</i>, evaluates the log likelihood function.
+        </li>
+      </ul>
+      Examples of such user input are listed below.
+    </p>
+
+    <p>
+      <b>DREAM</b> requires access to a compiled version of the
+      pdflib library, which can evaluate a variety of Probability
+      Density Functions (PDF's) and produce samples from them.
+      The user may wish to invoke this library when constructing
+      some of the user functions.
+    </p>
+
+    <p>
+      <b>DREAM</b> requires access to a compiled version of the
+      rnglib library, in order to generate random numbers.
+    </p>
+
+    <p>
+      An older implementation of the DREAM algorithm is available
+      as DREAM1; it requires a user main program and two input files.
+    </p>
+
+    <p>
+      The DREAM program was originally developed by Guannan Zhang, of
+      Oak Ridge National Laboratory (ORNL); it has been incorporated into 
+      the DAKOTA package of Sandia National Laboratory, and forms 
+      part of the ORNL package known as TASMANIAN.
+    </p>
+
+    <h3 align = "center">
+      Web Link:
+    </h3>
+
+    <p>
+      A version of the DREAM library is available in
+      <a href = "http://tasmanian.ornl.gov/">
+                 http://tasmanian.ornl.gov</a>,
+      the TASMANIAN library, available from Oak Ridge National Laboratory.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>DREAM</b> is available in
+      <a href = "../../c_src/dream/dream.html">a C version</a> and
+      <a href = "../../cpp_src/dream/dream.html">a C++ version</a> and
+      <a href = "../../f_src/dream/dream.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/dream1/dream1.html">
+      DREAM1</a>,
+      a C++ library which
+      is an older implementation of the DREAM algorithm for accelerating 
+      Markov Chain Monte Carlo (MCMC)
+      convergence using differential evolution, 
+      using a user function main program and two input files
+      to define the problem, by Guannan Zhang.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pdflib/pdflib.html">
+      PDFLIB</a>,
+      a C++ library which
+      evaluates Probability Density Functions (PDF's)
+      and produces random samples from them,
+      including beta, binomial, chi, exponential, gamma, inverse chi,
+      inverse gamma, multinomial, normal, scaled inverse chi, and uniform.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ranlib/ranlib.html">
+      RANLIB</a>,
+      a C++ library which
+      produces random samples from Probability Density Functions (PDF's), 
+      including Beta, Chi-square Exponential, F, Gamma, Multivariate normal,
+      Noncentral chi-square, Noncentral F, Univariate normal, 
+      random permutations, Real uniform, Binomial, Negative Binomial,
+      Multinomial, Poisson and Integer uniform,
+      by Barry Brown and James Lovato.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rnglib/rnglib.html">
+      RNGLIB</a>,
+      a C++ library which
+      implements a random number generator (RNG) with splitting facilities,
+      allowing multiple independent streams to be computed,
+      by L'Ecuyer and Cote.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Original FORTRAN90 version by Guannan Zhang;
+      C++ version by John Burkardt.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Pierre LEcuyer, Serge Cote,<br>
+          Implementing a Random Number Package with Splitting Facilities,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 17, Number 1, March 1991, pages 98-111.
+        </li>
+        <li>
+          Jasper Vrugt, CJF ter Braak, CGH Diks, Bruce Robinson, James Hyman, 
+          Dave Higdon,<br>
+          Accelerating Markov Chain Monte Carlo Simulation by Differential 
+          Evolution with Self-Adaptive Randomized Subspace Sampling,<br>
+          International Journal of Nonlinear Sciences and Numerical
+          Simulation,<br>
+          Volume 10, Number 3, March 2009, pages 271-288.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "dream.cpp">dream.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "dream.hpp">dream.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "dream_user.hpp">dream_user.hpp</a>, 
+          the include file for the user functions.
+        </li>
+        <li>
+          <a href = "dream.sh">dream.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>PROBLEM0</b> is a small sample problem, in 10 dimensions, with a 
+      density that is the maximum of two gaussians centered at (-5,-5,...,-5)
+      and (5,5,...,5).
+      <ul>
+        <li>
+          <a href = "problem0.cpp">problem0.cpp</a>,
+          is a user written file, containing 5 functions, which 
+          define the problem data.
+        </li>
+        <li>
+          <a href = "problem0.sh">problem0.sh</a>,
+          BASH commands to compile and run the DREAM program 
+          with the 5 user functions.
+        </li>
+        <li>
+          <a href = "problem0_output.txt">problem0_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "problem0_chain00.txt">problem0_chain00.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain01.txt">problem0_chain01.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain02.txt">problem0_chain02.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain03.txt">problem0_chain03.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain04.txt">problem0_chain04.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain05.txt">problem0_chain05.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain06.txt">problem0_chain06.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain07.txt">problem0_chain07.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain08.txt">problem0_chain08.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_chain09.txt">problem0_chain09.txt</a>,
+          a chain data file.
+        </li>
+        <li>
+          <a href = "problem0_gr.txt">problem0_gr.txt</a>,
+          the Gelman-Rubin statistic file.
+        </li>
+        <li>
+          <a href = "problem0_restart.txt">problem0_restart.txt</a>,
+          the restart file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PROBLEM1</b> is based on the first example in the Vrugt reference.
+      The Vrugt version involves 100 variables, with a multidimensional
+      normal distribution with specified mean vector and covariance matrix.
+      So far, I have simply set up the user routines, with just 5 variables,
+      and created a small stand-alone main program to test it.  An important
+      issue was to find a simple and efficient way of handling the covariance.
+      We need to evaluate the matrix, compute its Cholesky factor,
+      find its determinant, just one time, and then provide this information
+      to any function that needs it, quickly and simply.  In this version 
+      of the code, I opted to define a "Covariance" structure, making it
+      an "extern" variable so the main program could access it.
+      <ul>
+        <li>
+          <a href = "problem1.cpp">problem1.cpp</a>,
+          is a user written file, containing the 5 functions required
+          to define the problem data, as well as other functions to
+          set the covariance.
+        </li>
+        <li>
+          <a href = "problem1_covariance.hpp">problem1_covariance.hpp</a>,
+          an include file that defines the "Covariance" structure.
+        </li>
+        <li>
+          <a href = "problem1_main.cpp">problem1_main.cpp</a>,
+          a stand-alone main program that calls the user functions
+          to make some simple tests.
+        </li>
+        <li>
+          <a href = "problem1_main.sh">problem1_main.sh</a>,
+          BASH commands to compile and run the stand-alone main program 
+          with the 5 user functions, plus PDFLIB and RNGLIB (but not DREAM!).
+        </li>
+        <li>
+          <a href = "problem1_main_output.txt">problem1_main_output.txt</a>,
+          the output file from the standalone main program.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PROBLEM1C</b> is a version of PROBLEM1 that uses a class to store
+      the covariance information, instead of a structure.  I didn't like
+      this approach, since it seemed like, every time I needed some information,
+      I had to call a function and provide an array to store a copy of the
+      information, rather than simply accessing the information directly.
+      <ul>
+        <li>
+          <a href = "problem1c.cpp">problem1c.cpp</a>,
+          is a user written file, containing the 5 functions required
+          to define the problem data, as well as other functions to
+          set the covariance.
+        </li>
+        <li>
+          <a href = "problem1c_covariance.hpp">problem1c_covariance.hpp</a>,
+          an include file that defines the Covariance class.
+        </li>
+        <li>
+          <a href = "problem1c_covariance.cpp">problem1c_covariance.cpp</a>,
+          functions that implement the Covariance class.
+        </li>
+        <li>
+          <a href = "problem1c_main.cpp">problem1c_main.cpp</a>,
+          a stand-alone main program that calls the user functions
+          to make some simple tests.
+        </li>
+        <li>
+          <a href = "problem1c_main.sh">problem1c_main.sh</a>,
+          BASH commands to compile and run the stand-alone main program 
+          with the 5 user functions, plus PDFLIB and RNGLIB (but not DREAM!).
+        </li>
+        <li>
+          <a href = "problem1c_main_output.txt">problem1c_main_output.txt</a>,
+          the output file from the standalone main program.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "problem1.sh">problem1.sh</a>,
+          BASH commands to compile and run the DREAM program 
+          with the 5 user functions for problem 1.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>PROBLEM2</b> is based on the second example in the Vrugt reference.
+      The Vrugt version involves 10 variables, with a "twisted" Gaussian
+      density function.
+      <ul>
+        <li>
+          <a href = "problem2.cpp">problem2.cpp</a>,
+          is a user written file, containing the 5 functions required
+          to define problem 2.
+        </li>
+        <li>
+          <a href = "problem2.sh">problem2.sh</a>,
+          BASH commands to compile and run the DREAM program 
+          with the 5 user functions for problem 2.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for DREAM.
+        </li>
+        <li>
+          <b>CHAIN_INIT</b> starts Markov chains from a prior distribution.
+        </li>
+        <li>
+          <b>CHAIN_INIT_PRINT</b> prints the initial values for Markov chains.
+        </li>
+        <li>
+          <b>CHAIN_OUTLIERS</b> identifies and modifies outlier chains during burn-in.
+        </li>
+        <li>
+          <b>CHAIN_WRITE</b> writes samples of each chain to separate files.
+        </li>
+        <li>
+          <b>CR_DIS_UPDATE</b> updates the CR distance.
+        </li>
+        <li>
+          <b>CR_INDEX_CHOOSE</b> chooses a CR index.
+        </li>
+        <li>
+          <b>CR_INIT</b> initializes the crossover probability values.
+        </li>
+        <li>
+          <b>CR_PROB_UPDATE</b> updates the CR probabilities.
+        </li>
+        <li>
+          <b>DIFF_COMPUTE</b> computes the differential evolution.
+        </li>
+        <li>
+          <b>DREAM_ALGM</b> gets a candidate parameter sample.
+        </li>
+        <li>
+          <b>FILENAME_INC</b> increments a partially numeric file name.
+        </li>
+        <li>
+          <b>GR_COMPUTE</b> computes the Gelman Rubin statistics R used to check
+        </li>
+        <li>
+          <b>GR_INIT</b> initializes Gelman-Rubin variables.
+        </li>
+        <li>
+          <b>GR_WRITE</b> writes Gelman-Rubin R statistics into a file.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>I4MAT_PRINT</b> prints an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_PRINT_SOME</b> prints some of an I4MAT.
+        </li>
+        <li>
+          <b>I4VEC_TRANSPOSE_PRINT</b> prints an I4VEC "transposed".
+        </li>
+        <li>
+          <b>I4VEC_ZERO_NEW</b> creates and zeroes an I4VEC.
+        </li>
+        <li>
+          <b>INPUT_PRINT</b> prints the data from the input file.
+        </li>
+        <li>
+          <b>JUMPRATE_CHOOSE</b> chooses a jump rate from the jump rate table.
+        </li>
+        <li>
+          <b>JUMPRATE_TABLE_INIT</b> initializes the jump rate table.
+        </li>
+        <li>
+          <b>JUMPRATE_TABLE_PRINT</b> prints the jump rate table.
+        </li>
+        <li>
+          <b>R8_ROUND_I4</b> rounds an R8, returning an I4.
+        </li>
+        <li>
+          <b>R8BLOCK_ZERO_NEW</b> returns a new zeroed R8BLOCK.
+        </li>
+        <li>
+          <b>R8MAT_ZERO_NEW</b> returns a new zeroed R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_COPY_NEW</b> copies an R8VEC to a new R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_HEAP_D</b> reorders an R8VEC into a descending heap.
+        </li>
+        <li>
+          <b>R8VEC_SORT_HEAP_A</b> ascending sorts an R8VEC using heap sort.
+        </li>
+        <li>
+          <b>R8VEC_SUM</b> returns the sum of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_TRANSPOSE_PRINT</b> prints an R8VEC "transposed".
+        </li>
+        <li>
+          <b>R8VEC_ZERO_NEW</b> creates and zeroes an R8VEC.
+        </li>
+        <li>
+          <b>RESTART_READ</b> reads parameter sample data from a restart file.
+        </li>
+        <li>
+          <b>RESTART_WRITE</b> writes a restart file.
+        </li>
+        <li>
+          <b>SAMPLE_CANDIDATE</b> generates candidate parameter samples.
+        </li>
+        <li>
+          <b>SAMPLE_LIMITS</b> enforces limits on a sample variable.
+        </li>
+        <li>
+          <b>STD_COMPUTE</b> computes the current standard deviations, for each parameter.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 27 June 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

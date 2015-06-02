@@ -33,7 +33,7 @@ int main ( void )
 //
 //  Discussion:
 //
-//    ASA183_PRB calls sample problems for the ASA183 library.
+//    ASA183_PRB tests the ASA183 library.
 //
 //  Licensing:
 //
@@ -49,7 +49,6 @@ int main ( void )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA183_PRB\n";
   cout << "  C++ version\n";
@@ -76,7 +75,6 @@ int main ( void )
   cout << "\n";
   cout << "ASA183_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

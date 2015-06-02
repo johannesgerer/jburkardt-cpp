@@ -10,6 +10,7 @@ using namespace std;
 int main ( );
 void test01 ( );
 void test02 ( );
+void test03 ( );
 
 //****************************************************************************80
 
@@ -23,7 +24,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA245_PRB calls the ASA245 routines.
+//    ASA245_PRB tests the ASA245 library.
 //
 //  Licensing:
 //
@@ -31,7 +32,7 @@ int main ( )
 //
 //  Modified:
 //
-//    15 January 2008
+//    25 September 2014
 //
 //  Author:
 //
@@ -39,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA245_PRB:\n";
   cout << "  C++ version\n";
@@ -47,13 +47,13 @@ int main ( )
 
   test01 ( );
   test02 ( );
+  test03 ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "ASA245_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -104,14 +104,14 @@ void test01 ( )
 
   for ( ; ; )
   {
-    gamma_log_values ( &n_data, &x, &fx );
+    gamma_log_values ( n_data, x, fx );
 
     if ( n_data == 0 )
     {
       break;
     }
 
-    fx2 = alngam ( x, &ifault );
+    fx2 = alngam ( x, ifault );
 
     cout << "  " << setprecision(16) << setw(24) << x
          << "  " << setprecision(16) << setw(24) << fx
@@ -166,14 +166,76 @@ void test02 ( )
 
   for ( ; ; )
   {
-    gamma_log_values ( &n_data, &x, &fx );
+    gamma_log_values ( n_data, x, fx );
 
     if ( n_data == 0 )
     {
       break;
     }
 
-    fx2 = lngamma ( x, &ier );
+    fx2 = lngamma ( x, ier );
+
+    cout << "  " << setprecision(16) << setw(24) << x
+         << "  " << setprecision(16) << setw(24) << fx
+         << "  " << setprecision(16) << setw(24) << fx2
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void test03 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST03 demonstrates the use of LGAMMA.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    25 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  double fx2;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "TEST03\n";
+  cout << "  LGAMMA computes the logarithm of the \n";
+  cout << "  Gamma function.\n";
+  cout << "  LGAMMA is available with the G++ compiler.\n";
+  cout << "  Compare the result to tabulated values.\n";
+  cout << "\n";
+  cout << "          X                     "
+      << "FX                        FX2\n";
+  cout << "                                "
+       << "(Tabulated)               (LNGAMMA)                DIFF\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_log_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    fx2 = lgamma ( x );
 
     cout << "  " << setprecision(16) << setw(24) << x
          << "  " << setprecision(16) << setw(24) << fx

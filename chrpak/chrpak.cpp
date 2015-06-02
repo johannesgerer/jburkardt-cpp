@@ -1,6 +1,8 @@
 # include <cstdlib>
 # include <cmath>
 # include <iostream>
+# include <fstream>
+# include <sstream>
 # include <iomanip>
 # include <cstring>
 # include <ctime>
@@ -244,6 +246,144 @@ int base_to_i4 ( char *s, int base )
 }
 //****************************************************************************80
 
+int binary_to_i4 ( string s )
+
+//****************************************************************************80
+/*
+  Purpose:
+
+    BINARY_TO_I4 converts a binary representation into an I4.
+
+  Example:
+
+        S        I
+
+      '101'      5
+    '-1000'     -8
+        '1'      1
+
+  Licensing:
+
+    This code is distributed under the GNU LGPL license.
+
+  Modified:
+
+    16 July 2013
+
+  Author:
+
+    John Burkardt
+
+  Parameters:
+
+    Input, string S, the binary representation.
+
+    Output, int BINARY_TO_I4, the I4 whose representation was input.
+*/
+{
+  char c;
+  int i;
+  int ichr;
+  int isgn;
+  int s_len;
+  int state;
+
+  s_len = s.length ( );
+
+  i = 0;
+  ichr = 0;
+  state = 0;
+  isgn = 1;
+
+  while ( ichr < s_len )
+  {
+    c = s[ichr];
+//
+//  Blank.
+//
+    if ( c == ' ' )
+    {
+      if ( state == 2 )
+      {
+        state = 3;
+      }
+    }
+//
+//  Sign, + or -.
+//
+    else if ( c == '-' )
+    {
+      if ( state == 0 )
+      {
+        state = 1;
+        isgn = -1;
+      }
+      else
+      {
+        state = -1;
+      }
+    }
+    else if ( c == '+' )
+    {
+      if ( state == 0 )
+      {
+        state = 1;
+      }
+      else
+      {
+        state = -1;
+      }
+    }
+//
+//  Digit, 0 or 1.
+//
+    else if ( c == '1' )
+    {
+      i = 2 * i;
+      i = i + 1;
+      state = 2;
+    }
+    else if ( c == '0' )
+    {
+      i = 2 * i;
+      state = 2;
+    }
+//
+//  Illegal or unknown sign.
+//
+    else
+    {
+      cout << "\n";
+      cout << "BINARY_TO_I4 - Serious error!\n";
+      cout << "  Illegal digit = '" << c << "'.\n";
+      cout << "  Conversion halted prematurely!\n";
+      exit ( 1 );
+    }
+
+    if ( state == -1 )
+    {
+      cout << "\n";
+      cout << "BINARY_TO_I4 - Serious error!\n";
+      cout << "  Unable to decipher input!\n";
+      exit ( 1 );
+    }
+
+    if ( 3 <= state )
+    {
+      break;
+    }
+
+    ichr = ichr + 1;
+  }
+//
+//  Apply the sign.
+//
+  i = isgn * i;
+
+  return i;
+}
+//****************************************************************************80
+
 void byte_to_int ( unsigned char *bvec, unsigned int *ival )
 
 //****************************************************************************80
@@ -367,7 +507,7 @@ void ch_count_cvec_add ( int n, unsigned char cvec[], int count[256] )
 }
 //****************************************************************************80
 
-void ch_count_file_add ( char *file_name, int count[256] )
+void ch_count_file_add ( string file_name, int count[256] )
 
 //****************************************************************************80
 //
@@ -388,7 +528,7 @@ void ch_count_file_add ( char *file_name, int count[256] )
 //
 //  Modified:
 //
-//    08 October 2000
+//    17 January 2013
 //
 //  Author:
 //
@@ -396,35 +536,40 @@ void ch_count_file_add ( char *file_name, int count[256] )
 //
 //  Parameters:
 //
-//    Input, char *FILE_NAME, the name of the file to examine.
+//    Input, string FILE_NAME, the name of the file to examine.
 //
 //    Output, int COUNT[256], the character counts.
 //
 {
-  int c;
-  FILE *filein;
+  char c;
+  int i;
+  ifstream input;
 //
 //  Open the file.
 //
-  filein = fopen ( file_name, "rb" );
+  input.open ( file_name.c_str ( ) );
 
-  if ( filein == NULL )
+  if ( !input )
   {
     cerr << "\n";
-    cerr << "CH_COUNT_FILE_ADD:\n";
+    cerr << "CH_COUNT_FILE_ADD - Fatal error!\n";
     cerr << "  Cannot open the input file " << file_name << ".\n";
-    return;
+    exit ( 1 );
   }
 
-  c = fgetc ( filein );
-
-  while ( c != EOF )
+  while ( 1 )
   {
-    count[c] = count[c] + 1;
-    c = fgetc ( filein );
+    input.get ( c );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+    i = ( int ) c;
+    count[i] = count[i] + 1;
   }
 
-  fclose ( filein );
+  input.close ( );
 
   return;
 }
@@ -1413,8 +1558,8 @@ char ch_scrabble ( int tile )
 //
 //  Parameters:
 //
-//    Input, int TILE, the index of the desired Scrabble tile, between 1
-//    and 100.
+//    Input, int TILE, the index of the desired Scrabble tile;
+//    1 <= TILE <= 100.
 //
 //    Output, char CH_SCRABBLE, the character on the given tile.
 //
@@ -1440,6 +1585,164 @@ char ch_scrabble ( int tile )
   {
     value = '?';
   }
+
+  return value;
+}
+//****************************************************************************80
+
+int ch_scrabble_frequency ( char ch )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CH_SCRABBLE_FREQUENCY returns the Scrabble frequency of a character.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, char CH, the character.
+//
+//    Output, int CH_SCRABBLE_FREQUENCY, the frequency of
+//    the character.
+//
+{
+  int frequency[27] = {
+     9,  2,  2,  4, 12, 
+     2,  3,  2,  9,  1, 
+     1,  4,  2,  6,  8, 
+     2,  1,  6,  4,  6, 
+     4,  2,  2,  1,  2, 
+     1,  2 };
+  int ic;
+  int value;
+//
+//  Convert character to a Scrabble character index.
+//
+  ic = ch_to_scrabble ( ch );
+
+  if ( 1 <= ic && ic <= 27 )
+  {
+    value = frequency[ic-1];
+  }
+  else
+  {
+    value = 0;
+  }
+
+  return value;
+}
+//****************************************************************************80
+
+int ch_scrabble_points ( char ch )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CH_SCRABBLE_POINTS returns the Scrabble point value of a character.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, char CH, the character.
+//
+//    Output, int CH_SCRABBLE_POINTS, the point value of
+//    the character.
+//
+{
+  int ic;
+  int points[27] = {
+     1,  3,  3,  2,  1, 
+     4,  2,  4,  1,  8, 
+     5,  1,  3,  1,  1, 
+     3, 10,  1,  1,  1, 
+     1,  4,  4,  8,  4, 
+    10,  0 };
+  int value;
+//
+//  Convert character to a Scrabble character index.
+//
+  ic = ch_to_scrabble ( ch );
+
+  if ( 1 <= ic && ic <= 27 )
+  {
+    value = points[ic-1];
+  }
+  else
+  {
+    value = 0;
+  }
+
+  return value;
+}
+//****************************************************************************80
+
+char ch_scrabble_select ( int *seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CH_SCRABBLE_SELECT selects a character with the Scrabble probability.
+//
+//  Discussion:
+//
+//    There are 100 Scrabble tiles, including two blanks.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input/output, int *SEED, a seed for the random
+//    number generator.
+//
+//    Output, char CH_SCRABBLE_SELECT, the character on a randomly
+//    chosen Scrabble tile.
+//
+{
+  int tile;
+  char value;
+//
+//  Choose a tile between 1 and 100.
+//
+  tile = i4_uniform ( 1, 100, seed );
+//
+//  Retrieve the character on that tile.
+//
+  value = ch_scrabble ( tile );
 
   return value;
 }
@@ -1754,6 +2057,64 @@ char ch_to_rot13 ( char ch )
   }
 
   return rot13;
+}
+//****************************************************************************80
+
+int ch_to_scrabble ( char ch )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CH_TO_SCRABBLE returns the Scrabble index of a character.
+//
+//  Discussion:
+//
+//    'A' through 'Z' have indices 1 through 26, and blank is index 27.
+//    Case is ignored.  All other characters return index -1.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, char CH, the character.
+//
+//    Output, int CH_TO_SCRABBLE, the Scrabble index of
+//    the character.
+//
+{
+  int ic;
+  int value;
+
+  if ( ch == ' ' )
+  {
+    value = 27;
+    return value;
+  }
+
+  ch = ch_cap ( ch );
+  ic = a_to_i4 ( ch );
+
+  if ( 1 <= ic && ic <= 26 )
+  {
+    value = ic;
+  }
+  else
+  {
+    value = -1;
+  }
+
+  return value;
 }
 //****************************************************************************80
 
@@ -2619,7 +2980,7 @@ int i4_huge ( )
 }
 //****************************************************************************80
 
-int i4_input ( string prompt, bool *error )
+int i4_input ( string prompt, bool &error )
 
 //****************************************************************************80
 //
@@ -2638,7 +2999,7 @@ int i4_input ( string prompt, bool *error )
 //
 //  Modified:
 //
-//    30 August 2009
+//    21 October 2014
 //
 //  Author:
 //
@@ -2648,7 +3009,7 @@ int i4_input ( string prompt, bool *error )
 //
 //    Input, string PROMPT, the prompt string.
 //
-//    Output, bool *ERROR, an error flag, which is true if an error occurred.
+//    Output, bool &ERROR, an error flag, which is true if an error occurred.
 //
 //    Output, integer I4_INPUT, the value input by the user.
 //
@@ -2657,7 +3018,7 @@ int i4_input ( string prompt, bool *error )
   char line[80];
   int value;
 
-  *error = false;
+  error = false;
   value = i4_huge ( );
 //
 //  Write the prompt.
@@ -2683,9 +3044,9 @@ int i4_input ( string prompt, bool *error )
 //
 //  Extract integer information from the string.
 //
-    value = s_to_i4 ( line, &last, error );
+    value = s_to_i4 ( line, last, error );
 
-    if ( *error )
+    if ( error )
     {
       value = i4_huge ( );
       return value;
@@ -3199,6 +3560,92 @@ string i4_to_month_abb ( int i )
 }
 //****************************************************************************80
 
+string i4_to_month_name ( int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_TO_MONTH_NAME returns a month name.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I, the number of the desired month.
+//    1 <= I <= 12.
+//
+//    Output, string I4_TO_MONTH_NAME, the name of the month.
+//
+{
+  string value;
+
+  if ( i == 1 )
+  {
+    value = "January";
+  }
+  else if ( i == 2 )
+  {
+    value = "February";
+  }
+  else if ( i == 3 )
+  {
+    value = "March";
+  }
+  else if ( i == 4 )
+  {
+    value = "April";
+  }
+  else if ( i == 5 )
+  {
+    value = "May";
+  }
+  else if ( i == 6 )
+  {
+    value = "June";
+  }
+  else if ( i == 7 )
+  {
+    value = "July";
+  }
+  else if ( i == 8 )
+  {
+    value = "August";
+  }
+  else if ( i == 9 )
+  {
+    value = "September";
+  }
+  else if ( i == 10 )
+  {
+    value = "October";
+  }
+  else if ( i == 11 )
+  {
+    value = "November";
+  }
+  else if ( i == 12 )
+  {
+    value = "December";
+  }
+  else
+  {
+    value = "???";
+  }
+  return value;
+}
+//****************************************************************************80
+
 string i4_to_s ( int i )
 
 //****************************************************************************80
@@ -3338,7 +3785,6 @@ string i4_to_s0 ( int i, int digits )
 //    Output, string I4_TO_S0, the representation of the integer.
 //
 {
-  int digit;
   int j;
   int length;
   int length_max = 80;
@@ -3410,7 +3856,7 @@ string i4_to_s0 ( int i, int digits )
 }
 //****************************************************************************80
 
-string i4_to_string ( int i4, string format )
+string i4_to_string ( int i4 )
 
 //****************************************************************************80
 //
@@ -3424,7 +3870,7 @@ string i4_to_string ( int i4, string format )
 //
 //  Modified:
 //
-//    09 July 2009
+//    16 January 2013
 //
 //  Author:
 //
@@ -3439,14 +3885,14 @@ string i4_to_string ( int i4, string format )
 //    Output, string I4_TO_STRING, the string.
 //
 {
-  char i4_char[80];
-  string i4_string;
+  ostringstream fred;
+  string value;
 
-  sprintf ( i4_char, format.c_str ( ), i4 );
+  fred << i4;
 
-  i4_string = string ( i4_char );
+  value = fred.str ( );
 
-  return i4_string;
+  return value;
 }
 //****************************************************************************80
 
@@ -4079,7 +4525,7 @@ int r4_nint ( float x )
 }
 //****************************************************************************80
 
-string r4_to_string ( float r4, string format )
+string r4_to_string ( float r4 )
 
 //****************************************************************************80
 //
@@ -4093,7 +4539,7 @@ string r4_to_string ( float r4, string format )
 //
 //  Modified:
 //
-//    09 July 2009
+//    16 January 2-13
 //
 //  Author:
 //
@@ -4103,23 +4549,21 @@ string r4_to_string ( float r4, string format )
 //
 //    Input, float R4, a float.
 //
-//    Input, string FORMAT, the format string.
-//
 //    Output, string R4_TO_STRING, the string.
 //
 {
-  char r4_char[80];
-  string r4_string;
+  ostringstream fred;
+  string value;
 
-  sprintf ( r4_char, format.c_str ( ), r4 );
+  fred << r4;
 
-  r4_string = string ( r4_char );
+  value = fred.str ( );
 
-  return r4_string;
+  return value;
 }
 //****************************************************************************80
 
-string r8_to_string ( double r8, string format )
+string r8_to_string ( double r8 )
 
 //****************************************************************************80
 //
@@ -4133,7 +4577,7 @@ string r8_to_string ( double r8, string format )
 //
 //  Modified:
 //
-//    09 July 2009
+//    16 january 2013
 //
 //  Author:
 //
@@ -4143,19 +4587,17 @@ string r8_to_string ( double r8, string format )
 //
 //    Input, double R8, a double.
 //
-//    Input, string FORMAT, the format string.
-//
 //    Output, string R8_TO_STRING, the string.
 //
 {
-  char r8_char[80];
-  string r8_string;
+  ostringstream fred;
+  string value;
 
-  sprintf ( r8_char, format.c_str ( ), r8 );
+  fred << r8;
 
-  r8_string = string ( r8_char );
+  value = fred.str ( );
 
-  return r8_string;
+  return value;
 }
 //****************************************************************************80
 
@@ -5437,7 +5879,7 @@ int s_len_trim ( string s )
 //
 //  Modified:
 //
-//    05 July 2009
+//    10 October 2014
 //
 //  Author:
 //
@@ -5457,7 +5899,7 @@ int s_len_trim ( string s )
 
   while ( 0 < n )
   {
-    if ( s[n-1] != ' ' )
+    if ( s[n-1] != ' ' && s[n-1] != '\n' )
     {
       return n;
     }
@@ -5924,6 +6366,50 @@ bool s_s_subanagram_sorted ( string s1, string s2 )
 //  We matched every character of S2 with something in S1.
 //
   value = true;
+
+  return value;
+}
+//****************************************************************************80
+
+int s_scrabble_points ( string s )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    S_SCRABBLE_POINTS returns the Scrabble point value of a string.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string S, the string.
+//
+//    Output, int S_SCRABBLE_POINTS, the point value of
+//    the string.
+//
+{
+  int i;
+  int s_length;
+  int value;
+
+  s_length = s.length ( );
+
+  value = 0;
+  for ( i = 0; i < s_length; i++ )
+  {
+    value = value + ch_scrabble_points ( s[i] );
+  }
 
   return value;
 }
@@ -6425,7 +6911,7 @@ void s_to_format ( char *s, int *r, char *code, int *w, int *m )
 }
 //****************************************************************************80
 
-int s_to_i4 ( string s, int *last, bool *error )
+int s_to_i4 ( string s, int &last, bool &error )
 
 //****************************************************************************80
 //
@@ -6439,7 +6925,7 @@ int s_to_i4 ( string s, int *last, bool *error )
 //
 //  Modified:
 //
-//    05 July 2009
+//    21 October 2014
 //
 //  Author:
 //
@@ -6449,9 +6935,9 @@ int s_to_i4 ( string s, int *last, bool *error )
 //
 //    Input, string S, a string to be examined.
 //
-//    Output, int *LAST, the last character of S used to make IVAL.
+//    Output, int &LAST, the last character of S used to make IVAL.
 //
-//    Output, bool *ERROR is TRUE if an error occurred.
+//    Output, bool &ERROR is TRUE if an error occurred.
 //
 //    Output, int *S_TO_I4, the integer value read from the string.
 //    If the string is blank, then IVAL will be returned 0.
@@ -6463,7 +6949,9 @@ int s_to_i4 ( string s, int *last, bool *error )
   int istate;
   int ival;
 
-  *error = false;
+  last = 0;
+  error = false;
+
   istate = 0;
   isgn = 1;
   i = 0;
@@ -6498,7 +6986,7 @@ int s_to_i4 ( string s, int *last, bool *error )
       }
       else
       {
-        *error = true;
+        error = true;
         return ival;
       }
     }
@@ -6517,7 +7005,7 @@ int s_to_i4 ( string s, int *last, bool *error )
       }
       else
       {
-        *error = true;
+        error = true;
         return ival;
       }
     }
@@ -6533,7 +7021,7 @@ int s_to_i4 ( string s, int *last, bool *error )
       else
       {
         ival = isgn * ival;
-        *last = i - 1;
+        last = i - 1;
         return ival;
       }
 
@@ -6545,12 +7033,12 @@ int s_to_i4 ( string s, int *last, bool *error )
   if ( istate == 2 )
   {
     ival = isgn * ival;
-    *last = s_len_trim ( s );
+    last = s_len_trim ( s );
   }
   else
   {
-    *error = true;
-    *last = 0;
+    error = true;
+    last = 0;
   }
 
   return ival;
@@ -6600,7 +7088,7 @@ bool s_to_i4vec ( string s, int n, int ivec[] )
 
   for ( i = 0; i < n; i++ )
   {
-    ivec[i] = s_to_i4 ( s.substr(begin,length), &lchar, &error );
+    ivec[i] = s_to_i4 ( s.substr(begin,length), lchar, error );
 
     if ( error )
     {
@@ -6679,7 +7167,7 @@ bool s_to_l ( string s )
 }
 //****************************************************************************80
 
-float s_to_r4 ( string s, int *lchar, bool *error )
+float s_to_r4 ( string s, int &lchar, bool &error )
 
 //****************************************************************************80
 //
@@ -6728,7 +7216,7 @@ float s_to_r4 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
@@ -6751,11 +7239,11 @@ float s_to_r4 ( string s, int *lchar, bool *error )
 //    commas, or other nonnumeric data will, in particular,
 //    cause the conversion to halt.
 //
-//    Output, int *LCHAR, the number of characters read from
+//    Output, int &LCHAR, the number of characters read from
 //    the string to form the number, including any terminating
 //    characters such as a trailing comma or blanks.
 //
-//    Output, bool *ERROR, is true if an error occurred.
+//    Output, bool &ERROR, is true if an error occurred.
 //
 //    Output, float S_TO_R4, the real value that was read from the string.
 //
@@ -6776,10 +7264,11 @@ float s_to_r4 ( string s, int *lchar, bool *error )
   char TAB = 9;
   static float ten = 10.0;
 
+  lchar = -1;
+  error = false;
+
   nchar = s_len_trim ( s );
-  *error = false;
   r = 0.0;
-  *lchar = -1;
   isgn = 1;
   rtop = 0.0;
   rbot = 1.0;
@@ -6791,8 +7280,8 @@ float s_to_r4 ( string s, int *lchar, bool *error )
 
   for ( ; ; )
   {
-    c = s[*lchar+1];
-    *lchar = *lchar + 1;
+    c = s[lchar+1];
+    lchar = lchar + 1;
 //
 //  Blank or TAB character.
 //
@@ -6819,7 +7308,7 @@ float s_to_r4 ( string s, int *lchar, bool *error )
       {
         iterm = 1;
         ihave = 12;
-        *lchar = *lchar + 1;
+        lchar = lchar + 1;
       }
     }
 //
@@ -6947,7 +7436,7 @@ float s_to_r4 ( string s, int *lchar, bool *error )
 //  If we haven't seen a terminator, and we haven't examined the
 //  entire string, go get the next character.
 //
-    if ( iterm == 1 || nchar <= *lchar + 1 )
+    if ( iterm == 1 || nchar <= lchar + 1 )
     {
       break;
     }
@@ -6957,9 +7446,9 @@ float s_to_r4 ( string s, int *lchar, bool *error )
 //  If we haven't seen a terminator, and we have examined the
 //  entire string, then we're done, and LCHAR is equal to NCHAR.
 //
-  if ( iterm != 1 && (*lchar) + 1 == nchar )
+  if ( iterm != 1 && lchar + 1 == nchar )
   {
-    *lchar = nchar;
+    lchar = nchar;
   }
 //
 //  Number seems to have terminated.  Have we got a legal number?
@@ -6967,7 +7456,7 @@ float s_to_r4 ( string s, int *lchar, bool *error )
 //
   if ( ihave == 1 || ihave == 2 || ihave == 6 || ihave == 7 )
   {
-    *error = true;
+    error = true;
     return r;
   }
 //
@@ -7041,7 +7530,7 @@ bool s_to_r4vec ( string s, int n, float rvec[] )
 
   for ( i = 0; i < n; i++ )
   {
-    rvec[i] = s_to_r4 ( s.substr(begin,length), &lchar, &error );
+    rvec[i] = s_to_r4 ( s.substr(begin,length), lchar, error );
 
     if ( error )
     {
@@ -7055,7 +7544,7 @@ bool s_to_r4vec ( string s, int n, float rvec[] )
 }
 //****************************************************************************80
 
-double s_to_r8 ( string s, int *lchar, bool *error )
+double s_to_r8 ( string s, int &lchar, bool &error )
 
 //****************************************************************************80
 //
@@ -7104,7 +7593,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
@@ -7127,11 +7616,11 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //    commas, or other nonnumeric data will, in particular,
 //    cause the conversion to halt.
 //
-//    Output, int *LCHAR, the number of characters read from
+//    Output, int &LCHAR, the number of characters read from
 //    the string to form the number, including any terminating
 //    characters such as a trailing comma or blanks.
 //
-//    Output, bool *ERROR, is true if an error occurred.
+//    Output, bool &ERROR, is true if an error occurred.
 //
 //    Output, double S_TO_R8, the real value that was read from the string.
 //
@@ -7152,10 +7641,11 @@ double s_to_r8 ( string s, int *lchar, bool *error )
   char TAB = 9;
   static double ten = 10.0;
 
+  lchar = -1;
+  error = false;
+
   nchar = s_len_trim ( s );
-  *error = false;
   r = 0.0;
-  *lchar = -1;
   isgn = 1;
   rtop = 0.0;
   rbot = 1.0;
@@ -7167,8 +7657,8 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 
   for ( ; ; )
   {
-    c = s[*lchar+1];
-    *lchar = *lchar + 1;
+    c = s[lchar+1];
+    lchar = lchar + 1;
 //
 //  Blank or TAB character.
 //
@@ -7195,7 +7685,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
       {
         iterm = 1;
         ihave = 12;
-        *lchar = *lchar + 1;
+        lchar = lchar + 1;
       }
     }
 //
@@ -7323,7 +7813,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //  If we haven't seen a terminator, and we haven't examined the
 //  entire string, go get the next character.
 //
-    if ( iterm == 1 || nchar <= *lchar + 1 )
+    if ( iterm == 1 || nchar <= lchar + 1 )
     {
       break;
     }
@@ -7333,9 +7823,9 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //  If we haven't seen a terminator, and we have examined the
 //  entire string, then we're done, and LCHAR is equal to NCHAR.
 //
-  if ( iterm != 1 && (*lchar) + 1 == nchar )
+  if ( iterm != 1 && lchar + 1 == nchar )
   {
-    *lchar = nchar;
+    lchar = nchar;
   }
 //
 //  Number seems to have terminated.  Have we got a legal number?
@@ -7343,7 +7833,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //
   if ( ihave == 1 || ihave == 2 || ihave == 6 || ihave == 7 )
   {
-    *error = true;
+    error = true;
     return r;
   }
 //
@@ -7417,7 +7907,7 @@ bool s_to_r8vec ( string s, int n, double rvec[] )
 
   for ( i = 0; i < n; i++ )
   {
-    rvec[i] = s_to_r8 ( s.substr(begin,length), &lchar, &error );
+    rvec[i] = s_to_r8 ( s.substr(begin,length), lchar, error );
 
     if ( error )
     {

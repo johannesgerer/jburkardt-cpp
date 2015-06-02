@@ -1,6 +1,7 @@
 # include <cstdlib>
 # include <iostream>
 # include <iomanip>
+# include <cmath>
 # include <ctime>
 # include <cstring>
 
@@ -189,7 +190,7 @@ void i4mat_floyd ( int n, int a[] )
 //
 //  Modified:
 //
-//    27 November 2008
+//    02 March 2014
 //
 //  Author:
 //
@@ -207,6 +208,7 @@ void i4mat_floyd ( int n, int a[] )
 //
 {
   int i;
+  const int i4_huge = 2147483647;
   int j;
   int k;
 
@@ -214,9 +216,15 @@ void i4mat_floyd ( int n, int a[] )
   {
     for ( j = 0; j < n; j++ )
     {
-      for ( i = 0; i < n; i++ )
+      if ( a[k+j*n] < i4_huge )
       {
-        a[i+j*n] = i4_min ( a[i+j*n], a[i+k*n] + a[k+j*n] );
+        for ( i = 0; i < n; i++ )
+        {
+          if ( a[i+k*n] < i4_huge )
+          {
+            a[i+j*n] = i4_min ( a[i+j*n], a[i+k*n] + a[k+j*n] );
+          }
+        }
       }
     }
   }
@@ -458,7 +466,7 @@ void r8mat_floyd ( int n, double a[] )
 //
 //  Purpose:
 //
-//    R8MAT_FLOYD finds the shortest R8 distances between pairs of nodes in a directed graph.
+//    R8MAT_FLOYD: shortest distance between pairs of nodes in a directed graph.
 //
 //  Discussion:
 //
@@ -478,7 +486,7 @@ void r8mat_floyd ( int n, double a[] )
 //
 //  Modified:
 //
-//    27 November 2008
+//    02 March 2014
 //
 //  Author:
 //
@@ -496,14 +504,21 @@ void r8mat_floyd ( int n, double a[] )
   int i;
   int j;
   int k;
+  const double r8_huge = 1.0E+30;
 
   for ( k = 0; k < n; k++ )
   {
     for ( j = 0; j < n; j++ )
     {
-      for ( i = 0; i < n; i++ )
+      if ( a[k+j*n] < r8_huge )
       {
-        a[i+j*n] = r8_min ( a[i+j*n], a[i+k*n] + a[k+j*n] );
+        for ( i = 0; i < n; i++ )
+        {
+          if ( a[i+k*n] < r8_huge )
+          {
+            a[i+j*n] = r8_min ( a[i+j*n], a[i+k*n] + a[k+j*n] );
+          }
+        }
       }
     }
   }
@@ -654,6 +669,58 @@ void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 
   return;
 # undef INCX
+}
+//****************************************************************************80
+
+double r8vec_diff_norm ( int n, double a[], double b[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_DIFF_NORM returns the L2 norm of the difference of R8VEC's.
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//    The vector L2 norm is defined as:
+//
+//      R8VEC_NORM_L2 = sqrt ( sum ( 1 <= I <= N ) A(I)^2 ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    24 June 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of entries in A.
+//
+//    Input, double A[N], B[N], the vectors.
+//
+//    Output, double R8VEC_DIFF_NORM, the L2 norm of A - B.
+//
+{
+  int i;
+  double value;
+
+  value = 0.0;
+
+  for ( i = 0; i < n; i++ )
+  {
+    value = value + ( a[i] - b[i] ) * ( a[i] - b[i] );
+  }
+  value = sqrt ( value );
+
+  return value;
 }
 //****************************************************************************80
 

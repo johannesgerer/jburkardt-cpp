@@ -1,8 +1,10 @@
 # include <cstdlib>
 # include <iostream>
+# include <fstream>
 # include <iomanip>
 # include <cmath>
 # include <ctime>
+# include <cstring>
 
 using namespace std;
 
@@ -53,7 +55,7 @@ int main ( )
 //
 //  Modified:
 //
-//    26 June 2012
+//    09 October 2013
 //
 //  Author:
 //
@@ -64,24 +66,27 @@ int main ( )
 //    None
 //
 {
-  float c;
-  float dt;
+  double c;
+  string command_filename = "spring_ode2_commands.txt";
+  ofstream command_unit;
+  string data_filename = "spring_ode2_data.txt";
+  ofstream data_unit;
+  double dt;
   int i;
-  float k;
-  float m;
+  double k;
+  double m;
   int n = 101;
-  float t[101];
-  float t_final;
-  float v[101];
-  float x[101];
+  double t[101];
+  double t_final;
+  double v[101];
+  double x[101];
 
   timestamp ( );
-  cerr << "\n";
-  cerr << "SPRING_ODE2\n";
-  cerr << "  C++ version\n";
-  cerr << "  Approximate the solution of a spring equation.\n";
-  cerr << "  Write data to a file for use by gnuplot.\n";
-  cerr << "\n";
+  cout << "\n";
+  cout << "SPRING_ODE2\n";
+  cout << "  C++ version\n";
+  cout << "  Approximate the solution of a spring equation.\n";
+  cout << "  Write data to a file for use by gnuplot.\n";
 //
 //  Data
 //
@@ -89,7 +94,7 @@ int main ( )
   k = 1.0;
   c = 0.3;
   t_final = 20.0;
-  dt = t_final / ( float ) ( n - 1 );
+  dt = t_final / ( double ) ( n - 1 );
 //
 //  Store the initial conditions in entry 0.
 //
@@ -97,31 +102,64 @@ int main ( )
   x[0] = 1.0;
   v[0] = 0.0;
 //
-//  Compute the approximate solution at equally spaced times in entries 1 through N-1.
+//  Compute the approximate solution at equally spaced times 
+//  in entries 1 through N-1.
 //
   for ( i = 1; i < n; i++ )
   {
-    t[i] = ( float ) ( i ) * t_final / ( float ) ( n - 1 );
+    t[i] = ( double ) ( i ) * t_final / ( double ) ( n - 1 );
     x[i] = x[i-1] + dt * v[i-1];
     v[i] = v[i-1] + ( dt / m ) * ( - k * x[i-1] - c * v[i-1] );
   }
 //
-//  Write the data to a file for plotting, possibly by Gnuplot.
-//  Gnuplot expects T, X and V to be columns of output.
+//  Create the plot data file.
 //
+  data_unit.open ( data_filename.c_str ( ) );
   for ( i = 0; i < n; i++ )
   {
-    cout << "  " << t[i]
-         << "  " << x[i]
-         << "  " << v[i] << "\n";
+    data_unit << "  " << setw(14) << t[i]
+              << "  " << setw(14) << x[i]
+              << "  " << setw(14) << v[i] << "\n";
   }
+  data_unit.close ( );
+  cout << "  Created data file \"" << data_filename << "\".\n";
+//
+//  Create the plot command file.
+//
+  command_unit.open ( command_filename.c_str ( ) );
+  command_unit << "# " << command_filename << "\n";
+  command_unit << "#\n";
+  command_unit << "# Usage:\n";
+  command_unit << "#  gnuplot < " << command_filename << "\n";
+  command_unit << "#\n";
+  command_unit << "set term png\n";
+  command_unit << "set output 'xv_time.png'\n";
+  command_unit << "set xlabel '<--- T --->'\n";
+  command_unit << "set ylabel '<--- X(T), V(T) --->'\n";
+  command_unit << "set title 'Position and Velocity versus Time'\n";
+  command_unit << "set grid\n";
+  command_unit << "set style data lines\n";
+  command_unit << "plot '" << data_filename 
+               << "' using 1:2 lw 3 linecolor rgb 'blue',"
+               << " '' using 1:3 lw 3 linecolor rgb 'red'\n";
+  command_unit << "set output 'xv_phase.png'\n";
+  command_unit << "set xlabel '<--- X(T) --->'\n";
+  command_unit << "set ylabel '<--- V(T) --->'\n";
+  command_unit << "set title 'Position versus Velocity'\n";
+  command_unit << "set grid\n";
+  command_unit << "set style data lines\n";
+  command_unit << "plot '" << data_filename 
+               << "' using 2:3 lw 3 linecolor rgb 'green'\n";
+  command_unit << "quit\n";
+  command_unit.close ( );
+  cout << "  Created command file '" << command_filename << "'\n";
 //
 //  Terminate.
 //
-  cerr << "\n";
-  cerr << "SPRING_ODE2:\n";
-  cerr << "  Normal end of execution.\n";
-  cerr << "\n";
+  cout << "\n";
+  cout << "SPRING_ODE2:\n";
+  cout << "  Normal end of execution.\n";
+  cout << "\n";
   timestamp ( );
 
   return 0;
@@ -169,7 +207,7 @@ void timestamp ( )
 
   len = std::strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm_ptr );
 
-  std::cerr << time_buffer << "\n";
+  cout << time_buffer << "\n";
 
   return;
 # undef TIME_SIZE

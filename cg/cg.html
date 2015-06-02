@@ -1,0 +1,332 @@
+<html>
+
+  <head>
+    <title>
+      CG - Conjugate Gradient Solver for Linear Systems
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      CG <br> Conjugate Gradient Solver for Linear Systems
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CG</b>
+      is a C++ library which
+      implements a simple version of the conjugate gradient (CG) method
+      for solving a system of linear equations of the form A*x=b, 
+      suitable for situations in which the matrix A is positive definite
+      (only real, positive eigenvalues) and symmetric.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>CG</b> is available in
+      <a href = "../../c_src/cg/cg.html">a C version</a> and
+      <a href = "../../cpp_src/cg/cg.html">a C++ version</a> and
+      <a href = "../../f77_src/cg/cg.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/cg/cg.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/cg/cg.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cg_rc/cg_rc.html">
+      CG_RC</a>,
+      a C++ library which
+      implements the conjugate gradient (CG) method for solving 
+      a positive definite sparse linear system A*x=b, 
+      using reverse communication (RC).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linplus/linplus.html">
+      LINPLUS</a>,
+      a C++ library which
+      carries out operations such as matrix-vector products, 
+      matrix factorization, linear solvers including Gauss-elimination,
+      Jacobi iteration, Gauss-Seidel iteration, Conjugate Gradient (CG), 
+      for matrices in a variety of formats, including banded, border-banded, 
+      circulant, lower triangular, pentadiagonal, sparse, symmetric,
+      toeplitz, tridiagonal, upper triangular and vandermonde formats.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_display/sparse_display.html">
+      SPARSE_DISPLAY</a>,
+      a C++ library which
+      can read information defining a matrix of numbers and display
+      the sparsity pattern or location of the nonzero elements using
+      gnuplot.  This operation is already available in the built-in 
+      MATLAB "spy" command.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wathen/wathen.html">
+      WATHEN</a>,
+      a C++ library which
+      compares storage schemes (full, banded, sparse triplet) and 
+      solution strategies (Linpack full, Linpack banded, 
+      conjugate gradient (CG)) for linear systems involving the Wathen matrix,
+      which can arise when solving a problem using the 
+      finite element method (FEM).
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Frank Beckman,<br>
+          The Solution of Linear Equations by the Conjugate Gradient Method,<br>
+          in Mathematical Methods for Digital Computers,<br>
+          edited by John Ralston, Herbert Wilf,<br>
+          Wiley, 1967,<br>
+          ISBN: 0471706892,<br>
+          LC: QA76.5.R3.
+        </li>
+        <li>
+          Jonathan Shewchuk,<br>
+          An introduction to the conjugate gradient method without the 
+          agonizing pain,
+          Edition 1.25, August 1994.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "cg.cpp">cg.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "cg.hpp">cg.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "cg.sh">cg.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "cg_prb.cpp">cg_prb.cpp</a>
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "cg_prb.sh">cg_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "cg_prb_output.txt">cg_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>ORTH_RANDOM</b> returns the ORTH_RANDOM matrix.
+        </li>
+        <li>
+          <b>PDS_RANDOM</b> returns the PDS_RANDOM matrix.
+        </li>
+        <li>
+          <b>R8_NORMAL_01</b> samples the standard normal probability distribution.
+        </li>
+        <li>
+          <b>R8_SIGN</b> returns the sign of an R8.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>R83_CG</b> uses the conjugate gradient method on an R83 system.
+        </li>
+        <li>
+          <b>R83_DIF2</b> returns the DIF2 matrix in R83 format.
+        </li>
+        <li>
+          <b>R83_MV</b> multiplies a R83 matrix times a vector.
+        </li>
+        <li>
+          <b>R83_RESID</b> computes the residual R = B-A*X for R83 matrices.
+        </li>
+        <li>
+          <b>R83S_CG</b> uses the conjugate gradient method on an R83S system.
+        </li>
+        <li>
+          <b>R83S_DIF2</b> returns the DIF2 matrix in R83S format.
+        </li>
+        <li>
+          <b>R83S_MV</b> multiplies a R83S matrix times a vector.
+        </li>
+        <li>
+          <b>R83S_RESID</b> computes the residual R = B-A*X for R83S matrices.
+        </li>
+        <li>
+          <b>R83T_CG</b> uses the conjugate gradient method on an R83T system.
+        </li>
+        <li>
+          <b>R83T_DIF2</b> returns the DIF2 matrix in R83T format.
+        </li>
+        <li>
+          <b>R83T_MV</b> multiplies a R83T matrix times a vector.
+        </li>
+        <li>
+          <b>R83T_RESID</b> computes the residual R = B-A*X for R83T matrices.
+        </li>
+        <li>
+          <b>R8GE_CG</b> uses the conjugate gradient method on an R8GE system.
+        </li>
+        <li>
+          <b>R8GE_DIF2</b> returns the DIF2 matrix in R8GE format.
+        </li>
+        <li>
+          <b>R8GE_MV</b> multiplies an R8GE matrix by an R8VEC.
+        </li>
+        <li>
+          <b>R8GE_RESID</b> computes the residual R = B-A*X for R8GE matrices.
+        </li>
+        <li>
+          <b>R8MAT_COPY</b> copies one R8MAT to another.
+        </li>
+        <li>
+          <b>R8MAT_HOUSE_AXH</b> computes A*H where H is a compact Householder matrix.
+        </li>
+        <li>
+          <b>R8MAT_IDENTITY_NEW</b> returns an identity matrix.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_ZERO_NEW</b> returns a new zeroed R8MAT.
+        </li>
+        <li>
+          <b>R8PBU_CG</b> uses the conjugate gradient method on a R8PBU system.
+        </li>
+        <li>
+          <b>R8PBU_DIF2</b> returns the DIF2 matrix in R8PBU format.
+        </li>
+        <li>
+          <b>R8PBU_MV</b> multiplies a R8PBU matrix times a vector.
+        </li>
+        <li>
+          <b>R8PBU_RESID</b> computes the residual R = B-A*X for R8PBU matrices.
+        </li>
+        <li>
+          <b>R8SD_CG</b> uses the conjugate gradient method on a R8SD linear system.
+        </li>
+        <li>
+          <b>R8SD_DIF2</b> returns the DIF2 matrix in R8SD format.
+        </li>
+        <li>
+          <b>R8SD_MV</b> multiplies a R8SD matrix times a vector.
+        </li>
+        <li>
+          <b>R8SD_RESID</b> computes the residual R = B-A*X for R8SD matrices.
+        </li>
+        <li>
+          <b>R8SP_CG</b> uses the conjugate gradient method on a R8SP linear system.
+        </li>
+        <li>
+          <b>R8SP_DIF2</b> returns the DIF2 matrix in R8SP format.
+        </li>
+        <li>
+          <b>R8SP_MV</b> multiplies a R8SP matrix times a vector.
+        </li>
+        <li>
+          <b>R8SP_RESID</b> computes the residual R = B-A*X for R8SP matrices.
+        </li>
+        <li>
+          <b>R8VEC_COPY</b> copies an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_DIFF_NORM</b> returns the L2 norm of the difference of R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_DOT_PRODUCT</b> computes the dot product of a pair of R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_HOUSE_COLUMN</b> defines a Householder premultiplier that "packs" a column.
+        </li>
+        <li>
+          <b>R8VEC_NORM</b> returns the L2 norm of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01_NEW</b> returns a new unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_ZERO_NEW</b> creates and zeroes an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 July 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

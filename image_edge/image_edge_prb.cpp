@@ -21,6 +21,10 @@ int main ( int argc, char *argv[] )
 //
 //    MAIN is the main program for IMAGE_EDGE_PRB.
 //
+//  Discussion:
+//
+//    IMAGE_EDGE_PRB tests the IMAGE_EDGE library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
@@ -112,7 +116,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "IMAGE_EDGE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

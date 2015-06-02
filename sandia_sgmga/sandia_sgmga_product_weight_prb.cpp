@@ -63,12 +63,11 @@ int main ( )
 //
   sandia_sgmga_product_weight_tests ( );
 //
-//  That's all.
+//  Terminate.
 //
   std::cout << "\n";
   std::cout << "SANDIA_SGMGA_PRODUCT_WEIGHT_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
   

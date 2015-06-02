@@ -1,0 +1,342 @@
+<html>
+
+  <head>
+    <title>
+      POLYGON_PROPERTIES - Compute Properties of an Arbitrary Polygon
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      POLYGON_PROPERTIES <br> Compute Properties of an Arbitrary Polygon
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>POLYGON_PROPERTIES</b>
+      is a C++ library which
+      computes properties of an arbitrary polygon in the plane, defined
+      by a sequence of vertices, including interior angles, area, centroid,
+      containment of a point, convexity, diameter, distance to a point, 
+      inradius, lattice area, nearest point in set, outradius, uniform sampling.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>POLYGON_PROPERTIES</b> is available in
+      <a href = "../../c_src/polygon_properties/polygon_properties.html">a C version</a> and
+      <a href = "../../cpp_src/polygon_properties/polygon_properties.html">a C++ version</a> and
+      <a href = "../../f77_src/polygon_properties/polygon_properties.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/polygon_properties/polygon_properties.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/polygon_properties/polygon_properties.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/geometry/geometry.html">
+      GEOMETRY</a>,
+      a C++ library which
+      performs geometric calculations in 2, 3 and N dimensional space.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hypersphere_properties/hypersphere_properties.html">
+      HYPERSPHERE_PROPERTIES</a>,
+      a C++ library which
+      carries out various operations for an M-dimensional hypersphere, including 
+      converting between Cartesian and spherical coordinates, 
+      stereographic projection, sampling the surface of the sphere, and
+      computing the surface area and volume.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygon_integrals/polygon_integrals.html">
+      POLYGON_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of a polygon in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygon_monte_carlo/polygon_monte_carlo.html">
+      POLYGON_MONTE_CARLO</a>,
+      a C++ library which
+      applies a Monte Carlo method to estimate the integral of a function
+      over the interior of a polygon in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygon_triangulate/polygon_triangulate.html">
+      POLYGON_TRIANGULATE</a>,
+      a C++ library which
+      triangulates a possibly nonconvex polygon,
+      and which can use gnuplot to display the external edges and 
+      internal diagonals of the triangulation.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_properties/tetrahedron_properties.html">
+      TETRAHEDRON_PROPERTIES</a>,
+      a C++ program which
+      computes properties of a given tetrahedron.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_properties/triangle_properties.html">
+      TRIANGLE_PROPERTIES</a>,
+      a C++ program which
+      computes properties of a triangle whose vertex coordinates
+      are read from a file.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Gerard Bashein, Paul Detmer,<br>
+          Centroid of a Polygon,<br>
+          in Graphics Gems IV,<br>
+          edited by Paul Heckbert,<br>
+          AP Professional, 1994,<br>
+          ISBN: 0123361559,<br>
+          LC: T385.G6974.
+        </li>
+        <li>      
+          SF Bockman,<br>
+          Generalizing the Formula for Areas of Polygons to Moments,<br>
+          American Mathematical Society Monthly,<br>
+          Volume 96, Number 2, February 1989, pages 131-132.
+        </li>
+        <li>
+          Adrian Bowyer, John Woodwark,<br>
+          A Programmer's Geometry,<br>
+          Butterworths, 1983,<br>
+          ISBN: 0408012420.
+        </li>
+        <li>
+          Peter Schorn, Frederick Fisher,<br>
+          Testing the Convexity of a Polygon,<br>
+          in Graphics Gems IV,<br>
+          edited by Paul Heckbert,<br>
+          AP Professional, 1994,<br>
+          ISBN: 0123361559,<br>
+          LC: T385.G6974.
+        </li>
+        <li>
+          Moshe Shimrat,<br>
+          Algorithm 112:
+          Position of Point Relative to Polygon,<br>
+          Communications of the ACM,<br>
+          Volume 5, Number 8, August 1962, page 434.
+        </li>
+        <li>
+          Allen VanGelder,<br>
+          Efficient Computation of Polygon Area and Polyhedron Volume,<br>
+          in Graphics Gems V, <br>
+          edited by Alan Paeth,<br>
+          AP Professional, 1995,<br>
+          ISBN: 0125434553,<br>
+          LC: T385.G6975.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "polygon_properties.cpp">polygon_properties.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "polygon_properties.hpp">polygon_properties.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "polygon_properties.sh">polygon_properties.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "polygon_properties_prb.cpp">polygon_properties_prb.cppa>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "polygon_properties_prb.sh">polygon_properties_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "polygon_properties_prb_output.txt">polygon_properties_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>ANGLE_HALF</b> finds half an angle.
+        </li>
+        <li>
+          <b>ANGLE_RAD</b> returns the angle in radians swept out between two rays.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of I4 division.
+        </li>
+        <li>
+          <b>I4_WRAP</b> forces an I4 to lie between given limits by wrapping.
+        </li>
+        <li>
+          <b>POLYGON_ANGLES</b> computes the interior angles of a polygon.
+        </li>
+        <li>
+          <b>POLYGON_AREA</b> computes the area of a polygon.
+        </li>
+        <li>
+          <b>POLYGON_AREA_2</b> computes the area of a polygon.
+        </li>
+        <li>
+          <b>POLYGON_CENTROID</b> computes the centroid of a polygon.
+        </li>
+        <li>
+          <b>POLYGON_CENTROID_2</b> computes the centroid of a polygon.
+        </li>
+        <li>
+          <b>POLYGON_CONTAINS_POINT</b> finds if a point is inside a simple polygon.
+        </li>
+        <li>
+          <b>POLYGON_CONTAINS_POINT_2:</b> is a point inside a convex polygon.
+        </li>
+        <li>
+          <b>POLYGON_DIAMETER</b> computes the diameter of a polygon.
+        </li>
+        <li>
+          <b>POLYGON_EXPAND</b> expands a polygon.
+        </li>
+        <li>
+          <b>POLYGON_INRAD_DATA</b> determines polygonal data from its inner radius.
+        </li>
+        <li>
+          <b>POLYGON_INTEGRAL_1</b> integrates the function 1 over a polygon.
+        </li>
+        <li>
+          <b>POLYGON_INTEGRAL_X</b> integrates the function X over a polygon.
+        </li>
+        <li>
+          <b>POLYGON_INTEGRAL_XX</b> integrates the function X*X over a polygon.
+        </li>
+        <li>
+          <b>POLYGON_INTEGRAL_XY</b> integrates the function X*Y over a polygon.
+        </li>
+        <li>
+          <b>POLYGON_INTEGRAL_Y</b> integrates the function Y over a polygon.
+        </li>
+        <li>
+          <b>POLYGON_INTEGRAL_YY</b> integrates the function Y*Y over a polygon.
+        </li>
+        <li>
+          <b>POLYGON_IS_CONVEX</b> determines whether a polygon is convex.
+        </li>
+        <li>
+          <b>POLYGON_LATTICE_AREA</b> computes the area of a lattice polygon.
+        </li>
+        <li>
+          <b>POLYGON_OUTRAD_DATA</b> determines polygonal data from its outer radius.
+        </li>
+        <li>
+          <b>POLYGON_POINT_DIST:</b> distance ( polygon, point ).
+        </li>
+        <li>
+          <b>POLYGON_POINT_NEAR</b> computes the nearest point on a polygon.
+        </li>
+        <li>
+          <b>POLYGON_SIDE_DATA</b> determines polygonal data from its side length.
+        </li>
+        <li>
+          <b>R8_DEGREES</b> converts an angle from radian to degree measure.
+        </li>
+        <li>
+          <b>R8MAT_SOLVE</b> uses Gauss-Jordan elimination to solve an N by N linear system.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT</b> prints an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>SEGMENT_POINT_DIST:</b> distance ( line segment, point ).
+        </li>
+        <li>
+          <b>SEGMENT_POINT_NEAR:</b> nearest point on line segment to point.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRIANGLE_AREA</b> computes the area of a triangle.
+        </li>
+        <li>
+          <b>TRIANGLE_BARYCENTRIC</b> finds the barycentric coordinates of a point.
+        </li>
+        <li>
+          <b>TRIANGLE_CONTAINS_POINT_1</b> finds if a point is inside a triangle.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 May 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

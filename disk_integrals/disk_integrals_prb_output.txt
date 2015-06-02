@@ -1,0 +1,42 @@
+08 January 2014 09:52:59 PM
+
+DISK_INTEGRALS_PRB
+  C++ version
+  Test the DISK_INTEGRALS library.
+
+TEST01
+  Estimate monomial integrals using Monte Carlo
+  over the interior of the unit disk in 2D.
+
+  Number of sample points used is 4192
+
+  If any exponent is odd, the integral is zero.
+  We will restrict this test to randomly chosen even exponents.
+
+  Ex  Ey     MC-Estimate           Exact      Error
+
+   8   6      0.00102498     0.000958738  6.6246e-05
+   0   0         3.14159         3.14159  4.44089e-16
+   4   6      0.00622888      0.00613592  9.29568e-05
+   8   8     0.000391285     0.000372843  1.84426e-05
+   4   0         0.37843        0.392699   0.0142694
+   6   0        0.233868        0.245437   0.0115693
+   8   6      0.00102498     0.000958738  6.6246e-05
+   0   8         0.17128        0.171806  0.000525396
+   0   8         0.17128        0.171806  0.000525396
+   6   8     0.000977643     0.000958738  1.89047e-05
+   0   2        0.788787        0.785398  0.00338929
+   0   8         0.17128        0.171806  0.000525396
+   2   6       0.0244521       0.0245437  9.15778e-05
+   0   0         3.14159         3.14159  4.44089e-16
+   8   4      0.00326548      0.00306796  0.000197518
+   2   4       0.0494336       0.0490874  0.000346187
+   4   6      0.00622888      0.00613592  9.29568e-05
+   0   8         0.17128        0.171806  0.000525396
+   2   0        0.766794        0.785398   0.0186041
+   2   8        0.014115       0.0143172  0.000202172
+
+DISK_INTEGRALS_PRB
+  Normal end of execution.
+
+08 January 2014 09:52:59 PM

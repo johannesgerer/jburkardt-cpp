@@ -669,7 +669,7 @@ double p00_fx ( int prob, double x )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -758,6 +758,10 @@ double p00_fx ( int prob, double x )
   {
     fx = p18_fx ( x );
   }
+  else if ( prob == 19 )
+  {
+    fx = p19_fx ( x );
+  }
   else
   {
     cout << "\n";
@@ -783,7 +787,7 @@ double p00_fx1 ( int prob, double x )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -872,6 +876,10 @@ double p00_fx1 ( int prob, double x )
   {
     fx1 = p18_fx1 ( x );
   }
+  else if ( prob == 19 )
+  {
+    fx1 = p19_fx1 ( x );
+  }
   else
   {
     cout << "\n";
@@ -897,7 +905,7 @@ double p00_fx2 ( int prob, double x )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -986,6 +994,10 @@ double p00_fx2 ( int prob, double x )
   {
     fx2 = p18_fx2 ( x );
   }
+  else if ( prob == 19 )
+  {
+    fx2 = p19_fx2 ( x );
+  }
   else
   {
     cout << "\n";
@@ -1011,7 +1023,7 @@ int p00_prob_num ( )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -1024,7 +1036,7 @@ int p00_prob_num ( )
 {
   int prob_num;
 
-  prob_num = 18;
+  prob_num = 19;
 
   return prob_num;
 }
@@ -1044,7 +1056,7 @@ double *p00_range ( int prob )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -1132,6 +1144,10 @@ double *p00_range ( int prob )
   {
     range = p18_range ( );
   }
+  else if ( prob == 19 )
+  {
+    range = p19_range ( );
+  }
   else
   {
     cout << "\n";
@@ -1157,7 +1173,7 @@ double p00_root ( int prob, int i )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -1246,6 +1262,10 @@ double p00_root ( int prob, int i )
   {
     root = p18_root ( i );
   }
+  else if ( prob == 19 )
+  {
+    root = p19_root ( i );
+  }
   else
   {
     cout << "\n";
@@ -1271,7 +1291,7 @@ int p00_root_num ( int prob )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -1359,6 +1379,10 @@ int p00_root_num ( int prob )
   {
     root_num = p18_root_num ( );
   }
+  else if ( prob == 19 )
+  {
+    root_num = p19_root_num ( );
+  }
   else
   {
     cout << "\n";
@@ -1384,7 +1408,7 @@ double p00_start ( int prob, int i )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -1473,6 +1497,10 @@ double p00_start ( int prob, int i )
   {
     start = p18_start ( i );
   }
+  else if ( prob == 19 )
+  {
+    start = p19_start ( i );
+  }
   else
   {
     cout << "\n";
@@ -1498,7 +1526,7 @@ int p00_start_num ( int prob )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -1585,6 +1613,10 @@ int p00_start_num ( int prob )
   {
     start_num = p18_start_num ( );
   }
+  else if ( prob == 19 )
+  {
+    start_num = p19_start_num ( );
+  }
   else
   {
     cout << "\n";
@@ -1610,7 +1642,7 @@ string p00_title ( int prob )
 //
 //  Modified:
 //
-//    04 October 2011
+//    16 January 2013
 //
 //  Author:
 //
@@ -1696,6 +1728,10 @@ string p00_title ( int prob )
   else if ( prob == 18 )
   {
     title = p18_title ( );
+  }
+  else if ( prob == 19 )
+  {
+    title = p19_title ( );
   }
   else
   {
@@ -7627,7 +7663,7 @@ double p18_fx ( double x )
 //
 //  Purpose:
 //
-//    P18_FX evaluates the function for problem 18.
+//    P18_FX evaluates the function for problem P18.
 //
 //  Discussion:
 //
@@ -7677,7 +7713,7 @@ double p18_fx1 ( double x )
 //
 //  Purpose:
 //
-//    P18_FX1 evaluates the derivative of the function for problem 18.
+//    P18_FX1 evaluates the derivative of the function for problem P18.
 //
 //  Licensing:
 //
@@ -7719,7 +7755,7 @@ double p18_fx2 ( double x )
 //
 //  Purpose:
 //
-//    P18_FX2 evaluates the second derivative of the function for problem 18.
+//    P18_FX2 evaluates the second derivative of the function for problem P18.
 //
 //  Licensing:
 //
@@ -7760,7 +7796,7 @@ double *p18_range ( )
 //
 //  Purpose:
 //
-//    P18_RANGE returns an interval bounding the root for problem 18.
+//    P18_RANGE returns an interval bounding the root for problem P18.
 //
 //  Licensing:
 //
@@ -7797,7 +7833,7 @@ double p18_root ( int i )
 //
 //  Purpose:
 //
-//    P18_ROOT returns a root for problem 18.
+//    P18_ROOT returns a root for problem P18.
 //
 //  Licensing:
 //
@@ -7841,7 +7877,7 @@ int p18_root_num ( )
 //
 //  Purpose:
 //
-//    P18_ROOT_NUM returns the number of known roots for problem 18.
+//    P18_ROOT_NUM returns the number of known roots for problem P18.
 //
 //  Licensing:
 //
@@ -7874,7 +7910,7 @@ double p18_start ( int i )
 //
 //  Purpose:
 //
-//    P18_START returns a starting point for problem 18.
+//    P18_START returns a starting point for problem P18.
 //
 //  Licensing:
 //
@@ -7922,7 +7958,7 @@ int p18_start_num ( )
 //
 //  Purpose:
 //
-//    P18_START_NUM returns the number of starting point for problem 18.
+//    P18_START_NUM returns the number of starting point for problem P18.
 //
 //  Licensing:
 //
@@ -7955,7 +7991,7 @@ string p18_title ( )
 //
 //  Purpose:
 //
-//    P18_TITLE returns the title of problem 18.
+//    P18_TITLE returns the title of problem P18.
 //
 //  Licensing:
 //
@@ -7977,6 +8013,355 @@ string p18_title ( )
   string title;
 
   title = "10^14 * (x-1)^7, written term by term.";
+
+  return title;
+}
+//****************************************************************************80
+
+double p19_fx ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_FX evaluates the function for problem P19.
+//
+//  Discussion:
+//
+//    This function looks like an elevated cosine curve, connected by a 
+//    sudden drop to a submerged cosine curve.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the point at which F is to be evaluated.
+//
+//    Output, double P19_FX, the value of the function at X.
+//
+{
+  double fx;
+
+  fx = cos ( 100.0 * x ) - 4.0 * erf ( 30.0 * x - 10.0 );
+
+  return fx;
+}
+//****************************************************************************80
+
+double p19_fx1 ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_FX1 evaluates the derivative of the function for problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the abscissa.
+//
+//    Output, double P19_FX1, the first derivative of the function at X.
+//
+{
+  double arg;
+  double pi = 3.141592653589793;
+  double fx1;
+
+  arg = - pow ( 10.0 - 30.0 * x, 2 );
+  fx1 = - 100.0 * sin ( 100.0 * x ) + 240.0 * exp ( arg ) / sqrt ( pi );
+
+  return fx1;
+}
+//****************************************************************************80
+
+double p19_fx2 ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_FX2 evaluates the second derivative of the function for problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the abscissa.
+//
+//    Output, double P19_FX2, the second derivative of the function at X.
+//
+{
+  double arg;
+  double pi = 3.141592653589793;
+  double fx2;
+
+  arg = - pow ( 10.0 - 30.0 * x, 2 );
+  fx2 = - 10000.0 * cos ( 100.0 * x ) 
+    + 14400.0 * exp ( arg ) * ( 10.0 - 30.0 * x ) / sqrt ( pi );
+
+  return fx2;
+}
+//****************************************************************************80
+
+double *p19_range ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_RANGE returns an interval bounding the root for problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Output, double P19_RANGE[2], the minimum and maximum values of
+//    an interval containing the root.
+//
+{
+  double *range;
+
+  range = new double[2];
+
+  range[0] = 0.0;
+  range[1] = 1.0;
+
+  return range;
+}
+//****************************************************************************80
+
+double p19_root ( int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_ROOT returns a root for problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I, the index of the requested root.
+//
+//    Output, double P19_ROOT, the value of the root.
+//
+{
+  double root;
+
+  if ( i == 1 )
+  {
+    root = 0.33186603357456253747;
+  }
+  else
+  {
+    cout << "\n";
+    cout << "P19_ROOT - Fatal error!\n";
+    cout << "  Illegal root index = " << i << "\n";
+    exit ( 1 );
+  }
+  return root;
+}
+//****************************************************************************80
+
+int p19_root_num ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_ROOT_NUM returns the number of known roots for problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Output, int P19_ROOT_NUM, the number of known roots.
+//
+{
+  int root_num;
+
+  root_num = 1;
+
+  return root_num;
+}
+//****************************************************************************80
+
+double p19_start ( int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_START returns a starting point for problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I, the index of the requested starting point.
+//
+//    Output, double P19_START, the starting point.
+//
+{
+  double start;
+
+  if ( i == 1 )
+  {
+    start = 0.0;
+  }
+  else if ( i == 2 )
+  {
+    start = 1.0;
+  }
+  else if ( i == 3 )
+  {
+    start = 0.5;
+  }
+  else
+  {
+    cout << "\n";
+    cout << "P19_START - Fatal error!\n";
+    cout << "  Illegal root index = " << i << "\n";
+    exit ( 1 );
+  }
+  return start;
+}
+//****************************************************************************80
+
+int p19_start_num ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_START_NUM returns the number of starting point for problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Output, int P19_START_NUM, the number of starting points.
+//
+{
+  int start_num;
+
+  start_num = 3;
+
+  return start_num;
+}
+//****************************************************************************80
+
+string p19_title ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    P19_TITLE returns the title of problem P19.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Output, string P19_TITLE, the title of the problem.
+//
+{
+  string title;
+
+  title = "The jumping cosine.";
 
   return title;
 }
@@ -8167,7 +8552,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  static double value = 2.220446049250313E-016;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }

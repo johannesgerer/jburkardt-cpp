@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include chrpak_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include chrpak_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling chrpak_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ chrpak_prb.o /$HOME/libcpp/$ARCH/chrpak.o -lm
 if [ $? -ne 0 ]; then

@@ -1,4 +1,3 @@
-double arc_sine ( double s );
 double ball_f1_nd ( double func ( int n, double x[] ), int n, double center[], 
   double r );
 double ball_f3_nd ( double func ( int n, double x[] ), int n, double center[], 
@@ -195,7 +194,7 @@ double qmult_2d ( double func ( double x, double y ), double a, double b,
 double qmult_3d ( double func ( double x, double y, double z ), double a, 
   double b, double fup1 ( double x ), double flo1 ( double x ), 
   double fup2 ( double x, double y ), double flo2 ( double x, double y ) );
-double r8_abs ( double x );
+double r8_asin ( double s );
 double r8_choose ( int n, int k );
 double r8_epsilon ( );
 double r8_factorial ( int n );

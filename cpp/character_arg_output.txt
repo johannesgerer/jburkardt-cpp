@@ -1,0 +1,19 @@
+
+CHARACTER_ARG:
+  Demonstrate how a C function can return character data
+  through the argument list.
+
+  Our main program declares a string:
+    string name;
+  then calls function fred() with the ADDRESS of the string:
+    fred ( &name );
+  Function fred receives its argument as
+    void fred ( string *name )
+  It sets a value to the string:
+    *name = "ob_data.txt" );
+  The main program now has a string stored in name.
+
+  The value of name is now = "ob_data.txt".
+
+CHARACTER_ARG:
+  Normal end of execution.

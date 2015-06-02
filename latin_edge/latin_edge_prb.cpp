@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LATIN_EDGE_PRB tests the Latin Edge Square routines.
+//    MAIN is the main program for LATIN_EDGE_PRB.
+//
+//  Discussion:
+//
+//    LATIN_EDGE_PRB tests the LATIN_EDGE library.
 //
 //  Licensing:
 //
@@ -66,7 +70,6 @@ int main ( )
   cout << "\n";
   cout << "LATIN_EDGE_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

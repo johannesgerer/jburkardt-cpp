@@ -1,0 +1,42 @@
+06 January 2014 10:02:13 PM
+
+SPHERE_INTEGRALS_PRB:
+  C++ version
+  Test the SPHERE_INTEGRALS library.
+
+TEST01
+  Estimate monomial integrands using Monte Carlo
+  over the surface of the unit sphere in 3D.
+
+  Number of sample points used is 8192
+
+  If any exponent is odd, the integral is zero.
+  We will restrict this test to randomly chosen even exponents.
+
+  Ex  Ey  Ez     MC-Estimate           Exact      Error
+
+   8   2   6     0.000576973     0.000574358     2.61503e-06
+   4   6   4     0.000825674     0.000836921     1.12468e-05
+   0   2   6        0.200907        0.199466      0.00144093
+   2   6   0        0.194165        0.199466      0.00530161
+   8   6   6     2.15884e-05     2.15924e-05      3.9661e-09
+   4   6   6     0.000245113     0.000246153     1.04055e-06
+   4   4   2       0.0106654         0.01088     0.000214615
+   2   2   0        0.828991        0.837758      0.00876719
+   6   4   4     0.000832578     0.000836921     4.34361e-06
+   4   2   6      0.00421285      0.00418461     2.82486e-05
+   4   2   2       0.0395759       0.0398932     0.000317343
+   8   2   2      0.00971765      0.00976408     4.64286e-05
+   6   4   0       0.0543348       0.0543999     6.50345e-05
+   4   2   4       0.0108986         0.01088     1.86243e-05
+   6   2   6      0.00140246      0.00139487     7.58949e-06
+   0   4   2        0.356252        0.359039      0.00278668
+   6   4   8     9.14311e-05      9.0688e-05     7.43012e-07
+   0   4   8       0.0293621       0.0292922     6.98223e-05
+   0   8   0         1.39732         1.39626      0.00105301
+   8   4   8     3.05228e-05     3.02293e-05     2.93414e-07
+
+SPHERE_INTEGRALS_PRB
+  Normal end of execution.
+
+06 January 2014 10:02:13 PM

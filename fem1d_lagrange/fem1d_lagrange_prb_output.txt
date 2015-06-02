@@ -1,0 +1,131 @@
+19 November 2014 10:35:27 PM
+
+FEM1D_LAGRANGE_PRB
+  C version.
+  Test the FEM1D_LAGRANGE library.
+
+LEGENDRE_SET_TEST
+  LEGENDRE_SET returns points and weights of
+  Gauss-Legendre quadrature rules.
+
+   N               1             X^4           Runge
+
+   1               2               0               2
+   2               2        0.222222        0.214286
+   3               2             0.4        0.958333
+   4               2             0.4        0.370927
+   5               2             0.4        0.706948
+   6               2             0.4        0.461701
+   7               2             0.4        0.616122
+   8               2             0.4        0.508122
+   9               2             0.4        0.578703
+  10               2             0.4        0.530372
+
+LAGRANGE_VALUE_TEST
+  LAGRANGE_VALUE evaluates the Lagrange basis polynomials.
+
+  Lagrange basis points:
+
+         0:              0
+         1:              1
+         2:              2
+         3:              3
+         4:              4
+
+   I      X          L1(X)       L2(X)       L3(X)       L4(X)       L5(X)
+
+   0           0           1           0          -0           0          -0
+   1         0.5    0.273438     1.09375   -0.546875     0.21875  -0.0390625
+   2           1          -0           1           0          -0           0
+   3         1.5  -0.0390625     0.46875    0.703125    -0.15625   0.0234375
+   4           2           0          -0           1           0          -0
+   5         2.5   0.0234375    -0.15625    0.703125     0.46875  -0.0390625
+   6           3          -0           0          -0           1           0
+   7         3.5  -0.0390625     0.21875   -0.546875     1.09375    0.273438
+   8           4           0          -0           0          -0           1
+
+LAGRANGE_DERIVATIVE_TEST
+  LAGRANGE_DERIVATIVE evaluates the Lagrange basis derivative.
+
+  Lagrange basis points:
+
+         0:              0
+         1:              1
+         2:              2
+         3:              3
+         4:              4
+
+   I      X         L1'(X)      L2'(X)      L3'(X)      L4'(X)      L5'(X)
+
+   0           0    -2.08333           4          -3     1.33333       -0.25
+   1         0.5   -0.916667    0.708333       0.375   -0.208333   0.0416667
+   2           1       -0.25   -0.833333         1.5        -0.5   0.0833333
+   3         1.5   0.0416667      -1.125       1.125  -0.0416667           0
+   4           2   0.0833333   -0.666667           0    0.666667  -0.0833333
+   5         2.5           0   0.0416667      -1.125       1.125  -0.0416667
+   6           3  -0.0833333         0.5        -1.5    0.833333        0.25
+   7         3.5  -0.0416667    0.208333      -0.375   -0.708333    0.916667
+   8           4        0.25    -1.33333           3          -4     2.08333
+
+FEM1D_LAGRANGE_STIFFNESS_TEST
+  FEM1D_LAGRANGE_STIFFNESS computes the stiffness matrix,
+  the mass matrix, and right hand side vector for a
+  finite element problem using Lagrange interpolation
+  basis polynomials.
+
+  Solving:
+    -u''+u=x on 0 < x < 1
+    u(0) = u(1) = 0
+  Exact solution:
+    u(x) = x - sinh(x)/sinh(1)
+
+  Number of mesh points = 11
+  Number of quadrature points = 5
+
+   I      X             U              U(exact)         Error
+
+   0         0    -1.73472e-15               0     1.73472e-15
+   1       0.1       0.0956213       0.0147663        0.080855
+   2       0.2        0.227141       0.0286795        0.198462
+   3       0.3         0.25017       0.0408782        0.209292
+   4       0.4        0.406593       0.0504834         0.35611
+   5       0.5             0.5       0.0565906        0.443409
+   6       0.6        0.498838       0.0582599        0.440578
+   7       0.7        0.676584       0.0545074        0.622077
+   8       0.8         0.74956       0.0442945        0.705265
+   9       0.9        0.744763       0.0265183        0.718244
+  10         1               0               0               0
+
+FEM1D_LAGRANGE_STIFFNESS_TEST
+  FEM1D_LAGRANGE_STIFFNESS computes the stiffness matrix,
+  the mass matrix, and right hand side vector for a
+  finite element problem using Lagrange interpolation
+  basis polynomials.
+
+  Solving:
+    -u''+u=x on 0 < x < 1
+    u(0) = u(1) = 0
+  Exact solution:
+    u(x) = x - sinh(x)/sinh(1)
+
+  Number of mesh points = 11
+  Number of quadrature points = 10
+
+   I      X             U              U(exact)         Error
+
+   0         0    -3.88578e-16               0     3.88578e-16
+   1       0.1       0.0147663       0.0147663     2.02616e-15
+   2       0.2       0.0286795       0.0286795     1.76803e-14
+   3       0.3       0.0408782       0.0408782     2.08167e-15
+   4       0.4       0.0504834       0.0504834     2.67286e-14
+   5       0.5       0.0565906       0.0565906     1.07692e-14
+   6       0.6       0.0582599       0.0582599     7.02216e-15
+   7       0.7       0.0545074       0.0545074     2.07265e-14
+   8       0.8       0.0442945       0.0442945     1.79717e-15
+   9       0.9       0.0265183       0.0265183     4.80171e-15
+  10         1               0               0               0
+
+FEM1D_LAGRANGE_PRB
+  Normal end of execution.
+
+19 November 2014 10:35:27 PM

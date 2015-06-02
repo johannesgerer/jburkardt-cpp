@@ -483,7 +483,7 @@ void handle_c ( string file_name, string s1, string s2 )
   cout << "    </h3>\n";
   cout << "\n";
   cout << "    <p>\n";
-  cout << "      The computer code and data files described and made available on this\n";
+  cout << "      The computer code and data files made available on this\n";
   cout << "      web page are distributed under\n";
   cout << "      <a href = \"../../txt/gnu_lgpl.txt\">the GNU LGPL license.</a>\n";
   cout << "    </p>\n";
@@ -763,7 +763,7 @@ void handle_cc ( string file_name, string s1, string s2 )
   cout << "    </h3>\n";
   cout << "\n";
   cout << "    <p>\n";
-  cout << "      The computer code and data files described and made available on this\n";
+  cout << "      The computer code and data files made available on this\n";
   cout << "      web page are distributed under\n";
   cout << "      <a href = \"../../txt/gnu_lgpl.txt\">the GNU LGPL license.</a>\n";
   cout << "    </p>\n";
@@ -1038,7 +1038,7 @@ void handle_f77 ( string file_name, string s1, string s2 )
   cout << "    </h3>\n";
   cout << "\n";
   cout << "    <p>\n";
-  cout << "      The computer code and data files described and made available on this\n";
+  cout << "      The computer code and data files made available on this\n";
   cout << "      web page are distributed under\n";
   cout << "      <a href = \"../../txt/gnu_lgpl.txt\">the GNU LGPL license.</a>\n";
   cout << "    </p>\n";
@@ -1298,7 +1298,7 @@ void handle_f90 ( string file_name, string s1, string s2 )
   cout << "    </h3>\n";
   cout << "\n";
   cout << "    <p>\n";
-  cout << "      The computer code and data files described and made available on this\n";
+  cout << "      The computer code and data files made available on this\n";
   cout << "      web page are distributed under\n";
   cout << "      <a href = \"../../txt/gnu_lgpl.txt\">the GNU LGPL license.</a>\n";
   cout << "    </p>\n";
@@ -1557,7 +1557,7 @@ void handle_m ( string file_name, string s1, string s2 )
   cout << "    </h3>\n";
   cout << "\n";
   cout << "    <p>\n";
-  cout << "      The computer code and data files described and made available on this\n";
+  cout << "      The computer code and data files made available on this\n";
   cout << "      web page are distributed under\n";
   cout << "      <a href = \"../../txt/gnu_lgpl.txt\">the GNU LGPL license.</a>\n";
   cout << "    </p>\n";

@@ -11,8 +11,6 @@ void intrp ( double x, double y[], double xout, double yout[], double ypout[],
 void ode ( void f ( double t, double y[], double yp[] ), int neqn, double y[], 
   double &t, double tout, double relerr, double abserr, int &iflag, 
   double work[], int iwork[] );
-double r8_abs ( double x );
-double r8_add ( double x, double y );
 double r8_epsilon ( );
 double r8_max ( double x, double y );
 double r8_min ( double x, double y );

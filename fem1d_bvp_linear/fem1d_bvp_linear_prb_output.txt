@@ -1,10 +1,12 @@
-19 February 2012 02:55:17 PM
+18 June 2014 09:11:07 PM
 
 FEM1D_BVP_LINEAR_PRB
   C++ version
   Test the FEM1D_BVP_LINEAR library.
 
-FEM1D_BVP_LINEAR_TEST01
+TEST01
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
   A1(X)  = 1.0
   C1(X)  = 0.0
   F1(X)  = X * ( X + 3 ) * exp ( X )
@@ -14,7 +16,7 @@ FEM1D_BVP_LINEAR_TEST01
 
      I    X         U         Uexact    Error
 
-     0         0       4.996e-16               0       4.996e-16
+     0         0               0               0               0
      1       0.1       0.0994655       0.0994654     1.33423e-07
      2       0.2        0.195425        0.195424     2.47563e-07
      3       0.3        0.283471         0.28347     3.39433e-07
@@ -26,20 +28,23 @@ FEM1D_BVP_LINEAR_TEST01
      9       0.9        0.221364        0.221364     1.92775e-07
     10         1               0               0               0
 
+  l1 norm of error  = 2.93988e-06
   L2 norm of error  = 0.00400665
   Seminorm of error = 0.138667
 
-FEM1D_BVP_LINEAR_TEST02
-  A1(X)  = 1.0
+TEST02
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  A2(X)  = 1.0
   C2(X)  = 2.0
   F2(X)  = X * ( 5 - X ) * exp ( X )
-  U1(X)  = X * ( 1 - X ) * exp ( X )
+  U2(X)  = X * ( 1 - X ) * exp ( X )
 
   Number of nodes = 11
 
      I    X         U         Uexact    Error
 
-     0         0     5.55112e-17               0     5.55112e-17
+     0         0               0               0               0
      1       0.1       0.0995976       0.0994654     0.000132179
      2       0.2        0.195686        0.195424     0.000261061
      3       0.3        0.283852         0.28347     0.000381845
@@ -51,20 +56,23 @@ FEM1D_BVP_LINEAR_TEST02
      9       0.9        0.221692        0.221364     0.000327866
     10         1               0               0               0
 
+  l1 norm of error  = 0.00389237
   L2 norm of error  = 0.00369835
   Seminorm of error = 0.138675
 
-FEM1D_BVP_LINEAR_TEST03
-  A1(X)  = 1.0
+TEST03
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  A3(X)  = 1.0
   C3(X)  = 2.0 * X
   F3(X)  = - X * ( 2 * X * X - 3 * X - 3 ) * exp ( X )
-  U1(X)  = X * ( 1 - X ) * exp ( X )
+  U3(X)  = X * ( 1 - X ) * exp ( X )
 
   Number of nodes = 11
 
      I    X         U         Uexact    Error
 
-     0         0     1.66533e-16               0     1.66533e-16
+     0         0               0               0               0
      1       0.1       0.0995489       0.0994654     8.35035e-05
      2       0.2        0.195591        0.195424     0.000166483
      3       0.3        0.283718         0.28347     0.000247341
@@ -76,20 +84,23 @@ FEM1D_BVP_LINEAR_TEST03
      9       0.9        0.221623        0.221364     0.000259052
     10         1               0               0               0
 
+  l1 norm of error  = 0.00272633
   L2 norm of error  = 0.00377892
   Seminorm of error = 0.138671
 
-FEM1D_BVP_LINEAR_TEST04
-  A2(X)  = 1.0 + X * X
-  C1(X)  = 0.0
+TEST04
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  A4(X)  = 1.0 + X * X
+  C4(X)  = 0.0
   F4(X)  = ( X + 3 X^2 + 5 X^3 + X^4 ) * exp ( X )
-  U1(X)  = X * ( 1 - X ) * exp ( X )
+  U4(X)  = X * ( 1 - X ) * exp ( X )
 
   Number of nodes = 11
 
      I    X         U         Uexact    Error
 
-     0         0    -1.38778e-15               0     1.38778e-15
+     0         0               0               0               0
      1       0.1       0.0998202       0.0994654     0.000354837
      2       0.2        0.196115        0.195424       0.0006904
      3       0.3        0.284455         0.28347     0.000985074
@@ -101,24 +112,27 @@ FEM1D_BVP_LINEAR_TEST04
      9       0.9        0.221987        0.221364     0.000622818
     10         1               0               0               0
 
+  l1 norm of error  = 0.00896908
   L2 norm of error  = 0.00338872
   Seminorm of error = 0.138705
 
-FEM1D_BVP_LINEAR_TEST05
-  A3(X)  = 1.0 + X * X for X <= 1/3
+TEST05
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  A5(X)  = 1.0 + X * X for X <= 1/3
          = 7/9 + X     for      1/3 < X
-  C1(X)  = 0.0
+  C5(X)  = 0.0
   F5(X)  = ( X + 3 X^2 + 5 X^3 + X^4 ) * exp ( X )
                        for X <= 1/3
          = ( - 1 + 10/3 X + 43/9 X^2 + X^3 ) .* exp ( X )
                        for      1/3 <= X
-  U1(X)  = X * ( 1 - X ) * exp ( X )
+  U5(X)  = X * ( 1 - X ) * exp ( X )
 
   Number of nodes = 11
 
      I    X         U         Uexact    Error
 
-     0         0     2.55351e-15               0     2.55351e-15
+     0         0               0               0               0
      1       0.1       0.0999805       0.0994654     0.000515151
      2       0.2        0.196432        0.195424      0.00100789
      3       0.3        0.284924         0.28347      0.00145384
@@ -130,25 +144,104 @@ FEM1D_BVP_LINEAR_TEST05
      9       0.9        0.221791        0.221364     0.000426454
     10         1               0               0               0
 
+  l1 norm of error  = 0.00944571
   L2 norm of error  = 0.00349352
   Seminorm of error = 0.138709
 
-FEM1D_BVP_LINEAR_TEST06
-  A1(X)  = 1.0n  C1(X)  = 0.0
+TEST06
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  A6(X)  = 1.0
+  C6(X)  = 0.0
   F6(X)  = pi*pi*sin(pi*X)
-  U4(X)  = sin(pi*x)
+  U6(X)  = sin(pi*x)
 
   Compute L2 norm and seminorm of error for various N.
 
-     N        L2 error      Seminorm error
+     N        l1 error      L2 error      Seminorm error
 
-    11      0.00579769        0.201186
-    21       0.0014528        0.100697
-    41     0.000363412       0.0503613
-    81     9.08662e-05       0.0251823
-   161     2.27174e-05       0.0125913
+    11     4.29334e-05      0.00579769        0.201186
+    21     5.37898e-06       0.0014528        0.100697
+    41     6.72753e-07     0.000363412       0.0503613
+    81     8.41047e-08     9.08662e-05       0.0251823
+   161     1.05113e-08     2.27174e-05       0.0125913
+
+TEST07
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  Becker/Carey/Oden example
+
+  Compute L2 norm and seminorm of error for various N.
+
+     N        l1 error      L2 error      Seminorm error
+
+    11        0.115758       0.0548944         2.11962
+    21       0.0984621       0.0151701         1.06991
+    41       0.0495926       0.0049502        0.685573
+    81       0.0245151      0.00126683        0.350963
+   161       0.0120933     0.000317375        0.176055
+
+TEST08
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  A8(X)  = 1.0
+  C8(X)  = 0.0
+  F8(X) = X * ( X + 3 ) * exp ( X ),   X <= 2/3
+        = 2 * exp ( 2/3),                   2/3 < X
+  U8(X) = X * ( 1 - X ) * exp ( X ),   X <= 2/3
+        = X * ( 1 - X ) * exp ( 2/3 ),      2/3 < X
+
+  Number of nodes = 11
+
+     I    X         U         Uexact    Error
+
+     0         0               0               0               0
+     1       0.1       0.0845329       0.0994654       0.0149325
+     2       0.2        0.165559        0.195424        0.029865
+     3       0.3        0.238673         0.28347       0.0447975
+     4       0.4        0.298308        0.358038         0.05973
+     5       0.5        0.337518         0.41218       0.0746626
+     6       0.6        0.347713        0.437309       0.0895952
+     7       0.7        0.319447        0.409024        0.089577
+     8       0.8        0.251919        0.311637        0.059718
+     9       0.9        0.145437        0.175296        0.029859
+    10         1               0               0               0
+
+  l1 norm of error  = 0.492737
+  L2 norm of error  = 0.0595979
+  Seminorm of error = 0.240692
+
+TEST09
+  Solve -( A(x) U'(x) )' + C(x) U(x) = F(x)
+  for 0 < x < 1, with U(0) = U(1) = 0.
+  A9(X)  = 1.0
+  C9(X)  = 0.0
+  F9(X) = X * ( X + 3 ) * exp ( X ),   X <= 2/3
+        = 2 * exp ( 2/3),                   2/3 < X
+  U9(X) = X * ( 1 - X ) * exp ( X ),   X <= 2/3
+        = X * ( 1 - X ) * exp ( 2/3 ),      2/3 < X
+
+  Number of nodes = 11
+
+     I    X         U         Uexact    Error
+
+     0         0               0               0               0
+     1       0.1       0.0729598       0.0994654       0.0265056
+     2       0.2        0.142413        0.195424       0.0530111
+     3       0.3        0.203954         0.28347       0.0795167
+     4       0.4        0.252016        0.358038        0.106022
+     5       0.5        0.279652         0.41218        0.132528
+     6       0.6        0.278275        0.437309        0.159034
+     7       0.7        0.240438            0.21       0.0304383
+     8       0.8        0.180292            0.16       0.0202922
+     9       0.9        0.100146            0.09       0.0101461
+    10         1               0               0               0
+
+  l1 norm of error  = 0.617494
+  L2 norm of error  = 0.0822364
+  Seminorm of error = 0.233968
 
 FEM1D_BVP_LINEAR_PRB
   Normal end of execution.
 
-19 February 2012 02:55:18 PM
+18 June 2014 09:11:07 PM

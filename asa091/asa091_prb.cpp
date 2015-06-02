@@ -23,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA091_PRB calls the ASA091 routines.
+//    ASA091_PRB tests the ASA091 library.
 //
 //  Licensing:
 //
@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA091_PRB:\n";
   cout << "  C++ version\n";
@@ -53,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "ASA091_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -97,7 +95,7 @@ void test01 ( )
   cout << "  Perform a simple sample calculation using\n";
   cout << "  PPCHI2 to invert the Chi-Squared CDF.\n";
 
-  g = alngam ( v / 2.0, &ifault );
+  g = lgamma ( v / 2.0 );
 
   cout << "\n";
   cout << "  P =                  "
@@ -175,7 +173,7 @@ void test02 ( )
 
     v = ( double ) ( a );
 
-    g = alngam ( v / 2.0, &ifault );
+    g = lgamma ( v / 2.0 );
 
     x2 = ppchi2 ( fx, v, g, &ifault );
 
@@ -183,7 +181,7 @@ void test02 ( )
          << "  " << setprecision(4) << setw(10) << fx
          << "  " << setprecision(16) << setw(24) << x
          << "  " << setprecision(16) << setw(24) << x2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( x - x2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( x - x2 ) << "\n";
   }
 
   return;

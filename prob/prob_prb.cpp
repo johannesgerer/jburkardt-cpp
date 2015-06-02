@@ -157,6 +157,12 @@ void test115 ( );
 void test116 ( );
 void test117 ( );
 void test118 ( );
+void test1184 ( );
+void test1185 ( );
+void test1186 ( );
+void test1187 ( );
+void test1188 ( );
+void test1189 ( );
 void test119 ( );
 
 void test120 ( );
@@ -226,7 +232,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    PROB_PRB calls sample problems for the PROB routines.
+//    PROB_PRB tests the PROB library.
 //
 //  Licensing:
 //
@@ -234,7 +240,7 @@ int main ( )
 //
 //  Modified:
 //
-//    03 January 2012
+//    20 August 2013
 //
 //  Author:
 //
@@ -242,7 +248,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "PROB_PRB\n";
   cout << "  C++ version.\n";
@@ -395,6 +400,12 @@ int main ( )
   test116 ( );
   test117 ( );
   test118 ( );
+  test1184 ( );
+  test1185 ( );
+  test1186 ( );
+  test1187 ( );
+  test1188 ( );
+  test1189 ( );
   test119 ( );
 
   test120 ( );
@@ -457,7 +468,6 @@ int main ( )
   cout << "\n";
   cout << "PROB_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -467,7 +477,7 @@ int main ( )
 
 void test001 ( )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -511,7 +521,7 @@ void test001 ( )
 
 void test002 ( )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -634,7 +644,7 @@ void test004 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = anglit_sample ( &seed );
+    x = anglit_sample ( seed );
     pdf = anglit_pdf ( x );
     cdf = anglit_cdf ( x );
     x2 = anglit_cdf_inv ( cdf );
@@ -697,7 +707,7 @@ void test005 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = anglit_sample ( &seed );
+    x[i] = anglit_sample ( seed );
   }
 
   mean     = r8vec_mean     ( SAMPLE_NUM, x );
@@ -772,7 +782,7 @@ void test006 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = arcsin_sample ( a, &seed );
+    x = arcsin_sample ( a, seed );
     pdf = arcsin_pdf ( x, a );
     cdf = arcsin_cdf ( x, a );
     x2 = arcsin_cdf_inv ( cdf, a );
@@ -858,7 +868,7 @@ void test007 ( )
 
     for ( j = 0; j < SAMPLE_NUM; j++ )
     {
-      x[j] = arcsin_sample ( a, &seed );
+      x[j] = arcsin_sample ( a, seed );
     }
 
     mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -979,7 +989,7 @@ void test009 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = bernoulli_sample ( a, &seed );
+    x = bernoulli_sample ( a, seed );
     pdf = bernoulli_pdf ( x, a );
     cdf = bernoulli_cdf ( x, a );
     x2 = bernoulli_cdf_inv ( cdf, a );
@@ -1055,7 +1065,7 @@ void test010 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = bernoulli_sample ( a, &seed );
+    x[i] = bernoulli_sample ( a, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -1104,7 +1114,7 @@ void test0105 ( )
   cout << "\n";
   cout << "TEST0105:\n";
   cout << "  BESSEL_I0 evaluates the Bessel function of the\n";
-  cout << "    first kind and order 0;\n";
+  cout << "  first kind and order 0;\n";
   cout << "  BESSEL_I0_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      X       Exact F       BESSEL_I0(X)\n";
@@ -1114,7 +1124,7 @@ void test0105 ( )
 
   for ( ; ; )
   {
-    bessel_i0_values ( &n_data, &x, &fx );
+    bessel_i0_values ( n_data, x, fx );
 
     if ( n_data == 0 )
     {
@@ -1162,7 +1172,7 @@ void test0106 ( )
   cout << "\n";
   cout << "TEST0106:\n";
   cout << "  BESSEL_I1 evaluates the Bessel function of the\n";
-  cout << "    first kind and order 1;\n";
+  cout << "  first kind and order 1;\n";
   cout << "  BESSEL_I1_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      X       Exact F       BESSEL_I1(X)\n";
@@ -1172,7 +1182,7 @@ void test0106 ( )
 
   for ( ; ; )
   {
-    bessel_i1_values ( &n_data, &x, &fx );
+    bessel_i1_values ( n_data, x, fx );
 
     if ( n_data == 0 )
     {
@@ -1197,7 +1207,7 @@ void test011 ( )
 //
 //  Purpose:
 //
-//    TEST011 tests BETA, GAMMA;
+//    TEST011 tests BETA, TGAMMA;
 //
 //  Licensing:
 //
@@ -1220,13 +1230,13 @@ void test011 ( )
   cout << "\n";
   cout << "TEST011\n";
   cout << "  BETA evaluates the Beta function;\n";
-  cout << "  GAMMA evaluates the Gamma function.\n";
+  cout << "  TGAMMA evaluates the Gamma function.\n";
 
   a = 2.2;
   b = 3.7;
 
   beta1 = beta ( a, b );
-  beta2 = gamma ( a ) * gamma ( b ) / gamma ( a + b );
+  beta2 = tgamma ( a ) * tgamma ( b ) / tgamma ( a + b );
 
   cout << "\n";
   cout << "  Argument A =                   " << a << "\n";
@@ -1254,7 +1264,7 @@ void test012 ( )
 //
 //  Modified:
 //
-//    26 August 2006
+//    27 April 2013
 //
 //  Author:
 //
@@ -1293,21 +1303,22 @@ void test012 ( )
   }
 
   cout << "\n";
-  cout << "       X            PDF           CDF            CDF_INV\n";
+  cout << "             A             B        X            PDF           CDF            CDF_INV\n";
   cout << "\n";
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = beta_sample ( a, b, &seed );
+    x = beta_sample ( a, b, seed );
     pdf = beta_pdf ( x, a, b );
     cdf = beta_cdf ( x, a, b );
     x2 = beta_cdf_inv ( cdf, a, b );
 
-    cout << "  "
-         << setw(12) << x   << "  "
-         << setw(12) << pdf << "  "
-         << setw(12) << cdf << "  "
-         << setw(12) << x2  << "\n";
+    cout << "  " << setw(12) << a   
+         << "  " << setw(12) << b 
+         << "  " << setw(12) << x   
+         << "  " << setw(12) << pdf 
+         << "  " << setw(12) << cdf 
+         << "  " << setw(12) << x2  << "\n";
   }
 
   return;
@@ -1345,7 +1356,7 @@ void test013 ( )
   cout << "\n";
   cout << "TEST013:\n";
   cout << "  BETA_INC evaluates the normalized incomplete Beta\n";
-  cout << "    function BETA_INC(A,B,X).\n";
+  cout << "  function BETA_INC(A,B,X).\n";
   cout << "  BETA_INC_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "         A         B         X       Exact F       BETA_INC(A,B,X)\n";
@@ -1355,7 +1366,7 @@ void test013 ( )
 
   for ( ; ; )
   {
-    beta_inc_values ( &n_data, &a, &b, &x, &fx );
+    beta_inc_values ( n_data, a, b, x, fx );
 
     if ( n_data == 0 )
     {
@@ -1440,7 +1451,7 @@ void test014 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = beta_sample ( a, b, &seed );
+    x[i] = beta_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -1521,7 +1532,7 @@ void test015 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = beta_binomial_sample ( a, b, c, &seed );
+    x = beta_binomial_sample ( a, b, c, seed );
     pdf = beta_binomial_pdf ( x, a, b, c );
     cdf = beta_binomial_cdf ( x, a, b, c );
     x2 = beta_binomial_cdf_inv ( cdf, a, b, c );
@@ -1604,7 +1615,7 @@ void test016 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = beta_binomial_sample ( a, b, c, &seed );
+    x[i] = beta_binomial_sample ( a, b, c, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -1655,8 +1666,8 @@ void test020 ( )
   cout << "\n";
   cout << "TEST020:\n";
   cout << "  BINOMIAL_CDF evaluates the cumulative distribution\n";
-  cout << "    function for the discrete binomial probability\n";
-  cout << "    density function.\n";
+  cout << "  function for the discrete binomial probability\n";
+  cout << "  density function.\n";
   cout << "  BINOMIAL_CDF_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  A is the number of trials;\n";
@@ -1673,7 +1684,7 @@ void test020 ( )
 
   for ( ; ; )
   {
-    binomial_cdf_values ( &n_data, &a, &b, &x, &fx );
+    binomial_cdf_values ( n_data, a, b, x, fx );
 
     if ( n_data == 0 )
     {
@@ -1752,7 +1763,7 @@ void test021 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = binomial_sample ( a, b, &seed );
+    x = binomial_sample ( a, b, seed );
     pdf = binomial_pdf ( x, a, b );
     cdf = binomial_cdf ( x, a, b );
     x2 = binomial_cdf_inv ( cdf, a, b );
@@ -1886,7 +1897,7 @@ void test023 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = binomial_sample ( a, b, &seed );
+    x[i] = binomial_sample ( a, b, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -1908,7 +1919,7 @@ void test023 ( )
 
 void test0235 ( )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -2021,7 +2032,7 @@ void test024 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = bradford_sample ( a, b, c, &seed );
+    x = bradford_sample ( a, b, c, seed );
     pdf = bradford_pdf ( x, a, b, c );
     cdf = bradford_cdf ( x, a, b, c );
     x2 = bradford_cdf_inv ( cdf, a, b, c );
@@ -2104,7 +2115,7 @@ void test025 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = bradford_sample ( a, b, c, &seed );
+    x[i] = bradford_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -2464,7 +2475,7 @@ void test026 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = burr_sample ( a, b, c, d, &seed );
+    x = burr_sample ( a, b, c, d, seed );
     pdf = burr_pdf ( x, a, b, c, d );
     cdf = burr_cdf ( x, a, b, c, d );
     x2 = burr_cdf_inv ( cdf, a, b, c, d );
@@ -2550,7 +2561,7 @@ void test027 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = burr_sample ( a, b, c, d, &seed );
+    x[i] = burr_sample ( a, b, c, d, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -2625,7 +2636,7 @@ void test0275 ( )
 
   for ( i = 0; i < 10; i++ )
   {
-    x = cardioid_sample ( a, b, &seed );
+    x = cardioid_sample ( a, b, seed );
     pdf = cardioid_pdf ( x, a, b );
     cdf = cardioid_cdf ( x, a, b );
     x2 = cardioid_cdf_inv ( cdf, a, b );
@@ -2702,7 +2713,7 @@ void test0276 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = cardioid_sample ( a, b, &seed );
+    x[i] = cardioid_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -2780,7 +2791,7 @@ void test028 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = cauchy_sample ( a, b, &seed );
+    x = cauchy_sample ( a, b, seed );
     pdf = cauchy_pdf ( x, a, b );
     cdf = cauchy_cdf ( x, a, b );
     x2 = cauchy_cdf_inv ( cdf, a, b );
@@ -2860,7 +2871,7 @@ void test029 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = cauchy_sample ( a, b, &seed );
+    x[i] = cauchy_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -2941,7 +2952,7 @@ void test030 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = chi_sample ( a, b, c, &seed );
+    x = chi_sample ( a, b, c, seed );
     pdf = chi_pdf ( x, a, b, c );
     cdf = chi_cdf ( x, a, b, c );
     x2 = chi_cdf_inv ( cdf, a, b, c );
@@ -3024,7 +3035,7 @@ void test031 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = chi_sample ( a, b, c, &seed );
+    x[i] = chi_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -3075,8 +3086,8 @@ void test032 ( )
   cout << "\n";
   cout << "TEST032:\n";
   cout << "  CHI_SQUARE_CDF evaluates the cumulative\n";
-  cout << "    distribution function for the chi-square central\n";
-  cout << "    probability density function.\n";
+  cout << "  distribution function for the chi-square central\n";
+  cout << "  probability density function.\n";
   cout << "  CHI_SQUARE_CDF_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      A     X   Exact F     CHI_SQUARE_CDF(A,X)\n";
@@ -3087,7 +3098,7 @@ void test032 ( )
 
   for ( ; ; )
   {
-    chi_square_cdf_values ( &n_data, &a, &x, &fx );
+    chi_square_cdf_values ( n_data, a, x, fx );
 
     if ( n_data == 0 )
     {
@@ -3163,7 +3174,7 @@ void test033 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = chi_square_sample ( a, &seed );
+    x = chi_square_sample ( a, seed );
     pdf = chi_square_pdf ( x, a );
     cdf = chi_square_cdf ( x, a );
     x2 = chi_square_cdf_inv ( cdf, a );
@@ -3239,7 +3250,7 @@ void test034 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = chi_square_sample ( a, &seed );
+    x[j] = chi_square_sample ( a, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -3327,7 +3338,7 @@ void test035 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = chi_square_noncentral_sample ( a, b, &seed );
+    x[i] = chi_square_noncentral_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -3401,7 +3412,7 @@ void test036 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    y = circle_sample ( a, b, c, &seed );
+    y = circle_sample ( a, b, c, seed );
     x[0+j*2] = y[0];
     x[1+j*2] = y[1];
     delete [] y;
@@ -3492,7 +3503,7 @@ void test037 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    y = circular_normal_01_sample ( &seed );
+    y = circular_normal_01_sample ( seed );
     x[0+j*2] = y[0];
     x[1+j*2] = y[1];
     delete [] y;
@@ -3589,7 +3600,7 @@ void test0375 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    y = circular_normal_sample ( a, b, &seed );
+    y = circular_normal_sample ( a, b, seed );
     x[0+j*2] = y[0];
     x[1+j*2] = y[1];
     delete [] y;
@@ -3683,7 +3694,7 @@ void test038 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = cosine_sample ( a, b, &seed );
+    x = cosine_sample ( a, b, seed );
     pdf = cosine_pdf ( x, a, b );
     cdf = cosine_cdf ( x, a, b );
     x2 = cosine_cdf_inv ( cdf, a, b );
@@ -3763,7 +3774,7 @@ void test039 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = cosine_sample ( a, b, &seed );
+    x[i] = cosine_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -3886,7 +3897,7 @@ void test040 ( )
     average = 0.0;
     for ( i = 1; i <= N_TRIAL; i++ )
     {
-      coupon_simulate ( n_type, &seed, coupon, &n_coupon );
+      coupon_simulate ( n_type, seed, coupon, &n_coupon );
 
       cout << "  "
            << setw(6) << i        << "  "
@@ -3961,7 +3972,7 @@ void test041 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = deranged_sample ( a, &seed );
+    x = deranged_sample ( a, seed );
     pdf = deranged_pdf ( x, a );
     cdf = deranged_cdf ( x, a );
     x2 = deranged_cdf_inv ( cdf, a );
@@ -4101,7 +4112,7 @@ void test043 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = deranged_sample ( a, &seed );
+    x[j] = deranged_sample ( a, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -4160,7 +4171,7 @@ void test044 ( )
 
   for ( ; ; )
   {
-    psi_values ( &n_data, &x, &fx );
+    psi_values ( n_data, x, fx );
 
     if ( n_data == 0 )
     {
@@ -4248,7 +4259,7 @@ void test045 ( )
 
     for ( i = 1; i <= 10; i++ )
     {
-      x = dipole_sample ( a, b, &seed );
+      x = dipole_sample ( a, b, seed );
       pdf = dipole_pdf ( x, a, b );
       cdf = dipole_cdf ( x, a, b );
       x2 = dipole_cdf_inv ( cdf, a, b );
@@ -4330,7 +4341,7 @@ void test046 ( )
 
     for ( i = 0; i < SAMPLE_NUM; i++ )
     {
-      x[i] = dipole_sample ( a, b, &seed );
+      x[i] = dipole_sample ( a, b, seed );
     }
 
     mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -4423,7 +4434,7 @@ void test047 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    y = dirichlet_sample ( N, a, &seed );
+    y = dirichlet_sample ( N, a, seed );
     for ( i = 0; i < N; i++ )
     {
       x[i+j*N] = y[i];
@@ -4593,7 +4604,7 @@ void test049 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    y = dirichlet_mix_sample ( COMP_NUM, ELEM_NUM, a, comp_weight, &seed,
+    y = dirichlet_mix_sample ( COMP_NUM, ELEM_NUM, a, comp_weight, seed,
       &comp );
 
     for ( i = 0; i < ELEM_NUM; i++ )
@@ -4844,7 +4855,7 @@ void test052 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = discrete_sample ( A, b, &seed );
+    x = discrete_sample ( A, b, seed );
     pdf = discrete_pdf ( x, A, b );
     cdf = discrete_cdf ( x, A, b );
     x2 = discrete_cdf_inv ( cdf, A, b );
@@ -4922,7 +4933,7 @@ void test053 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = discrete_sample ( A, b, &seed );
+    x[i] = discrete_sample ( A, b, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -5001,7 +5012,7 @@ void test054 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = empirical_discrete_sample ( A, b, c, &seed );
+    x = empirical_discrete_sample ( A, b, c, seed );
     pdf = empirical_discrete_pdf ( x, A, b, c );
     cdf = empirical_discrete_cdf ( x, A, b, c );
     x2 = empirical_discrete_cdf_inv ( cdf, A, b, c );
@@ -5081,7 +5092,7 @@ void test055 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = empirical_discrete_sample ( A, b, c, &seed );
+    x[i] = empirical_discrete_sample ( A, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -5213,7 +5224,7 @@ void test0563 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = english_sentence_length_sample ( &seed );
+    x = english_sentence_length_sample ( seed );
 
     pdf = english_sentence_length_pdf ( x );
 
@@ -5278,7 +5289,7 @@ void test0564 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = english_sentence_length_sample ( &seed );
+    x[i] = english_sentence_length_sample ( seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -5339,7 +5350,7 @@ void test0565 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = english_word_length_sample ( &seed );
+    x = english_word_length_sample ( seed );
 
     pdf = english_word_length_pdf ( x );
 
@@ -5404,7 +5415,7 @@ void test0566 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = english_word_length_sample ( &seed );
+    x[i] = english_word_length_sample ( seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -5485,7 +5496,7 @@ void test057 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = erlang_sample ( a, b, c, &seed );
+    x = erlang_sample ( a, b, c, seed );
     pdf = erlang_pdf ( x, a, b, c );
     cdf = erlang_cdf ( x, a, b, c );
     x2 = erlang_cdf_inv ( cdf, a, b, c );
@@ -5568,7 +5579,7 @@ void test058 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = erlang_sample ( a, b, c, &seed );
+    x[i] = erlang_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -5629,11 +5640,11 @@ void test059 ( )
 
   for ( i = 1; i <= 20; i++ )
   {
-    x = normal_01_sample ( &seed );
+    x = normal_01_sample ( seed );
     y = error_f ( x );
     z = error_f_inverse ( y );
     cout << "  " << setw(14) << x
-         << "  " << setw(14) << x
+         << "  " << setw(14) << y
          << "  " << setw(14) << z << "\n";
   }
   return;
@@ -5681,7 +5692,7 @@ void test060 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = exponential_01_sample ( &seed );
+    x = exponential_01_sample ( seed );
     pdf = exponential_01_pdf ( x );
     cdf = exponential_01_cdf ( x );
     x2 = exponential_01_cdf_inv ( cdf );
@@ -5744,7 +5755,7 @@ void test061 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = exponential_01_sample ( &seed );
+    x[i] = exponential_01_sample ( seed );
   }
 
   mean     = r8vec_mean     ( SAMPLE_NUM, x );
@@ -5822,7 +5833,7 @@ void test062 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = exponential_sample ( a, b, &seed );
+    x = exponential_sample ( a, b, seed );
     pdf = exponential_pdf ( x, a, b );
     cdf = exponential_cdf ( x, a, b );
     x2 = exponential_cdf_inv ( cdf, a, b );
@@ -5902,7 +5913,7 @@ void test063 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = exponential_sample ( a, b, &seed );
+    x[i] = exponential_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -5980,7 +5991,7 @@ void test064 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = extreme_values_sample ( a, b, &seed );
+    x = extreme_values_sample ( a, b, seed );
     pdf = extreme_values_pdf ( x, a, b );
     cdf = extreme_values_cdf ( x, a, b );
     x2 = extreme_values_cdf_inv ( cdf, a, b );
@@ -6060,7 +6071,7 @@ void test065 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = extreme_values_sample ( a, b, &seed );
+    x[i] = extreme_values_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -6111,8 +6122,8 @@ void test066 ( )
   cout << "\n";
   cout << "TEST066:\n";
   cout << "  F_CDF evaluates the cumulative\n";
-  cout << "    distribution function for the F\n";
-  cout << "    probability density function.\n";
+  cout << "  distribution function for the F\n";
+  cout << "  probability density function.\n";
   cout << "  F_CDF_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "      A     B     X   Exact F     F_CDF(A,B,X)\n";
@@ -6123,7 +6134,7 @@ void test066 ( )
 
   for ( ; ; )
   {
-    f_cdf_values ( &n_data, &a, &b, &x, &fx );
+    f_cdf_values ( n_data, a, b, x, fx );
 
     if ( n_data == 0 )
     {
@@ -6200,7 +6211,7 @@ void test067 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = f_sample ( m, n, &seed );
+    x = f_sample ( m, n, seed );
     pdf = f_pdf ( x, m, n );
     cdf = f_cdf ( x, m, n );
 
@@ -6278,7 +6289,7 @@ void test068 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = f_sample ( m, n, &seed );
+    x[i] = f_sample ( m, n, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -6355,7 +6366,7 @@ void test070 ( )
 //
 //  Purpose:
 //
-//    TEST070 tests FACTORIAL_STIRLING, I_FACTORIAL;
+//    TEST070 tests FACTORIAL_STIRLING, I4_FACTORIAL;
 //
 //  Licensing:
 //
@@ -6376,8 +6387,8 @@ void test070 ( )
   cout << "\n";
   cout << "TEST070\n";
   cout << "  FACTORIAL_STIRLING computes Stirling's\n";
-  cout << "    approximate factorial function;\n";
-  cout << "  I_FACTORIAL evaluates the factorial function;\n";
+  cout << "  approximate factorial function;\n";
+  cout << "  I4_FACTORIAL evaluates the factorial function;\n";
   cout << "\n";
   cout << "  N      Stirling     N!\n";
   cout << "\n";
@@ -6470,7 +6481,7 @@ void test0705 ( )
     cout << "\n";
 
     seed = 123456789;
-    x = fisher_sample ( kappa, mu, n, &seed );
+    x = fisher_sample ( kappa, mu, n, seed );
 
     for ( j = 0; j < n; j++ )
     {
@@ -6548,7 +6559,7 @@ void test071 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = fisk_sample ( a, b, c, &seed );
+    x = fisk_sample ( a, b, c, seed );
     pdf = fisk_pdf ( x, a, b, c );
     cdf = fisk_cdf ( x, a, b, c );
     x2 = fisk_cdf_inv ( cdf, a, b, c );
@@ -6631,7 +6642,7 @@ void test072 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = fisk_sample ( a, b, c, &seed );
+    x[i] = fisk_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -6709,7 +6720,7 @@ void test073 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = folded_normal_sample ( a, b, &seed );
+    x = folded_normal_sample ( a, b, seed );
     pdf = folded_normal_pdf ( x, a, b );
     cdf = folded_normal_cdf ( x, a, b );
     x2 = folded_normal_cdf_inv ( cdf, a, b );
@@ -6789,7 +6800,7 @@ void test074 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = folded_normal_sample ( a, b, &seed );
+    x[i] = folded_normal_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -6856,7 +6867,7 @@ void test0744 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = frechet_sample ( alpha, &seed );
+    x = frechet_sample ( alpha, seed );
     pdf = frechet_pdf ( x, alpha );
     cdf = frechet_cdf ( x, alpha );
     x2 = frechet_cdf_inv ( cdf, alpha );
@@ -6925,7 +6936,7 @@ void test0745 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = frechet_sample ( alpha, &seed );
+    x[i] = frechet_sample ( alpha, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -6951,7 +6962,7 @@ void test075 ( )
 //
 //  Purpose:
 //
-//    TEST075 tests GAMMA, GAMMA_LOG, GAMMA_LOG_INT, D_FACTORIAL.
+//    TEST075 tests TGAMMA, GAMMA_LOG, GAMMA_LOG_INT, I4_FACTORIAL.
 //
 //  Licensing:
 //
@@ -6975,20 +6986,20 @@ void test075 ( )
 
   cout << "\n";
   cout << "TEST075\n";
-  cout << "  GAMMA evaluates the Gamma function;\n";
+  cout << "  TGAMMA evaluates the Gamma function;\n";
   cout << "  GAMMA_LOG evaluates the log of the Gamma function;\n";
   cout << "  GAMMA_LOG_INT evaluates the log for integer argument;\n";
-  cout << "  D_FACTORIAL evaluates the factorial function.\n";
+  cout << "  I4_FACTORIAL evaluates the factorial function.\n";
 
   cout << "\n";
-  cout << "  X, GAMMA(X), Exp(GAMMA_LOG(X)), Exp(GAMMA_LOG_INT(X)) ";
-  cout << "D_FACTORIAL(X+1)\n";
+  cout << "  X, TGAMMA(X), Exp(GAMMA_LOG(X)), Exp(GAMMA_LOG_INT(X)) ";
+  cout << "I4_FACTORIAL(X+1)\n";
   cout << "\n";
 
   for ( i = 1; i <= 10; i++ )
   {
     x = ( double ) i;
-    g1 = gamma ( x );
+    g1 = tgamma ( x );
     g2 = exp ( gamma_log ( x ) );
     g3 = exp ( gamma_log_int ( i ) );
     g4 = i4_factorial ( i - 1 );
@@ -7034,7 +7045,7 @@ void test076 ( )
   cout << "\n";
   cout << "TEST076:\n";
   cout << "  GAMMA_INC evaluates the normalized incomplete Gamma\n";
-  cout << "    function GAMMA_INC(A,B,X).\n";
+  cout << "  function GAMMA_INC(A,B,X).\n";
   cout << "  GAMMA_INC_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "   A      X       Exact F       GAMMA_INC(A,X)\n";
@@ -7044,7 +7055,7 @@ void test076 ( )
 
   for ( ; ; )
   {
-    gamma_inc_values ( &n_data, &a, &x, &fx );
+    gamma_inc_values ( n_data, a, x, fx );
 
     if ( n_data == 0 )
     {
@@ -7124,7 +7135,7 @@ void test077 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = gamma_sample ( a, b, c, &seed );
+    x = gamma_sample ( a, b, c, seed );
     pdf = gamma_pdf ( x, a, b, c );
     cdf = gamma_cdf ( x, a, b, c );
 
@@ -7205,7 +7216,7 @@ void test078 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = gamma_sample ( a, b, c, &seed );
+    x[i] = gamma_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -7286,7 +7297,7 @@ void test079 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = genlogistic_sample ( a, b, c, &seed );
+    x = genlogistic_sample ( a, b, c, seed );
     pdf = genlogistic_pdf ( x, a, b, c );
     cdf = genlogistic_cdf ( x, a, b, c );
     x2 = genlogistic_cdf_inv ( cdf, a, b, c );
@@ -7369,7 +7380,7 @@ void test080 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = genlogistic_sample ( a, b, c, &seed );
+    x[i] = genlogistic_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -7444,7 +7455,7 @@ void test081 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = geometric_sample ( a, &seed );
+    x = geometric_sample ( a, seed );
     pdf = geometric_pdf ( x, a );
     cdf = geometric_cdf ( x, a );
     x2 = geometric_cdf_inv ( cdf, a );
@@ -7520,7 +7531,7 @@ void test082 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = geometric_sample ( a, &seed );
+    x[j] = geometric_sample ( a, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -7662,7 +7673,7 @@ void test084 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = gompertz_sample ( a, b, &seed );
+    x = gompertz_sample ( a, b, seed );
     pdf = gompertz_pdf ( x, a, b );
     cdf = gompertz_cdf ( x, a, b );
     x2 = gompertz_cdf_inv ( cdf, a, b );
@@ -7735,7 +7746,7 @@ void test085 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = gompertz_sample ( a, b, &seed );
+    x[i] = gompertz_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -7796,7 +7807,7 @@ void test086 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = gumbel_sample ( &seed );
+    x = gumbel_sample ( seed );
     pdf = gumbel_pdf ( x );
     cdf = gumbel_cdf ( x );
     x2 = gumbel_cdf_inv ( cdf );
@@ -7859,7 +7870,7 @@ void test087 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = gumbel_sample ( &seed );
+    x[i] = gumbel_sample ( seed );
   }
 
   mean     = r8vec_mean     ( SAMPLE_NUM, x );
@@ -7937,7 +7948,7 @@ void test088 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = half_normal_sample ( a, b, &seed );
+    x = half_normal_sample ( a, b, seed );
     pdf = half_normal_pdf ( x, a, b );
     cdf = half_normal_cdf ( x, a, b );
     x2 = half_normal_cdf_inv ( cdf, a, b );
@@ -8017,7 +8028,7 @@ void test089 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = half_normal_sample ( a, b, &seed );
+    x[i] = half_normal_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -8173,7 +8184,7 @@ void test091 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = hypergeometric_sample ( n, m, l, &seed );
+    x[j] = hypergeometric_sample ( n, m, l, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -8294,7 +8305,7 @@ void test093 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = inverse_gaussian_sample ( a, b, &seed );
+    x = inverse_gaussian_sample ( a, b, seed );
     pdf = inverse_gaussian_pdf ( x, a, b );
     cdf = inverse_gaussian_cdf ( x, a, b );
 
@@ -8372,7 +8383,7 @@ void test094 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = inverse_gaussian_sample ( a, b, &seed );
+    x[i] = inverse_gaussian_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -8450,7 +8461,7 @@ void test095 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = laplace_sample ( a, b, &seed );
+    x = laplace_sample ( a, b, seed );
     pdf = laplace_pdf ( x, a, b );
     cdf = laplace_cdf ( x, a, b );
     x2 = laplace_cdf_inv ( cdf, a, b );
@@ -8530,7 +8541,7 @@ void test096 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = laplace_sample ( a, b, &seed );
+    x[i] = laplace_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -8600,7 +8611,7 @@ void test0965 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = levy_sample ( a, b, &seed );
+    x = levy_sample ( a, b, seed );
     pdf = levy_pdf ( x, a, b );
     cdf = levy_cdf ( x, a, b );
     x2 = levy_cdf_inv ( cdf, a, b );
@@ -8674,7 +8685,7 @@ void test097 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = logistic_sample ( a, b, &seed );
+    x = logistic_sample ( a, b, seed );
     pdf = logistic_pdf ( x, a, b );
     cdf = logistic_cdf ( x, a, b );
     x2 = logistic_cdf_inv ( cdf, a, b );
@@ -8754,7 +8765,7 @@ void test098 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = logistic_sample ( a, b, &seed );
+    x[i] = logistic_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -8832,7 +8843,7 @@ void test099 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = log_normal_sample ( a, b, &seed );
+    x = log_normal_sample ( a, b, seed );
     pdf = log_normal_pdf ( x, a, b );
     cdf = log_normal_cdf ( x, a, b );
     x2 = log_normal_cdf_inv ( cdf, a, b );
@@ -8912,7 +8923,7 @@ void test100 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = log_normal_sample ( a, b, &seed );
+    x[i] = log_normal_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -8987,7 +8998,7 @@ void test101 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = log_series_sample ( a, &seed );
+    x = log_series_sample ( a, seed );
     pdf = log_series_pdf ( x, a );
     cdf = log_series_cdf ( x, a );
     x2 = log_series_cdf_inv ( cdf, a );
@@ -9127,7 +9138,7 @@ void test103 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = log_series_sample ( a, &seed );
+    x[j] = log_series_sample ( a, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -9205,7 +9216,7 @@ void test104 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = log_uniform_sample ( a, b, &seed );
+    x = log_uniform_sample ( a, b, seed );
     pdf = log_uniform_pdf ( x, a, b );
     cdf = log_uniform_cdf ( x, a, b );
     x2 = log_uniform_cdf_inv ( cdf, a, b );
@@ -9282,7 +9293,7 @@ void test105 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = log_uniform_sample ( a, b, &seed );
+    x[i] = log_uniform_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -9344,7 +9355,7 @@ void test106 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = lorentz_sample ( &seed );
+    x = lorentz_sample ( seed );
     pdf = lorentz_pdf ( x );
     cdf = lorentz_cdf ( x );
     x2 = lorentz_cdf_inv ( cdf );
@@ -9407,7 +9418,7 @@ void test107 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = lorentz_sample ( &seed );
+    x[i] = lorentz_sample ( seed );
   }
 
   mean     = r8vec_mean     ( SAMPLE_NUM, x );
@@ -9481,7 +9492,7 @@ void test108 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = maxwell_sample ( a, &seed );
+    x = maxwell_sample ( a, seed );
     pdf = maxwell_pdf ( x, a );
     cdf = maxwell_cdf ( x, a );
     x2 = maxwell_cdf_inv ( cdf, a );
@@ -9557,7 +9568,7 @@ void test109 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = maxwell_sample ( a, &seed );
+    x[j] = maxwell_sample ( a, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -9611,9 +9622,9 @@ void test110 ( )
   cout << "\n";
   cout << "TEST110\n";
   cout << "  MULTINOMIAL_COEF1 computes multinomial\n";
-  cout << "    coefficients using the Gamma function;\n";
+  cout << "  coefficients using the Gamma function;\n";
   cout << "  MULTINOMIAL_COEF2 computes multinomial\n";
-  cout << "    coefficients directly.\n";
+  cout << "  coefficients directly.\n";
 
   cout << "\n";
   cout << "  Line 10 of the BINOMIAL table:\n";
@@ -9741,7 +9752,7 @@ void test111 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    y = multinomial_sample ( a, B, c, &seed );
+    y = multinomial_sample ( a, B, c, seed );
     for ( i = 0; i < B; i++ )
     {
       x[i+j*B] = y[i];
@@ -10031,7 +10042,7 @@ void test1145 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = negative_binomial_sample ( a, b, &seed );
+    x = negative_binomial_sample ( a, b, seed );
     pdf = negative_binomial_pdf ( x, a, b );
     cdf = negative_binomial_cdf ( x, a, b );
     x2 = negative_binomial_cdf_inv ( cdf, a, b );
@@ -10111,7 +10122,7 @@ void test1146 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = negative_binomial_sample ( a, b, &seed );
+    x[i] = negative_binomial_sample ( a, b, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -10172,7 +10183,7 @@ void test115 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = normal_01_sample ( &seed );
+    x = normal_01_sample ( seed );
     pdf = normal_01_pdf ( x );
     cdf = normal_01_cdf ( x );
     x2 = normal_01_cdf_inv ( cdf );
@@ -10237,7 +10248,7 @@ void test116 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = normal_01_sample ( &seed );
+    x[i] = normal_01_sample ( seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -10315,7 +10326,7 @@ void test117 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = normal_sample ( a, b, &seed );
+    x = normal_sample ( a, b, seed );
     pdf = normal_pdf ( x, a, b );
     cdf = normal_cdf ( x, a, b );
     x2 = normal_cdf_inv ( cdf, a, b );
@@ -10395,7 +10406,7 @@ void test118 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = normal_sample ( a, b, &seed );
+    x[i] = normal_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -10412,6 +10423,478 @@ void test118 ( )
 
   return;
 # undef SAMPLE_NUM
+}
+//****************************************************************************80
+
+void test1184 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1184 tests NORMAL_TRUNCATED_AB_CDF, NORMAL_TRUNCATED_AB_CDF_INV, NORMAL_TRUNCATED_AB_PDF;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double cdf;
+  int i;
+  double mu;
+  double pdf;
+  double s;
+  int seed;
+  double x;
+  double x2;
+
+  a = 50.0;
+  b = 150.0;
+  mu = 100.0;
+  s = 25.0;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "TEST1184\n";
+  cout << "  For the Truncated Normal PDF:\n";
+  cout << "  NORMAL_TRUNCATED_AB_CDF evaluates the CDF.\n";
+  cout << "  NORMAL_TRUNCATED_AB_CDF_INV inverts the CDF.\n";
+  cout << "  NORMAL_TRUNCATED_AB_PDF evaluates the PDF.\n";
+  cout << "\n";
+  cout << "  The parent normal distribution has\n";
+  cout << "    mean =               " << mu << "\n";
+  cout << "    standard deviation = " << s << "\n";
+  cout << "  The parent distribution is truncated to\n";
+  cout << "  the interval [" << a << "," << b << "]\n";
+
+  cout << "\n";
+  cout << "       X            PDF           CDF            CDF_INV\n";
+  cout << "\n";
+
+  for ( i = 1; i <= 10; i++ )
+  {
+    x = normal_truncated_ab_sample ( mu, s, a, b, seed );
+
+    pdf = normal_truncated_ab_pdf ( x, mu, s, a, b );
+
+    cdf = normal_truncated_ab_cdf ( x, mu, s, a, b );
+
+    x2 = normal_truncated_ab_cdf_inv ( cdf, mu, s, a, b );
+
+    cout << "  " << setw(14) << x
+         << "  " << setw(14) << pdf
+         << "  " << setw(14) << cdf
+         << "  " << setw(14) << x2 << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void test1185 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1185 tests NORMAL_TRUNCATED_AB_MEAN, NORMAL_TRUNCATED_AB_SAMPLE, NORMAL_TRUNCATED_AB_VARIANCE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int i;
+  double mean;
+  double mu;
+  double s;
+  int sample_num = 1000;
+  int seed;
+  double variance;
+  double *x;
+  double xmax;
+  double xmin;
+
+  a = 50.0;
+  b = 150.0;
+  mu = 100.0;
+  s = 25.0;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "TEST1185\n";
+  cout << "  For the Truncated Normal PDF:\n";
+  cout << "  NORMAL_TRUNCATED_AB_MEAN computes the mean;\n";
+  cout << "  NORMAL_TRUNCATED_AB_SAMPLE samples;\n";
+  cout << "  NORMAL_TRUNCATED_AB_VARIANCE computes the variance.\n";
+  cout << "\n";
+  cout << "  The parent normal distribution has\n";
+  cout << "    mean =               " << mu << "\n";
+  cout << "    standard deviation = " << s << "\n";
+  cout << "  The parent distribution is truncated to\n";
+  cout << "  the interval [" << a << "," << b << "]\n";
+
+  mean = normal_truncated_ab_mean ( mu, s, a, b );
+
+  variance = normal_truncated_ab_variance ( mu, s, a, b );
+
+  cout << "\n";
+  cout << "  PDF mean      =               " << mean << "\n";
+  cout << "  PDF variance =                " << variance << "\n";
+
+  x = ( double * ) malloc ( sample_num * sizeof ( double ) );
+
+  for ( i = 0; i < sample_num; i++ )
+  {
+    x[i] = normal_truncated_ab_sample ( mu, s, a, b, seed );
+  }
+
+  mean = r8vec_mean ( sample_num, x );
+  variance = r8vec_variance ( sample_num, x );
+  xmax = r8vec_max ( sample_num, x );
+  xmin = r8vec_min ( sample_num, x );
+
+  cout << "\n";
+  cout << "  Sample size =     " << sample_num << "\n";
+  cout << "  Sample mean =     " << mean << "\n";
+  cout << "  Sample variance = " << variance << "\n";
+  cout << "  Sample maximum =  " << xmax << "\n";
+  cout << "  Sample minimum =  " << xmin << "\n";
+
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void test1186 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1186 tests NORMAL_TRUNCATED_A_CDF, NORMAL_TRUNCATED_A_CDF_INV, NORMAL_TRUNCATED_A_PDF;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double cdf;
+  int i;
+  double mu;
+  double pdf;
+  double s;
+  int seed;
+  double x;
+  double x2;
+
+  a = 50.0;
+  mu = 100.0;
+  s = 25.0;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "TEST1186\n";
+  cout << "  For the Lower Truncated Normal PDF:\n";
+  cout << "  NORMAL_TRUNCATED_A_CDF evaluates the CDF.\n";
+  cout << "  NORMAL_TRUNCATED_A_CDF_INV inverts the CDF.\n";
+  cout << "  NORMAL_TRUNCATED_A_PDF evaluates the PDF.\n";
+  cout << "\n";
+  cout << "  The parent normal distribution has\n";
+  cout << "    mean =               " << mu << "\n";
+  cout << "    standard deviation = " << s << "\n";
+  cout << "  The parent distribution is truncated to\n";
+  cout << "  the interval [" << a << ",+oo]\n";
+
+  cout << "\n";
+  cout << "       X            PDF           CDF            CDF_INV\n";
+  cout << "\n";
+
+  for ( i = 1; i <= 10; i++ )
+  {
+    x = normal_truncated_a_sample ( mu, s, a, seed );
+
+    pdf = normal_truncated_a_pdf ( x, mu, s, a );
+
+    cdf = normal_truncated_a_cdf ( x, mu, s, a );
+
+    x2 = normal_truncated_a_cdf_inv ( cdf, mu, s, a );
+
+    cout << "  " << setw(14) << x
+         << "  " << setw(14) << pdf
+         << "  " << setw(14) << cdf
+         << "  " << setw(14) << x2 << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void test1187 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1187 tests NORMAL_TRUNCATED_A_MEAN, NORMAL_TRUNCATED_A_SAMPLE, NORMAL_TRUNCATED_A_VARIANCE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  int i;
+  double mean;
+  double mu;
+  double s;
+  int sample_num = 1000;
+  int seed;
+  double variance;
+  double *x;
+  double xmax;
+  double xmin;
+
+  a = 50.0;
+  mu = 100.0;
+  s = 25.0;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "TEST1187\n";
+  cout << "  For the Lower Truncated Normal PDF:\n";
+  cout << "  NORMAL_TRUNCATED_A_MEAN computes the mean;\n";
+  cout << "  NORMAL_TRUNCATED_A_SAMPLE samples;\n";
+  cout << "  NORMAL_TRUNCATED_A_VARIANCE computes the variance.\n";
+  cout << "\n";
+  cout << "  The parent normal distribution has\n";
+  cout << "    mean =               " << mu << "\n";
+  cout << "    standard deviation = " << s << "\n";
+  cout << "  The parent distribution is truncated to\n";
+  cout << "  the interval [" << a << ",+oo]\n";
+
+  mean = normal_truncated_a_mean ( mu, s, a );
+
+  variance = normal_truncated_a_variance ( mu, s, a );
+
+  cout << "\n";
+  cout << "  PDF mean      =               " << mean << "\n";
+  cout << "  PDF variance =                " << variance << "\n";
+
+  x = ( double * ) malloc ( sample_num * sizeof ( double ) );
+
+  for ( i = 0; i < sample_num; i++ )
+  {
+    x[i] = normal_truncated_a_sample ( mu, s, a, seed );
+  }
+
+  mean = r8vec_mean ( sample_num, x );
+  variance = r8vec_variance ( sample_num, x );
+  xmax = r8vec_max ( sample_num, x );
+  xmin = r8vec_min ( sample_num, x );
+
+  cout << "\n";
+  cout << "  Sample size =     " << sample_num << "\n";
+  cout << "  Sample mean =     " << mean << "\n";
+  cout << "  Sample variance = " << variance << "\n";
+  cout << "  Sample maximum =  " << xmax << "\n";
+  cout << "  Sample minimum =  " << xmin << "\n";
+
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void test1188 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1188 tests NORMAL_TRUNCATED_B_CDF, NORMAL_TRUNCATED_B_CDF_INV, NORMAL_TRUNCATED_B_PDF;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double b;
+  double cdf;
+  int i;
+  double mu;
+  double pdf;
+  double s;
+  int seed;
+  double x;
+  double x2;
+
+  b = 150.0;
+  mu = 100.0;
+  s = 25.0;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "TEST1188\n";
+  cout << "  For the Upper Truncated Normal PDF:\n";
+  cout << "  NORMAL_TRUNCATED_B_CDF evaluates the CDF.\n";
+  cout << "  NORMAL_TRUNCATED_B_CDF_INV inverts the CDF.\n";
+  cout << "  NORMAL_TRUNCATED_B_PDF evaluates the PDF.\n";
+  cout << "\n";
+  cout << "  The parent normal distribution has\n";
+  cout << "    mean =               " << mu << "\n";
+  cout << "    standard deviation = " << s << "\n";
+  cout << "  The parent distribution is truncated to\n";
+  cout << "  the interval [-oo," << b << "]\n";
+
+  cout << "\n";
+  cout << "       X            PDF           CDF            CDF_INV\n";
+  cout << "\n";
+
+  for ( i = 1; i <= 10; i++ )
+  {
+    x = normal_truncated_b_sample ( mu, s, b, seed );
+
+    pdf = normal_truncated_b_pdf ( x, mu, s, b );
+
+    cdf = normal_truncated_b_cdf ( x, mu, s, b );
+
+    x2 = normal_truncated_b_cdf_inv ( cdf, mu, s, b );
+
+    cout << "  " << setw(14) << x
+         << "  " << setw(14) << pdf
+         << "  " << setw(14) << cdf
+         << "  " << setw(14) << x2 << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void test1189 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1189 tests NORMAL_TRUNCATED_B_MEAN, NORMAL_TRUNCATED_B_SAMPLE, NORMAL_TRUNCATED_B_VARIANCE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double b;
+  int i;
+  double mean;
+  double mu;
+  double s;
+  int sample_num = 1000;
+  int seed;
+  double variance;
+  double *x;
+  double xmax;
+  double xmin;
+
+  b = 150.0;
+  mu = 100.0;
+  s = 25.0;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "TEST1189\n";
+  cout << "  For the Upper Truncated Normal PDF:\n";
+  cout << "  NORMAL_TRUNCATED_B_MEAN computes the mean;\n";
+  cout << "  NORMAL_TRUNCATED_B_SAMPLE samples;\n";
+  cout << "  NORMAL_TRUNCATED_B_VARIANCE computes the variance.\n";
+  cout << "\n";
+  cout << "  The parent normal distribution has\n";
+  cout << "    mean =               " << mu << "\n";
+  cout << "    standard deviation = " << s << "\n";
+  cout << "  The parent distribution is truncated to\n";
+  cout << "  the interval [-oo," << b << "]\n";
+
+  mean = normal_truncated_b_mean ( mu, s, b );
+
+  variance = normal_truncated_b_variance ( mu, s, b );
+
+  cout << "\n";
+  cout << "  PDF mean      =               " << mean << "\n";
+  cout << "  PDF variance =                " << variance << "\n";
+
+  x = ( double * ) malloc ( sample_num * sizeof ( double ) );
+
+  for ( i = 0; i < sample_num; i++ )
+  {
+    x[i] = normal_truncated_b_sample ( mu, s, b, seed );
+  }
+
+  mean = r8vec_mean ( sample_num, x );
+  variance = r8vec_variance ( sample_num, x );
+  xmax = r8vec_max ( sample_num, x );
+  xmin = r8vec_min ( sample_num, x );
+
+  cout << "\n";
+  cout << "  Sample size =     " << sample_num << "\n";
+  cout << "  Sample mean =     " << mean << "\n";
+  cout << "  Sample variance = " << variance << "\n";
+  cout << "  Sample maximum =  " << xmax << "\n";
+  cout << "  Sample minimum =  " << xmin << "\n";
+
+  delete [] x;
+
+  return;
 }
 //****************************************************************************80
 
@@ -10473,7 +10956,7 @@ void test119 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = pareto_sample ( a, b, &seed );
+    x = pareto_sample ( a, b, seed );
     pdf = pareto_pdf ( x, a, b );
     cdf = pareto_cdf ( x, a, b );
     x2 = pareto_cdf_inv ( cdf, a, b );
@@ -10553,7 +11036,7 @@ void test120 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = pareto_sample ( a, b, &seed );
+    x[i] = pareto_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -10689,7 +11172,7 @@ void test124 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = planck_sample ( a, b, &seed );
+    x = planck_sample ( a, b, seed );
 
     pdf = planck_pdf ( x, a, b );
 
@@ -10765,7 +11248,7 @@ void test125 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = planck_sample ( a, b, &seed );
+    x[i] = planck_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -10815,8 +11298,8 @@ void test126 ( )
   cout << "\n";
   cout << "TEST126:\n";
   cout << "  POISSON_CDF evaluates the cumulative distribution\n";
-  cout << "    function for the discrete Poisson probability\n";
-  cout << "    density function.\n";
+  cout << "  function for the discrete Poisson probability\n";
+  cout << "  density function.\n";
   cout << "  POISSON_CDF_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "  A is the expected mean number of successes per unit time;\n";
@@ -10831,7 +11314,7 @@ void test126 ( )
 
   for ( ; ; )
   {
-    poisson_cdf_values ( &n_data, &a, &x, &fx );
+    poisson_cdf_values ( n_data, a, x, fx );
 
     if ( n_data == 0 )
     {
@@ -10906,7 +11389,7 @@ void test127 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = poisson_sample ( a, &seed );
+    x = poisson_sample ( a, seed );
     pdf = poisson_pdf ( x, a );
     cdf = poisson_cdf ( x, a );
     x2 = poisson_cdf_inv ( cdf, a );
@@ -10983,7 +11466,7 @@ void test128 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = poisson_sample ( a, &seed );
+    x[i] = poisson_sample ( a, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -11061,7 +11544,7 @@ void test129 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = power_sample ( a, b, &seed );
+    x = power_sample ( a, b, seed );
     pdf = power_pdf ( x, a, b );
     cdf = power_cdf ( x, a, b );
     x2 = power_cdf_inv ( cdf, a, b );
@@ -11141,7 +11624,7 @@ void test130 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = power_sample ( a, b, &seed );
+    x[i] = power_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -11219,7 +11702,7 @@ void test1304 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = quasigeometric_sample ( a, b, &seed );
+    x = quasigeometric_sample ( a, b, seed );
     pdf = quasigeometric_pdf ( x, a, b );
     cdf = quasigeometric_cdf ( x, a, b );
     x2 = quasigeometric_cdf_inv ( cdf, a, b );
@@ -11299,7 +11782,7 @@ void test1306 ( )
 
   for ( j = 0; j < sample_num; j++ )
   {
-    x[j] = quasigeometric_sample ( a, b, &seed );
+    x[j] = quasigeometric_sample ( a, b, seed );
   }
 
   mean = i4vec_mean ( sample_num, x );
@@ -11375,7 +11858,7 @@ void test131 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = rayleigh_sample ( a, &seed );
+    x = rayleigh_sample ( a, seed );
     pdf = rayleigh_pdf ( x, a );
     cdf = rayleigh_cdf ( x, a );
     x2 = rayleigh_cdf_inv ( cdf, a );
@@ -11451,7 +11934,7 @@ void test132 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = rayleigh_sample ( a, &seed );
+    x[j] = rayleigh_sample ( a, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -11529,7 +12012,7 @@ void test133 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = reciprocal_sample ( a, b, &seed );
+    x = reciprocal_sample ( a, b, seed );
     pdf = reciprocal_pdf ( x, a, b );
     cdf = reciprocal_cdf ( x, a, b );
     x2 = reciprocal_cdf_inv ( cdf, a, b );
@@ -11609,7 +12092,7 @@ void test134 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = reciprocal_sample ( a, b, &seed );
+    x[i] = reciprocal_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -11678,7 +12161,7 @@ void test1341 ( )
 
   for ( ; ; )
   {
-    bessel_ix_values ( &n_data, &alpha, &x, &fx );
+    bessel_ix_values ( n_data, alpha, x, fx );
 
     if ( n_data == 0 )
     {
@@ -11836,7 +12319,7 @@ void test1344 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = runs_sample ( m, n, &seed );
+    x[i] = runs_sample ( m, n, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -11914,7 +12397,7 @@ void test135 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = sech_sample ( a, b, &seed );
+    x = sech_sample ( a, b, seed );
     pdf = sech_pdf ( x, a, b );
     cdf = sech_cdf ( x, a, b );
     x2 = sech_cdf_inv ( cdf, a, b );
@@ -11994,7 +12477,7 @@ void test136 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = sech_sample ( a, b, &seed );
+    x[i] = sech_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -12072,7 +12555,7 @@ void test137 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = semicircular_sample ( a, b, &seed );
+    x = semicircular_sample ( a, b, seed );
     pdf = semicircular_pdf ( x, a, b );
     cdf = semicircular_cdf ( x, a, b );
     x2 = semicircular_cdf_inv ( cdf, a, b );
@@ -12152,7 +12635,7 @@ void test138 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = semicircular_sample ( a, b, &seed );
+    x[i] = semicircular_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -12204,7 +12687,7 @@ void test139 ( )
   cout << "\n";
   cout << "TEST139:\n";
   cout << "  STUDENT_CDF evaluates the cumulative density function\n";
-  cout << "    for the Student's T PDF.\n";
+  cout << "  for the Student's T PDF.\n";
   cout << "  STUDENT_CDF_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "   A      B      C     X       Exact F       STUDENT_CDF(A,B,C,X)\n";
@@ -12214,7 +12697,7 @@ void test139 ( )
 
   for ( ; ; )
   {
-    student_cdf_values ( &n_data, &c, &x, &fx );
+    student_cdf_values ( n_data, c, x, fx );
 
     if ( n_data == 0 )
     {
@@ -12299,7 +12782,7 @@ void test140 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = student_sample ( a, b, c, &seed );
+    x = student_sample ( a, b, c, seed );
     pdf = student_pdf ( x, a, b, c );
     cdf = student_cdf ( x, a, b, c );
 
@@ -12380,7 +12863,7 @@ void test141 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = student_sample ( a, b, c, &seed );
+    x[i] = student_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -12488,7 +12971,7 @@ void test1425 ( )
 
   for ( ; ; )
   {
-    owen_values ( &n_data, &h, &a, &t );
+    owen_values ( n_data, h, a, t );
 
     if ( n_data <= 0 )
     {
@@ -12569,7 +13052,7 @@ void test143 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = triangle_sample ( a, b, c, &seed );
+    x = triangle_sample ( a, b, c, seed );
     pdf = triangle_pdf ( x, a, b, c );
     cdf = triangle_cdf ( x, a, b, c );
     x2 = triangle_cdf_inv ( cdf, a, b, c );
@@ -12652,7 +13135,7 @@ void test144 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = triangle_sample ( a, b, c, &seed );
+    x[i] = triangle_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -12730,7 +13213,7 @@ void test145 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = triangular_sample ( a, b, &seed );
+    x = triangular_sample ( a, b, seed );
     pdf = triangular_pdf ( x, a, b );
     cdf = triangular_cdf ( x, a, b );
     x2 = triangular_cdf_inv ( cdf, a, b );
@@ -12810,7 +13293,7 @@ void test146 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = triangular_sample ( a, b, &seed );
+    x[i] = triangular_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -12861,7 +13344,7 @@ void test147 ( )
   cout << "  UNIFORM_ORDER_SAMPLE samples.\n";
 
   n = 10;
-  x = uniform_01_order_sample ( n, &seed );
+  x = uniform_01_order_sample ( n, seed );
 
   r8vec_print ( n, x, "  Ordered sample:" );
 
@@ -12913,7 +13396,7 @@ void test148 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = uniform_nsphere_sample ( n, &seed );
+    x = uniform_nsphere_sample ( n, seed );
     cout << "  " << setw(6) << i << "  ";
     for ( j = 0; j < n; j++ )
     {
@@ -12968,7 +13451,7 @@ void test1485 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = uniform_01_sample ( &seed );
+    x = uniform_01_sample ( seed );
     pdf = uniform_01_pdf ( x );
     cdf = uniform_01_cdf ( x );
     x2 = uniform_01_cdf_inv ( cdf );
@@ -13031,7 +13514,7 @@ void test1486 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = uniform_01_sample ( &seed );
+    x[i] = uniform_01_sample ( seed );
   }
 
   mean     = r8vec_mean     ( SAMPLE_NUM, x );
@@ -13109,7 +13592,7 @@ void test149 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = uniform_sample ( a, b, &seed );
+    x = uniform_sample ( a, b, seed );
     pdf = uniform_pdf ( x, a, b );
     cdf = uniform_cdf ( x, a, b );
     x2 = uniform_cdf_inv ( cdf, a, b );
@@ -13189,7 +13672,7 @@ void test150 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = uniform_sample ( a, b, &seed );
+    x[i] = uniform_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -13267,7 +13750,7 @@ void test151 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = uniform_discrete_sample ( a, b, &seed );
+    x = uniform_discrete_sample ( a, b, seed );
     pdf = uniform_discrete_pdf ( x, a, b );
     cdf = uniform_discrete_cdf ( x, a, b );
     x2 = uniform_discrete_cdf_inv ( cdf, a, b );
@@ -13347,7 +13830,7 @@ void test152 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = uniform_discrete_sample ( a, b, &seed );
+    x[i] = uniform_discrete_sample ( a, b, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );
@@ -13492,7 +13975,7 @@ void test154 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = von_mises_sample ( a, b, &seed );
+    x = von_mises_sample ( a, b, seed );
     pdf = von_mises_pdf ( x, a, b );
     cdf = von_mises_cdf ( x, a, b );
     x2 = von_mises_cdf_inv ( cdf, a, b );
@@ -13572,7 +14055,7 @@ void test155 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = von_mises_sample ( a, b, &seed );
+    x[i] = von_mises_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -13637,7 +14120,7 @@ void test1555 ( )
 
   for ( ; ; )
   {
-    von_mises_cdf_values ( &n_data, &a, &b, &x, &fx );
+    von_mises_cdf_values ( n_data, a, b, x, fx );
 
     if ( n_data == 0 )
     {
@@ -13719,7 +14202,7 @@ void test156 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = weibull_sample ( a, b, c, &seed );
+    x = weibull_sample ( a, b, c, seed );
     pdf = weibull_pdf ( x, a, b, c );
     cdf = weibull_cdf ( x, a, b, c );
     x2 = weibull_cdf_inv ( cdf, a, b, c );
@@ -13802,7 +14285,7 @@ void test157 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = weibull_sample ( a, b, c, &seed );
+    x[i] = weibull_sample ( a, b, c, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -13881,7 +14364,7 @@ void test158 ( )
 
   for ( i = 1; i <= 10; i++ )
   {
-    x = weibull_discrete_sample ( a, b, &seed );
+    x = weibull_discrete_sample ( a, b, seed );
     pdf = weibull_discrete_pdf ( x, a, b );
     cdf = weibull_discrete_cdf ( x, a, b );
     x2 = weibull_discrete_cdf_inv ( cdf, a, b );
@@ -14019,7 +14502,7 @@ void test160 ( )
 
   for ( i = 0; i < SAMPLE_NUM; i++ )
   {
-    x[i] = weibull_discrete_sample ( a, b, &seed );
+    x[i] = weibull_discrete_sample ( a, b, seed );
   }
 
   mean = r8vec_mean ( SAMPLE_NUM, x );
@@ -14164,7 +14647,7 @@ void test162 ( )
 
   for ( j = 0; j < SAMPLE_NUM; j++ )
   {
-    x[j] = zipf_sample ( a, &seed );
+    x[j] = zipf_sample ( a, seed );
   }
 
   mean = i4vec_mean ( SAMPLE_NUM, x );

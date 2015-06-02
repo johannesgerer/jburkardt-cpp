@@ -131,7 +131,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    STROUD_PRB calls the STROUD tests.
+//    STROUD_PRB tests the STROUD library.
 //
 //  Licensing:
 //
@@ -229,7 +229,6 @@ int main ( )
   cout << "\n";
   cout << "STROUD_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -1990,7 +1989,7 @@ void cn_geg_test ( int n, double alpha, int expon[] )
     cn_geg_00_1 ( n, alpha, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  CN_GEG_00_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2010,7 +2009,7 @@ void cn_geg_test ( int n, double alpha, int expon[] )
     cn_geg_01_1 ( n, alpha, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  CN_GEG_01_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2030,7 +2029,7 @@ void cn_geg_test ( int n, double alpha, int expon[] )
     cn_geg_02_xiu ( n, alpha, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  CN_GEG_02_XIU: "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2050,7 +2049,7 @@ void cn_geg_test ( int n, double alpha, int expon[] )
     gw_02_xiu ( n, o, gamma0, delta0, c1, volume_1d, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  GW_02_XIU:     "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2070,7 +2069,7 @@ void cn_geg_test ( int n, double alpha, int expon[] )
     cn_geg_03_xiu ( n, alpha, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  CN_GEG_03_XIU: "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2252,7 +2251,7 @@ void cn_jac_test ( int n, double alpha, double beta, int expon[] )
     cn_jac_00_1 ( n, alpha, beta, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  CN_JAC_00_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2272,7 +2271,7 @@ void cn_jac_test ( int n, double alpha, double beta, int expon[] )
     cn_jac_01_1 ( n, alpha, beta, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  CN_JAC_01_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2292,7 +2291,7 @@ void cn_jac_test ( int n, double alpha, double beta, int expon[] )
     cn_jac_02_xiu ( n, alpha, beta, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  CN_JAC_02_XIU: "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2313,7 +2312,7 @@ void cn_jac_test ( int n, double alpha, double beta, int expon[] )
     gw_02_xiu ( n, o, gamma0, delta0, c1, volume_1d, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     std::cout << "  GW_02_XIU:     "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2476,7 +2475,7 @@ void cn_leg_test ( int n, int expon[] )
     cn_leg_01_1 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     std::cout << "  CN_LEG_01_1:   "
          << "  " << std::setw(6) << o
          << "  " << std::setw(14) << quad
@@ -2496,7 +2495,7 @@ void cn_leg_test ( int n, int expon[] )
     cn_leg_02_xiu ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     std::cout << "  CN_LEG_02_XIU: "
          << "  " << std::setw(6) << o
          << "  " << std::setw(14) << quad
@@ -2515,7 +2514,7 @@ void cn_leg_test ( int n, int expon[] )
     gw_02_xiu ( n, o, gamma0, delta0, c1, volume_1d, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     std::cout << "  GW_02_XIU:     "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -2535,7 +2534,7 @@ void cn_leg_test ( int n, int expon[] )
     cn_leg_03_1 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     std::cout << "  CN_LEG_03_1:   "
          << "  " << std::setw(6) << o
          << "  " << std::setw(14) << quad
@@ -2550,7 +2549,7 @@ void cn_leg_test ( int n, int expon[] )
     cn_leg_03_xiu ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     std::cout << "  CN_LEG_03_XIU: "
          << "  " << std::setw(6) << o
          << "  " << std::setw(14) << quad
@@ -2573,7 +2572,7 @@ void cn_leg_test ( int n, int expon[] )
       cn_leg_05_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       std::cout << "  CN_LEG_05_1(1):"
            << "  " << std::setw(6) << o
            << "  " << std::setw(14) << quad
@@ -2591,7 +2590,7 @@ void cn_leg_test ( int n, int expon[] )
       cn_leg_05_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       std::cout << "  CN_LEG_05_1(2):"
            << "  " << std::setw(6) << o
            << "  " << std::setw(14) << quad
@@ -2609,7 +2608,7 @@ void cn_leg_test ( int n, int expon[] )
       cn_leg_05_2 ( n, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       std::cout << "  CN_LEG_05_2:   "
            << "  " << std::setw(6) << o
            << "  " << std::setw(14) << quad
@@ -3014,7 +3013,7 @@ void test207 ( )
 //
 //  Modified:
 //
-//    23 January 2010
+//    23 April 2013
 //
 //  Author:
 //
@@ -3022,6 +3021,7 @@ void test207 ( )
 //
 {
   int *expon;
+  int expon_dim;
   int i;
   int n;
 
@@ -3041,7 +3041,8 @@ void test207 ( )
 
   for ( n = 1; n <= 7; n++ )
   {
-    expon = new int[n];
+    expon_dim = i4_max ( n, 2 );
+    expon = new int[expon_dim];
 
     for ( i = 0; i < n; i++ )
     {
@@ -3176,7 +3177,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_01_1 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_01_1:    "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3196,7 +3197,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_02_xiu ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_02_XIU:  "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3215,7 +3216,7 @@ void en_r2_test ( int n, int expon[] )
     gw_02_xiu ( n, o, gamma0, delta0, c1, volume_1d, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  GW_02_XIU:     "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3235,7 +3236,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_03_1 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_03_1:    "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3250,7 +3251,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_03_2 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_03_2:    "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3265,7 +3266,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_03_xiu ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_03_XIU:  "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3288,7 +3289,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_05_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_05_1(1): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3307,7 +3308,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_05_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_05_1(2): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3323,7 +3324,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_05_2 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_05_2:    "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3340,7 +3341,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_05_3 ( n, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_05_3:    "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3356,7 +3357,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_05_4 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_05_4:    "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3371,7 +3372,7 @@ void en_r2_test ( int n, int expon[] )
     en_r2_05_5 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EN_R2_05_5:    "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3388,7 +3389,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_05_6 ( n, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_05_6:    "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3411,7 +3412,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_07_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_07_1(1): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3429,7 +3430,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_07_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_07_1(2): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3446,7 +3447,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_07_2 ( n, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_07_2:    "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3465,7 +3466,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_07_3 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_07_3(1): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3483,7 +3484,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_07_3 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_07_3(2): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3507,7 +3508,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_09_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_09_1(1): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3523,7 +3524,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_09_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_09_1(2): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3547,7 +3548,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_11_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_11_1(1): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3563,7 +3564,7 @@ void en_r2_test ( int n, int expon[] )
       en_r2_11_1 ( n, option, o, x, w );
       v = monomial_value ( n, o, x, expon );
       quad = r8vec_dot_product ( o, w, v );
-      err = r8_abs ( quad - exact );
+      err = fabs ( quad - exact );
       cout << "  EN_R2_11_1(2): "
            << "  " << setw(6) << o
            << "  " << setw(14) << quad
@@ -3732,7 +3733,7 @@ void epn_glg_test ( int n, int expon[], double alpha )
     epn_glg_00_1 ( n, alpha, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EPN_GLG_00_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3752,7 +3753,7 @@ void epn_glg_test ( int n, int expon[], double alpha )
     epn_glg_01_1 ( n, alpha, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EPN_GLG_01_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3772,7 +3773,7 @@ void epn_glg_test ( int n, int expon[], double alpha )
     epn_glg_02_xiu ( n, alpha, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EPN_GLG_02_XIU: "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3791,7 +3792,7 @@ void epn_glg_test ( int n, int expon[], double alpha )
     gw_02_xiu ( n, o, gamma0, delta0, c1, volume_1d, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     std::cout << "  GW_02_XIU:      "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3938,7 +3939,7 @@ void epn_lag_test ( int n, int expon[] )
     epn_lag_00_1 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EPN_LAG_00_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3958,7 +3959,7 @@ void epn_lag_test ( int n, int expon[] )
     epn_lag_01_1 ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EPN_LAG_01_1:   "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3978,7 +3979,7 @@ void epn_lag_test ( int n, int expon[] )
     epn_lag_02_xiu ( n, o, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  EPN_LAG_02_XIU: "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -3997,7 +3998,7 @@ void epn_lag_test ( int n, int expon[] )
     gw_02_xiu ( n, o, gamma0, delta0, c1, volume_1d, x, w );
     v = monomial_value ( n, o, x, expon );
     quad = r8vec_dot_product ( o, w, v );
-    err = r8_abs ( quad - exact );
+    err = fabs ( quad - exact );
     cout << "  GW_02_XIU:      "
          << "  " << setw(6) << o
          << "  " << setw(14) << quad
@@ -4693,7 +4694,7 @@ void test27 ( )
 //
 //  Modified:
 //
-//    08 April 2008
+//    23 April 2013
 //
 //  Author:
 //
@@ -4735,7 +4736,8 @@ void test27 ( )
       }
       cout << "\n";
     }
- 
+    delete [] v;
+
     cout << "\n";
     cout << "  F(X)    SIMPLEX_ND\n";
     cout << "\n";
@@ -4744,16 +4746,15 @@ void test27 ( )
 
     for ( i = 1; i <= num; i++ )
     {
+      v = setsim ( n );
       function_nd_index = i;
       function_nd_name ( name );
 
       result = simplex_nd ( function_nd, n, v );
       cout << "  " << name
            << "  " << setw(14) << result << "\n";
- 
-      v = setsim ( n );
+      delete [] v;
     }
-    delete [] v;
   }
   return;
 }
@@ -6468,7 +6469,7 @@ void test425 ( )
           quad = quad + 0.5 * weight[i] * value;
         }
         exact = 1.0;
-        err = r8_abs ( exact - quad );
+        err = fabs ( exact - quad );
         cout << "  " << setw(4) << rule
              << "  " << setw(14) << quad
              << "  " << setw(11) << err << "\n";
@@ -7160,7 +7161,7 @@ double function_1d ( double x )
   }
   else if ( function_1d_index == 8 )
   {
-    value = r8_abs ( x );
+    value = fabs ( x );
   }
   else if ( function_1d_index == 9 )
   {
@@ -7172,11 +7173,11 @@ double function_1d ( double x )
   }
   else if ( function_1d_index == 11 )
   {
-    value = 1.0 / ( 1.0 + r8_abs ( x ) );
+    value = 1.0 / ( 1.0 + fabs ( x ) );
   }
   else if ( function_1d_index == 12 )
   {
-    value = sqrt ( r8_abs ( x ) );
+    value = sqrt ( fabs ( x ) );
   }
   else
   {

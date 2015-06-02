@@ -8,7 +8,7 @@ double *basis_matrix_hermite ( );
 double *basis_matrix_overhauser_nonuni ( double alpha, double beta );
 double *basis_matrix_overhauser_nul ( double alpha );
 double *basis_matrix_overhauser_nur ( double beta );
-double *basis_matrix_overhauser_uni ( void);
+double *basis_matrix_overhauser_uni ( );
 double *basis_matrix_overhauser_uni_l ( );
 double *basis_matrix_overhauser_uni_r ( );
 double basis_matrix_tmp ( int left, int n, double mbasis[], int ndata, 
@@ -43,10 +43,12 @@ double least_val_old ( double x, int ndeg, double b[], double c[], double d[] );
 void parabola_val2 ( int ndim, int ndata, double tdata[], double ydata[], 
   int left, double tval, double yval[] );
 double pchst ( double arg1, double arg2 );
-double r8_abs ( double x );
+double *penta ( int n, double a1[], double a2[], double a3[], double a4[], 
+  double a5[], double b[] );
 double r8_max ( double x, double y );
 double r8_min ( double x, double y );
 double r8_uniform_01 ( int *seed );
+double *r8ge_fs_new ( int n, double a[], double b[] );
 void r8vec_bracket ( int n, double x[], double xval, int *left, int *right );
 void r8vec_bracket3 ( int n, double t[], double tval, int *left );
 double *r8vec_even_new ( int n, double alo, double ahi );
@@ -60,9 +62,10 @@ void r8vec_zero ( int n, double a[] );
 double spline_b_val ( int ndata, double tdata[], double ydata[], double tval );
 double spline_beta_val ( double beta1, double beta2, int ndata, double tdata[],
   double ydata[], double tval );
-double spline_constant_val ( int ndata, double tdata[], double ydata[], double tval );
-double *spline_cubic_set ( int n, double t[], double y[], int ibcbeg, double ybcbeg, 
-  int ibcend, double ybcend );
+double spline_constant_val ( int ndata, double tdata[], double ydata[], 
+  double tval );
+double *spline_cubic_set ( int n, double t[], double y[], int ibcbeg, 
+  double ybcbeg, int ibcend, double ybcend );
 double spline_cubic_val ( int n, double t[], double y[], double ypp[], 
   double tval, double *ypval, double *yppval );
 void spline_cubic_val2 ( int n, double t[], double tval, int *left, double y[], 

@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-cp blas1_s.hpp /$HOME/include
+cp blas1_s.hpp $HOME/include
 #
-g++ -c -g -I /$HOME/include blas1_s.cpp >& compiler.txt
+g++ -c -g -I $HOME/include blas1_s.cpp >& compiler.txt
 if [ $? -ne 0 ]; then
   echo "Errors compiling blas1_s.cpp"
   exit

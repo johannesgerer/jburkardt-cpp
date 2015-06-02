@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    ELLIPSE_GRID_TEST tests ELLIPSE_GRID.
+//    MAIN is the main program for ELLIPSE_GRID_PRB.
+//
+//  Discussion:
+//
+//    ELLIPSE_GRID_PRB tests the ELLIPSE_GRID library.
 //
 //  Licensing:
 //
@@ -36,7 +40,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "ELLIPSE_GRID_TEST:\n";
+  cout << "ELLIPSE_GRID_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the ELLIPSE_GRID library.\n";
 
@@ -45,7 +49,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "ELLIPSE_GRID_TEST:\n";
+  cout << "ELLIPSE_GRID_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

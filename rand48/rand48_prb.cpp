@@ -29,7 +29,7 @@ int main ( void )
 //
 //  Discussion:
 //
-//    RAND48_PRB calls sample problems for the RAND48 routines.
+//    RAND48_PRB tests the RAND48 library.
 //
 //  Licensing:
 //
@@ -45,7 +45,6 @@ int main ( void )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "RAND48_PRB\n";
   cout << "  C++ version:\n";
@@ -60,11 +59,12 @@ int main ( void )
   test07 ( );
   test08 ( );
   test09 ( );
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "RAND48_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

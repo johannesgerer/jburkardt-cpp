@@ -2,12 +2,11 @@
 #
 cp uniform.hpp /$HOME/include
 #
-g++ -c -g -I /$HOME/include uniform.cpp >& compiler.txt
+g++ -c -I /$HOME/include uniform.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling uniform.cpp"
   exit
 fi
-rm compiler.txt
 #
 mv uniform.o ~/libcpp/$ARCH/uniform.o
 #

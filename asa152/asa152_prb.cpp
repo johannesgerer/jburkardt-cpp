@@ -23,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA152_PRB calls the ASA152 routines.
+//    ASA152_PRB tests the ASA152 library.
 //
 //  Licensing:
 //
@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA152_PRB:\n";
   cout << "  C++ version\n";
@@ -53,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "ASA152_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -125,7 +123,7 @@ void test01 ( )
          << "  " << setw(4) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;
@@ -196,7 +194,7 @@ void test02 ( )
          << "  " << setw(4) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;

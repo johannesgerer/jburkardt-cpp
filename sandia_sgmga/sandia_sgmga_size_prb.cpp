@@ -66,11 +66,12 @@ int main ( )
   std::cout << "  Test SANDIA_SGMGA_SIZE and SANDIA_SGMGA_SIZE_TOTAL.\n";
 
   sandia_sgmga_size_tests ( );
-
+//
+//  Terminate.
+//
   std::cout << "\n";
   std::cout << "SANDIA_SGMGA_SIZE_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
   

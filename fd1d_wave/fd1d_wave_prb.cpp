@@ -30,7 +30,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    FD1D_WAVE_PRB tests the FD1D finite difference wave computation.
+//    MAIN is the main program for FD1D_WAVE_PRB.
+//
+//  Discussion:
+//
+//    FD1D_WAVE_PRB tests the FD1D_WAVE library.
 //
 //  Licensing:
 //
@@ -46,7 +50,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "FD1D_WAVE_PRB\n";
   cout << "  C++ version\n";
@@ -162,10 +165,10 @@ void fd1d_wave_test01 ( )
 //
 //  Write the solution to a file.
 //
-  r8mat_write ( "test01_plot.txt", t_num, x_num, u );
+  r8mat_write ( "test01_data.txt", t_num, x_num, u );
 
   cout << "\n";
-  cout << "  Plot data written to \"test01_plot.txt\".\n";
+  cout << "  Plot data written to \"test01_data.txt\".\n";
 
   delete [] t_vec;
   delete [] u;
@@ -443,10 +446,10 @@ void fd1d_wave_test02 ( )
 //
 //  Write the solution to a file.
 //
-  r8mat_write ( "test02_plot.txt", t_num, x_num, u );
+  r8mat_write ( "test02_data.txt", t_num, x_num, u );
 
   cout << "\n";
-  cout << "  Plot data written to \"test02_plot.txt\".\n";
+  cout << "  Plot data written to \"test02_data.txt\".\n";
 
   delete [] t_vec;
   delete [] u;

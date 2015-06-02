@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c sizes.cpp >& compiler.txt
+g++ -c sizes.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling sizes.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ sizes.o
 if [ $? -ne 0 ]; then

@@ -27,6 +27,10 @@ int main ( )
 //
 //  Purpose:
 //
+//    MAIN is the main program for LAGUERRE_POLYNOMIAL_PRB.
+//
+//  Discussion:
+//
 //    LAGUERRE_POLYNOMIAL_PRB tests the LAGUERRE_POLYNOMIAL library.
 //
 //  Licensing:
@@ -80,7 +84,6 @@ int main ( )
   cout << "\n";
   cout << "LAGUERRE_POLYNOMIAL_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

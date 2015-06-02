@@ -1,0 +1,273 @@
+<html>
+
+  <head>
+    <title>
+      UMFPACK - Solving Large Sparse Linear Systems with the UMFPACK Library
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      UMFPACK <br> Solving Large Sparse Linear Systems with the UMFPACK Library
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>UMFPACK</b>,
+      C++ programs which
+      illustrate how to solve sparse linear systems by calling
+      the C library UMFPACK, by Timothy Davis.
+    </p>
+
+    <p>
+      The UMFPACK library, written by Timothy Davis,
+      is part of the SuiteSparse package, which is
+      available from <a href = "http://www.cise.ufl.edu/research/sparse/">
+                                http://www.cise.ufl.edu/research/sparse/ </a>.
+    </p>
+
+    <p>
+      Calling UMFPACK requires linking additional libraries from the
+      SuiteSparse collection.  The executable shell scripts given here suggest
+      how this might be done.
+    </p>
+
+    <p>
+      UMFPACK requires that the sparse matrix be stored in a common format
+      known as compressed column (CC) storage.  
+    </p>
+
+    <p>
+      UMFPACK uses the C indexing 
+      convention, in which the first element of a vector has index 0.
+    </p>
+
+    <p>
+      As an example, the matrix whose full representation is:
+      <pre>
+       11 12  0  0  0
+       21  0 23  0 25
+        0 32 33 34  0
+        0  0 43  0  0
+        0 52 53  0 55
+      </pre>
+      would be stored in compressed column storage as:
+      <pre>
+         #  R   CC   X
+        --  -   --  --
+         0  0    0  11
+         1  1       21
+
+         2  0    2  12
+         3  2       32
+         4  4       52
+
+         5  1    5  23
+         6  2       33
+         7  3       43
+         8  4       53
+
+         9  2    9  34
+
+        10  1   10  25
+        11  4       55
+
+        12  -   12
+      </pre>
+      and this is the matrix used in the simple example code.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>UMFPACK</b> is available in
+      <a href = "../../c_src/umfpack/umfpack.html">a C version</a> and
+      <a href = "../../cpp_src/umfpack/umfpack.html">a C++ version</a> and
+      <a href = "../../f_src/umfpack/umfpack.html">a FORTRAN90 version</a> and
+      <a href = "../../f77_src/umfpack/umfpack.html">a FORTRAN77 version</a> and
+      <a href = "../../m_src/umfpack/umfpack.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/cc/cc.html">
+      CC</a>,
+      a data directory which
+      contains examples of the compressed column (CC)
+      sparse matrix format;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cg_rc/cg_rc.html">
+      CG_RC</a>,
+      a C++ library which
+      implements the conjugate gradient method for solving 
+      a positive definite sparse linear system A*x=b, 
+      using reverse communication.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hb_io/hb_io.html">
+      HB_IO</a>,
+      a C++ library which
+      reads and writes sparse linear systems stored in the Harwell Boeing (HB)
+      format for sparse matrices.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mgmres/mgmres.html">
+      MGMRES</a>,
+      a C++ library which
+      applies the restarted Generalized Minimum Residual (GMRES) algorithm 
+      to solve a sparse linear system, by Lili Ju.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/st_io/st_io.html">
+      ST_IO</a>,
+      a C++ library which
+      reads and writes sparse linear systems 
+      stored in the Sparse Triplet (ST) format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/superlu/superlu.html">
+      SUPERLU</a>,
+      C++ programs which
+      illustrate the usage of the SUPERLU library,
+      which applies a fast direct solution method to solve
+      sparse linear systems,
+      by James Demmel, John Gilbert, and Xiaoye Li.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Timothy Davis,<br>
+          Algorithm 832: UMFPACK, an unsymmetric-pattern multifrontal method,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 30, Number 2, June 2004, pages 196-199. 
+        </li>
+        <li>
+          Timothy Davis,<br>
+          Direct Methods for Sparse Linear Systems,<br>
+          SIAM, 2006,<br>
+          ISBN: 0898716136,<br>
+          LC: QA188.D386.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      The SIMPLE example demonstrates the use of UMFPACK on a 5x5 "sparse" matrix.
+      <ul>
+        <li>
+          <a href = "umfpack_simple.cpp">umfpack_simple.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "umfpack_simple.sh">umfpack_simple.sh</a>,
+          commands to compile the source code.
+        </li>
+        <li>
+          <a href = "umfpack_simple_output.txt">umfpack_simple_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The WATHEN example demonstrates the use of UMFPACK on a sparse matrix
+      that is an instance of the Wathen finite element mass matrix.  The matrix
+      is created using the sparse triplet (ST) format, and must be converted to
+      the compressed column (CC) format before calling UMFPACK.  This demonstrates
+      why the 5x5 SIMPLE example is not representative of the typical use of UMFPACK.
+      <ul>
+        <li>
+          <a href = "umfpack_wathen.cpp">umfpack_wathen.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "umfpack_wathen.sh">umfpack_wathen.sh</a>,
+          commands to compile the source code.
+        </li>
+        <li>
+          <a href = "umfpack_wathen_output.txt">umfpack_wathen_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The WEST example demonstrates the use of UMFPACK on a sparse matrix
+      in the compressed column (CC) format, stored in three files.  The matrix
+      is read from the files, and then UMFPACK is called to handle an associated
+      linear system.
+      <ul>
+        <li>
+          <a href = "umfpack_west.cpp">umfpack_west.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "umfpack_west.sh">umfpack_west.sh</a>,
+          commands to compile the source code.
+        </li>
+        <li>
+          <a href = "umfpack_west_output.txt">umfpack_west_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "west_acc.txt">west_acc.txt</a>,
+          a file containing the nonzero matrix values.
+        </li>
+        <li>
+          <a href = "west_ccc.txt">west_ccc.txt</a>,
+          a file containing the compressed column indices.
+        </li>
+        <li>
+          <a href = "west_icc.txt">west_icc.txt</a>,
+          a file containing the row indices of the nonzero matrix values.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 20 July 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

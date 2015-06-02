@@ -93,6 +93,14 @@ int main ( int argc, char *argv[] )
   int boundary_num;
   int edge_num;
   int element;
+  string element_filename;
+  int *element_node1;
+  int *element_node2;
+  int element_num;
+  int *element_neighbor;
+  int element_order1;
+  int element_order2;
+  int element2;
   int i;
   int ii;
   int iii;
@@ -113,15 +121,6 @@ int main ( int argc, char *argv[] )
   string node_l2q_filename;
   string element_l2q_filename;
   string prefix;
-  int triangle;
-  string element_filename;
-  int *triangle_node1;
-  int *triangle_node2;
-  int triangle_num;
-  int *triangle_neighbor;
-  int triangle_order1;
-  int triangle_order2;
-  int triangle2;
 
   cout << "\n";
   timestamp ( );
@@ -133,12 +132,12 @@ int main ( int argc, char *argv[] )
   cout << "  write out a \"quadratic\" triangulation.\n";
   cout << "\n";
   cout << "  Read a dataset of NODE_NUM1 points in 2 dimensions.\n";
-  cout << "  Read an associated triangulation dataset of TRIANGLE_NUM \n";
-  cout << "  triangles which uses 3 nodes per triangle.\n";
+  cout << "  Read an associated triangulation dataset of ELEMENT_NUM \n";
+  cout << "  elements which uses 3 nodes per triangular element.\n";
   cout << "\n";
   cout << "  Create new nodes which are triangle midpoints,\n";
   cout << "  generate new node and triangulation data for\n";
-  cout << "  quadratic 6-node triangles, and write them out.\n";
+  cout << "  quadratic 6-node elements, and write them out.\n";
   cout << "\n";
   cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
 //
@@ -184,10 +183,9 @@ int main ( int argc, char *argv[] )
 //
 //  Read the element data.
 //
-  i4mat_header_read ( element_filename, &triangle_order1, 
-    &triangle_num );
+  i4mat_header_read ( element_filename, &element_order1, &element_num );
 
-  if ( triangle_order1 != 3 )
+  if ( element_order1 != 3 )
   {
     cout << "\n";
     cout << "TRIANGULATION_L2Q - Fatal error!\n";
@@ -198,28 +196,28 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "  Read the header of \"" << element_filename << "\".\n";
   cout << "\n";
-  cout << "  Element order = " << triangle_order1 << "\n";
-  cout << "  Number of elements  = " << triangle_num << "\n";
+  cout << "  Element order = " << element_order1 << "\n";
+  cout << "  Number of elements  = " << element_num << "\n";
 
-  triangle_node1 = i4mat_data_read ( element_filename, 
-    triangle_order1, triangle_num );
+  element_node1 = i4mat_data_read ( element_filename, element_order1,
+    element_num );
 
   cout << "\n";
   cout << "  Read the data in \"" << element_filename << "\".\n";
 
-  i4mat_transpose_print_some ( triangle_order1, triangle_num, triangle_node1, 1, 1, 
-    triangle_order1, 10, "  First 10 elements:" );
+  i4mat_transpose_print_some ( element_order1, element_num, element_node1, 
+    1, 1, element_order1, 10, "  First 10 elements:" );
 //
 //  Detect and correct 1-based node indexing.
 //
-  mesh_base_zero ( node_num1, triangle_order1, triangle_num, triangle_node1 );
+  mesh_base_zero ( node_num1, element_order1, element_num, element_node1 );
 //
 //  Determine the number of midside nodes that will be added.
 //
-  boundary_num = triangulation_order3_boundary_edge_count ( triangle_num, 
-    triangle_node1 );
+  boundary_num = triangulation_order3_boundary_edge_count ( element_num, 
+    element_node1 );
 
-  interior_num = ( 3 * triangle_num - boundary_num ) / 2;
+  interior_num = ( 3 * element_num - boundary_num ) / 2;
   edge_num = interior_num + boundary_num;
   cout << "\n";
   cout << "  Number of midside nodes to add = " << edge_num << "\n";
@@ -227,30 +225,30 @@ int main ( int argc, char *argv[] )
 //  Allocate space.
 //
   node_num2 = node_num1 + edge_num;
-  triangle_order2 = 6;
+  element_order2 = 6;
 
   node_xy2 = new double[m*node_num2];
-  triangle_node2 = new int[triangle_order2*triangle_num];
+  element_node2 = new int[element_order2*element_num];
 //
-//  Build the triangle neighbor array.
+//  Build the element neighbor array.
 //
-  triangle_neighbor = triangulation_neighbor_triangles ( triangle_order1, 
-    triangle_num, triangle_node1 );
+  element_neighbor = triangulation_neighbor_triangles ( element_order1, 
+    element_num, element_node1 );
 
-  i4mat_transpose_print ( 3, triangle_num, triangle_neighbor, 
+  i4mat_transpose_print ( 3, element_num, element_neighbor, 
     "  Element_neighbor:" );
 //
 //  Create the midside nodes.
 //
-  for ( element = 0; element < triangle_num; element++ )
+  for ( element = 0; element < element_num; element++ )
   {
     for ( i = 0; i < 3; i++ )
     {
-      triangle_node2[i+element*6] = triangle_node1[i+element*3];
+      element_node2[i+element*6] = element_node1[i+element*3];
     }
     for ( i = 3; i < 6; i++ )
     {
-      triangle_node2[i+element*6] = -1;
+      element_node2[i+element*6] = -1;
     }
   }
 
@@ -272,7 +270,7 @@ int main ( int argc, char *argv[] )
   cout << "  Generate midside nodes\n";
   cout << "\n";
 
-  for ( triangle = 1; triangle <= triangle_num; triangle++ )
+  for ( element = 1; element <= element_num; element++ )
   {
     for ( i = 0; i < 3; i++ )
     {
@@ -280,9 +278,9 @@ int main ( int argc, char *argv[] )
 //  CORRECTION #1 because element neighbor definition was changed.
 //
       iii = i4_wrap ( i + 2, 0, 2 );
-      triangle2 = triangle_neighbor[iii+(triangle-1)*3];
+      element2 = element_neighbor[iii+(element-1)*3];
 
-      if ( 0 < triangle2 && triangle2 < triangle )
+      if ( 0 < element2 && element2 < element )
       {
         continue;
       }
@@ -291,8 +289,8 @@ int main ( int argc, char *argv[] )
 //
 //  Temporary RETRO FIX!
 //
-      k1 = triangle_node2[i+(triangle-1)*6] + 1;
-      k2 = triangle_node2[ip1+(triangle-1)*6] + 1;
+      k1 = element_node2[i+(element-1)*6] + 1;
+      k2 = element_node2[ip1+(element-1)*6] + 1;
 
       cout << "  " << setw(8) << node_num2;
       for ( ii = 0; ii < 2; ii++ )
@@ -303,9 +301,9 @@ int main ( int argc, char *argv[] )
       }
       cout << "\n";
 
-      triangle_node2[3+i+(triangle-1)*6] = node_num2;
+      element_node2[3+i+(element-1)*6] = node_num2;
 
-      if ( 0 < triangle2 )
+      if ( 0 < element2 )
       {
         for ( ii = 0; ii < 3; ii++ )
         {
@@ -313,9 +311,9 @@ int main ( int argc, char *argv[] )
 //  CORRECTION #2 because element neighbor definition changed.
 //
           iii = i4_wrap ( ii + 2, 0, 2 );
-          if ( triangle_neighbor[iii+(triangle2-1)*3] == triangle )
+          if ( element_neighbor[iii+(element2-1)*3] == element )
           {
-            triangle_node2[ii+3+(triangle2-1)*6] = node_num2;
+            element_node2[ii+3+(element2-1)*6] = node_num2;
           }
         }
       }
@@ -323,25 +321,25 @@ int main ( int argc, char *argv[] )
     }
   }
 
-  i4mat_transpose_print ( triangle_order2, triangle_num, triangle_node2, 
+  i4mat_transpose_print ( element_order2, element_num, element_node2, 
     "  ELEMENT_NODE2:" );
 //
-//  Write out the node and triangle data for the quadratic mesh.
+//  Write out the node and element data for the quadratic mesh.
 //
   r8mat_transpose_print ( m, node_num2, node_xy2, "  NODE_XY2:" );
 
   r8mat_write ( node_l2q_filename, m, node_num2, node_xy2 );
 
-  i4mat_write ( element_l2q_filename, triangle_order2, triangle_num, 
-    triangle_node2 );
+  i4mat_write ( element_l2q_filename, element_order2, element_num, 
+    element_node2 );
 //
-//  Free up memory.
+//  Free memory.
 //
+  delete [] element_neighbor;
+  delete [] element_node1;
+  delete [] element_node2;
   delete [] node_xy1;
   delete [] node_xy2;
-  delete [] triangle_neighbor;
-  delete [] triangle_node1;
-  delete [] triangle_node2;
 //
 //  Terminate.
 //

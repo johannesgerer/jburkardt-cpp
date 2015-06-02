@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include geometry_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include geometry_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling geometry_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ geometry_prb.o /$HOME/libcpp/$ARCH/geometry.o -lm
 if [ $? -ne 0 ]; then

@@ -2,12 +2,11 @@
 #
 cp floyd.hpp /$HOME/include
 #
-g++ -c -g -I /$HOME/include floyd.cpp >& compiler.txt
+g++ -c -I /$HOME/include floyd.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling floyd.cpp"
   exit
 fi
-rm compiler.txt
 #
 mv floyd.o ~/libcpp/$ARCH/floyd.o
 #

@@ -1,0 +1,21 @@
+# spring_ode2_commands.txt
+#
+# Usage:
+#  gnuplot < spring_ode2_commands.txt
+#
+set term png
+set output 'xv_time.png'
+set xlabel '<--- T --->'
+set ylabel '<--- X(T), V(T) --->'
+set title 'Position and Velocity versus Time'
+set grid
+set style data lines
+plot 'spring_ode2_data.txt' using 1:2 lw 3 linecolor rgb 'blue', '' using 1:3 lw 3 linecolor rgb 'red'
+set output 'xv_phase.png'
+set xlabel '<--- X(T) --->'
+set ylabel '<--- V(T) --->'
+set title 'Position versus Velocity'
+set grid
+set style data lines
+plot 'spring_ode2_data.txt' using 2:3 lw 3 linecolor rgb 'green'
+quit

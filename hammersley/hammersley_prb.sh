@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include hammersley_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include hammersley_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling hammersley_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ hammersley_prb.o /$HOME/libcpp/$ARCH/hammersley.o -lm
 if [ $? -ne 0 ]; then

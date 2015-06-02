@@ -28,7 +28,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SANDIA_SPARSE_PRB calls a set of problems for SANDIA_SPARSE.
+//    SANDIA_SPARSE_PRB tests the SANDIA_SPARSE library.
 //
 //  Modified:
 //
@@ -59,7 +59,6 @@ int main ( )
   int rule_max = 7;
 
   timestamp ( );
-
   cout << "\n";
   cout << "SANDIA_SPARSE_PRB\n";
   cout << "  C++ version\n";
@@ -392,12 +391,11 @@ int main ( )
     }
   }
 //
-//  All done.
+//  Terminate.
 //
   cout << "\n";
   cout << "SANDIA_SPARSE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

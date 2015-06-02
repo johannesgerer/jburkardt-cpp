@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    NIEDERREITER2_PRB calls a set of problems for NIEDERREITER2.
+//    MAIN is the main program for NIEDERREITER2_PRB.
+//
+//  Discussion:
+//
+//    NIEDERREITER2_PRB tests the NIEDERREITER2 library.
 //
 //  Licensing:
 //
@@ -35,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "NIEDERREITER2_PRB\n";
   cout << "  C++ version\n";
@@ -49,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "NIEDERREITER2_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

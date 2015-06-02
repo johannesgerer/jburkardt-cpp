@@ -24,7 +24,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    I8LIB_PRB calls the I8LIB tests.
+//    I8LIB_PRB tests the I8LIB library.
 //
 //  Licensing:
 //
@@ -53,7 +53,6 @@ int main ( )
   cout << "\n";
   cout << "I8LIB_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

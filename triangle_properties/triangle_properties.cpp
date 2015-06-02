@@ -9,12 +9,9 @@
 using namespace std;
 
 int main ( int argc, char *argv[] );
-double arc_cosine ( double c );
 char ch_cap ( char ch );
 bool ch_eqi ( char ch1, char ch2 );
 int ch_to_digit ( char ch );
-double *dtable_data_read ( string input_filename, int m, int n );
-void dtable_header_read ( string input_filename, int *m, int *n );
 int file_column_count ( string filename );
 int file_row_count ( string input_filename );
 int i4_max ( int i1, int i2 );
@@ -31,9 +28,12 @@ void lines_exp_int_2d ( double p1[2], double p2[2], double p3[2], double p4[2],
 void lines_imp_int_2d ( double a1, double b1, double c1, double a2, double b2, 
   double c2, int *ival, double p[2] );
 double r8_abs ( double x );
+double r8_acos ( double c );
 double r8_huge ( );
 double r8_max ( double x, double y );
 double r8_min ( double x, double y );
+double *r8mat_data_read ( string input_filename, int m, int n );
+void r8mat_header_read ( string input_filename, int &m, int &n );
 double *r8mat_inverse_2d ( double a[] );
 int r8mat_solve ( int n, int rhs_num, double a[] );
 void r8mat_transpose_print ( int m, int n, double a[], string title );
@@ -41,7 +41,7 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
   int ihi, int jhi, string title );
 void r8vec_copy ( int n, double a1[], double a2[] );
 bool r8vec_eq ( int n, double a1[], double a2[] );
-double r8vec_length ( int dim_num, double x[] );
+double r8vec_norm ( int dim_num, double x[] );
 void r8vec_print ( int n, double a[], string title );
 int s_len_trim ( string s );
 double s_to_r8 ( string s, int *lchar, bool *error );
@@ -131,7 +131,7 @@ int main ( int argc, char *argv[] )
 //
 //  Read the node data.
 //
-  dtable_header_read ( node_filename, &dim_num, &node_num );
+  r8mat_header_read ( node_filename, dim_num, node_num );
 
   cout << "\n";
   cout << "  Read the header of \"" << node_filename << "\".\n";
@@ -155,7 +155,7 @@ int main ( int argc, char *argv[] )
     exit ( 1 );
   }
 
-  node_xy = dtable_data_read ( node_filename, dim_num, node_num );
+  node_xy = r8mat_data_read ( node_filename, dim_num, node_num );
 
   cout << "\n";
   cout << "  Read the data in \"" << node_filename << "\".\n";
@@ -208,7 +208,7 @@ int main ( int argc, char *argv[] )
 //
 //  IN_CIRCLE
 //
-  triangle_incircle_2d ( node_xy, &in_radius, in_center );
+  triangle_incircle_2d ( node_xy, in_center, &in_radius );
 
   cout << "\n";
   cout << "  IN_RADIUS: " << in_radius << "\n";
@@ -261,67 +261,22 @@ int main ( int argc, char *argv[] )
 
   cout << "\n";
   cout << "  QUALITY: " << quality << "\n";
-
+//
+//  Free memory.
+//
   delete [] centroid;
   delete [] edge_length;
   delete [] node_xy;
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "TRIANGLE_PROPERTIES:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
   return 0;
-}
-//****************************************************************************80
-
-double arc_cosine ( double c )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ARC_COSINE computes the arc cosine function, with argument truncation.
-//
-//  Discussion:
-//
-//    If you call your system ACOS routine with an input argument that is
-//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
-//    This routine truncates arguments outside the range.
-//
-//  Modified:
-//
-//    13 June 2002
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double C, the argument, the cosine of an angle.
-//
-//    Output, double ARC_COSINE, an angle whose cosine is C.
-//
-{
-  double angle;
-  double pi = 3.141592653589793;
-
-  if ( c <= -1.0 )
-  {
-    angle = pi;
-  } 
-  else if ( 1.0 <= c )
-  {
-    angle = 0.0;
-  }
-  else
-  {
-    angle = acos ( c );
-  }
-  return angle;
 }
 //****************************************************************************80
 
@@ -461,165 +416,6 @@ int ch_to_digit ( char ch )
   }
 
   return digit;
-}
-//****************************************************************************80
-
-double *dtable_data_read ( string input_filename, int m, int n )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_DATA_READ reads the data from a DTABLE file.
-//
-//  Discussion:
-//
-//    The file is assumed to contain one record per line.
-//
-//    Records beginning with '#' are comments, and are ignored.
-//    Blank lines are also ignored.
-//
-//    Each line that is not ignored is assumed to contain exactly (or at least)
-//    M real numbers, representing the coordinates of a point.
-//
-//    There are assumed to be exactly (or at least) N such records.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Input, int M, the number of spatial dimensions.
-//
-//    Input, int N, the number of points.  The program
-//    will stop reading data once N values have been read.
-//
-//    Output, double DTABLE_DATA_READ[M*N], the table data.
-//
-{
-  bool error;
-  ifstream input;
-  int i;
-  int j;
-  string line;
-  double *table;
-  double *x;
-
-  input.open ( input_filename.c_str ( ) );
-
-  if ( !input )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_DATA_READ - Fatal error!\n";
-    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return NULL;
-  }
-
-  table = new double[m*n];
-
-  x = new double[m];
-
-  j = 0;
-
-  while ( j < n )
-  {
-    getline ( input, line );
-
-    if ( input.eof ( ) )
-    {
-      break;
-    }
-
-    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
-    {
-      continue;
-    }
-
-    error = s_to_r8vec ( line, m, x );
-
-    if ( error )
-    {
-      continue;
-    }
-
-    for ( i = 0; i < m; i++ )
-    {
-      table[i+j*m] = x[i];
-    }
-    j = j + 1;
-
-  }
-
-  input.close ( );
-
-  delete [] x;
-
-  return table;
-}
-//****************************************************************************80
- 
-void dtable_header_read ( string input_filename, int *m, int *n )
- 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_HEADER_READ reads the header from a DTABLE file.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Output, int *M, the number of spatial dimensions.
-//
-//    Output, int *N, the number of points.
-//
-{
-  *m = file_column_count ( input_filename );
-
-  if ( *m <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
-  }
-
-  *n = file_row_count ( input_filename );
-
-  if ( *n <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
-  }
-
-  return;
 }
 //****************************************************************************80
 
@@ -1585,6 +1381,58 @@ double r8_abs ( double x )
 }
 //****************************************************************************80
 
+double r8_acos ( double c )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ACOS computes the arc cosine function, with argument truncation.
+//
+//  Discussion:
+//
+//    If you call your system ACOS routine with an input argument that is
+//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
+//    This routine truncates arguments outside the range.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 June 2002
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double C, the argument, the cosine of an angle.
+//
+//    Output, double R8_ACOS, an angle whose cosine is C.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double value;
+
+  if ( c <= -1.0 )
+  {
+    value = r8_pi;
+  }
+  else if ( 1.0 <= c )
+  {
+    value = 0.0;
+  }
+  else
+  {
+    value = acos ( c );
+  }
+  return value;
+}
+//****************************************************************************80
+
 double r8_huge ( )
 
 //****************************************************************************80
@@ -1704,6 +1552,170 @@ double r8_min ( double x, double y )
     value = x;
   }
   return value;
+}
+//****************************************************************************80
+
+double *r8mat_data_read ( string input_filename, int m, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_DATA_READ reads the data from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//    The file is assumed to contain one record per line.
+//
+//    Records beginning with '#' are comments, and are ignored.
+//    Blank lines are also ignored.
+//
+//    Each line that is not ignored is assumed to contain exactly (or at least)
+//    M real numbers, representing the coordinates of a point.
+//
+//    There are assumed to be exactly (or at least) N such records.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Input, int M, the number of spatial dimensions.
+//
+//    Input, int N, the number of points.  The program
+//    will stop reading data once N values have been read.
+//
+//    Output, double R8MAT_DATA_READ[M*N], the data.
+//
+{
+  bool error;
+  ifstream input;
+  int i;
+  int j;
+  string line;
+  double *table;
+  double *x;
+
+  input.open ( input_filename.c_str ( ) );
+
+  if ( !input )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_DATA_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
+    exit ( 1 );
+  }
+
+  table = new double[m*n];
+
+  x = new double[m];
+
+  j = 0;
+
+  while ( j < n )
+  {
+    getline ( input, line );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+
+    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
+    {
+      continue;
+    }
+
+    error = s_to_r8vec ( line, m, x );
+
+    if ( error )
+    {
+      continue;
+    }
+
+    for ( i = 0; i < m; i++ )
+    {
+      table[i+j*m] = x[i];
+    }
+    j = j + 1;
+
+  }
+
+  input.close ( );
+
+  delete [] x;
+
+  return table;
+}
+//****************************************************************************80
+
+void r8mat_header_read ( string input_filename, int &m, int &n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_HEADER_READ reads the header from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Output, int &M, the number of spatial dimensions.
+//
+//    Output, int &N, the number of points.
+//
+{
+  m = file_column_count ( input_filename );
+
+  if ( m <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_COLUMN_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  n = file_row_count ( input_filename );
+
+  if ( n <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_ROW_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -2096,13 +2108,13 @@ bool r8vec_eq ( int n, double a1[], double a2[] )
 }
 //****************************************************************************80
 
-double r8vec_length ( int dim_num, double x[] )
+double r8vec_norm ( int dim_num, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8VEC_LENGTH returns the Euclidean length of an R8VEC.
+//    R8VEC_NORM returns the Euclidean length of an R8VEC.
 //
 //  Licensing:
 //
@@ -2122,7 +2134,7 @@ double r8vec_length ( int dim_num, double x[] )
 //
 //    Input, double X[DIM_NUM], the vector.
 //
-//    Output, double R8VEC_LENGTH, the Euclidean length of the vector.
+//    Output, double R8VEC_NORM, the Euclidean length of the vector.
 //
 {
   int i;
@@ -2781,7 +2793,7 @@ void triangle_angles_2d ( double t[2*3], double angle[3] )
   }
   else
   {
-    angle[0] = arc_cosine ( ( c * c + a * a - b * b ) / ( 2.0 * c * a ) );
+    angle[0] = r8_acos ( ( c * c + a * a - b * b ) / ( 2.0 * c * a ) );
   }
 
   if ( a == 0.0 || b == 0.0 )
@@ -2790,7 +2802,7 @@ void triangle_angles_2d ( double t[2*3], double angle[3] )
   }
   else
   {
-    angle[1] = arc_cosine ( ( a * a + b * b - c * c ) / ( 2.0 * a * b ) );
+    angle[1] = r8_acos ( ( a * a + b * b - c * c ) / ( 2.0 * a * b ) );
   }
 
   if ( b == 0.0 || c == 0.0 )
@@ -2799,7 +2811,7 @@ void triangle_angles_2d ( double t[2*3], double angle[3] )
   }
   else
   {
-    angle[2] = arc_cosine ( ( b * b + c * c - a * a ) / ( 2.0 * b * c ) );
+    angle[2] = r8_acos ( ( b * b + c * c - a * a ) / ( 2.0 * b * c ) );
   }
 
   return;

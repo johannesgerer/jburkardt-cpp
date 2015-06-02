@@ -1,14 +1,32 @@
-22 December 2011 09:51:19 AM
+12 November 2014 01:12:36 PM
 
 LATIN_RANDOM_PRB:
   C++ version
   Test the LATIN_RANDOM library.
 
-TEST00
-  GET_SEED returns a seed for the random number
-  generator, based on the current time.
+TEST01
+  LATIN_RANDOM chooses a Latin Square cell arrangement,
+  and then chooses a random point from each cell.
 
-  GET_SEED returns SEED = 1584763395
+  Spatial dimension = 2
+  Number of points =  10
+  Initial seed for UNIFORM = 123456789
+
+  Latin Random Square:
+
+  Row:       0             1       
+  Col
+
+    0:      0.821842      0.295632
+    1:     0.0829509       0.75617
+    2:      0.241531      0.606612
+    3:      0.325758      0.910996
+    4:      0.504383     0.0633966
+    5:      0.906173      0.344954
+    6:      0.640131      0.875467
+    7:      0.179729      0.100184
+    8:       0.48975      0.535075
+    9:      0.709454      0.401362
 
 TEST01
   LATIN_RANDOM chooses a Latin Square cell arrangement,
@@ -16,47 +34,23 @@ TEST01
 
   Spatial dimension = 2
   Number of points =  10
-  Initial seed for UNIFORM = 1584763395
+  Initial seed for UNIFORM = 1635291738
 
-  The Latin Random Square points:
+  Latin Random Square:
 
-  0.931238    0.721699  
-  0.103238    0.425182  
- 0.0255413    0.272199  
-  0.846241    0.671532  
-  0.538646    0.325931  
-  0.286601    0.303429  
- 0.0267144    0.488537  
-  0.141349    0.755707  
-   0.56534    0.972997  
-  0.867086    0.614393  
+  Row:       0             1       
+  Col
 
-LATIN_RANDOM_PRB:
-  Repeat TEST01, but with different seed from first run.
-
-TEST01
-  LATIN_RANDOM chooses a Latin Square cell arrangement,
-  and then chooses a random point from each cell.
-
-  Spatial dimension = 2
-  Number of points =  10
-  Initial seed for UNIFORM = 309088551
-
-  The Latin Random Square points:
-
-  0.043683    0.480816  
-  0.376108    0.754794  
-     0.631    0.822239  
-  0.262898    0.522133  
-  0.992255    0.134021  
-  0.944117    0.566142  
-  0.251727   0.0765819  
-  0.412384    0.634315  
-  0.325508    0.806393  
-  0.748155    0.135885  
-
-LATIN_PRB:
-  Repeat TEST01 with same seed as first run.
+    0:      0.739699      0.818531
+    1:      0.457437      0.136703
+    2:       0.96172      0.236153
+    3:      0.621293      0.471447
+    4:      0.111771      0.329933
+    5:     0.0825003      0.682466
+    6:      0.306186      0.571078
+    7:      0.808828      0.777799
+    8:       0.57453     0.0308675
+    9:      0.289937      0.976354
 
 TEST01
   LATIN_RANDOM chooses a Latin Square cell arrangement,
@@ -64,22 +58,19 @@ TEST01
 
   Spatial dimension = 2
   Number of points =  10
-  Initial seed for UNIFORM = 1584763395
+  Initial seed for UNIFORM = 457250716
 
-  The Latin Random Square points:
+  Latin Random Square:
 
-  0.931238    0.721699  
-  0.103238    0.425182  
- 0.0255413    0.272199  
-  0.846241    0.671532  
-  0.538646    0.325931  
-  0.286601    0.303429  
- 0.0267144    0.488537  
-  0.141349    0.755707  
-   0.56534    0.972997  
-  0.867086    0.614393  
+  Row:       0             1       
+  Col
 
-LATIN_RANDOM_PRB:
-  Normal end of execution.
-
-22 December 2011 09:51:19 AM
+    0:      0.761295      0.380952
+    1:      0.558709      0.521549
+    2:     0.0768056       0.17233
+    3:      0.144802      0.485518
+    4:      0.294502      0.990906
+    5:      0.951973      0.803019
+    6:      0.648107     0.0292313
+    7:      0.390264      0.766784
+    8:      0.4412

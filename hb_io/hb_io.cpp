@@ -10,11 +10,11 @@ using namespace std;
 
 # include "hb_io.hpp"
 
-//****************************************************************************80*
+//****************************************************************************80
 
 bool ch_eqi ( char c1, char c2 )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -248,7 +248,7 @@ int ch_to_digit ( char c )
 //****************************************************************************80
 
 void hb_exact_read ( ifstream &input, int nrow, int nrhs, int rhscrd, 
-  char *rhsfmt, char *rhstyp, float exact[] )
+  char *rhsfmt, char *rhstyp, double exact[] )
 
 //****************************************************************************80
 //
@@ -262,7 +262,7 @@ void hb_exact_read ( ifstream &input, int nrow, int nrhs, int rhscrd,
 //
 //  Modified:
 //
-//    13 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -294,7 +294,7 @@ void hb_exact_read ( ifstream &input, int nrow, int nrhs, int rhscrd,
 //    Third character is X if exact solution vectors are supplied.
 //    Ignored if NRHS = 0.
 //
-//    Output, float EXACT[NROW*NRHS], the exact solution vectors.
+//    Output, double EXACT[NROW*NRHS], the exact solution vectors.
 //
 {
   char code;
@@ -343,7 +343,7 @@ void hb_exact_read ( ifstream &input, int nrow, int nrhs, int rhscrd,
 //****************************************************************************80
 
 void hb_exact_write ( ofstream &output, int nrow, int nrhs, int rhscrd, 
-  char *rhsfmt, char *rhstyp, float exact[] )
+  char *rhsfmt, char *rhstyp, double exact[] )
 
 //****************************************************************************80
 //
@@ -357,7 +357,7 @@ void hb_exact_write ( ofstream &output, int nrow, int nrhs, int rhscrd,
 //
 //  Modified:
 //
-//    13 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -389,7 +389,7 @@ void hb_exact_write ( ofstream &output, int nrow, int nrhs, int rhscrd,
 //    Third character is X if exact solution vectors are supplied.
 //    Ignored if NRHS = 0.
 //
-//    Input, float EXACT[NROW*NRHS], the exact solution vectors.
+//    Input, double EXACT[NROW*NRHS], the exact solution vectors.
 //
 {
   char code;
@@ -431,8 +431,8 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
   int *ptrcrd, int *indcrd, int *valcrd, int *rhscrd, char **mxtype, int *nrow, 
   int *ncol, int *nnzero, int *neltvl, char **ptrfmt, char **indfmt, char **valfmt, 
   char **rhsfmt, char **rhstyp, int *nrhs, int *nrhsix, int **colptr, 
-  int **rowind, float **values, float **rhsval, int **rhsptr, int **rhsind,  
-  float **rhsvec, float **guess, float **exact )
+  int **rowind, double **values, double **rhsval, int **rhsptr, int **rhsind,  
+  double **rhsvec, double **guess, double **exact )
 
 //****************************************************************************80
 //
@@ -450,7 +450,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
 //
 //  Modified:
 //
-//    17 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -533,7 +533,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
 //
 //    If RHSTYP[0] == 'F':
 //
-//      Output, float RHSVAL[NROW*NRHS], contains NRHS dense right hand
+//      Output, double RHSVAL[NROW*NRHS], contains NRHS dense right hand
 //      side vectors.
 //
 //      Output, int RHSPTR[], is not used.
@@ -544,7 +544,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'A':
 //
-//      Output, float RHSVAL[], is not used.
+//      Output, double RHSVAL[], is not used.
 //
 //      Output, int RHSPTR[NRHS+1], RHSPTR[I-1] points to the location of
 //      the first entry of right hand side I in the sparse right hand
@@ -553,23 +553,23 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
 //      Output, int RHSIND[NRHSIX], indicates, for each entry of
 //      RHSVEC, the corresponding row index.
 //
-//      Output, float RHSVEC[NRHSIX], contains the value of the right hand
+//      Output, double RHSVEC[NRHSIX], contains the value of the right hand
 //      side entries.
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'E':
 //
-//      Output, float RHSVAL[NNZERO*NRHS], contains NRHS unassembled
+//      Output, double RHSVAL[NNZERO*NRHS], contains NRHS unassembled
 //      finite element vector right hand sides.
 //
 //      Output, int RHSPTR[], is not used.
 //
 //      Output, int RHSIND[], is not used.
 //
-//      Output, float RHSVEC[], is not used.
+//      Output, double RHSVEC[], is not used.
 //
-//    Output, float GUESS[NROW*NRHS], the starting guess vectors.
+//    Output, double GUESS[NROW*NRHS], the starting guess vectors.
 //
-//    Output, float EXACT[NROW*NRHS], the exact solution vectors.
+//    Output, double EXACT[NROW*NRHS], the exact solution vectors.
 //
 {
 //
@@ -629,11 +629,11 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
 
     if ( (*mxtype)[2] == 'A' )
     {
-      *values = new float[*nnzero];
+      *values = new double[*nnzero];
     }
     else if ( (*mxtype)[2] == 'E' )
     {
-      *values = new float[*neltvl];
+      *values = new double[*neltvl];
     }
     else
     {
@@ -658,7 +658,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
         delete [] *rhsval;
       }
 
-      *rhsval = new float[(*nrow)*(*nrhs)];
+      *rhsval = new double[(*nrow)*(*nrhs)];
     }
     else if ( (*rhstyp)[0] == 'M' && (*mxtype)[2] == 'A' )
     {
@@ -681,7 +681,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
         delete [] *rhsvec;
       }
 
-      *rhsvec = new float[(*nrhsix)];
+      *rhsvec = new double[(*nrhsix)];
     }
     else if ( (*rhstyp)[0] == 'M' && (*mxtype)[2] == 'E' )
     {
@@ -690,7 +690,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
         delete [] *rhsval;
       }
 
-      *rhsval = new float[(*nnzero)*(*nrhs)];
+      *rhsval = new double[(*nnzero)*(*nrhs)];
     }
     else
     {
@@ -714,7 +714,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
         delete [] *guess;
       }
 
-      *guess = new float[(*nrow)*(*nrhs)];
+      *guess = new double[(*nrow)*(*nrhs)];
 
       hb_guess_read ( input, *nrow, *nrhs, *rhscrd, *rhsfmt, *rhstyp, *guess );
     }
@@ -728,7 +728,7 @@ void hb_file_read ( ifstream &input, char **title, char **key, int *totcrd,
         delete [] *exact;
       }
 
-      *exact = new float[(*nrow)*(*nrhs)];
+      *exact = new double[(*nrow)*(*nrhs)];
 
       hb_exact_read ( input, *nrow, *nrhs, *rhscrd, *rhsfmt, *rhstyp, *exact );
     }
@@ -742,8 +742,8 @@ void hb_file_write ( ofstream &output, char *title, char *key, int totcrd,
   int ptrcrd, int indcrd, int valcrd, int rhscrd, char *mxtype, int nrow, 
   int ncol, int nnzero, int neltvl, char *ptrfmt, char *indfmt, char *valfmt, 
   char *rhsfmt, char *rhstyp, int nrhs, int nrhsix, int colptr[],
-  int rowind[], float values[], float rhsval[], int rhsptr[], int rhsind[], 
-  float rhsvec[], float guess[], float exact[] )
+  int rowind[], double values[], double rhsval[], int rhsptr[], int rhsind[], 
+  double rhsvec[], double guess[], double exact[] )
 
 //****************************************************************************80
 //
@@ -757,7 +757,7 @@ void hb_file_write ( ofstream &output, char *title, char *key, int totcrd,
 //
 //  Modified:
 //
-//    14 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -834,28 +834,28 @@ void hb_file_write ( ofstream &output, char *title, char *key, int totcrd,
 //
 //      Input, int ROWIND[NNZERO], the row index of each item.
 //
-//      Input, float VALUES[NNZERO], the nonzero values of the matrix.
+//      Input, double VALUES[NNZERO], the nonzero values of the matrix.
 //
 //    If MXTYPE[2] == 'E':
 //
 //      Input, int ROWIND[NELTVL], the row index of each item.
 //
-//      Input, float VALUES[NELTVL], the nonzero values of the matrix.
+//      Input, double VALUES[NELTVL], the nonzero values of the matrix.
 //
 //    If RHSTYP[0] == 'F':
 //
-//      Input, float RHSVAL[NROW*NRHS], contains NRHS dense right hand
+//      Input, double RHSVAL[NROW*NRHS], contains NRHS dense right hand
 //      side vectors.
 //
 //      Input, int RHSPTR[], is not used.
 //
 //      Input, int RHSIND[], is not used.
 //
-//      Input, float RHSVEC[], is not used.
+//      Input, double RHSVEC[], is not used.
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'A':
 //
-//      Input, float RHSVAL[], is not used.
+//      Input, double RHSVAL[], is not used.
 //
 //      Input, int RHSPTR[NRHS+1], RHSPTR(I) points to the location of
 //      the first entry of right hand side I in the sparse right hand
@@ -864,23 +864,23 @@ void hb_file_write ( ofstream &output, char *title, char *key, int totcrd,
 //      Input, int RHSIND[NRHSIX], indicates, for each entry of
 //      RHSVEC, the corresponding row index.
 //
-//      Input, float RHSVEC[NRHSIX], contains the value of the right hand
+//      Input, double RHSVEC[NRHSIX], contains the value of the right hand
 //      side entries.
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'E':
 //
-//      Input, float RHSVAL[NNZERO*NRHS], contains NRHS unassembled
+//      Input, double RHSVAL[NNZERO*NRHS], contains NRHS unassembled
 //      finite element vector right hand sides.
 //
 //      Input, int RHSPTR[], is not used.
 //
 //      Input, int RHSIND[], is not used.
 //
-//      Input, float RHSVEC[], is not used.
+//      Input, double RHSVEC[], is not used.
 //
-//    Input, float GUESS[NROW*NRHS], the starting guess vectors.
+//    Input, double GUESS[NROW*NRHS], the starting guess vectors.
 //
-//    Input, float EXACT[NROW*NRHS], the exact solution vectors.
+//    Input, double EXACT[NROW*NRHS], the exact solution vectors.
 //
 {
 //
@@ -919,7 +919,7 @@ void hb_file_write ( ofstream &output, char *title, char *key, int totcrd,
 //****************************************************************************80
 
 void hb_guess_read ( ifstream &input, int nrow, int nrhs, int rhscrd, 
-  char *rhsfmt, char *rhstyp, float guess[] )
+  char *rhsfmt, char *rhstyp, double guess[] )
 
 //****************************************************************************80
 //
@@ -933,7 +933,7 @@ void hb_guess_read ( ifstream &input, int nrow, int nrhs, int rhscrd,
 //
 //  Modified:
 //
-//    13 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -965,7 +965,7 @@ void hb_guess_read ( ifstream &input, int nrow, int nrhs, int rhscrd,
 //    Third character is X if exact solution vectors are supplied.
 //    Ignored if NRHS = 0.
 //
-//    Output, float GUESS[NROW*NRHS], the starting guess vectors.
+//    Output, double GUESS[NROW*NRHS], the starting guess vectors.
 //
 {
   char code;
@@ -1014,7 +1014,7 @@ void hb_guess_read ( ifstream &input, int nrow, int nrhs, int rhscrd,
 //****************************************************************************80
 
 void hb_guess_write ( ofstream &output, int nrow, int nrhs, int rhscrd, 
-  char *rhsfmt, char *rhstyp, float guess[] )
+  char *rhsfmt, char *rhstyp, double guess[] )
 
 //****************************************************************************80
 //
@@ -1028,7 +1028,7 @@ void hb_guess_write ( ofstream &output, int nrow, int nrhs, int rhscrd,
 //
 //  Modified:
 //
-//    09 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -1060,7 +1060,7 @@ void hb_guess_write ( ofstream &output, int nrow, int nrhs, int rhscrd,
 //    Third character is X if exact solution vectors are supplied.
 //    Ignored if NRHS = 0.
 //
-//    Input, float GUESS[NROW*NRHS], the starting guess vectors.
+//    Input, double GUESS[NROW*NRHS], the starting guess vectors.
 //
 {
   char code;
@@ -1574,8 +1574,8 @@ void hb_header_write ( ofstream &output, char *title, char *key, int totcrd,
 }
 //****************************************************************************80
 
-float *hb_matvec_a_mem ( int nrow, int ncol, int nnzero, int nrhs, 
-  int colptr[], int rowind[], float values[], float exact[] )
+double *hb_matvec_a_mem ( int nrow, int ncol, int nnzero, int nrhs, 
+  int colptr[], int rowind[], double values[], double exact[] )
 
 //****************************************************************************80
 //
@@ -1603,7 +1603,7 @@ float *hb_matvec_a_mem ( int nrow, int ncol, int nnzero, int nrhs,
 //
 //  Modified:
 //
-//    16 May 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -1631,20 +1631,20 @@ float *hb_matvec_a_mem ( int nrow, int ncol, int nnzero, int nrhs,
 //
 //    Input, int ROWIND[NNZERO], the row index of each item.
 //
-//    Input, float VALUES[NNZERO], the nonzero values of the matrix.
+//    Input, double VALUES[NNZERO], the nonzero values of the matrix.
 //
-//    Input, float EXACT[NCOL*NRHS], contains NRHS dense vectors.
+//    Input, double EXACT[NCOL*NRHS], contains NRHS dense vectors.
 //
-//    Output, float HB_MATVEC_A_MEM[NROW*NRHS], the product vectors A*X.
+//    Output, double HB_MATVEC_A_MEM[NROW*NRHS], the product vectors A*X.
 //
 {
   int column;
   int k;
-  float *rhsval;
+  double *rhsval;
   int rhs;
   int row;
 
-  rhsval = new float[nrow*nrhs];
+  rhsval = new double[nrow*nrhs];
 //
 //  Zero out the result vectors.
 //
@@ -1685,7 +1685,7 @@ float *hb_matvec_a_mem ( int nrow, int ncol, int nnzero, int nrhs,
 
 void hb_rhs_read ( ifstream &input, int nrow, int nnzero, int nrhs, int nrhsix, 
   int rhscrd, char *ptrfmt, char *indfmt, char *rhsfmt, char *mxtype, 
-  char *rhstyp, float rhsval[], int rhsind[], int rhsptr[], float rhsvec[] )
+  char *rhstyp, double rhsval[], int rhsind[], int rhsptr[], double rhsvec[] )
 
 //****************************************************************************80
 //
@@ -1699,7 +1699,7 @@ void hb_rhs_read ( ifstream &input, int nrow, int nnzero, int nrhs, int nrhsix,
 //
 //  Modified:
 //
-//    19 September 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -1754,7 +1754,7 @@ void hb_rhs_read ( ifstream &input, int nrow, int nnzero, int nrhs, int nrhsix,
 //
 //    If RHSTYP[0] == 'F':
 //
-//      Output, float RHSVAL[NROW*NRHS], contains NRHS dense right hand
+//      Output, double RHSVAL[NROW*NRHS], contains NRHS dense right hand
 //      side vectors.
 //
 //      Output, int RHSPTR[], is not used.
@@ -1765,7 +1765,7 @@ void hb_rhs_read ( ifstream &input, int nrow, int nnzero, int nrhs, int nrhsix,
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'A':
 //
-//      Output, float RHSVAL[], is not used.
+//      Output, double RHSVAL[], is not used.
 //
 //      Output, int RHSPTR[NRHS+1], RHSPTR[I-1] points to the location of
 //      the first entry of right hand side I in the sparse right hand
@@ -1774,19 +1774,19 @@ void hb_rhs_read ( ifstream &input, int nrow, int nnzero, int nrhs, int nrhsix,
 //      Output, int RHSIND[NRHSIX], indicates, for each entry of
 //      RHSVEC, the corresponding row index.
 //
-//      Output, float RHSVEC[NRHSIX], contains the value of the right hand
+//      Output, double RHSVEC[NRHSIX], contains the value of the right hand
 //      side entries.
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'E':
 //
-//      Output, float RHSVAL[NNZERO*NRHS], contains NRHS unassembled
+//      Output, double RHSVAL[NNZERO*NRHS], contains NRHS unassembled
 //      finite element vector right hand sides.
 //
 //      Output, int RHSPTR[], is not used.
 //
 //      Output, int RHSIND[], is not used.
 //
-//      Output, float RHSVEC[], is not used.
+//      Output, double RHSVEC[], is not used.
 //
 {
   char code;
@@ -1961,7 +1961,7 @@ void hb_rhs_read ( ifstream &input, int nrow, int nnzero, int nrhs, int nrhsix,
 
 void hb_rhs_write ( ofstream &output, int nrow, int nnzero, int nrhs, int nrhsix, 
   int rhscrd, char *ptrfmt, char *indfmt, char *rhsfmt, char *mxtype, 
-  char *rhstyp, float rhsval[], int rhsind[], int rhsptr[], float rhsvec[] )
+  char *rhstyp, double rhsval[], int rhsind[], int rhsptr[], double rhsvec[] )
 
 //****************************************************************************80
 //
@@ -1975,7 +1975,7 @@ void hb_rhs_write ( ofstream &output, int nrow, int nnzero, int nrhs, int nrhsix
 //
 //  Modified:
 //
-//    14 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -2030,18 +2030,18 @@ void hb_rhs_write ( ofstream &output, int nrow, int nnzero, int nrhs, int nrhsix
 //
 //    If RHSTYP[0] == 'F':
 //
-//      Input, float RHSVAL[NROW*NRHS], contains NRHS dense right hand
+//      Input, double RHSVAL[NROW*NRHS], contains NRHS dense right hand
 //      side vectors.
 //
 //      Input, int RHSPTR[], is not used.
 //
 //      Input, int RHSIND[], is not used.
 //
-//      Input, float RHSVEC[], is not used.
+//      Input, double RHSVEC[], is not used.
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'A':
 //
-//      Input, float RHSVAL[], is not used.
+//      Input, double RHSVAL[], is not used.
 //
 //      Input, int RHSPTR[NRHS+1], RHSPTR(I) points to the location of
 //      the first entry of right hand side I in the sparse right hand
@@ -2050,19 +2050,19 @@ void hb_rhs_write ( ofstream &output, int nrow, int nnzero, int nrhs, int nrhsix
 //      Input, int RHSIND[NRHSIX], indicates, for each entry of
 //      RHSVEC, the corresponding row index.
 //
-//      Input, float RHSVEC[NRHSIX], contains the value of the right hand
+//      Input, double RHSVEC[NRHSIX], contains the value of the right hand
 //      side entries.
 //
 //    If RHSTYP[0] = 'M' and MXTYPE[2] = 'E':
 //
-//      Input, float RHSVAL[NNZERO*NRHS], contains NRHS unassembled
+//      Input, double RHSVAL[NNZERO*NRHS], contains NRHS unassembled
 //      finite element vector right hand sides.
 //
 //      Input, int RHSPTR[], is not used.
 //
 //      Input, int RHSIND[], is not used.
 //
-//      Input, float RHSVEC[], is not used.
+//      Input, double RHSVEC[], is not used.
 //
 {
   char code;
@@ -2703,7 +2703,7 @@ int *hb_ua_colind ( int ncol, int colptr[], int nnzero )
 //****************************************************************************80
 
 void hb_values_print ( int ncol, int colptr[], char *mxtype, int nnzero, 
-  int neltvl, float values[] )
+  int neltvl, double values[] )
 
 //****************************************************************************80
 //
@@ -2711,9 +2711,13 @@ void hb_values_print ( int ncol, int colptr[], char *mxtype, int nnzero,
 //
 //    HB_VALUES_PRINT prints the values of an HB matrix.
 //
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
 //  Modified:
 //
-//    10 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -2750,11 +2754,11 @@ void hb_values_print ( int ncol, int colptr[], char *mxtype, int nnzero,
 //
 //    If MXTYPE[2] == 'A':
 //
-//      Input, float VALUES[NNZERO], the nonzero values of the matrix.
+//      Input, double VALUES[NNZERO], the nonzero values of the matrix.
 //
 //    If MXTYPE[2] == 'E':
 //
-//      Input, float VALUES[NELTVL], the nonzero values of the matrix.
+//      Input, double VALUES[NELTVL], the nonzero values of the matrix.
 //
 {
   int j;
@@ -2829,7 +2833,7 @@ void hb_values_print ( int ncol, int colptr[], char *mxtype, int nnzero,
 //****************************************************************************80
 
 void hb_values_read ( ifstream &input, int valcrd, char *mxtype, int nnzero,
-  int neltvl, char *valfmt, float values[] )
+  int neltvl, char *valfmt, double values[] )
 
 //****************************************************************************80
 //
@@ -2851,7 +2855,7 @@ void hb_values_read ( ifstream &input, int valcrd, char *mxtype, int nnzero,
 //
 //  Modified:
 //
-//    12 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -2889,11 +2893,11 @@ void hb_values_read ( ifstream &input, int valcrd, char *mxtype, int nnzero,
 //
 //    If MXTYPE[2] == 'A':
 //
-//      Output, float VALUES[NNZERO], the nonzero values of the matrix.
+//      Output, double VALUES[NNZERO], the nonzero values of the matrix.
 //
 //    If MXTYPE[2] == 'E':
 //
-//      Output, float VALUES[NELTVL], the nonzero values of the matrix.
+//      Output, double VALUES[NELTVL], the nonzero values of the matrix.
 //
 {
   char code;
@@ -2964,7 +2968,7 @@ void hb_values_read ( ifstream &input, int valcrd, char *mxtype, int nnzero,
 //****************************************************************************80
 
 void hb_values_write ( ofstream &output, int valcrd, char *mxtype, 
-  int nnzero, int neltvl, char *valfmt, float values[] )
+  int nnzero, int neltvl, char *valfmt, double values[] )
 
 //****************************************************************************80
 //
@@ -2983,7 +2987,7 @@ void hb_values_write ( ofstream &output, int valcrd, char *mxtype,
 //
 //  Modified:
 //
-//    12 April 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -3021,11 +3025,11 @@ void hb_values_write ( ofstream &output, int valcrd, char *mxtype,
 //
 //    If MXTYPE[2] == 'A':
 //
-//      Input, float VALUES[NNZERO], the nonzero values of the matrix.
+//      Input, double VALUES[NNZERO], the nonzero values of the matrix.
 //
 //    If MXTYPE[2] == 'E':
 //
-//      Input, float VALUES[NELTVL], the nonzero values of the matrix.
+//      Input, double VALUES[NELTVL], the nonzero values of the matrix.
 //
 {
   char code;
@@ -3083,8 +3087,8 @@ void hb_values_write ( ofstream &output, int valcrd, char *mxtype,
 }
 //****************************************************************************80
 
-float *hb_vecmat_a_mem ( int nrow, int ncol, int nnzero, int nrhs, 
-  int colptr[], int rowind[], float values[], float exact[] )
+double *hb_vecmat_a_mem ( int nrow, int ncol, int nnzero, int nrhs, 
+  int colptr[], int rowind[], double values[], double exact[] )
 
 //****************************************************************************80
 //
@@ -3112,7 +3116,7 @@ float *hb_vecmat_a_mem ( int nrow, int ncol, int nnzero, int nrhs,
 //
 //  Modified:
 //
-//    17 May 2004
+//    21 January 2014
 //
 //  Author:
 //
@@ -3140,20 +3144,20 @@ float *hb_vecmat_a_mem ( int nrow, int ncol, int nnzero, int nrhs,
 //
 //    Input, int ROWIND[NNZERO], the row index of each item.
 //
-//    Input, float VALUES[NNZERO], the nonzero values of the matrix.
+//    Input, double VALUES[NNZERO], the nonzero values of the matrix.
 //
-//    Input, float EXACT[NROW*NRHS], contains NRHS dense vectors.
+//    Input, double EXACT[NROW*NRHS], contains NRHS dense vectors.
 //
-//    Output, float HB_VECMAT_A_MEM[NCOL*NRHS], the product vectors A'*X.
+//    Output, double HB_VECMAT_A_MEM[NCOL*NRHS], the product vectors A'*X.
 //
 {
   int column;
   int k;
-  float *rhsval;
+  double *rhsval;
   int rhs;
   int row;
 
-  rhsval = new float[ncol*nrhs];
+  rhsval = new double[ncol*nrhs];
 //
 //  Zero out the result vectors.
 //
@@ -3415,21 +3419,28 @@ void i4vec_print_part ( int n, int a[], int max_print, string title )
 }
 //****************************************************************************80
 
-void r4mat_print ( int m, int n, float a[], string title )
+void r8mat_print ( int m, int n, double a[], string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4MAT_PRINT prints an R4MAT.
+//    R8MAT_PRINT prints an R8MAT.
+//
+//  Discussion:
+//
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
+//
+//    Entry A(I,J) is stored as A[I+J*M]
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    09 April 2004
+//    10 September 2009
 //
 //  Author:
 //
@@ -3437,43 +3448,42 @@ void r4mat_print ( int m, int n, float a[], string title )
 //
 //  Parameters:
 //
-//    Input, int M, the number of rows of the matrix.
-//    M must be positive.
+//    Input, int M, the number of rows in A.
 //
-//    Input, int N, the number of columns of the matrix.
-//    N must be positive.
+//    Input, int N, the number of columns in A.
 //
-//    Input, float A[M*N], the matrix.
+//    Input, double A[M*N], the M by N matrix.
 //
 //    Input, string TITLE, a title.
+//
 {
-  r4mat_print_some ( m, n, a, 1, 1, m, n, title );
+  r8mat_print_some ( m, n, a, 1, 1, m, n, title );
 
   return;
 }
 //****************************************************************************80
 
-void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi, 
+void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
   int jhi, string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4MAT_PRINT_SOME prints some of an R4MAT.
+//    R8MAT_PRINT_SOME prints some of an R8MAT.
 //
-//  Discussion: 							    
+//  Discussion:
 //
-//    An R4MAT is a doubly dimensioned array of R4 values, stored as a vector 
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
 //    in column-major order.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    20 August 2010
+//    26 June 2013
 //
 //  Author:
 //
@@ -3487,7 +3497,7 @@ void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
 //    Input, int N, the number of columns of the matrix.
 //    N must be positive.
 //
-//    Input, float A[M*N], the matrix.
+//    Input, double A[M*N], the matrix.
 //
 //    Input, int ILO, JLO, IHI, JHI, designate the first row and
 //    column, and the last row and column to be printed.
@@ -3506,15 +3516,27 @@ void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
 
   cout << "\n";
   cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
 //
 //  Print the columns of the matrix, in strips of 5.
 //
   for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
   {
     j2hi = j2lo + INCX - 1;
-    j2hi = i4_min ( j2hi, n );
-    j2hi = i4_min ( j2hi, jhi );
-
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
     cout << "\n";
 //
 //  For each column J in the current range...
@@ -3532,8 +3554,22 @@ void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
 //
 //  Determine the range of the rows in this strip.
 //
-    i2lo = i4_max ( ilo, 1 );
-    i2hi = i4_min ( ihi, m );
+    if ( 1 < ilo )
+    {
+      i2lo = ilo;
+    }
+    else
+    {
+      i2lo = 1;
+    }
+    if ( ihi < m )
+    {
+      i2hi = ihi;
+    }
+    else
+    {
+      i2hi = m;
+    }
 
     for ( i = i2lo; i <= i2hi; i++ )
     {
@@ -3554,21 +3590,21 @@ void r4mat_print_some ( int m, int n, float a[], int ilo, int jlo, int ihi,
 }
 //****************************************************************************80
 
-void r4vec_print ( int n, float a[], string title )
+void r8vec_print ( int n, double a[], string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4VEC_PRINT prints an R4VEC.
+//    R8VEC_PRINT prints an R8VEC.
 //
 //  Discussion:
 //
-//    An R4VEC is a vector of R4's.
+//    An R8VEC is a vector of R8's.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -3582,7 +3618,7 @@ void r4vec_print ( int n, float a[], string title )
 //
 //    Input, int N, the number of components of the vector.
 //
-//    Input, float A[N], the vector to be printed.
+//    Input, double A[N], the vector to be printed.
 //
 //    Input, string TITLE, a title.
 //
@@ -3592,7 +3628,7 @@ void r4vec_print ( int n, float a[], string title )
   cout << "\n";
   cout << title << "\n";
   cout << "\n";
-  for ( i = 0; i < n; i++ ) 
+  for ( i = 0; i < n; i++ )
   {
     cout << "  " << setw(8)  << i
          << ": " << setw(14) << a[i]  << "\n";
@@ -3602,13 +3638,13 @@ void r4vec_print ( int n, float a[], string title )
 }
 //****************************************************************************80
 
-void r4vec_print_part ( int n, float a[], int max_print, string title )
+void r8vec_print_part ( int n, double a[], int max_print, string title )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R4VEC_PRINT_PART prints "part" of an R4VEC.
+//    R8VEC_PRINT_PART prints "part" of an R8VEC.
 //
 //  Discussion:
 //
@@ -3637,7 +3673,7 @@ void r4vec_print_part ( int n, float a[], int max_print, string title )
 //
 //    Input, int N, the number of entries of the vector.
 //
-//    Input, float A[N], the vector to be printed.
+//    Input, double A[N], the vector to be printed.
 //
 //    Input, int MAX_PRINT, the maximum number of lines
 //    to print.
@@ -3683,7 +3719,7 @@ void r4vec_print_part ( int n, float a[], int max_print, string title )
   }
   else
   {
-    for ( i= 0; i < max_print - 1; i++ )
+    for ( i = 0; i < max_print - 1; i++ )
     {
       cout << "  " << setw(8) << i
            << ": " << setw(14) << a[i] << "\n";

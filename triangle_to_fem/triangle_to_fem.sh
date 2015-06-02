@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g triangle_to_fem.cpp >& compiler.txt
+g++ -c triangle_to_fem.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling triangle_to_fem.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ triangle_to_fem.o
 if [ $? -ne 0 ]; then

@@ -46,7 +46,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    BLEND_PRB tests routines from BLEND.
+//    BLEND_PRB tests the BLEND library.
 //
 //  Licensing:
 //
@@ -62,7 +62,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "BLEND_PRB\n";
   cout << "  C++ version\n";
@@ -93,7 +92,6 @@ int main ( )
   cout << "\n";
   cout << "BLEND_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

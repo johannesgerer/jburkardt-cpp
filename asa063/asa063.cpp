@@ -10,97 +10,8 @@ using namespace std;
 
 //****************************************************************************80
 
-double alogam ( double x, int *ifault )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ALOGAM computes the logarithm of the Gamma function.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    22 January 2008
-//
-//  Author:
-//
-//    Original FORTRAN77 version by Malcolm Pike, David Hill.
-//    C++ version by John Burkardt.
-//
-//  Reference:
-//
-//    Malcolm Pike, David Hill,
-//    Algorithm 291:
-//    Logarithm of Gamma Function,
-//    Communications of the ACM,
-//    Volume 9, Number 9, September 1966, page 684.
-//
-//  Parameters:
-//
-//    Input, double X, the argument of the Gamma function.
-//    X should be greater than 0.
-//
-//    Output, int *IFAULT, error flag.
-//    0, no error.
-//    1, X <= 0.
-//
-//    Output, double ALOGAM, the logarithm of the Gamma
-//    function of X.
-//
-{
-  double f;
-  double value;
-  double y;
-  double z;
-
-  if ( x <= 0.0 )
-  {
-    *ifault = 1;
-    value = 0.0;
-    return value;
-  }
-
-  *ifault = 0;
-  y = x;
-
-  if ( x < 7.0 )
-  {
-    f = 1.0;
-    z = y;
-
-    while ( z < 7.0 )
-    {
-      f = f * z;
-      z = z + 1.0;
-    }
-    y = z;
-    f = - log ( f );
-  }
-  else
-  {
-    f = 0.0;
-  }
-
-  z = 1.0 / y / y;
-
-  value = f + ( y - 0.5 ) * log ( y ) - y 
-    + 0.918938533204673 + 
-    ((( 
-    - 0.000595238095238   * z 
-    + 0.000793650793651 ) * z 
-    - 0.002777777777778 ) * z 
-    + 0.083333333333333 ) / y;
-
-  return value;
-}
-//****************************************************************************80
-
-void beta_inc_values ( int *n_data, double *a, double *b, double *x, 
-  double *fx )
+void beta_inc_values ( int &n_data, double &a, double &b, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -112,8 +23,8 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //    The incomplete Beta function may be written
 //
-//      BETA_INC(A,B,X) = Integral (0 to X) T**(A-1) * (1-T)**(B-1) dT
-//                      / Integral (0 to 1) T**(A-1) * (1-T)**(B-1) dT
+//      BETA_INC(A,B,X) = Integral (0 <= t <= X) T^(A-1) * (1-T)^(B-1) dT
+//                      / Integral (0 <= t <= 1) T^(A-1) * (1-T)^(B-1) dT
 //
 //    Thus,
 //
@@ -136,11 +47,11 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    04 January 2005
+//    28 April 2013
 //
 //  Author:
 //
@@ -167,217 +78,229 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *A, B, the parameters of the function.
+//    Output, double &A, &B, the parameters of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 42
+# define N_MAX 45
 
-  double a_vec[N_MAX] = { 
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      1.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      5.5E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     30.0E+00,  
-     30.0E+00,  
-     40.0E+00,
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.1E+01, 
-      0.2E+01, 
-      0.3E+01, 
-      0.4E+01, 
-      0.5E+01 };
-
-  double b_vec[N_MAX] = { 
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      0.5E+00,  
-      1.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      2.0E+00,  
-      5.0E+00,  
-      0.5E+00,  
-      5.0E+00,  
-      5.0E+00,  
-     10.0E+00,  
-      5.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
-     20.0E+00,  
-     20.0E+00,  
-     10.0E+00,  
-     10.0E+00,  
+  static double a_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.5E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
      20.0E+00,
-      0.5E+00, 
-      0.5E+00, 
-      0.5E+00, 
-      0.5E+00, 
-      0.2E+01, 
-      0.3E+01, 
-      0.4E+01, 
-      0.5E+01, 
-      0.2E+01, 
-      0.2E+01, 
-      0.2E+01, 
-      0.2E+01 };
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     30.0E+00,
+     30.0E+00,
+     40.0E+00,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      1.30625,
+      1.30625,
+      1.30625 };
 
-  double fx_vec[N_MAX] = { 
-     0.6376856085851985E-01,  
-     0.2048327646991335E+00,  
-     0.1000000000000000E+01,  
-     0.0000000000000000E+00,  
-     0.5012562893380045E-02,  
-     0.5131670194948620E-01,  
-     0.2928932188134525E+00,  
-     0.5000000000000000E+00,  
-     0.2800000000000000E-01,  
-     0.1040000000000000E+00,  
-     0.2160000000000000E+00,  
-     0.3520000000000000E+00,  
-     0.5000000000000000E+00,  
-     0.6480000000000000E+00,  
-     0.7840000000000000E+00,  
-     0.8960000000000000E+00,  
-     0.9720000000000000E+00,  
-     0.4361908850559777E+00,  
-     0.1516409096347099E+00,  
-     0.8978271484375000E-01,  
-     0.1000000000000000E+01,  
-     0.5000000000000000E+00,  
-     0.4598773297575791E+00,  
-     0.2146816102371739E+00,  
-     0.9507364826957875E+00,  
-     0.5000000000000000E+00,  
-     0.8979413687105918E+00,  
-     0.2241297491808366E+00,  
-     0.7586405487192086E+00,  
+  static double b_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.0E+00,
+      0.5E+00,
+      5.0E+00,
+      5.0E+00,
+     10.0E+00,
+      5.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+     20.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+     11.7562, 
+     11.7562, 
+     11.7562 };
+
+  static double fx_vec[N_MAX] = {
+     0.6376856085851985E-01,
+     0.2048327646991335E+00,
+     0.1000000000000000E+01,
+     0.0000000000000000E+00,
+     0.5012562893380045E-02,
+     0.5131670194948620E-01,
+     0.2928932188134525E+00,
+     0.5000000000000000E+00,
+     0.2800000000000000E-01,
+     0.1040000000000000E+00,
+     0.2160000000000000E+00,
+     0.3520000000000000E+00,
+     0.5000000000000000E+00,
+     0.6480000000000000E+00,
+     0.7840000000000000E+00,
+     0.8960000000000000E+00,
+     0.9720000000000000E+00,
+     0.4361908850559777E+00,
+     0.1516409096347099E+00,
+     0.8978271484375000E-01,
+     0.1000000000000000E+01,
+     0.5000000000000000E+00,
+     0.4598773297575791E+00,
+     0.2146816102371739E+00,
+     0.9507364826957875E+00,
+     0.5000000000000000E+00,
+     0.8979413687105918E+00,
+     0.2241297491808366E+00,
+     0.7586405487192086E+00,
      0.7001783247477069E+00,
-     0.5131670194948620E-01, 
-     0.1055728090000841E+00, 
-     0.1633399734659245E+00, 
-     0.2254033307585166E+00, 
-     0.3600000000000000E+00, 
-     0.4880000000000000E+00, 
-     0.5904000000000000E+00, 
-     0.6723200000000000E+00, 
-     0.2160000000000000E+00, 
-     0.8370000000000000E-01, 
-     0.3078000000000000E-01, 
-     0.1093500000000000E-01 };
+     0.5131670194948620E-01,
+     0.1055728090000841E+00,
+     0.1633399734659245E+00,
+     0.2254033307585166E+00,
+     0.3600000000000000E+00,
+     0.4880000000000000E+00,
+     0.5904000000000000E+00,
+     0.6723200000000000E+00,
+     0.2160000000000000E+00,
+     0.8370000000000000E-01,
+     0.3078000000000000E-01,
+     0.1093500000000000E-01,
+     0.918884684620518,
+     0.21052977489419,
+     0.1824130512500673 };
 
-  double x_vec[N_MAX] = { 
-     0.01E+00,  
-     0.10E+00,  
-     1.00E+00,  
-     0.00E+00,  
-     0.01E+00,  
-     0.10E+00,  
-     0.50E+00,  
-     0.50E+00,  
-     0.10E+00,  
-     0.20E+00,  
-     0.30E+00,  
-     0.40E+00,  
-     0.50E+00,  
-     0.60E+00,  
-     0.70E+00,  
-     0.80E+00,  
-     0.90E+00,  
-     0.50E+00,  
-     0.90E+00,  
-     0.50E+00,  
-     1.00E+00,  
-     0.50E+00,  
-     0.80E+00,  
-     0.60E+00,  
-     0.80E+00,  
-     0.50E+00,  
-     0.60E+00,  
-     0.70E+00,  
-     0.80E+00,  
+  static double x_vec[N_MAX] = {
+     0.01E+00,
+     0.10E+00,
+     1.00E+00,
+     0.00E+00,
+     0.01E+00,
+     0.10E+00,
+     0.50E+00,
+     0.50E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.50E+00,
+     0.60E+00,
      0.70E+00,
-     0.10E+00, 
-     0.20E+00, 
-     0.30E+00, 
-     0.40E+00, 
-     0.20E+00, 
-     0.20E+00, 
-     0.20E+00, 
-     0.20E+00, 
-     0.30E+00, 
-     0.30E+00, 
-     0.30E+00, 
-     0.30E+00 };
+     0.80E+00,
+     0.90E+00,
+     0.50E+00,
+     0.90E+00,
+     0.50E+00,
+     1.00E+00,
+     0.50E+00,
+     0.80E+00,
+     0.60E+00,
+     0.80E+00,
+     0.50E+00,
+     0.60E+00,
+     0.70E+00,
+     0.80E+00,
+     0.70E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.225609,
+     0.0335568,
+     0.0295222 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0.0;
-    *b = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0.0;
+    b = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *b = b_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -385,7 +308,7 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 }
 //****************************************************************************80
 
-double betain ( double x, double p, double q, double beta, int *ifault )
+double betain ( double x, double p, double q, double beta, int &ifault )
 
 //****************************************************************************80
 //
@@ -424,7 +347,7 @@ double betain ( double x, double p, double q, double beta, int *ifault )
 //    Input, double BETA, the logarithm of the complete
 //    beta function.
 //
-//    Output, int *IFAULT, error flag.
+//    Output, int &IFAULT, error flag.
 //    0, no error.
 //    nonzero, an error occurred.
 //
@@ -448,19 +371,19 @@ double betain ( double x, double p, double q, double beta, int *ifault )
   double xx;
 
   value = x;
-  *ifault = 0;
+  ifault = 0;
 //
 //  Check the input arguments.
 //
   if ( p <= 0.0 || q <= 0.0 )
   {
-    *ifault = 1;
+    ifault = 1;
     return value;
   }
 
   if ( x < 0.0 || 1.0 < x )
   {
-    *ifault = 2;
+    ifault = 2;
     return value;
   }
 //
@@ -510,7 +433,7 @@ double betain ( double x, double p, double q, double beta, int *ifault )
   {
     term = term * temp * rx / ( pp + ai );
     value = value + term;;
-    temp = r8_abs ( term );
+    temp = fabs ( term );
 
     if ( temp <= acu && temp <= acu * value )
     {
@@ -546,48 +469,7 @@ double betain ( double x, double p, double q, double beta, int *ifault )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-void timestamp ( void )
+void timestamp ( )
 
 //****************************************************************************80
 //

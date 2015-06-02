@@ -45,8 +45,8 @@ int main ( int argc, char *argv[] )
 //    John Burkardt
 //
 {
-  char file_in_name[80];
-  char file_out_name[80];
+  char file_in_name[255];
+  char file_out_name[255];
   int result;
   bool VERBOSE = false;
 

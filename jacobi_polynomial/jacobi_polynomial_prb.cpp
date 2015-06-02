@@ -41,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "JACOBI_POLYNOMIAL_PRB\n";
   cout << "  C++ version\n";
@@ -57,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "JACOBI_POLYNOMIAL_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -184,12 +182,12 @@ void test02 ( )
     for ( degree = 1; degree <= 5; degree++ )
     {
       z = j_polynomial_zeros ( degree, a, b );
-      title = "Zeros for J(" + i4_to_string ( degree, "%d" ) + "," 
+      title = "Zeros for J(" + i4_to_string ( degree ) + "," 
         + r8_to_string ( a, "%f" ) + "," + r8_to_string ( b, "%f" ) + ")";
       r8vec_print ( degree, z, title );
 
       hz = j_polynomial ( degree, degree, a, b, z );
-      title = "Evaluate J(" + i4_to_string ( degree, "%d") + "," 
+      title = "Evaluate J(" + i4_to_string ( degree ) + "," 
         + r8_to_string ( a, "%f" ) + "," + r8_to_string ( b, "%f" ) + ")";
       r8vec_print ( degree, hz + degree * degree, title );
 

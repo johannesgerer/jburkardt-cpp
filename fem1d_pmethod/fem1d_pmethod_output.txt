@@ -1,4 +1,4 @@
-29 April 2007 08:26:00 AM
+01 October 2013 08:33:31 AM
 
 FEM1D_PMETHOD
   C++ version
@@ -23,7 +23,7 @@ FEM1D_PMETHOD
   Q=0,
   F=0.25*pi*pi*cos(0.5*pi*x)
 
-Basis function orthogonality test:
+  Basis function orthogonality test:
 
    i   j     b(i,j)/a(i)
 
@@ -40,9 +40,9 @@ Basis function orthogonality test:
        2       1   3.79471e-17
        2       2             1
 
-Representation of solution:
+  Representation of solution:
 
-Basis function coefficients:
+  Basis function coefficients:
 
          0       0.95493
          1  -1.25361e-18
@@ -64,7 +64,7 @@ Basis function coefficients:
              1             0
 
 
-Comparison of computed and exact solutions:
+  Comparison of computed and exact solutions:
 
     X        U computed    U exact     Difference
 
@@ -80,9 +80,9 @@ Comparison of computed and exact solutions:
        0.8      0.308802      0.309017   0.000214907
          1             0   6.12323e-17   6.12323e-17
 
-Big L2 error = 0.000572595
+  Big L2 error = 0.000572595
 
 PMETHOD
   Normal end of execution.
 
-29 April 2007 08:26:00 AM
+01 October 2013 08:33:31 AM

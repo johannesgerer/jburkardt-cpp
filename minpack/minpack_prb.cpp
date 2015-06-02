@@ -33,7 +33,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    MINPACK_PRB calls sample problems for the MINPACK routine.
+//    MINPACK_PRB tests the MINPACK library.
 //
 //  Licensing:
 //
@@ -49,7 +49,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "MINPACK_PRB\n";
   cout << "  C++ version:\n";
@@ -70,7 +69,6 @@ int main ( )
   cout << "\n";
   cout << "MINPACK_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

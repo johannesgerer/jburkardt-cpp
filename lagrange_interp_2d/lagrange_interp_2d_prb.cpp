@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LAGRANGE_INTERP_2D_TEST tests LAGRANGE_INTERP_2D.
+//    MAIN is the main program for LAGRANGE_INTERP_2D_PRB.
+//
+//  Discussion:
+//
+//    LAGRANGE_INTERP_2D_PRB tests the LAGRANGE_INTERP_2D library.
 //
 //  Licensing:
 //
@@ -46,7 +50,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "LAGRANGE_INTERP_2D_TEST:\n";
+  cout << "LAGRANGE_INTERP_2D_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the LAGRANGE_INTERP_2D library.\n";
   cout << "  The R8LIB library is needed.\n";
@@ -68,7 +72,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "LAGRANGE_INTERP_2D_TEST:\n";
+  cout << "LAGRANGE_INTERP_2D_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

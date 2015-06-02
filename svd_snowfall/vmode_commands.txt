@@ -1,0 +1,49 @@
+# vmode_commands.txt
+#
+# Usage:
+#  gnuplot < vmode_commands.txt
+#
+set term png
+set output 'vmode1.png'
+set xlabel 'Year'
+set ylabel 'Snowfall'
+set title 'Yearly Snowfall Mode 1'
+set grid
+set style data points
+plot 'vmode_data.txt' using 1:2 with points lt 3 pt 3
+set output 'vmode2.png'
+set xlabel 'Year'
+set ylabel 'Snowfall'
+set title 'Yearly Snowfall Mode 2'
+set grid
+set style data points
+plot 'vmode_data.txt' using 1:3 with points lt 3 pt 3
+set output 'vmode3.png'
+set xlabel 'Year'
+set ylabel 'Snowfall'
+set title 'Yearly Snowfall Mode 3'
+set grid
+set style data points
+plot 'vmode_data.txt' using 1:4 with points lt 3 pt 3
+set output 'vmode4.png'
+set xlabel 'Year'
+set ylabel 'Snowfall'
+set title 'Yearly Snowfall Mode 4'
+set grid
+set style data points
+plot 'vmode_data.txt' using 1:5 with points lt 3 pt 3
+set output 'vmode5.png'
+set xlabel 'Year'
+set ylabel 'Snowfall'
+set title 'Yearly Snowfall Mode 5'
+set grid
+set style data points
+plot 'vmode_data.txt' using 1:6 with points lt 3 pt 3
+set output 'vmode6.png'
+set xlabel 'Year'
+set ylabel 'Snowfall'
+set title 'Yearly Snowfall Mode 6'
+set grid
+set style data points
+plot 'vmode_data.txt' using 1:7 with points lt 3 pt 3
+quit

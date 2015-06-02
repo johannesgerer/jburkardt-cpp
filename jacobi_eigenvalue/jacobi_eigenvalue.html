@@ -1,0 +1,187 @@
+<html>
+
+  <head>
+    <title>
+      JACOBI_EIGENVALUE - Eigenvalues and Eigenvectors of a Symmetric Matrix
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      JACOBI_EIGENVALUE <br> Eigenvalues and Eigenvectors of a Symmetric Matrix
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>JACOBI_EIGENVALUE</b>
+      is a C++ library which
+      computes the eigenvalues and eigenvectors of a real symmetric matrix.
+    </p>
+
+    <p>
+      Given a real symmetric NxN matrix A, <b>JACOBI_EIGENVALUE</b> carries out
+      an iterative procedure known as Jacobi's iteration, to determine a
+      N-vector D of real, positive eigenvalues, and an NxN matrix V whose 
+      columns are the corresponding eigenvectors, so that, for each column
+      J of the eigenmatrix:
+      <pre>
+        A * Vj = Dj * Vj
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>JACOBI_EIGENVALUE</b> is available in
+      <a href = "../../c_src/jacobi_eigenvalue/jacobi_eigenvalue.html">a C version</a> and
+      <a href = "../../cpp_src/jacobi_eigenvalue/jacobi_eigenvalue.html">a C++ version</a> and
+      <a href = "../../f77_src/jacobi_eigenvalue/jacobi_eigenvalue.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/jacobi_eigenvalue/jacobi_eigenvalue.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/jacobi_eigenvalue/jacobi_eigenvalue.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/test_eigen/test_eigen.html">
+      TEST_EIGEN</a>,
+      a C++ library which
+      implements test matrices for eigenvalue analysis.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_mat/test_mat.html">
+      TEST_MAT</a>,
+      a C++ library which 
+      defines test matrices, some of
+      which have known determinants, eigenvalues and eigenvectors,
+      inverses and so on.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Gene Golub, Charles VanLoan,<br>
+          Matrix Computations,
+          Third Edition,<br>
+          Johns Hopkins, 1996,<br>
+          ISBN: 0-8018-4513-X,<br>
+          LC: QA188.G65.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "jacobi_eigenvalue.cpp">jacobi_eigenvalue.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "jacobi_eigenvalue.hpp">jacobi_eigenvalue.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "jacobi_eigenvalue.sh">jacobi_eigenvalue.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "jacobi_eigenvalue_prb.cpp">jacobi_eigenvalue_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "jacobi_eigenvalue_prb.sh">jacobi_eigenvalue_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "jacobi_eigenvalue_prb_output.txt">jacobi_eigenvalue_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>JACOBI_EIGENVALUE</b> carries out the Jacobi eigenvalue iteration.
+        </li>
+        <li>
+          <b>R8MAT_DIAG_GET_VECTOR</b> gets the value of the diagonal of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_IDENTITY</b> stores the identity matrix in an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_IS_EIGEN_RIGHT</b> determines the error in a (right) eigensystem.
+        </li>
+        <li>
+          <b>R8MAT_NORM_FRO</b> returns the Frobenius norm of an M by N R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 15 July 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

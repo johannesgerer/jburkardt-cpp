@@ -1,0 +1,18 @@
+# fxyz1_y_commands.txt
+#
+# Usage:
+#  gnuplot < fxyz1_y_commands.txt
+#
+set term png
+set output 'fxyz1_y.png'
+set view 20, 75
+set hidden3d
+set timestamp
+set xlabel '<--- X --->'
+set ylabel '<--- Z --->'
+set zlabel '<--- Y --->'
+set title 'Slice Y = 0.0'
+set grid
+set style data lines
+splot 'fxyz1_y_data.txt' with lines
+quit

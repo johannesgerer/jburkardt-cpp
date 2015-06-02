@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c poisson.cpp >& compiler.txt
+g++ -c poisson.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling poisson.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ poisson.o
 if [ $? -ne 0 ]; then

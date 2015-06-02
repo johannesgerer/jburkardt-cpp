@@ -27,7 +27,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPARSE_GRID_HERMITE_PRB tests the SPARSE_GRID_HERMITE routines.
+//    SPARSE_GRID_HERMITE_PRB tests the SPARSE_GRID_HERMITE library.
 //
 //  Licensing:
 //
@@ -218,7 +218,6 @@ int main ( )
   cout << "\n";
   cout << "SPARSE_GRID_HERMITE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

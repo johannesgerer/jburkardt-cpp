@@ -39,7 +39,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    HERMITE_CUBIC_PRB calls the HERMITE_CUBIC tests.
+//    HERMITE_CUBIC_PRB tests the HERMITE_CUBIC library.
 //
 //  Licensing:
 //
@@ -81,7 +81,6 @@ int main ( )
   std::cout << "\n";
   std::cout << "HERMITE_CUBIC_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   timestamp ( );
 

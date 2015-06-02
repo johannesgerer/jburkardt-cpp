@@ -3510,13 +3510,14 @@ void bernoulli_poly_values ( int &n_data, int &n, double &x, double &fx )
 }
 //****************************************************************************80
 
-void bernstein_poly_values ( int &n_data, int &n, int &k, double &x, double &b )
+void bernstein_poly_01_values ( int &n_data, int &n, int &k, double &x, 
+  double &b )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    BERNSTEIN_POLY_VALUES returns some values of the Bernstein polynomials.
+//    BERNSTEIN_POLY_01_VALUES returns some values of the Bernstein polynomials.
 //
 //  Discussion:
 //
@@ -7245,7 +7246,7 @@ void beta_cdf_values ( int &n_data, double &a, double &b, double &x,
 //
 //  Modified:
 //
-//    04 January 2005
+//    28 April 2013
 //
 //  Author:
 //
@@ -7284,7 +7285,7 @@ void beta_cdf_values ( int &n_data, double &a, double &b, double &x,
 //    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 42
+# define N_MAX 45
 
   static double a_vec[N_MAX] = {
       0.5E+00,
@@ -7328,7 +7329,10 @@ void beta_cdf_values ( int &n_data, double &a, double &b, double &x,
       0.2E+01,
       0.3E+01,
       0.4E+01,
-      0.5E+01 };
+      0.5E+01,
+      1.30625,
+      1.30625,
+      1.30625 };
 
   static double b_vec[N_MAX] = {
       0.5E+00,
@@ -7372,7 +7376,10 @@ void beta_cdf_values ( int &n_data, double &a, double &b, double &x,
       0.2E+01,
       0.2E+01,
       0.2E+01,
-      0.2E+01 };
+      0.2E+01,
+     11.7562, 
+     11.7562, 
+     11.7562 };
 
   static double fx_vec[N_MAX] = {
      0.6376856085851985E-01,
@@ -7416,7 +7423,10 @@ void beta_cdf_values ( int &n_data, double &a, double &b, double &x,
      0.2160000000000000E+00,
      0.8370000000000000E-01,
      0.3078000000000000E-01,
-     0.1093500000000000E-01 };
+     0.1093500000000000E-01,
+     0.918884684620518,
+     0.21052977489419,
+     0.1824130512500673 };
 
   static double x_vec[N_MAX] = {
      0.01E+00,
@@ -7460,7 +7470,10 @@ void beta_cdf_values ( int &n_data, double &a, double &b, double &x,
      0.30E+00,
      0.30E+00,
      0.30E+00,
-     0.30E+00 };
+     0.30E+00,
+     0.225609,
+     0.0335568,
+     0.0295222 };
 
   if ( n_data < 0 )
   {
@@ -7531,7 +7544,7 @@ void beta_inc_values ( int &n_data, double &a, double &b, double &x,
 //
 //  Modified:
 //
-//    04 January 2005
+//    28 April 2013
 //
 //  Author:
 //
@@ -7570,7 +7583,7 @@ void beta_inc_values ( int &n_data, double &a, double &b, double &x,
 //    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 42
+# define N_MAX 45
 
   static double a_vec[N_MAX] = {
       0.5E+00,
@@ -7614,7 +7627,10 @@ void beta_inc_values ( int &n_data, double &a, double &b, double &x,
       0.2E+01,
       0.3E+01,
       0.4E+01,
-      0.5E+01 };
+      0.5E+01,
+      1.30625,
+      1.30625,
+      1.30625 };
 
   static double b_vec[N_MAX] = {
       0.5E+00,
@@ -7658,7 +7674,10 @@ void beta_inc_values ( int &n_data, double &a, double &b, double &x,
       0.2E+01,
       0.2E+01,
       0.2E+01,
-      0.2E+01 };
+      0.2E+01,
+     11.7562, 
+     11.7562, 
+     11.7562 };
 
   static double fx_vec[N_MAX] = {
      0.6376856085851985E-01,
@@ -7702,7 +7721,10 @@ void beta_inc_values ( int &n_data, double &a, double &b, double &x,
      0.2160000000000000E+00,
      0.8370000000000000E-01,
      0.3078000000000000E-01,
-     0.1093500000000000E-01 };
+     0.1093500000000000E-01,
+     0.918884684620518,
+     0.21052977489419,
+     0.1824130512500673 };
 
   static double x_vec[N_MAX] = {
      0.01E+00,
@@ -7746,7 +7768,10 @@ void beta_inc_values ( int &n_data, double &a, double &b, double &x,
      0.30E+00,
      0.30E+00,
      0.30E+00,
-     0.30E+00 };
+     0.30E+00,
+     0.225609,
+     0.0335568,
+     0.0295222 };
 
   if ( n_data < 0 )
   {
@@ -8886,7 +8911,7 @@ void cauchy_cdf_values ( int &n_data, double &mu, double &sigma, double &x,
 //
 //    Output, double &MU, the mean of the distribution.
 //
-//    Output, double &SIGMA, the variance of the distribution.
+//    Output, double &SIGMA, the standard deviation of the distribution.
 //
 //    Output, double &X, the argument of the function.
 //
@@ -13595,7 +13620,7 @@ void euler_number_values ( int &n_data, int &n, int &c )
 //
 //  Modified:
 //
-//    05 February 2003
+//    04 February 2015
 //
 //  Author:
 //
@@ -13631,7 +13656,7 @@ void euler_number_values ( int &n_data, int &n, int &c )
 # define N_MAX 8
 
   static int c_vec[N_MAX] = {
-    1, 0, -1, 5, 61, 1385, -50521, 2702765 };
+    1, 0, -1, 5, -61, 1385, -50521, 2702765 };
 
   static int n_vec[N_MAX] = {
      0, 1, 2, 4, 6, 8, 10, 12 };
@@ -14700,336 +14725,6 @@ void f_noncentral_cdf_values ( int &n_data, int &n1, int &n2, double &lambda,
 }
 //****************************************************************************80
 
-void factorial_values ( int &n_data, int &n, int &fn )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    FACTORIAL_VALUES returns values of the factorial function.
-//
-//  Discussion:
-//
-//    0! = 1
-//    I! = Product ( 1 <= J <= I ) I
-//
-//    In Mathematica, the function can be evaluated by:
-//
-//      n!
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    18 August 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Stephen Wolfram,
-//    The Mathematica Book,
-//    Fourth Edition,
-//    Cambridge University Press, 1999,
-//    ISBN: 0-521-64314-7,
-//    LC: QA76.95.W65.
-//
-//  Parameters:
-//
-//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
-//    first call.  On each call, the routine increments N_DATA by 1, and
-//    returns the corresponding data; when there is no more data, the
-//    output value of N_DATA will be 0 again.
-//
-//    Output, int &N, the argument of the function.
-//
-//    Output, int &FN, the value of the function.
-//
-{
-# define N_MAX 13
-
-  static int fn_vec[N_MAX] = {
-            1,
-            1,
-            2,
-            6,
-           24,
-          120,
-          720,
-         5040,
-        40320,
-       362880,
-      3628800,
-     39916800,
-    479001600 };
-
-  static int n_vec[N_MAX] = {
-     0,  1,  2,  3,
-     4,  5,  6,  7,
-     8,  9, 10, 11,
-    12 };
-
-  if ( n_data < 0 )
-  {
-    n_data = 0;
-  }
-
-  n_data = n_data + 1;
-
-  if ( N_MAX < n_data )
-  {
-    n_data = 0;
-    n = 0;
-    fn = 0;
-  }
-  else
-  {
-    n = n_vec[n_data-1];
-    fn = fn_vec[n_data-1];
-  }
-
-  return;
-# undef N_MAX
-}
-//****************************************************************************80
-
-void factorial2_values ( int &n_data, int &n, int &fn )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    FACTORIAL2_VALUES returns values of the double factorial function.
-//
-//  Formula:
-//
-//    FACTORIAL2( N ) = Product ( N * (N-2) * (N-4) * ... * 2 )  (N even)
-//                    = Product ( N * (N-2) * (N-4) * ... * 1 )  (N odd)
-//
-//    In Mathematica, the function can be evaluated by:
-//
-//      n!!
-//
-//  Example:
-//
-//     N    N!!
-//
-//     0     1
-//     1     1
-//     2     2
-//     3     3
-//     4     8
-//     5    15
-//     6    48
-//     7   105
-//     8   384
-//     9   945
-//    10  3840
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    18 August 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Stephen Wolfram,
-//    The Mathematica Book,
-//    Fourth Edition,
-//    Cambridge University Press, 1999,
-//    ISBN: 0-521-64314-7,
-//    LC: QA76.95.W65.
-//
-//    Daniel Zwillinger,
-//    CRC Standard Mathematical Tables and Formulae,
-//    30th Edition,
-//    CRC Press, 1996, page 16.
-//
-//  Parameters:
-//
-//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
-//    first call.  On each call, the routine increments N_DATA by 1, and
-//    returns the corresponding data; when there is no more data, the
-//    output value of N_DATA will be 0 again.
-//
-//    Output, int &N, the argument of the function.
-//
-//    Output, int &FN, the value of the function.
-//
-{
-# define N_MAX 16
-
-  static int fn_vec[N_MAX] = {
-          1,
-          1,
-          2,
-          3,
-          8,
-         15,
-         48,
-        105,
-        384,
-        945,
-       3840,
-      10395,
-      46080,
-     135135,
-     645120,
-    2027025 };
-
-  static int n_vec[N_MAX] = {
-     0,
-     1,  2,  3,  4,  5,
-     6,  7,  8,  9, 10,
-    11, 12, 13, 14, 15 };
-
-  if ( n_data < 0 )
-  {
-    n_data = 0;
-  }
-
-  n_data = n_data + 1;
-
-  if ( N_MAX < n_data )
-  {
-    n_data = 0;
-    n = 0;
-    fn = 0;
-  }
-  else
-  {
-    n = n_vec[n_data-1];
-    fn = fn_vec[n_data-1];
-  }
-
-  return;
-# undef N_MAX
-}
-//****************************************************************************80
-
-void factorial_rising_values ( int &n_data, int &m, int &n, int &fmn )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    FACTORIAL_RISING_VALUES returns values of the int *Pochhammer function.
-//
-//  Discussion:
-//
-//    The int *Pochhammer function is sometimes symbolized by (m)_n.
-//
-//    The definition of the int *Pochhammer function is
-//
-//      (m)_n = (m-1+n)! / (m-1)!
-//            = ( m ) * ( m + 1 ) * ( m + 2 ) ... * ( m - 1 + n )
-//            = Gamma ( m + n ) / Gamma ( m )
-//
-//    We assume 0 <= N <= M.
-//
-//    In Mathematica, the function can be evaluated by:
-//
-//      Pochhammer[m,n]
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    27 August 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Stephen Wolfram,
-//    The Mathematica Book,
-//    Fourth Edition,
-//    Cambridge University Press, 1999,
-//    ISBN: 0-521-64314-7,
-//    LC: QA76.95.W65.
-//
-//  Parameters:
-//
-//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
-//    first call.  On each call, the routine increments N_DATA by 1, and
-//    returns the corresponding data; when there is no more data, the
-//    output value of N_DATA will be 0 again.
-//
-//    Output, int &M, &N, the arguments of the function.
-//
-//    Output, int &FMN, the value of the function.
-//
-{
-# define N_MAX 8
-
-  static int fmn_vec[N_MAX] = {
-     1, 10, 4000, 110, 6840, 840, 970200, 5040 };
-
-  static int m_vec[N_MAX] = {
-    50, 10, 4000, 10, 18, 4, 98, 1 };
-
-  static int n_vec[N_MAX] = {
-    0,  1,   1,   2,  3, 4,  3, 7 };
-
-  if ( n_data < 0 )
-  {
-    n_data = 0;
-  }
-
-  n_data = n_data + 1;
-
-  if ( N_MAX < n_data )
-  {
-    n_data = 0;
-    m = 0;
-    n = 0;
-    fmn = 0;
-  }
-  else
-  {
-    m = m_vec[n_data-1];
-    n = n_vec[n_data-1];
-    fmn = fmn_vec[n_data-1];
-  }
-
-  return;
-# undef N_MAX
-}
-//****************************************************************************80
-
 void fresnel_cos_values ( int &n_data, double &x, double &fx )
 
 //****************************************************************************80
@@ -15925,7 +15620,7 @@ void gamma_cdf_values ( int &n_data, double &mu, double &sigma, double &x,
 //
 //    Output, double &MU, the mean of the distribution.
 //
-//    Output, double &SIGMA, the variance of the distribution.
+//    Output, double &SIGMA, the standard deviation of the distribution.
 //
 //    Output, double &X, the argument of the function.
 //
@@ -16024,7 +15719,7 @@ void gamma_inc_p_values ( int &n_data, double &a, double &x, double &fx )
 //
 //  Purpose:
 //
-//    GAMMA_INC_P_VALUES: values of the normalized incomplete Gamma function P(A,X).
+//    GAMMA_INC_P_VALUES: values of normalized incomplete Gamma function P(A,X).
 //
 //  Discussion:
 //
@@ -16185,7 +15880,7 @@ void gamma_inc_q_values ( int &n_data, double &a, double &x, double &fx )
 //
 //  Purpose:
 //
-//    GAMMA_INC_Q_VALUES: values of the normalized incomplete Gamma function Q(A,X).
+//    GAMMA_INC_Q_VALUES: values of normalized incomplete Gamma function Q(A,X).
 //
 //  Discussion:
 //
@@ -18905,6 +18600,446 @@ void i1ml1_values ( int &n_data, double &x, double &fx )
   {
     x  = x_vec[n_data-1];
     fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void i4_factorial_values ( int &n_data, int &n, int &fn )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_FACTORIAL_VALUES returns values of the factorial function.
+//
+//  Discussion:
+//
+//    0! = 1
+//    I! = Product ( 1 <= J <= I ) I
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      n!
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 August 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, int &N, the argument of the function.
+//
+//    Output, int &FN, the value of the function.
+//
+{
+# define N_MAX 13
+
+  static int fn_vec[N_MAX] = {
+            1,
+            1,
+            2,
+            6,
+           24,
+          120,
+          720,
+         5040,
+        40320,
+       362880,
+      3628800,
+     39916800,
+    479001600 };
+
+  static int n_vec[N_MAX] = {
+     0,  1,  2,  3,
+     4,  5,  6,  7,
+     8,  9, 10, 11,
+    12 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    n = 0;
+    fn = 0;
+  }
+  else
+  {
+    n = n_vec[n_data-1];
+    fn = fn_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void i4_factorial2_values ( int &n_data, int &n, int &fn )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_FACTORIAL2_VALUES returns values of the double factorial function.
+//
+//  Formula:
+//
+//    FACTORIAL2( N ) = Product ( N * (N-2) * (N-4) * ... * 2 )  (N even)
+//                    = Product ( N * (N-2) * (N-4) * ... * 1 )  (N odd)
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      n!!
+//
+//  Example:
+//
+//     N    N!!
+//
+//     0     1
+//     1     1
+//     2     2
+//     3     3
+//     4     8
+//     5    15
+//     6    48
+//     7   105
+//     8   384
+//     9   945
+//    10  3840
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 August 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//    Daniel Zwillinger,
+//    CRC Standard Mathematical Tables and Formulae,
+//    30th Edition,
+//    CRC Press, 1996, page 16.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, int &N, the argument of the function.
+//
+//    Output, int &FN, the value of the function.
+//
+{
+# define N_MAX 16
+
+  static int fn_vec[N_MAX] = {
+          1,
+          1,
+          2,
+          3,
+          8,
+         15,
+         48,
+        105,
+        384,
+        945,
+       3840,
+      10395,
+      46080,
+     135135,
+     645120,
+    2027025 };
+
+  static int n_vec[N_MAX] = {
+     0,
+     1,  2,  3,  4,  5,
+     6,  7,  8,  9, 10,
+    11, 12, 13, 14, 15 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    n = 0;
+    fn = 0;
+  }
+  else
+  {
+    n = n_vec[n_data-1];
+    fn = fn_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void i4_fall_values ( int &n_data, int &m, int &n, int &fmn )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_FALL_VALUES returns values of the integer falling factorial function.
+//
+//  Discussion:
+//
+//    The definition of the falling factorial function is
+//
+//      (m)_n = (m)! / (m-n)!
+//            = ( m ) * ( m - 1 ) * ( m - 2 ) ... * ( m - n + 1 )
+//            = Gamma ( m + 1 ) / Gamma ( m - n + 1 )
+//
+//    We assume 0 <= N <= M.
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      FactorialPower[m,n]
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, int &M, &N, the arguments of the function.
+//
+//    Output, int &FMN, the value of the function.
+//
+{
+# define N_MAX 15
+
+  static int fmn_vec[N_MAX] = {
+     1, 5, 20, 60, 120, 
+     120, 0, 1, 10, 4000, 
+     90, 4896, 24, 912576, 0 };
+
+  static int m_vec[N_MAX] = {
+    5, 5, 5, 5, 5, 
+    5, 5, 50, 10, 4000, 
+    10, 18, 4, 98, 1 };
+
+  static int n_vec[N_MAX] = {
+    0, 1, 2, 3, 4, 
+    5, 6, 0, 1, 1, 
+    2, 3, 4, 3, 7  };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    m = 0;
+    n = 0;
+    fmn = 0;
+  }
+  else
+  {
+    m = m_vec[n_data-1];
+    n = n_vec[n_data-1];
+    fmn = fmn_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void i4_rise_values ( int &n_data, int &m, int &n, int &fmn )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_RISE_VALUES returns values of the integer rising factorial function.
+//
+//  Discussion:
+//
+//    The integer rising factorial function is sometimes symbolized by (m)_n.
+//
+//    The definition is
+//
+//      (m)_n = (m-1+n)! / (m-1)!
+//            = ( m ) * ( m + 1 ) * ( m + 2 ) ... * ( m - 1 + n )
+//            = Gamma ( m + n ) / Gamma ( m )
+//
+//    We assume 0 <= N <= M.
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      Pochhammer[m,n]
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, int &M, &N, the arguments of the function.
+//
+//    Output, int &FMN, the value of the function.
+//
+{
+# define N_MAX 15
+
+  static int fmn_vec[N_MAX] = {
+     1, 5, 30, 210, 1680, 
+     15120, 151200, 1, 10, 4000, 
+     110, 6840, 840, 970200, 5040 };
+
+  static int m_vec[N_MAX] = {
+    5, 5, 5, 5, 5, 
+    5, 5, 50, 10, 4000, 
+    10, 18, 4, 98, 1 };
+
+  static int n_vec[N_MAX] = {
+    0, 1, 2, 3, 4, 
+    5, 6, 0, 1, 1, 
+    2, 3, 4, 3, 7  };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    m = 0;
+    n = 0;
+    fmn = 0;
+  }
+  else
+  {
+    m = m_vec[n_data-1];
+    n = n_vec[n_data-1];
+    fmn = fmn_vec[n_data-1];
   }
 
   return;
@@ -22539,6 +22674,310 @@ void legendre_poly_values ( int &n_data, int &n, double &x, double &fx )
 }
 //****************************************************************************80
 
+void lobatto_polynomial_values ( int &n_data, int &n, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LOBATTO_POLYNOMIAL_VALUES returns values of the completed Lobatto polynomials.
+//
+//  Discussion:
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      n * LegendreP [ n - 1, x ] - n * x * LegendreP [ n, x ]
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 May 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0
+//    before the first call.  On each call, the routine increments N_DATA by 1,
+//    and returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, int &N, the order of the function.
+//
+//    Output, double &X, the point where the function is evaluated.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 31
+
+  static double fx_vec[N_MAX] = {
+    0.9375000000000000, 
+    0.7031250000000000, 
+   -0.9667968750000000, 
+   -1.501464843750000, 
+    0.3639221191406250, 
+    2.001914978027344, 
+    0.6597948074340820, 
+   -1.934441328048706, 
+   -1.769941113889217, 
+    1.215243665501475, 
+    0.000000000000000, 
+    0.8692500000000000, 
+    1.188000000000000, 
+    1.109250000000000, 
+    0.7680000000000000, 
+    0.2812500000000000, 
+   -0.2520000000000000, 
+   -0.7507500000000000, 
+   -1.152000000000000, 
+   -1.410750000000000, 
+   -1.500000000000000, 
+   -1.410750000000000, 
+   -1.152000000000000, 
+   -0.7507500000000000, 
+   -0.2520000000000000, 
+    0.2812500000000000, 
+    0.7680000000000000, 
+    1.109250000000000, 
+    1.188000000000000, 
+    0.8692500000000000, 
+    0.000000000000000 };
+
+  static int n_vec[N_MAX] = {
+     1,  2, 
+     3,  4,  5, 
+     6,  7,  8, 
+     9, 10,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3 };
+
+  static double x_vec[N_MAX] = {
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+   -1.00, 
+   -0.90, 
+   -0.80, 
+   -0.70, 
+   -0.60, 
+   -0.50, 
+   -0.40, 
+   -0.30, 
+   -0.20, 
+   -0.10, 
+    0.00, 
+    0.10, 
+    0.20, 
+    0.30, 
+    0.40, 
+    0.50, 
+    0.60, 
+    0.70, 
+    0.80, 
+    0.90, 
+    1.00 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    n = 0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    n = n_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void lobatto_polynomial_derivatives ( int &n_data, int &n, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LOBATTO_POLYNOMIAL_DERIVATIVES: derivatives of the completed Lobatto polynomials.
+//
+//  Discussion:
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      n * LegendreP [ n - 1, x ] - n * x * LegendreP [ n, x ]
+//
+//     In Mathematica, the completed Lobatto polynomial can be evaluated by:
+//
+//       n * LegendreP [ n - 1, x ] - n * x * LegendreP [ n, x ]
+//
+//     The derivative is:
+//
+//         n * D[LegendreP [ n - 1, x ], {x} ] 
+//       - n * LegendreP [ n, x ] 
+//       - n * x * D[LegendreP [ n, x ], {x}]
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 November 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0
+//    before the first call.  On each call, the routine increments N_DATA by 1,
+//    and returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, int &N, the order of the function.
+//
+//    Output, double &X, the point where the function is evaluated.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 31
+
+  static double fx_vec[N_MAX] = {
+     -0.5, 
+      2.437500000000000, 
+      4.031250000000000, 
+     -3.154296875000000, 
+    -10.19165039062500, 
+     -1.019622802734375, 
+     15.67544555664063, 
+     10.97668933868408, 
+    -15.91419786214828, 
+    -24.33202382177114, 
+     12.00000000000000, 
+      5.670000000000000, 
+      0.9600000000000000, 
+     -2.310000000000000, 
+     -4.320000000000000, 
+     -5.250000000000000, 
+     -5.280000000000000, 
+     -4.590000000000000, 
+     -3.360000000000000, 
+     -1.770000000000000, 
+      0.0, 
+      1.770000000000000, 
+      3.360000000000000, 
+      4.590000000000000, 
+      5.280000000000000, 
+      5.250000000000000, 
+      4.320000000000000, 
+      2.310000000000000, 
+     -0.9600000000000000, 
+     -5.670000000000000, 
+    -12.00000000000000 };
+
+  static int n_vec[N_MAX] = {
+     1,  2, 
+     3,  4,  5, 
+     6,  7,  8, 
+     9, 10,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3,  3, 
+     3,  3 };
+
+  static double x_vec[N_MAX] = {
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+    0.25, 
+   -1.00, 
+   -0.90, 
+   -0.80, 
+   -0.70, 
+   -0.60, 
+   -0.50, 
+   -0.40, 
+   -0.30, 
+   -0.20, 
+   -0.10, 
+    0.00, 
+    0.10, 
+    0.20, 
+    0.30, 
+    0.40, 
+    0.50, 
+    0.60, 
+    0.70, 
+    0.80, 
+    0.90, 
+    1.00 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    n = 0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    n = n_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
 void lerch_values ( int &n_data, double &z, int &s, double &a, double &fx )
 
 //****************************************************************************80
@@ -23235,7 +23674,7 @@ void log_normal_cdf_values ( int &n_data, double &mu, double &sigma,
 //
 //    Output, double &MU, the mean of the distribution.
 //
-//    Output, double &SIGMA, the shape parameter of the distribution.
+//    Output, double &SIGMA, the standard deviation of the distribution.
 //
 //    Output, double &X, the argument of the function.
 //
@@ -24535,7 +24974,7 @@ void normal_cdf_values ( int &n_data, double &mu, double &sigma, double &x,
 //
 //    Output, double &MU, the mean of the distribution.
 //
-//    Output, double &SIGMA, the variance of the distribution.
+//    Output, double &SIGMA, the standard deviation of the distribution.
 //
 //    Output, double &X, the argument of the function.
 //
@@ -24765,7 +25204,7 @@ void omega_values ( int &n_data, int &n, int &c )
 //
 //     N   OMEGA(N)
 //
-//     1    1
+//     1    0
 //     2    1
 //     3    1
 //     4    1
@@ -24790,11 +25229,11 @@ void omega_values ( int &n_data, int &n, int &c )
 //
 //    If N = 1, then
 //
-//      OMEGA(N) = 1
+//      OMEGA(N) = 0
 //
 //    else if the prime factorization of N is
 //
-//      N = P1**E1 * P2**E2 * ... * PM**EM,
+//      N = P1^E1 * P2^E2 * ... * PM^EM,
 //
 //    then
 //
@@ -24806,7 +25245,7 @@ void omega_values ( int &n_data, int &n, int &c )
 //
 //  Modified:
 //
-//    17 May 2003
+//    17 April 2013
 //
 //  Author:
 //
@@ -24842,7 +25281,7 @@ void omega_values ( int &n_data, int &n, int &c )
 # define N_MAX 23
 
   static int c_vec[N_MAX] = {
-      1,   1,   1,   1,   1,
+      0,   1,   1,   1,   1,
       2,   1,   1,   1,   2,
       3,   1,   4,   4,   3,
       1,   5,   2,   2,   1,
@@ -25345,7 +25784,7 @@ void phi_values ( int &n_data, int &n, int &c )
 //
 //    PHI(U*V) = PHI(U) * PHI(V) if U and V are relatively prime.
 //
-//    PHI(P**K) = P**(K-1) * ( P - 1 ) if P is prime.
+//    PHI(P^K) = P^(K-1) * ( P - 1 ) if P is prime.
 //
 //    PHI(N) = N * Product ( P divides N ) ( 1 - 1 / P )
 //
@@ -25530,154 +25969,6 @@ void pi_values ( int &n_data, int &n, int &p )
   {
     n = n_vec[n_data-1];
     p = p_vec[n_data-1];
-  }
-
-  return;
-# undef N_MAX
-}
-//****************************************************************************80
-
-void pochhammer_values ( int &n_data, double &x, double &y, double &fxy )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    POCHHAMMER_VALUES returns some values of the Pochhammer function.
-//
-//  Discussion:
-//
-//    Pochhammer(X,Y) = Gamma(X+Y) / Gamma(X)
-//
-//    For integer arguments, Pochhammer(M,N) = ( M + N - 1 )! / ( N - 1 )!
-//
-//    In Mathematica, the function can be evaluated by:
-//
-//      Pochhammer[X,Y]
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    08 April 2010
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Stephen Wolfram,
-//    The Mathematica Book,
-//    Fourth Edition,
-//    Cambridge University Press, 1999,
-//    ISBN: 0-521-64314-7,
-//    LC: QA76.95.W65.
-//
-//  Parameters:
-//
-//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
-//    first call.  On each call, the routine increments N_DATA by 1, and
-//    returns the corresponding data; when there is no more data, the
-//    output value of N_DATA will be 0 again.
-//
-//    Output, double &X, &Y, the arguments of the function.
-//
-//    Output, double &FXY, the value of the function.
-//
-{
-# define N_MAX 19
-
-  static double f_vec[N_MAX] = {
-     720.0000000000000,
-       1.875000000000000,
-       1.000000000000000,
-       4.500000000000000,
-      24.75000000000000,
-     110.0000000000000,
-     377.1036305819165,
-       4.362197352456253,
-       1.000000000000000,
-       1.467150493866654,
-       2.180949074356397,
-       3.282686710888467,
-       5.000000000000000,
-       7.702540092799931,
-      11.99521990896018,
-      18.87544858760869,
-      30.00000000000000,
-      48.14087557999957,
-      77.96892940824118 };
-
-  static double x_vec[N_MAX] = {
-     1.00,
-     0.50,
-     4.50,
-     4.50,
-     4.50,
-    10.00,
-    10.00,
-     7.25,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00 };
-
-  static double y_vec[N_MAX] = {
-    6.00,
-    3.00,
-    0.00,
-    1.00,
-    2.00,
-    2.00,
-    2.50,
-    0.75,
-    0.00,
-    0.25,
-    0.50,
-    0.75,
-    1.00,
-    1.25,
-    1.50,
-    1.75,
-    2.00,
-    2.25,
-    2.50 };
-
-  if ( n_data < 0 )
-  {
-    n_data = 0;
-  }
-
-  n_data = n_data + 1;
-
-  if ( N_MAX < n_data )
-  {
-    n_data = 0;
-    x = 0.0;
-    y = 0.0;
-    fxy = 0.0;
-  }
-  else
-  {
-    x = x_vec[n_data-1];
-    y = y_vec[n_data-1];
-    fxy = f_vec[n_data-1];
   }
 
   return;
@@ -26139,13 +26430,16 @@ void prime_values ( int &n_data, int &n, int &p )
 //
 //      Prime[n]
 //
+//    Thanks to Morten Welinder for pointing out that the index of 145253029
+//    is 8192000, 12 April 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    17 June 2004
+//    12 April 2013
 //
 //  Author:
 //
@@ -26198,7 +26492,7 @@ void prime_values ( int &n_data, int &n, int &p )
     1024000,
     2048000,
     4096000,
-    8129000 };
+    8192000 };
 
   static int p_vec[N_MAX] = {
             2,
@@ -26375,7 +26669,7 @@ void psi_values ( int &n_data, double &x, double &fx )
 //
 //  Modified:
 //
-//    17 August 2004
+//    04 June 2013
 //
 //  Author:
 //
@@ -26408,9 +26702,18 @@ void psi_values ( int &n_data, double &x, double &fx )
 //    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 11
+# define N_MAX 20
 
   static double fx_vec[N_MAX] = {
+    -10.42375494041108E+00, 
+     -5.289039896592188E+00, 
+     -3.502524222200133E+00, 
+     -2.561384544585116E+00, 
+     -1.963510026021423E+00, 
+     -1.540619213893190E+00, 
+     -1.220023553697935E+00, 
+     -0.9650085667061385E+00, 
+     -0.7549269499470514E+00, 
      -0.5772156649015329E+00,
      -0.4237549404110768E+00,
      -0.2890398965921883E+00,
@@ -26424,6 +26727,15 @@ void psi_values ( int &n_data, double &x, double &fx )
       0.4227843350984671E+00 };
 
   static double x_vec[N_MAX] = {
+     0.1E+00,
+     0.2E+00,
+     0.3E+00,
+     0.4E+00,
+     0.5E+00,
+     0.6E+00,
+     0.7E+00,
+     0.8E+00,
+     0.9E+00,
      1.0E+00,
      1.1E+00,
      1.2E+00,
@@ -26734,6 +27046,401 @@ void r8_factorial_log_values ( int &n_data, int &n, double &fn )
   {
     n = n_vec[n_data-1];
     fn = fn_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8_factorial2_values ( int &n_data, int &n, double &f )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_FACTORIAL2_VALUES returns values of the double factorial function.
+//
+//  Formula:
+//
+//    FACTORIAL2( N ) = Product ( N * (N-2) * (N-4) * ... * 2 )  (N even)
+//                    = Product ( N * (N-2) * (N-4) * ... * 1 )  (N odd)
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      n!!
+//
+//  Example:
+//
+//     N    N!!
+//
+//     0     1
+//     1     1
+//     2     2
+//     3     3
+//     4     8
+//     5    15
+//     6    48
+//     7   105
+//     8   384
+//     9   945
+//    10  3840
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//    Daniel Zwillinger,
+//    CRC Standard Mathematical Tables and Formulae,
+//    30th Edition,
+//    CRC Press, 1996, page 16.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, int &N, the argument of the function.
+//
+//    Output, double &F, the value of the function.
+//
+{
+# define N_MAX 16
+
+  static double f_vec[N_MAX] = {
+          1.0,
+          1.0,
+          2.0,
+          3.0,
+          8.0,
+         15.0,
+         48.0,
+        105.0,
+        384.0,
+        945.0,
+       3840.0,
+      10395.0,
+      46080.0,
+     135135.0,
+     645120.0,
+    2027025.0 };
+
+  static int n_vec[N_MAX] = {
+     0,
+     1,  2,  3,  4,  5,
+     6,  7,  8,  9, 10,
+    11, 12, 13, 14, 15 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    n = 0;
+    f = 0.0;
+  }
+  else
+  {
+    n = n_vec[n_data-1];
+    f = f_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8_fall_values ( int &n_data, double &x, int &n, double &f )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_FALL_VALUES returns some values of the falling factorial function.
+//
+//  Discussion:
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      FactorialPower[X,Y]
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &X, int &N, the arguments of the function.
+//
+//    Output, double &F, the value of the function.
+//
+{
+# define N_MAX 15
+
+  static double f_vec[N_MAX] = {
+    120.0000000000000,
+    163.1601562500000,
+    216.5625000000000,
+    281.6601562500000,
+    360.0000000000000,
+    1.000000000000000,
+    7.500000000000000,
+    48.75000000000000,
+    268.1250000000000,
+    1206.562500000000,
+    4222.968750000000,
+    10557.42187500000,
+    15836.13281250000,
+    7918.066406250000,
+    -3959.03320312500 };
+
+  static int n_vec[N_MAX] = {
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9 };
+
+  static double x_vec[N_MAX] = {
+    5.00,
+    5.25,
+    5.50,
+    5.75,
+    6.00,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    x = 0.0;
+    n = 0;
+    f = 0.0;
+  }
+  else
+  {
+    x = x_vec[n_data-1];
+    n = n_vec[n_data-1];
+    f = f_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8_rise_values ( int &n_data, double &x, int &n, double &f )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_RISE_VALUES returns some values of the rising factorial function.
+//
+//  Discussion:
+//
+//    Pochhammer(X,Y) = Gamma(X+Y) / Gamma(X)
+//
+//    For integer arguments, Pochhammer(M,N) = ( M + N - 1 )! / ( N - 1 )!
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      Pochhammer[X,Y]
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &X, int &N, the arguments of the function.
+//
+//    Output, double &F, the value of the function.
+//
+{
+# define N_MAX 15
+
+  static double f_vec[N_MAX] = {
+    1680.000000000000,
+    1962.597656250000,
+    2279.062500000000,
+    2631.972656250000,
+    3024.000000000000,
+    1.000000000000000,
+    7.500000000000000,
+    63.75000000000000,
+    605.6250000000000,
+    6359.062500000000,
+    73129.21875000000,
+    914115.2343750000,
+    1.234055566406250E+07,
+    1.789380571289063E+08,
+    2.773539885498047E+09 };
+
+  static int n_vec[N_MAX] = {
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9 };
+
+  static double x_vec[N_MAX] = {
+    5.00,
+    5.25,
+    5.50,
+    5.75,
+    6.00,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50,
+    7.50 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    x = 0.0;
+    n = 0;
+    f = 0.0;
+  }
+  else
+  {
+    x = x_vec[n_data-1];
+    n = n_vec[n_data-1];
+    f = f_vec[n_data-1];
   }
 
   return;
@@ -30091,9 +30798,9 @@ void surten_values ( int &n_data, double &tc, double &sigma )
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *TC, the temperature, in degrees Celsius.
+//    Output, double &TC, the temperature, in degrees Celsius.
 //
-//    Output, double *SIGMA, the surface tension,
+//    Output, double &SIGMA, the surface tension,
 //    in Pascal * m = Newton / m.
 //
 {
@@ -32289,6 +32996,936 @@ void trigamma_values ( int &n_data, double &x, double &fx )
   }
   else
   {
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void truncated_normal_ab_cdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &b, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRUNCATED_NORMAL_AB_CDF_VALUES: values of the Truncated Normal CDF.
+//
+//  Discussion:
+//
+//    The Normal distribution, with mean Mu and standard deviation Sigma,
+//    is truncated to the interval [A,B].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &MU, the mean of the distribution.
+//
+//    Output, double &SIGMA, the standard deviation of the distribution.
+//
+//    Output, double &A, &B, the lower and upper truncation limits.
+//
+//    Output, double &X, the argument of the function.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 11
+
+  static double a_vec[N_MAX] = {
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0 };
+
+  static double b_vec[N_MAX] = {
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0 };
+
+  static double fx_vec[N_MAX] = {
+    0.3371694242213513, 
+    0.3685009225506048, 
+    0.4006444233448185, 
+    0.4334107066903040, 
+    0.4665988676496338, 
+    0.5000000000000000, 
+    0.5334011323503662, 
+    0.5665892933096960, 
+    0.5993555766551815, 
+    0.6314990774493952, 
+    0.6628305757786487 };
+
+  static double mu_vec[N_MAX] = {
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0 };
+
+  static double sigma_vec[N_MAX] = {
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0  };
+
+  static double x_vec[N_MAX] = {
+     90.0, 
+     92.0, 
+     94.0, 
+     96.0, 
+     98.0, 
+    100.0, 
+    102.0, 
+    104.0, 
+    106.0, 
+    108.0, 
+    110.0 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    a = 0.0;
+    b = 0.0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void truncated_normal_ab_pdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &b, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRUNCATED_NORMAL_AB_PDF_VALUES: values of the Truncated Normal PDF.
+//
+//  Discussion:
+//
+//    The Normal distribution, with mean Mu and standard deviation Sigma,
+//    is truncated to the interval [A,B].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &MU, the mean of the distribution.
+//
+//    Output, double &SIGMA, the standard deviation of the distribution.
+//
+//    Output, double &A, &B, the lower and upper truncation limits.
+//
+//    Output, double &X, the argument of the function.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 11
+
+  static double a_vec[N_MAX] = {
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0 };
+
+  static double b_vec[N_MAX] = {
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0 };
+
+  static double fx_vec[N_MAX] = {
+    0.01543301171801836,
+    0.01588394472270638,
+    0.01624375997031919,
+    0.01650575046469259,
+    0.01666496869385951,
+    0.01671838200940538,
+    0.01666496869385951,
+    0.01650575046469259,
+    0.01624375997031919,
+    0.01588394472270638,
+    0.01543301171801836 };
+
+  static double mu_vec[N_MAX] = {
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0 };
+
+  static double sigma_vec[N_MAX] = {
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0  };
+
+  static double x_vec[N_MAX] = {
+     90.0, 
+     92.0, 
+     94.0, 
+     96.0, 
+     98.0, 
+    100.0, 
+    102.0, 
+    104.0, 
+    106.0, 
+    108.0, 
+    110.0 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    a = 0.0;
+    b = 0.0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void truncated_normal_a_cdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRUNCATED_NORMAL_A_CDF_VALUES: values of the Lower Truncated Normal CDF.
+//
+//  Discussion:
+//
+//    The Normal distribution, with mean Mu and standard deviation Sigma,
+//    is truncated to the interval [A,+oo).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &MU, the mean of the distribution.
+//
+//    Output, double &SIGMA, the standard deviation of the distribution.
+//
+//    Output, double &A, the lower truncation limit.
+//
+//    Output, double &X, the argument of the function.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 11
+
+  static double a_vec[N_MAX] = {
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0 };
+
+  static double fx_vec[N_MAX] = {
+    0.3293202045481688, 
+    0.3599223134505957, 
+    0.3913175216041539, 
+    0.4233210140873113, 
+    0.4557365629792204, 
+    0.4883601253415709, 
+    0.5209836877039214, 
+    0.5533992365958304, 
+    0.5854027290789878, 
+    0.6167979372325460, 
+    0.6474000461349729 };
+
+  static double mu_vec[N_MAX] = {
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0 };
+
+  static double sigma_vec[N_MAX] = {
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0  };
+
+  static double x_vec[N_MAX] = {
+     90.0, 
+     92.0, 
+     94.0, 
+     96.0, 
+     98.0, 
+    100.0, 
+    102.0, 
+    104.0, 
+    106.0, 
+    108.0, 
+    110.0 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    a = 0.0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    a = a_vec[n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void truncated_normal_a_pdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRUNCATED_NORMAL_A_PDF_VALUES: values of the Lower Truncated Normal PDF.
+//
+//  Discussion:
+//
+//    The Normal distribution, with mean Mu and standard deviation Sigma,
+//    is truncated to the interval [A,+oo).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &MU, the mean of the distribution.
+//
+//    Output, double &SIGMA, the standard deviation of the distribution.
+//
+//    Output, double &A, the lower truncation limit.
+//
+//    Output, double &X, the argument of the function.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 11
+
+  static double a_vec[N_MAX] = {
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0, 
+     50.0 };
+
+  static double fx_vec[N_MAX] = {
+     0.01507373507401876,
+     0.01551417047139894,
+     0.01586560931024694,
+     0.01612150073158793,
+     0.01627701240029317,
+     0.01632918226724295,
+     0.01627701240029317,
+     0.01612150073158793,
+     0.01586560931024694,
+     0.01551417047139894,
+     0.01507373507401876 };
+
+  static double mu_vec[N_MAX] = {
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0 };
+
+  static double sigma_vec[N_MAX] = {
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0  };
+
+  static double x_vec[N_MAX] = {
+     90.0, 
+     92.0, 
+     94.0, 
+     96.0, 
+     98.0, 
+    100.0, 
+    102.0, 
+    104.0, 
+    106.0, 
+    108.0, 
+    110.0 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    a = 0.0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    a = a_vec[n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void truncated_normal_b_cdf_values ( int &n_data, double &mu, double &sigma, 
+  double &b, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRUNCATED_NORMAL_B_CDF_VALUES: values of the upper Truncated Normal CDF.
+//
+//  Discussion:
+//
+//    The Normal distribution, with mean Mu and standard deviation Sigma,
+//    is truncated to the interval (-oo,B].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &MU, the mean of the distribution.
+//
+//    Output, double &SIGMA, the standard deviation of the distribution.
+//
+//    Output, double &B, the upper truncation limit.
+//
+//    Output, double &X, the argument of the function.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 11
+
+  static double b_vec[N_MAX] = {
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0 };
+
+  static double fx_vec[N_MAX] = {
+    0.3525999538650271, 
+    0.3832020627674540, 
+    0.4145972709210122, 
+    0.4466007634041696, 
+    0.4790163122960786, 
+    0.5116398746584291, 
+    0.5442634370207796, 
+    0.5766789859126887, 
+    0.6086824783958461, 
+    0.6400776865494043, 
+    0.6706797954518312 };
+
+  static double mu_vec[N_MAX] = {
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0 };
+
+  static double sigma_vec[N_MAX] = {
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0  };
+
+  static double x_vec[N_MAX] = {
+     90.0, 
+     92.0, 
+     94.0, 
+     96.0, 
+     98.0, 
+    100.0, 
+    102.0, 
+    104.0, 
+    106.0, 
+    108.0, 
+    110.0 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    b = 0.0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    b = b_vec[n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void truncated_normal_b_pdf_values ( int &n_data, double &mu, double &sigma, 
+  double &b, double &x, double &fx )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRUNCATED_NORMAL_B_PDF_VALUES: values of the Upper Truncated Normal PDF.
+//
+//  Discussion:
+//
+//    The Normal distribution, with mean Mu and standard deviation Sigma,
+//    is truncated to the interval (-oo,B].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
+//  Parameters:
+//
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
+//    first call.  On each call, the routine increments N_DATA by 1, and
+//    returns the corresponding data; when there is no more data, the
+//    output value of N_DATA will be 0 again.
+//
+//    Output, double &MU, the mean of the distribution.
+//
+//    Output, double &SIGMA, the standard deviation of the distribution.
+//
+//    Output, double &B, the upper truncation limit.
+//
+//    Output, double &X, the argument of the function.
+//
+//    Output, double &FX, the value of the function.
+//
+{
+# define N_MAX 11
+
+  static double b_vec[N_MAX] = {
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0, 
+     150.0 };
+
+  static double fx_vec[N_MAX] = {
+    0.01507373507401876, 
+    0.01551417047139894, 
+    0.01586560931024694, 
+    0.01612150073158793, 
+    0.01627701240029317, 
+    0.01632918226724295, 
+    0.01627701240029317, 
+    0.01612150073158793, 
+    0.01586560931024694, 
+    0.01551417047139894, 
+    0.01507373507401876 };
+
+  static double mu_vec[N_MAX] = {
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0, 
+     100.0 };
+
+  static double sigma_vec[N_MAX] = {
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0, 
+    25.0  };
+
+  static double x_vec[N_MAX] = {
+     90.0, 
+     92.0, 
+     94.0, 
+     96.0, 
+     98.0, 
+    100.0, 
+    102.0, 
+    104.0, 
+    106.0, 
+    108.0, 
+    110.0 };
+
+  if ( n_data < 0 )
+  {
+    n_data = 0;
+  }
+
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
+  {
+    n_data = 0;
+    b = 0.0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
+  }
+  else
+  {
+    b = b_vec[n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
     x = x_vec[n_data-1];
     fx = fx_vec[n_data-1];
   }

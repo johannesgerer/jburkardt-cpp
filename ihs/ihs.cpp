@@ -11,8 +11,8 @@ using namespace std;
 
 //****************************************************************************80
 
-void covariance ( int dim_num, int n, int x[], double *average, double *std,
-  double *covc )
+void covariance ( int dim_num, int n, int x[], double &average, double &std,
+  double &covc )
 
 //****************************************************************************80
 //
@@ -40,11 +40,11 @@ void covariance ( int dim_num, int n, int x[], double *average, double *std,
 //
 //    Input, int X[M*N], the points.
 //
-//    Output, double *AVERAGE, the average minimum distance.
+//    Output, double &AVERAGE, the average minimum distance.
 //
-//    Output, double *STD, the standard deviation of the minimum distances.
+//    Output, double &STD, the standard deviation of the minimum distances.
 //
-//    Output, double *COVC, the covariance of the minimum distances.
+//    Output, double &COVC, the covariance of the minimum distances.
 //
 {
   double dist;
@@ -52,14 +52,15 @@ void covariance ( int dim_num, int n, int x[], double *average, double *std,
   int j;
   int k;
   double *mindist;
+  const double r8_huge = 1.0E+30;
 //
 //  Find the minimum distance for each point.
 //
-  mindist = new double [n];
+  mindist = new double[n];
 
   for ( i = 0; i < n; i++ )
   {
-    mindist[i] = r8_huge ( );
+    mindist[i] = r8_huge;
     for ( j = 0; j < n; j++ )
     {
       if ( i != j )
@@ -82,72 +83,19 @@ void covariance ( int dim_num, int n, int x[], double *average, double *std,
 //
 //  Find the average minimum distance.
 //
-  *average = r8vec_average ( n, mindist );
+  average = r8vec_average ( n, mindist );
 //
 //  Compute the standard deviation of the distances.
 //
-  *std = r8vec_std ( n, mindist );
+  std = r8vec_std ( n, mindist );
 //
 //  Compute the covariance.
 //
-  *covc = *std / *average;
+  covc = std / average;
 
   delete [] mindist;
 
   return;
-}
-//****************************************************************************80
-
-char digit_to_ch ( int i )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DIGIT_TO_CH returns the base 10 digit character corresponding to a digit.
-//
-//  Example:
-//
-//     I     C
-//   -----  ---
-//     0    '0'
-//     1    '1'
-//   ...    ...
-//     9    '9'
-//    10    '*'
-//   -83    '*'
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    16 June 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I, the digit, which should be between 0 and 9.
-//
-//    Output, char DIGIT_TO_CH, the appropriate character '0' through '9' or '*'.
-//
-{
-  char c;
-
-  if ( 0 <= i && i <= 9 )
-  {
-    c = '0' + i;
-  }
-  else
-  {
-    c = '*';
-  }
-
-  return c;
 }
 //****************************************************************************80
 
@@ -308,189 +256,13 @@ int i4_log_10 ( int i )
 }
 //****************************************************************************80
 
-int i4_max ( int i1, int i2 )
+int i4_uniform_ab ( int a, int b, int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    I4_MAX returns the maximum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, are two integers to be compared.
-//
-//    Output, int I4_MAX, the larger of I1 and I2.
-//
-//
-{
-  if ( i2 < i1 )
-  {
-    return i1;
-  }
-  else
-  {
-    return i2;
-  }
-
-}
-//****************************************************************************80
-
-int i4_min ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MIN returns the smaller of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, two integers to be compared.
-//
-//    Output, int I4_MIN, the smaller of I1 and I2.
-//
-//
-{
-  if ( i1 < i2 )
-  {
-    return i1;
-  }
-  else
-  {
-    return i2;
-  }
-
-}
-//****************************************************************************80
-
-char *i4_to_s ( int i )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_TO_S converts an I4 to a string.
-//
-//  Example:
-//
-//    INTVAL  S
-//
-//         1  1
-//        -1  -1
-//         0  0
-//      1952  1952
-//    123456  123456
-//   1234567  1234567
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 March 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I, an integer to be converted.
-//
-//    Output, char *I4_TO_S, the representation of the integer.
-//
-{
-  int digit;
-  int j;
-  int length;
-  int ten_power;
-  char *s;
-
-  length = i4_log_10 ( i );
-
-  ten_power = ( int ) pow ( ( double ) 10, ( double ) length );
-
-  if ( i < 0 )
-  {
-    length = length + 1;
-  }
-//
-//  Add one position for the trailing null.
-//
-  length = length + 1;
-
-  s = new char[length];
-
-  if ( i == 0 )
-  {
-    s[0] = '0';
-    s[1] = '\0';
-    return s;
-  }
-//
-//  Now take care of the sign.
-//
-  j = 0;
-  if ( i < 0 )
-  {
-    s[j] = '-';
-    j = j + 1;
-    i = abs ( i );
-  }
-//
-//  Find the leading digit of I, strip it off, and stick it into the string.
-//
-  while ( 0 < ten_power )
-  {
-    digit = i / ten_power;
-    s[j] = digit_to_ch ( digit );
-    j = j + 1;
-    i = i - digit * ten_power;
-    ten_power = ten_power / 10;
-  }
-//
-//  Tack on the trailing NULL.
-//
-  s[j] = '\0';
-  j = j + 1;
-
-  return s;
-}
-//****************************************************************************80
-
-int i4_uniform ( int a, int b, int *seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_UNIFORM returns a scaled pseudorandom I4.
+//    I4_UNIFORM_AB returns a scaled pseudorandom I4 between A and B.
 //
 //  Discussion:
 //
@@ -499,11 +271,11 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license.
+//    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    12 November 2006
+//    02 October 2012
 //
 //  Author:
 //
@@ -542,54 +314,231 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //    Input, int A, B, the limits of the interval.
 //
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
+//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
 //    On output, SEED has been updated.
 //
 //    Output, int I4_UNIFORM, a number between A and B.
 //
 {
-  int i4_huge = 2147483647;
+  int c;
+  const int i4_huge = 2147483647;
   int k;
   float r;
   int value;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
-    cerr << "I4_UNIFORM - Fatal error!\n";
+    cerr << "I4_UNIFORM_AB - Fatal error!\n";
     cerr << "  Input value of SEED = 0.\n";
     exit ( 1 );
   }
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
+//
+//  Guarantee A <= B.
+//
+  if ( b < a )
   {
-    *seed = *seed + i4_huge;
+    c = a;
+    a = b;
+    b = c;
   }
 
-  r = ( float ) ( *seed ) * 4.656612875E-10;
+  k = seed / 127773;
+
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+  if ( seed < 0 )
+  {
+    seed = seed + i4_huge;
+  }
+
+  r = ( float ) ( seed ) * 4.656612875E-10;
 //
 //  Scale R to lie between A-0.5 and B+0.5.
 //
-  r = ( 1.0 - r ) * ( ( float ) ( i4_min ( a, b ) ) - 0.5 )
-    +         r   * ( ( float ) ( i4_max ( a, b ) ) + 0.5 );
+  r = ( 1.0 - r ) * ( ( float ) a - 0.5 ) 
+    +         r   * ( ( float ) b + 0.5 );
 //
 //  Use rounding to convert R to an integer between A and B.
 //
-  value = r4_nint ( r );
-
-  value = i4_max ( value, i4_min ( a, b ) );
-
-  value = i4_min ( value, i4_max ( a, b ) );
+  value = round ( r );
+//
+//  Guarantee A <= VALUE <= B.
+//
+  if ( value < a )
+  {
+    value = a;
+  }
+  if ( b < value )
+  {
+    value = b;
+  }
 
   return value;
 }
 //****************************************************************************80
 
-void ihs ( int dim_num, int n, int d, int *seed, int x[] )
+void i4mat_transpose_print ( int m, int n, int a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4MAT_TRANSPOSE_PRINT prints an I4MAT, transposed.
+//
+//  Discussion:
+//
+//    An I4MAT is an MxN array of I4's, stored by (I,J) -> [I+J*M].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    31 January 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, int A[M*N], the M by N matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  i4mat_transpose_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void i4mat_transpose_print_some ( int m, int n, int a[], int ilo, int jlo,
+  int ihi, int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4MAT_TRANSPOSE_PRINT_SOME prints some of an I4MAT, transposed.
+//
+//  Discussion:
+//
+//    An I4MAT is an MxN array of I4's, stored by (I,J) -> [I+J*M].
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 October 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows of the matrix.
+//    M must be positive.
+//
+//    Input, int N, the number of columns of the matrix.
+//    N must be positive.
+//
+//    Input, int A[M*N], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, designate the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 10
+
+  int i;
+  int i2hi;
+  int i2lo;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+//
+//  Print the columns of the matrix, in strips of INCX.
+//
+  for ( i2lo = ilo; i2lo <= ihi; i2lo = i2lo + INCX )
+  {
+    i2hi = i2lo + INCX - 1;
+    if ( m < i2hi )
+    {
+      i2hi = m;
+    }
+    if ( ihi < i2hi )
+    {
+      i2hi = ihi;
+    }
+    cout << "\n";
+//
+//  For each row I in the current range...
+//
+//  Write the header.
+//
+    cout << "  Row: ";
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(6) << i - 1 << "  ";
+    }
+    cout << "\n";
+    cout << "  Col\n";
+    cout << "\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    j2lo = jlo;
+    if ( j2lo < 1 )
+    {
+      j2lo = 1;
+    }
+    j2hi = jhi;
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+//
+//  Print out (up to INCX) entries in column J, that lie in the current strip.
+//
+      cout << setw(5) << j - 1 << ":";
+      for ( i = i2lo; i <= i2hi; i++ )
+      {
+        cout << setw(6) << a[i-1+(j-1)*m] << "  ";
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
+# undef INCX
+}
+//****************************************************************************80
+
+int *ihs ( int dim_num, int n, int d, int &seed )
 
 //****************************************************************************80
 //
@@ -640,9 +589,9 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
 //    Input, int D, the duplication factor.  This must
 //    be at least 1.  A value of 5 is reasonable.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, int X[DIM_NUM*N], the points.
+//    Output, int IHS[DIM_NUM*N], the points.
 //
 {
   int *avail;
@@ -658,10 +607,13 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
   double opt;
   int *point;
   int point_index;
+  const double r8_huge = 1.0E+30;
+  int *x;
 
   avail = new int [ dim_num * n ];
   list = new int [ d * n ];
   point = new int [ dim_num * d * n ];
+  x = new int[dim_num*n];
 
   opt = ( ( double ) n ) /
     pow ( ( double ) n, ( double ) ( 1.0 / ( double ) dim_num ) );
@@ -670,7 +622,7 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
 //
   for ( i = 0; i < dim_num; i++ )
   {
-    x[i+(n-1)*dim_num] = i4_uniform ( 1, n, seed );
+    x[i+(n-1)*dim_num] = i4_uniform_ab ( 1, n, seed );
   }
 //
 //  Initialize AVAIL,
@@ -680,7 +632,7 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
   {
     for ( i = 0; i < dim_num; i++ )
     {
-      avail[i+j*dim_num] = j+1;
+      avail[i+j*dim_num] = j + 1;
     }
   }
 
@@ -692,7 +644,7 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
 //  Main loop:
 //  Assign a value to X(1:M,COUNT) for COUNT = N-1 down to 2.
 //
-  for ( count = n-1; 2 <= count; count-- )
+  for ( count = n - 1; 2 <= count; count-- )
   {
 //
 //  Generate valid points.
@@ -709,7 +661,7 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
 
       for ( k = count*d - 1; 0 <= k; k-- )
       {
-        point_index = i4_uniform ( 0, k, seed );
+        point_index = i4_uniform_ab ( 0, k, seed );
         point[i+k*dim_num] = list[point_index];
         list[point_index] = list[k];
       }
@@ -718,12 +670,12 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
 //  For each candidate, determine the distance to all the
 //  points that have already been selected, and save the minimum value.
 //
-    min_all = r8_huge ( );
+    min_all = r8_huge;
     best = 0;
 
-    for ( k = 0; k < d*count; k++ )
+    for ( k = 0; k < d * count; k++ )
     {
-      min_can = r8_huge ( );
+      min_can = r8_huge;
 
       for ( j = count; j < n; j++ )
       {
@@ -780,289 +732,11 @@ void ihs ( int dim_num, int n, int d, int *seed, int x[] )
   delete [] list;
   delete [] point;
 
-  return;
+  return x;
 }
 //****************************************************************************80
 
-void ihs_write ( int dim_num, int n, int d, int seed_init, int seed,
-  int r[], char *file_out_name )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    IHS_WRITE writes an IHS dataset to a file.
-//
-//  Discussion:
-//
-//    The initial lines of the file are comments, which begin with a
-//    "#" character.
-//
-//    Thereafter, each line of the file contains the DIM_NUM-dimensional
-//    components of the next entry of the dataset.
-//
-//    Note that the actual values of the data are integers between 1
-//    and N.  For our convenience, these are rescaled by the
-//    mapping
-//
-//      I -> ( 2 * I - 1 )/ ( 2 * N ).
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    24 February 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int DIM_NUM, the spatial dimension.
-//
-//    Input, int N, the number of points.
-//
-//    Input, int D, the duplication factor.
-//
-//    Input, int SEED_INIT, the initial random number seed.
-//
-//    Input, int SEED, the current random number seed.
-//
-//    Input, int R[DIM_NUM*N], the points.
-//
-//    Input, char *FILE_OUT_NAME, the name of
-//    the output file.
-//
-{
-  ofstream file_out;
-  int i;
-  int j;
-  double x;
-
-  file_out.open ( file_out_name );
-
-  if ( !file_out )
-  {
-    cout << "\n";
-    cout << "IHS_WRITE - Fatal error!\n";
-    cout << "  Could not open the output file.\n";
-    exit ( 1 );
-  }
-
-  file_out << "#  " << file_out_name << "\n";
-  file_out << "#  created by routine IHS_WRITE.C" << "\n";
-  file_out << "#\n";
-
-  file_out << "#  Spatial dimension DIM_NUM = "  << dim_num       << "\n";
-  file_out << "#  Number of points N =        "  << n             << "\n";
-  file_out << "#  EPSILON (unit roundoff) =   "  << r8_epsilon ( ) << "\n";
-  file_out << "#  Duplication factor D =      "  << d             << "\n";
-  file_out << "#  Initial SEED_INIT =         "  << seed_init     << "\n";
-  file_out << "#  Current SEED =              "  << seed          << "\n";
-  file_out << "#\n";
-
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < dim_num; i++ )
-    {
-      x = ( double ) ( 2 * r[i+j*dim_num] - 1 ) / ( double ) ( 2 * n );
-      file_out << setw(10) << x << "  ";
-    }
-    file_out << "\n";
-  }
-
-  file_out.close ( );
-
-  return;
-}
-//****************************************************************************80
-
-float r4_abs ( float x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4_ABS returns the absolute value of an R4.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    01 December 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float X, the quantity whose absolute value is desired.
-//
-//    Output, float R4_ABS, the absolute value of X.
-//
-{
-  float value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-int r4_nint ( float x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4_NINT returns the nearest integer to an R4.
-//
-//  Example:
-//
-//        X         R4_NINT
-//
-//      1.3         1
-//      1.4         1
-//      1.5         1 or 2
-//      1.6         2
-//      0.0         0
-//     -0.7        -1
-//     -1.1        -1
-//     -1.6        -2
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float X, the value.
-//
-//    Output, int R4_NINT, the nearest integer to X.
-//
-{
-  int value;
-
-  if ( x < 0.0 )
-  {
-    value = - ( int ) ( r4_abs ( x ) + 0.5 );
-  }
-  else
-  {
-    value =   ( int ) ( r4_abs ( x ) + 0.5 );
-  }
-
-  return value;
-}
-//****************************************************************************80
-
-double r8_epsilon ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_EPSILON returns the R8 round off unit.
-//
-//  Discussion:
-//
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
-//      1 < 1 + R
-//    but
-//      1 = ( 1 + R / 2 )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    01 July 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Output, double R8_EPSILON, the R8 round-off unit.
-//
-{
-  double r;
-
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
-}
-//****************************************************************************80
-
-double r8_huge ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_HUGE returns a "huge" R8.
-//
-//  Discussion:
-//
-//    The value returned by this function is NOT required to be the
-//    maximum representable R8.  This value varies from machine to machine,
-//    from compiler to compiler, and may cause problems when being printed.
-//    We simply want a "very large" but non-infinite number.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    06 October 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Output, double R8_HUGE, a "huge" R8 value.
-//
-{
-  double value;
-
-  value = 1.0E+30;
-
-  return value;
-}
-//****************************************************************************80
-
-double r8_uniform_01 ( int *seed )
+double r8_uniform_01 ( int &seed )
 
 //****************************************************************************80
 //
@@ -1091,11 +765,11 @@ double r8_uniform_01 ( int *seed )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license.
+//    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    11 August 2004
+//    09 April 2012
 //
 //  Author:
 //
@@ -1132,18 +806,18 @@ double r8_uniform_01 ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has been updated.
 //
-//    Output, double R8_UNIFORM_01, a new pseudorandom variate,
+//    Output, double R8_UNIFORM_01, a new pseudorandom variate, 
 //    strictly between 0 and 1.
 //
 {
-  int i4_huge = 2147483647;
+  const int i4_huge = 2147483647;
   int k;
   double r;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
     cerr << "R8_UNIFORM_01 - Fatal error!\n";
@@ -1151,21 +825,267 @@ double r8_uniform_01 ( int *seed )
     exit ( 1 );
   }
 
-  k = *seed / 127773;
+  k = seed / 127773;
 
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + i4_huge;
+    seed = seed + i4_huge;
   }
-//
-//  Although SEED can be represented exactly as a 32 bit integer,
-//  it generally cannot be represented exactly as a 32 bit real number.
-//
-  r = ( double ) ( *seed ) * 4.656612875E-10;
+  r = ( double ) ( seed ) * 4.656612875E-10;
 
   return r;
+}
+//****************************************************************************80
+
+void r8mat_transpose_print ( int m, int n, double a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_TRANSPOSE_PRINT prints an R8MAT, transposed.
+//
+//  Discussion:
+//
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 September 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, double A[M*N], an M by N matrix to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  r8mat_transpose_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
+  int ihi, int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_TRANSPOSE_PRINT_SOME prints some of an R8MAT, transposed.
+//
+//  Discussion:
+//
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 April 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, double A[M*N], an M by N matrix to be printed.
+//
+//    Input, int ILO, JLO, the first row and column to print.
+//
+//    Input, int IHI, JHI, the last row and column to print.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 5
+
+  int i;
+  int i2;
+  int i2hi;
+  int i2lo;
+  int i2lo_hi;
+  int i2lo_lo;
+  int inc;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+
+  if ( m <= 0 || n <= 0 )
+  {
+    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+
+  if ( ilo < 1 )
+  {
+    i2lo_lo = 1;
+  }
+  else
+  {
+    i2lo_lo = ilo;
+  }
+
+  if ( ihi < m )
+  {
+    i2lo_hi = m;
+  }
+  else
+  {
+    i2lo_hi = ihi;
+  }
+
+  for ( i2lo = i2lo_lo; i2lo <= i2lo_hi; i2lo = i2lo + INCX )
+  {
+    i2hi = i2lo + INCX - 1;
+
+    if ( m < i2hi )
+    {
+      i2hi = m;
+    }
+    if ( ihi < i2hi )
+    {
+      i2hi = ihi;
+    }
+
+    inc = i2hi + 1 - i2lo;
+
+    cout << "\n";
+    cout << "  Row: ";
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(7) << i - 1 << "       ";
+    }
+    cout << "\n";
+    cout << "  Col\n";
+    cout << "\n";
+
+    if ( jlo < 1 )
+    {
+      j2lo = 1;
+    }
+    else
+    {
+      j2lo = jlo;
+    }
+    if ( n < jhi )
+    {
+      j2hi = n;
+    }
+    else
+    {
+      j2hi = jhi;
+    }
+
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << setw(5) << j - 1 << ":";
+      for ( i2 = 1; i2 <= inc; i2++ )
+      {
+        i = i2lo - 1 + i2;
+        cout << setw(14) << a[(i-1)+(j-1)*m];
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
+# undef INCX
+}
+//****************************************************************************80
+
+void r8mat_write ( string output_filename, int m, int n, double table[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_WRITE writes an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    29 June 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string OUTPUT_FILENAME, the output filename.
+//
+//    Input, int M, the spatial dimension.
+//
+//    Input, int N, the number of points.
+//
+//    Input, double TABLE[M*N], the data.
+//
+{
+  int i;
+  int j;
+  ofstream output;
+//
+//  Open the file.
+//
+  output.open ( output_filename.c_str ( ) );
+
+  if ( !output )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_WRITE - Fatal error!\n";
+    cerr << "  Could not open the output file.\n";
+    exit ( 1 );
+  }
+//
+//  Write the data.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+//    output << "  " << setw(24) << setprecision(16) << table[i+j*m];
+      output << "  " << table[i+j*m];
+    }
+    output << "\n";
+  }
+//
+//  Close the file.
+//
+  output.close ( );
+
+  return;
 }
 //****************************************************************************80
 

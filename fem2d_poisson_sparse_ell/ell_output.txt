@@ -1,11 +1,11 @@
-07 December 2010 04:48:44 PM
+25 January 2013 02:22:12 PM
 
-FFP_SPARSE:
+FEM2D_POISSON_SPARSE:
   C++ version:
 
-  Compiled on Dec  7 2010 at 16:48:40.
+  Compiled on Jan 25 2013 at 14:14:03.
 
-  A version of FREE_FEM_POISSON using sparse storage
+  A version of FEM2D_POISSON using sparse storage
   and an iterative solver.
 
   Solution of the Poisson equation in an arbitrary region
@@ -100,14 +100,14 @@ MGMRES
          9           1.22891
         10              2.25
 
-FFP_SPARSE::
+FEM2D_POISSON_SPARSE:
   Wrote an ASCII file
     "ell_solution.txt".
   of the form
     U ( X(I), Y(I) )
   which can be used for plotting.
 
-FFP_SPARSE::
+FEM2D_POISSON_SPARSE:
   Normal end of execution.
 
-07 December 2010 04:48:44 PM
+25 January 2013 02:22:12 PM

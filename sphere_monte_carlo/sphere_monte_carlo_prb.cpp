@@ -20,6 +20,10 @@ int main ( )
 //
 //    MAIN is the main program for SPHERE_MONTE_CARLO_PRB.
 //
+//  Discussion:
+//
+//    SPHERE_MONTE_CARLO_PRB tests the SPHERE_MONTE_CARLO library.
+//    
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
@@ -59,7 +63,7 @@ void test01 ( )
 //
 //  Purpose:
 //
-//    TEST01 uses SPHERE_SAMPLE_01 with an increasing number of points.
+//    TEST01 uses SPHERE01_SAMPLE with an increasing number of points.
 //
 //  Licensing:
 //
@@ -67,7 +71,7 @@ void test01 ( )
 //
 //  Modified:
 //
-//    25 September 2010
+//    02 January 2014
 //
 //  Author:
 //
@@ -88,7 +92,6 @@ void test01 ( )
   int i;
   int j;
   int n;
-  double pi = 3.1415926535897932384626434;
   double result;
   int seed;
   double *value;
@@ -96,6 +99,7 @@ void test01 ( )
 
   cout << "\n";
   cout << "TEST01\n";
+  cout << "  Use SPHERE01_SAMPLE to estimate integrals on the unit sphere surface.\n";
 
   seed = 123456789;
 
@@ -108,7 +112,7 @@ void test01 ( )
 
   while ( n <= 65536 )
   {
-    x = sphere01_sample ( n, &seed );
+    x = sphere01_sample ( n, seed );
     cout << "  " << setw(8) << n;
     for ( j = 0; j < 7; j++ )
     {
@@ -117,14 +121,15 @@ void test01 ( )
         e[i] = e_test[i+j*3];
       }
 
-      value = monomial_value ( 3, n, x, e );
+      value = monomial_value ( 3, n, e, x );
 
-      result = 4.0 * pi * r8vec_sum ( n, value ) / ( double ) ( n );
+      result = sphere01_area ( ) * r8vec_sum ( n, value ) / ( double ) ( n );
       cout << "  " << setprecision(10) << setw(14) << result;
+
+      delete [] value;
     }
     cout << "\n";
 
-    delete [] value;
     delete [] x;
 
     n = 2 * n;

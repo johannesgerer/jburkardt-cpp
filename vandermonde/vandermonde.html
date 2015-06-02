@@ -1,0 +1,279 @@
+<html>
+
+  <head>
+    <title>
+      VANDERMONDE - Accurate Solution of Vandermonde Systems
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      VANDERMONDE <br> Accurate Solution of Vandermonde Systems
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>VANDERMONDE</b>
+      is a C++ library which
+      implements the Bjork-Pereyra algorithm for accurate solution of
+      linear systems involving the Vandermonde matrix.
+    </p>
+
+    <p>
+      A univariate NxN Vandermonde matrix is defined by a parameter vector
+      ALPHA of N distinct real values, and has the form:
+      <pre>
+        1             1            ... 1
+        alpha1        alpha2       ... alphan
+        alpha1^2      alpha2^2     ... alphan^2
+        ...           ...          ... ...
+        alpha1^(n-1)  alpha2^(n-1) ... alphan^(n-1)
+      </pre>
+    </p>
+
+    <p>
+      If p(x) is a polynomial of degree N-1, which is required to interpolate
+      a function f(x) at N distinct points ALPHA, then the coefficients
+      C of the polynomial can be found from the interpolation equations,
+      which can be written as a linear system involving a transposed
+      Vandermonde matrix:
+      <pre>
+        1    alpha1  alpha1^2  ... alpha1^(n-1)    c0           f(alpha1)
+        1    alpha2  alpha2^2  ... alpha2^(n-1)    c1           f(alpha2)
+        ...  ...     ...       ... ...             ...       =  ...
+        1    alphan  alphan^2  ... alphan^(n-1)    c(n-1)       f(alphan)
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>VANDERMONDE</b> is available in
+      <a href = "../../c_src/vandermonde/vandermonde.html">a C version</a> and
+      <a href = "../../cpp_src/vandermonde/vandermonde.html">a C++ version</a> and
+      <a href = "../../f77_src/vandermonde/vandermonde.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/vandermonde/vandermonde.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/vandermonde/vandermonde.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/linplus/linplus.html">
+      LINPLUS</a>,
+      a C++ library which
+      carries out operations such as matrix-vector products, 
+      matrix factorization, direct and iterative linear solvers 
+      for matrices in a variety of formats, including banded, border-banded, 
+      circulant, lower triangular, pentadiagonal, sparse, symmetric,
+      toeplitz, tridiagonal, upper triangular and vandermonde formats.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrature_weights_vandermonde/quadrature_weights_vandermonde.html">
+      QUADRATURE_WEIGHTS_VANDERMONDE</a>,
+      a C++ library which
+      computes the weights of a quadrature rule using the Vandermonde
+      matrix, assuming that the points have been specified.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_mat/test_mat.html">
+      TEST_MAT</a>,
+      a C++ library which
+      defines test matrices for which some of the determinant, eigenvalues, 
+      inverse, null vectors, P*L*U factorization or linear system solution 
+      are already known, including the Vandermonde matrix.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/vandermonde_approx_1d/vandermonde_approx_1d.html">
+      VANDERMONDE_APPROX_1D</a>,
+      a C++ library which
+      finds a polynomial approximant to data of a 1D argument
+      by setting up and solving 
+      an overdetermined linear system for the polynomial coefficients,
+      involving the Vandermonde matrix.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/vandermonde_approx_2d/vandermonde_approx_2d.html">
+      VANDERMONDE_APPROX_2D</a>,
+      a C++ library which
+      finds a polynomial approximant p(x,y) to data z(x,y) of a 2D argument by 
+      setting up and solving an overdetermined linear system for the polynomial 
+      coefficients involving the Vandermonde matrix.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/vandermonde_interp_1d/vandermonde_interp_1d.html">
+      VANDERMONDE_INTERP_1D</a>,
+      a C++ library which
+      finds a polynomial interpolant to a function of 1D data
+      by setting up and solving a linear system for the polynomial coefficients,
+      involving the Vandermonde matrix.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/vandermonde_interp_2d/vandermonde_interp_2d.html">
+      VANDERMONDE_INTERP_2D</a>,
+      a C++ library which
+      finds a polynomial interpolant to data z(x,y) of a 2D argument by
+      setting up and solving a linear system for the polynomial coefficients,
+      involving the Vandermonde matrix.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Ake Bjorck, Victor Pereyra,<br>
+          Solution of Vandermonde Systems of Equations,<br>
+          Mathematics of Computation,<br>
+          Volume 24, Number 112, October 1970, pages 893-903.
+        </li>
+        <li>
+          Gustavo Galimberti, Victor Pereyra,<br>
+          Numerical Differentiation and the Solution of Multidimensional Vandermonde
+          Systems,<br>
+          Mathematics of Computation,<br>
+          Volume 24, Number 110, April 1970, pages 357-364.
+        </li>
+        <li>
+          Nicholas Higham,<br>
+          Stability analysis of algorithms for solving confluent
+          Vandermonde-like systems,<br>
+          SIAM Journal on Matrix Analysis and Applications,<br>
+          Volume 11, 1990, pages 23-41.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "vandermonde.cpp">vandermonde.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "vandermonde.hpp">vandermonde.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "vandermonde.sh">vandermonde.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "vandermonde_prb.cpp">vandermonde_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "vandermonde_prb.sh">vandermonde_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "vandermonde_prb_output.txt">vandermonde_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>BIVAND1</b> returns a bidimensional Vandermonde1 matrix.
+        </li>
+        <li>
+          <b>DVAND</b> solves a Vandermonde system A' * x = b.
+        </li>
+        <li>
+          <b>DVANDPRG</b> solves a Vandermonde system A' * x = f progressively.
+        </li>
+        <li>
+          <b>PVAND</b> solves a Vandermonde system A * x = b.
+        </li>
+        <li>
+          <b>PVANDPRG</b> solves a Vandermonde system A * x = f progressively.
+        </li>
+        <li>
+          <b>R8MAT_MTV_NEW</b> multiplies a transposed matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_MV_NEW</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_COPY_NEW</b> copies an R8VEC to a new R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01_NEW</b> returns a new unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>VAND1</b> returns the Vandermonde1 matrix A with 1's on the first row.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 18 April 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

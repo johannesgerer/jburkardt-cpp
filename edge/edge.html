@@ -1,0 +1,434 @@
+<html>
+
+  <head>
+    <title>
+      EDGE - Edge Detection
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      EDGE <br> Edge Detection
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>EDGE</b>
+      is a C++ library which
+      defines some test functions in 1D, 2D and 3D for the detection of edges,
+      and uses GNUPLOT to display images of the functions.
+    </p>
+
+    <p>
+      In particular, we look at some simple functional examples in 1D,
+      2D, and 3D, that is, situations in which a formula is supplied so
+      that the value of a scalar quantity f() can be determined at any 
+      point in the region.  We are interested in examples in which the
+      quantity f() exhibits jumps. that is, sudden, sharp changes in value.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>EDGE</b> is available in
+      <a href = "../../c_src/edge/edge.html">a C version</a> and
+      <a href = "../../cpp_src/edge/edge.html">a C++ version</a> and
+      <a href = "../../f77_src/edge/edge.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/edge/edge.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/edge/edge.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which
+      illustrate how a program can write data and command files
+      so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/image_edge/image_edge.html">
+      IMAGE_EDGE</a>,
+      a C++ library which
+      demonstrates a simple procedure for edge detection in images.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Rick Archibald, Anne Gelb, Jungho Yoon,<br>
+          Polynomial fitting for edge detection in irregularly sampled signals 
+          and images,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 43, Number 1, 2006, pages 259-279.
+        </li>
+        <li>
+          Rick Archibald, Anne Gelb, Jungho Yoon,<br>
+          Determining the location of discontinuities in the derivatives
+          of functions,<br>
+          Applied Numerical Mathematics,<br>
+          Volume 58, 2008, pages 577-592.
+        </li>
+        <li>
+          Larry Shepp, Ben Logan,<br>
+          The Fourier reconstruction of a head section,<br>
+          IEEE Transactions on Nuclear Science,<br>
+          Volume  NS-21, June 1974, pages 21-43.
+        </li>
+        <li>
+          Larry Shepp,<br>
+          Computerized tomography and nuclear magnetic resonance,<br>
+          Journal of Computer Assisted Tomography,<br>
+          Volume 4, Number 1, February 1980, pages 94-107.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "edge.cpp">edge.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "edge.hpp">edge.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "edge.sh">edge.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "edge_prb.cpp">edge_prb.cpp</a>,
+          calls all the tests.
+        </li>
+        <li>
+          <a href = "edge_prb.sh">edge_prb.sh</a>,
+          a BASH script that runs the example.
+        </li>
+        <li>
+          <a href = "edge_prb_output.txt">edge_prb_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "fx1_data.txt">fx1_data.txt</a>,
+          a data file for fx1.
+        </li>
+        <li>
+          <a href = "fx1_commands.txt">fx1_commands.txt</a>,
+          GNUPLOT commands that can create an image of fx1.
+        </li>
+        <li>
+          <a href = "fx1.png">fx1.png</a>,
+          an image of fx1.
+        </li>
+        <li>
+          <a href = "fx2_data.txt">fx2_data.txt</a>,
+          a data file for fx2.
+        </li>
+        <li>
+          <a href = "fx2_commands.txt">fx2_commands.txt</a>,
+          GNUPLOT commands that can create an image of fx2.
+        </li>
+        <li>
+          <a href = "fx2.png">fx2.png</a>,
+          an image of fx2.
+        </li>
+        <li>
+          <a href = "fx3_data.txt">fx3_data.txt</a>,
+          a data file for fx3.
+        </li>
+        <li>
+          <a href = "fx3_commands.txt">fx3_commands.txt</a>,
+          GNUPLOT commands that can create an image of fx3.
+        </li>
+        <li>
+          <a href = "fx3.png">fx3.png</a>,
+          an image of fx3.
+        </li>
+        <li>
+          <a href = "fx4_data.txt">fx4_data.txt</a>,
+          a data file for fx4.
+        </li>
+        <li>
+          <a href = "fx4_commands.txt">fx4_commands.txt</a>,
+          GNUPLOT commands that can create an image of fx4.
+        </li>
+        <li>
+          <a href = "fx4.png">fx4.png</a>,
+          an image of fx4.
+        </li>
+        <li>
+          <a href = "fx5_data.txt">fx5_data.txt</a>,
+          a data file for fx5.
+        </li>
+        <li>
+          <a href = "fx5_commands.txt">fx5_commands.txt</a>,
+          GNUPLOT commands that can create an image of fx5.
+        </li>
+        <li>
+          <a href = "fx5.png">fx5.png</a>,
+          an image of fx5.
+        </li>
+        <li>
+          <a href = "fx6_data.txt">fx6_data.txt</a>,
+          a data file for fx6.
+        </li>
+        <li>
+          <a href = "fx6_commands.txt">fx6_commands.txt</a>,
+          GNUPLOT commands that can create an image of fx6.
+        </li>
+        <li>
+          <a href = "fx6.png">fx6.png</a>,
+          an image of fx6.
+        </li>
+        <li>
+          <a href = "fx7_data.txt">fx7_data.txt</a>,
+          a data file for fx7.
+        </li>
+        <li>
+          <a href = "fx7_commands.txt">fx7_commands.txt</a>,
+          GNUPLOT commands that can create an image of fx7.
+        </li>
+        <li>
+          <a href = "fx7.png">fx7.png</a>,
+          an image of fx7.
+        </li>
+        <li>
+          <a href = "fxy1_data.txt">fxy1_data.txt</a>,
+          a data file for fxy1.
+        </li>
+        <li>
+          <a href = "fxy1_commands.txt">fxy1_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxy1.
+        </li>
+        <li>
+          <a href = "fxy1.png">fxy1.png</a>,
+          an image of fxy1.
+        </li>
+        <li>
+          <a href = "fxy2_data.txt">fxy2_data.txt</a>,
+          a data file for fxy2.
+        </li>
+        <li>
+          <a href = "fxy2_commands.txt">fxy2_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxy2.
+        </li>
+        <li>
+          <a href = "fxy2.png">fxy2.png</a>,
+          an image of fxy2.
+        </li>
+        <li>
+          <a href = "fxy3_data.txt">fxy3_data.txt</a>,
+          a data file for fxy3.
+        </li>
+        <li>
+          <a href = "fxy3_commands.txt">fxy3_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxy3.
+        </li>
+        <li>
+          <a href = "fxy3.png">fxy3.png</a>,
+          an image of fxy3.
+        </li>
+        <li>
+          <a href = "fxy4_data.txt">fxy4_data.txt</a>,
+          a data file for fxy4.
+        </li>
+        <li>
+          <a href = "fxy4_commands.txt">fxy4_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxy4.
+        </li>
+        <li>
+          <a href = "fxy4.png">fxy4.png</a>,
+          an image of fxy4.
+        </li>
+        <li>
+          <a href = "fxy5_data.txt">fxy5_data.txt</a>,
+          a data file for fxy5.
+        </li>
+        <li>
+          <a href = "fxy5_commands.txt">fxy5_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxy5.
+        </li>
+        <li>
+          <a href = "fxy5.png">fxy5.png</a>,
+          an image of fxy5.
+        </li>
+        <li>
+          <a href = "fxyz1_x_data.txt">fxyz1_x_data.txt</a>,
+          a data file for fxyz1 with x fixed at 0.
+        </li>
+        <li>
+          <a href = "fxyz1_x_commands.txt">fxyz1_x_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxyz1_x.
+        </li>
+        <li>
+          <a href = "fxyz1_x.png">fxyz1_x.png</a>,
+          an image of fxyz1_x.
+        </li>
+        <li>
+          <a href = "fxyz1_y_data.txt">fxyz1_y_data.txt</a>,
+          a data file for fxyz1 with y fixed at 0.
+        </li>
+        <li>
+          <a href = "fxyz1_y_commands.txt">fxyz1_y_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxyz1_y.
+        </li>
+        <li>
+          <a href = "fxyz1_y.png">fxyz1_y.png</a>,
+          an image of fxyz1_y.
+        </li>
+
+        <li>
+          <a href = "fxyz1_z_data.txt">fxyz1_z_data.txt</a>,
+          a data file for fxyz1 with z fixed at -0.1.
+        </li>
+        <li>
+          <a href = "fxyz1_z_commands.txt">fxyz1_z_commands.txt</a>,
+          GNUPLOT commands that can create an image of fxyz1_z.
+        </li>
+        <li>
+          <a href = "fxyz1_z.png">fxyz1_z.png</a>,
+          an image of fxyz1_z.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>FX1</b> is the first 1D example, scalar version.
+        </li>
+        <li>
+          <b>FX2</b> is the second 1D example, scalar version.
+        </li>
+        <li>
+          <b>FX3</b> is the third 1D example, scalar version.
+        </li>
+        <li>
+          <b>FX4</b> is the fourth 1D example, scalar version.
+        </li>
+        <li>
+          <b>FX5</b> is the fifth 1D example, scalar version.
+        </li>
+        <li>
+          <b>FXY1</b> is the first 2D example, scalar version.
+        </li>
+        <li>
+          <b>FXY2</b> is the second 2D example, scalar version.
+        </li>
+        <li>
+          <b>FXY3</b> is the third 2D example, scalar version.
+        </li>
+        <li>
+          <b>FXY4</b> is the fourth 2D example, scalar version.
+        </li>
+        <li>
+          <b>FXY5</b> is the fifth 2D example, scalar version.
+        </li>
+        <li>
+          <b>FXYZ1</b> is the first 3D example, scalar version.
+        </li>
+        <li>
+          <b>FX1_VEC</b> is the first 1D example, vector version.
+        </li>
+        <li>
+          <b>FX2_VEC</b> is the second 1D example, vector version.
+        </li>
+        <li>
+          <b>FX3_VEC</b> is the third 1D example, vector version.
+        </li>
+        <li>
+          <b>FX4_VEC</b> is the fourth 1D example, vector version.
+        </li>
+        <li>
+          <b>FX5_VEC</b> is the fifth 1D example, vector version.
+        </li>
+        <li>
+          <b>FXY1_VEC</b> is the first 2D example, vector version.
+        </li>
+        <li>
+          <b>FXY2_VEC</b> is the second 2D example, vector version.
+        </li>
+        <li>
+          <b>FXY3_VEC</b> is the third 2D example, vector version.
+        </li>
+        <li>
+          <b>FXY4_VEC</b> is the fourth 2D example, vector version.
+        </li>
+        <li>
+          <b>FXY5_VEC</b> is the fifth 2D example, vector version.
+        </li>
+        <li>
+          <b>FXYZ1_VEC</b> is the first 3D example, vector version.
+        </li>
+        <li>
+          <b>R8VEC_COPY_NEW</b> copies an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_LINSPACE_NEW</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_AB_NEW</b> returns a scaled pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 19 September 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

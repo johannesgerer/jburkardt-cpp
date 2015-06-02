@@ -26,6 +26,8 @@ int main ( )
 //
 //  Discussion:
 //
+//    POINT_MERGE_PRB tests the POINT_MERGE library.
+//
 //    Compare correctness of the codes.
 //
 //    Compare speed of the codes.
@@ -50,7 +52,6 @@ int main ( )
   double tol;
 
   timestamp ( );
-
   cout << " \n";
   cout << "POINT_MERGE_PRB\n";
   cout << "  C++ version\n";
@@ -180,7 +181,6 @@ int main ( )
   cout << " \n";
   cout << "POINT_MERGE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << " \n";
   timestamp ( );
 

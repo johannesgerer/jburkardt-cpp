@@ -1,0 +1,188 @@
+05 August 2013 03:57:31 PM
+
+RNGLIB_PRB
+  C++ version
+  Test the RNGLIB library.
+
+TEST01
+  I4_UNI ( ) returns a random positive integer
+  using the current generator.
+
+  INITIALIZE initializes the random number generator.
+  It only needs to be called once before using the package.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  Current generator index = 0
+
+   I     I4_UNI ( )
+
+   1     695163044
+   2     696626468
+   3    1059541850
+   4     620042603
+   5     758075822
+   6     330628445
+   7    1215929140
+   8    1762482382
+   9     698994348
+  10     730315574
+
+TEST02
+  R4_UNI_01 ( ) returns a random real number
+  in [0,1] using the current generator.
+
+  INITIALIZE initializes the random number generator.
+  It only needs to be called once before using the package.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  Current generator index = 0
+
+   I     R4_UNI_01 ( )
+
+   1        0.323711
+   2        0.324392
+   3        0.493388
+   4         0.28873
+   5        0.353007
+   6        0.153961
+   7        0.566211
+   8         0.82072
+   9        0.325495
+  10         0.34008
+
+TEST03
+  R4_UNI_01 ( ) returns a random real number
+  in [0,1] using the current generator.
+
+  INITIALIZE initializes the random number generator.
+  It only needs to be called once before using the package.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  Current generator index = 16
+
+  INIT_GENERATOR can reset the seed to the initial value,
+  the last (previous) value, or a new seed.
+
+  INIT_GENERATOR ( 0 ) starts at the initial seed.
+
+   I    R4_UNI_01 ( )
+
+   1        0.088214
+   2        0.657037
+   3        0.539545
+   4        0.601055
+   5        0.903791
+   6        0.536099
+   7        0.540644
+   8       0.0690313
+   9        0.725607
+  10        0.759681
+
+  Calling INIT_GENERATOR ( 0 ) again restarts
+  at the initial seed.
+
+   I    R4_UNI_01 ( )
+
+   1        0.088214
+   2        0.657037
+   3        0.539545
+   4        0.601055
+   5        0.903791
+   6        0.536099
+   7        0.540644
+   8       0.0690313
+   9        0.725607
+  10        0.759681
+
+  Calling INIT_GENERATOR ( 2 ) restarts
+  at a new "far ahead" seed.
+
+   I    R4_UNI_01 ( )
+
+   1        0.154887
+   2        0.437351
+   3        0.288705
+   4        0.761692
+   5        0.598874
+   6        0.677101
+   7        0.187499
+   8        0.399729
+   9        0.316604
+  10         0.23759
+
+  Calling INIT_GENERATOR ( 1 ) restarts
+  at the last seed (in this case, the "far ahead"
+  seed specified on the previous call.)
+
+   I    R4_UNI_01 ( )
+
+   1        0.287315
+   2        0.326637
+   3        0.283543
+  (Reset to last seed)
+   4        0.154887
+   5        0.437351
+   6        0.288705
+  (Reset to last seed)
+   7        0.154887
+   8        0.437351
+   9        0.288705
+  (Reset to last seed)
+  10        0.154887
+
+TEST04
+  R4_UNI_01 ( ) returns a random real number
+  in [0,1] using the current generator.
+
+  INITIALIZE initializes the random number generator.
+  It only needs to be called once before using the package.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  Let us call generators #2, #5 and #8.
+
+  Initialize generator 2
+  Initialize generator 5
+  Initialize generator 8
+
+   I    R4_UNI_01 ( 2 )  R4_UNI_01 ( 5 )  R4_UNI_01 ( 8 )
+
+   1        0.545589        0.580718        0.178429
+   2        0.607802         0.77121        0.558254
+   3         0.26652         0.31139        0.102241
+   4       0.0562018        0.995434        0.395244
+   5        0.881036        0.511026         0.83224
+   6        0.767427        0.450787        0.459968
+   7        0.405501        0.320507       0.0270091
+   8         0.37931        0.106053       0.0279301
+   9        0.520144        0.655542      0.00773636
+  10        0.358031        0.289157        0.586721
+
+  Reinitialize generator 5
+  Reinitialize generator 8
+  Reinitialize generator 2
+
+   I    R4_UNI_01 ( 5 )  R4_UNI_01 ( 8 )  R4_UNI_01 ( 2 )
+
+   1        0.580718        0.178429        0.545589
+   2         0.77121        0.558254        0.607802
+   3         0.31139        0.102241         0.26652
+   4        0.995434        0.395244       0.0562018
+   5        0.511026         0.83224        0.881036
+   6        0.450787        0.459968        0.767427
+   7        0.320507       0.0270091        0.405501
+   8        0.106053       0.0279301         0.37931
+   9        0.655542      0.00773636        0.520144
+  10        0.289157        0.586721        0.358031
+
+RNGLIB_PRB
+  Normal end of execution.
+
+05 August 2013 03:57:31 PM

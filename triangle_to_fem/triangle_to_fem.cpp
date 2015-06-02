@@ -125,9 +125,9 @@ int main ( int argc, char *argv[] )
   node_size_read ( node_filename, &node_num, &node_dim, &node_att_num, 
     &node_marker_num );
 
-  node_coord = new double[2*node_num];
+  node_coord = new double[node_dim*node_num];
   node_att = new double[node_att_num*node_num];
-  node_marker = new int[node_num];
+  node_marker = new int[node_marker_num*node_num];
 
   node_data_read ( node_filename, node_num, node_dim, node_att_num, 
     node_marker_num, node_coord, node_att, node_marker );
@@ -166,6 +166,8 @@ int main ( int argc, char *argv[] )
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );
+
+  return 0;
 }
 //****************************************************************************80
 

@@ -35,7 +35,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    QUAD_MESH_PRB calls a set of problems for QUAD_MESH.
+//    QUAD_MESH_PRB tests the QUAD_MESH library.
 //
 //  Licensing:
 //
@@ -77,7 +77,6 @@ int main ( )
   cout << "\n";
   cout << "QUAD_MESH_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

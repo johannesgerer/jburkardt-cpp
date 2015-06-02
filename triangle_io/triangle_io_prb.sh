@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g triangle_io_prb.cpp >& compiler.txt
+g++ -c triangle_io_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling triangle_io_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ triangle_io_prb.o /$HOME/libcpp/$ARCH/triangle_io.o -lm
 if [ $? -ne 0 ]; then

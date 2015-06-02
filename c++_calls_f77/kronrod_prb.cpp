@@ -31,6 +31,10 @@ int main ( )
 //
 //    MAIN is the main program for KRONROD_PRB.
 //
+//  Discussion:
+//
+//    KRONROD_PRB tests the KRONROD library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
@@ -44,11 +48,7 @@ int main ( )
 //    John Burkardt
 //
 {
-//
-//  To call the F77 version of TIMESTAMP, we append an underscore to its name.
-//
   timestamp_ ( );
-
   cout << "\n";
   cout << "KRONROD_PRB:\n";
   cout << "  Combination C++ and FORTRAN77 version.\n";
@@ -57,15 +57,13 @@ int main ( )
 
   test01 ( );
   test02 ( );
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "KRONROD_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
-//
-//  To call the F77 version of TIMESTAMP, we append an underscore to its name.
-//
   timestamp_ ( );
 
   return 0;

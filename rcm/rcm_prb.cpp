@@ -33,7 +33,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    RCM_PRB calls the RCM tests.
+//    RCM_PRB tests the RCM library.
 //
 //  Licensing:
 //
@@ -49,7 +49,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "RCM_PRB\n";
   cout << "  C++ version\n";
@@ -74,7 +73,6 @@ int main ( )
   cout << "\n";
   cout << "RCM_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

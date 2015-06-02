@@ -1,4 +1,4 @@
-11 March 2012 09:20:29 AM
+19 October 2014 11:21:52 AM
 
 HERMITE_POLYNOMIAL_PRB:
   C++ version.
@@ -7,7 +7,7 @@ HERMITE_POLYNOMIAL_PRB:
 HERMITE_POLYNOMIAL_TEST01:
   H_POLYNOMIAL_VALUES stores values of
   the physicist's Hermite polynomials.
-  H_POLYNOMIAL evaluates the polynomial.
+  H_POLYNOMIAL_VALUE evaluates the polynomial.
 
                         Tabulated                 Computed
      N        X           H(N,X)                    H(N,X)                     Error
@@ -34,7 +34,7 @@ HERMITE_POLYNOMIAL_TEST01:
 HERMITE_POLYNOMIAL_TEST02:
   HE_POLYNOMIAL_VALUES stores values of
   the probabilist's Hermite polynomials.
-  HE_POLYNOMIAL evaluates the polynomial.
+  HE_POLYNOMIAL_VALUE evaluates the polynomial.
 
                         Tabulated                 Computed
      N        X          He(N,X)                   He(N,X)                     Error
@@ -61,7 +61,7 @@ HERMITE_POLYNOMIAL_TEST02:
 HERMITE_POLYNOMIAL_TEST03:
   HF_FUNCTION_VALUES stores values of
   the Hermite function Hf(n,x).
-  HF_FUNCTION evaluates the function.
+  HF_FUNCTION_VALUE evaluates the function.
 
                         Tabulated                 Computed
      N        X          Hf(N,X)                   Hf(N,X)                   Error
@@ -819,4 +819,4 @@ HERMITE_POLYNOMIAL_TEST15
 HERMITE_POLYNOMIAL_PRB:
   Normal end of execution.
 
-11 March 2012 09:20:29 AM
+19 October 2014 11:21:52 AM

@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    TRI_SURFACE_IO_PRB runs the TRI_SURFACE_IO tests.
+//    MAIN is the main program for TRI_SURFACE_IO_PRB.
+//
+//  Discussion:
+//
+//    TRI_SURFACE_IO_PRB tests the TRI_SURFACE_IO library.
 //
 //  Licensing:
 //
@@ -36,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TRI_SURFACE_IO_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +54,6 @@ int main ( )
   cout << "\n";
   cout << "TRI_SURFACE_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

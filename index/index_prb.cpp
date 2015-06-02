@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    INDEX_PRB tests INDEX.
+//    MAIN is the main program for INDEX_PRB.
+//
+//  Discussion:
+//
+//    INDEX_PRB tests the INDEX library.
 //
 //  Licensing:
 //

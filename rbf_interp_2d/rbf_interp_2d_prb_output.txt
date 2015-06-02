@@ -1,6 +1,6 @@
-06 October 2012 09:05:39 PM
+24 October 2014 10:48:53 AM
 
-RBF_INTERP_2D_TEST:
+RBF_INTERP_2D_PRB:
   C++ version
   Test the RBF_INTERP_2D library.
   The R8LIB library is required.
@@ -31,7 +31,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 2.6165e-14
+  L2 interpolation error averaged per interpolant node = 3.56026e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #1
@@ -40,7 +40,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.14771e-15
+  L2 interpolation error averaged per interpolant node = 8.70625e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #2
@@ -49,7 +49,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 6.84893e-15
+  L2 interpolation error averaged per interpolant node = 5.92762e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #2
@@ -58,7 +58,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 9.19084e-17
+  L2 interpolation error averaged per interpolant node = 8.86916e-17
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #2
@@ -67,7 +67,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 9.25355e-15
+  L2 interpolation error averaged per interpolant node = 1.02383e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #2
@@ -76,7 +76,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 2.86043e-16
+  L2 interpolation error averaged per interpolant node = 4.10798e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #3
@@ -85,7 +85,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 4.53933e-15
+  L2 interpolation error averaged per interpolant node = 3.68093e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #3
@@ -94,7 +94,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.03663e-16
+  L2 interpolation error averaged per interpolant node = 1.17573e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #3
@@ -103,7 +103,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.30528e-14
+  L2 interpolation error averaged per interpolant node = 1.28989e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #3
@@ -112,7 +112,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 5.11836e-16
+  L2 interpolation error averaged per interpolant node = 4.5999e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #4
@@ -139,7 +139,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 5.54012e-15
+  L2 interpolation error averaged per interpolant node = 7.63062e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #4
@@ -148,7 +148,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 3.93541e-16
+  L2 interpolation error averaged per interpolant node = 3.37697e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #5
@@ -175,7 +175,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.53302e-15
+  L2 interpolation error averaged per interpolant node = 2.22366e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #5
@@ -184,7 +184,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 4.26974e-16
+  L2 interpolation error averaged per interpolant node = 2.36738e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #6
@@ -211,7 +211,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 7.20209e-15
+  L2 interpolation error averaged per interpolant node = 1.63472e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #6
@@ -220,7 +220,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.09913e-15
+  L2 interpolation error averaged per interpolant node = 8.84562e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #7
@@ -229,7 +229,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 5.83411e-14
+  L2 interpolation error averaged per interpolant node = 4.30918e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #7
@@ -238,7 +238,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.88273e-15
+  L2 interpolation error averaged per interpolant node = 1.88717e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #7
@@ -247,7 +247,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 3.65223e-14
+  L2 interpolation error averaged per interpolant node = 4.34402e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #7
@@ -256,7 +256,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 2.42883e-15
+  L2 interpolation error averaged per interpolant node = 2.29918e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #8
@@ -265,7 +265,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 4.38957e-14
+  L2 interpolation error averaged per interpolant node = 4.99398e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #8
@@ -274,7 +274,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 5.37151e-16
+  L2 interpolation error averaged per interpolant node = 6.75475e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #8
@@ -283,7 +283,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.5302e-14
+  L2 interpolation error averaged per interpolant node = 1.78389e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #8
@@ -292,7 +292,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 3.5007e-15
+  L2 interpolation error averaged per interpolant node = 1.71516e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #9
@@ -319,7 +319,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 9.96808e-13
+  L2 interpolation error averaged per interpolant node = 1.02145e-12
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #9
@@ -328,7 +328,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 3.9115e-14
+  L2 interpolation error averaged per interpolant node = 7.22208e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #10
@@ -337,7 +337,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 7.75858e-15
+  L2 interpolation error averaged per interpolant node = 8.44793e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #10
@@ -346,7 +346,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 2.79551e-16
+  L2 interpolation error averaged per interpolant node = 3.07977e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #10
@@ -355,7 +355,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.00066e-14
+  L2 interpolation error averaged per interpolant node = 1.23626e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #10
@@ -364,7 +364,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 4.2918e-16
+  L2 interpolation error averaged per interpolant node = 4.98065e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #11
@@ -391,7 +391,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 2.43858e-14
+  L2 interpolation error averaged per interpolant node = 5.41382e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #11
@@ -400,7 +400,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 2.69856e-15
+  L2 interpolation error averaged per interpolant node = 1.54695e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #12
@@ -409,7 +409,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.64065e-14
+  L2 interpolation error averaged per interpolant node = 1.58729e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #12
@@ -418,7 +418,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 6.20172e-16
+  L2 interpolation error averaged per interpolant node = 5.68244e-16
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #12
@@ -427,7 +427,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 2.26064e-14
+  L2 interpolation error averaged per interpolant node = 4.057e-14
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #12
@@ -436,7 +436,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 1.00793e-15
+  L2 interpolation error averaged per interpolant node = 1.0603e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #13
@@ -463,7 +463,7 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 3.61153e-15
+  L2 interpolation error averaged per interpolant node = 8.33004e-15
 
 RBF_INTERP_2D_TEST01:
   Interpolate data from TEST_INTERP_2D problem #13
@@ -472,9 +472,9 @@ RBF_INTERP_2D_TEST01:
   Number of data points = 100
   Setting R0 = 0.108908
 
-  L2 interpolation error averaged per interpolant node = 7.8404e-16
+  L2 interpolation error averaged per interpolant node = 4.22277e-16
 
-RBF_INTERP_2D_TEST:
+RBF_INTERP_2D_PRB:
   Normal end of execution.
 
-06 October 2012 09:06:38 PM
+24 October 2014 10:49:53 AM

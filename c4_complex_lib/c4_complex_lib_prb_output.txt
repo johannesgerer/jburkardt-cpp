@@ -1,0 +1,83 @@
+27 September 2013 01:11:24 PM
+
+C4_COMPLEX_LIB_PRB
+  C++ version.
+  Test the C4_COMPLEX_LIB library.
+
+TEST01
+  Test assignment of a value to c4_complex.
+
+  float D1 = 1
+  float D2 = 2
+
+  C1 = c4_complex ( d1, d2 ) = (1,2)
+  C1 = c4_complex ( d1 ) = (1,0)
+  C2 = C1 = (1,0)
+
+TEST02
+  Test c4_complex addition.
+
+  float D1 = 1
+  c4_complex C1 = (100,10)
+  c4_complex C2 = (99,9)
+
+  C3 = C1 + C2 = (199,19)
+  C3 = C1 + D1 = (101,10)
+  C3 = C1 + D1 = (101,10)
+  C3 = C1 + C1 = (200,20)
+
+TEST02
+  Test c4_complex addition.
+
+  float D1 = 1
+  c4_complex C1 = (100,10)
+  c4_complex C2 = (99,9)
+
+  C3 = C1 - C2 = (1,1)
+  C3 = C1 - D1 = (99,10)
+  C3 = C1 - D1 = (-99,10)
+  C3 = C1 - C1 = (0,0)
+
+TEST04
+  Test c4_complex conjugation.
+
+  c4_complex C1 = (100,10)
+
+  C2 = ~C1 = (100,-10)
+
+TEST05
+  Test c4_complex multiplication.
+
+  couble D1 = 5
+  couble D2 = 6
+  c4_complex C1 = (1,2)
+  c4_complex C2 = (3,4)
+
+  C3 = D1 * C1 = (5,10)
+  C3 = C2 * D2 = (18,24)
+  C3 = C1 * C2 = (-5,10)
+
+TEST06
+  Test c4_complex division.
+
+  float D1 = 5
+  float D2 = 6
+  c4_complex C1 = (1,2)
+  c4_complex C2 = (3,4)
+
+  C3 = D1 / C1 = (1,-2)
+  C3 = C2 / D2 = (0.5,0.666667)
+  C3 = C1 / C2 = (0.44,0.08)
+
+TEST07
+  Test c4_complex real and imaginary parts.
+
+  c4_complex C1 = (1,2)
+
+  D1 = C1.real ( ) = 1
+  D1 = C1.imaginary ( ) = 2
+
+C4_COMPLEX_LIB_PRB
+  Normal end of execution.
+
+27 September 2013 01:11:24 PM

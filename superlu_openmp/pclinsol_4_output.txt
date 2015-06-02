@@ -1,0 +1,22 @@
+12 March 2014 08:28:18 PM
+
+PCLINSOL:
+  C++/OpenMP version
+  Call the OpenMP version of SuperLU to solve a linear system.
+Title: complex g20, symm. permuted by SYMMMD                                   Key: sym     
+Dimension 400x400; # nonzeros 1920
+Use minimum degree ordering on A'*A.
+Factor time  =     0.00
+Factor flops = 5.869000e+04	Mflops =    38.28
+Solve time   =     0.00
+Solve flops = 4.392800e+04	Mflops =   249.66
+||X - Xtrue||/||X|| = 5.330971e-07
+#NZ in factor L = 5869
+#NZ in factor U = 5539
+#NZ in L+U = 11008
+L\U MB 0.131882  total MB needed 0.348557  expansions 0
+
+PCLINSOL:
+  Normal end of execution.
+
+12 March 2014 08:28:18 PM

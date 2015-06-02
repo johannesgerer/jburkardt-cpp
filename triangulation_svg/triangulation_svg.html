@@ -1,0 +1,288 @@
+<html>
+
+  <head>
+    <title>
+      TRIANGULATION_SVG - SVG Image of Triangulation
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TRIANGULATION_SVG <br> SVG Image of Triangulation
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRIANGULATION_SVG</b> 
+      is a C++ program which
+      creates an SVG image of a triangulation, which can be displayed
+      by an web browser.
+    </p>
+
+    <p>
+      <b>TRIANGULATION_SVG</b> reads one file listing the nodes, and
+      a second file consisting of groups of 3, 4 or 6 nodes that make up
+      elements.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>triangulation_svg</b> <i>prefix</i>
+      </blockquote>
+      where <i>'prefix'</i> is the common prefix for the node and element files,
+      and will also be used to name the output file:
+      <ul>
+        <li>
+          <i>'prefix'</i><b>_nodes.txt</b>,    the node coordinates.
+        </li>
+        <li>
+          <i>'prefix'</i><b>_elements.txt</b>,    the triangulation
+        </li>
+        <li>
+          <i>'prefix'</i><b>.svg</b>,  the plot file
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+ 
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TRIANGULATION_SVG</b> is available in
+      <a href = "../../c_src/triangulation_svg/triangulation_svg.html">a C version</a> and
+      <a href = "../../cpp_src/triangulation_svg/triangulation_svg.html">a C++ version</a> and
+      <a href = "../../f77_src/triangulation_svg/triangulation_svg.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/triangulation_svg/triangulation_svg.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/triangulation_svg/triangulation_svg.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/triangle_svg/triangle_svg.html">
+      TRIANGLE_SVG</a>,
+      a C++ library which
+      uses Scalable Vector Graphics (SVG) to plot a triangle and
+      any number of points, to illustrate quadrature rules and
+      sampling techniques.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation/triangulation.html">
+      TRIANGULATION</a>, 
+      a C++ library which
+      carries out various operations on order 3 ("linear") or order 6 
+      ("quadratic") triangulations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_node_to_element/triangulation_node_to_element.html">
+      TRIANGULATION_NODE_TO_ELEMENT</a>,
+      a C++ program which 
+      reads files describing a set of nodes, their triangulation, and the
+      value of one or more quantities at each node, and outputs a file
+      that averages the quantities for each element.  This operation 
+      in effect creates an "order1" finite element model of the data.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_plot/triangulation_plot.html">
+      TRIANGULATION_PLOT</a>,
+      a C++ program which
+      plots the nodes and elements of a triangulation as a PostScript (PS) file;
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+     <ol>
+       <li>
+         W3C,
+         Scalable Vector Graphics 1.1 (Second Edition),
+         16 August 2011,
+         http://www.w3.org/TR/SVG11/
+       </li>
+     </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangulation_svg.cpp">triangulation_svg.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "triangulation_svg.sh">triangulation_svg.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>LAKE</b> is a lake region.
+      <ul>
+        <li>
+          <a href = "lake_nodes.txt">
+          lake_nodes.txt</a>
+          the point coordinates.
+        </li>
+        <li>
+          <a href = "lake_elements.txt">
+          lake_elements.txt</a> 
+          the triangulation.
+        </li>
+        <li>
+          <a href = "lake.svg">
+          lake.svg</a> 
+          an SVG image of
+          the triangulation.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for TRIANGULATION_SVG.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two integers.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two integers.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of integer division.
+        </li>
+        <li>
+          <b>I4_WRAP</b> forces an integer to lie between given limits by wrapping.
+        </li>
+        <li>
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_TRANSPOSE_PRINT_SOME</b> prints some of an I4MAT, transposed.
+        </li>
+        <li>
+          <b>MESH_BASE_ZERO</b> ensures that the element definition is zero-based.
+        </li>
+        <li>
+          <b>R8_HUGE</b> returns a "huge" R8.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_MIN</b> returns the minimum of two R8's.
+        </li>
+        <li>
+          <b>R8_NINT</b> returns the nearest integer to an R8.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>S_BLANK_DELETE</b> removes blanks and left justifies the remainder.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRIANGULATION_PLOT</b> plots a triangulation in SVG format.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 07 April 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>
+

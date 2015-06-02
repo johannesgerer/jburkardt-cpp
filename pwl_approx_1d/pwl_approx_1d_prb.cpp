@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    PWL_APPROX_1D_TEST tests PWL_APPROX_1D.
+//    MAIN is the main program for PWL_APPROX_1D_PRB.
+//
+//  Discussion:
+//
+//    PWL_APPROX_1D_PRB tests the PWL_APPROX_1D library.
 //
 //  Licensing:
 //
@@ -48,7 +52,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "PWL_APPROX_1D_TEST:\n";
+  cout << "PWL_APPROX_1D_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the PWL_APPROX_1D library.\n";
   cout << "  The QR_SOLVE library is needed.\n";
@@ -73,7 +77,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "PWL_APPROX_1D_TEST:\n";
+  cout << "PWL_APPROX_1D_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

@@ -1,0 +1,400 @@
+<html>
+
+  <head>
+    <title>
+      TRIANGLE_LYNESS_RULE - Quadrature Rules for the Triangle
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TRIANGLE_LYNESS_RULE <br> Quadrature Rules for the Triangle
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRIANGLE_LYNESS_RULE</b>
+      is a C++ library which
+      produces the Lyness-Jespersen family of quadrature rules 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      The rules have the following orders (number of points) and 
+      precisions (maximum degree of polynomials whose integrals they
+      can compute exactly):
+      <table border="1" align="center">
+        <tr>
+          <th>Rule</th><th>Order</th><th>Precision</th>
+        </tr>
+        <tr>
+          <td>0</td><td>  1</td><td> 1</td>
+        </tr>
+        <tr>
+          <td>1</td><td>  3</td><td> 2</td>
+        </tr>
+        <tr>
+          <td>2</td><td>  4</td><td> 2</td>
+        </tr>
+        <tr>
+          <td>3</td><td>  4</td><td> 3</td>
+        </tr>
+        <tr>
+          <td>4</td><td>  7</td><td> 3</td>
+        </tr>
+        <tr>
+          <td>5</td><td>  6</td><td> 4</td>
+        </tr>
+        <tr>
+          <td>6</td><td> 10</td><td> 4</td>
+        </tr>
+        <tr>
+          <td>7</td><td>  9</td><td> 4</td>
+        </tr>
+        <tr>
+          <td>8</td><td>  7</td><td> 5</td>
+        </tr>
+        <tr>
+          <td>9</td><td> 10</td><td> 5</td>
+        </tr>
+        <tr>
+          <td>10</td><td> 12</td><td> 6</td>
+        </tr>
+        <tr>
+          <td>11</td><td> 16</td><td> 6</td>
+        </tr>
+        <tr>
+          <td>12</td><td> 13</td><td> 6</td>
+        </tr>
+        <tr>
+          <td>13</td><td> 13</td><td> 7</td>
+        </tr>
+        <tr>
+          <td>14</td><td> 16</td><td> 7</td>
+        </tr>
+        <tr>
+          <td>15</td><td> 16</td><td> 8</td>
+        </tr>
+        <tr>
+          <td>16</td><td> 21</td><td> 8</td>
+        </tr>
+        <tr>
+          <td>17</td><td> 16</td><td> 8</td>
+        </tr>
+        <tr>
+          <td>18</td><td> 19</td><td> 9</td>
+        </tr>
+        <tr>
+          <td>19</td><td> 22</td><td> 9</td>
+        </tr>
+        <tr>
+          <td>20</td><td> 27</td><td>11</td>
+        </tr>
+        <tr>
+          <td>21</td><td> 28</td><td>11</td>
+        </tr>
+      </table>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TRIANGLE_LYNESS_RULE</b> is available in
+      <a href = "../../cpp_src/triangle_lyness_rule/triangle_lyness_rule.html">a C++ version</a> and
+      <a href = "../../f_src/triangle_lyness_rule/triangle_lyness_rule.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/triangle_lyness_rule/triangle_lyness_rule.html">a MATLAB version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cube_felippa_rule/cube_felippa_rule.html">
+      CUBE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a cube in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pyramid_felippa_rule/pyramid_felippa_rule.html">
+      PYRAMID_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a pyramid in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/simplex_gm_rule/simplex_gm_rule.html">
+      SIMPLEX_GM_RULE</a>,
+      a C++ library which
+      defines Grundmann-Moeller quadrature rules 
+      over the interior of a simplex in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/square_felippa_rule/square_felippa_rule.html">
+      SQUARE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a square in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/stroud/stroud.html">
+      STROUD</a>, 
+      a C++ library which
+      contains quadrature rules for a variety of unusual areas, 
+      surfaces and volumes in 2D,
+      3D and M-dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_felippa_rule/tetrahedron_felippa_rule.html">
+      TETRAHEDRON_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_dunavant_rule/triangle_dunavant_rule.html">
+      TRIANGLE_DUNAVANT_RULE</a>,
+      a C++ library which 
+      sets up a Dunavant quadrature rule 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_exactness/triangle_exactness.html">
+      TRIANGLE_EXACTNESS</a>, 
+      a C++ program which 
+      investigates the polynomial exactness of a quadrature rule 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_fekete_rule/triangle_fekete_rule.html">
+      TRIANGLE_FEKETE_RULE</a>,
+      a C++ library which
+      defines Fekete rules for interpolation or quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_felippa_rule/triangle_felippa_rule.html">
+      TRIANGLE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_integrals/triangle_integrals.html">
+      TRIANGLE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_monte_carlo/triangle_monte_carlo.html">
+      TRIANGLE_MONTE_CARLO</a>, 
+      a C++ program which 
+      uses the Monte Carlo method to estimate integrals 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_ncc_rule/triangle_ncc_rule.html">
+      TRIANGLE_NCC_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Closed (NCC) quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_nco_rule/triangle_nco_rule.html">
+      TRIANGLE_NCO_RULE</a>,
+      a C++ library which
+      defines Newton-Cotes Open (NCO) quadrature rules
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_symq_rule/triangle_symq_rule.html">
+      TRIANGLE_SYMQ_RULE</a>,
+      a C++ library which
+      returns efficient symmetric quadrature rules, 
+      with exactness up to total degree 50,
+      over the interior of an arbitrary triangle in 2D,
+      by Hong Xiao and Zydrunas Gimbutas.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_wandzura_rule/triangle_wandzura_rule.html">
+      TRIANGLE_WANDZURA_RULE</a>, 
+      a C++ library which 
+      sets up a quadrature rule of exactness 5, 10, 15, 20, 25 or 30
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wedge_felippa_rule/wedge_felippa_rule.html">
+      WEDGE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns quadratures rules for approximating integrals
+      over the interior of the unit wedge in 3D.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          James Lyness, Dennis Jespersen,<br>
+          Moderate Degree Symmetric Quadrature Rules for the Triangle,<br>
+          Journal of the Institute of Mathematics and its Applications,<br>
+          Volume 15, Number 1, February 1975, pages 19-32.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangle_lyness_rule.cpp">triangle_lyness_rule.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "triangle_lyness_rule.hpp">triangle_lyness_rule.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "triangle_lyness_rule.sh">triangle_lyness_rule.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangle_lyness_rule_prb.cpp">triangle_lyness_rule_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "triangle_lyness_rule_prb.sh">triangle_lyness_rule_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "triangle_lyness_rule_prb_output.txt">triangle_lyness_rule_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>I4_MODP</b> returns the nonnegative remainder of I4 division.
+        </li>
+        <li>
+          <b>I4_WRAP</b> forces an I4 to lie between given limits by wrapping.
+        </li>
+        <li>
+          <b>I4VEC_COPY_NEW</b> copies an I4VEC to a "new" I4VEC.
+        </li>
+        <li>
+          <b>LYNESS_ORDER</b> returns the order of a Lyness quadrature rule.
+        </li>
+        <li>
+          <b>LYNESS_PRECISION</b> returns the precision of a Lyness quadrature rule.
+        </li>
+        <li>
+          <b>LYNESS_RULE</b> returns the points and weights of a Lyness quadrature rule.
+        </li>
+        <li>
+          <b>LYNESS_RULE_NUM</b> returns the number of Lyness quadrature rules.
+        </li>
+        <li>
+          <b>LYNESS_SUBORDER</b> returns the suborders for a Lyness rule.
+        </li>
+        <li>
+          <b>LYNESS_SUBORDER_NUM</b> returns the number of suborders for a Lyness rule.
+        </li>
+        <li>
+          <b>LYNESS_SUBRULE</b> returns a compressed Lyness rule.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8MAT_COPY</b> copies one R8MAT to another.
+        </li>
+        <li>
+          <b>R8MAT_WRITE</b> writes an R8MAT file.
+        </li>
+        <li>
+          <b>R8VEC_COPY</b> copies an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_SUM</b> returns the sum of an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../f_src.html">
+      the FORTRAN90 source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 30 September 2010.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

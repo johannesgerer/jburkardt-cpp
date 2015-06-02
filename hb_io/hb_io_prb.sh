@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include hb_io_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include hb_io_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling hb_io_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ hb_io_prb.o /$HOME/libcpp/$ARCH/hb_io.o -lm
 if [ $? -ne 0 ]; then

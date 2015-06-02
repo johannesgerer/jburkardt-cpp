@@ -23,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TEST_OPT_CON_PRB calls the TEST_OPT_CON tests.
+//    TEST_OPT_CON_PRB tests the TEST_OPT_CON library.
 //
 //  Licensing:
 //
@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TEST_OPT_CON_PRB\n";
   cout << "  C++ version\n";
@@ -53,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "TEST_OPT_CON_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

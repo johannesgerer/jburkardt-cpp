@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-g++ -c md.cpp >& compiler.txt
+g++ -c -O2 md.cpp >& compiler.txt
 if [ $? -ne 0 ]; then
   echo "Errors compiling md.cpp"
   exit

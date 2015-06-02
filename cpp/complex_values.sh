@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c complex_values.cpp >& compiler.txt
+g++ -c complex_values.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling complex_values.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ complex_values.o
 if [ $? -ne 0 ]; then

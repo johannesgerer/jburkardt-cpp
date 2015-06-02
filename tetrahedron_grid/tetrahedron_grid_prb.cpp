@@ -18,7 +18,11 @@ int main ( void )
 //
 //  Purpose:
 //
-//    TETRAHEDRON_GRID_TEST tests TETRAHEDRON_GRID.
+//    MAIN is the main program for TETRAHEDRON_GRID_PRB.
+//
+//  Discussion:
+//
+//    TETRAHEDRON_GRID_PRB tests the TETRAHEDRON_GRID library.
 //
 //  Licensing:
 //
@@ -35,7 +39,7 @@ int main ( void )
 {
   timestamp ( );
   cout << "\n";
-  cout << "TETRAHEDRON_GRID_TEST:\n";
+  cout << "TETRAHEDRON_GRID_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the TETRAHEDRON_GRID library.\n";
 
@@ -44,7 +48,7 @@ int main ( void )
 //  Terminate.
 //
   cout << "\n";
-  cout << "TETRAHEDRON_GRID_TEST:\n";
+  cout << "TETRAHEDRON_GRID_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

@@ -28,7 +28,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TET_MESH_PRB tests the routines in TET_MESH.
+//    TET_MESH_PRB tests the TET_MESH library.
 //
 //  Licensing:
 //
@@ -62,7 +62,6 @@ int main ( )
   cout << "\n";
   cout << "TET_MESH_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -148,7 +147,8 @@ void test002 ( )
 //
 //  Purpose:
 //
-//    TEST002 tests TETRAHEDRON_ORDER4_PHYSICAL_TO_REFERENCE, TETRAHEDRON_ORDER4_REFERENCE_TO_PHYSICAL.
+//    TEST002 tests TETRAHEDRON_ORDER4_PHYSICAL_TO_REFERENCE,
+//    TETRAHEDRON_ORDER4_REFERENCE_TO_PHYSICAL.
 //
 //  Licensing:
 //
@@ -183,9 +183,9 @@ void test002 ( )
   cout << "TEST002\n";
   cout << "  For an order 4 tetrahedron,\n";
   cout << "  TETRAHEDRON_ORDER4_PHYSICAL_TO_REFERENCE\n";
-  cout << "    maps a physical point to a reference point.\n";
+  cout << "  maps a physical point to a reference point.\n";
   cout << "  TETRAHEDRON_ORDER4_REFERENCE_TO_PHYSICAL \n";
-  cout << "    maps a reference point to a physical point.\n";
+  cout << "  maps a reference point to a physical point.\n";
   cout << "\n";
   cout << "     ( R, S, T )          ==>  ( X, Y, Z )           ==> ( R2, S2, T2 )\n";
   cout << "\n";
@@ -250,9 +250,9 @@ void test003 ( )
   cout << "TEST003\n";
   cout << "  For an order 10 tet mesh,\n";
   cout << "  TETRAHEDRON_ORDER10_TO_ORDER4\n";
-  cout << "    makes a linear (order 4) tet mesh by using\n";
-  cout << "    the existing nodes, and replacing each\n";
-  cout << "    quadratic tetrahedron by 8 linear tetrahedrons.\n";
+  cout << "  makes a linear (order 4) tet mesh by using\n";
+  cout << "  the existing nodes, and replacing each\n";
+  cout << "  quadratic tetrahedron by 8 linear tetrahedrons.\n";
 
   tet_mesh_order10_example_size ( &node_num1, &tet_num1 );
 
@@ -401,7 +401,7 @@ void test005 ( )
 //
   for ( test1 = 1; test1 <= test1_num; test1++ )
   {
-    tet_xyz = r8mat_uniform_01 ( 3, 4, &seed );
+    tet_xyz = r8mat_uniform_01_new ( 3, 4, &seed );
 
     r8mat_transpose_print ( 3, 4, tet_xyz, "  Random tetrahedron:" );
 //
@@ -413,14 +413,14 @@ void test005 ( )
 //
     for ( test2 = 1; test2 <= test2_num; test2++ )
     {
-      c1 = r8vec_uniform_01 ( 4, &seed );
+      c1 = r8vec_uniform_01_new ( 4, &seed );
       c1_sum = r8vec_sum ( 4, c1 );
       for ( i = 0; i < 4; i++ )
       {
         c1[i] = c1[i] / c1_sum;
       }
 
-      p = r8mat_mv ( 3, 4, tet_xyz, c1 );
+      p = r8mat_mv_new ( 3, 4, tet_xyz, c1 );
 
       c2 = tetrahedron_barycentric ( tet_xyz, p );
 
@@ -442,7 +442,7 @@ void test005 ( )
       delete [] c2;
       delete [] p;
     }
-    delete tet_xyz;
+    delete [] tet_xyz;
   }
 
   return;
@@ -587,7 +587,7 @@ void test007 ( )
 //
 //  Choose a tetrahedron at random.
 //
-    tet1 = i4_uniform ( 0, tet_num - 1, &seed );
+    tet1 = i4_uniform_ab ( 0, tet_num - 1, &seed );
 
     cout << "\n";
     cout << "  Point was chosen from tetrahedron    " << setw(8) << tet1 << "\n";

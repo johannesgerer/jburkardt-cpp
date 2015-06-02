@@ -45,8 +45,6 @@ void k_coef ( int node_num, double node_xy[], double node_k[] );
 void mgmres ( double a[], int ia[], int ja[], double x[], double rhs[],
   int n, int nz_num, int itr_max, int mr, double tol_abs, double tol_rel );
 void mult_givens ( double c, double s, int k, double g[] );
-void points_plot ( string filename, int node_num, double node_xy[],
-  bool node_label );
 void quad_rule ( int quad_num, double quad_w[], double quad_xy[] );
 double r8_abs ( double x );
 double r8_huge ( void );
@@ -57,7 +55,7 @@ double *r8mat_data_read ( string input_filename, int m, int n );
 void r8mat_header_read ( string input_filename, int *m, int *n );
 void r8mat_write ( string output_filename, int m, int n, double table[] );
 double r8vec_amax ( int n, double a[] );
-double r8vec_dot ( int n, double a1[], double a2[] );
+double r8vec_dot_product ( int n, double a1[], double a2[] );
 void r8vec_print_some ( int n, double a[], int i_lo, int i_hi, string title );
 double *r8vec_uniform_01 ( int n, int *seed );
 void rhs ( int node_num, double node_xy[], double node_rhs[] );
@@ -83,9 +81,6 @@ bool *triangulation_order3_boundary_node ( int node_num, int element_num,
   int element_node[] );
 void triangulation_order3_neighbor_triangles ( int triangle_num,
   int triangle_node[], int triangle_neighbor[] );
-void triangulation_order3_plot ( string filename, int node_num,
-  double node_xy[], int element_num, int element_node[], int node_show,
-  int element_show );
 
 //****************************************************************************80
 
@@ -99,13 +94,8 @@ int main ( int argc, char *argv[] )
 //
 //  Discussion:
 //
-//    This program is a variant of FREE_FEM_POISSON.  That program is
-//    particularly limited because of its use of banded matrix storage and
-//    solving routines.
-//
-//    This program discards the banded approach.  Instead, it uses a
-//    sparse matrix storage format and an iterative solver,
-//    which allow this program to solve larger problems faster.
+//    This program uses a sparse matrix storage format and an iterative solver,
+//    which allow it to solve larger problems faster.
 //
 //    This program solves the Poisson equation
 //
@@ -162,9 +152,7 @@ int main ( int argc, char *argv[] )
 //
 //    Files created include:
 //
-//    * prefix_nodes.eps, an image of the nodes;
-//    * prefix_elements.eps, an image of the elements;
-//    * prefix_solution.txt, the value of the solution at every node.
+//    * prefix_values.txt, the value of the solution at every node.
 //
 //  Licensing:
 //
@@ -172,7 +160,7 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    06 December 2010
+//    25 January 2013
 //
 //  Author:
 //
@@ -226,7 +214,6 @@ int main ( int argc, char *argv[] )
   int *adj_col;
   bool debug = false;
   int dim_num;
-  string element_eps_filename;
   string element_filename;
   int *element_neighbor;
   int *element_node;
@@ -243,7 +230,6 @@ int main ( int argc, char *argv[] )
   int node;
   bool *node_boundary;
   int *node_condition;
-  string node_eps_filename;
   string node_filename;
   bool node_label;
   int node_num;
@@ -266,11 +252,9 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
   cout << "\n";
-  cout << "  A version of FEM2D_POISSON using sparse storage\n";
-  cout << "  and an iterative solver.\n";
-  cout << "\n";
-  cout << "  Solution of the Poisson equation in an arbitrary region\n";
-  cout << "  in 2 dimensions.\n";
+  cout << "  A finite element method solver for the Poisson problem\n";
+  cout << "  in an arbitrary triangulated region in 2 dimensions,\n";
+  cout << "  using sparse storage and an iterative solver.\n";
   cout << "\n";
   cout << "  - DEL H(x,y) DEL U(x,y) + K(x,y) * U(x,y) = F(x,y) in the region\n";
   cout << "\n";
@@ -298,9 +282,7 @@ int main ( int argc, char *argv[] )
 //
   node_filename = prefix + "_nodes.txt";
   element_filename = prefix + "_elements.txt";
-  node_eps_filename = prefix + "_nodes.eps";
-  element_eps_filename = prefix + "_elements.eps";
-  solution_filename = prefix + "_solution.txt";
+  solution_filename = prefix + "_values.txt";
 
   cout << "\n";
   cout << "  Node file is \"" << node_filename << "\".\n";
@@ -330,7 +312,7 @@ int main ( int argc, char *argv[] )
   if ( element_order != 3 )
   {
     cout << "\n";
-    cout << "FEM2D_POISSON_SPARSE: - Fatal error!\n";
+    cout << "FEM2D_POISSON_SPARSE - Fatal error!\n";
     cout << "  The input triangulation has order " << element_order << "\n";
     cout << "  However, a triangulation of order 3 is required.\n";
     exit ( 1 );
@@ -365,40 +347,6 @@ int main ( int argc, char *argv[] )
     }
   }
 //
-//  Make a picture of the nodes.
-//
-  if ( node_num <= 1000 )
-  {
-    if ( node_num <= 100 )
-    {
-      node_label = true;
-    }
-    else
-    {
-      node_label = false;
-    }
-    points_plot ( node_eps_filename, node_num, node_xy, node_label );
-  }
-//
-//  Make a picture of the elements.
-//
-  if ( node_num <= 1000 )
-  {
-    if ( node_num <= 100 )
-    {
-      node_show = 2;
-      element_show = 2;
-    }
-    else
-    {
-      node_show = 0;
-      element_show = 1;
-    }
-
-    triangulation_order3_plot ( element_eps_filename, node_num,
-      node_xy, element_num, element_node, node_show, element_show );
-  }
-//
 //  Determine the element neighbor array, just so we can estimate
 //  the nonzeros.
 //
@@ -420,7 +368,7 @@ int main ( int argc, char *argv[] )
 //  Set up the sparse row and column index vectors.
 //
   ia = new int[nz_num];
-  ja = new int [nz_num];
+  ja = new int[nz_num];
 
   triangulation_order3_adj_set2 ( node_num, element_num, element_node,
     element_neighbor, nz_num, adj_col, ia, ja );
@@ -432,7 +380,6 @@ int main ( int argc, char *argv[] )
 //
   a = new double[nz_num];
   f = new double[node_num];
-  node_u = new double[node_num];
 //
 //  Assemble the finite element coefficient matrix A and the right-hand side F.
 //
@@ -497,11 +444,13 @@ int main ( int argc, char *argv[] )
       "  Part of the solution vector:" );
   }
 //
-//  Deallocate memory.
+//  Free memory.
 //
   delete [] a;
   delete [] element_node;
   delete [] f;
+  delete [] ia;
+  delete [] ja;
   delete [] node_boundary;
   delete [] node_condition;
   delete [] node_u;
@@ -738,8 +687,8 @@ void ax ( double *a, int *ia, int *ja, double *x, double *w, int n, int nz_num )
 //
 //  Author:
 //
-//    Lili Ju
-//    C++ version by John Burkardt
+//    Original C version by Lili Ju.
+//    C++ version by John Burkardt.
 //
 //  Reference:
 //
@@ -933,11 +882,11 @@ char ch_cap ( char c )
 
   return c;
 }
-//****************************************************************************80*
+//****************************************************************************80
 
 bool ch_eqi ( char c1, char c2 )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -1726,11 +1675,11 @@ int i4_modp ( int i, int j )
 
   return value;
 }
-//****************************************************************************80*
+//****************************************************************************80
 
 int i4_wrap ( int ival, int ilo, int ihi )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -2524,8 +2473,8 @@ void mgmres ( double a[], int ia[], int ja[], double x[], double rhs[],
 //
 //  Author:
 //
-//    Lili Ju
-//    C++ translation by John Burkardt
+//    Original C version by Lili Ju.
+//    C++ version by John Burkardt.
 //
 //  Reference:
 //
@@ -2629,7 +2578,7 @@ void mgmres ( double a[], int ia[], int ja[], double x[], double rhs[],
       r[i] = rhs[i] - r[i];
     }
 
-    rho = sqrt ( r8vec_dot ( n, r, r ) );
+    rho = sqrt ( r8vec_dot_product ( n, r, r ) );
 
     if ( verbose )
     {
@@ -2666,31 +2615,31 @@ void mgmres ( double a[], int ia[], int ja[], double x[], double rhs[],
 
       ax ( a, ia, ja, v+(k-1)*n, v+k*n, n, nz_num );
 
-      av = sqrt ( r8vec_dot ( n, v+k*n, v+k*n ) );
+      av = sqrt ( r8vec_dot_product ( n, v+k*n, v+k*n ) );
 
       for ( j = 1; j <= k; j++ )
       {
-        h[(j-1)+(k-1)*(mr+1)] = r8vec_dot ( n, v+k*n, v+(j-1)*n );
+        h[(j-1)+(k-1)*(mr+1)] = r8vec_dot_product ( n, v+k*n, v+(j-1)*n );
         for ( i = 0; i < n; i++ )
         {
           v[i+k*n] = v[i+k*n] - h[(j-1)+(k-1)*(mr+1)] * v[i+(j-1)*n];
         }
       }
 
-      h[k+(k-1)*(mr+1)] = sqrt ( r8vec_dot ( n, v+k*n, v+k*n ) );
+      h[k+(k-1)*(mr+1)] = sqrt ( r8vec_dot_product ( n, v+k*n, v+k*n ) );
 
       if ( ( av + delta * h[k+(k-1)*(mr+1)] ) == av )
       {
          for ( j = 1; j <= k; j++ )
          {
-           htmp = r8vec_dot ( n, v+k*n, v+(j-1)*n );
+           htmp = r8vec_dot_product ( n, v+k*n, v+(j-1)*n );
            h[(j-1)+(k-1)*(mr+1)] = h[(j-1)+(k-1)*(mr+1)] + htmp;
            for ( i = 0; i < n; i++ )
            {
              v[i+k*n] = v[i+k*n] - htmp * v[i+(j-1)*n];
            }
          }
-         h[k+(k-1)*(mr+1)] = sqrt ( r8vec_dot ( n, v+k*n, v+k*n ) );
+         h[k+(k-1)*(mr+1)] = sqrt ( r8vec_dot_product ( n, v+k*n, v+k*n ) );
       }
 
       if ( h[k+(k-1)*(mr+1)] != 0.0 )
@@ -2805,8 +2754,8 @@ void mult_givens ( double c, double s, int k, double g[] )
 //
 //  Author:
 //
-//    Lili Ju
-//    C++ translation by John Burkardt
+//    Original C version by Lili Ju.
+//    C++ version by John Burkardt.
 //
 //  Reference:
 //
@@ -2851,310 +2800,6 @@ void mult_givens ( double c, double s, int k, double g[] )
 
   g[k]   = g1;
   g[k+1] = g2;
-
-  return;
-}
-//****************************************************************************80
-
-void points_plot ( string filename, int node_num, double node_xy[],
-  bool node_label )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    POINTS_PLOT plots a pointset.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    27 September 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string FILE_NAME, the name of the file to create.
-//
-//    Input, int NODE_NUM, the number of nodes.
-//
-//    Input, double NODE_XY[2*NODE_NUM], the nodes.
-//
-//    Input, bool NODE_LABEL, is TRUE if the nodes are to be labeled.
-//
-{
-  int circle_size;
-  int delta;
-  ofstream file_unit;
-  int node;
-  double x_max;
-  double x_min;
-  int x_ps;
-  int x_ps_max = 576;
-  int x_ps_max_clip = 594;
-  int x_ps_min = 36;
-  int x_ps_min_clip = 18;
-  double x_scale;
-  double y_max;
-  double y_min;
-  int y_ps;
-  int y_ps_max = 666;
-  int y_ps_max_clip = 684;
-  int y_ps_min = 126;
-  int y_ps_min_clip = 108;
-  double y_scale;
-//
-//  We need to do some figuring here, so that we can determine
-//  the range of the data, and hence the height and width
-//  of the piece of paper.
-//
-  x_max = -r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( x_max < node_xy[0+node*2] )
-     {
-       x_max = node_xy[0+node*2];
-     }
-  }
-  x_min = r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( node_xy[0+node*2] < x_min )
-     {
-       x_min = node_xy[0+node*2];
-     }
-  }
-  x_scale = x_max - x_min;
-
-  x_max = x_max + 0.05 * x_scale;
-  x_min = x_min - 0.05 * x_scale;
-  x_scale = x_max - x_min;
-
-  y_max = -r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( y_max < node_xy[1+node*2] )
-     {
-       y_max = node_xy[1+node*2];
-     }
-  }
-  y_min = r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( node_xy[1+node*2] < y_min )
-     {
-       y_min = node_xy[1+node*2];
-     }
-  }
-  y_scale = y_max - y_min;
-
-  y_max = y_max + 0.05 * y_scale;
-  y_min = y_min - 0.05 * y_scale;
-  y_scale = y_max - y_min;
-
-  if ( x_scale < y_scale )
-  {
-    delta = r8_nint ( ( double ) ( x_ps_max - x_ps_min )
-      * ( y_scale - x_scale ) / ( 2.0 * y_scale ) );
-
-    x_ps_max = x_ps_max - delta;
-    x_ps_min = x_ps_min + delta;
-
-    x_ps_max_clip = x_ps_max_clip - delta;
-    x_ps_min_clip = x_ps_min_clip + delta;
-
-    x_scale = y_scale;
-  }
-  else if ( y_scale < x_scale )
-  {
-    delta = r8_nint ( ( double ) ( y_ps_max - y_ps_min )
-      * ( x_scale - y_scale ) / ( 2.0 * x_scale ) );
-
-    y_ps_max = y_ps_max - delta;
-    y_ps_min = y_ps_min + delta;
-
-    y_ps_max_clip = y_ps_max_clip - delta;
-    y_ps_min_clip = y_ps_min_clip + delta;
-
-    y_scale = x_scale;
-  }
-
-  file_unit.open ( filename.c_str ( ) );
-
-  if ( !file_unit )
-  {
-    cout << "\n";
-    cout << "POINTS_PLOT - Fatal error!\n";
-    cout << "  Could not open the output EPS file.\n";
-    exit ( 1 );
-  }
-
-  file_unit << "%!PS-Adobe-3.0 EPSF-3.0\n";
-  file_unit << "%%Creator: points_plot.C\n";
-  file_unit << "%%Title: " << filename << "\n";
-
-  file_unit << "%%Pages: 1\n";
-  file_unit << "%%BoundingBox:  "
-    << x_ps_min << "  "
-    << y_ps_min << "  "
-    << x_ps_max << "  "
-    << y_ps_max << "\n";
-  file_unit << "%%Document-Fonts: Times-Roman\n";
-  file_unit << "%%LanguageLevel: 1\n";
-  file_unit << "%%EndComments\n";
-  file_unit << "%%BeginProlog\n";
-  file_unit << "/inch {72 mul} def\n";
-  file_unit << "%%EndProlog\n";
-  file_unit << "%%Page:      1     1\n";
-  file_unit << "save\n";
-  file_unit << "%\n";
-  file_unit << "% Set the RGB line color to very light gray.\n";
-  file_unit << "%\n";
-  file_unit << " 0.9000 0.9000 0.9000 setrgbcolor\n";
-  file_unit << "%\n";
-  file_unit << "% Draw a gray border around the page.\n";
-  file_unit << "%\n";
-  file_unit << "newpath\n";
-  file_unit << x_ps_min << "  "
-            << y_ps_min << "  moveto\n";
-  file_unit << x_ps_max << "  "
-            << y_ps_min << "  lineto\n";
-  file_unit << x_ps_max << "  "
-            << y_ps_max << "  lineto\n";
-  file_unit << x_ps_min << "  "
-            << y_ps_max << "  lineto\n";
-  file_unit << x_ps_min << "  "
-            << y_ps_min << "  lineto\n";
-  file_unit << "stroke\n";
-  file_unit << "%\n";
-  file_unit << "% Set RGB line color to black.\n";
-  file_unit << "%\n";
-  file_unit << " 0.0000 0.0000 0.0000 setrgbcolor\n";
-  file_unit << "%\n";
-  file_unit << "%  Set the font and its size:\n";
-  file_unit << "%\n";
-  file_unit << "/Times-Roman findfont\n";
-  file_unit << "0.50 inch scalefont\n";
-  file_unit << "setfont\n";
-  file_unit << "%\n";
-  file_unit << "%  Print a title:\n";
-  file_unit << "%\n";
-  file_unit << "%  210  702 moveto\n";
-  file_unit << "%(Pointset) show\n";
-  file_unit << "%\n";
-  file_unit << "% Define a clipping polygon\n";
-  file_unit << "%\n";
-  file_unit << "newpath\n";
-  file_unit << x_ps_min_clip << "  "
-            << y_ps_min_clip << "  moveto\n";
-  file_unit << x_ps_max_clip << "  "
-            << y_ps_min_clip << "  lineto\n";
-  file_unit << x_ps_max_clip << "  "
-            << y_ps_max_clip << "  lineto\n";
-  file_unit << x_ps_min_clip << "  "
-            << y_ps_max_clip << "  lineto\n";
-  file_unit << x_ps_min_clip << "  "
-            << y_ps_min_clip << "  lineto\n";
-  file_unit << "clip newpath\n";
-//
-//  Draw the nodes.
-//
-  if ( node_num <= 200 )
-  {
-    circle_size = 5;
-  }
-  else if ( node_num <= 500 )
-  {
-    circle_size = 4;
-  }
-  else if ( node_num <= 1000 )
-  {
-    circle_size = 3;
-  }
-  else if ( node_num <= 5000 )
-  {
-    circle_size = 2;
-  }
-  else
-  {
-    circle_size = 1;
-  }
-
-  file_unit << "%\n";
-  file_unit << "%  Draw filled dots at each node:\n";
-  file_unit << "%\n";
-  file_unit << "%  Set the color to blue:\n";
-  file_unit << "%\n";
-  file_unit << "0.000  0.150  0.750  setrgbcolor\n";
-  file_unit << "%\n";
-
-  for ( node = 0; node < node_num; node++ )
-  {
-    x_ps = ( int ) (
-      ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )
-      + (       + node_xy[0+node*2] - x_min ) * ( double ) ( x_ps_max ) )
-      / ( x_max                     - x_min ) );
-
-    y_ps = ( int ) (
-      ( ( y_max - node_xy[1+node*2]         ) * ( double ) ( y_ps_min )
-      + (         node_xy[1+node*2] - y_min ) * ( double ) ( y_ps_max ) )
-      / ( y_max                     - y_min ) );
-
-    file_unit << "newpath  "
-      << x_ps << "  "
-      << y_ps << "  "
-      << circle_size << " 0 360 arc closepath fill\n";
-  }
-//
-//  Label the nodes.
-//
-  if ( node_label )
-  {
-    file_unit << "%\n";
-    file_unit << "%  Label the nodes:\n";
-    file_unit << "%\n";
-    file_unit << "%  Set the color to darker blue:\n";
-    file_unit << "%\n";
-    file_unit << "0.000  0.250  0.850  setrgbcolor\n";
-    file_unit << "/Times-Roman findfont\n";
-    file_unit << "0.20 inch scalefont\n";
-    file_unit << "setfont\n";
-
-    file_unit << "%\n";
-
-    for ( node = 0; node < node_num; node++ )
-    {
-      x_ps = ( int ) (
-        ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )
-        + (       + node_xy[0+node*2] - x_min ) * ( double ) ( x_ps_max ) )
-        / ( x_max                     - x_min ) );
-
-      y_ps = ( int ) (
-        ( ( y_max - node_xy[1+node*2]         ) * ( double ) ( y_ps_min )
-        + (         node_xy[1+node*2] - y_min ) * ( double ) ( y_ps_max ) )
-        / ( y_max                     - y_min ) );
-
-      file_unit << "newpath  "
-        << x_ps     << "  "
-        << y_ps + 5 << "  moveto ("
-        << node+1   << ") show\n";
-    }
-  }
-
-  file_unit << "%\n";
-  file_unit << "restore showpage\n";
-  file_unit << "%\n";
-  file_unit << "% End of page\n";
-  file_unit << "%\n";
-  file_unit << "%%Trailer\n";
-  file_unit << "%%EOF\n";
-
-  file_unit.close ( );
 
   return;
 }
@@ -3497,8 +3142,8 @@ double r8_huge ( void )
 //
 //  Discussion:
 //
-//    HUGE_VAL is the largest representable legal double precision number, and is usually
-//    defined in math.h, or sometimes in stdlib.h.
+//    HUGE_VAL is the largest representable legal double precision number, 
+//    and is usually defined in math.h, or sometimes in stdlib.h.
 //
 //  Licensing:
 //
@@ -3949,13 +3594,13 @@ double r8vec_amax ( int n, double a[] )
 }
 //****************************************************************************80
 
-double r8vec_dot ( int n, double a1[], double a2[] )
+double r8vec_dot_product ( int n, double a1[], double a2[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8VEC_DOT computes the dot product of a pair of R8VEC's.
+//    R8VEC_DOT_PRODUCT computes the dot product of a pair of R8VEC's.
 //
 //  Licensing:
 //
@@ -3975,7 +3620,7 @@ double r8vec_dot ( int n, double a1[], double a2[] )
 //
 //    Input, double A1[N], A2[N], the two vectors to be considered.
 //
-//    Output, double R8VEC_DOT, the dot product of the vectors.
+//    Output, double R8VEC_DOT_PRODUCT, the dot product of the vectors.
 //
 {
   int i;
@@ -4053,8 +3698,8 @@ double *r8vec_uniform_01 ( int n, int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -5765,7 +5410,7 @@ bool *triangulation_order3_boundary_node ( int node_num, int element_num,
 //
 //  Modified:
 //
-//    12 June 2005
+//    25 January 2013
 //
 //  Author:
 //
@@ -5872,6 +5517,8 @@ bool *triangulation_order3_boundary_node ( int node_num, int element_num,
     }
 
   }
+
+  delete [] edge;
 
   return node_boundary;
 }
@@ -6104,423 +5751,4 @@ void triangulation_order3_neighbor_triangles ( int triangle_num,
 
   return;
 }
-//****************************************************************************80
 
-void triangulation_order3_plot ( string filename, int node_num,
-  double node_xy[], int element_num, int element_node[], int node_show,
-  int element_show )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TRIANGULATION_ORDER3_PLOT plots a triangulation of a set of nodes.
-//
-//  Discussion:
-//
-//    The triangulation is most usually a Delaunay triangulation,
-//    but this is not necessary.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    27 September 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string FILE_NAME, the name of the output file.
-//
-//    Input, int NODE_NUM, the number of nodes.
-//
-//    Input, double NODE_XY[2*NODE_NUM], the coordinates of the nodes.
-//
-//    Input, int ELEMENT_NUM, the number of triangles.
-//
-//    Input, int ELEMENT_NODE[3*ELEMENT_NUM], lists, for each triangle,
-//    the indices of the nodes that form the vertices of the triangle.
-//
-//    Input, int NODE_SHOW:
-//    0, do not show nodes;
-//    1, show nodes;
-//    2, show nodes and label them.
-//
-//    Input, int TRIANGLE_SHOW:
-//    0, do not show triangles;
-//    1, show triangles;
-//    2, show triangles and label them.
-//
-{
-  double ave_x;
-  double ave_y;
-  int circle_size;
-  int delta;
-  int e;
-  ofstream file_unit;
-  int i;
-  int node;
-  int triangle;
-  double x_max;
-  double x_min;
-  int x_ps;
-  int x_ps_max = 576;
-  int x_ps_max_clip = 594;
-  int x_ps_min = 36;
-  int x_ps_min_clip = 18;
-  double x_scale;
-  double y_max;
-  double y_min;
-  int y_ps;
-  int y_ps_max = 666;
-  int y_ps_max_clip = 684;
-  int y_ps_min = 126;
-  int y_ps_min_clip = 108;
-  double y_scale;
-//
-//  We need to do some figuring here, so that we can determine
-//  the range of the data, and hence the height and width
-//  of the piece of paper.
-//
-  x_max = -r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( x_max < node_xy[0+node*2] )
-     {
-       x_max = node_xy[0+node*2];
-     }
-  }
-  x_min = r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( node_xy[0+node*2] < x_min )
-     {
-       x_min = node_xy[0+node*2];
-     }
-  }
-  x_scale = x_max - x_min;
-
-  x_max = x_max + 0.05 * x_scale;
-  x_min = x_min - 0.05 * x_scale;
-  x_scale = x_max - x_min;
-
-  y_max = -r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( y_max < node_xy[1+node*2] )
-     {
-       y_max = node_xy[1+node*2];
-     }
-  }
-  y_min = r8_huge ( );
-  for ( node = 0; node < node_num; node++ )
-  {
-     if ( node_xy[1+node*2] < y_min )
-     {
-       y_min = node_xy[1+node*2];
-     }
-  }
-  y_scale = y_max - y_min;
-
-  y_max = y_max + 0.05 * y_scale;
-  y_min = y_min - 0.05 * y_scale;
-  y_scale = y_max - y_min;
-
-  if ( x_scale < y_scale )
-  {
-    delta = r8_nint ( ( double ) ( x_ps_max - x_ps_min )
-      * ( y_scale - x_scale ) / ( 2.0 * y_scale ) );
-
-    x_ps_max = x_ps_max - delta;
-    x_ps_min = x_ps_min + delta;
-
-    x_ps_max_clip = x_ps_max_clip - delta;
-    x_ps_min_clip = x_ps_min_clip + delta;
-
-    x_scale = y_scale;
-  }
-  else if ( y_scale < x_scale )
-  {
-    delta = r8_nint ( ( double ) ( y_ps_max - y_ps_min )
-      * ( x_scale - y_scale ) / ( 2.0 * x_scale ) );
-
-    y_ps_max = y_ps_max - delta;
-    y_ps_min = y_ps_min + delta;
-
-    y_ps_max_clip = y_ps_max_clip - delta;
-    y_ps_min_clip = y_ps_min_clip + delta;
-
-    y_scale = x_scale;
-  }
-
-  file_unit.open ( filename.c_str ( ) );
-
-  if ( !file_unit )
-  {
-    cout << "\n";
-    cout << "TRIANGULATION_ORDER3_PLOT - Fatal error!\n";
-    cout << "  Could not open the output EPS file.\n";
-    exit ( 1 );
-  }
-
-  file_unit << "%!PS-Adobe-3.0 EPSF-3.0\n";
-  file_unit << "%%Creator: triangulation_order3_plot.C\n";
-  file_unit << "%%Title: " << filename << "\n";
-  file_unit << "%%Pages: 1\n";
-  file_unit << "%%BoundingBox:  "
-    << x_ps_min << "  "
-    << y_ps_min << "  "
-    << x_ps_max << "  "
-    << y_ps_max << "\n";
-  file_unit << "%%Document-Fonts: Times-Roman\n";
-  file_unit << "%%LanguageLevel: 1\n";
-  file_unit << "%%EndComments\n";
-  file_unit << "%%BeginProlog\n";
-  file_unit << "/inch {72 mul} def\n";
-  file_unit << "%%EndProlog\n";
-  file_unit << "%%Page:      1     1\n";
-  file_unit << "save\n";
-  file_unit << "%\n";
-  file_unit << "% Set the RGB line color to very light gray.\n";
-  file_unit << "%\n";
-  file_unit << " 0.9000 0.9000 0.9000 setrgbcolor\n";
-  file_unit << "%\n";
-  file_unit << "% Draw a gray border around the page.\n";
-  file_unit << "%\n";
-  file_unit << "newpath\n";
-  file_unit << x_ps_min << "  "
-            << y_ps_min << "  moveto\n";
-  file_unit << x_ps_max << "  "
-            << y_ps_min << "  lineto\n";
-  file_unit << x_ps_max << "  "
-            << y_ps_max << "  lineto\n";
-  file_unit << x_ps_min << "  "
-            << y_ps_max << "  lineto\n";
-  file_unit << x_ps_min << "  "
-            << y_ps_min << "  lineto\n";
-  file_unit << "stroke\n";
-  file_unit << "%\n";
-  file_unit << "% Set RGB line color to black.\n";
-  file_unit << "%\n";
-  file_unit << " 0.0000 0.0000 0.0000 setrgbcolor\n";
-  file_unit << "%\n";
-  file_unit << "%  Set the font and its size:\n";
-  file_unit << "%\n";
-  file_unit << "/Times-Roman findfont\n";
-  file_unit << "0.50 inch scalefont\n";
-  file_unit << "setfont\n";
-  file_unit << "%\n";
-  file_unit << "%  Print a title:\n";
-  file_unit << "%\n";
-  file_unit << "%  210  702 moveto\n";
-  file_unit << "%(Pointset) show\n";
-  file_unit << "%\n";
-  file_unit << "% Define a clipping polygon\n";
-  file_unit << "%\n";
-  file_unit << "newpath\n";
-  file_unit << x_ps_min_clip << "  "
-            << y_ps_min_clip << "  moveto\n";
-  file_unit << x_ps_max_clip << "  "
-            << y_ps_min_clip << "  lineto\n";
-  file_unit << x_ps_max_clip << "  "
-            << y_ps_max_clip << "  lineto\n";
-  file_unit << x_ps_min_clip << "  "
-            << y_ps_max_clip << "  lineto\n";
-  file_unit << x_ps_min_clip << "  "
-            << y_ps_min_clip << "  lineto\n";
-  file_unit << "clip newpath\n";
-//
-//  Draw the nodes.
-//
-  if ( node_num <= 200 )
-  {
-    circle_size = 5;
-  }
-  else if ( node_num <= 500 )
-  {
-    circle_size = 4;
-  }
-  else if ( node_num <= 1000 )
-  {
-    circle_size = 3;
-  }
-  else if ( node_num <= 5000 )
-  {
-    circle_size = 2;
-  }
-  else
-  {
-    circle_size = 1;
-  }
-
-  if ( 1 <= node_show )
-  {
-    file_unit << "%\n";
-    file_unit << "%  Draw filled dots at each node:\n";
-    file_unit << "%\n";
-    file_unit << "%  Set the color to blue:\n";
-    file_unit << "%\n";
-    file_unit << "0.000  0.150  0.750  setrgbcolor\n";
-    file_unit << "%\n";
-
-    for ( node = 0; node < node_num; node++ )
-    {
-      x_ps = ( int ) (
-        ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )
-        + (       + node_xy[0+node*2] - x_min ) * ( double ) ( x_ps_max ) )
-        / ( x_max                     - x_min ) );
-
-      y_ps = ( int ) (
-        ( ( y_max - node_xy[1+node*2]         ) * ( double ) ( y_ps_min )
-        + (         node_xy[1+node*2] - y_min ) * ( double ) ( y_ps_max ) )
-        / ( y_max                     - y_min ) );
-
-      file_unit << "newpath  "
-        << x_ps << "  "
-        << y_ps << "  "
-        << circle_size << " 0 360 arc closepath fill\n";
-    }
-  }
-//
-//  Label the nodes.
-//
-  if ( 2 <= node_show )
-  {
-    file_unit << "%\n";
-    file_unit << "%  Label the nodes:\n";
-    file_unit << "%\n";
-    file_unit << "%  Set the color to darker blue:\n";
-    file_unit << "%\n";
-    file_unit << "0.000  0.250  0.850  setrgbcolor\n";
-    file_unit << "/Times-Roman findfont\n";
-    file_unit << "0.20 inch scalefont\n";
-    file_unit << "setfont\n";
-
-    file_unit << "%\n";
-
-    for ( node = 0; node < node_num; node++ )
-    {
-      x_ps = ( int ) (
-        ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )
-        + (       + node_xy[0+node*2] - x_min ) * ( double ) ( x_ps_max ) )
-        / ( x_max                     - x_min ) );
-
-      y_ps = ( int ) (
-        ( ( y_max - node_xy[1+node*2]         ) * ( double ) ( y_ps_min )
-        + (         node_xy[1+node*2] - y_min ) * ( double ) ( y_ps_max ) )
-        / ( y_max                     - y_min ) );
-
-      file_unit << "newpath  "
-        << x_ps     << "  "
-        << y_ps + 5 << "  moveto ("
-        << node+1   << ") show\n";
-    }
-  }
-//
-//  Draw the triangles.
-//
-  if ( 1 <= element_show )
-  {
-    file_unit << "%\n";
-    file_unit << "%  Set the RGB color to red.\n";
-    file_unit << "%\n";
-    file_unit << "0.900  0.200  0.100 setrgbcolor\n";
-    file_unit << "%\n";
-    file_unit << "%  Draw the triangles.\n";
-    file_unit << "%\n";
-
-    for ( triangle = 0; triangle < element_num; triangle++ )
-    {
-      file_unit << "newpath\n";
-
-      for ( i = 1; i <= 4; i++ )
-      {
-        e = i4_wrap ( i, 1, 3 );
-
-        node = element_node[e-1+triangle*3] - 1;
-
-        x_ps = ( int ) (
-          ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )
-          + (       + node_xy[0+node*2] - x_min ) * ( double ) ( x_ps_max ) )
-          / ( x_max                     - x_min ) );
-
-        y_ps = ( int ) (
-          ( ( y_max - node_xy[1+node*2]         ) * ( double ) ( y_ps_min )
-          + (         node_xy[1+node*2] - y_min ) * ( double ) ( y_ps_max ) )
-          / ( y_max                     - y_min ) );
-
-        if ( i == 1 )
-        {
-          file_unit << x_ps << "  " << y_ps << "  moveto\n";
-        }
-        else
-        {
-          file_unit << x_ps << "  " << y_ps << "  lineto\n";
-        }
-      }
-      file_unit << "stroke\n";
-    }
-  }
-//
-//  Label the triangles.
-//
-  if ( 2 <= element_show )
-  {
-    file_unit << "%\n";
-    file_unit << "%  Label the triangles.\n";
-    file_unit << "%\n";
-    file_unit << "%  Set the RGB color to darker red.\n";
-    file_unit << "%\n";
-    file_unit << "0.950  0.250  0.150 setrgbcolor\n";
-    file_unit << "/Times-Roman findfont\n";
-    file_unit << "0.20 inch scalefont\n";
-    file_unit << "setfont\n";
-    file_unit << "%\n";
-
-    for ( triangle = 0; triangle < element_num; triangle++ )
-    {
-      ave_x = 0.0;
-      ave_y = 0.0;
-
-      for ( i = 1; i <= 3; i++ )
-      {
-        node = element_node[i-1+triangle*3] - 1;
-        ave_x = ave_x + node_xy[0+node*2];
-        ave_y = ave_y + node_xy[1+node*2];
-      }
-      ave_x = ave_x / 3.0;
-      ave_y = ave_y / 3.0;
-
-      x_ps = ( int ) (
-        ( ( x_max - ave_x         ) * ( double ) ( x_ps_min )
-        + (       + ave_x - x_min ) * ( double ) ( x_ps_max ) )
-        / ( x_max         - x_min ) );
-
-      y_ps = ( int ) (
-        ( ( y_max - ave_y         ) * ( double ) ( y_ps_min )
-        + (         ave_y - y_min ) * ( double ) ( y_ps_max ) )
-        / ( y_max         - y_min ) );
-
-      file_unit << x_ps << "  "
-                << y_ps << "  moveto ("
-                << triangle+1 << ") show\n";
-    }
-  }
-
-  file_unit << "%\n";
-  file_unit << "restore  showpage\n";
-  file_unit << "%\n";
-  file_unit << "%  End of page.\n";
-  file_unit << "%\n";
-  file_unit << "%%Trailer\n";
-  file_unit << "%%EOF\n";
-
-  file_unit.close ( );
-
-  return;
-}

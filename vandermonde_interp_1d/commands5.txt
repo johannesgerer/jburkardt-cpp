@@ -1,0 +1,14 @@
+# commands5.txt
+#
+# Usage:
+#  gnuplot < commands5.txt
+#
+set term png
+set output 'plot5.png'
+set xlabel '<---X--->'
+set ylabel '<---Y--->'
+set title 'Data versus Vandermonde polynomial interpolant'
+set grid
+set style data lines
+plot 'data5.txt' using 1:2 with points pt 7 ps 2 lc rgb 'blue',\
+     'interp5.txt' using 1:2 lw 3 linecolor rgb 'red'

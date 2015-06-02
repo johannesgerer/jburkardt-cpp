@@ -1,0 +1,275 @@
+<html>
+
+  <head>
+    <title>
+      ZIGGURAT_INLINE - Ziggurat Method for Exponential or Normal Random Numbers
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      ZIGGURAT_INLINE <br> Ziggurat Method for Exponential or Normal  Random Numbers
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>ZIGGURAT_INLINE</b>
+      is a C++ library which
+      rapidly generates random variates from the uniform, normal or
+      exponential distributions.
+    </p>
+
+    <p>
+      The uniform numbers are generated directly.  The ziggurat method is used
+      to compute the normal and exponential values.
+    </p>
+
+    <p>
+      In this version, the underlying generators are implemented "inline",
+      invoking a function call only in exceptional cases.  This results in
+      very fast execution.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>ZIGGURAT_INLINE</b> is available in
+      <a href = "../../c_src/ziggurat_inline/ziggurat_inline.html">a C version</a> and
+      <a href = "../../cpp_src/ziggurat_inline/ziggurat_inline.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/faure/faure.html">
+      FAURE</a>,
+      a C++ library which
+      computes elements of a Faure quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/halton/halton.html">
+      HALTON</a>,
+      a C++ library which
+      computes elements of a Halton quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hammersley/hammersley.html">
+      HAMMERSLEY</a>,
+      a C++ library which
+      computes elements of a Hammersley quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/niederreiter2/niederreiter2.html">
+      NIEDERREITER2</a>,
+      a C++ library which
+      computes elements of a Niederreiter quasirandom sequence with base 2.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/normal/normal.html">
+      NORMAL</a>,
+      a C++ library which
+      computes elements of a sequence of pseudorandom normally distributed values.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sobol/sobol.html">
+      SOBOL</a>,
+      a C++ library which
+      computes elements of a Sobol quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uniform/uniform.html">
+      UNIFORM</a>,
+      a C++ library which
+      computes elements of uniform pseudorandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/van_der_corput/van_der_corput.html">
+      VAN_DER_CORPUT</a>,
+      a C++ library which
+      computes elements of a van der Corput quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ziggurat/ziggurat.html">
+      ZIGGURAT</a>,
+      a C++ program which
+      generates points from a uniform, normal or exponential distribution, using
+      the ziggurat method.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ziggurat_openmp/ziggurat_openmp.html">
+      ZIGGURAT_OPENMP</a>,
+      a C++ program which
+      demonstrates how the ZIGGURAT library can be used to generate random numbers
+      in an OpenMP parallel program.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Philip Leong, Guanglie Zhang, Dong-U Lee, Wayne Luk, John Villasenor,<br>
+          A comment on the implementation of the ziggurat method,<br>
+          Journal of Statistical Software,<br>
+          Volume 12, Number 7, February 2005.
+        </li>
+        <li>
+          George Marsaglia, Wai Wan Tsang,<br>
+          The Ziggurat Method for Generating Random Variables,<br>
+          Journal of Statistical Software,<br>
+          Volume 5, Number 8, October 2000, seven pages.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ziggurat_inline.cpp">ziggurat_inline.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "ziggurat_inline.hpp">ziggurat_inline.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "ziggurat_inline.sh">ziggurat_inline.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ziggurat_inline_prb.cpp">ziggurat_inline_prb.cpp</a>
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "ziggurat_inline_prb.sh">ziggurat_inline_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "ziggurat_inline_prb_output.txt">ziggurat_inline_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CONG_SEEDED</b> evaluates the CONG generator for uint32_t's.
+        </li>
+        <li>
+          <b>CONG_VALUE</b> evaluates the CONG generator for uint32_t's.
+        </li>
+        <li>
+          <b>CPU_TIME</b> returns the current reading on the CPU clock.
+        </li>
+        <li>
+          <b>EFIX</b> generates variates when rejection occurs in the exponential code. 
+        </li>
+        <li>
+          <b>KISS_SEEDED</b> evaluates the KISS random number generator.
+        </li>
+        <li>
+          <b>KISS_VALUE</b> evaluates the KISS generator for uint32_t's.
+        </li>
+        <li>
+          <b>MWC_SEEDED</b> evaluates the MWC multiply-with-carry random number generator.
+        </li>
+        <li>
+          <b>MWC_VALUE</b> evaluates the MWC generator for uint32_t's.
+        </li>
+        <li>
+          <b>NFIX</b> generates variates when rejection occurs in the normal code.
+        </li>
+        <li>
+          <b>R4_EXP_SETUP</b> sets data needed by R4_EXP.
+        </li>
+        <li>
+          <b>R4_EXP_VALUE</b> returns an exponentially distributed float.
+        </li>
+        <li>
+          <b>R4_NOR_SETUP</b> sets data needed by R4_NOR.
+        </li>
+        <li>
+          <b>R4_NOR_VALUE</b> returns a normally distributed float.
+        </li>
+        <li>
+          <b>R4_UNI_VALUE</b> returns a uniformly distributed float.
+        </li>
+        <li>
+          <b>SHR3_SEEDED</b> evaluates the SHR3 generator for unsigned 32 bit integers.
+        </li>
+        <li>
+          <b>SHR3_VALUE</b> evaluates the SHR3 generator for unsigned 32 bit integers.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>ZIGGET</b> gets the seeds.
+        </li>
+        <li>
+          <b>ZIGSET</b> sets the seeds and creates the tables for the Ziggurat method.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 18 October 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -27,7 +27,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    STLA_IO_PRB runs the tests of the STLA_IO routines.
+//    STLA_IO_PRB tests the STLA_IO library.
 //
 //  Licensing:
 //
@@ -59,7 +59,6 @@ int main ( )
   cout << "\n";
   cout << "STLA_IO_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

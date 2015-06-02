@@ -33,6 +33,7 @@ void r8mat_transpose_print ( int m, int n, double a[], string title );
 void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo, 
   int ihi, int jhi, string title );
 void r8vec_print ( int n, double a[], string title );
+double r8vec_sum ( int n, double a[] );
 int s_len_trim ( string s );
 int s_to_i4 ( string s, int *last, bool *error );
 bool s_to_i4vec ( string s, int n, int ivec[] );
@@ -77,7 +78,7 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    15 October 2009
+//    20 December 2012
 //
 //  Author:
 //
@@ -258,6 +259,9 @@ int main ( int argc, char *argv[] )
       + value[i+element_node[2+element*element_order]*value_dim] ) * area[element] ) / 3.0;
     }
   }
+
+  cout << "\n";
+  cout << "  Triangulation area = " << r8vec_sum ( element_num, area ) << "\n";
 
   r8vec_print ( value_dim, quad, "  Integral estimates:" );
 //
@@ -1609,6 +1613,51 @@ void r8vec_print ( int n, double a[], string title )
   }
 
   return;
+}
+//****************************************************************************80
+
+double r8vec_sum ( int n, double a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_SUM returns the sum of an R8VEC.
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 October 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of entries in the vector.
+//
+//    Input, double A[N], the vector.
+//
+//    Output, double R8VEC_SUM, the sum of the vector.
+//
+{
+  int i;
+  double value;
+
+  value = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    value = value + a[i];
+  }
+  return value;
 }
 //****************************************************************************80
 

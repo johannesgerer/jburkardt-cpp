@@ -46,7 +46,6 @@ int main ( )
 //
 {
   webbur::timestamp ( );
-
   std::cout << "\n";
   std::cout << "SANDIA_SGMGA_ANISO_NORMALIZE_PRB:\n";
   std::cout << "  C++ version\n";
@@ -58,11 +57,12 @@ int main ( )
   sandia_sgmga_aniso_normalize_tests ( );
 
   sandia_sgmga_importance_to_aniso_tests ( );
-
+//
+//  Terminate.
+//
   std::cout << "\n";
   std::cout << "SANDIA_SGMGA_ANISO_NORMALIZE_PRB:\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
 

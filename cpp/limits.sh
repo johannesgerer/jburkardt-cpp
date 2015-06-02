@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c limits.cpp >& compiler.txt
+g++ -c limits.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling limits.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ limits.o
 if [ $? -ne 0 ]; then

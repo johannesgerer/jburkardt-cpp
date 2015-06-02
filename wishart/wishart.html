@@ -1,0 +1,269 @@
+<html>
+
+  <head>
+    <title>
+      WISHART - Sample the Wishart Distribution for Random Covariance Matrices
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      WISHART <br> Sample the Wishart Distribution for Random Covariance Matrices
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>WISHART</b> 
+      is a C++ library which 
+      produces sample matrices from the Wishart or Bartlett distributions,
+      useful for sampling random covariance matrices.
+    </p>
+
+    <p>
+      The Wishart distribution is a probability distribution for random
+      nonnegative-definite NxN matrices that can be used to select random
+      covariance matrices.
+    </p>
+
+    <p>
+      The objects of the distribution are NxN matrices which are the sum of
+      DF rank-one matrices X*X' constructed from N-vectors X, where the vectors
+      X have zero mean and covariance SIGMA.  This implies that the expected
+      value of a Wishart matrix is DF * SIGMA.
+    </p>
+
+    <p>
+      A simplified version of the Wishart distribution assumes that SIGMA is
+      the identity matrix.  We will call this the "unit Wishart distribution".
+    </p>
+
+    <p>
+      Because any Wishart matrix W is symmetric nonnegative definite,
+      there is an upper triangular factor T so that W = T' * T.
+      There is a corresponding Bartlett distribution of the matrices T,
+      so that one can alternatively sample the Bartlett distribution by
+      sampling the Bartlett distribution for T, and then forming W.
+    </p>
+
+    <p>
+      In order to generate the necessary random values, the library relies
+      on the PDFLIB and RNGLIB libraries.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>WISHART</b> is available in
+      <a href = "../../c_src/wishart/wishart.html">a C version</a> and
+      <a href = "../../cpp_src/wishart/wishart.html">a C++ version</a> and
+      <a href = "../../f77_src/wishart/wishart.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/wishart/wishart.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/wishart/wishart.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/asa053/asa053.html">
+      ASA053</a>,
+      a C++ library which
+      produces sample matrices from the Wishart distribution,
+      by William Smith and Ronald Hocking.
+      This is a version of Applied Statistics Algorithm 53.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pdflib/pdflib.html">
+      PDFLIB</a>,
+      a C++ library which
+      evaluates Probability Density Functions (PDF's)
+      and produces random samples from them,
+      including beta, binomial, chi, exponential, gamma, inverse chi,
+      inverse gamma, multinomial, normal, scaled inverse chi, and uniform.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ranlib/ranlib.html">
+      RANLIB</a>,
+      a C++ library which
+      produces random samples from Probability Density Functions (PDF's), 
+      including Beta, Chi-square Exponential, F, Gamma, Multivariate normal,
+      Noncentral chi-square, Noncentral F, Univariate normal, random permutations,
+      Real uniform, Binomial, Negative Binomial, Multinomial, Poisson
+      and Integer uniform,
+      by Barry Brown and James Lovato.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rnglib/rnglib.html">
+      RNGLIB</a>,
+      a C++ library which
+      implements a random number generator (RNG) with splitting facilities,
+      allowing multiple independent streams to be computed,
+      by L'Ecuyer and Cote.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Patrick Odell, Alan Feiveson,<br>
+          A numerical procedure to generate a sample covariance matrix,<br>
+          Journal of the American Statistical Association,<br>
+          Volume 61, Number 313, March 1966, pages 199-203.
+        </li>
+        <li>
+          Stanley Sawyer,<br>
+          Wishart Distributions and Inverse-Wishart Sampling,<br>
+          Washington University,<br>
+          30 April 2007, 12 pages.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "wishart.cpp">wishart.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "wishart.hpp">wishart.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "wishart.sh">wishart.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "wishart_prb.cpp">wishart_prb.cpp</a>
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "wishart_prb.sh">wishart_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "wishart_prb_output.txt">wishart_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>BARTLETT_SAMPLE</b> samples the Bartlett distribution.
+        </li>
+        <li>
+          <b>BARTLETT_UNIT_SAMPLE</b> samples the unit Bartlett distribution.
+        </li>
+        <li>
+          <b>JACOBI_EIGENVALUE</b> carries out the Jacobi eigenvalue iteration.
+        </li>
+        <li>
+          <b>R8MAT_ADD</b> adds one R8MAT to another.
+        </li>
+        <li>
+          <b>R8MAT_CHOLESKY_FACTOR_UPPER</b> computes the upper Cholesky factor of a symmetric R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_COPY_NEW</b> copies one R8MAT to a "new" R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_DIAG_GET_VECTOR</b> gets the value of the diagonal of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_DIAGONAL_NEW</b> returns a diagonal matrix.
+        </li>
+        <li>
+          <b>R8MAT_DIVIDE</b> divides an R8MAT by a scalar.
+        </li>
+        <li>
+          <b>R8MAT_IDENTITY</b> sets an R8MAT to the identity matrix.
+        </li>
+        <li>
+          <b>R8MAT_IDENTITY_NEW</b> returns an identity matrix.
+        </li>
+        <li>
+          <b>R8MAT_MM_NEW</b> multiplies two matrices.
+        </li>
+        <li>
+          <b>R8MAT_MTM_NEW</b> computes C = A' * B.
+        </li>
+        <li>
+          <b>R8MAT_NORM_FRO_AFFINE</b> returns the Frobenius norm of an R8MAT difference.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_ZERO_NEW</b> returns a new zeroed R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>WISHART_SAMPLE</b> samples the Wishart distribution.
+        </li>
+        <li>
+          <b>WISHART_UNIT_SAMPLE</b> samples the unit Wishart distribution.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 02 August 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

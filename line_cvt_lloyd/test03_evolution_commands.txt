@@ -1,0 +1,11 @@
+set term png
+set output 'test03_evolution.png'
+set grid
+set style data lines
+set timestamp
+unset key
+set xlabel '<---X--->'
+set ylabel '<---Iteration--->'
+set title 'Point Motion with Iteration'
+plot for [i=2:26] 'test03_evolution_data.txt' using i:1 with points pt 7 ps 1
+quit

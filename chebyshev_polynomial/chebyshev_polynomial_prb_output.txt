@@ -1,4 +1,4 @@
-25 April 2012 08:25:05 AM
+18 September 2013 11:22:03 AM
 
 CHEBYSHEV_POLYNOMIAL_PRB
   C++ version
@@ -140,7 +140,7 @@ TEST04:
          4  -0.92388    -2.22045e-16
 
          5  0.951057    -4.44089e-16
-         5  0.587785    -7.77156e-16
+         5  0.587785               0
          5  6.12323e-17     3.06162e-16
          5  -0.587785    -7.77156e-16
          5  -0.951057     4.44089e-16
@@ -252,7 +252,7 @@ CHEBYSHEV_POLYNOMIAL_TEST07:
          1:       0.880101
          2:    1.11022e-16
          3:     -0.0391267
-         4:    2.96059e-16
+         4:    3.14563e-16
          5:     0.00050252
 
   Chebyshev coefficients for sqrt(x) in [0,+1]
@@ -347,7 +347,7 @@ TEST09:
    6     3.62009e-06
    7     2.22439e-07
    8     1.21901e-08
-   9     6.02709e-10
+   9      6.0271e-10
   10     2.71396e-11
 
 TEST10:
@@ -557,4 +557,4 @@ TEST17:
 CHEBYSHEV_POLYNOMIAL_PRB
   Normal end of execution.
 
-25 April 2012 08:25:05 AM
+18 September 2013 11:22:03 AM

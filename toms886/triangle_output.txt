@@ -1,0 +1,20 @@
+16 February 2014 11:05:50 AM
+
+TRIANGLE:
+  C version
+  Interpolation of the Franke function
+  on the unit triangle T((0,0),(1,0),(0,1))
+  at degree = 60
+
+  Wrote F(x,y) at Padua points in 'triangle_fpd.txt'
+  Wrote F(x,y) at target points in 'triangle_ftg.txt'
+  Wrote I(F)(x,y) at target points in 'triangle_itg.txt'
+
+  Estimated error:  5.53649e-10
+  Actual error:     1.22644e-10
+  Expected error:   1.226e-10
+
+TRIANGLE:
+  Normal end of execution.
+
+16 February 2014 11:05:51 AM

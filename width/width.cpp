@@ -7,8 +7,8 @@
 using namespace std;
 
 int main ( int argc, char *argv[] );
-void handle ( char input_file_name[], int *wide_line_width, 
-int *wide_line_number );
+void handle ( char input_file_name[], int &wide_line_width, 
+  int &wide_line_number );
 void timestamp ( );
 
 //****************************************************************************80
@@ -46,7 +46,7 @@ int main ( int argc, char *argv[] )
 //
 {
   int i;
-  char input_file_name[80];
+  char input_file_name[255];
   bool VERBOSE = false;
   int wide_line_number;
   int wide_line_width;
@@ -72,7 +72,7 @@ int main ( int argc, char *argv[] )
 
     cin.getline ( input_file_name, sizeof ( input_file_name ) );
 
-    handle ( input_file_name, &wide_line_width, &wide_line_number );
+    handle ( input_file_name, wide_line_width, wide_line_number );
 
     cout << "  The longest line of \"" << input_file_name 
          << "\" has length " << wide_line_width 
@@ -86,7 +86,7 @@ int main ( int argc, char *argv[] )
 
     for ( i = 1 ; i < argc ; ++i ) 
     {
-      handle ( argv[i], &wide_line_width, &wide_line_number );
+      handle ( argv[i], wide_line_width, wide_line_number );
 
       cout << "  The longest line of \"" << argv[i] 
            << "\" has length " << wide_line_width 
@@ -94,7 +94,9 @@ int main ( int argc, char *argv[] )
     }
 
   } 
-
+//
+//  Terminate.
+//
   if ( VERBOSE )
   {
     cout << "\n";
@@ -108,8 +110,8 @@ int main ( int argc, char *argv[] )
 }
 //****************************************************************************80
 
-void handle ( char input_file_name[], int *wide_line_width, 
-  int *wide_line_number )
+void handle ( char input_file_name[], int &wide_line_width, 
+  int &wide_line_number )
 
 //****************************************************************************80
 //
@@ -123,7 +125,7 @@ void handle ( char input_file_name[], int *wide_line_width,
 //
 //  Modified:
 //
-//    21 July 2005
+//    18 May 2013
 //
 //  Author:
 //
@@ -133,9 +135,9 @@ void handle ( char input_file_name[], int *wide_line_width,
 //
 //    Input, char INPUT_FILE_NAME[], the name of the input file.
 //
-//    Output, int *WIDE_LINE_WIDTH, the length of the longest line.
+//    Output, int &WIDE_LINE_WIDTH, the length of the longest line.
 //
-//    Output, int *WIDE_LINE_NUMBER, the location of the longest line.
+//    Output, int &WIDE_LINE_NUMBER, the location of the longest line.
 {
   int big_number;
   int big_width;
@@ -155,10 +157,10 @@ void handle ( char input_file_name[], int *wide_line_width,
 
   if ( !input_file )
   {
-    cout << "\n";
-    cout << "WIDTH - Fatal error!\n";
-    cout << "  Cannot open the input file " << input_file << ".\n";
-    return;
+    cerr << "\n";
+    cerr << "WIDTH - Fatal error!\n";
+    cerr << "  Cannot open the input file \"" << input_file_name << "\".\n";
+    exit ( 1 );
   }
 //
 //  Examine characters.
@@ -198,8 +200,8 @@ void handle ( char input_file_name[], int *wide_line_width,
 //
   input_file.close ( );
 
-  *wide_line_width = big_width;
-  *wide_line_number = big_number;
+  wide_line_width = big_width;
+  wide_line_number = big_number;
 
   return;
 }

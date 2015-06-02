@@ -26,7 +26,7 @@
     </h3>
 
     <p>
-      The computer code and data files described and made available on this web page 
+      The computer code and data files made available on this web page 
       are distributed under
       <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
     </p>
@@ -41,7 +41,8 @@
       <a href = "../../cpp_src/r8lib/r8lib.html">a C++ version</a> and
       <a href = "../../f77_src/r8lib/r8lib.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/r8lib/r8lib.html">a FORTRAN90 version</a> and
-      <a href = "../../m_src/r8lib/r8lib.html">a MATLAB version</a>.
+      <a href = "../../m_src/r8lib/r8lib.html">a MATLAB version</a> and
+      <a href = "../../py_src/r8lib/r8lib.html">a PYTHON version</a>.
     </p>
 
     <h3 align = "center">
@@ -165,13 +166,10 @@
     <p>
       <ul>
         <li>
-          <b>C8_ARGUMENT</b> returns the argument of a C8.
+          <b>GAMMA_VALUES</b> returns some values of the Gamma function.
         </li>
         <li>
-          <b>C8_MAGNITUDE</b> returns the magnitude of a C8.
-        </li>
-        <li>
-          <b>C8_SQRT</b> returns the principal square root of a C8.
+          <b>GAMMA_LOG_VALUES</b> returns some values of the Log Gamma function.
         </li>
         <li>
           <b>I4_LOG_10</b> returns the integer part of the logarithm base 10 of an I4.
@@ -192,7 +190,7 @@
           <b>I4_SIGN</b> returns the sign of an I4.
         </li>
         <li>
-          <b>I4_UNIFORM</b> returns a scaled pseudorandom I4.
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4.
         </li>
         <li>
           <b>I4_WRAP</b> forces an I4 to lie between given limits by wrapping.
@@ -234,7 +232,16 @@
           <b>R8_ABS</b> returns the absolute value of an R8.
         </li>
         <li>
+          <b>R8_ACOS</b> computes the arc cosine function, with argument truncation.
+        </li>
+        <li>
           <b>R8_ADD</b> adds two R8's.
+        </li>
+        <li>
+          <b>R8_AINT</b> truncates an R8 argument to an integer.
+        </li>
+        <li>
+          <b>R8_ASIN</b> computes the arc sine function, with argument truncation.
         </li>
         <li>
           <b>R8_ATAN</b> computes the inverse tangent of the ratio Y / X.
@@ -252,7 +259,7 @@
           <b>R8_CHOP</b> chops an R8 to a given number of binary places.
         </li>
         <li>
-          <b>R8_CSQRT</b> returns the complex square root of an R8.
+          <b>R8_CSC</b> returns the cosecant of X.
         </li>
         <li>
           <b>R8_CUBE_ROOT</b> returns the cube root of an R8.
@@ -264,7 +271,13 @@
           <b>R8_DIGIT</b> returns a particular decimal digit of an R8.
         </li>
         <li>
+          <b>R8_DIVIDE_I4</b> returns an I4 fraction as an R8.
+        </li>
+        <li>
           <b>R8_EPSILON</b> returns the R8 roundoff unit.
+        </li>
+        <li>
+          <b>R8_EPSILON_COMPUTE</b> computes the R8 roundoff unit.
         </li>
         <li>
           <b>R8_EXP</b> computes the exponential function, avoiding overflow and underflow.
@@ -285,7 +298,16 @@
           <b>R8_FRACTIONAL</b> returns the fractional part of an R8.
         </li>
         <li>
+          <b>R8_GAMMA</b> evaluates Gamma(X) for an R8.
+        </li>
+        <li>
+          <b>R8_GAMMA_LOG</b> evaluates the logarithm of the gamma function.
+        </li>
+        <li>
           <b>R8_HUGE</b> returns a "huge" R8.
+        </li>
+        <li>
+          <b>R8_HYPOT</b> returns the value of sqrt ( X^2 + Y^2 ).
         </li>
         <li>
           <b>R8_IN_01</b> is TRUE if an R8 is in the range [0,1].
@@ -336,6 +358,9 @@
           <b>R8_PI</b> returns the value of PI as an R8.
         </li>
         <li>
+          <b>R8_PI_SQRT</b> returns the square root of PI as an R8.
+        </li>
+        <li>
           <b>R8_POWER</b> computes an integer power of an R8.
         </li>
         <li>
@@ -348,6 +373,12 @@
           <b>R8_REVERSE_BYTES</b> reverses the bytes in an R8.
         </li>
         <li>
+          <b>R8_ROUND</b> rounds an R8 to the nearest integral value.
+        </li>
+        <li>
+          <b>R8_ROUND_I4</b> rounds an R8, returning an I4.
+        </li>
+        <li>
           <b>R8_ROUND2</b> rounds an R8 in base 2.
         </li>
         <li>
@@ -357,7 +388,19 @@
           <b>R8_ROUNDX</b> rounds an R8 in base 10.
         </li>
         <li>
+          <b>R8_SECH</b> evaluates the hyperbolic secant, while avoiding COSH overflow.
+        </li>
+        <li>
           <b>R8_SIGN</b> returns the sign of an R8.
+        </li>
+        <li>
+          <b>R8_SIGN_CHAR</b> returns a character indicating the sign of an R8.
+        </li>
+        <li>
+          <b>R8_SIGN_MATCH</b> is TRUE if two R8's are of the same sign.
+        </li>
+        <li>
+          <b>R8_SIGN_MATCH_STRICT</b> is TRUE if two R8's are of the same strict sign.
         </li>
         <li>
           <b>R8_SIGN_OPPOSITE</b> is TRUE if two R8's are not of the same sign.
@@ -367,6 +410,9 @@
         </li>
         <li>
           <b>R8_SIGN2</b> returns the first argument with the sign of the second.
+        </li>
+        <li>
+          <b>R8_SQRT_I4</b> returns the square root of an I4 as an R8.
         </li>
         <li>
           <b>R8_SUM</b> returns the sum of two R8's.
@@ -390,10 +436,10 @@
           <b>R8_TO_R8_DISCRETE</b> maps R to RD in [RMIN, RMAX] with NR possible values.
         </li>
         <li>
-          <b>R8_UNIFORM</b> returns a scaled pseudorandom R8.
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
         </li>
         <li>
-          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+          <b>R8_UNIFORM_AB</b> returns a scaled pseudorandom R8.
         </li>
         <li>
           <b>R8_UNSWAP3</b> unswaps three R8's.
@@ -405,16 +451,13 @@
           <b>R8_WRAP</b> forces an R8 to lie between given limits by wrapping.
         </li>
         <li>
-          <b>R82_CHEBY</b> sets up the Chebyshev abscissas in an R8 interval.
-        </li>
-        <li>
           <b>R82_DIST_L2</b> returns the L2 distance between a pair of R82's.
         </li>
         <li>
           <b>R82_PRINT</b> prints an R82.
         </li>
         <li>
-          <b>R82_UNIFORM</b> returns a random R82 value in a given range.
+          <b>R82_UNIFORM_AB</b> returns a random R82 value in a given range.
         </li>
         <li>
           <b>R82POLY2_PRINT</b> prints a second order polynomial in two variables.
@@ -481,6 +524,9 @@
         </li>
         <li>
           <b>R8BLOCK_PRINT</b> prints an R8BLOCK block (a 3D matrix).
+        </li>
+        <li>
+          <b>R8BLOCK_ZERO_NEW</b> returns a new zeroed R8BLOCK.
         </li>
         <li>
           <b>R8COL_COMPARE</b> compares two columns in an R8COL.
@@ -576,7 +622,7 @@
           <b>R8COL_UNDEX</b> indexes unique entries in an R8COL.
         </li>
         <li>
-          <b>R8COL_UNIFORM_NEW</b> fills an R8COL with scaled pseudorandom numbers.
+          <b>R8COL_UNIFORM_ABVEC_NEW</b> fills an R8COL with scaled pseudorandom numbers.
         </li>
         <li>
           <b>R8COL_UNIQUE_COUNT</b> counts unique entries in an R8COL.
@@ -598,6 +644,9 @@
         </li>
         <li>
           <b>R8MAT_ADD_NEW</b> computes C = alpha * A + beta * B for R8MAT's.
+        </li>
+        <li>
+          <b>R8MAT_AMAX</b> returns the maximum absolute value entry of an R8MAT.
         </li>
         <li>
           <b>R8MAT_BORDER_ADD</b> adds a "border" to an R8MAT.
@@ -654,6 +703,9 @@
           <b>R8MAT_DIAG_SET_VECTOR</b> sets the diagonal of an R8MAT to a vector.
         </li>
         <li>
+          <b>R8MAT_DIF_FRO</b> returns the Frobenius norm of the difference of R8MAT's.
+        </li>
+        <li>
           <b>R8MAT_EXPAND_LINEAR</b> linearly interpolates new data into an R8MAT.
         </li>
         <li>
@@ -664,6 +716,12 @@
         </li>
         <li>
           <b>R8MAT_FLIP_ROWS</b> swaps the rows of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_FS</b> factors and solves a system with one right hand side.
+        </li>
+        <li>
+          <b>R8MAT_FS_NEW</b> factors and solves a system with one right hand side.
         </li>
         <li>
           <b>R8MAT_FSS</b> factors and solves a system with multiple right hand sides.
@@ -726,6 +784,9 @@
           <b>R8MAT_IS_IDENTITY</b> determines if an R8MAT is the identity.
         </li>
         <li>
+          <b>R8MAT_IS_SYMMETRIC</b> checks an R8MAT for symmetry.
+        </li>
+        <li>
           <b>R8MAT_JAC</b> estimates a dense jacobian matrix of the function FX.
         </li>
         <li>
@@ -783,22 +844,28 @@
           <b>R8MAT_MM_NEW</b> multiplies two matrices.
         </li>
         <li>
+          <b>R8MAT_MMT_NEW</b> computes C = A * B'.
+        </li>
+        <li>
+          <b>R8MAT_MTM_NEW</b> computes C = A' * B.
+        </li>
+        <li>
           <b>R8MAT_MTV</b> multiplies a transposed matrix times a vector.
         </li>
         <li>
-          <b>R8MAT_MTXV</b> multiplies a transposed matrix times a vector.
+          <b>R8MAT_MTV_NEW</b> multiplies a transposed matrix times a vector.
         </li>
         <li>
           <b>R8MAT_MV</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_MV_NEW</b> multiplies a matrix times a vector.
         </li>
         <li>
           <b>R8MAT_MXM</b> multiplies two matrices.
         </li>
         <li>
           <b>R8MAT_MXM_NEW</b> multiplies two matrices.
-        </li>
-        <li>
-          <b>R8MAT_MXV</b> multiplies a matrix times a vector.
         </li>
         <li>
           <b>R8MAT_NEW</b> allocates a new R8MAT.
@@ -813,6 +880,9 @@
           <b>R8MAT_NORM_FRO</b> returns the Frobenius norm of an R8MAT.
         </li>
         <li>
+          <b>R8MAT_NORM_FRO_AFFINE</b> returns the Frobenius norm of an R8MAT difference.
+        </li>
+        <li>
           <b>R8MAT_NORM_L1</b> returns the matrix L1 norm of an R8MAT.
         </li>
         <li>
@@ -820,6 +890,9 @@
         </li>
         <li>
           <b>R8MAT_NORM_LI</b> returns the matrix L-oo norm of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_NORMAL_01_NEW</b> returns a unit pseudonormal R8MAT.
         </li>
         <li>
           <b>R8MAT_NULLSPACE</b> computes the nullspace of a matrix.
@@ -918,7 +991,16 @@
           <b>R8MAT_UNIFORM_01_NEW</b> returns a unit pseudorandom R8MAT.
         </li>
         <li>
-          <b>R8MAT_UNIFORM_NEW</b> returns a scaled pseudorandom R8MAT.
+          <b>R8MAT_UNIFORM_AB</b> returns a scaled pseudorandom R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_AB_NEW</b> returns a new scaled pseudorandom R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_ABVEC</b> returns a scaled pseudorandom R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_ABVEC_NEW</b> returns a new scaled pseudorandom R8MAT.
         </li>
         <li>
           <b>R8MAT_VAND2</b> returns the N by N row Vandermonde matrix A.
@@ -978,19 +1060,22 @@
           <b>R8POLY_SHIFT</b> adjusts the coefficients of a polynomial for a new argument.
         </li>
         <li>
-          <b>R8POLY_VALUE</b> evaluates an R8POLY.
+          <b>R8POLY_VALUE</b> evaluates a polynomial.
         </li>
         <li>
           <b>R8POLY_VALUE_HORNER</b> evaluates a polynomial using Horner's method.
+        </li>
+        <li>
+          <b>R8POLY_VALUE_OLD</b> evaluates an R8POLY.
+        </li>
+        <li>
+          <b>R8POLY_VALUE_2D</b> evaluates a polynomial in 2 variables, X and Y.
         </li>
         <li>
           <b>R8POLY2_EX</b> finds the extremal point of a parabola determined by three points.
         </li>
         <li>
           <b>R8POLY2_EX2</b> finds the extremal point of a parabola determined by three points.
-        </li>
-        <li>
-          <b>R8POLY2_ROOT</b> returns the two roots of a quadratic polynomial.
         </li>
         <li>
           <b>R8POLY2_RROOT</b> returns the real parts of the roots of a quadratic polynomial.
@@ -1000,12 +1085,6 @@
         </li>
         <li>
           <b>R8POLY2_VAL2</b> evaluates a parabolic function through 3 points in a table.
-        </li>
-        <li>
-          <b>R8POLY3_ROOT</b> returns the three roots of a cubic polynomial.
-        </li>
-        <li>
-          <b>R8POLY4_ROOT</b> returns the four roots of a quartic polynomial.
         </li>
         <li>
           <b>R8PP_DELETE</b> frees the memory set aside by R8PP_NEW.
@@ -1035,6 +1114,9 @@
           <b>R8R8VEC_INDEX_SEARCH</b> searches for an R8R8 value in an indexed sorted list.
         </li>
         <li>
+          <b>R8ROW_COMPARE</b> compares two rows in an R8ROW.
+        </li>
+        <li>
           <b>R8ROW_MAX</b> returns the row maximums of an R8ROW.
         </li>
         <li>
@@ -1042,6 +1124,9 @@
         </li>
         <li>
           <b>R8ROW_MIN</b> returns the row minimums of an R8ROW.
+        </li>
+        <li>
+          <b>R8ROW_SORT_HEAP_A</b> ascending heapsorts an R8ROW.
         </li>
         <li>
           <b>R8ROW_SUM</b> returns the sums of the rows of an R8ROW.
@@ -1095,6 +1180,12 @@
           <b>R8VEC_ANY_NORMAL</b> returns some normal vector to V1.
         </li>
         <li>
+          <b>R8VEC_ASCENDS</b> determines if an R8VEC is (weakly) ascending.
+        </li>
+        <li>
+          <b>R8VEC_ASCENDS_STRICTLY</b> determines if an R8VEC is strictly ascending.
+        </li>
+        <li>
           <b>R8VEC_BIN</b> computes bins based on a given R8VEC.
         </li>
         <li>
@@ -1110,7 +1201,19 @@
           <b>R8VEC_BRACKET4</b> finds the interval containing or nearest a given value.
         </li>
         <li>
-          <b>R8VEC_CHEBYSHEV_NEW</b> creates a vector of Chebyshev spaced values.
+          <b>R8VEC_BRACKET5</b> brackets data between successive entries of a sorted R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_BRACKET6</b> brackets data between successive entries of a sorted R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_CHEBYSPACE_NEW</b> creates a vector of Chebyshev spaced values in [A,B].
+        </li>
+        <li>
+          <b>R8VEC_CHEBY1SPACE_NEW</b> creates Type 1 Chebyshev spaced values in [A,B].
+        </li>
+        <li>
+          <b>R8VEC_CHEBY2SPACE_NEW</b> creates Type 2 Chebyshev spaced values in [A,B].
         </li>
         <li>
           <b>R8VEC_CIRCULAR_VARIANCE</b> returns the circular variance of an R8VEC.
@@ -1128,10 +1231,13 @@
           <b>R8VEC_COPY</b> copies an R8VEC.
         </li>
         <li>
-          <b>R8VEC_COPY_NEW</b> copies an R8VEC to a "new" R8VEC.
+          <b>R8VEC_COPY_NEW</b> copies an R8VEC to a new R8VEC.
         </li>
         <li>
           <b>R8VEC_CORRELATION</b> returns the correlation of two R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_COVAR</b> computes the covariance of two vectors.
         </li>
         <li>
           <b>R8VEC_CROSS_PRODUCT_2D</b> finds the cross product of a pair of R8VEC's in 2D.
@@ -1144,6 +1250,12 @@
         </li>
         <li>
           <b>R8VEC_CROSS_PRODUCT_AFFINE_3D</b> computes the affine cross product in 3D.
+        </li>
+        <li>
+          <b>R8VEC_CUM_NEW</b> computes the cumulutive sums of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_CUM0_NEW</b> computes the cumulutive sums of an R8VEC.
         </li>
         <li>
           <b>R8VEC_DIF</b> computes coefficients for estimating the N-th derivative.
@@ -1200,10 +1312,16 @@
           <b>R8VEC_EVEN2</b> linearly interpolates new numbers into an R8VECa.
         </li>
         <li>
+          <b>R8VEC_EVEN2_SELECT</b> returns the I-th of N evenly spaced midpoint values.
+        </li>
+        <li>
           <b>R8VEC_EVEN3</b> evenly interpolates new data into an R8VEC.
         </li>
         <li>
           <b>R8VEC_EXPAND_LINEAR</b> linearly interpolates new data into an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_EXPAND_LINEAR2</b> linearly interpolates new data into an R8VEC.
         </li>
         <li>
           <b>R8VEC_FIRST_INDEX</b> indexes the first occurrence of values in an R8VEC.
@@ -1234,6 +1352,9 @@
         </li>
         <li>
           <b>R8VEC_IN_01</b> is TRUE if the entries of an R8VEC are in the range [0,1].
+        </li>
+        <li>
+          <b>R8VEC_IN_AB</b> is TRUE if the entries of an R8VEC are in the range [A,B].
         </li>
         <li>
           <b>R8VEC_INDEX_DELETE_ALL</b> deletes all occurrences of a value from an indexed sorted list.
@@ -1302,6 +1423,9 @@
           <b>R8VEC_LINSPACE_NEW</b> creates a vector of linearly spaced values.
         </li>
         <li>
+          <b>R8VEC_LINSPACE2_NEW</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
           <b>R8VEC_LT</b> == ( A1 < A2 ) for two R8VEC's.
         </li>
         <li>
@@ -1311,6 +1435,9 @@
           <b>R8VEC_MAX</b> returns the value of the maximum element in an R8VEC.
         </li>
         <li>
+          <b>R8VEC_MAX_ABS_INDEX</b> returns the index of the maximum absolute value in an R8VEC.
+        </li>
+        <li>
           <b>R8VEC_MAX_INDEX</b> returns the index of the maximum value in an R8VEC.
         </li>
         <li>
@@ -1318,6 +1445,9 @@
         </li>
         <li>
           <b>R8VEC_MEDIAN</b> returns the median of an unsorted R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_MIDSPACE_NEW</b> creates a vector of linearly spaced values.
         </li>
         <li>
           <b>R8VEC_MIN</b> returns the value of the minimum element in an R8VEC.
@@ -1342,6 +1472,9 @@
         </li>
         <li>
           <b>R8VEC_NORM_AFFINE</b> returns the affine L2 norm of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_NORM_L0</b> returns the l0 "norm" of an R8VEC.
         </li>
         <li>
           <b>R8VEC_NORM_L1</b> returns the L1 norm of an R8VEC.
@@ -1527,16 +1660,25 @@
           <b>R8VEC_UNDEX</b> returns unique sorted indexes for an R8VEC.
         </li>
         <li>
-          <b>R8VEC_UNIFORM</b> returns a scaled pseudorandom R8VEC.
-        </li>
-        <li>
-          <b>R8VEC_UNIFORM_NEW</b> returns a scaled pseudorandom R8VEC.
-        </li>
-        <li>
           <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
         </li>
         <li>
           <b>R8VEC_UNIFORM_01_NEW</b> returns a new unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_AB</b> returns a scaled pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_AB_NEW</b> returns a scaled pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_ABVEC</b> returns a scaled pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_ABVEC_NEW</b> returns a scaled pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_UNIT_NEW</b> generates a random unit vector.
         </li>
         <li>
           <b>R8VEC_UNIQUE_COUNT</b> counts the unique elements in an unsorted R8VEC.
@@ -1609,7 +1751,7 @@
     <hr>
 
     <i>
-      Last revised on 05 March 2012.
+      Last revised on 23 April 2013.
     </i>
 
     <!-- John Burkardt -->

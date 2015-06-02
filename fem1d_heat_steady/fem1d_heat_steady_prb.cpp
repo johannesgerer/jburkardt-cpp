@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    FEM1D_HEAT_STEADY_PRB tests the routines in FEM1D_HEAT_STEADY.
+//    MAIN is the main program for FEM1D_HEAT_STEADY_PRB.
+//
+//  Discussion:
+//
+//    FEM1D_HEAT_STEADY_PRB tests the FEM1D_HEAT_STEADY library.
 //
 //  Licensing:
 //
@@ -49,7 +53,6 @@ int main ( )
   cout << "\n";
   cout << "FEM1D_HEAT_STEADY_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

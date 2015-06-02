@@ -1,0 +1,288 @@
+<html>
+
+  <head>
+    <title>
+      TOMS886 - Interpolation over the Rectangle, Ellipse, or Triangle
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TOMS886 <br> Interpolation over the Rectangle, Ellipse, or Triangle
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TOMS886</b>
+      is a C++ library which
+      implements an interpolation procedure based on "Padua points",
+      defined in the square [-1,+1]^2, whose interpolating power 
+      is especially good.  It is possible to map these points to the
+      general rectangle, ellipse or triangle to do interpolation on these
+      regions as well.
+    </p>
+
+    <p>
+      The original, true, correct version of ACM TOMS Algorithm 886
+      is available through ACM:
+              <a href = "http://www.acm.org/pubs/calgo/">
+                         http://www.acm.org/pubs/calgo</a>
+      or NETLIB:
+      <a href = "http://www.netlib.org/toms/index.html">
+      http://www.netlib.org/toms/index.html</a>.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TOMS886</b> is available in
+      <a href = "../../c_src/toms886/toms886.html">a C version</a> and
+      <a href = "../../cpp_src/toms886/toms886.html">a C++ version</a> and
+      <a href = "../../f77_src/toms886/toms886.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/toms886/toms886.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/toms886/toms886.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/lagrange_interp_2d/lagrange_interp_2d.html">
+      LAGRANGE_INTERP_2D</a>,
+      a C++ library which
+      defines and evaluates the Lagrange polynomial p(x,y) 
+      which interpolates a set of data depending on a 2D argument
+      that was evaluated on a product grid,
+      so that p(x(i),y(j)) = z(i,j).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pwl_interp_2d/pwl_interp_2d.html">
+      PWL_INTERP_2D</a>,
+      a C++ library which
+      evaluates a piecewise linear interpolant to data defined on
+      a regular 2D grid.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pwl_interp_2d_scattered/pwl_interp_2d_scattered.html">
+      PWL_INTERP_2D_SCATTERED</a>,
+      a C++ library which
+      evaluates a piecewise linear interpolant to data which is available
+      at an irregularly arranged set of points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rbf_interp_2d/rbf_interp_2d.html">
+      RBF_INTERP_2D</a>,
+      a C++ library which
+      defines and evaluates radial basis function (RBF) interpolants to 2D data.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/shepard_interp_2d/shepard_interp_2d.html">
+      SHEPARD_INTERP_2D</a>,
+      a C++ library which
+      defines and evaluates Shepard interpolants to scattered 2D data,
+      based on inverse distance weighting.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_interp_2d/test_interp_2d.html">
+      TEST_INTERP_2D</a>,
+      a C++ library which
+      defines test problems for interpolation of regular 
+      or scattered data z(x,y), depending on a 2D argument.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/vandermonde_interp_2d/vandermonde_interp_2d.html">
+      VANDERMONDE_INTERP_2D</a>,
+      a C++ library which
+      finds a polynomial interpolant to data z(x,y) of a 2D argument by
+      setting up and solving a linear system for the polynomial coefficients,
+      involving the Vandermonde matrix.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Marco Caliari, Stefano de Marchi, Marco Vianello.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Marco Caliari, Stefano de Marchi, Marco Vianello,<br>
+          Bivariate interpolation on the square at new nodal sets,<br>
+          Applied Mathematics and Computation,<br>
+          Volume 165, Number 2, 2005, pages 261-274.
+        </li>
+        <li>
+          Marco Caliari, Stefano de Marchi, Marco Vianello,<br>
+          Algorithm 886:
+          Padua2D: Lagrange Interpolation at Padua Points on Bivariate Domains,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 35, Number 3, October 2008, Article 21, 11 pages.
+        </li>
+        <li>
+          Richard Franke,<br>
+          Scattered Data Interpolation: Tests of Some Methods,<br>
+          Mathematics of Computation,<br>
+          Volume 38, Number 157, January 1982, pages 181-200.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "toms886.cpp">toms886.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "toms886.hpp">toms886.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "toms886.sh">toms886.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      ELLIPSE applies the procedure to an ellipse.
+      <ul>
+        <li>
+          <a href = "ellipse.cpp">ellipse.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "ellipse.sh">ellipse.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "ellipse_output.txt">ellipse_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      RECTANGLE applies the procedure to a rectangle.
+      <ul>
+        <li>
+          <a href = "rectangle.cpp">rectangle.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "rectangle.sh">rectangle.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "rectangle_output.txt">rectangle_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      TRIANGLE applies the procedure to a triangle.
+      <ul>
+        <li>
+          <a href = "triangle.cpp">triangle.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "triangle.sh">triangle.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "triangle_output.txt">triangle_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CHEB</b> computes normalized Chebyshev polynomials.
+        </li>
+        <li>
+          <b>DGEMM</b> computes C = alpha * A * B and related operations.
+        </li>
+        <li>
+          <b>FRANKE</b> returns the value of the Franke function #1.
+        </li>
+        <li>
+          <b>PADUA2</b> computes the Padua interpolation coefficient matrix.
+        </li>
+        <li>
+          <b>PD2VAL</b> evaluates the Padua2 interpolant.
+        </li>
+        <li>
+          <b>PDPTS</b> returns the points and weights for Padua interpolation.
+        </li>
+        <li>
+          <b>R8_HUGE</b> returns a "huge" R8.
+        </li>
+        <li>
+          <b>R8VEC_DOT_PRODUCT</b> finds the dot product of a pair of R8VEC's.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints out the current YMDHMS date as a timestamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 16 February 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

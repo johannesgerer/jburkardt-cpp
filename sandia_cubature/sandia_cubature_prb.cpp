@@ -29,11 +29,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SANDIA_CUBATURE_PRB tests SANDIA_CUBATURE.
+//    MAIN is the main program for SANDIA_CUBATURE_PRB.
 //
 //  Discussion:
 //
-//    SANDIA_CUBATURE_PRB calls the SANDIA_CUBATURE tests.
+//    SANDIA_CUBATURE_PRB tests the SANDIA_CUBATURE library.
 //
 //  Licensing:
 //
@@ -67,7 +67,6 @@ int main ( )
   std::cout << "\n";
   std::cout << "SANDIA_CUBATURE_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
 

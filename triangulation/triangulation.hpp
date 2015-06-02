@@ -40,6 +40,8 @@ int i4vec2_sorted_unique ( int n, int a1[], int a2[] );
 int lrline ( double xu, double yu, double xv1, double yv1, double xv2,
   double yv2, double dv );
 void lvec_print ( int n, bool a[], string title );
+void mesh_base_one ( int node_num, int element_order,
+  int element_num, int element_node[] );
 void mesh_base_zero ( int node_num, int element_order,
   int element_num, int element_node[] );
 void node_merge ( int dim_num, int node_num, double node_xy[],
@@ -137,6 +139,8 @@ int *triangulation_order3_adj_set ( int node_num, int triangle_num,
 void triangulation_order3_adj_set2 ( int node_num, int triangle_num,
   int triangle_node[], int triangle_neighbor[], int adj_num, int adj_col[],
   int ia[], int ja[] );
+int *triangulation_order3_adjacency ( int node_num, int element_num, 
+  int element_node[] );
 int triangulation_order3_boundary_edge_count ( int triangle_num,
   int triangle_node[] );
 int triangulation_order3_boundary_edge_count_euler ( int node_num,

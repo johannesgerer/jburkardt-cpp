@@ -1,0 +1,28 @@
+03 February 2014 08:02:50 AM
+
+POWER_RULE
+  C++ version
+
+  Compiled on Feb  3 2014 at 08:02:33.
+
+  Create a multidimensional power rule
+  as a product of identical 1D integration rules.
+
+POWER_RULE: User input:
+  Quadrature rule X file = "cc3_x.txt".
+  Quadrature rule W file = "cc3_w.txt".
+  Quadrature rule R file = "cc3_r.txt".
+  Spatial dimension = 2
+
+  Number of points in 1D rule = 3
+
+  Number of points in rule = 9
+
+  Creating quadrature rule X file = "power_x.txt".
+  Creating quadrature rule W file = "power_w.txt".
+  Creating quadrature rule R file = "power_r.txt".
+
+POWER_RULE:
+  Normal end of execution.
+
+03 February 2014 08:02:50 AM

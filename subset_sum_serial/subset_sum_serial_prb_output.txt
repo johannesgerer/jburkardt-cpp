@@ -1,0 +1,50 @@
+01 July 2013 11:51:14 AM
+
+SUBSET_SUM_SERIAL_TEST
+  C++ version.
+  Test the SUBSET_SUM_SERIAL library.
+
+TEST01
+  Test the SUBSET_SUM_SERIAL function, which looks for a selection
+  from a set of weights that adds up to a given target.
+
+  Target value:
+  2463098
+
+   I      W(I)
+
+   0    518533
+   1   1037066
+   2   2074132
+   3   1648264
+   4    796528
+   5   1593056
+   6    686112
+   7   1372224
+   8    244448
+   9    488896
+  10    977792
+  11   1955584
+  12   1411168
+  13    322336
+  14    644672
+  15   1289344
+  16     78688
+  17    157376
+  18    314752
+  19    629504
+  20   1259008
+
+   I*     W*
+
+   1   1037066
+   4    796528
+  19    629504
+
+  Sum:    2463098
+  Target: 2463098
+
+SUBSET_SUM_SERIAL_TEST
+  Normal end of execution.
+
+01 July 2013 11:51:14 AM

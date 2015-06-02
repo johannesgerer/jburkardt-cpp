@@ -32,10 +32,13 @@ void test018 ( );
 void test019 ( );
 
 void test020 ( );
+void test023 ( );
 void test0235 ( );
 void test026 ( );
 void test027 ( );
 void test028 ( );
+
+void test12555 ( );
 
 //****************************************************************************80
 
@@ -49,7 +52,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    R4LIB_PRB calls the R4LIB tests.
+//    R4LIB_PRB tests the R4LIB library.
 //
 //  Licensing:
 //
@@ -57,7 +60,7 @@ int main ( )
 //
 //  Modified:
 //
-//    20 May 2011
+//    28 September 2014
 //
 //  Author:
 //
@@ -92,17 +95,19 @@ int main ( )
   test019 ( );
 
   test020 ( );
+  test023 ( );
   test0235 ( );
   test026 ( );
   test027 ( );
   test028 ( );
+
+  test12555 ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "R4LIB_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -148,7 +153,7 @@ void test001 ( )
 
   for ( test = 1; test <= test_num; test++ )
   {
-    r4 = r4_uniform ( r4_lo, r4_hi, &seed );
+    r4 = r4_uniform_ab ( r4_lo, r4_hi, seed );
     r4_absolute = r4_abs ( r4 );
     cout << "  " << setw(10) << r4
          << "  " << setw(10) << r4_absolute << "\n";
@@ -538,7 +543,7 @@ void test008 ( )
 
   for ( test = 1; test <= test_num; test++ )
   {
-    r4 = r4_uniform ( r4_lo, r4_hi, &seed );
+    r4 = r4_uniform_ab ( r4_lo, r4_hi, seed );
     fractional = r4_fractional ( r4 );
     cout << "  " << setw(10) << r4
          << "  " << setw(10) << fractional << "\n";
@@ -766,8 +771,8 @@ void test013 ( )
 
   for ( test = 1; test <= test_num; test++ )
   {
-    x = r4_uniform ( x_lo, x_hi, &seed );
-    y = r4_uniform ( x_lo, x_hi, &seed );
+    x = r4_uniform_ab ( x_lo, x_hi, seed );
+    y = r4_uniform_ab ( x_lo, x_hi, seed );
 
     z1 =   fmod ( x, y );
     z2 = r4_mod ( x, y );
@@ -823,8 +828,8 @@ void test014 ( )
 
   for ( test = 1; test <= test_num; test++ )
   {
-    x = r4_uniform ( x_lo, x_hi, &seed );
-    y = r4_uniform ( x_lo, x_hi, &seed );
+    x = r4_uniform_ab ( x_lo, x_hi, seed );
+    y = r4_uniform_ab ( x_lo, x_hi, seed );
 
     z1 =   fmod  ( x, y );
     z2 = r4_modp ( x, y );
@@ -877,7 +882,7 @@ void test015 ( )
 
   for ( test = 1; test <= test_num; test++ )
   {
-    x = r4_uniform ( b, c, &seed );
+    x = r4_uniform_ab ( b, c, seed );
     cout << setw(10) << x << "  "
          << setw(6)  << r4_nint ( x ) << "\n";
   }
@@ -921,7 +926,7 @@ void test016 ( )
 
   for ( test = 0; test < TEST_NUM; test++ )
   {
-    x = r4_normal_01 ( &seed );
+    x = r4_normal_01 ( seed );
     cout                  << "  "
          << setw(10) << x << "\n";
   }
@@ -1119,6 +1124,56 @@ void test020 ( )
 }
 //****************************************************************************80
 
+void test023 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST023 tests R4_SIGN and R4_SIGN3.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    28 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  float r4;
+  float r4_test[5] = { -1.25E+00, -0.25E+00, 0.0E+00, +0.5E+00, +9.0E+00 };
+  float s1;
+  float s2;
+  int test;
+  const int test_num = 5;
+
+  cout << "\n";
+  cout << "TEST023\n";
+  cout << "  R4_SIGN returns the sign of an R4.\n";
+  cout << "  R4_SIGN3 returns the three-way sign of an R4.\n";
+  cout << "\n";
+  cout << "      R4    R4_SIGN(R4)  R4_SIGN3(R4)\n";
+  cout << "\n";
+
+  for ( test = 0; test < test_num; test++ )
+  {
+    r4 = r4_test[test];
+    s1 = r4_sign ( r4 );
+    s2 = r4_sign3 ( r4 );
+    cout << setw(10) << r4 << "  "
+         << setw(8) << s1 << "  "
+         << setw(8) << s2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
 void test0235 ( )
 
 //****************************************************************************80
@@ -1156,7 +1211,7 @@ void test0235 ( )
   cout << "    X = " << x << "\n";
   cout << "    Y = " << y << "\n";
 
-  r4_swap ( &x, &y );
+  r4_swap ( x, y );
 
   cout << "\n";
   cout << "  After swapping: \n";
@@ -1174,7 +1229,7 @@ void test026 ( )
 //
 //  Purpose:
 //
-//    TEST026 tests R4_UNIFORM.
+//    TEST026 tests R4_UNIFORM_AB.
 //
 //  Licensing:
 //
@@ -1201,7 +1256,7 @@ void test026 ( )
 
   cout << "\n";
   cout << "TEST026\n";
-  cout << "  R4_UNIFORM produces a random real in a given range.\n";
+  cout << "  R4_UNIFORM_AB produces a random real in a given range.\n";
   cout << "\n";
   cout << "  Using range " << b << " <= A <= " << c << ".\n";
   cout << "\n";
@@ -1211,7 +1266,7 @@ void test026 ( )
   cout << "\n";
   for ( i = 0; i < 10; i++ )
   {
-    a = r4_uniform ( b, c, &seed );
+    a = r4_uniform_ab ( b, c, seed );
     cout << setw ( 6 )  << i << " "
          << setw ( 10 ) << a << "\n";
   }
@@ -1260,7 +1315,7 @@ void test027 ( )
   for ( i = 0; i < 10; i++ )
   {
     cout << setw(12) << seed << "  ";
-    x = r4_uniform_01 ( &seed );
+    x = r4_uniform_01 ( seed );
     cout << setw(10) << x << "\n";
   }
 
@@ -1277,7 +1332,7 @@ void test027 ( )
   for ( i = 0; i < 10; i++ )
   {
     cout << setw(12) << seed << "  ";
-    x = r4_uniform_01 ( &seed );
+    x = r4_uniform_01 ( seed );
     cout << setw(10) << x << "\n";
   }
 
@@ -1325,7 +1380,7 @@ void test028 ( )
 
   for ( i = 0; i < N; i++ )
   {
-    x[i] = r4_uniform_01 ( &seed );
+    x[i] = r4_uniform_01 ( seed );
   }
 
   cout << "\n";
@@ -1350,4 +1405,41 @@ void test028 ( )
 
   return;
 # undef N
+}
+//****************************************************************************80
+
+void test12555 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST12555 tests R4VEC_INDICATOR0_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n;
+  float *v;
+
+  cout << "\n";
+  cout << "TEST012555\n";
+  cout << "  R4VEC_INDICATOR0_NEW returns an indicator vector.\n";
+
+  n = 10;
+  v = r4vec_indicator0_new ( n );
+  r4vec_print ( n, v, "  Indicator0 vector:" );
+  delete [] v;
+
+  return;
 }

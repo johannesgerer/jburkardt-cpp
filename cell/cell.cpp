@@ -52,6 +52,830 @@ int i4_min ( int i1, int i2 )
 }
 //****************************************************************************80
 
+int i4cvv_iget ( int mn, int a[], int m, int roff[], int i, int j )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_IGET gets item J from row I in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row of the item.
+//    0 <= I < M.
+//
+//    Input, int J, the column of the item.
+//    0 <= J < NR[I].
+//
+//    Output, int I4CVV_IGET, the value of item A(I,J).
+//
+{
+  int aij;
+  int k;
+
+  k = roff[i] + j;
+  aij = a[k];
+
+  return aij;
+}
+//****************************************************************************80
+
+void i4cvv_iinc ( int mn, int a[], int m, int roff[], int i, int j, 
+  int daij )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_IINC increments item J from row I in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input/output, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row of the item.
+//    0 <= I < M.
+//
+//    Input, int J, the column of the item.
+//    0 <= J < NR(I).
+//
+//    Input, int DAIJ, the increment to the value of item A(I,J).
+//
+{
+  int k;
+
+  k = roff[i] + j;
+  a[k] = a[k] + daij;
+
+  return;
+}
+//****************************************************************************80
+
+int i4cvv_indx ( int m, int roff[], int i, int j )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_INDX indexes item J from row I in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row of the item.
+//    0 <= I < M.
+//
+//    Input, int J, the column of the item.
+//    0 <= J < NR[I].
+//
+//    Output, int I4CVV_INDX, the index of item A(I,J).
+//
+{
+  int k;
+
+  k = roff[i] + j;
+
+  return k;
+}
+//****************************************************************************80
+
+void i4cvv_iset ( int mn, int a[], int m, int roff[], int i, int j, 
+  int aij )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_ISET sets item J from row I in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input/output, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row of the item.
+//    0 <= I < M.
+//
+//    Input, int J, the column of the item.
+//    0 <= J < NR[I].
+//
+//    Input, int AIJ, the new value of item A(I,J).
+//
+{
+  int k;
+
+  k = roff[i] + j;
+  a[k] = aij;
+
+  return;
+}
+//****************************************************************************80
+
+int *i4cvv_nget_new ( int mn, int a[], int m, int roff[], int nn, 
+  int in[], int jn[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_NGET_NEW gets N items JN(*) from rows IN(*) in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int NN, the number of items.
+//
+//    Input, int IN[NN], the rows of the items.
+//    0 <= IN(*) < M.
+//
+//    Input, int JN[NN], the columns of the items.
+//    0 <= JN(*) < NR(IN(*)).
+//
+//    Output, int I4CVV_NGET_NEW[NN], the value of items A(IN(*),JN(*)).
+//
+{
+  int i;
+  int k;
+  int *vn;
+
+  vn = new int[nn];
+
+  for ( i = 0; i < nn; i++ )
+  {
+    k = roff[in[i]] + jn[i];
+    vn[i] = a[k];
+  }
+  return vn;
+}
+//****************************************************************************80
+
+void i4cvv_ninc ( int mn, int a[], int m, int roff[], int nn, int in[], 
+  int jn[], int dvn[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_NINC increments items JN(*) from rows IN(*) in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input/output, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int NN, the number of items.
+//
+//    Input, int IN[NN], the rows of the items.
+//    0 <= IN(*) < M.
+//
+//    Input, int JN[NN], the columns of the items.
+//    0 <= JN(*) < NR(IN(*)).
+//
+//    Input, int DVN[NN], the increments of items A(IN(*),JN(*)).
+//
+{
+  int i;
+  int k;
+
+  for ( i = 0; i < nn; i++ )
+  {
+    k = roff[in[i]] + jn[i];
+    a[k] = a[k] + dvn[i];
+  }
+  return;
+}
+//****************************************************************************80
+
+int *i4cvv_nndx ( int m, int roff[], int nn, int in[], int jn[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_NNDX gets N items JN(*) from rows IN(*) in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int NN, the number of items.
+//
+//    Input, int IN[NN], the rows of the items.
+//    0 <= IN(*) < M.
+//
+//    Input, int JN[NN], the columns of the items.
+//    0 <= JN(*) < NR(IN(*)).
+//
+//    Output, int I4CVV_NNDX[NN], the indices of items A(IN(*),JN(*)).
+//
+{
+  int i;
+  int *kn;
+
+  kn = new int[nn];
+
+  for ( i = 0; i < nn; i++ )
+  {
+    kn[i] = roff[in[i]] + jn[i];
+  }
+  return kn;
+}
+//****************************************************************************80
+
+void i4cvv_nset ( int mn, int a[], int m, int roff[], int nn, int in[], 
+  int jn[], int vn[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_NSET sets items JN(*) from rows IN(*) in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input/output, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int NN, the number of items.
+//
+//    Input, int IN[NN], the rows of the items.
+//    0 <= IN(*) < M.
+//
+//    Input, int JN[NN], the columns of the items.
+//    0 <= JN(*) < NR(IN(*)).
+//
+//    Input, int VN[NN], the new value of items A(IN(*),JN(*)).
+//
+{
+  int i;
+  int k;
+
+  for ( i = 0; i < nn; i++ )
+  {
+    k = roff[in[i]] + jn[i];
+    a[k] = vn[i];
+  }
+  return;
+}
+//****************************************************************************80
+
+int *i4cvv_offset ( int m, int nr[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_OFFSET determines the row offsets of an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int NR[M], the row sizes.
+//
+//    Output, int I4CVV_OFFSET[M+1], the row offsets.
+//
+{
+  int i;
+  int *roff;
+
+  roff = new int[m+1];
+
+  roff[0] = 0;
+  for ( i = 0; i < m; i++ )
+  {
+    roff[i+1] = roff[i] + nr[i];
+  }
+
+  return roff;
+}
+//****************************************************************************80
+
+void i4cvv_print ( int mn, int a[], int m, int roff[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_PRINT prints an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int j;
+  int k;
+  int k1;
+  int k2;
+  int khi;
+  int klo;
+
+  cout << "\n";
+  cout << title << "\n";
+  cout << "\n";
+
+  for ( i = 0; i < m; i++ )
+  {
+    k1 = roff[i];
+    k2 = roff[i+1];
+
+    for ( klo = k1; klo < k2; klo = klo + 10 )
+    {
+      khi = i4_min ( klo + 10, k2 );
+      if ( klo == k1 )
+      {
+        cout << setw(5) << i;
+      }
+      else
+      {
+        cout << "     ";
+      }
+      cout << "  ";
+      for ( k = klo; k < khi; k++ )
+      {
+        cout << setw(7) << a[k];
+      }
+      cout << "\n";
+    }
+  }
+  return;
+}
+//****************************************************************************80
+
+int *i4cvv_rget_new ( int mn, int a[], int m, int roff[], int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_RGET_NEW gets row I from an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row.
+//    0 <= I < M.
+//
+//    Output, int I4CVV_RGET_NEW[NR[I]], the value of A(I,*).
+//
+{
+  int *ai;
+  int j;
+  int k1;
+  int k2;
+  int nv;
+
+  k1 = roff[i];
+  k2 = roff[i+1];
+  nv = k2 - k1;
+  ai = new int[nv];
+  for ( j = 0; j < nv; j++ )
+  {
+    ai[j] = a[k1+j];
+  }
+
+  return ai;
+}
+//****************************************************************************80
+
+void i4cvv_rinc ( int mn, int a[], int m, int roff[], int i, int dai[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_RINC increments row I in an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input/output, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row.
+//    0 <= I < M.
+//
+//    Input, int DAI[NR[I]], the increment for A(I,*).
+//
+{
+  int j;
+  int k1;
+  int k2;
+  int nv;
+
+  k1 = roff[i];
+  k2 = roff[i+1];
+  nv = k2 - k1;
+  for ( j = 0; j < nv; j++ )
+  {
+    a[k1+j] = a[k1+j] + dai[j];
+  }
+
+  return;
+}
+//****************************************************************************80
+
+int i4cvv_rndx ( int m, int roff[], int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_RNDX indexes row I from an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row.
+//    0 <= I < M.
+//
+//    Output, int I4CVV_RNDX, the index of the first element of row I.
+//
+{
+  int k;
+
+  k = roff[i];
+
+  return k;
+}
+//****************************************************************************80
+
+void i4cvv_rset ( int mn, int a[], int m, int roff[], int i, int ai[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_RSET sets row I from an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input/output, int A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row.
+//    0 <= I < M.
+//
+//    Input, int AI[NR[I]], the new value of A(I,*).
+//
+{
+  int j;
+  int k1;
+  int k2;
+  int nv;
+
+  k1 = roff[i];
+  k2 = roff[i+1];
+  nv = k2 - k1;
+  for ( j = 0; j < nv; j++ )
+  {
+    a[k1+j] = ai[j];
+  }
+
+  return;
+}
+//****************************************************************************80
+
+int i4cvv_size ( int m, int nr[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4CVV_SIZE determines the size of an I4CVV.
+//
+//  Discussion:
+//
+//    An I4CVV is a "vector of vectors" of I4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int NR[M], the size of each row.
+//
+//    Output, int I4CVV_SIZE, the size of the cell array.
+//
+{
+  int i;
+  int mn;
+
+  mn = 0;
+  for ( i = 0; i < m; i++ )
+  {
+    mn = mn + nr[i];
+  }
+  return mn;
+}
+//****************************************************************************80
+
 int i4vec_max ( int n, int a[] )
 
 //****************************************************************************80
@@ -151,6 +975,80 @@ void i4vec_print ( int n, int a[], string title )
     cout << "  " << setw(8) << i
          << ": " << setw(8) << a[i]  << "\n";
   }
+  return;
+}
+//****************************************************************************80
+
+void i4vec_transpose_print ( int n, int a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4VEC_TRANSPOSE_PRINT prints an I4VEC "transposed".
+//
+//  Discussion:
+//
+//    An I4VEC is a vector of I4's.
+//
+//  Example:
+//
+//    A = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 }
+//    TITLE = "My vector:  "
+//
+//    My vector:      1    2    3    4    5
+//                    6    7    8    9   10
+//                   11
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 July 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input, int A[N], the vector to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+  int i;
+  int ihi;
+  int ilo;
+  int title_len;
+
+  title_len = title.length ( );
+
+  for ( ilo = 1; ilo <= n; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 5 - 1, n );
+    if ( ilo == 1 )
+    {
+      cout << title;
+    }
+    else
+    {
+      for ( i = 1; i <= title_len; i++ )
+      {
+        cout << " ";
+      }
+    }
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(12) << a[i-1];
+    }
+    cout << "\n";
+  }
+
   return;
 }
 //****************************************************************************80
@@ -261,6 +1159,53 @@ void r8cvv_iinc ( int mn, double a[], int m, int roff[], int i, int j,
 }
 //****************************************************************************80
 
+int r8cvv_indx ( int m, int roff[], int i, int j )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8CVV_INDX indexes item J from row I in an R8CVV.
+//
+//  Discussion:
+//
+//    An R8CVV is a "vector of vectors" of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row of the item.
+//    0 <= I < M.
+//
+//    Input, int J, the column of the item.
+//    0 <= J < NR[I].
+//
+//    Output, int R8CVV_INDX, the index of item A(I,J).
+//
+{
+  int k;
+
+  k = roff[i] + j;
+
+  return k;
+}
+//****************************************************************************80
+
 void r8cvv_iset ( int mn, double a[], int m, int roff[], int i, int j, 
   double aij )
 
@@ -321,7 +1266,7 @@ double *r8cvv_nget_new ( int mn, double a[], int m, int roff[], int nn,
 //
 //  Purpose:
 //
-//    R8CVV_NGET_NEW gets N items JN(*) from row IN(*) in an R8CVV.
+//    R8CVV_NGET_NEW gets N items JN(*) from rows IN(*) in an R8CVV.
 //
 //  Discussion:
 //
@@ -357,7 +1302,7 @@ double *r8cvv_nget_new ( int mn, double a[], int m, int roff[], int nn,
 //    Input, int JN[NN], the columns of the items.
 //    0 <= JN(*) < NR(IN(*)).
 //
-//    Output, double R8CVV_NGET[NN], the value of items A(IN(*),JN(*)).
+//    Output, double R8CVV_NGET_NEW[NN], the value of items A(IN(*),JN(*)).
 //
 {
   int i;
@@ -382,7 +1327,7 @@ void r8cvv_ninc ( int mn, double a[], int m, int roff[], int nn, int in[],
 //
 //  Purpose:
 //
-//    R8CVV_NINC increments items JN(*) from row IN(*) in an R8CVV.
+//    R8CVV_NINC increments items JN(*) from rows IN(*) in an R8CVV.
 //
 //  Discussion:
 //
@@ -433,6 +1378,60 @@ void r8cvv_ninc ( int mn, double a[], int m, int roff[], int nn, int in[],
 }
 //****************************************************************************80
 
+int *r8cvv_nndx ( int m, int roff[], int nn, int in[], int jn[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8CVV_NNDX indexes N items JN(*) from rows IN(*) in an R8CVV.
+//
+//  Discussion:
+//
+//    An R8CVV is a "vector of vectors" of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int NN, the number of items.
+//
+//    Input, int IN[NN], the rows of the items.
+//    0 <= IN(*) < M.
+//
+//    Input, int JN[NN], the columns of the items.
+//    0 <= JN(*) < NR(IN(*)).
+//
+//    Output, int R8CVV_NNDX[NN], the indices of items A(IN(*),JN(*)).
+//
+{
+  int i;
+  int *kn;
+
+  kn = new int[nn];
+
+  for ( i = 0; i < nn; i++ )
+  {
+    kn[i] = roff[in[i]] + jn[i];
+  }
+  return kn;
+}
+//****************************************************************************80
+
 void r8cvv_nset ( int mn, double a[], int m, int roff[], int nn, int in[], 
   int jn[], double vn[] )
 
@@ -440,7 +1439,7 @@ void r8cvv_nset ( int mn, double a[], int m, int roff[], int nn, int in[],
 //
 //  Purpose:
 //
-//    R8CVV_NSET sets items JN(*) from row IN(*) in an R8CVV.
+//    R8CVV_NSET sets items JN(*) from rows IN(*) in an R8CVV.
 //
 //  Discussion:
 //
@@ -653,7 +1652,7 @@ double *r8cvv_rget_new ( int mn, double a[], int m, int roff[], int i )
 //    Input, int I, the row.
 //    0 <= I < M.
 //
-//    Output, double R8CVV_GET[NR[I]], the value of A(I,*).
+//    Output, double R8CVV_RGET_NEW[NR[I]], the value of A(I,*).
 //
 {
   double *ai;
@@ -729,6 +1728,54 @@ void r8cvv_rinc ( int mn, double a[], int m, int roff[], int i, double dai[] )
   }
 
   return;
+}
+//****************************************************************************80
+
+int r8cvv_rndx ( int m, int roff[], int i )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8CVV_RNDX indexes row I from an R8CVV.
+//
+//  Discussion:
+//
+//    An R8CVV is a "vector of vectors" of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 December 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int MN, the size of the cell array.
+//
+//    Input, double A[MN], the cell array.
+//
+//    Input, int M, the number of rows in the array.
+//
+//    Input, int ROFF[M+1], the row offsets.
+//
+//    Input, int I, the row.
+//    0 <= I < M.
+//
+//    Output, int R8CVV_RNDX, the index of the first item in row I.
+//
+{
+  int k;
+
+  k = roff[i];
+
+  return k;
 }
 //****************************************************************************80
 

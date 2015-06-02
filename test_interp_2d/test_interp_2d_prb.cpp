@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN tests the TEST_INTERP_2D library.
+//    MAIN is the main program for TEST_INTERP_2D_PRB.
+//
+//  Discussion:
+//
+//    TEST_INTERP_2D_PRB tests the TEST_INTERP_2D library.
 //
 //  Licensing:
 //
@@ -36,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TEST_INTERP_2D_PRB\n";
   cout << "  C++ version\n";
@@ -51,7 +54,6 @@ int main ( )
   cout << "\n";
   cout << "TEST_INTERP_2D_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

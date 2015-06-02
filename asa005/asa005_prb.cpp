@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA005_PRB calls the ASA005 routines.
+//    ASA005_PRB tests the ASA005 library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA005_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "ASA005_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -118,7 +116,7 @@ void test01 ( )
          << "  "                    << setw(2)  << df
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;

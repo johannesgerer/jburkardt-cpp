@@ -1,0 +1,32 @@
+int comp_enum ( int n, int k );
+void comp_next_grlex ( int kc, int xc[] );
+int *comp_random_grlex ( int kc, int rank1, int rank2, int &seed, int &rank );
+int comp_rank_grlex ( int kc, int xc[] );
+int *comp_unrank_grlex ( int kc, int rank );
+void hep_coefficients ( int n, int &o, double c[], int f[] );
+double *hep_value ( int m, int n, double x[] );
+void hep_values ( int &n_data, int &n, double &x, double &fx );
+void hepp_to_polynomial ( int m, int l[], int o_max, int &o, double c[], int e[] );
+double *hepp_value ( int m, int n, int o[], double x[] );
+int i4_choose ( int n, int k );
+int i4_max ( int i1, int i2 );
+int i4_min ( int i1, int i2 );
+int i4_uniform_ab ( int a, int b, int &seed );
+void i4vec_permute ( int n, int p[], int base, int a[] );
+void i4vec_print ( int n, int a[], string title );
+int *i4vec_sort_heap_index_a ( int n, int a[] );
+int i4vec_sum ( int n, int a[] );
+int mono_rank_grlex ( int m, int x[] );
+int *mono_unrank_grlex ( int m, int rank );
+double *mono_value ( int m, int n, int f[], double x[] );
+bool perm_check ( int n, int p[], int base );
+void polynomial_compress ( int o1, double c1[], int e1[], int &o2, double c2[], 
+  int e2[] );
+void polynomial_print ( int m, int o, double c[], int e[], string title );
+void polynomial_sort ( int o, double c[], int e[] );
+double *polynomial_value ( int m, int o, double c[], int e[], int nx, 
+  double x[] );
+void r8vec_permute ( int n, int p[], int base, double a[] );
+void r8vec_print ( int n, double a[], string title );
+double *r8vec_uniform_ab_new ( int n, double a, double b, int &seed );
+void timestamp ( );

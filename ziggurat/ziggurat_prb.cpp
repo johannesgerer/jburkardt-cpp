@@ -2,25 +2,30 @@
 # include <iostream>
 # include <iomanip>
 # include <ctime>
+# include <stdint.h>
+//# include <cstdint>
 
 # include "ziggurat.hpp"
 
 using namespace std;
 
-int main ( void );
-double cpu_time ( void );
-void test01 ( void );
-void test02 ( void );
-void test03 ( void );
-void test04 ( void );
+int main ( );
+void test01 ( );
+void test02 ( );
+void test03 ( );
+void test04 ( );
 void test05 ( int sample_num );
 void test06 ( int sample_num );
 void test07 ( int sample_num );
 void test08 ( int sample_num );
+void test09 ( );
+void test10 ( );
+void test11 ( );
+void test12 ( );
 
 //****************************************************************************80
 
-int main ( void )
+int main ( )
 
 //****************************************************************************80
 //
@@ -30,7 +35,7 @@ int main ( void )
 //
 //  Discussion:
 //
-//    ZIGGURAT_PRB calls sample problems for the ZIGGURAT library.
+//    ZIGGURAT_PRB tests the ZIGGURAT library.
 //
 //  Licensing:
 //
@@ -38,7 +43,7 @@ int main ( void )
 //
 //  Modified:
 //
-//    08 December 2008
+//    18 October 2013
 //
 //  Author:
 //
@@ -48,7 +53,6 @@ int main ( void )
   int sample_num = 1000000;
 
   timestamp ( );
-
   cout << "\n";
   cout << "ZIGGURAT_PRB\n";
   cout << "  C++ version:\n";
@@ -68,12 +72,18 @@ int main ( void )
   test07 ( sample_num );
   test08 ( sample_num );
 //
+//  Sample 10 values of the unsigned integer 32 bit generators.
+//
+  test09 ( );
+  test10 ( );
+  test11 ( );
+  test12 ( );
+//
 //  Terminate.
 //
   cout << "\n";
   cout << "ZIGGURAT_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -81,13 +91,13 @@ int main ( void )
 }
 //****************************************************************************80
 
-void test01 ( void )
+void test01 ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST01 tests SHR3.
+//    TEST01 tests SHR3_SEEDED.
 //
 //  Licensing:
 //
@@ -95,7 +105,7 @@ void test01 ( void )
 //
 //  Modified:
 //
-//    08 December 2008
+//    18 October 2013
 //
 //  Author:
 //
@@ -104,13 +114,13 @@ void test01 ( void )
 {
   int i;
   int j;
-  unsigned long int seed;
-  unsigned long int value;
+  uint32_t seed;
+  uint32_t value;
 
   cout << "\n";
   cout << "TEST01\n";
-  cout << "  SHR3 returns pseudorandom uniformly distributed\n";
-  cout << "  unsigned long integers.\n";
+  cout << "  SHR3_SEEDED returns pseudorandom uniformly distributed\n";
+  cout << "  unsigned 32 bit integers.\n";
 
   for ( j = 0; j < 3; j++ )
   {
@@ -125,16 +135,16 @@ void test01 ( void )
 
     cout << "\n";
     cout << "  " << setw(6)  << 0
-         << "  " << setw(12) << ( long int ) seed
+         << "  " << setw(12) << ( int ) seed
          << "  " << setw(12) << seed << "\n";
     cout << "\n";
 
     for ( i = 1; i <= 10; i++ )
     {
-      value = shr3 ( &seed );
+      value = shr3_seeded ( seed );
 
       cout << "  " << setw(6)  << i
-           << "  " << setw(12) << ( long int ) seed
+           << "  " << setw(12) << ( int ) seed
            << "  " << setw(12) << seed
            << "  " << setw(12) << value << "\n";
     }
@@ -144,7 +154,7 @@ void test01 ( void )
 }
 //****************************************************************************80
 
-void test02 ( void )
+void test02 ( )
 
 //****************************************************************************80
 //
@@ -158,7 +168,7 @@ void test02 ( void )
 //
 //  Modified:
 //
-//    08 December 2008
+//    04 October 2013
 //
 //  Author:
 //
@@ -167,13 +177,13 @@ void test02 ( void )
 {
   int i;
   int j;
-  unsigned long int seed;
+  uint32_t seed;
   float value;
 
   cout << "\n";
   cout << "TEST02\n";
   cout << "  R4_UNI returns pseudorandom uniformly distributed\n";
-  cout << "  floats between 0 and 1.\n";
+  cout << "  floats (single precision reals) between 0 and 1.\n";
 
   for ( j = 0; j < 3; j++ )
   {
@@ -188,16 +198,16 @@ void test02 ( void )
 
     cout << "\n";
     cout << "  " << setw(6)  << 0
-         << "  " << setw(12) << ( long int ) seed
+         << "  " << setw(12) << ( int ) seed
          << "  " << setw(12) << seed << "\n";
     cout << "\n";
 
     for ( i = 1; i <= 10; i++ )
     {
-      value = r4_uni ( &seed );
+      value = r4_uni ( seed );
 
       cout << "  " << setw(6)  << i
-           << "  " << setw(12) << ( long int ) seed
+           << "  " << setw(12) << ( int ) seed
            << "  " << setw(12) << seed
            << "  " << setw(14) << value << "\n";
     }
@@ -207,7 +217,7 @@ void test02 ( void )
 }
 //****************************************************************************80
 
-void test03 ( void )
+void test03 ( )
 
 //****************************************************************************80
 //
@@ -221,7 +231,7 @@ void test03 ( void )
 //
 //  Modified:
 //
-//    08 December 2008
+//    14 October 2013
 //
 //  Author:
 //
@@ -231,15 +241,15 @@ void test03 ( void )
   float fn[128];
   int i;
   int j;
-  int kn[128];
-  unsigned long int seed;
+  uint32_t kn[128];
+  uint32_t seed;
   float value;
   float wn[128];
 
   cout << "\n";
   cout << "TEST03\n";
   cout << "  R4_NOR returns pseudorandom normally distributed\n";
-  cout << "  real numbers between 0 and 1.\n";
+  cout << "  floats (single precision reals) between 0 and 1.\n";
 
   r4_nor_setup ( kn, fn, wn );
 
@@ -256,16 +266,16 @@ void test03 ( void )
 
     cout << "\n";
     cout << "  " << setw(6)  << 0
-         << "  " << setw(12) << ( long int ) seed
+         << "  " << setw(12) << ( int ) seed
          << "  " << setw(12) << seed << "\n";
     cout << "\n";
 
     for ( i = 1; i <= 10; i++ )
     {
-      value = r4_nor ( &seed, kn, fn, wn );
+      value = r4_nor ( seed, kn, fn, wn );
 
       cout << "  " << setw(6)  << i
-           << "  " << setw(12) << ( long int ) seed
+           << "  " << setw(12) << ( int ) seed
            << "  " << setw(12) << seed
            << "  " << setw(14) << value << "\n";
     }
@@ -275,7 +285,7 @@ void test03 ( void )
 }
 //****************************************************************************80
 
-void test04 ( void )
+void test04 ( )
 
 //****************************************************************************80
 //
@@ -289,7 +299,7 @@ void test04 ( void )
 //
 //  Modified:
 //
-//    08 December 2008
+//    04 October 2013
 //
 //  Author:
 //
@@ -299,15 +309,15 @@ void test04 ( void )
   float fe[256];
   int i;
   int j;
-  int ke[256];
-  unsigned long seed;
+  uint32_t ke[256];
+  uint32_t seed;
   float value;
   float we[256];
 
   cout << "\n";
   cout << "TEST04\n";
   cout << "  R4_EXP returns pseudorandom exponentially distributed\n";
-  cout << "  real numbers between 0 and 1.\n";
+  cout << "  floats (single precision reals) between 0 and 1.\n";
 
   r4_exp_setup ( ke, fe, we );
 
@@ -324,16 +334,16 @@ void test04 ( void )
 
     cout << "\n";
     cout << "  " << setw(6)  << 0
-         << "  " << setw(12) << ( long int ) seed
+         << "  " << setw(12) << ( int ) seed
          << "  " << setw(12) << seed << "\n";
     cout << "\n";
 
     for ( i = 1; i <= 10; i++ )
     {
-      value = r4_exp ( &seed, ke, fe, we );
+      value = r4_exp ( seed, ke, fe, we );
 
       cout << "  " << setw(6)  << i
-           << "  " << setw(12) << ( long int ) seed
+           << "  " << setw(12) << ( int ) seed
            << "  " << setw(12) << seed
            << "  " << setw(14) << value << "\n";
     }
@@ -349,7 +359,7 @@ void test05 ( int sample_num )
 //
 //  Purpose:
 //
-//    TEST05 times SHR3.
+//    TEST05 times SHR3_SEEDED.
 //
 //  Licensing:
 //
@@ -357,7 +367,7 @@ void test05 ( int sample_num )
 //
 //  Modified:
 //
-//    08 December 2008
+//    18 October 2013
 //
 //  Author:
 //
@@ -366,13 +376,13 @@ void test05 ( int sample_num )
 {
   double ctime;
   int sample;
-  unsigned long int seed;
-  unsigned long int value;
+  uint32_t seed;
+  uint32_t value;
 
   cout << "\n";
   cout << "TEST05\n";
-  cout << "  Measure the time it takes SHR3 to generate\n";
-  cout << "  " << sample_num << " unsigned long int values.\n";
+  cout << "  Measure the time it takes SHR3_SEEDED to generate\n";
+  cout << "  " << sample_num << " unsigned 32 bit integers.\n";
 
   seed = 123456789;
 
@@ -380,7 +390,7 @@ void test05 ( int sample_num )
 
   for ( sample = 0; sample < sample_num; sample++ )
   {
-    value = shr3 ( &seed );
+    value = shr3_seeded ( seed );
   }
   ctime = cpu_time ( ) - ctime;
 
@@ -405,7 +415,7 @@ void test06 ( int sample_num )
 //
 //  Modified:
 //
-//    08 December 2008
+//    04 October 2013
 //
 //  Author:
 //
@@ -414,13 +424,13 @@ void test06 ( int sample_num )
 {
   double ctime;
   int sample;
-  unsigned long int seed;
+  uint32_t seed;
   float value;
 
   cout << "\n";
   cout << "TEST06\n";
   cout << "  Measure the time it takes R4_UNI to generate\n";
-  cout << "  " << sample_num << " uniformly random float values.\n";
+  cout << "  " << sample_num << " uniformly random floats.\n";
 
   seed = 123456789;
 
@@ -428,7 +438,7 @@ void test06 ( int sample_num )
 
   for ( sample = 0; sample < sample_num; sample++ )
   {
-    value = r4_uni ( &seed );
+    value = r4_uni ( seed );
   }
   ctime = cpu_time ( ) - ctime;
 
@@ -453,7 +463,7 @@ void test07 ( int sample_num )
 //
 //  Modified:
 //
-//    08 December 2008
+//    14 October 2013
 //
 //  Author:
 //
@@ -462,16 +472,16 @@ void test07 ( int sample_num )
 {
   double ctime;
   float fn[128];
-  int kn[128];
+  uint32_t kn[128];
   int sample;
-  unsigned long seed;
+  uint32_t seed;
   float value;
   float wn[129];
 
   cout << "\n";
   cout << "TEST07\n";
   cout << "  Measure the time it takes R8_NOR to generate\n";
-  cout << "  " << sample_num << " normal random float values.\n";
+  cout << "  " << sample_num << " normal random floats.\n";
 
   r4_nor_setup ( kn, fn, wn );
 
@@ -481,7 +491,7 @@ void test07 ( int sample_num )
 
   for ( sample = 0; sample < sample_num; sample++ )
   {
-    value = r4_nor ( &seed, kn, fn, wn );
+    value = r4_nor ( seed, kn, fn, wn );
   }
   ctime = cpu_time ( ) - ctime;
 
@@ -506,7 +516,7 @@ void test08 ( int sample_num )
 //
 //  Modified:
 //
-//    08 December 2008
+//    14 October 2013
 //
 //  Author:
 //
@@ -515,27 +525,26 @@ void test08 ( int sample_num )
 {
   double ctime;
   float fe[256];
-  int ke[256];
+  uint32_t ke[256];
   int sample;
-  unsigned long int seed;
+  uint32_t seed;
   float value;
   float we[256];
 
   cout << "\n";
   cout << "TEST08\n";
   cout << "  Measure the time it takes R4_EXP to generate\n";
-  cout << "  " << sample_num << " exponential random float values.\n";
+  cout << "  " << sample_num << " exponential random floats.\n";
 
   r4_exp_setup ( ke, fe, we );
 
   seed = 123456789;
 
-
   ctime = cpu_time ( );
 
   for ( sample = 0; sample < sample_num; sample++ )
   {
-    value = r4_exp ( &seed, ke, fe, we );
+    value = r4_exp ( seed, ke, fe, we );
   }
   ctime = cpu_time ( ) - ctime;
 
@@ -546,13 +555,13 @@ void test08 ( int sample_num )
 }
 //****************************************************************************80
 
-double cpu_time ( void )
+void test09 ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    CPU_TIME returns the current reading on the CPU clock.
+//    TEST09 tests CONG_SEEDED.
 //
 //  Licensing:
 //
@@ -560,20 +569,211 @@ double cpu_time ( void )
 //
 //  Modified:
 //
-//    08 December 2008
+//    18 October 2013
 //
 //  Author:
 //
 //    John Burkardt
 //
-//  Parameters:
+{
+  int j;
+  uint32_t jcong_new;
+  uint32_t jcong_in;
+  uint32_t jcong_old;
+
+  cout << "\n";
+  cout << "TEST09\n";
+  cout << "  CONG_SEEDED is a generator of pseudorandom uniformly\n";
+  cout << "  distributed unsigned 32 bit integers.\n";
+  cout << "\n";
+  cout << "    Input Seed   Output Seed  Output Value\n";
+  cout << "\n";
+
+  jcong_new = 234567891;
+
+  for ( j = 1; j <= 10; j++ )
+  {
+    jcong_old = jcong_new;
+    jcong_in = jcong_new;
+    jcong_new = cong_seeded ( jcong_in );
+    cout << "  " << setw(12) << jcong_old
+         << "  " << setw(12) << jcong_in
+         << "  " << setw(12) << jcong_new << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void test10 ( )
+
+//****************************************************************************80
 //
-//    Output, double CPU_TIME, the current reading of the CPU clock, in seconds.
+//  Purpose:
+//
+//    TEST10 tests KISS_SEEDED.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2013
+//
+//  Author:
+//
+//    John Burkardt
 //
 {
-  double value;
+  int j;
+  uint32_t jcong_in;
+  uint32_t jcong_old;
+  uint32_t jsr_in;
+  uint32_t jsr_old;
+  uint32_t w_in;
+  uint32_t w_old;
+  uint32_t value;
+  uint32_t z_in;
+  uint32_t z_old;
 
-  value = ( double ) clock ( ) / ( double ) CLOCKS_PER_SEC;
+  cout << "\n";
+  cout << "TEST10\n";
+  cout << "  KISS_SEEDED is a generator of pseudorandom uniformly\n";
+  cout << "  distributed unsigned 32 bit integers.\n";
+  cout << "\n";
+  cout << "              JCONG           JSR             W             Z         Value\n";
+  cout << "\n";
 
-  return value;
+  jcong_in = 234567891;
+  jsr_in = 123456789;
+  w_in = 345678912;
+  z_in = 456789123;
+
+  for ( j = 1; j <= 10; j++ )
+  {
+    jcong_old = jcong_in;
+    jsr_old = jsr_in;
+    w_old = w_in;
+    z_old = z_in;
+    value = kiss_seeded ( jcong_in, jsr_in, w_in, z_in );
+    cout << "  In "
+         << "  " << setw(12) << jcong_old
+         << "  " << setw(12) << jsr_old
+         << "  " << setw(12) << w_old
+         << "  " << setw(12) << z_old << "\n";
+    cout << "  Out"
+         << "  " << setw(12) << jcong_in
+         << "  " << setw(12) << jsr_in
+         << "  " << setw(12) << w_in
+         << "  " << setw(12) << z_in
+         << "  " << setw(12) << value << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void test11 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST11 tests MWC_SEEDED.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 October 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int j;
+  uint32_t w_in;
+  uint32_t w_old;
+  uint32_t value;
+  uint32_t z_in;
+  uint32_t z_old;
+
+  cout << "\n";
+  cout << "TEST11\n";
+  cout << "  MWC_SEEDED is a generator of pseudorandom uniformly\n";
+  cout << "  distributed unsigned 32 bit integers.\n";
+  cout << "\n";
+  cout << "       Input W       Input Z      Output W      Output Z  Output Value\n";
+  cout << "\n";
+
+  w_in = 345678912;
+  z_in = 456789123;
+
+  for ( j = 1; j <= 10; j++ )
+  {
+    w_old = w_in;
+    z_old = z_in;
+    value = mwc_seeded ( w_in, z_in );
+    cout << "  " << setw(12) << w_old
+         << "  " << setw(12) << z_old
+         << "  " << setw(12) << w_in
+         << "  " << setw(12) << z_in
+         << "  " << setw(12) << value << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void test12 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST12 tests SHR3_SEEDED.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 October 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int j;
+  uint32_t jsr_new;
+  uint32_t jsr_in;
+  uint32_t jsr_old;
+
+  cout << "\n";
+  cout << "TEST12\n";
+  cout << "  SHR3_SEEDED is a generator of pseudorandom uniformly\n";
+  cout << "  distributed unsigned 32 bit integers.\n";
+  cout << "\n";
+  cout << "    Input Seed   Output Seed  Output Value\n";
+  cout << "\n";
+
+  jsr_new = 123456789;
+
+  for ( j = 1; j <= 10; j++ )
+  {
+    jsr_old = jsr_new;
+    jsr_in = jsr_new;
+    jsr_new = shr3_seeded ( jsr_in );
+    cout << "  " << setw(12) << jsr_old
+         << "  " << setw(12) << jsr_in
+         << "  " << setw(12) << jsr_new << "\n";
+  }
+
+  return;
 }

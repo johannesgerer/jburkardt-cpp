@@ -52,7 +52,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    QUALITY_PRB calls the QUALITY routines.
+//    QUALITY_PRB tests the QUALITY library.
 //
 //  Licensing:
 //
@@ -75,7 +75,6 @@ int main ( )
   double *z;
 
   timestamp ( );
-
   cout << "\n";
   cout << "QUALITY_PRB\n";
   cout << "  C++ version\n";
@@ -92,7 +91,6 @@ int main ( )
   cout << "\n";
   cout << "QUALITY_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

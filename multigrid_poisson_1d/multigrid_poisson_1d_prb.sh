@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g multigrid_poisson_1d_prb.cpp >& compiler.txt
+g++ -c multigrid_poisson_1d_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling multigrid_poisson_1d_prb.cpp."
   exit
 fi
-rm compiler.txt
 #
 g++ multigrid_poisson_1d_prb.o /$HOME/libcpp/$ARCH/multigrid_poisson_1d.o -lm
 if [ $? -ne 0 ]; then

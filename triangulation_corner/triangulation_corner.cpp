@@ -185,7 +185,7 @@ int main ( int argc, char *argv[] )
   r8mat_transpose_print_some ( dim_num, node_num, node_xy, 1, 1, dim_num, 5, 
     "  First 5 nodes:" );
 //
-//  Read the triangle data.
+//  Read the element data.
 //
   i4mat_header_read ( element_filename, &triangle_order, 
     &triangle_num );

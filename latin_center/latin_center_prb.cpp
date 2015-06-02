@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LATIN_CENTER_PRB tests the Latin Center Square routines.
+//    MAIN is the main program for LATIN_CENTER_PRB.
+//
+//  Discussion:
+//
+//    LATIN_CENTER_PRB tests the LATIN_CENTER library.
 //
 //  Licensing:
 //
@@ -66,7 +70,6 @@ int main ( )
   cout << "\n";
   cout << "LATIN_CENTER_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

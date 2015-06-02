@@ -27,7 +27,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPARSE_GRID_LAGUERRE_PRB tests the SPARSE_GRID_LAGUERRE routines.
+//    SPARSE_GRID_LAGUERRE_PRB tests the SPARSE_GRID_LAGUERRE library.
 //
 //  Licensing:
 //
@@ -213,12 +213,11 @@ int main ( )
 
   test06 ( dim_num, level_max );
 //
-//  That's all.
+//  Terminate.
 //
   cout << "\n";
   cout << "SPARSE_GRID_LAGUERRE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
   

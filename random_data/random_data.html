@@ -17,9 +17,9 @@
     <p>
       <b>RANDOM_DATA</b> 
       is a C++ library which 
-      generates sets of data points using certain 
-      random number distributions, in a given dimension, and in a given 
-      physical region.  
+      uses a random number generator (RNG) to sample points for
+      various probability distributions, spatial dimensions, and geometries,
+      including the M-dimensional cube, ellipsoid, simplex and sphere.  
     </p>
 
     <p>
@@ -133,7 +133,7 @@
     </h3>
 
     <p>
-      The computer code and data files described and made available on this web page 
+      The computer code and data files made available on this web page 
       are distributed under
       <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
     </p>
@@ -144,7 +144,9 @@
 
     <p>
       <b>RANDOM_DATA</b> is available in
+      <a href = "../../c_src/random_data/random_data.html">a C version</a> and
       <a href = "../../cpp_src/random_data/random_data.html">a C++ version</a> and
+      <a href = "../../f77_src/random_data/random_data.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/random_data/random_data.html">a FORTRAN90 version</a> and
       <a href = "../../m_src/random_data/random_data.html">a MATLAB version</a>. 
     </p>
@@ -161,8 +163,8 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/discrete_pdf_sample/discrete_pdf_sample.html">
-      DISCRETE_PDF_SAMPLE</a>,
+      <a href = "../../cpp_src/discrete_pdf_sample_2d/discrete_pdf_sample_2d.html">
+      DISCRETE_PDF_SAMPLE_2D</a>,
       a C++ program which
       demonstrates how to construct a Probability Density Function (PDF)
       from a table of sample data, and then to use that PDF to create new samples.
@@ -545,6 +547,11 @@
           uniform points in the unit triangle.
         </li>
         <li>
+          <a href = "uniform_on_cube01.txt">
+          uniform_on_cube01.txt</a>, 
+          uniform points on the unit cube.
+        </li>
+        <li>
           <a href = "uniform_on_ellipsoid_map.txt">
           uniform_on_ellipsoid_map.txt</a>, 
           uniform points on an ellipsoid.
@@ -602,11 +609,10 @@
     </p>
 
     <p>
-      PLOT_POINTS makes 
-      <a href = "../../data/eps/eps.html">Encapsulated PostScript</a>
+      PLOT_POINTS makes Encapsulated PostScript
       images of the points, in
       cases where the data is 2 dimensional.  These EPS files are
-      converted to <a href = "../../data/png/png.html">PNG</a> images
+      converted to PNG images
       for posting on this web page.
       <ul>
         <li>
@@ -825,7 +831,7 @@
           <b>I4_TO_HAMMERSLEY_SEQUENCE</b> computes N elements of a leaped Hammersley subsequence.
         </li>
         <li>
-          <b>I4_UNIFORM</b> returns a scaled pseudorandom I4.
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4 between A and B.
         </li>
         <li>
           <b>I4VEC_TRANSPOSE_PRINT</b> prints an I4VEC "transposed".
@@ -879,6 +885,9 @@
           <b>R8_UNIFORM_01</b> is a portable pseudorandom number generator.
         </li>
         <li>
+          <b>R8MAT_NORMAL_01_NEW</b> returns a unit pseudonormal R8MAT.
+        </li>
+        <li>
           <b>R8MAT_PRINT</b> prints an R8MAT, with an optional title.
         </li>
         <li>
@@ -898,6 +907,9 @@
         </li>
         <li>
           <b>R8VEC_NORMAL_01</b> samples the standard normal probability distribution.
+        </li>
+        <li>
+          <b>R8VEC_NORMAL_01_NEW</b> returns a unit pseudonormal R8VEC.
         </li>
         <li>
           <b>R8VEC_PRINT</b> prints an R8VEC.
@@ -996,6 +1008,12 @@
           <b>UNIFORM_IN_TRIANGLE01_MAP</b> maps uniform points into the unit triangle.
         </li>
         <li>
+          <b>UNIFORM_ON_CUBE</b> returns random points on the surface of a cube.
+        </li>
+        <li>
+          <b>UNIFORM_ON_CUBE01</b> returns random points on the surface of the unit cube.
+        </li>
+        <li>
           <b>UNIFORM_ON_ELLIPSOID_MAP</b> maps uniform points onto an ellipsoid.
         </li>
         <li>
@@ -1030,7 +1048,7 @@
     <hr>
 
     <i>
-      Last revised on 24 August 2010.
+      Last revised on 20 April 2013.
     </i>
 
     <!-- John Burkardt -->

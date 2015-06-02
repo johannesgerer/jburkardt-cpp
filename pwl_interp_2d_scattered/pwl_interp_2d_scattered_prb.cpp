@@ -23,7 +23,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    PWL_INTERP_2D_SCATTERED_PRB tests PWL_INTERP_2D_SCATTERED_PRB.
+//    MAIN is the main program for PWL_INTERP_2D_SCATTERED_PRB.
+//
+//  Discussion:
+//
+//    PWL_INTERP_2D_SCATTERED_PRB tests the PWL_INTERP_2D_SCATTERED library.
 //
 //  Licensing:
 //
@@ -45,7 +49,7 @@ int main ( )
   cout << "\n";
   cout << "PWL_INTERP_2D_SCATTERED_PRB:\n";
   cout << "  C++ version\n";
-  cout << "  Test PWL_INTERP_2D_SCATTERED.\n";
+  cout << "  Test the PWL_INTERP_2D_SCATTERED library.\n";
   cout << "  The R8LIB library is needed.\n";
   cout << "  This test also needs the TEST_INTERP_2D library.\n";
 

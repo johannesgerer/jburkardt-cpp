@@ -1,0 +1,290 @@
+<html>
+
+  <head>
+    <title>
+      STOCHASTIC_HEAT2D - 2D Steady Heat Equation with Stochastic Diffusivity
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      STOCHASTIC_HEAT2D <br> 2D Steady Heat Equation with Stochastic Diffusivity
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>STOCHASTIC_HEAT2D</b> 
+      is a C++ program which 
+      solves the steady state heat equation in a 2D
+      rectangular region with a stochastic heat diffusivity, 
+      using the finite difference method (FDM), and stochastic model
+      from Babuska, Nobile and Tempone, using GNUPLOT to illustrate
+      the results.
+    </p>
+
+    <p>
+      The physical region, and the boundary conditions, are suggested
+      by this diagram:
+      <pre>
+                   U = 0, Y = 1.0
+             +-------------------+
+             |          ...      |
+             |         .:*:.     |
+    U = 0    |          :::      | U = 0
+    X = 0.0  |                   | X = 1.0
+             |                   |
+             +-------------------+
+                   U = 0, Y = 0.0
+      </pre>
+    </p>
+
+    <p>
+      A heat source is applied, which is concentrated at the point
+      X = 0.6, Y = 0.8, whose center is suggested by the "*" in the diagram.
+    </p>
+
+    <p>
+      The region is covered with a grid of NX by NY nodes, and an NX by NY
+      array U is used to record the temperature.  The correspondence between
+      array indices and locations in the region is suggested by giving the
+      indices of the four corners:
+      <pre>
+                  I = NY
+             +------------------+
+             |                  |
+      J = 1  |                  |  J = NX
+             |                  |
+             +------------------+
+                  I = 1
+      </pre>
+    </p>
+
+    <p>
+      The form of the steady heat equation is
+      <pre>
+        - d/dx K(x,y) du/dx - d/dy K(x,y) du/dy = F(x,y)
+      </pre>
+      where K(x,y) is the heat conductivity, and F(x,y) is a
+      heat source term.  For this program, the heat conductivity
+      function is assumed to be a function of four stochastic parameters
+      OMEGA(1) through OMEGA(4); the form of the functional dependence
+      is described in a paper by Babusk, Nobile and Tempone.
+    </p>
+
+    <p>
+      By using a simple finite difference approximation, this single equation
+      can be replaced by NX * NY linear equations in NX * NY variables; 
+      each equation is associated with one of the nodes in the mesh.  Nodes
+      long the boundary generate boundary condition equations, while interior
+      nodes generate equations that approximate the steady heat equation.
+    </p>
+
+    <p>
+      Choosing a particular set of values for OMEGA produces a single "realization"
+      of the temperature field.  However, an interesting question is to observe
+      the influence of the OMEGA's on the solution U.  As an example, the program
+      fixes the values of OMEGA(3) and OMEGA(4), evaluates the solution U over
+      a grid of values for OMEGA(1) and OMEGA(2), and plots the mean of the solution.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>STOCHASTIC_HEAT2D</b> is available in
+      <a href = "../../c_src/stochastic_heat2d/stochastic_heat2d.html">a C version</a> and
+      <a href = "../../cpp_src/stochastic_heat2d/stochastic_heat2d.html">a C++ version</a> and
+      <a href = "../../f77_src/stochastic_heat2d/stochastic_heat2d.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/stochastic_heat2d/stochastic_heat2d.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/stochastic_heat2d/stochastic_heat2d.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem1d_heat_steady/fem1d_heat_steady.html">
+      FEM1D_HEAT_STEADY</a>,
+      a C++ program which
+      uses the finite element method to solve the 1D Time Independent
+      Heat Equations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_heat/fem2d_heat.html">
+      FEM2D_HEAT</a>, 
+      a C++ program which
+      solves the 2D time dependent heat equation on the unit square.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which illustrate how a program can write 
+      data and command files so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/heated_plate/heated_plate.html">
+      HEATED_PLATE</a>,
+      a C++ program which 
+      solves the steady state heat equation in a 2D
+      rectangular region, and is intended as
+      a starting point for a parallel version.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Ivo Babuska, Fabio Nobile, Raul Tempone,<br>
+          A Stochastic Collocation Method for Elliptic Partial Differential Equations 
+          with Random Input Data,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 45, Number 3, 2007, pages 1005-1034.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "stochastic_heat2d.cpp">stochastic_heat2d.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "stochastic_heat2d.hpp">stochastic_heat2d.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "stochastic_heat2d.sh">stochastic_heat2d.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "stochastic_heat2d_prb.cpp">stochastic_heat2d_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "stochastic_heat2d_prb.sh">stochastic_heat2d_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "stochastic_heat2d_prb_output.txt">stochastic_heat2d_prb_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "solution_data.txt">solution_data.txt</a>
+          graphics data for an image of the solution corresponding to an example selection of OMEGA.
+        </li>
+        <li>
+          <a href = "solution_commands.txt">solution_commands.txt</a>
+          GNUPLOT commands to create an image of the solution corresponding 
+          to an example selection of OMEGA.
+        </li>
+        <li>
+          <a href = "solution.png">solution.png</a>
+          an image of the solution corresponding to an example selection of OMEGA.
+        </li>
+        <li>
+          <a href = "umean_data.txt">umean_data.txt</a>
+          graphics data to create an image of mean temperature as a function of OMEGA(1) and OMEGA(2).
+        </li>
+        <li>
+          <a href = "umean_commands.txt">umean_commands.txt</a>
+          GNUPLOT commands to create an image of mean temperature as a function of OMEGA(1) and OMEGA(2).
+        </li>
+        <li>
+          <a href = "umean.png">umean.png</a>
+          an image of mean temperature as a function of OMEGA(1) and OMEGA(2).
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>DIFFUSIVITY_2D_BNT</b> evaluates a 2D stochastic diffusivity function.
+        </li>
+        <li>
+          <b>INTERIOR</b> sets up the matrix and right hand side at interior nodes.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>R8MAT_FS</b> factors and solves a system with one right hand side.
+        </li>
+        <li>
+          <b>R8VEC_LINSPACE</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
+          <b>R8VEC_MESH_2D</b> creates a 2D mesh from X and Y vectors.
+        </li>
+        <li>
+          <b>R8VEC_NORMAL_01</b> returns a unit pseudonormal R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>STOCHASTIC_HEAT2D</b> solves the steady 2D heat equation.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 04 September 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

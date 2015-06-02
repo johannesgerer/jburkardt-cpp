@@ -39,7 +39,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    LATTICE_RULE_PRB calls the LATTICE_RULE test routines.
+//    LATTICE_RULE_PRB tests the LATTICE_RULE library.
 //
 //  Licensing:
 //
@@ -55,7 +55,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "LATTICE_RULE_PRB\n";
   cout << "  C++ version\n";
@@ -83,7 +82,6 @@ int main ( )
   cout << "\n";
   cout << "LATTICE_RULE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

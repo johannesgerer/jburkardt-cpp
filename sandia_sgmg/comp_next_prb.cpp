@@ -85,7 +85,6 @@ int main ( )
   std::cout << "\n";
   std::cout << " COMP_NEXT_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
   

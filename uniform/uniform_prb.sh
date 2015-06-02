@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include uniform_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include uniform_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling uniform_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ uniform_prb.o /$HOME/libcpp/$ARCH/uniform.o -lm
 if [ $? -ne 0 ]; then

@@ -19,7 +19,7 @@ int i4_min ( int i1, int i2 );
 int i4_modp ( int i, int j );
 int i4_wrap ( int ival, int ilo, int ihi );
 int *i4mat_data_read ( string input_filename, int m, int n );
-void i4mat_header_read ( string input_filename, int *m, int *n );
+void i4mat_header_read ( string input_filename, int &m, int &n );
 void i4mat_transpose_print_some ( int m, int n, int a[], int ilo, int jlo, 
   int ihi, int jhi, string title );
 void mesh_base_zero ( int node_num, int element_order, 
@@ -29,7 +29,7 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
   int ihi, int jhi, string title );
 int r8_nint ( double x );
 double *r8mat_data_read ( string input_filename, int m, int n );
-void r8mat_header_read ( string input_filename, int *m, int *n );
+void r8mat_header_read ( string input_filename, int &m, int &n );
 int s_len_trim ( string s );
 int s_to_i4 ( string s, int *last, bool *error );
 bool s_to_i4vec ( string s, int n, int ivec[] );
@@ -38,14 +38,14 @@ bool s_to_r8vec ( string s, int n, double rvec[] );
 int s_word_count ( string s );
 void timestamp ( );
 void triangulation_order3_plot ( string plot_filename, int node_num, 
-  double node_xy[], int triangle_num, int triangle_node[], int node_show, 
-  int triangle_show );
+  double node_xy[], int element_num, int element_node[], int node_show, 
+  int element_show );
 void triangulation_order4_plot ( string plot_filename, int node_num, 
-  double node_xy[], int triangle_num, int triangle_node[], int node_show, 
-  int triangle_show );
+  double node_xy[], int element_num, int element_node[], int node_show, 
+  int element_show );
 void triangulation_order6_plot ( string plot_filename, int node_num, 
-  double node_xy[], int triangle_num, int triangle_node[], int node_show, 
-  int triangle_show );
+  double node_xy[], int element_num, int element_node[], int node_show, 
+  int element_show );
 
 //****************************************************************************80
 
@@ -63,14 +63,14 @@ int main ( int argc, char *argv[] )
 //
 //  Usage:
 //
-//    triangulation_plot prefix node_vis triangle_vis
+//    triangulation_plot prefix node_vis element_vis
 //
 //    where:
 //
 //    'prefix' is the common prefix for the node and element files:
 //
 //    * prefix_nodes.txt,     the node coordinates.
-//    * prefix_elements.txt,  the nodes that make up each triangle.
+//    * prefix_elements.txt,  the nodes that make up each element.
 //    * prefix.eps, the plot of the triangulation (output).
 //
 //    'node_vis' indicates the node visibility:
@@ -79,11 +79,11 @@ int main ( int argc, char *argv[] )
 //    1:        show the nodes;
 //    2:        show the nodes, and label them.
 //
-//    'triangle_vis' indicates the triangle visibility:
+//    'element_vis' indicates the element visibility:
 //
-//    0: do not show the triangles;
-//    1:        show the triangles;
-//    2:        show the triangles, and label them.
+//    0: do not show the elements;
+//    1:        show the elements;
+//    2:        show the elements, and label them.
 //
 //  Licensing:
 //
@@ -100,6 +100,10 @@ int main ( int argc, char *argv[] )
 {
   int dim_num;
   string element_filename;
+  int *element_node;
+  int element_num;
+  int element_order;
+  int element_show;
   int i;
   string node_filename;
   int node_num;
@@ -107,21 +111,15 @@ int main ( int argc, char *argv[] )
   double *node_xy;
   string plot_filename;
   string prefix;
-  int *triangle_node;
-  int triangle_num;
-  int triangle_order;
-  int triangle_show;
 
-  cout << "\n";
   timestamp ( );
-
   cout << "\n";
   cout << "TRIANGULATION_PLOT\n";
   cout << "  C++ version:\n";
   cout << "  Read a node dataset of NODE_NUM points in 2 dimensions.\n";
   cout << "  Read an associated triangulation dataset of \n";
-  cout << "  TRIANGLE_NUM triangles in a triangulation of order\n";
-  cout << "  TRIANGLE_ORDER = 3, 4, or 6 .\n";
+  cout << "  ELEMENT_NUM element in a triangulation of order\n";
+  cout << "  ELEMENT_ORDER = 3, 4, or 6 .\n";
   cout << "\n";
   cout << "  Make an EPS plot of the triangulated data.\n";
   cout << "\n";
@@ -158,20 +156,20 @@ int main ( int argc, char *argv[] )
     node_show = atoi ( argv[2] );
   } 
 //
-//  Get the triangle visibility.
+//  Get the element visibility.
 //
   if ( argc <= 3 ) 
   {
     cout << "\n";
-    cout << "  Enter the option for showing the triangles:\n";
-    cout << "  0: do not show the triangles;\n";
-    cout << "  1:        show the triangles;\n";
-    cout << "  2:        show the triangles, and label them.\n";
-    cin >> triangle_show;
+    cout << "  Enter the option for showing the elements:\n";
+    cout << "  0: do not show the elements;\n";
+    cout << "  1:        show the elements;\n";
+    cout << "  2:        show the elements, and label them.\n";
+    cin >> element_show;
   }
   else 
   {
-    triangle_show = atoi ( argv[3] );
+    element_show = atoi ( argv[3] );
   }
 //
 //  Create the filenames.
@@ -182,7 +180,7 @@ int main ( int argc, char *argv[] )
 //
 //  Read the node data.
 //
-  r8mat_header_read (  node_filename, &dim_num, &node_num );
+  r8mat_header_read ( node_filename, dim_num, node_num );
 
   cout << "\n";
   cout << "  Read the header of \"" << node_filename << "\".\n";
@@ -200,56 +198,58 @@ int main ( int argc, char *argv[] )
 //
 //  Read the element data.
 //
-  i4mat_header_read ( element_filename, &triangle_order, 
-    &triangle_num );
+  i4mat_header_read ( element_filename, element_order, element_num );
 
   cout << "\n";
   cout << " Read the header of \"" << element_filename << "\".\n";
   cout << "\n";
-  cout << "  Triangle order TRIANGLE_ORDER = " << triangle_order << "\n";
-  cout << "  Number of triangles TRIANGLE_NUM  = " << triangle_num << "\n";
+  cout << "  Element order ELEMENT_ORDER = " << element_order << "\n";
+  cout << "  Number of elements ELEMENT_NUM  = " << element_num << "\n";
 
-  triangle_node = i4mat_data_read ( element_filename, 
-    triangle_order, triangle_num );
+  element_node = i4mat_data_read ( element_filename, 
+    element_order, element_num );
 
   cout << "\n";
   cout << "  Read the data in \"" << element_filename << "\".\n";
 
-  i4mat_transpose_print_some ( triangle_order, triangle_num, triangle_node, 
+  i4mat_transpose_print_some ( element_order, element_num, element_node, 
     1, 1, 5, 5, "  5 by 5 portion of data read from file:" );
 //
 //  Detect and correct 1-based node indexing.
 //
-  mesh_base_zero ( node_num, triangle_order, triangle_num, triangle_node );
+  mesh_base_zero ( node_num, element_order, element_num, element_node );
 //
 //  Create the output file.
 //
-  if ( triangle_order == 3 )
+  if ( element_order == 3 )
   {
     triangulation_order3_plot ( plot_filename, node_num, node_xy, 
-      triangle_num, triangle_node, node_show, triangle_show );
+      element_num, element_node, node_show, element_show );
   }
-  else if ( triangle_order == 4 )
+  else if ( element_order == 4 )
   {
     triangulation_order4_plot ( plot_filename, node_num, node_xy, 
-      triangle_num, triangle_node, node_show, triangle_show );
+      element_num, element_node, node_show, element_show );
   }
-  else if ( triangle_order == 6 )
+  else if ( element_order == 6 )
   {
     triangulation_order6_plot ( plot_filename, node_num, node_xy, 
-      triangle_num, triangle_node, node_show, triangle_show );
+      element_num, element_node, node_show, element_show );
   }
 
   cout << "\n";
   cout << "  Created the EPS file \"" << plot_filename << "\".\n";
-
+//
+//  Free memory.
+//
   delete [] node_xy;
-  delete [] triangle_node;
-
+  delete [] element_node;
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "TRIANGULATION_PLOT:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -950,18 +950,22 @@ int *i4mat_data_read ( string input_filename, int m, int n )
   return table;
 }
 //****************************************************************************80
- 
-void i4mat_header_read ( string input_filename, int *m, int *n )
- 
+
+void i4mat_header_read ( string input_filename, int &m, int &n )
+
 //****************************************************************************80
 //
 //  Purpose:
 //
 //    I4MAT_HEADER_READ reads the header from an I4MAT file.
 //
+//  Discussion:
+//
+//    An I4MAT is an array of I4's.
+//
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -975,32 +979,31 @@ void i4mat_header_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points
+//    Output, int &N, the number of points
 //
 {
-  *m = file_column_count ( input_filename );
- 
-  if ( *m <= 0 )
+  m = file_column_count ( input_filename );
+
+  if ( m <= 0 )
   {
     cerr << "\n";
     cerr << "I4MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
+    exit ( 1 );
   }
- 
-  *n = file_row_count ( input_filename );
- 
-  if ( *n <= 0 )
+
+  n = file_row_count ( input_filename );
+
+  if ( n <= 0 )
   {
     cerr << "\n";
     cerr << "I4MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
+    exit ( 1 );
   }
- 
+
   return;
 }
 //****************************************************************************80
@@ -1405,18 +1408,22 @@ double *r8mat_data_read ( string input_filename, int m, int n )
   return table;
 }
 //****************************************************************************80
- 
-void r8mat_header_read ( string input_filename, int *m, int *n )
- 
+
+void r8mat_header_read ( string input_filename, int &m, int &n )
+
 //****************************************************************************80
 //
 //  Purpose:
 //
 //    R8MAT_HEADER_READ reads the header from an R8MAT file.
 //
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -1430,30 +1437,29 @@ void r8mat_header_read ( string input_filename, int *m, int *n )
 //
 //    Input, string INPUT_FILENAME, the name of the input file.
 //
-//    Output, int *M, the number of spatial dimensions.
+//    Output, int &M, the number of spatial dimensions.
 //
-//    Output, int *N, the number of points.
+//    Output, int &N, the number of points.
 //
 {
-  *m = file_column_count ( input_filename );
+  m = file_column_count ( input_filename );
 
-  if ( *m <= 0 )
+  if ( m <= 0 )
   {
     cerr << "\n";
     cerr << "R8MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
+    exit ( 1 );
   }
 
-  *n = file_row_count ( input_filename );
+  n = file_row_count ( input_filename );
 
-  if ( *n <= 0 )
+  if ( n <= 0 )
   {
     cerr << "\n";
     cerr << "R8MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
+    exit ( 1 );
   }
 
   return;
@@ -1837,7 +1843,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
@@ -2267,8 +2273,8 @@ void timestamp ( )
 //****************************************************************************80
 
 void triangulation_order3_plot ( string plot_filename, int node_num, 
-  double node_xy[], int triangle_num, int triangle_node[], int node_show, 
-  int triangle_show )
+  double node_xy[], int element_num, int element_node[], int node_show, 
+  int element_show )
 
 //****************************************************************************80
 //
@@ -2287,7 +2293,7 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
 //
 //  Modified:
 //
-//    08 June 2009
+//    25 March 2014
 //
 //  Author:
 //
@@ -2301,20 +2307,20 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
 //
 //    Input, double NODE_XY[2*NODE_NUM], the coordinates of the nodes.
 //
-//    Input, int TRIANGLE_NUM, the number of triangles.
+//    Input, int ELEMENT_NUM, the number of elements.
 //
-//    Input, int TRIANGLE_NODE[3*TRIANGLE_NUM], lists, for each triangle,
-//    the indices of the nodes that form the vertices of the triangle.
+//    Input, int ELEMENT_NODE[3*ELEMENT_NUM], lists, for each element,
+//    the indices of the nodes that form the vertices of the element.
 //
 //    Input, int NODE_SHOW:
 //    0, do not show nodes;
 //    1, show nodes;
 //    2, show nodes and label them.
 //
-//    Input, int TRIANGLE_SHOW:
-//    0, do not show triangles;
-//    1, show triangles;
-//    2, show triangles and label them.
+//    Input, int ELEMENT_SHOW:
+//    0, do not show elements;
+//    1, show elements;
+//    2, show elements and label them.
 //
 {
   double ave_x;
@@ -2325,7 +2331,7 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
   ofstream plot_unit;
   int i;
   int node;
-  int triangle;
+  int element;
   double x_max;
   double x_min;
   int x_ps;
@@ -2586,27 +2592,27 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
     }
   }
 //
-//  Draw the triangles.
+//  Draw the elements.
 //
-  if ( 1 <= triangle_show )
+  if ( 1 <= element_show )
   {
     plot_unit << "%\n";
     plot_unit << "%  Set the RGB color to red.\n";
     plot_unit << "%\n";
     plot_unit << "0.900  0.200  0.100 setrgbcolor\n";
     plot_unit << "%\n";
-    plot_unit << "%  Draw the triangles.\n";
+    plot_unit << "%  Draw the elements.\n";
     plot_unit << "%\n";
 
-    for ( triangle = 0; triangle < triangle_num; triangle++ )
+    for ( element = 0; element < element_num; element++ )
     {
       plot_unit << "newpath\n";
 
-      for ( i = 1; i <= 4; i++ )
+      for ( i = 0; i <= 3; i++ )
       {
-        e = i4_wrap ( i, 1, 3 );
+        e = i4_wrap ( i, 0, 2 );
 
-        node = triangle_node[e-1+triangle*3] - 1;
+        node = element_node[e+element*3];
 
         x_ps = ( int ) (
           ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )  
@@ -2618,7 +2624,7 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
           + (         node_xy[1+node*2] - y_min ) * ( double ) ( y_ps_max ) ) 
           / ( y_max                     - y_min ) );
 
-        if ( i == 1 )
+        if ( i == 0 )
         {
           plot_unit << x_ps << "  " << y_ps << "  moveto\n";
         } 
@@ -2631,12 +2637,12 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
     }
   }
 //
-//  Label the triangles.
+//  Label the elements.
 //
-  if ( 2 <= triangle_show )
+  if ( 2 <= element_show )
   {
     plot_unit << "%\n";
-    plot_unit << "%  Label the triangles.\n";
+    plot_unit << "%  Label the elements.\n";
     plot_unit << "%\n";
     plot_unit << "%  Set the RGB color to darker red.\n";
     plot_unit << "%\n";
@@ -2646,14 +2652,14 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
     plot_unit << "setfont\n";
     plot_unit << "%\n";
 
-    for ( triangle = 0; triangle < triangle_num; triangle++ )
+    for ( element = 0; element < element_num; element++ )
     {
       ave_x = 0.0;
       ave_y = 0.0;
 
-      for ( i = 1; i <= 3; i++ )
+      for ( i = 0; i < 3; i++ )
       {
-        node = triangle_node[i-1+triangle*3] - 1;
+        node = element_node[i+element*3];
         ave_x = ave_x + node_xy[0+node*2];
         ave_y = ave_y + node_xy[1+node*2];
       }
@@ -2672,7 +2678,7 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
 
       plot_unit << x_ps << "  " 
                 << y_ps << "  moveto ("
-                << triangle+1 << ") show\n";
+                << element << ") show\n";
     }
   }
 
@@ -2691,8 +2697,8 @@ void triangulation_order3_plot ( string plot_filename, int node_num,
 //****************************************************************************80
 
 void triangulation_order4_plot ( string plot_filename, int node_num, 
-  double node_xy[], int triangle_num, int triangle_node[], int node_show, 
-  int triangle_show )
+  double node_xy[], int element_num, int element_node[], int node_show, 
+  int element_show )
 
 //****************************************************************************80
 //
@@ -2706,7 +2712,7 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
 //
 //  Modified:
 //
-//    08 June 2009
+//    25 March 2014
 //
 //  Author:
 //
@@ -2720,10 +2726,10 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
 //
 //    Input, double NODE_XY[2*NODE_NUM], the coordinates of the nodes.
 //
-//    Input, int TRIANGLE_NUM, the number of triangles.
+//    Input, int ELEMENT_NUM, the number of elements.
 //
-//    Input, int TRIANGLE_NODE[4*TRIANGLE_NUM], lists, for each triangle,
-//    the indices of the nodes that form the vertices of the triangle,
+//    Input, int ELEMENT_NODE[4*ELEMENT_NUM], lists, for each element,
+//    the indices of the nodes that form the vertices of the element,
 //    and the centroid.
 //
 //    Input, int NODE_SHOW:
@@ -2732,9 +2738,9 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
 //    2, show nodes and label them.
 //
 //    Input, int TRIANGLE_SHOW:
-//    0, do not show triangles;
-//    1, show triangles;
-//    2, show triangles and label them.
+//    0, do not show elements;
+//    1, show elements;
+//    2, show elements and label them.
 //
 {
   double ave_x;
@@ -2745,7 +2751,7 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
   ofstream plot_unit;
   int i;
   int node;
-  int triangle;
+  int element;
   double x_max;
   double x_min;
   int x_ps;
@@ -3006,27 +3012,27 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
     }
   }
 //
-//  Draw the triangles.
+//  Draw the elements.
 //
-  if ( 1 <= triangle_show )
+  if ( 1 <= element_show )
   {
     plot_unit << "%\n";
     plot_unit << "%  Set the RGB color to red.\n";
     plot_unit << "%\n";
     plot_unit << "0.900  0.200  0.100 setrgbcolor\n";
     plot_unit << "%\n";
-    plot_unit << "%  Draw the triangles.\n";
+    plot_unit << "%  Draw the elements.\n";
     plot_unit << "%\n";
 
-    for ( triangle = 0; triangle < triangle_num; triangle++ )
+    for ( element = 0; element < element_num; element++ )
     {
       plot_unit << "newpath\n";
 
-      for ( i = 1; i <= 4; i++ )
+      for ( i = 0; i <= 3; i++ )
       {
-        e = i4_wrap ( i, 1, 3 );
+        e = i4_wrap ( i, 0, 2 );
 
-        node = triangle_node[e-1+triangle*4] - 1;
+        node = element_node[e+element*4];
 
         x_ps = ( int ) (
           ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )  
@@ -3038,7 +3044,7 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
           + (         node_xy[1+node*2] - y_min ) * ( double ) ( y_ps_max ) ) 
           / ( y_max                     - y_min ) );
 
-        if ( i == 1 )
+        if ( i == 0 )
         {
           plot_unit << x_ps << "  " << y_ps << "  moveto\n";
         } 
@@ -3051,12 +3057,12 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
     }
   }
 //
-//  Label the triangles.
+//  Label the elements.
 //
-  if ( 2 <= triangle_show )
+  if ( 2 <= element_show )
   {
     plot_unit << "%\n";
-    plot_unit << "%  Label the triangles.\n";
+    plot_unit << "%  Label the elements.\n";
     plot_unit << "%\n";
     plot_unit << "%  Set the RGB color to darker red.\n";
     plot_unit << "%\n";
@@ -3066,14 +3072,14 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
     plot_unit << "setfont\n";
     plot_unit << "%\n";
 
-    for ( triangle = 0; triangle < triangle_num; triangle++ )
+    for ( element = 0; element < element_num; element++ )
     {
       ave_x = 0.0;
       ave_y = 0.0;
 
-      for ( i = 1; i <= 3; i++ )
+      for ( i = 0; i < 3; i++ )
       {
-        node = triangle_node[i-1+triangle*4] - 1;
+        node = element_node[i+element*4];
         ave_x = ave_x + node_xy[0+node*2];
         ave_y = ave_y + node_xy[1+node*2];
       }
@@ -3092,7 +3098,7 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
 
       plot_unit << x_ps << "  " 
                 << y_ps << "  moveto ("
-                << triangle+1 << ") show\n";
+                << element+1 << ") show\n";
     }
   }
 
@@ -3111,8 +3117,8 @@ void triangulation_order4_plot ( string plot_filename, int node_num,
 //****************************************************************************80
 
 void triangulation_order6_plot ( string plot_filename, int node_num, 
-  double node_xy[], int triangle_num, int triangle_node[], int node_show, 
-  int triangle_show )
+  double node_xy[], int element_num, int element_node[], int node_show, 
+  int element_show )
 
 //****************************************************************************80
 //
@@ -3136,7 +3142,7 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
 //
 //  Modified:
 //
-//    08 June 2009
+//    25 March 2014
 //
 //  Author:
 //
@@ -3150,21 +3156,21 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
 //
 //    Input, double NODE_XY[2*NODE_NUM], the coordinates of the nodes.
 //
-//    Input, int TRIANGLE_NUM, the number of triangles.
+//    Input, int ELEMENT_NUM, the number of elements.
 //
-//    Input, int TRIANGLE_NODE[6*TRIANGLE_NUM], lists, for each triangle,
+//    Input, int ELEMENT_NODE[6*ELEMENT_NUM], lists, for each element,
 //    the indices of the nodes that form the vertices and midsides
-//    of the triangle.
+//    of the element.
 //
 //    Input, int NODE_SHOW:
 //    0, do not show nodes;
 //    1, show nodes;
 //    2, show nodes and label them.
 //
-//    Input, int TRIANGLE_SHOW:
-//    0, do not show triangles;
-//    1, show triangles;
-//    2, show triangles and label them.
+//    Input, int ELEMENT_SHOW:
+//    0, do not show element;
+//    1, show elements;
+//    2, show elements and label them.
 //
 {
   double ave_x;
@@ -3177,7 +3183,7 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
   int ip1;
   int node;
   int order[6] = { 1, 4, 2, 5, 3, 6 };
-  int triangle;
+  int element;
   double x_max;
   double x_min;
   int x_ps;
@@ -3438,21 +3444,21 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
     }
   }
 //
-//  Draw the triangles.
+//  Draw the elements.
 //
-  if ( 1 <= triangle_show )
+  if ( 1 <= element_show )
   {
     plot_unit << "%\n";
     plot_unit << "%  Set the RGB color to red.\n";
     plot_unit << "%\n";
     plot_unit << "0.900  0.200  0.100 setrgbcolor\n";
     plot_unit << "%\n";
-    plot_unit << "%  Draw the triangles.\n";
+    plot_unit << "%  Draw the elements.\n";
     plot_unit << "%\n";
 
-    for ( triangle = 0; triangle < triangle_num; triangle++ )
+    for ( element = 0; element < element_num; element++ )
     {
-      node = triangle_node[order[0]-1+triangle*6] - 1;
+      node = element_node[5+element*6];
 
       x_ps = ( int ) (
         ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )  
@@ -3466,10 +3472,9 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
 
       plot_unit << "newpath  " << x_ps << "  " << y_ps << "  moveto\n";
 
-      for ( i = 1; i <= 6; i++ )
+      for ( i = 0; i < 6; i++ )
       {
-        ip1 = ( i % 6 ) + 1;
-        node = triangle_node[order[ip1-1]-1+triangle*6] - 1;
+        node = element_node[i+element*6];
 
         x_ps = ( int ) (
           ( ( x_max - node_xy[0+node*2]         ) * ( double ) ( x_ps_min )  
@@ -3487,12 +3492,12 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
     }
   }
 //
-//  Label the triangles.
+//  Label the elements.
 //
-  if ( 2 <= triangle_show )
+  if ( 2 <= element_show )
   {
     plot_unit << "%\n";
-    plot_unit << "%  Label the triangles.\n";
+    plot_unit << "%  Label the elements.\n";
     plot_unit << "%\n";
     plot_unit << "%  Set the RGB color to darker red.\n";
     plot_unit << "%\n";
@@ -3502,14 +3507,14 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
     plot_unit << "setfont\n";
     plot_unit << "%\n";
 
-    for ( triangle = 0; triangle < triangle_num; triangle++ )
+    for ( element = 0; element < element_num; element++ )
     {
       ave_x = 0.0;
       ave_y = 0.0;
 
       for ( i = 0; i < 6; i++ )
       {
-        node = triangle_node[i+triangle*6] - 1;
+        node = element_node[i+element*6];
         ave_x = ave_x + node_xy[0+node*2];
         ave_y = ave_y + node_xy[1+node*2];
       }
@@ -3529,7 +3534,7 @@ void triangulation_order6_plot ( string plot_filename, int node_num,
 
       plot_unit << setw(4) << x_ps << "  "
                 << setw(4) << y_ps << "  "
-                << "moveto (" << triangle+1 << ") show\n";
+                << "moveto (" << element << ") show\n";
     }
   }
 

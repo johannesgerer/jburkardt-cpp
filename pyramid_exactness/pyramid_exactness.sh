@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g pyramid_exactness.cpp >& compiler.txt
+g++ -c pyramid_exactness.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling pyramid_exactness.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ pyramid_exactness.o -lm
 if [ $? -ne 0 ]; then

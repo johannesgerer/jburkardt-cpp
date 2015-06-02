@@ -11,53 +11,6 @@ using namespace std;
 
 //****************************************************************************80
 
-double arc_sine ( double s )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    ARC_SINE computes the arc sine function, with argument truncation.
-//
-//  Discussion:
-//
-//    If you call your system ASIN routine with an input argument that is
-//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
-//
-//    In particular, you may get the value NaN returned.
-//
-//    This routine truncates arguments outside the range, avoiding the problem.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    04 March 2008
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double S, the argument.
-//
-//    Output, double ARC_SINE, an angle whose sine is S.
-//
-{
-  double value;
-
-  s = r8_max ( s, -1.0 );
-  s = r8_min ( s, +1.0 );
-
-  value = asin ( s );
-
-  return value;
-}
-//****************************************************************************80
-
 double ball_f1_nd ( double func ( int n, double x[] ), int n, double center[], 
   double r )
 
@@ -157,11 +110,11 @@ double ball_f1_nd ( double func ( int n, double x[] ), int n, double center[],
 
       if ( ( itemp % 2 ) == 1 )
       {
-        x[j] = center[j] - r8_abs ( x[j] - center[j] );
+        x[j] = center[j] - fabs ( x[j] - center[j] );
       }
       else
       {
-        x[j] = center[j] + r8_abs ( x[j] - center[j] );
+        x[j] = center[j] + fabs ( x[j] - center[j] );
       }
       itemp = itemp / 2;
     }
@@ -194,11 +147,11 @@ double ball_f1_nd ( double func ( int n, double x[] ), int n, double center[],
       {
         if ( ( ktemp % 2 ) == 1 )
         {
-          x[j] = center[j] - r8_abs ( x[j] - center[j] );
+          x[j] = center[j] - fabs ( x[j] - center[j] );
         }
         else
         {
-          x[j] = center[j] + r8_abs ( x[j] - center[j] );
+          x[j] = center[j] + fabs ( x[j] - center[j] );
         }
         ktemp = ktemp / 2;
       }
@@ -338,11 +291,11 @@ double ball_f3_nd ( double func ( int n, double x[] ), int n, double center[],
       {
         if ( ( jtemp % 2 ) == 1 )
         {
-          x[k] = center[k] - r8_abs ( x[k] - center[k] );
+          x[k] = center[k] - fabs ( x[k] - center[k] );
         }
         else
         {
-          x[k] = center[k] + r8_abs ( x[k] - center[k] );
+          x[k] = center[k] + fabs ( x[k] - center[k] );
         }
         jtemp = jtemp / 2;
       }
@@ -868,11 +821,11 @@ double ball_unit_f1_nd ( double func ( int n, double x[] ), int n )
     {
       if ( ( itemp % 2 ) == 1 )
       {
-        x[j] = - r8_abs ( x[j] );
+        x[j] = - fabs ( x[j] );
       }
       else
       {
-        x[j] = r8_abs ( x[j] );
+        x[j] = fabs ( x[j] );
       }
       itemp = itemp / 2;
     }
@@ -907,11 +860,11 @@ double ball_unit_f1_nd ( double func ( int n, double x[] ), int n )
       {
         if ( ( ktemp % 2 ) == 1 )
         {
-          x[j] = - r8_abs ( x[j] );
+          x[j] = - fabs ( x[j] );
         }
         else
         {
-          x[j] = r8_abs ( x[j] );
+          x[j] = fabs ( x[j] );
         }
         ktemp = ktemp / 2;
       }
@@ -1036,11 +989,11 @@ double ball_unit_f3_nd ( double func ( int n, double x[] ), int n )
       {
         if ( ( jtemp % 2 ) == 1 )
         {
-          x[k] = - r8_abs ( x[k] );
+          x[k] = - fabs ( x[k] );
         }
         else
         {
-          x[k] = r8_abs ( x[k] );
+          x[k] = fabs ( x[k] );
         }
         jtemp = jtemp / 2;
       }
@@ -1897,12 +1850,12 @@ double circle_cap_area_2d ( double r, double h )
   }
   else if ( h <= r )
   {
-    theta = 2.0 * arc_sine ( sqrt ( h * ( 2.0 * r - h ) ) / r );
+    theta = 2.0 * r8_asin ( sqrt ( h * ( 2.0 * r - h ) ) / r );
     area = r * r * ( theta - sin ( theta ) ) / 2.0;
   }
   else if ( h <= 2.0 * r )
   {
-    theta = 2.0 * arc_sine ( sqrt ( h * ( 2.0 * r - h ) ) / r );
+    theta = 2.0 * r8_asin ( sqrt ( h * ( 2.0 * r - h ) ) / r );
     area = r * r * ( pi - ( theta - sin ( theta ) ) / 2.0 );
   }
   else if ( 2.0 * r <= h )
@@ -6659,7 +6612,7 @@ double ellipse_circumference_2d ( double r1, double r2 )
     term = term * ( 2 * i - 3 ) * ( 2 * i - 1 ) * e * e 
       / ( double ) ( 2 * 2 * i * i );
 
-    if ( r8_abs ( term ) <= r8_epsilon ( ) * ( r8_abs ( value ) + 1.0 ) )
+    if ( fabs ( term ) <= r8_epsilon ( ) * ( fabs ( value ) + 1.0 ) )
     {
       break;
     }
@@ -6708,8 +6661,8 @@ double ellipse_eccentricity_2d ( double r1, double r2 )
   double minor;
   double value;
 
-  minor = r8_min ( r8_abs ( r1 ), r8_abs ( r2 ) );
-  major = r8_max ( r8_abs ( r1 ), r8_abs ( r2 ) );
+  minor = r8_min ( fabs ( r1 ), fabs ( r2 ) );
+  major = r8_max ( fabs ( r1 ), fabs ( r2 ) );
 
   if ( major == 0.0 )
   {
@@ -8222,10 +8175,10 @@ void en_r2_05_4 ( int n, int o, double x[], double w[] )
           {
             x[i1+k*n] = x[i1+(k-1)*n];
           }
-          x[j+k*n] = r8_abs ( x[j+k*n] );
+          x[j+k*n] = fabs ( x[j+k*n] );
           for ( i1 = j + 1; i1 < n; i1++ )
           {
-            x[i1+k*n] = - r8_abs ( x[i1+k*n] );
+            x[i1+k*n] = - fabs ( x[i1+k*n] );
           }
           w[k] = b;
           more = true;
@@ -8421,10 +8374,10 @@ void en_r2_05_5 ( int n, int o, double x[], double w[] )
           {
             x[i1+k*n] = x[i1+(k-1)*n];
           }
-          x[j+k*n]     =   r8_abs ( x[j+k*n] );
+          x[j+k*n]     =   fabs ( x[j+k*n] );
           for ( i1 = j + 1; i1 < n; i1++ )
           {
-            x[i1+k*n] = - r8_abs ( x[i1+k*n] );
+            x[i1+k*n] = - fabs ( x[i1+k*n] );
           }
           w[k] = b;
           more = true;
@@ -8601,10 +8554,10 @@ void en_r2_05_6 ( int n, int o, double x[], double w[] )
           {
             x[i1+k*n] = x[i1+(k-1)*n];
           }
-          x[j+k*n] = r8_abs ( x[j+k*n] );
+          x[j+k*n] = fabs ( x[j+k*n] );
           for ( i1 = j + 1; i1 < n; i1++ )
           {
-            x[i1+k*n] = - r8_abs ( x[i1+k*n] );
+            x[i1+k*n] = - fabs ( x[i1+k*n] );
           }
           w[k] = a;
           more = true;
@@ -8635,10 +8588,10 @@ void en_r2_05_6 ( int n, int o, double x[], double w[] )
         {
           x[i1+k*n] = x[i1+(k-1)*n];
         }
-        x[j+k*n] = r8_abs ( x[j+k*n] );
+        x[j+k*n] = fabs ( x[j+k*n] );
         for ( i1 = j + 1; i1 < n; i1++ )
         {
-          x[i1+k*n] = - r8_abs ( x[i1+k*n] );
+          x[i1+k*n] = - fabs ( x[i1+k*n] );
         }
         w[k] = a;
         more = true;
@@ -8872,10 +8825,10 @@ void en_r2_07_1 ( int n, int option, int o, double x[], double w[] )
         {
           x[i1+k*n] = x[i1+(k-1)*n];
         }
-        x[i+k*n] = r8_abs ( x[i+k*n] );
+        x[i+k*n] = fabs ( x[i+k*n] );
         for ( i1 = i + 1; i1 < n; i1++ )
         {
-          x[i1+k*n] = - r8_abs ( x[i1+k*n] );
+          x[i1+k*n] = - fabs ( x[i1+k*n] );
         }
         w[k] = c;
         more = true;
@@ -9117,10 +9070,10 @@ void en_r2_07_2 ( int n, int o, double x[], double w[] )
         {
           x[i1+k*n] = x[i1+(k-2)*n];;
         }
-        x[i+k*n] = r8_abs ( x[i+k*n] );
+        x[i+k*n] = fabs ( x[i+k*n] );
         for ( i1 = i + 1; i1 < n; i1++ )
         {
-          x[i1+k*n] = - r8_abs ( x[i1+k*n] );
+          x[i1+k*n] = - fabs ( x[i1+k*n] );
         }
         w[k] = a1 * c;
         k = k + 1;
@@ -9128,10 +9081,10 @@ void en_r2_07_2 ( int n, int o, double x[], double w[] )
         {
           x[i1+k*n] = x[i1+(k-2)*n];;
         }
-        x[i+k*n] = r8_abs ( x[i+k*n] );
+        x[i+k*n] = fabs ( x[i+k*n] );
         for ( i1 = i + 1; i1 < n; i1++ )
         {
-          x[i1+k*n] = - r8_abs ( x[i1+k*n] );
+          x[i1+k*n] = - fabs ( x[i1+k*n] );
         }
         w[k] = a2 * c;
         more = true;
@@ -17189,7 +17142,7 @@ double parallelipiped_volume_3d ( double x[4], double y[4], double z[4] )
 {
   double volume;
 
-  volume = r8_abs ( 
+  volume = fabs ( 
     ( z[1] - z[0] ) * ( y[3] * x[2] - y[2] * x[3] ) + 
     ( z[2] - z[0] ) * ( x[3] * y[1] - x[1] * y[3] ) + 
     ( z[3] - z[0] ) * ( x[1] * y[2] - x[2] * y[1] ) + 
@@ -17264,7 +17217,7 @@ double parallelipiped_volume_nd ( int n, double v[] )
   {
     det = r8ge_det ( n, w, pivot );
 
-    volume = r8_abs ( det );
+    volume = fabs ( det );
   }
 
   delete [] pivot;
@@ -19728,13 +19681,22 @@ double qmult_3d ( double func ( double x, double y, double z ), double a,
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
+double r8_asin ( double s )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_ABS returns the absolute value of an R8.
+//    R8_ASIN computes the arc sine function, with argument truncation.
+//
+//  Discussion:
+//
+//    If you call your system ASIN routine with an input argument that is
+//    outside the range [-1.0, 1.0 ], you may get an unpleasant surprise.
+//
+//    In particular, you may get the value NaN returned.
+//
+//    This routine truncates arguments outside the range, avoiding the problem.
 //
 //  Licensing:
 //
@@ -19742,7 +19704,7 @@ double r8_abs ( double x )
 //
 //  Modified:
 //
-//    14 November 2006
+//    04 March 2008
 //
 //  Author:
 //
@@ -19750,21 +19712,18 @@ double r8_abs ( double x )
 //
 //  Parameters:
 //
-//    Input, double X, the quantity whose absolute value is desired.
+//    Input, double S, the argument.
 //
-//    Output, double R8_ABS, the absolute value of X.
+//    Output, double R8_ASIN, an angle whose sine is S.
 //
 {
   double value;
 
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
+  s = r8_max ( s, -1.0 );
+  s = r8_min ( s, +1.0 );
+
+  value = asin ( s );
+
   return value;
 }
 //****************************************************************************80
@@ -19854,19 +19813,19 @@ double r8_epsilon ( )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -19877,16 +19836,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }
@@ -20667,7 +20617,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
     hf = gc * gcab / ( gca * gcb );
     return hf;
   }
-  else if ( 1.0 + x <= eps && r8_abs ( c - a + b - 1.0 ) <= eps )
+  else if ( 1.0 + x <= eps && fabs ( c - a + b - 1.0 ) <= eps )
   {
     g0 = sqrt ( pi ) * pow ( 2.0, - a );
     g1 = r8_gamma ( c );
@@ -20680,12 +20630,12 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   {
     if ( l2 )
     {
-      nm = ( int ) ( r8_abs ( a ) );
+      nm = ( int ) ( fabs ( a ) );
     }
 
     if ( l3 )
     {
-      nm = ( int ) ( r8_abs ( b ) );
+      nm = ( int ) ( fabs ( b ) );
     }
 
     hf = 1.0;
@@ -20704,12 +20654,12 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   {
     if ( l4 )
     {
-      nm = ( int ) ( r8_abs ( c - a ) );
+      nm = ( int ) ( fabs ( c - a ) );
     }
 
     if ( l5 )
     {
-      nm = ( int ) ( r8_abs ( c - b ) );
+      nm = ( int ) ( fabs ( c - b ) );
     }
 
     hf = 1.0;
@@ -20743,7 +20693,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
   {
     gm = 0.0;
 
-    if ( r8_abs ( c - a - b - ( int ) ( c - a - b ) ) < 1.0E-15 )
+    if ( fabs ( c - a - b - ( int ) ( c - a - b ) ) < 1.0E-15 )
     {
       m = ( int ) ( c - a - b );
       ga = r8_gamma ( a );
@@ -20818,7 +20768,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
           f1 = f1 + r1 * rp;
 
-          if ( r8_abs ( f1 - hw ) < r8_abs ( f1 ) * eps )
+          if ( fabs ( f1 - hw ) < fabs ( f1 ) * eps )
           {
             break;
           }
@@ -20866,7 +20816,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
           f1 = f1 + r1 * rp;
 
-          if ( r8_abs ( f1 - hw ) < r8_abs ( f1 ) * eps )
+          if ( fabs ( f1 - hw ) < fabs ( f1 ) * eps )
           {
             break;
           }
@@ -20903,7 +20853,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
         hf = hf + r0 + r1;
 
-        if ( r8_abs ( hf - hw ) < r8_abs ( hf ) * eps )
+        if ( fabs ( hf - hw ) < fabs ( hf ) * eps )
         {
           break;
         }
@@ -20934,7 +20884,7 @@ double r8_hyper_2f1 ( double a, double b, double c, double x )
 
       hf = hf + r;
 
-      if ( r8_abs ( hf - hw ) <= r8_abs ( hf ) * eps )
+      if ( fabs ( hf - hw ) <= fabs ( hf ) * eps )
       {
         break;
       }
@@ -21203,7 +21153,7 @@ double r8_psi ( double xx )
   double zero = 0.0;
 
   x = xx;
-  w = r8_abs ( x );
+  w = fabs ( x );
   aug = zero;
 //
 //  Check for valid arguments, then branch to appropriate algorithm.
@@ -21620,7 +21570,7 @@ int r8ge_fa ( int n, double a[], int pivot[] )
 
     for ( i = k+1; i <= n; i++ )
     {
-      if ( r8_abs ( a[l-1+(k-1)*n] ) < r8_abs ( a[i-1+(k-1)*n] ) )
+      if ( fabs ( a[l-1+(k-1)*n] ) < fabs ( a[i-1+(k-1)*n] ) )
       {
         l = i;
       }
@@ -22913,7 +22863,7 @@ double simplex_unit_05_2_nd ( double func ( int n, double x[] ), int n )
 //
 //  Purpose:
 //
-//    SIMPLEX_UNIT_05_2_ND approximates an integral inside the unit simplex in ND.
+//    SIMPLEX_UNIT_05_2_ND approximates an integral in the unit simplex in ND.
 //
 //  Integration region:
 //
@@ -23068,7 +23018,7 @@ double simplex_unit_volume_nd ( int n )
 //
 //  Modified:
 //
-//    12 March 2008
+//    23 April 2013
 //
 //  Author:
 //
@@ -23084,7 +23034,7 @@ double simplex_unit_volume_nd ( int n )
 {
   double value;
 
-  value = 1.0 / ( double ) ( i4_factorial ( n ) );
+  value = 1.0 / r8_factorial ( n );
 
   return value;
 }
@@ -23157,7 +23107,7 @@ double simplex_volume_nd ( int n, double v[] )
 //  Multiply by the volume of the unit simplex, which serves as a
 //  conversion factor between a parallelipiped and the simplex.
 //
-    volume = r8_abs ( det ) * simplex_unit_volume_nd ( n );
+    volume = fabs ( det ) * simplex_unit_volume_nd ( n );
   }
 
   delete [] pivot;
@@ -23355,7 +23305,7 @@ double sphere_05_nd ( double func ( int n, double x[] ), int n, double center[],
   {
     subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-    if ( iadd != -1 )
+    if ( iadd != 0 )
     {
       x[iadd-1] = center[iadd-1] - ( x[iadd-1] - center[iadd-1] );
     }
@@ -23486,7 +23436,7 @@ double sphere_07_1_nd ( double func ( int n, double x[] ), int n,
   {
     subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-    if ( iadd != -1 )
+    if ( iadd != 0 )
     {
       x[iadd-1] = center[iadd-1] - ( x[iadd-1] - center[iadd-1] );
     }
@@ -23675,7 +23625,7 @@ double sphere_cap_area_2d ( double r, double h )
   }
   else
   {
-    theta = 2.0 * arc_sine ( sqrt ( r * r - ( r - h ) * ( r - h ) ) / r );
+    theta = 2.0 * r8_asin ( sqrt ( r * r - ( r - h ) * ( r - h ) ) / r );
 
     area = r * theta;
 
@@ -23819,7 +23769,7 @@ double sphere_cap_area_nd ( int dim_num, double r, double h )
 //
   haver_sine = sqrt ( ( 2.0 * r - h ) * h );
 
-  theta = arc_sine ( haver_sine / r );
+  theta = r8_asin ( haver_sine / r );
 
   if ( dim_num < 1 )
   {
@@ -23913,7 +23863,7 @@ double sphere_cap_volume_2d ( double r, double h )
   }
   else
   {
-    theta = 2.0 * arc_sine ( sqrt ( r * r - ( r - h ) * ( r - h ) ) / r );
+    theta = 2.0 * r8_asin ( sqrt ( r * r - ( r - h ) * ( r - h ) ) / r );
     volume = r * r * ( theta - sin ( theta ) ) / 2.0;
     if ( r < h )
     {
@@ -24014,7 +23964,7 @@ double sphere_cap_volume_nd ( int dim_num, double r, double h )
 // 
 //    After factoring out the constant terms, and writing RC = R * cos ( T ),
 //    and RS = R * sin ( T ), and letting 
-//      T_MAX = arc_sine ( sqrt ( ( 2.0D+00 * r - h ) * h / r ) ),
+//      T_MAX = r8_asin ( sqrt ( ( 2.0D+00 * r - h ) * h / r ) ),
 //    the "interesting part" of our integral becomes
 //
 //      constants * R**N * Integral ( T = 0 to T_MAX ) sin**N ( T ) dT
@@ -24075,7 +24025,7 @@ double sphere_cap_volume_nd ( int dim_num, double r, double h )
   {
     factor1 = sphere_unit_volume_nd ( dim_num - 1 );
 
-    angle = arc_sine ( sqrt ( ( 2.0 * r - h ) * h / r ) );
+    angle = r8_asin ( sqrt ( ( 2.0 * r - h ) * h / r ) );
 
     factor2 = sin_power_int ( 0.0, angle, dim_num );
 
@@ -24703,7 +24653,7 @@ double sphere_unit_05_nd ( double func ( int n, double x[] ), int n )
   {
     subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-    if ( iadd != -1 )
+    if ( iadd != 0 )
     {
       x[iadd-1] = -x[iadd-1];
     }
@@ -24938,7 +24888,7 @@ double sphere_unit_07_1_nd ( double func ( int n, double x[] ), int n )
   {
     subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-    if ( iadd != -1 )
+    if ( iadd != 0 )
     {
       x[iadd-1] = -x[iadd-1];
     }
@@ -25074,7 +25024,7 @@ double sphere_unit_07_2_nd ( double func ( int n, double x[] ), int n )
   {
     subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-    if ( iadd != -1 )
+    if ( iadd != 0 )
     {
       x[iadd-1] = - x[iadd-1];
     }
@@ -25094,7 +25044,7 @@ double sphere_unit_07_2_nd ( double func ( int n, double x[] ), int n )
     {
       subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-      if ( iadd != -1 )
+      if ( iadd != 0 )
       {
         x[iadd-1] = - x[iadd-1];
       }
@@ -25265,13 +25215,13 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
 //
 //  Purpose:
 //
-//    SPHERE_UNIT_11_ND approximates an integral on the surface of the unit sphere in ND.
-//
-//  Integration region:
-//
-//    sum ( X(1:N)^2 ) = 1
+//    SPHERE_UNIT_11_ND: integral on the surface of the unit sphere in ND.
 //
 //  Discussion:
+//
+//    The integration region:
+//
+//      sum ( X(1:N)^2 ) = 1
 //
 //    An 2^N * ( N^2 + N + 1 ) point formula of degree 5 is used.
 //
@@ -25284,13 +25234,17 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
 //    by Stroud, when going from his paper to his later textbook.
 //    This correction was pointed out by David Wright, 16 February 2010.
 //
+//    One element of COEF21 was incorrectly transcribed.  The correct
+//    value of COEF21(7) is 0.0337329118818D+00, as pointed out by
+//    John Nolan, 23 April 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    15 February 2010
+//    23 April 2013
 //
 //  Author:
 //
@@ -25317,7 +25271,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
 //    Input, int N, the dimension of the space.  For this routine,
 //    it must be the case that 3 <= N <= 16.
 //
-//    Output, double SPHERE_UNIT_11_ND, the approximate integral of the function.
+//    Output, double SPHERE_UNIT_11_ND, the approximate integral.
 //
 {
   double area;
@@ -25345,7 +25299,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
     0.0967270533860, 
     0.0638253880175, 
     0.0452340041459, 
-    0.0336329118818, 
+    0.0337329118818, 
     0.0261275095270, 
     0.0208331595340, 
     0.0169937111647, 
@@ -25454,7 +25408,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
   {
     subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-    if ( iadd != -1 )
+    if ( iadd != 0 )
     {
       x[iadd-1] = -x[iadd-1];
     }
@@ -25491,7 +25445,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
     {
       subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-      if ( iadd != -1 )
+      if ( iadd != 0 )
       {
         x[iadd-1] = -x[iadd-1];
       }
@@ -25530,7 +25484,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
     {
       subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-      if ( iadd != -1 )
+      if ( iadd != 0 )
       {
         x[iadd-1] = -x[iadd-1];
       }
@@ -25555,7 +25509,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
     / ( double ) ( n * n + 24 * n - 48 );
   v1 = sqrt ( v1 );
 
-  for ( i = 0; i < n; i++ )
+  for ( i = 0; i < n - 1; i++ )
   {
     for ( j = i + 1; j < n; j++ )
     {
@@ -25572,7 +25526,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
       {
         subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-        if ( iadd != -1 )
+        if ( iadd != 0 )
         {
           x[iadd-1] = -x[iadd-1];
         }
@@ -25598,7 +25552,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
     / ( double ) ( n * n + 24 * n - 48 );
   v2 = sqrt ( v2 );
 
-  for ( i = 0; i < n; i++ )
+  for ( i = 0; i < n - 1; i++ )
   {
     for ( j = i + 1; j < n; j++ )
     {
@@ -25615,7 +25569,7 @@ double sphere_unit_11_nd ( double func ( int n, double x[] ), int n )
       {
         subset_gray_next ( n, ix, &more, &ncard, &iadd );
 
-        if ( iadd != -1 )
+        if ( iadd != 0 )
         {
           x[iadd-1] = -x[iadd-1];
         }
@@ -25646,7 +25600,7 @@ double sphere_unit_14_3d ( double func ( double x, double y, double z ) )
 //
 //  Purpose:
 //
-//    SPHERE_UNIT_14_3D approximates an integral on the surface of the unit sphere in 3D.
+//    SPHERE_UNIT_14_3D: integral on the surface of the unit sphere in 3D.
 //
 //  Integration region:
 //
@@ -31265,7 +31219,7 @@ double triangle_volume ( double x[3], double y[3] )
 {
   double value;
 
-  value = 0.5 * r8_abs ( 
+  value = 0.5 * fabs ( 
     x[0] * ( y[1] - y[2] ) + 
     x[1] * ( y[2] - y[0] ) + 
     x[2] * ( y[0] - y[1] ) );

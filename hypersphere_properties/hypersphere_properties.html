@@ -1,0 +1,227 @@
+<html>
+
+  <head>
+    <title>
+      HYPERSPHERE_PROPERTIES - Properties of the M-dimensional Sphere
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      HYPERSPHERE_PROPERTIES <br> Properties of the M-dimensional Sphere
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>HYPERSPHERE_PROPERTIES</b>
+      is a C++ library which
+      carries out various operations for an M-dimensional hypersphere, including 
+      converting between Cartesian and spherical coordinates, 
+      stereographic projection, sampling the surface of the sphere, and
+      computing the surface area and volume.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>HYPERSPHERE_PROPERTIES</b> is available in
+      <a href = "../../c_src/hypersphere_properties/hypersphere_properties.html">a C version</a> and
+      <a href = "../../cpp_src/hypersphere_properties/hypersphere_properties.html">a C++ version</a> and
+      <a href = "../../f77_src/hypersphere_properties/hypersphere_properties.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/hypersphere_properties/hypersphere_properties.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/hypersphere_properties/hypersphere_properties.html">a MATLAB version.</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/geometry/geometry.html">
+      GEOMETRY</a>,
+      a C++ library which
+      performs geometric calculations in 2, 3 and M dimensional space.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hypersphere_monte_carlo/hypersphere_monte_carlo.html">
+      HYPERSPHERE_MONTE_CARLO</a>,
+      a C++ library which
+      applies a Monte Carlo method to estimate the integral of a function
+      on the surface of the unit sphere in M dimensions;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/random_data/random_data.html">
+      RANDOM_DATA</a>,
+      a C++ library which
+      generates sample points for
+      various probability distributions, spatial dimensions, and geometries,
+      including the M-dimensional cube, ellipsoid, simplex and sphere.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_stereograph/sphere_stereograph.html">
+      SPHERE_STEREOGRAPH</a>,
+      a C++ library which
+      computes the stereographic mapping between points on the unit sphere
+      and points on the plane Z = 1; a generalized mapping is also available
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        George Marsaglia,<br>
+        Choosing a point from the surface of a sphere,<br>
+        Annals of Mathematical Statistics,<br>
+        Volume 43, Number 2, April 1972, pages 645-646.
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "hypersphere_properties.cpp">hypersphere_properties.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "hypersphere_properties.hpp">hypersphere_properties.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "hypersphere_properties.sh">hypersphere_properties.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "hypersphere_properties_prb.cpp">hypersphere_properties_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "hypersphere_properties_prb.sh">hypersphere_properties_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "hypersphere_properties_prb_output.txt">hypersphere_properties_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CARTESIAN_TO_HYPERSPHERE:</b> Cartesian to hypersphere coordinate transform.
+        </li>
+        <li>
+          <b>HYPERSPHERE_01_AREA</b> computes the surface area of a unit sphere in ND.
+        </li>
+        <li>
+          <b>HYPERSPHERE_01_AREA_VALUES</b> returns some areas of the unit sphere in ND.
+        </li>
+        <li>
+          <b>HYPERSPHERE_01_INTERIOR_UNIFORM:</b> uniform points inside unit hypersphere.
+        </li>
+        <li>
+          <b>HYPERSPHERE_01_SURFACE_UNIFORM:</b> uniform points on unit hypersphere surface.
+        </li>
+        <li>
+          <b>HYPERSPHERE_01_VOLUME</b> computes the volume of a unit sphere in ND.
+        </li>
+        <li>
+          <b>HYPERSPHERE_01_VOLUME_VALUES</b> returns some volumes of the unit sphere in ND.
+        </li>
+        <li>
+          <b>HYPERSPHERE_AREA</b> computes the surface area of an implicit sphere in ND.
+        </li>
+        <li>
+          <b>HYPERSPHERE_STEREOGRAPH:</b> stereographic mapping of points on a hypersphere.
+        </li>
+        <li>
+          <b>HYPERSPHERE_STEREOGRAPH_INVERSE</b> inverts a stereographic map.
+        </li>
+        <li>
+          <b>HYPERSPHERE_SURFACE_UNIFORM:</b> uniform hypersphere surface samples
+        </li>
+        <li>
+          <b>HYPERSPHERE_TO_CARTESIAN:</b> hypersphere to Cartesian coordinate transform.
+        </li>
+        <li>
+          <b>HYPERSPHERE_VOLUME</b> computes the volume of a hypersphere.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>R8MAT_NORMAL_01</b> returns a unit pseudonormal R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_NORMAL_01</b> returns a unit pseudonormal R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_TRANSPOSE_PRINT</b> prints an R8VEC "transposed".
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>SPHERE_STEREOGRAPH</b> computes the stereographic image of points on a sphere.
+        </li>
+        <li>
+          <b>SPHERE_STEREOGRAPH_INVERSE</b> computes stereographic preimages of points.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 11 May 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -1,0 +1,25 @@
+29 August 2013 08:46:18 AM
+
+MANDELBROT
+  C++ version
+
+  Create an ASCII PPM image of the Mandelbrot set.
+
+  For each point C = X + i*Y
+  with X range [-2.25,1.25]
+  and  Y range [-1.75,1.75]
+  carry out 400 iterations of the map
+  Z(n+1) = Z(n)^2 + C.
+  If the iterates stay bounded (norm less than 2)
+  then C is taken to be a member of the set.
+
+  An ASCII PPM image of the set is created using
+    N = 501 pixels in the X direction and
+    N = 501 pixels in the Y direction.
+
+  ASCII PPM image data stored in "mandelbrot.ppm".
+
+MANDELBROT
+  Normal end of execution.
+
+29 August 2013 08:46:19 AM

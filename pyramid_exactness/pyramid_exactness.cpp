@@ -13,8 +13,6 @@ char ch_cap ( char ch );
 bool ch_eqi ( char ch1, char ch2 );
 int ch_to_digit ( char ch );
 void comp_next ( int n, int k, int a[], bool *more, int *h, int *t );
-double *dtable_data_read ( string input_filename, int m, int n );
-void dtable_header_read ( string input_filename, int *m, int *n );
 int file_column_count ( string filename );
 int file_row_count ( string input_filename );
 int i4_max ( int i1, int i2 );
@@ -25,6 +23,8 @@ double pyra_unit_volume ( );
 double r8_abs ( double x );
 double r8_choose ( int n, int k );
 double r8_mop ( int i );
+double *r8mat_data_read ( string input_filename, int m, int n );
+void r8mat_header_read ( string input_filename, int &m, int &n );
 double r8vec_dot_product ( int n, double a1[], double a2[] );
 int s_len_trim ( string s );
 int s_to_i4 ( string s, int *last, bool *error );
@@ -99,9 +99,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "PYRAMID_EXACTNESS\n";
   cout << "  C++ version\n";
-  cout << "\n";
-  cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
-  cout << "\n";
   cout << "  Investigate the polynomial exactness of a quadrature\n";
   cout << "  rule for the pyramid.\n";
 //
@@ -152,7 +149,7 @@ int main ( int argc, char *argv[] )
 //
 //  Read the X file.
 //
-  dtable_header_read ( quad_x_filename, &dim_num, &order );
+  r8mat_header_read ( quad_x_filename, dim_num, order );
 
   cout << "\n";
   cout << "  Spatial dimension = " << dim_num   << "\n";
@@ -166,11 +163,11 @@ int main ( int argc, char *argv[] )
     exit ( 1 );
   }
 
-  x = dtable_data_read ( quad_x_filename, dim_num, order );
+  x = r8mat_data_read ( quad_x_filename, dim_num, order );
 //
 //  Read the W file.
 //
-  dtable_header_read ( quad_w_filename, &dim_num2, &order2 );
+  r8mat_header_read ( quad_w_filename, dim_num2, order2 );
 
   if ( dim_num2 != 1 ) 
   {
@@ -190,7 +187,7 @@ int main ( int argc, char *argv[] )
     exit ( 1 );
   }
 
-  w = dtable_data_read ( quad_w_filename, 1, order );
+  w = r8mat_data_read ( quad_w_filename, 1, order );
 //
 //  Explore the monomials.
 //
@@ -236,7 +233,9 @@ int main ( int argc, char *argv[] )
     cout << "\n";
     delete [] v;
   }
-
+//
+//  Free memory.
+//
   delete [] expon;
   delete [] w;
   delete [] x;
@@ -246,7 +245,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "PYRAMID_EXACTNESS:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -261,10 +259,6 @@ char ch_cap ( char ch )
 //  Purpose:
 //
 //    CH_CAP capitalizes a single character.
-//
-//  Discussion:
-//
-//    This routine should be equivalent to the library "toupper" function.
 //
 //  Licensing:
 //
@@ -341,7 +335,7 @@ int ch_to_digit ( char ch )
 //
 //  Purpose:
 //
-//    CH_TO_DIGIT returns the integer value of a base 10 digit.
+//    CH_TO_DIGIT returns the value of a base 10 digit.
 //
 //  Example:
 //
@@ -370,7 +364,7 @@ int ch_to_digit ( char ch )
 //
 //    Input, char CH, the decimal digit, '0' through '9' or blank are legal.
 //
-//    Output, int CH_TO_DIGIT, the corresponding integer value.  If the 
+//    Output, int CH_TO_DIGIT, the corresponding value.  If the 
 //    character was 'illegal', then DIGIT is -1.
 //
 {
@@ -529,165 +523,6 @@ void comp_next ( int n, int k, int a[], bool *more, int *h, int *t )
   }
 
   *more = ( a[k-1] != n );
-
-  return;
-}
-//****************************************************************************80
-
-double *dtable_data_read ( string input_filename, int m, int n )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_DATA_READ reads the data from a DTABLE file.
-//
-//  Discussion:
-//
-//    The file is assumed to contain one record per line.
-//
-//    Records beginning with '#' are comments, and are ignored.
-//    Blank lines are also ignored.
-//
-//    Each line that is not ignored is assumed to contain exactly (or at least)
-//    M real numbers, representing the coordinates of a point.
-//
-//    There are assumed to be exactly (or at least) N such records.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Input, int M, the number of spatial dimensions.
-//
-//    Input, int N, the number of points.  The program
-//    will stop reading data once N values have been read.
-//
-//    Output, double DTABLE_DATA_READ[M*N], the table data.
-//
-{
-  bool error;
-  ifstream input;
-  int i;
-  int j;
-  string line;
-  double *table;
-  double *x;
-
-  input.open ( input_filename.c_str ( ) );
-
-  if ( !input )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_DATA_READ - Fatal error!\n";
-    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return NULL;
-  }
-
-  table = new double[m*n];
-
-  x = new double[m];
-
-  j = 0;
-
-  while ( j < n )
-  {
-    getline ( input, line );
-
-    if ( input.eof ( ) )
-    {
-      break;
-    }
-
-    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
-    {
-      continue;
-    }
-
-    error = s_to_r8vec ( line, m, x );
-
-    if ( error )
-    {
-      continue;
-    }
-
-    for ( i = 0; i < m; i++ )
-    {
-      table[i+j*m] = x[i];
-    }
-    j = j + 1;
-
-  }
-
-  input.close ( );
-
-  delete [] x;
-
-  return table;
-}
-//****************************************************************************80
- 
-void dtable_header_read ( string input_filename, int *m, int *n )
- 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_HEADER_READ reads the header from a DTABLE file.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Output, int *M, the number of spatial dimensions.
-//
-//    Output, int *N, the number of points.
-//
-{
-  *m = file_column_count ( input_filename );
-
-  if ( *m <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
-  }
-
-  *n = file_row_count ( input_filename );
-
-  if ( *n <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
-  }
 
   return;
 }
@@ -872,7 +707,7 @@ int file_row_count ( string input_filename )
     cerr << "\n";
     cerr << "FILE_ROW_COUNT - Fatal error!\n";
     cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return (-1);
+    exit ( 1 );
   }
 
   for ( ; ; )
@@ -990,7 +825,7 @@ int i4_min ( int i1, int i2 )
 }
 //****************************************************************************80
 
-double *monomial_value ( int dim_num, int point_num, int expon[], double x[] )
+double *monomial_value ( int m, int n, int e[], double x[] )
 
 //****************************************************************************80
 //
@@ -1000,7 +835,7 @@ double *monomial_value ( int dim_num, int point_num, int expon[], double x[] )
 //
 //  Discussion:
 //
-//    F(X) = product ( 1 <= DIM <= DIM_NUM ) X(I)^EXPON(I)
+//    F(X) = product ( 1 <= I <= M ) X(I)^E(I)
 //
 //    with the convention that 0^0 = 1.
 //
@@ -1018,35 +853,35 @@ double *monomial_value ( int dim_num, int point_num, int expon[], double x[] )
 //
 //  Parameters:
 //
-//    Input, int DIM_NUM, the spatial dimension.
+//    Input, int M, the spatial dimension.
 //
-//    Input, int POINT_NUM, the number of points.
+//    Input, int N, the number of points.
 //
-//    Input, int EXPON[DIM_NUM], the exponents.
+//    Input, int E[M], the exponents.
 //
-//    Input, double X[DIM_NUM*POINT_NUM], the evaluation points.
+//    Input, double X[M*N], the evaluation points.
 //
-//    Output, double MONOMIAL_VALUE[POINT_NUM], the monomial values.
+//    Output, double MONOMIAL_VALUE[N], the monomial values.
 //
 {
-  int dim;
-  int point;
+  int i;
+  int j;
   double *v;
 
-  v = new double[point_num];
+  v = new double[n];
 
-  for ( point = 0; point < point_num; point++ )
+  for ( j = 0; j < n; j++ )
   {
-    v[point] = 1.0;
+    v[j] = 1.0;
   }
 
-  for ( dim = 0; dim < dim_num; dim++ )
+  for ( i = 0; i < m; i++ )
   {
-    if ( expon[dim] != 0.0 )
+    if ( e[i] != 0.0 )
     {
-      for ( point = 0; point < point_num; point++ )
+      for ( j = 0; j < n; j++ )
       {
-        v[point] = v[point] * pow ( x[dim+point*dim_num], expon[dim] );
+        v[j] = v[j] * pow ( x[i+j*m], e[i] );
       }
     }
   }
@@ -1098,7 +933,8 @@ double pyra_unit_monomial ( int expon[3] )
 //
 //    Input, int EXPON[3], the exponents.
 //
-//    Output, double PYRA_UNIT_MONOMIAL, the volume of the pyramid.
+//    Output, double PYRA_UNIT_MONOMIAL, the integral of the monomial
+//    over the pyramid.
 //
 {
   int i;
@@ -1327,6 +1163,170 @@ double r8_mop ( int i )
   }
 
   return value;
+}
+//****************************************************************************80
+
+double *r8mat_data_read ( string input_filename, int m, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_DATA_READ reads the data from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//    The file is assumed to contain one record per line.
+//
+//    Records beginning with '#' are comments, and are ignored.
+//    Blank lines are also ignored.
+//
+//    Each line that is not ignored is assumed to contain exactly (or at least)
+//    M real numbers, representing the coordinates of a point.
+//
+//    There are assumed to be exactly (or at least) N such records.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Input, int M, the number of spatial dimensions.
+//
+//    Input, int N, the number of points.  The program
+//    will stop reading data once N values have been read.
+//
+//    Output, double R8MAT_DATA_READ[M*N], the data.
+//
+{
+  bool error;
+  ifstream input;
+  int i;
+  int j;
+  string line;
+  double *table;
+  double *x;
+
+  input.open ( input_filename.c_str ( ) );
+
+  if ( !input )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_DATA_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
+    exit ( 1 );
+  }
+
+  table = new double[m*n];
+
+  x = new double[m];
+
+  j = 0;
+
+  while ( j < n )
+  {
+    getline ( input, line );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+
+    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
+    {
+      continue;
+    }
+
+    error = s_to_r8vec ( line, m, x );
+
+    if ( error )
+    {
+      continue;
+    }
+
+    for ( i = 0; i < m; i++ )
+    {
+      table[i+j*m] = x[i];
+    }
+    j = j + 1;
+
+  }
+
+  input.close ( );
+
+  delete [] x;
+
+  return table;
+}
+//****************************************************************************80
+
+void r8mat_header_read ( string input_filename, int &m, int &n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_HEADER_READ reads the header from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Output, int &M, the number of spatial dimensions.
+//
+//    Output, int &N, the number of points.
+//
+{
+  m = file_column_count ( input_filename );
+
+  if ( m <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_COLUMN_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  n = file_row_count ( input_filename );
+
+  if ( n <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_ROW_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  return;
 }
 //****************************************************************************80
 

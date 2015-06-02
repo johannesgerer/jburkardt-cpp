@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    BLACK_SCHOLES_PRB tests BLACK_SCHOLES.
+//    MAIN is the main program for BLACK_SCHOLES_PRB.
+//
+//  Discussion:
+//
+//    BLACK_SCHOLES_PRB tests the BLACK_SCHOLES library.
 //
 //  Licensing:
 //
@@ -53,7 +57,6 @@ int main ( )
   cout << "\n";
   cout << "BLACK_SCHOLES_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

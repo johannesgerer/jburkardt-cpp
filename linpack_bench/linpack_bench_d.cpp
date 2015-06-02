@@ -15,7 +15,7 @@ void dgesl ( double a[], int lda, int n, int ipvt[], double b[], int job );
 void dscal ( int n, double sa, double x[], int incx );
 int idamax ( int n, double dx[], int incx );
 double r8_abs ( double x );
-double r8_epsilon ( void );
+double r8_epsilon ( );
 double r8_max ( double x, double y );
 double r8_random ( int iseed[4] );
 double *r8mat_gen ( int lda, int n );
@@ -234,7 +234,7 @@ int main ( void )
 }
 //****************************************************************************80
 
-double cpu_time ( void )
+double cpu_time ( )
 
 //****************************************************************************80
 //
@@ -949,25 +949,29 @@ double r8_abs ( double x )
 }
 //****************************************************************************80
 
-double r8_epsilon ( void )
+double r8_epsilon ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the R8 round off unit.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -975,19 +979,12 @@ double r8_epsilon ( void )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0E+00;
-
-  while ( 1.0E+00 < ( double ) ( 1.0E+00 + r )  )
-  {
-    r = r / 2.0E+00;
-  }
-
-  return ( 2.0E+00 * r );
+  return value;
 }
 //****************************************************************************80
 

@@ -41,6 +41,7 @@ void test1126 ( );
 void test115 ( );
 void test119 ( );
 void test1225 ( );
+void test1227 ( );
 void test1255 ( );
 void test1265 ( );
 void test129 ( );
@@ -61,7 +62,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    CHRPAK_PRB calls the CHRPAK tests.
+//    CHRPAK_PRB tests the CHRPAK library.
 //
 //  Licensing:
 //
@@ -69,7 +70,7 @@ int main ( )
 //
 //  Modified:
 //
-//    31 August 2009
+//    16 January 2013
 //
 //  Author:
 //
@@ -77,7 +78,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "CHRPAK_PRB:\n";
   cout << "  C++ version\n";
@@ -130,6 +130,7 @@ int main ( )
   test119 ( );
 
   test1225 ( );
+  test1227 ( );
   test1255 ( );
   test1265 ( );
   test129 ( );
@@ -145,7 +146,6 @@ int main ( )
   cout << "\n";
   cout << "CHRPAK_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -923,7 +923,7 @@ void test058 ( )
   for ( test = 0; test < TEST_NUM; test++ )
   {
     s1 = s_test[test];
-    i  = s_to_i4 ( s1, &last, &error );
+    i  = s_to_i4 ( s1, last, error );
     s2 = i4_to_s ( i );
     cout << "  " << "\"" << s1 << "\""
          << "  "         << i  
@@ -1834,6 +1834,165 @@ void test119 ( )
 }
 //****************************************************************************80
 
+void test1225 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1225 tests S_S_SUBANAGRAM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    29 August 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define TEST_NUM 4
+
+  string s1;
+  string s1_test[TEST_NUM] = {
+    "Get a priest!", 
+    "Get a priest!", 
+    "Get a priest!", 
+    "Get a priest!" };
+  string s2;
+  string s2_test[TEST_NUM] = {
+    "stripe", 
+    "pastor", 
+    "a sip", 
+    "tag!" };
+  int test;
+  bool value;
+
+  cout << "\n";
+  cout << "TEST1225\n";
+  cout << "  S_S_SUBANAGRAM is TRUE if S2 is a \"subanagram\"\n";
+  cout << "  of S1.\n";
+  cout << "\n";
+
+  for ( test = 0; test < TEST_NUM; test++ )
+  {
+    s1 = s1_test[test];
+    s2 = s2_test[test];
+
+    value = s_s_subanagram ( s1, s2 );
+
+    cout << "  \"" << s1 << "\""
+         << "  \"" << s2 << "\""
+         << "  " << value << "\n";
+  }
+
+  return;
+# undef TEST_NUM
+}
+//****************************************************************************80
+
+void test1227 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1227 tests S_SCRABBLE_POINTS.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  string s;
+  int value;
+
+  cout << "\n";
+  cout << "TEST1227\n";
+  cout << "  S_SCRABBLE_POINTS returns the value of a string\n";
+  cout << "  as a Scrabble word.\n";
+  cout << "\n";
+  cout << "   I  ----S-------   Value\n";
+  cout << "\n";
+  for ( i = 1; i <= 12; i++ )
+  {
+    s = i4_to_month_name ( i );
+    value = s_scrabble_points ( s );
+    cout << "  " << setw(2) << i
+         << "  " << setw(9) << s
+         << "  " << setw(6) << value << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void test1255 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST1255 tests S_SORT_A.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    29 August 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define TEST_NUM 5
+
+  string s;
+  string s_test[TEST_NUM] = {
+    "HELLO World   !! !  ",
+    "12345678901234567890",
+    "Abc Def Ghi Jkl Mno ",
+    "AbleBakerCharlieDelt",
+    "What? You have seen?" };
+  string s2;
+  int test;
+
+  cout << "\n";
+  cout << "TEST1255\n";
+  cout << "  S_SORT_A ascending sorts a string.\n";
+  cout << "\n";
+  cout << "  -------String-------  -------Sorted-------\n";
+  cout << "\n";
+
+  for ( test = 0; test < TEST_NUM; test++ )
+  {
+    s = s_test[test];
+    s2 = s_sort_a ( s );
+    cout << "  " << "\"" << s << "\""
+         << "  " << "\"" << s2 << "\"" << "\n";
+  }
+
+  return;
+# undef TEST_NUM
+}
+//****************************************************************************80
+
 void test1265 ( )
 
 //****************************************************************************80
@@ -1896,120 +2055,6 @@ void test1265 ( )
        << setw(2)  << b << "  "
                    << s_substring ( s, a, b ) << "\n";
   return;
-}
-//****************************************************************************80
-
-void test1225 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST1225 tests S_S_SUBANAGRAM.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    29 August 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-# define TEST_NUM 4
-
-  string s1;
-  string s1_test[TEST_NUM] = {
-    "Get a priest!", 
-    "Get a priest!", 
-    "Get a priest!", 
-    "Get a priest!" };
-  string s2;
-  string s2_test[TEST_NUM] = {
-    "stripe", 
-    "pastor", 
-    "a sip", 
-    "tag!" };
-  int test;
-  bool value;
-
-  cout << "\n";
-  cout << "TEST1225\n";
-  cout << "  S_S_SUBANAGRAM is TRUE if S2 is a \"subanagram\"\n";
-  cout << "  of S1.\n";
-  cout << "\n";
-
-  for ( test = 0; test < TEST_NUM; test++ )
-  {
-    s1 = s1_test[test];
-    s2 = s2_test[test];
-
-    value = s_s_subanagram ( s1, s2 );
-
-    cout << "  \"" << s1 << "\""
-         << "  \"" << s2 << "\""
-         << "  " << value << "\n";
-  }
-
-  return;
-# undef TEST_NUM
-}
-//****************************************************************************80
-
-void test1255 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST1255 tests S_SORT_A.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    29 August 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-# define TEST_NUM 5
-
-  string s;
-  string s_test[TEST_NUM] = {
-    "HELLO World   !! !  ",
-    "12345678901234567890",
-    "Abc Def Ghi Jkl Mno ",
-    "AbleBakerCharlieDelt",
-    "What? You have seen?" };
-  string s2;
-  int test;
-
-  cout << "\n";
-  cout << "TEST1255\n";
-  cout << "  S_SORT_A ascending sorts a string.\n";
-  cout << "\n";
-  cout << "  -------String-------  -------Sorted-------\n";
-  cout << "\n";
-
-  for ( test = 0; test < TEST_NUM; test++ )
-  {
-    s = s_test[test];
-    s2 = s_sort_a ( s );
-    cout << "  " << "\"" << s << "\""
-         << "  " << "\"" << s2 << "\"" << "\n";
-  }
-
-  return;
-# undef TEST_NUM
 }
 //****************************************************************************80
 

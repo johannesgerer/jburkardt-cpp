@@ -29,7 +29,7 @@
         - d/dx ( a(x) * du/dx ) + c(x) * u(x) = f(x)
       </pre>
       in the interval 0 &lt; x &lt; 1.  The functions a(x), c(x), and f(x) are
-      given functions, and a formula for a'(x) is also available.
+      given.
     </p>
 
     <p>
@@ -107,7 +107,8 @@
       <a href = "../../cpp_src/fem1d_bvp_linear/fem1d_bvp_linear.html">a C++ version</a> and
       <a href = "../../f77_src/fem1d_bvp_linear/fem1d_bvp_linear.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/fem1d_bvp_linear/fem1d_bvp_linear.html">a FORTRAN90 version</a> and
-      <a href = "../../m_src/fem1d_bvp_linear/fem1d_bvp_linear.html">a MATLAB version</a>.
+      <a href = "../../m_src/fem1d_bvp_linear/fem1d_bvp_linear.html">a MATLAB version</a> and
+      <a href = "../../py_src/fem1d_bvp_linear/fem1d_bvp_linear.html">a Python version</a>.
     </p>
 
     <h3 align = "center">
@@ -120,14 +121,6 @@
       a C++ program which
       applies the finite difference method
       to a two point boundary value problem in one spatial dimension.
-    </p>
-
-    <p>
-      <a href = "../../data/fem1d/fem1d.html">
-      FEM1D</a>, 
-      a data directory which
-      contains examples of 1D FEM files, 
-      three text files that describe a 1D finite element model;
     </p>
 
     <p>
@@ -148,6 +141,16 @@
     </p>
 
     <p>
+      <a href = "../../cpp_src/fem1d_bvp_quadratic/fem1d_bvp_quadratic.html">
+      FEM1D_BVP_QUADRATIC</a>,
+      a C+= program which
+      applies the finite element method (FEM), with piecewise quadratic
+      elements, to a two point boundary value problem (BVP) in one 
+      spatial dimension, and compares the computed and exact solutions 
+      with the L2 and seminorm errors.
+    </p>
+
+    <p>
       <a href = "../../cpp_src/fem1d_heat_steady/fem1d_heat_steady.html">
       FEM1D_HEAT_STEADY</a>,
       a C++ program which
@@ -164,18 +167,21 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/fem1d_pack/fem1d_pack.html">
-      FEM1D_PACK</a>,
-      a C++ library which
-      contains utilities for 1D finite element calculations.
-    </p>
-
-    <p>
       <a href = "../../cpp_src/fem1d_pmethod/fem1d_pmethod.html">
       FEM1D_PMETHOD</a>, 
       a C++ program which 
       applies the p-method version of the finite element method to a linear 
       two point boundary value problem in a 1D region.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_bvp_linear/fem2d_bvp_linear.html">
+      FEM2D_BVP_LINEAR</a>,
+      a C++ program which
+      applies the finite element method (FEM), with piecewise linear elements,
+      to a 2D boundary value problem (BVP) in a rectangle,
+      and compares the computed and exact solutions 
+      with the L2 and seminorm errors.
     </p>
 
     <h3 align = "center">

@@ -168,7 +168,7 @@ double *c8vec_unity ( int n )
 //
 //    X(1:N) = exp ( 2 * PI * (0:N-1) / N )
 //
-//    X(1:N)**N = ( (1,0), (1,0), ..., (1,0) ).
+//    X(1:N)^N = ( (1,0), (1,0), ..., (1,0) ).
 //
 //  Licensing:
 //
@@ -816,9 +816,9 @@ int i4_modp ( int i, int j )
 
   if ( j == 0 )
   {
-    cout << "\n";
-    cout << "I4_MODP - Fatal error!\n";
-    cout << "  I4_MODP ( I, J ) called with J = " << j << "\n";
+    cerr << "\n";
+    cerr << "I4_MODP - Fatal error!\n";
+    cerr << "  I4_MODP ( I, J ) called with J = " << j << "\n";
     exit ( 1 );
   }
 
@@ -871,9 +871,9 @@ int i4_power ( int i, int j )
     }
     else if ( i == 0 )
     {
-      cout << "\n";
-      cout << "I4_POWER - Fatal error!\n";
-      cout << "  I^J requested, with I = 0 and J negative.\n";
+      cerr << "\n";
+      cerr << "I4_POWER - Fatal error!\n";
+      cerr << "  I^J requested, with I = 0 and J negative.\n";
       exit ( 1 );
     }
     else
@@ -885,9 +885,9 @@ int i4_power ( int i, int j )
   {
     if ( i == 0 )
     {
-      cout << "\n";
-      cout << "I4_POWER - Fatal error!\n";
-      cout << "  I^J requested, with I = 0 and J = 0.\n";
+      cerr << "\n";
+      cerr << "I4_POWER - Fatal error!\n";
+      cerr << "  I^J requested, with I = 0 and J = 0.\n";
       exit ( 1 );
     }
     else
@@ -1108,9 +1108,9 @@ int i4vec_search_binary_a ( int n, int a[], int b )
 //
   if ( n <= 0 )
   {
-    cout << "\n";
-    cout << "I4VEC_SEARCH_BINARY_A - Fatal error!\n";
-    cout << "  The array dimension N is less than 1.\n";
+    cerr << "\n";
+    cerr << "I4VEC_SEARCH_BINARY_A - Fatal error!\n";
+    cerr << "  The array dimension N is less than 1.\n";
     exit ( 1 );
   }
 
@@ -1564,6 +1564,47 @@ double r8_min ( double x, double y )
 }
 //****************************************************************************80
 
+double r8_sign ( double x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_SIGN returns the sign of an R8.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the number whose sign is desired.
+//
+//    Output, double R8_SIGN, the sign of X.
+//
+{
+  double value;
+
+  if ( x < 0.0 )
+  {
+    value = -1.0;
+  }
+  else
+  {
+    value = 1.0;
+  }
+  return value;
+}
+//****************************************************************************80
+
 double r8_sign2 ( double x, double y )
 
 //****************************************************************************80
@@ -1864,9 +1905,9 @@ double *r83_cr_fa ( int n, double a[] )
 
   if ( n <= 0 )
   {
-    cout << "\n";
-    cout << "R83_CR_FA - Fatal error!\n";
-    cout << "  Nonpositive N = " << n << "\n";
+    cerr << "\n";
+    cerr << "R83_CR_FA - Fatal error!\n";
+    cerr << "  Nonpositive N = " << n << "\n";
     exit ( 1 );
   }
 
@@ -2037,9 +2078,9 @@ double *r83_cr_sl ( int n, double a_cr[], double b[] )
 
   if ( n <= 0 )
   {
-    cout << "\n";
-    cout << "R83_CR_SL - Fatal error!\n";
-    cout << "  Nonpositive N = " << n << "\n";
+    cerr << "\n";
+    cerr << "R83_CR_SL - Fatal error!\n";
+    cerr << "  Nonpositive N = " << n << "\n";
     exit ( 1 );
   }
 
@@ -2199,9 +2240,9 @@ double *r83_cr_sls ( int n, double a_cr[], int nb, double b[] )
 
   if ( n <= 0 )
   {
-    cout << "\n";
-    cout << "R83_CR_SLS - Fatal error!\n";
-    cout << "  Nonpositive N = " << n << "\n";
+    cerr << "\n";
+    cerr << "R83_CR_SLS - Fatal error!\n";
+    cerr << "  Nonpositive N = " << n << "\n";
     exit ( 1 );
   }
 
@@ -2371,9 +2412,9 @@ void r83_gs_sl ( int n, double a[], double b[], double x[], int it_max,
   {
     if ( a[1+i*3] == 0.0 )
     {
-      cout << "\n";
-      cout << "R83_GS_SL - Fatal error!\n";
-      cout << "  Zero diagonal entry, index = " << i << "\n";
+      cerr << "\n";
+      cerr << "R83_GS_SL - Fatal error!\n";
+      cerr << "  Zero diagonal entry, index = " << i << "\n";
       exit ( 1 );
     }
   }
@@ -2563,9 +2604,9 @@ void r83_jac_sl ( int n, double a[], double b[], double x[], int it_max,
   {
     if ( a[1+i*3] == 0.0 )
     {
-      cout << "\n";
-      cout << "R83_JAC_SL - Fatal error!\n";
-      cout << "  Zero diagonal entry, index = " << i << "\n";
+      cerr << "\n";
+      cerr << "R83_JAC_SL - Fatal error!\n";
+      cerr << "  Zero diagonal entry, index = " << i << "\n";
       exit ( 1 );
     }
   }
@@ -2804,9 +2845,9 @@ int r83_np_fa ( int n, double a[] )
   {
     if ( a[1+(i-1)*3] == 0.0 )
     {
-      cout << "\n";
-      cout << "R83_NP_FA - Fatal error!\n";
-      cout << "  Zero pivot on step " << i << "\n";
+      cerr << "\n";
+      cerr << "R83_NP_FA - Fatal error!\n";
+      cerr << "  Zero pivot on step " << i << "\n";
       exit ( 1 );
     }
 //
@@ -2821,9 +2862,9 @@ int r83_np_fa ( int n, double a[] )
 
   if ( a[1+(n-1)*3] == 0.0 )
   {
-    cout << "\n";
-    cout << "R83_NP_FA - Fatal error!\n";
-    cout << "  Zero pivot on step " << n << "\n";
+    cerr << "\n";
+    cerr << "R83_NP_FA - Fatal error!\n";
+    cerr << "  Zero pivot on step " << n << "\n";
     exit ( 1 );
   }
 
@@ -3879,12 +3920,12 @@ int r83p_fa ( int n, double a[], double work2[], double work3[], double *work4 )
 
   if ( info != 0 )
   {
-    cout << "\n";
-    cout << "R83P_FA - Fatal error!\n";
-    cout << "  R83_NP_FA returned INFO = " << info << "\n";
-    cout << "  Factoring failed for column INFO.\n";
-    cout << "  The tridiagonal matrix A1 is singular.\n";
-    cout << "  This algorithm cannot continue!\n";
+    cerr << "\n";
+    cerr << "R83P_FA - Fatal error!\n";
+    cerr << "  R83_NP_FA returned INFO = " << info << "\n";
+    cerr << "  Factoring failed for column INFO.\n";
+    cerr << "  The tridiagonal matrix A1 is singular.\n";
+    cerr << "  This algorithm cannot continue!\n";
     exit ( 1 );
   }
 //
@@ -3926,10 +3967,10 @@ int r83p_fa ( int n, double a[], double work2[], double work3[], double *work4 )
 
   if ( *work4 == 0.0 )
   {
-    cout << "\n";
-    cout << "R83P_FA - Fatal error!\n";
-    cout << "  The factored A4 submatrix is zero.\n";
-    cout << "  This algorithm cannot continue!\n";
+    cerr << "\n";
+    cerr << "R83P_FA - Fatal error!\n";
+    cerr << "  The factored A4 submatrix is zero.\n";
+    cerr << "  This algorithm cannot continue!\n";
     exit ( 1 );
   }
 
@@ -4781,6 +4822,322 @@ double *r83p_zero ( int n )
       a[i+j*3] = 0.0;
     }
   }
+
+  return a;
+}
+//****************************************************************************80
+
+double *r83s_mxv ( int n, double a[], double x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R83S_MXV multiplies an R83S matrix times a vector.
+//
+//  Discussion:
+//
+//    The R83S storage format is used for a tridiagonal scalar matrix.
+//    The vector A(3) contains the subdiagonal, diagonal, and superdiagonal
+//    values that occur on every row.
+//
+//  Example:
+//
+//    Here is how an R83S matrix of order 5, stored as (A1,A2,A3), would
+//    be interpreted:
+//
+//      A2  A3   0   0   0
+//      A1  A2  A3   0   0
+//       0  A1  A2  A3   0 
+//       0   0  A1  A2  A3
+//       0   0   0  A1  A2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the linear system.
+//
+//    Input, double A[3], the R83S matrix.
+//
+//    Input, double X[N], the vector to be multiplied by A.
+//
+//    Output, double R83S_MXV[N], the product A * x.
+//
+{
+  double *b;
+  int i;
+
+  b = new double[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    b[i] = 0.0;
+  }
+
+  for ( i = 1; i < n; i++ )
+  {
+    b[i] = b[i] + a[0] * x[i-1];
+  }
+
+  for ( i = 0; i < n; i++ )
+  {
+    b[i] = b[i] + a[1] * x[i];
+  }
+
+  for ( i = 0; i < n - 1; i++ )
+  {
+    b[i] = b[i] + a[2] * x[i+1];
+  }
+
+  return b;
+}
+//****************************************************************************80
+
+void r83s_print ( int n, double a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R83S_PRINT prints an R83S matrix.
+//
+//  Discussion:
+//
+//    The R83S storage format is used for a tridiagonal scalar matrix.
+//    The vector A(3) contains the subdiagonal, diagonal, and superdiagonal
+//    values that occur on every row.
+//
+//  Example:
+//
+//    Here is how an R83S matrix of order 5, stored as (A1,A2,A3), would
+//    be interpreted:
+//
+//      A2  A3   0   0   0
+//      A1  A2  A3   0   0
+//       0  A1  A2  A3   0 
+//       0   0  A1  A2  A3
+//       0   0   0  A1  A2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    06 April 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//    N must be positive.
+//
+//    Input, double A[3], the R83S matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  r83s_print_some ( n, a, 1, 1, n, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void r83s_print_some ( int n, double a[], int ilo, int jlo, int ihi, int jhi,
+  string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R83S_PRINT_SOME prints some of a R83S matrix.
+//
+//  Discussion:
+//
+//    The R83S storage format is used for a tridiagonal scalar matrix.
+//    The vector A(3) contains the subdiagonal, diagonal, and superdiagonal
+//    values that occur on every row.
+//
+//  Example:
+//
+//    Here is how an R83S matrix of order 5, stored as (A1,A2,A3), would
+//    be interpreted:
+//
+//      A2  A3   0   0   0
+//      A1  A2  A3   0   0
+//       0  A1  A2  A3   0 
+//       0   0  A1  A2  A3
+//       0   0   0  A1  A2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//    N must be positive.
+//
+//    Input, double A[3], the R83S matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, designate the first row and
+//    column, and the last row and column, to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 5
+
+  int i;
+  int i2hi;
+  int i2lo;
+  int inc;
+  int j;
+  int j2;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+//
+//  Print the columns of the matrix, in strips of 5.
+//
+  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
+  {
+    j2hi = j2lo + INCX - 1;
+    j2hi = i4_min ( j2hi, n );
+    j2hi = i4_min ( j2hi, jhi );
+
+    inc = j2hi + 1 - j2lo;
+
+    cout << "\n";
+    cout << "  Col: ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      j2 = j + 1 - j2lo;
+      cout << setw(7) << j << "       ";
+    }
+
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "  ---\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    i2lo = i4_max ( ilo, 1 );
+    i2lo = i4_max ( i2lo, j2lo - 1 );
+
+    i2hi = i4_min ( ihi, n );
+    i2hi = i4_min ( i2hi, j2hi + 1 );
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+//
+//  Print out (up to) 5 entries in row I, that lie in the current strip.
+//
+      cout << setw(6) << i << ": ";
+
+      for ( j2 = 1; j2 <= inc; j2++ )
+      {
+        j = j2lo - 1 + j2;
+
+        if ( 1 < i - j || 1 < j - i )
+        {
+          cout << "              ";
+        }
+        else if ( j == i - 1 )
+        {
+          cout << setw(12) << a[0] << "  ";
+        }
+        else if ( j == i )
+        {
+          cout << setw(12) << a[1] << "  ";
+        }
+        else if ( j == i + 1 )
+        {
+          cout << setw(12) << a[2] << "  ";
+        }
+
+      }
+      cout << "\n";
+    }
+  }
+  return;
+# undef INCX
+}
+//****************************************************************************80
+
+double *r83s_random ( int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R83S_RANDOM randomizes an R83S matrix.
+//
+//  Discussion:
+//
+//    The R83S storage format is used for a tridiagonal scalar matrix.
+//    The vector A(3) contains the subdiagonal, diagonal, and superdiagonal
+//    values that occur on every row.
+//
+//  Example:
+//
+//    Here is how an R83S matrix of order 5, stored as (A1,A2,A3), would
+//    be interpreted:
+//
+//      A2  A3   0   0   0
+//      A1  A2  A3   0   0
+//       0  A1  A2  A3   0 
+//       0   0  A1  A2  A3
+//       0   0   0  A1  A2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the linear system.
+//
+//    Input/output, int &SEED, a seed for the random number generator.
+//
+//    Output, double R83_RANDOM[3], the R83S matrix.
+//
+{
+  double *a;
+
+  a = r8vec_uniform_01_new ( 3, seed );
 
   return a;
 }
@@ -5693,17 +6050,17 @@ void r8bb_add ( int n1, int n2, int ml, int mu, double a[], int i, int j,
 
   if ( i <= 0 || n1 + n2 < i )
   {
-    cout << "\n";
-    cout << "R8BB_ADD - Fatal error!\n";
-    cout << "  Illegal input value of row index I = " << i << "\n";
+    cerr << "\n";
+    cerr << "R8BB_ADD - Fatal error!\n";
+    cerr << "  Illegal input value of row index I = " << i << "\n";
     exit ( 1 );
   }
 
   if ( j <= 0 || n1 + n2 < j )
   {
-    cout << "\n";
-    cout << "R8BB_ADD - Fatal error!\n";
-    cout << "  Illegal input value of column index J = " << j << "\n";
+    cerr << "\n";
+    cerr << "R8BB_ADD - Fatal error!\n";
+    cerr << "  Illegal input value of column index J = " << j << "\n";
     exit ( 1 );
   }
 //
@@ -6061,17 +6418,17 @@ double r8bb_get ( int n1, int n2, int ml, int mu, double a[], int i, int j )
 
   if ( i <= 0 || n1 + n2 < i )
   {
-    cout << "\n";
-    cout << "R8BB_GET - Fatal error!\n";
-    cout << "  Illegal input value of row index I = " << i << "\n";
+    cerr << "\n";
+    cerr << "R8BB_GET - Fatal error!\n";
+    cerr << "  Illegal input value of row index I = " << i << "\n";
     exit ( 1 );
   }
 
   if ( j <= 0 || n1 + n2 < j )
   {
-    cout << "\n";
-    cout << "R8BB_GET - Fatal error!\n";
-    cout << "  Illegal input value of column index J = " << j << "\n";
+    cerr << "\n";
+    cerr << "R8BB_GET - Fatal error!\n";
+    cerr << "  Illegal input value of column index J = " << j << "\n";
     exit ( 1 );
   }
 //
@@ -6968,17 +7325,17 @@ void r8bb_set ( int n1, int n2, int ml, int mu, double a[], int i, int j,
 
   if ( i <= 0 || n1 + n2 < i )
   {
-    cout << "\n";
-    cout << "R8BB_SET - Fatal error!\n";
-    cout << "  Illegal input value of row index I = " << i << "\n";
+    cerr << "\n";
+    cerr << "R8BB_SET - Fatal error!\n";
+    cerr << "  Illegal input value of row index I = " << i << "\n";
     exit ( 1 );
   }
 
   if ( j <= 0 || n1 + n2 < j )
   {
-    cout << "\n";
-    cout << "R8BB_SET - Fatal error!\n";
-    cout << "  Illegal input value of column index J = " << j << "\n";
+    cerr << "\n";
+    cerr << "R8BB_SET - Fatal error!\n";
+    cerr << "  Illegal input value of column index J = " << j << "\n";
     exit ( 1 );
   }
 //
@@ -10230,9 +10587,9 @@ int r8cb_np_fa ( int n, int ml, int mu, double a[] )
 //
     if ( a[m-1+(k-1)*(ml+mu+1)] == 0.0 )
     {
-      cout << "\n";
-      cout << "R8CB_FA - Fatal error!\n";
-      cout << "  Zero pivot on step " << k << "\n";
+      cerr << "\n";
+      cerr << "R8CB_FA - Fatal error!\n";
+      cerr << "  Zero pivot on step " << k << "\n";
       exit ( 1 );
     }
 //
@@ -10268,9 +10625,9 @@ int r8cb_np_fa ( int n, int ml, int mu, double a[] )
 
   if ( a[m-1+(n-1)*(ml+mu+1)] == 0.0 )
   {
-    cout << "\n";
-    cout << "R8CB_FA - Fatal error!\n";
-    cout << "  Zero pivot on step " << n << "\n";
+    cerr << "\n";
+    cerr << "R8CB_FA - Fatal error!\n";
+    cerr << "  Zero pivot on step " << n << "\n";
     exit ( 1 );
   }
 
@@ -10919,7 +11276,7 @@ double *r8cb_zero ( int n, int ml, int mu )
   int i;
   int j;
 
-  a = new double [(ml+mu+1)*n];
+  a = new double[(ml+mu+1)*n];
 
   for ( j = 0; j < n; j++ )
   {
@@ -11038,17 +11395,17 @@ void r8cbb_add ( int n1, int n2, int ml, int mu, double a[], int i, int j,
 //
   if ( i <= 0 || n1+n2 < i )
   {
-    cout << "\n";
-    cout << "R8CBB_ADD - Fatal error!\n";
-    cout << "  Illegal input value of row index I = " << i << "\n";
+    cerr << "\n";
+    cerr << "R8CBB_ADD - Fatal error!\n";
+    cerr << "  Illegal input value of row index I = " << i << "\n";
     exit ( 1 );
   }
 
   if ( j <= 0 || n1+n2 < j )
   {
-    cout << "\n";
-    cout << "R8CBB_ADD - Fatal error!\n";
-    cout << "  Illegal input value of column index J = " << j << "\n";
+    cerr << "\n";
+    cerr << "R8CBB_ADD - Fatal error!\n";
+    cerr << "  Illegal input value of column index J = " << j << "\n";
     exit ( 1 );
   }
 //
@@ -11388,12 +11745,12 @@ int r8cbb_fa ( int n1, int n2, int ml, int mu, double a[] )
     info = r8cb_np_fa ( n1, ml, mu, a );
     if ( info != 0 )
     {
-      cout << "\n";
-      cout << "R8CBB_FA - Fatal error!\n";
-      cout << "  R8CB_NP_FA returned INFO = " << info << "\n";
-      cout << "  Factoring failed for column INFO.\n";
-      cout << "  The band matrix A1 is singular.\n";
-      cout << "  This algorithm cannot continue!\n";
+      cerr << "\n";
+      cerr << "R8CBB_FA - Fatal error!\n";
+      cerr << "  R8CB_NP_FA returned INFO = " << info << "\n";
+      cerr << "  Factoring failed for column INFO.\n";
+      cerr << "  The band matrix A1 is singular.\n";
+      cerr << "  This algorithm cannot continue!\n";
       exit ( 1 );
     }
   }
@@ -11455,12 +11812,12 @@ int r8cbb_fa ( int n1, int n2, int ml, int mu, double a[] )
 
     if ( info != 0 )
     {
-      cout << "\n";
-      cout << "R8CBB_FA - Fatal error!\n";
-      cout << "  R8GE_NP_FA returned INFO = " << info << "\n";
-      cout << "  This indicates singularity in column " << n1+info << ".\n";
-      cout << "  The dense matrix A4 is singular.\n";
-      cout << "  This algorithm cannot continue!\n";
+      cerr << "\n";
+      cerr << "R8CBB_FA - Fatal error!\n";
+      cerr << "  R8GE_NP_FA returned INFO = " << info << "\n";
+      cerr << "  This indicates singularity in column " << n1+info << ".\n";
+      cerr << "  The dense matrix A4 is singular.\n";
+      cerr << "  This algorithm cannot continue!\n";
       exit ( 1 );
     }
   }
@@ -12417,17 +12774,17 @@ void r8cbb_set ( int n1, int n2, int ml, int mu, double a[], int i, int j,
 //
   if ( i <= 0 || n1+n2 < i )
   {
-    cout << "\n";
-    cout << "R8CBB_SET - Fatal error!\n";
-    cout << "  Illegal input value of row index I = " << i << "\n";
+    cerr << "\n";
+    cerr << "R8CBB_SET - Fatal error!\n";
+    cerr << "  Illegal input value of row index I = " << i << "\n";
     exit ( 1 );
   }
 
   if ( j <= 0 || n1+n2 < j )
   {
-    cout << "\n";
-    cout << "R8CBB_SET - Fatal error!\n";
-    cout << "  Illegal input value of column index J = " << j << "\n";
+    cerr << "\n";
+    cerr << "R8CBB_SET - Fatal error!\n";
+    cerr << "  Illegal input value of column index J = " << j << "\n";
     exit ( 1 );
   }
 //
@@ -13040,7 +13397,7 @@ double *r8cbb_zero ( int n1, int n2, int ml, int mu )
   double *a;
   int i;
 
-  a = new double [(ml+mu+1)*n1+2*n1*n2+n2*n2];
+  a = new double[(ml+mu+1)*n1+2*n1*n2+n2*n2];
 
   for ( i = 0; i < (ml+mu+1)*n1+2*n1*n2+n2*n2; i++ )
   {
@@ -13292,11 +13649,11 @@ void r8cc_inc ( int m, int n, int nz_num, int col[], int row[], double a[],
 //
   if ( k == -1 )
   {
-    cout << "\n";
-    cout << "R8CC_INC - Fatal error!\n";
-    cout << "  R8CC_IJK could not find the entry.\n";
-    cout << "  Row I = " << i << "\n";
-    cout << "  Col J = " << j << "\n";
+    cerr << "\n";
+    cerr << "R8CC_INC - Fatal error!\n";
+    cerr << "  R8CC_IJK could not find the entry.\n";
+    cerr << "  Row I = " << i << "\n";
+    cerr << "  Col J = " << j << "\n";
     exit ( 1 );
   }
   a[k-1] = a[k-1] + aij;
@@ -13541,6 +13898,7 @@ double *r8cc_mxv ( int m, int n, int nz_num, int col[], int row[],
 //    Input, double X[N], the vector to be multiplied.
 //
 //    Output, double R8CC_MXV[M], the product A * X.
+//
 {
   double *b;
   int i;
@@ -13759,8 +14117,6 @@ void r8cc_print_some ( int m, int n, int nz_num, int col[], int row[],
     }
   }
 
-  cout << "\n";
-
   return;
 # undef INCX
 }
@@ -13890,7 +14246,7 @@ void r8cc_read ( string col_file, string row_file, string a_file, int m,
 //
 //  Parameters:
 //
-//    Input, string COL_FILE, *ROW_FILE, *A_FILE, the names of the 
+//    Input, string COL_FILE, ROW_FILE, A_FILE, the names of the 
 //    files containing the column pointers, row indices, and matrix entries.
 //
 //    Input, int M, N, the number of rows and columns in the matrix.
@@ -13911,9 +14267,9 @@ void r8cc_read ( string col_file, string row_file, string a_file, int m,
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8CC_READ - Fatal error!\n";
-    cout << "  Could not open the file \"" << col_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_READ - Fatal error!\n";
+    cerr << "  Could not open the file \"" << col_file << "\".\n";
     exit ( 1 );
   }
 
@@ -13930,9 +14286,9 @@ void r8cc_read ( string col_file, string row_file, string a_file, int m,
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8CC_READ - Fatal error!\n";
-    cout << "  Could not open the file \"" << row_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_READ - Fatal error!\n";
+    cerr << "  Could not open the file \"" << row_file << "\".\n";
     exit ( 1 );
   }
 
@@ -13949,9 +14305,9 @@ void r8cc_read ( string col_file, string row_file, string a_file, int m,
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8CC_READ - Fatal error!\n";
-    cout << "  Could not open the file \"" << a_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_READ - Fatal error!\n";
+    cerr << "  Could not open the file \"" << a_file << "\".\n";
     exit ( 1 );
   }
 
@@ -14056,9 +14412,9 @@ void r8cc_read_size ( string col_file, string row_file, int *m, int *n,
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8CC_READ_SIZE - Fatal error!\n";
-    cout << "  Could not open the file \"" << col_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_READ_SIZE - Fatal error!\n";
+    cerr << "  Could not open the file \"" << col_file << "\".\n";
     exit ( 1 );
   }
 
@@ -14086,9 +14442,9 @@ void r8cc_read_size ( string col_file, string row_file, int *m, int *n,
 
   if ( !input2 )
   {
-    cout << "\n";
-    cout << "R8CC_READ_SIZE - Fatal error!\n";
-    cout << "  Could not open the file \"" << row_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_READ_SIZE - Fatal error!\n";
+    cerr << "  Could not open the file \"" << row_file << "\".\n";
     exit ( 1 );
   }
 
@@ -14189,11 +14545,11 @@ void r8cc_set ( int m, int n, int nz_num, int col[], int row[], double a[],
 //
   if ( k == -1 )
   {
-    cout << "\n";
-    cout << "R8CC_SET - Fatal error!\n";
-    cout << "  R8CC_IJK could not find the entry.\n";
-    cout << "  Row I = " << i << "\n";
-    cout << "  Col J = " << j << "\n";
+    cerr << "\n";
+    cerr << "R8CC_SET - Fatal error!\n";
+    cerr << "  R8CC_IJK could not find the entry.\n";
+    cerr << "  Row I = " << i << "\n";
+    cerr << "  Col J = " << j << "\n";
     exit ( 1 );
   }
   a[k-1] = aij;
@@ -14278,9 +14634,9 @@ double *r8cc_to_r8ge ( int m, int n, int nz_num, int col[], int row[],
 
   if ( col[0] < 0 || nz_num < col[0] )
   {
-    cout << "\n";
-    cout << "R8CC_TO_R8GE - Fatal error!\n";
-    cout << "  COL[" << j << "] = " << col[j] << "\n";
+    cerr << "\n";
+    cerr << "R8CC_TO_R8GE - Fatal error!\n";
+    cerr << "  COL[" << j << "] = " << col[j] << "\n";
     exit ( 1 );
   }
 
@@ -14288,9 +14644,9 @@ double *r8cc_to_r8ge ( int m, int n, int nz_num, int col[], int row[],
   {
     if ( col[j+1] < 0 || nz_num < col[j+1] - 1 )
     {
-      cout << "\n";
-      cout << "R8CC_TO_R8GE - Fatal error!\n";
-      cout << "  COL[" << j+1 << "] = " << col[j+1] << "\n";
+      cerr << "\n";
+      cerr << "R8CC_TO_R8GE - Fatal error!\n";
+      cerr << "  COL[" << j+1 << "] = " << col[j+1] << "\n";
       exit ( 1 );
     }
 
@@ -14299,9 +14655,9 @@ double *r8cc_to_r8ge ( int m, int n, int nz_num, int col[], int row[],
       i = row[k-1] - 1;
       if ( i < 0 || m <= i )
       {
-        cout << "\n";
-        cout << "R8CC_TO_R8GE - Fatal error!\n";
-        cout << "  ROW[" << k-1 << "] = " << i << "\n";
+        cerr << "\n";
+        cerr << "R8CC_TO_R8GE - Fatal error!\n";
+        cerr << "  ROW[" << k-1 << "] = " << i << "\n";
         exit ( 1 );
       }
       b[i+j*m] = a[k-1];
@@ -14371,6 +14727,7 @@ double *r8cc_vxm ( int m, int n, int nz_num, int col[], int row[],
 //    Input, double X[M], the vector to be multiplied.
 //
 //    Output, double R8CC_VXM[N], the product A' * X.
+//
 {
   double *b;
   int i;
@@ -14441,7 +14798,7 @@ void r8cc_write ( string col_file, string row_file, string a_file, int m, int n,
 //
 //  Parameters:
 //
-//    Input, string COL_FILE, *ROW_FILE, *A_FILE, the names of the 
+//    Input, string COL_FILE, ROW_FILE, A_FILE, the names of the 
 //    files containing the column pointers, row entries, and matrix entries.
 //
 //    Input, int M, N, the number of rows and columns in the matrix.
@@ -14462,9 +14819,9 @@ void r8cc_write ( string col_file, string row_file, string a_file, int m, int n,
 
   if ( !output )
   {
-    cout << "\n";
-    cout << "R8CC_WRITE - Fatal error!\n";
-    cout << "  Could not open the file \"" << col_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_WRITE - Fatal error!\n";
+    cerr << "  Could not open the file \"" << col_file << "\".\n";
     exit ( 1 );
   }
 
@@ -14481,9 +14838,9 @@ void r8cc_write ( string col_file, string row_file, string a_file, int m, int n,
 
   if ( !output )
   {
-    cout << "\n";
-    cout << "R8CC_WRITE - Fatal error!\n";
-    cout << "  Could not open the file \"" << row_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_WRITE - Fatal error!\n";
+    cerr << "  Could not open the file \"" << row_file << "\".\n";
     exit ( 1 );
   }
 
@@ -14500,9 +14857,9 @@ void r8cc_write ( string col_file, string row_file, string a_file, int m, int n,
 
   if ( !output )
   {
-    cout << "\n";
-    cout << "R8CC_WRITE - Fatal error!\n";
-    cout << "  Could not open the file \"" << a_file << "\".\n";
+    cerr << "\n";
+    cerr << "R8CC_WRITE - Fatal error!\n";
+    cerr << "  Could not open the file \"" << a_file << "\".\n";
     exit ( 1 );
   }
 
@@ -15570,9 +15927,9 @@ int r8gb_fa ( int n, int ml, int mu, double a[], int pivot[] )
 //
     if ( a[l-1+(k-1)*col] == 0.0 )
     {
-      cout << "\n";
-      cout << "R8GB_FA - Fatal error!\n";
-      cout << "  Zero pivot on step " << k << "\n";
+      cerr << "\n";
+      cerr << "R8GB_FA - Fatal error!\n";
+      cerr << "  Zero pivot on step " << k << "\n";
       exit ( 1 );
     }
 //
@@ -15618,9 +15975,9 @@ int r8gb_fa ( int n, int ml, int mu, double a[], int pivot[] )
 
   if ( a[m-1+(n-1)*col] == 0.0 )
   {
-    cout << "\n";
-    cout << "R8GB_FA - Fatal error!\n";
-    cout << "  Zero pivot on step " << n << "\n";
+    cerr << "\n";
+    cerr << "R8GB_FA - Fatal error!\n";
+    cerr << "  Zero pivot on step " << n << "\n";
     exit ( 1 );
   }
 
@@ -16443,7 +16800,7 @@ double *r8gb_random ( int m, int n, int ml, int mu, int *seed )
   int i;
   int j;
   int row;
-//
+
   a = new double[col*n];
 
   for ( j = 1; j <= n; j++ )
@@ -16547,7 +16904,7 @@ double *r8gb_sl ( int n, int ml, int mu, double a_lu[], int pivot[],
   {
     x[i] = b[i];
   }
-//
+
   m = mu + ml + 1;
 //
 //  Solve A * x = b.
@@ -16740,10 +17097,10 @@ void r8gb_to_r8s3 ( int m, int n, int ml, int mu, double a[], int nz_num,
         {
           if ( nz_num <= nz )
           {
-            cout << "\n";
-            cout << "R8GB_TO_R8S3 - Fatal error!\n";
-            cout << "  NZ_NUM = " << nz_num << "\n";
-            cout << "  But the matrix has more nonzeros than that!\n";
+            cerr << "\n";
+            cerr << "R8GB_TO_R8S3 - Fatal error!\n";
+            cerr << "  NZ_NUM = " << nz_num << "\n";
+            cerr << "  But the matrix has more nonzeros than that!\n";
             exit ( 1 );
           }
 
@@ -16863,10 +17220,10 @@ void r8gb_to_r8sp ( int m, int n, int ml, int mu, double a[], int nz_num,
       }
       if ( nz_num <= nz )
       {
-        cout << "\n";
-        cout << "R8GB_TO_R8SP - Fatal error!\n";
-        cout << "  NZ_NUM = " << nz_num << "\n";
-        cout << "  But the matrix has more nonzeros than that!\n";
+        cerr << "\n";
+        cerr << "R8GB_TO_R8SP - Fatal error!\n";
+        cerr << "  NZ_NUM = " << nz_num << "\n";
+        cerr << "  But the matrix has more nonzeros than that!\n";
         exit ( 1 );
       }
 
@@ -18896,9 +19253,9 @@ int r8ge_fa ( int n, double a[], int pivot[] )
 //
     if ( a[l-1+(k-1)*n] == 0.0 )
     {
-      cout << "\n";
-      cout << "R8GE_FA - Fatal error!\n";
-      cout << "  Zero pivot on step " << k << "\n";
+      cerr << "\n";
+      cerr << "R8GE_FA - Fatal error!\n";
+      cerr << "  Zero pivot on step " << k << "\n";
       exit ( 1 );
     }
 //
@@ -18942,9 +19299,9 @@ int r8ge_fa ( int n, double a[], int pivot[] )
 
   if ( a[n-1+(n-1)*n] == 0.0 )
   {
-    cout << "\n";
-    cout << "R8GE_FA - Fatal error!\n";
-    cout << "  Zero pivot on step " << n << "\n";
+    cerr << "\n";
+    cerr << "R8GE_FA - Fatal error!\n";
+    cerr << "  Zero pivot on step " << n << "\n";
     exit ( 1 );
   }
 
@@ -19025,9 +19382,9 @@ void r8ge_fs ( int n, double a[], double x[] )
 
     if ( piv == 0.0 )
     {
-      cout << "\n";
-      cout << "R8GE_FS - Fatal error!\n";
-      cout << "  Zero pivot on step " << jcol << "\n";
+      cerr << "\n";
+      cerr << "R8GE_FS - Fatal error!\n";
+      cerr << "  Zero pivot on step " << jcol << "\n";
       exit ( 1 );
     }
 //
@@ -19169,9 +19526,9 @@ double *r8ge_fs_new ( int n, double a[], double b[] )
 
     if ( piv == 0.0 )
     {
-      cout << "\n";
-      cout << "R8GE_FS_NEW - Fatal error!\n";
-      cout << "  Zero pivot on step " << jcol << "\n";
+      cerr << "\n";
+      cerr << "R8GE_FS_NEW - Fatal error!\n";
+      cerr << "  Zero pivot on step " << jcol << "\n";
       exit ( 1 );
     }
 //
@@ -19306,9 +19663,9 @@ void r8ge_fss ( int n, double a[], int nb, double x[] )
 
     if ( piv == 0.0 )
     {
-      cout << "\n";
-      cout << "R8GE_FSS - Fatal error!\n";
-      cout << "  Zero pivot on step " << jcol << "\n";
+      cerr << "\n";
+      cerr << "R8GE_FSS - Fatal error!\n";
+      cerr << "  Zero pivot on step " << jcol << "\n";
       exit ( 1 );
     }
 //
@@ -19466,9 +19823,9 @@ double *r8ge_fss_new ( int n, double a[], int nb, double b[] )
 
     if ( piv == 0.0 )
     {
-      cout << "\n";
-      cout << "R8GE_FSS_NEW - Fatal error!\n";
-      cout << "  Zero pivot on step " << jcol << "\n";
+      cerr << "\n";
+      cerr << "R8GE_FSS_NEW - Fatal error!\n";
+      cerr << "  Zero pivot on step " << jcol << "\n";
       exit ( 1 );
     }
 //
@@ -20232,9 +20589,9 @@ double *r8ge_mu ( int m, int n, double a_lu[], char trans, int pivot[],
 //
   else
   {
-    cout << "\n";
-    cout << "R8GE_MU - Fatal error!\n";
-    cout << "  Illegal value of TRANS = \"" << trans << "\"\n";
+    cerr << "\n";
+    cerr << "R8GE_MU - Fatal error!\n";
+    cerr << "  Illegal value of TRANS = \"" << trans << "\"\n";
     exit ( 1 );
   }
 
@@ -22234,6 +22591,180 @@ double *r8ge_to_r8gb ( int m, int n, int ml, int mu, double a[] )
 }
 //****************************************************************************80
 
+void r8ge_to_r8ri ( int n, double a[], int nz, int ija[], double sa[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8GE_TO_R8RI converts a R8GE matrix to R8RI form.
+//
+//  Discussion:
+//
+//    A R8GE matrix is in general storage.
+//
+//    An R8RI matrix is in row indexed sparse storage form.
+//
+//    The size of the arrays IJA and SA can be determined by calling
+//    R8GE_TO_R8RI_SIZE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    William Press, Brian Flannery, Saul Teukolsky, William Vetterling,
+//    Numerical Recipes in FORTRAN: The Art of Scientific Computing,
+//    Third Edition,
+//    Cambridge University Press, 2007,
+//    ISBN13: 978-0-521-88068-8,
+//    LC: QA297.N866.
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//
+//    Input, double A[N*N], the matrix stored in GE 
+//    or "general" format.
+//
+//    Input, int NZ, the size required for the RI
+//    or "row indexed" sparse storage.
+//
+//    Output, int IJA[NZ], the index vector.
+//
+//    Output, double SA[NZ], the value vector.
+//
+{
+  int i;
+  int im;
+  int j;
+  int k;
+  int l;
+
+  for ( k = 0; k < n; k++ )
+  {
+    i = k;
+    j = k;
+    sa[k] = a[i+j*n];
+  }
+
+  k = n;
+  sa[k] = 0.0;
+
+  for ( i = 0; i <= n; i++ )
+  {
+    ija[i] = 0;
+  }
+
+  im = 0;
+
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      if ( i != j )
+      {
+        if ( a[i+j*n] != 0.0 )
+        {
+          k = k + 1;
+          if ( ija[i] == 0 )
+          {
+            for ( l = im; l <= i; l++ )
+            {
+              ija[l] = k;
+            }
+            im = i + 1;
+          }
+          ija[k] = j;
+          sa[k] = a[i+j*n];
+        }
+      }
+    }
+  }
+
+  ija[n] = k + 1;
+
+  return;
+}
+//****************************************************************************80
+
+int r8ge_to_r8ri_size ( int n, double a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8GE_TO_R8RI_SIZE determines the size of an R8RI matrix.
+//
+//  Discussion:
+//
+//    N spaces are always used for the diagonal entries, plus a dummy.
+//    The remaining spaces store off-diagonal nonzeros.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    19 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    William Press, Brian Flannery, Saul Teukolsky, William Vetterling,
+//    Numerical Recipes in FORTRAN: The Art of Scientific Computing,
+//    Third Edition,
+//    Cambridge University Press, 2007,
+//    ISBN13: 978-0-521-88068-8,
+//    LC: QA297.N866.
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//
+//    Input, double A[N*N], the matrix stored in GE or "general" format.
+//
+//    Output, int R8GE_TO_R8RI_SIZE, the size required for the RI
+//    or "row indexed" sparse storage.
+//
+{
+  int i;
+  int j;
+  int nz;
+
+  nz = n + 1;
+
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      if ( i != j )
+      {
+        if ( a[i+j*n] != 0.0 )
+        {
+          nz = nz + 1;
+        }
+      }
+    }
+  }
+
+  return nz;
+}
+//****************************************************************************80
+
 double *r8ge_to_r8vec ( int m, int n, double *a )
 
 //****************************************************************************80
@@ -22934,9 +23465,9 @@ double *r8lt_inverse ( int n, double a[] )
   {
     if ( a[i+i*n] == 0.0 )
     {
-      cout << "\n";
-      cout << "R8LT_INVERSE - Fatal error!\n";
-      cout << "  Zero diagonal element.\n";
+      cerr << "\n";
+      cerr << "R8LT_INVERSE - Fatal error!\n";
+      cerr << "  Zero diagonal element.\n";
       exit ( 1 );
     }
   }
@@ -23515,16 +24046,18 @@ void r8mat_print ( int m, int n, double a[], string title )
 //
 //  Discussion:
 //
-//    The doubly dimensioned array A is treated as a one dimensional vector,
-//    stored by COLUMNS.  Entry A(I,J) is stored as A[I+J*M]
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
+//
+//    Entry A(I,J) is stored as A[I+J*M]
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    22 August 2003
+//    10 September 2009
 //
 //  Author:
 //
@@ -23532,7 +24065,7 @@ void r8mat_print ( int m, int n, double a[], string title )
 //
 //  Parameters:
 //
-//    Input, int M, the number of s in A.
+//    Input, int M, the number of rows in A.
 //
 //    Input, int N, the number of columns in A.
 //
@@ -23541,43 +24074,207 @@ void r8mat_print ( int m, int n, double a[], string title )
 //    Input, string TITLE, a title.
 //
 {
+  r8mat_print_some ( m, n, a, 1, 1, m, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
+  int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_PRINT_SOME prints some of an R8MAT.
+//
+//  Discussion:
+//
+//    An R8MAT is a doubly dimensioned array of R8 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 August 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows of the matrix.
+//    M must be positive.
+//
+//    Input, int N, the number of columns of the matrix.
+//    N must be positive.
+//
+//    Input, double A[M*N], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, designate the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 5
+
   int i;
+  int i2hi;
+  int i2lo;
   int j;
-  int jhi;
-  int jlo;
+  int j2hi;
+  int j2lo;
 
   cout << "\n";
   cout << title << "\n";
 
-  for ( jlo = 0; jlo < n; jlo = jlo + 6 )
+  if ( m <= 0 || n <= 0 )
   {
-    jhi = jlo + 6;
-    if ( n < jhi ) 
-    {
-      jhi = n;
-    }
     cout << "\n";
-    cout << "   Col  ";
-    for ( j = jlo; j < jhi; j++ )
-    {
-      cout << setw(5) << j << "       ";
-    }
-    cout << "\n";
-    cout << "   Row\n";
-    cout << "\n";
+    cout << "  (None)\n";
+    return;
+  }
+//
+//  Print the columns of the matrix, in strips of 5.
+//
+  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
+  {
+    j2hi = j2lo + INCX - 1;
+    j2hi = i4_min ( j2hi, n );
+    j2hi = i4_min ( j2hi, jhi );
 
-    for ( i = 0; i < m; i++ )
+    cout << "\n";
+//
+//  For each column J in the current range...
+//
+//  Write the header.
+//
+    cout << "  Col:    ";
+    for ( j = j2lo; j <= j2hi; j++ )
     {
-      cout << setw(6) << i << "  ";
-      for ( j = jlo; j < jhi; j++ )
+      cout << setw(7) << j - 1 << "       ";
+    }
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    i2lo = i4_max ( ilo, 1 );
+    i2hi = i4_min ( ihi, m );
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+//
+//  Print out (up to) 5 entries in row I, that lie in the current strip.
+//
+      cout << setw(5) << i - 1 << ": ";
+      for ( j = j2lo; j <= j2hi; j++ )
       {
-        cout << setw(10) << a[i+j*m] << "  ";
+        cout << setw(12) << a[i-1+(j-1)*m] << "  ";
       }
       cout << "\n";
     }
   }
 
   return;
+# undef INCX
+}
+//****************************************************************************80
+
+double *r8mat_uniform_01_new ( int m, int n, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_UNIFORM_01_NEW returns a unit pseudorandom R8MAT.
+//
+//  Discussion:
+//
+//    An R8MAT is a doubly dimensioned array of R8's,  stored as a vector
+//    in column-major order.
+//
+//    This routine implements the recursion
+//
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
+//
+//    The integer arithmetic never requires more than 32 bits,
+//    including a sign bit.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Springer Verlag, pages 201-202, 1983.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, pages 362-376, 1986.
+//
+//    Philip Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, pages 136-143, 1969.
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input/output, int &SEED, the "seed" value.  Normally, this
+//    value should not be 0, otherwise the output value of SEED
+//    will still be 0, and R8_UNIFORM will be 0.  On output, SEED has
+//    been updated.
+//
+//    Output, double R8MAT_UNIFORM_01_NEW[M*N], a matrix of pseudorandom values.
+//
+{
+  int i;
+  int j;
+  int k;
+  double *r;
+
+  r = new double[m*n];
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      k = seed / 127773;
+
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+      if ( seed < 0 )
+      {
+        seed = seed + 2147483647;
+      }
+      r[i+j*m] = ( double ) ( seed ) * 4.656612875E-10;
+    }
+  }
+
+  return r;
 }
 //****************************************************************************80
 
@@ -24422,9 +25119,13 @@ double *r8pbu_cg ( int n, int mu, double a[], double b[], double x[] )
 //
 //  Reference:
 //
-//    FS Beckman,
+//    Frank Beckman,
 //    The Solution of Linear Equations by the Conjugate Gradient Method,
-//    Mathematical Methods for Digital Computers, pages 62-72.
+//    in Mathematical Methods for Digital Computers,
+//    edited by John Ralston, Herbert Wilf,
+//    Wiley, 1967,
+//    ISBN: 0471706892,
+//    LC: QA76.5.R3.
 //
 //  Parameters:
 //
@@ -25442,25 +26143,25 @@ double *r8pbu_sor ( int n, int mu, double a[], double b[], double eps, int itchk
 
   if ( itchk <= 0 || itmax < itchk )
   {
-    cout << "\n";
-    cout << "R8PBU_SOR - Fatal error!\n";
-    cout << "  Illegal ITCHK = " << itchk << "\n";
+    cerr << "\n";
+    cerr << "R8PBU_SOR - Fatal error!\n";
+    cerr << "  Illegal ITCHK = " << itchk << "\n";
     exit ( 1 );
   }
 
   if ( itmax <= 0 )
   {
-    cout << "\n";
-    cout << "R8PBU_SOR - Fatal error!\n";
-    cout << "  Nonpositive ITMAX = " << itmax << "\n";
+    cerr << "\n";
+    cerr << "R8PBU_SOR - Fatal error!\n";
+    cerr << "  Nonpositive ITMAX = " << itmax << "\n";
     exit ( 1 );
   }
 
   if ( omega <= 0.0 || 2.0 <= omega )
   {
-    cout << "\n";
-    cout << "R8PBU_SOR - Fatal error!\n";
-    cout << "  Illegal value of OMEGA = " << omega << "\n";
+    cerr << "\n";
+    cerr << "R8PBU_SOR - Fatal error!\n";
+    cerr << "  Illegal value of OMEGA = " << omega << "\n";
     exit ( 1 );
   }
 
@@ -26134,7 +26835,7 @@ double *r8po_mxm ( int n, double a[], double b[] )
   int i;
   int j;
   int k;
-//
+
   c = new double[n*n];
 
   for ( i = 1; i <= n; i++ )
@@ -26459,7 +27160,7 @@ double *r8po_random ( int n, int *seed )
   int i;
   int j;
   int k;
-//
+
   a = new double[n*n];
 
   for ( j = 0; j < n; j++ )
@@ -26887,7 +27588,7 @@ double *r8pp_indicator ( int n )
 //
 //  Modified:
 //
-//    05 February 2004
+//    16 February 2013
 //
 //  Author:
 //
@@ -26916,7 +27617,7 @@ double *r8pp_indicator ( int n )
   {
     for ( i = 1; i <= j; i++ )
     {
-      a[k] = double ( fac * i + j );
+      a[k] = ( double ) ( fac * i + j );
       k = k + 1;
     }
   }
@@ -27131,8 +27832,6 @@ void r8pp_print_some ( int n, double a[], int ilo, int jlo, int ihi,
       cout << "\n";
     }
   }
-
-  cout << "\n";
 
   return;
 # undef INCX
@@ -27419,11 +28118,96 @@ double *r8pp_zero ( int n )
   double *a;
   int k;
 
-  a = new double [(n*(n+1))/2];
+  a = new double[(n*(n+1))/2];
 
   for ( k = 0; k < (n*(n+1))/2; k++ )
   {
     a[k] = 0.0;
+  }
+
+  return a;
+}
+//****************************************************************************80
+
+double *r8ri_to_r8ge ( int nz, int ija[], double sa[], int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8RI_TO_R8GE converts an R8RI matrix to R8GE form.
+//
+//  Discussion:
+//
+//    An R8RI matrix is in row indexed sparse storage form.
+//
+//    A R8GE matrix is in general storage.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    William Press, Brian Flannery, Saul Teukolsky, William Vetterling,
+//    Numerical Recipes in FORTRAN: The Art of Scientific Computing,
+//    Third Edition,
+//    Cambridge University Press, 2007,
+//    ISBN13: 978-0-521-88068-8,
+//    LC: QA297.N866.
+//
+//  Parameters:
+//
+//    Input, int NZ, the size required for the RI
+//    or "row indexed" sparse storage.
+//
+//    Input, int IJA[NZ], the index vector.
+//
+//    Input, double SA[NZ], the value vector.
+//
+//    Input, int N, the order of the matrix.
+//
+//    Output, double R8RI_TO_R8GE[N*N], the matrix stored in GE 
+//    or "general" format.
+//
+{
+  double *a;
+  int i;
+  int j;
+  int k;
+
+  a = new double[n*n];
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < n; i++ )
+    {
+      a[i+j*n] = 0.0;
+    }
+  }
+
+  for ( k = 0; k < n; k++ )
+  {
+    i = k;
+    j = k;
+    a[i+j*n] = sa[k];
+  }
+
+  for ( i = 0; i < n; i++ )
+  {
+    for ( k = ija[i]; k < ija[i+1]; k++ )
+    {
+      j = ija[k];
+      a[i+j*n] = sa[k];
+    }
   }
 
   return a;
@@ -27478,17 +28262,17 @@ void r8row_swap ( int m, int n, double a[], int row1, int row2 )
 //
   if ( row1 < 0+OFFSET || m-1+OFFSET < row1 )
   {
-    cout << "\n";
-    cout << "R8ROW_SWAP - Fatal error!\n";
-    cout << "  ROW1 is out of range.\n";
+    cerr << "\n";
+    cerr << "R8ROW_SWAP - Fatal error!\n";
+    cerr << "  ROW1 is out of range.\n";
     exit ( 1 );
   }
 
   if ( row2 < 0+OFFSET || m-1+OFFSET < row2 )
   {
-    cout << "\n";
-    cout << "R8ROW_SWAP - Fatal error!\n";
-    cout << "  ROW2 is out of range.\n";
+    cerr << "\n";
+    cerr << "R8ROW_SWAP - Fatal error!\n";
+    cerr << "  ROW2 is out of range.\n";
     exit ( 1 );
   }
 
@@ -27868,9 +28652,9 @@ void r8s3_read ( string input_file, int n, int nz_num, int row[], int col[],
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8S3_READ - Fatal error!\n";
-    cout << "  Could not open the input file: \"" << input_file << "\"\n";
+    cerr << "\n";
+    cerr << "R8S3_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_file << "\"\n";
     exit ( 1 );
   }
 
@@ -27948,9 +28732,9 @@ void r8s3_read_size ( string input_file, int *n, int *nz_num )
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8S3_READ_SIZE - Fatal error!\n";
-    cout << "  Could not open the input file: \"" << input_file << "\"\n";
+    cerr << "\n";
+    cerr << "R8S3_READ_SIZE - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_file << "\"\n";
     exit ( 1 );
   }
 
@@ -28038,9 +28822,9 @@ void r8s3_write ( int n, int nz_num, int isym, int row[], int col[],
 
   if ( !output )
   {
-    cout << "\n";
-    cout << "R8S3_WRITE - Fatal error!\n";
-    cout << "  Could not open the output file.\n";
+    cerr << "\n";
+    cerr << "R8S3_WRITE - Fatal error!\n";
+    cerr << "  Could not open the output file.\n";
     exit ( 1 );
   }
 
@@ -28104,9 +28888,13 @@ double *r8sd_cg ( int n, int ndiag, int offset[], double a[], double b[],
 //
 //  Reference:
 //
-//    FS Beckman,
+//    Frank Beckman,
 //    The Solution of Linear Equations by the Conjugate Gradient Method,
-//    Mathematical Methods for Digital Computers, pages 62-72.
+//    in Mathematical Methods for Digital Computers,
+//    edited by John Ralston, Herbert Wilf,
+//    Wiley, 1967,
+//    ISBN: 0471706892,
+//    LC: QA76.5.R3.
 //
 //  Parameters:
 //
@@ -29179,6 +29967,7 @@ void r8sm_random ( int m, int n, double a[], double u[], double v[], int *seed )
 //    Output, double U[M], V[N], the R8SM vectors.
 //
 //    Input/output, int *SEED, a seed for the random number generator.
+//
 {
   int i;
   int j;
@@ -29344,9 +30133,9 @@ double *r8sm_sl ( int n, double a_lu[], double u[], double v[], double b[],
 
   if ( alpha == 0.0 )
   {
-    cout << "\n";
-    cout << "R8SM_SL - Fatal error!\n";
-    cout << "  The divisor ALPHA is zero.\n";
+    cerr << "\n";
+    cerr << "R8SM_SL - Fatal error!\n";
+    cerr << "  The divisor ALPHA is zero.\n";
     exit ( 1 );
   }
 
@@ -30184,9 +30973,9 @@ void r8sp_read ( string input_file, int m, int n, int nz_num, int row[],
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8SP_READ - Fatal error!\n";
-    cout << "  Could not open the input file: \"" << input_file << "\"\n";
+    cerr << "\n";
+    cerr << "R8SP_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_file << "\"\n";
     exit ( 1 );
   }
 
@@ -30262,9 +31051,9 @@ void r8sp_read_size ( string input_file, int *m, int *n, int *nz_num )
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8SP_READ_SIZE - Fatal error!\n";
-    cout << "  Could not open the input file: \"" << input_file << "\"\n";
+    cerr << "\n";
+    cerr << "R8SP_READ_SIZE - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_file << "\"\n";
     exit ( 1 );
   }
 
@@ -30500,17 +31289,17 @@ double *r8sp_vxm ( int m, int n, int nz_num, int row[], int col[],
     i = row[k];
     if ( i < 0 || m < i )
     {
-      cout << "\n";
-      cout << "R8SP_VXM - Fatal error!\n";
-      cout << "  I < 0 or " << m << " M < I.\n";
+      cerr << "\n";
+      cerr << "R8SP_VXM - Fatal error!\n";
+      cerr << "  I < 0 or " << m << " M < I.\n";
       exit ( 1 );
     }
     j = col[k];
     if ( j < 0 || n < j )
     {
-      cout << "\n";
-      cout << "R8SP_VXM - Fatal error!\n";
-      cout << "  J < 0 or " << n << " N < J.\n";
+      cerr << "\n";
+      cerr << "R8SP_VXM - Fatal error!\n";
+      cerr << "  J < 0 or " << n << " N < J.\n";
       exit ( 1 );
     }
     b[j-1] = b[j-1] + a[k] * x[i-1];
@@ -30577,9 +31366,9 @@ void r8sp_write ( int m, int n, int nz_num, int row[], int col[], double a[],
 
   if ( !output )
   {
-    cout << "\n";
-    cout << "R8SP_WRITE - Fatal error!\n";
-    cout << "  Could not open the output file.\n";
+    cerr << "\n";
+    cerr << "R8SP_WRITE - Fatal error!\n";
+    cerr << "  Could not open the output file.\n";
     exit ( 1 );
   }
 
@@ -33633,7 +34422,8 @@ double *r8ut_inverse ( int n, double a[] )
 //
 //    Input, double A[N*N], the R8UT matrix.
 //
-//    Output, double R8UT_INVERSE[N*N], the inverse of the upper triangular matrix.
+//    Output, double R8UT_INVERSE[N*N], the inverse of the upper
+//    triangular matrix.
 //
 {
   double *b;
@@ -33647,9 +34437,9 @@ double *r8ut_inverse ( int n, double a[] )
   {
     if ( a[i+i*n] == 0.0 )
     {
-      cout << "\n";
-      cout << "R8UT_INVERSE - Fatal error!\n";
-      cout << "  Zero diagonal element.\n";
+      cerr << "\n";
+      cerr << "R8UT_INVERSE - Fatal error!\n";
+      cerr << "  Zero diagonal element.\n";
       exit ( 1 );
     }
   }
@@ -33953,8 +34743,6 @@ void r8ut_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
     }
   }
 
-  cout << "\n";
-
   return;
 # undef INCX
 }
@@ -34209,6 +34997,154 @@ double *r8ut_zero ( int m, int n )
 }
 //****************************************************************************80
 
+void r8utp_print ( int n, double a[], string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8UTP_PRINT prints a R8UTP matrix.
+//
+//  Discussion:
+//
+//    The R8UTP storage format is appropriate for an upper triangular
+//    matrix.  Only the upper triangle of the matrix is stored,
+//    by successive partial columns, in an array of length (N*(N+1))/2,
+//    which contains (A11,A12,A22,A13,A23,A33,A14,...,ANN)  
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    16 April 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//    N must be positive.
+//
+//    Input, double A[(N*(N+1))/2], the matrix.
+//
+//    Input, string TITLE, a title.
+//
+{
+  r8utp_print_some ( n, a, 1, 1, n, n, title );
+
+  return;
+}
+//****************************************************************************80
+
+void r8utp_print_some ( int n, double a[], int ilo, int jlo, int ihi, 
+  int jhi, string title )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8UTP_PRINT_SOME prints some of an R8UTP matrix.
+//
+//  Discussion:
+//
+//    The R8UTP storage format is appropriate for an upper triangular
+//    matrix.  Only the upper triangle of the matrix is stored,
+//    by successive partial columns, in an array of length (N*(N+1))/2,
+//    which contains (A11,A12,A22,A13,A23,A33,A14,...,ANN)  
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    16 April 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//    N must be positive.
+//
+//    Input, double A[(N*(N+1))/2], the matrix.
+//
+//    Input, int ILO, JLO, IHI, JHI, designate the first row and
+//    column, and the last row and column to be printed.
+//
+//    Input, string TITLE, a title.
+//
+{
+# define INCX 5
+
+  double aij;
+  int i;
+  int i2hi;
+  int i2lo;
+  int j;
+  int j2hi;
+  int j2lo;
+
+  cout << "\n";
+  cout << title << "\n";
+//
+//  Print the columns of the matrix, in strips of 5.
+//
+  for ( j2lo = jlo; j2lo <= jhi; j2lo = j2lo + INCX )
+  {
+    j2hi = j2lo + INCX - 1;
+    j2hi = i4_min ( j2hi, n );
+    j2hi = i4_min ( j2hi, jhi );
+
+    cout << "\n";
+    cout << "  Col: ";
+    for ( j = j2lo; j <= j2hi; j++ )
+    {
+      cout << setw(7) << j << "       ";
+    }
+    cout << "\n";
+    cout << "  Row\n";
+    cout << "  ---\n";
+//
+//  Determine the range of the rows in this strip.
+//
+    i2lo = i4_max ( ilo, 1 );
+    i2hi = i4_min ( ihi, n );
+
+    for ( i = i2lo; i <= i2hi; i++ )
+    {
+      cout << setw(6) << i << "  ";
+//
+//  Print out (up to) 5 entries in row I, that lie in the current strip.
+//
+      for ( j = j2lo; j <= j2hi; j++ )
+      {
+        if ( i <= j )
+        {
+          aij = a[i-1+(j*(j-1))/2];
+        }
+        else
+        {
+          aij = 0.0;
+        }
+
+        cout << setw(12) << aij << "  ";
+      }
+      cout << "\n";
+    }
+  }
+
+  return;
+# undef INCX
+}
+//****************************************************************************80
+
 double r8vec_dot_product ( int n, double x[], double y[] )
 
 //****************************************************************************80
@@ -34342,7 +35278,7 @@ void r8vec_print ( int n, double a[], string title )
 }
 //****************************************************************************80
 
-void r8vec_print_some ( int n, double a[], int max_print, string title )
+void r8vec_print_some ( int n, double a[], int i_lo, int i_hi, string title )
 
 //****************************************************************************80
 //
@@ -34352,22 +35288,15 @@ void r8vec_print_some ( int n, double a[], int max_print, string title )
 //
 //  Discussion:
 //
-//    The user specifies MAX_PRINT, the maximum number of lines to print.
-//
-//    If N, the size of the vector, is no more than MAX_PRINT, then
-//    the entire vector is printed, one entry per line.
-//
-//    Otherwise, if possible, the first MAX_PRINT-2 entries are printed,
-//    followed by a line of periods suggesting an omission,
-//    and the last entry.
+//    An R8VEC is a vector of R8's.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    14 November 2003
+//    16 October 2006
 //
 //  Author:
 //
@@ -34379,60 +35308,21 @@ void r8vec_print_some ( int n, double a[], int max_print, string title )
 //
 //    Input, double A[N], the vector to be printed.
 //
-//    Input, int MAX_PRINT, the maximum number of lines to print.
+//    Input, integer I_LO, I_HI, the first and last indices to print.
+//    The routine expects 1 <= I_LO <= I_HI <= N.
 //
 //    Input, string TITLE, a title.
 //
 {
   int i;
 
-  if ( max_print <= 0 )
-  {
-    return;
-  }
-
-  if ( n <= 0 )
-  {
-    return;
-  }
-
   cout << "\n";
   cout << title << "\n";
   cout << "\n";
-
-  if ( n <= max_print )
+  for ( i = i4_max ( 1, i_lo ); i <= i4_min ( n, i_hi ); i++ )
   {
-    for ( i = 0; i < n; i++ )
-    {
-      cout << setw(6)  << i + 1 << "  "
-           << setw(14) << a[i]  << "\n";
-    }
-  }
-  else if ( 3 <= max_print )
-  {
-    for ( i = 0; i < max_print-2; i++ )
-    {
-      cout << setw(6)  << i + 1 << "  "
-           << setw(14) << a[i]  << "\n";
-    }
-
-    cout << "......  ..............\n";
-    i = n - 1;
-    cout << setw(6)  << i + 1 << "  "
-         << setw(14) << a[i]  << "\n";
-  }
-  else
-  {
-    for ( i = 0; i < max_print-1; i++ )
-    {
-      cout << setw(6)  << i + 1 << "  "
-           << setw(14) << a[i]  << "\n";
-    }
-
-    i = max_print - 1;
-
-    cout << setw(6)  << i + 1 << "  "
-         << setw(14) << a[i]  << "...more entries...\n";
+    cout << "  " << setw(8)  << i
+         << ": " << setw(14) << a[i-1]  << "\n";
   }
 
   return;
@@ -34521,9 +35411,9 @@ double *r8vec_read ( string input_file, int n )
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8VEC_READ - Fatal error!\n";
-    cout << "  Could not open the input file: \"" << input_file << "\"\n";
+    cerr << "\n";
+    cerr << "R8VEC_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_file << "\"\n";
     exit ( 1 );
   }
 
@@ -34578,9 +35468,9 @@ int r8vec_read_size ( string input_file )
 
   if ( !input )
   {
-    cout << "\n";
-    cout << "R8VEC_READ_SIZE - Fatal error!\n";
-    cout << "  Could not open the input file: \"" << input_file << "\"\n";
+    cerr << "\n";
+    cerr << "R8VEC_READ_SIZE - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_file << "\"\n";
     exit ( 1 );
   }
 
@@ -34783,21 +35673,126 @@ double *r8vec_to_r8ge ( int m, int n, double *x )
 }
 //****************************************************************************80
 
-void r8vec_write ( int n, double r[], string output_file )
+double *r8vec_uniform_01_new ( int n, int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8VEC_WRITE writes an R8VEC to a file.
+//    R8VEC_UNIFORM_01_NEW returns a new unit pseudorandom R8VEC.
+//
+//  Discussion:
+//
+//    This routine implements the recursion
+//
+//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
+//      u = seed / ( 2^31 - 1 )
+//
+//    The integer arithmetic never requires more than 32 bits,
+//    including a sign bit.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 August 2006
+//    19 August 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Paul Bratley, Bennett Fox, Linus Schrage,
+//    A Guide to Simulation,
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
+//
+//    Bennett Fox,
+//    Algorithm 647:
+//    Implementation and Relative Efficiency of Quasirandom
+//    Sequence Generators,
+//    ACM Transactions on Mathematical Software,
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
+//
+//  Parameters:
+//
+//    Input, int N, the number of entries in the vector.
+//
+//    Input/output, int &SEED, a seed for the random number generator.
+//
+//    Output, double R8VEC_UNIFORM_01_NEW[N], the vector of pseudorandom values.
+//
+{
+  int i;
+  const int i4_huge = 2147483647;
+  int k;
+  double *r;
+
+  if ( seed == 0 )
+  {
+    cerr << "\n";
+    cerr << "R8VEC_UNIFORM_01_NEW - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
+  }
+
+  r = new double[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    k = seed / 127773;
+
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+    if ( seed < 0 )
+    {
+      seed = seed + i4_huge;
+    }
+
+    r[i] = ( double ) ( seed ) * 4.656612875E-10;
+  }
+
+  return r;
+}
+//****************************************************************************80
+
+void r8vec_write ( string output_filename, int n, double x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_WRITE writes an R8VEC file.
+//
+//  Discussion:
+//
+//    An R8VEC is a vector of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 July 2011
 //
 //  Author:
 //
@@ -34805,32 +35800,37 @@ void r8vec_write ( int n, double r[], string output_file )
 //
 //  Parameters:
 //
-//    Input, int N, the order of the matrix.
+//    Input, string OUTPUT_FILENAME, the output filename.
 //
-//    Input, double R[N], the vector to be written.
+//    Input, int N, the number of points.
 //
-//    Input, string OUTPUT_FILE, the name of the file to which
-//    the information is to be written.
+//    Input, double X[N], the data.
 //
 {
-  int i;
+  int j;
   ofstream output;
-
-  output.open ( output_file.c_str ( ) );
+//
+//  Open the file.
+//
+  output.open ( output_filename.c_str ( ) );
 
   if ( !output )
   {
-    cout << "\n";
-    cout << "R8VEC_WRITE - Fatal error!\n";
-    cout << "  Could not open the output file.\n";
+    cerr << "\n";
+    cerr << "R8VEC_WRITE - Fatal error!\n";
+    cerr << "  Could not open the output file.\n";
     exit ( 1 );
   }
-
-  for ( i = 0; i < n; i++ )
+//
+//  Write the data.
+//
+  for ( j = 0; j < n; j++ )
   {
-    output << "  " << setw(16) << r[i] << "\n";
+    output << "  " << setw(24) << setprecision(16) << x[j] << "\n";
   }
-
+//
+//  Close the file.
+//
   output.close ( );
 
   return;
@@ -35214,7 +36214,7 @@ void r8vm_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi,
 }
 //****************************************************************************80
 
-double *r8vm_random ( int m, int n, int *seed )
+double *r8vm_random ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -35240,7 +36240,7 @@ double *r8vm_random ( int m, int n, int *seed )
 //
 //  Modified:
 //
-//    29 September 2003
+//    18 February 2013
 //
 //  Author:
 //
@@ -35250,16 +36250,20 @@ double *r8vm_random ( int m, int n, int *seed )
 //
 //    Input, int M, N, the number of rows and columns of the matrix.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R8VM_RANDOM[N], the R8VM matrix.
 //
 {
-  return ( r8vec_random ( n, 0.0, 1.0, seed ) );
+  double *a;
+
+  a = r8vec_uniform_01_new ( n, seed );
+
+  return a;
 }
 //****************************************************************************80
 
-double *r8vm_sl ( int n, double a[], double b[], int job, int *info )
+void r8vm_sl ( int n, double a[], double b[], int job, double x[], int *info )
 
 //****************************************************************************80
 //
@@ -35288,7 +36292,140 @@ double *r8vm_sl ( int n, double a[], double b[], int job, int *info )
 //
 //  Modified:
 //
-//    29 September 2003
+//    11 November 2013
+//
+//  Author:
+//
+//    Original FORTRAN77 version by Golub, VanLoan.
+//    C++ version by John Burkardt.
+//
+//  Reference:
+//
+//    Gene Golub, Charles Van Loan,
+//    Matrix Computations,
+//    Third Edition,
+//    Johns Hopkins, 1996.
+//
+//  Parameters:
+//
+//    Input, int N, the number of rows and columns of the matrix.
+//
+//    Input, double A[N], the R8VM matrix.
+//
+//    Input, double B[N], the right hand side.
+//
+//    Input, int JOB, specifies the system to solve.
+//    0, solve A * x = b.
+//    nonzero, solve A' * x = b.
+//
+//    Output, double X[N], the solution of the linear system.
+//
+//    Output, int *INFO.
+//    0, no error.
+//    nonzero, at least two of the values in A are equal.
+//
+{
+  int i;
+  int j;
+//
+//  Check for explicit singularity.
+//
+  *info = 0;
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = j+1; i < n; i++ )
+    {
+      if ( a[i] == a[j] )
+      {
+        *info = 1;
+        return;
+      }
+    }
+  }
+
+  for ( i = 0; i < n; i++ )
+  {
+    x[i] = b[i];
+  }
+
+  if ( job == 0 )
+  {
+    for ( j = 1; j <= n-1; j++ )
+    {
+      for ( i = n; j+1 <= i; i-- )
+      {
+        x[i-1] = x[i-1] - a[j-1] * x[i-2];
+      }
+    }
+
+    for ( j = n-1; 1 <= j; j-- )
+    {
+      for ( i = j+1; i <= n; i++ )
+      {
+        x[i-1] = x[i-1] / ( a[i-1] - a[i-j-1] );
+      }
+
+      for ( i = j; i <= n-1; i++ )
+      {
+        x[i-1] = x[i-1] - x[i];
+      }
+    }
+  }
+  else
+  {
+    for ( j = 1; j <= n-1; j++ )
+    {
+      for ( i = n; j+1 <= i; i-- )
+      {
+        x[i-1] = ( x[i-1] - x[i-2] ) / ( a[i-1] - a[i-j-1] );
+      }
+    }
+
+    for ( j = n-1; 1 <= j; j-- )
+    {
+      for ( i = j; i <= n-1; i++ )
+      {
+        x[i-1] = x[i-1] - x[i] * a[j-1];
+      }
+    }
+
+  }
+
+  return;
+}
+//****************************************************************************80
+
+double *r8vm_sl_new ( int n, double a[], double b[], int job, int *info )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VM_SL_NEW solves a R8VM system.
+//
+//  Discussion:
+//
+//    The R8VM storage format is used for an M by N Vandermonde matrix.
+//    An M by N Vandermonde matrix is defined by the values in its second
+//    row, which will be written here as X(1:N).  The matrix has a first 
+//    row of 1's, a second row equal to X(1:N), a third row whose entries
+//    are the squares of the X values, up to the M-th row whose entries
+//    are the (M-1)th powers of the X values.  The matrix can be stored
+//    compactly by listing just the values X(1:N).
+//
+//    Vandermonde systems are very close to singularity.  The singularity
+//    gets worse as N increases, and as any pair of values defining
+//    the matrix get close.  Even a system as small as N = 10 will
+//    involve the 9th power of the defining values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    11 November 2013
 //
 //  Author:
 //
@@ -35318,7 +36455,7 @@ double *r8vm_sl ( int n, double a[], double b[], int job, int *info )
 //    0, no error.
 //    nonzero, at least two of the values in A are equal.
 //
-//    Output, double R8VM_SL[N], the solution of the linear system.
+//    Output, double R8VM_SL_NEW[N], the solution of the linear system.
 //
 {
   int i;

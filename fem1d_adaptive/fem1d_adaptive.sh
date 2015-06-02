@@ -7,7 +7,7 @@ if [ $? -ne 0 ]; then
 fi
 rm compiler.txt
 #
-g++ fem1d_adaptive.o
+g++ fem1d_adaptive.o -lm
 if [ $? -ne 0 ]; then
   echo "Errors linking and loading fem1d_adaptive.o."
   exit

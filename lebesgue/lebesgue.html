@@ -1,0 +1,264 @@
+<html>
+
+  <head>
+    <title>
+      LEBESGUE - Estimate the Lebesgue Constant
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      LEBESGUE <br> Estimate the Lebesgue Constant
+    </h1>
+
+    <hr>
+ 
+    <p>
+      <b>LEBESGUE</b> 
+      is a C++ library which
+      is given a set of nodes in 1D, and
+      plots the Lebesgue function, and estimates the Lebesgue constant,
+      which measures the maximum magnitude of the potential error 
+      of Lagrange polynomial interpolation, and which uses gnuplot to
+      make plots of the Lebesgue function.
+    </p>
+
+    <p>
+      Any set of nodes in the real line X(I), for 1 <= I <= N, defines
+      a corresponding set of Lagrange basis functions:
+      <pre>
+        L(I)(X) = product ( 1 <= J <= N, J /= I ) ( X    - X(J) ) 
+                / product ( 1 <= J <= N, J /= I ) ( X(I) - X(J) )
+      </pre>
+      with the property that 
+      <pre>
+        L(I)(X(J)) = 0 if I /= J
+                     1 if I  = J
+      </pre>
+    </p>
+
+    <p>
+      The Lebesgue function is formed by the sum of the absolute values of
+      these Lagrange basis functions:
+      <pre>
+        LF(X) = sum ( 1 <= I <= N ) | L(I)(X) |
+      </pre>
+      and the Lebesgue constant LC is the maximum value of LF(X) over the
+      interpolation interval, which is typically X(1) to X(N), or
+      min ( X(*) ), max ( X(*) ), or [-1,+1], or some user-defined interval.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+ 
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>LEBESGUE</b> is available in
+      <a href = "../../c_src/lebesgue/lebesgue.html">a C version</a> and
+      <a href = "../../cpp_src/lebesgue/lebesgue.html">a C++ version</a> and
+      <a href = "../../f77_src/lebesgue/lebesgue.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/lebesgue/lebesgue.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/lebesgue/lebesgue.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which
+      illustrate how a program can write data and command files
+      so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/interp/interp.html">
+      INTERP</a>,
+      a C++ library which
+      can be used for parameterizing and interpolating data;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule/quadrule.html">
+      QUADRULE</a>,
+      a C++ library which
+      defines quadrature rules for approximating an integral over a 1D domain.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+    
+    <p>
+      <ol>
+        <li>
+          Jean-Paul Berrut, Lloyd Trefethen,<br>
+          Barycentric Lagrange Interpolation,<br>
+          SIAM Review,<br>
+          Volume 46, Number 3, September 2004, pages 501-517.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lebesgue.cpp">lebesgue.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "lebesgue.hpp">lebesgue.hpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "lebesgue.sh">lebesgue.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lebesgue_prb.cpp">lebesgue_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "lebesgue_prb.sh">lebesgue_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "lebesgue_prb_output.txt">lebesgue_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The test programs create plots of the Lebesgue function for
+      specific sizes of the point sets.
+      <ul>
+        <li>
+          <a href = "chebyshev1.png">chebyshev1.png</a>
+        </li>
+        <li>
+          <a href = "chebyshev2.png">chebyshev2.png</a>
+        </li>
+        <li>
+          <a href = "chebyshev3.png">chebyshev3.png</a>
+        </li>
+        <li>
+          <a href = "chebyshev4.png">chebyshev4.png</a>
+        </li>
+        <li>
+          <a href = "equidistant1.png">equidistant1.png</a>
+        </li>
+        <li>
+          <a href = "equidistant2.png">equidistant2.png</a>
+        </li>
+        <li>
+          <a href = "equidistant3.png">equidistant3.png</a>
+        </li>
+        <li>
+          <a href = "fejer1.png">fejer1.png</a>
+        </li>
+        <li>
+          <a href = "fejer2.png">fejer2.png</a>
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CHEBYSHEV1</b> returns the Type 1 Chebyshev points.
+        </li>
+        <li>
+          <b>CHEBYSHEV2</b> returns the Type 2 Chebyshev points.
+        </li>
+        <li>
+          <b>CHEBYSHEV3</b> returns the Type 3 Chebyshev points.
+        </li>
+        <li>
+          <b>CHEBYSHEV4</b> returns the Type 4 Chebyshev points.
+        </li>
+        <li>
+          <b>EQUIDISTANT1</b> returns the Type 1 Equidistant points.
+        </li>
+        <li>
+          <b>EQUIDISTANT2</b> returns the Type 2 Equidistant points.
+        </li>
+        <li>
+          <b>EQUIDISTANT3</b> returns the Type 3 Equidistant points.
+        </li>
+        <li>
+          <b>FEJER1</b> returns the Type 1 Fejer points.
+        </li>
+        <li>
+          <b>FEJER2</b> returns the Type 2 Fejer points.
+        </li>
+        <li>
+          <b>GET_UNIT</b> returns a free FORTRAN unit number.
+        </li>
+        <li>
+          <b>LAGRANGE_VALUE</b> evaluates the Lagrange polynomials.
+        </li>
+        <li>
+          <b>LEBESGUE_CONSTANT</b> estimates the Lebesgue constant for a set of points.
+        </li>
+        <li>
+          <b>LEBESGUE_FUNCTION</b> evaluates the Lebesgue function for a set of points.
+        </li>
+        <li>
+          <b>LEBESGUE_PLOT</b> plots the Lebesgue function for a set of points.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 04 March 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

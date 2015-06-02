@@ -3802,13 +3802,16 @@ void triangulation_search_delaunay ( int node_num, double node_xy[],
 //    to give the triangle a polygonal shape, these will have no effect,
 //    and the results obtained here might be misleading.
 //
+//    Thanks to Diego Galindo for pointing out a line where "EDGE" was
+//    written, but "*EDGE" was necessary instead, 21 May 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    01 August 2009
+//    21 May 2013
 //
 //  Author:
 //
@@ -3879,7 +3882,7 @@ void triangulation_search_delaunay ( int node_num, double node_xy[],
   }
 
   count = 0;
-  edge = 0;
+  *edge = 0;
 
   for ( ; ; )
   {

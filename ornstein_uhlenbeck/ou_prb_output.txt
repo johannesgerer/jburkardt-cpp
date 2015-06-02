@@ -1,0 +1,58 @@
+21 January 2013 11:07:25 PM
+
+OU_TEST:
+  C++ version.
+  Test the OU library.
+
+OU_EULER_TEST:
+  Estimate a solution to the Ornstein-Uhlenbeck equation
+  using the Euler method for stochastic differential equations.
+
+  Using decay rate THETA = 2
+  Using mean MU = 1
+  Using variance SIGMA = 0.15
+  Using initial value X0 = 2
+  Using final time TMAX = 3
+  Using number of timesteps N = 10000
+  Using value of random SEED = 123456789
+
+OU_EULER:
+  C++ version
+  Use an Euler method to approximate the solution of
+  the Ornstein-Uhlenbeck stochastic differential equation:
+
+    d x(t) = theta * ( mu - x(t) ) dt + sigma dW
+
+  with initial condition x(0) = x0.
+  Created data file "ou_euler_data.txt".
+  Created command file 'ou_euler_commands.txt'
+
+OU_EULER_MARUYAMA_TEST:
+  Estimate a solution to the Ornstein-Uhlenbeck equation
+  using the Euler-Maruyama method for stochastic 
+  differential equations.
+
+  Using decay rate THETA = 2
+  Using mean MU = 1
+  Using variance SIGMA = 0.15
+  Using initial value X0 = 2
+  Using final time TMAX = 3
+  Using number of large timesteps N = 10000
+  Using number small time steps per one large time step R = 16
+  Using value of random SEED = 123456789
+
+OU_EULER_MARUYAMA:
+  C++ version
+  Use an Euler-Maruyama method to approximate the solution of
+  the Ornstein-Uhlenbeck stochastic differential equation:
+
+    d x(t) = theta * ( mu - x(t) ) dt + sigma dW
+
+  with initial condition x(0) = x0.
+  Created data file "ou_euler_maruyama_data.txt".
+  Created command file 'ou_euler_maruyama_commands.txt'
+
+OU_TEST:
+  Normal end of execution.
+
+21 January 2013 11:07:25 PM

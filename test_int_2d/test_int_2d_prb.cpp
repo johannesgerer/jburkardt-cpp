@@ -24,7 +24,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TEST_INT_2D_PRB demonstrates the TEST_INT_2D integration test functions.
+//    TEST_INT_2D_PRB tests the TEST_INT_2D library.
 //
 //  Licensing:
 //
@@ -40,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TEST_INT_2D_PRB\n";
   cout << "  C++ version\n";
@@ -55,7 +54,6 @@ int main ( )
   cout << "\n";
   cout << "TEST_INT_2D_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -2,12 +2,11 @@
 #
 cp geometry.hpp /$HOME/include
 #
-g++ -c -g -I /$HOME/include geometry.cpp >& compiler.txt
+g++ -c -I /$HOME/include geometry.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling geometry.cpp"
   exit
 fi
-rm compiler.txt
 #
 mv geometry.o ~/libcpp/$ARCH/geometry.o
 #

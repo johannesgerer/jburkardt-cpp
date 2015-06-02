@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA144_PRB calls a set of problems for ASA144.
+//    ASA144_PRB tests the ASA144 library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA144_PRB\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "ASA144_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

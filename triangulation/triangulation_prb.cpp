@@ -26,6 +26,7 @@ void test10 ( );
 void test11 ( );
 void test12 ( );
 void test125 ( );
+void test127 ( );
 void test13 ( );
 void test14 ( );
 void test15 ( );
@@ -65,7 +66,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TRIANGULATION_PRB tests routines from the TRIANGULATION library.
+//    TRIANGULATION_PRB tests the TRIANGULATION library.
 //
 //  Licensing:
 //
@@ -73,7 +74,7 @@ int main ( )
 //
 //  Modified:
 //
-//    26 June 2009
+//    03 March 2014
 //
 //  Author:
 //
@@ -81,7 +82,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TRIANGULATION_PRB\n";
   cout << "  C++ version\n";
@@ -103,6 +103,7 @@ int main ( )
   test11 ( );
   test12 ( );
   test125 ( );
+  test127 ( );
   test13 ( );
   test14 ( );
   test15 ( );
@@ -134,7 +135,6 @@ int main ( )
   cout << "\n";
   cout << "TRIANGULATION_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -696,12 +696,12 @@ void test04 ( )
   cout << "  For an order 3/order 6 Taylor Hood triangulation\n";
   cout << "  for Navier Stokes velocity and pressure,\n";
   cout << "  NS_ADJ_COUNT counts variable adjacencies\n";
-  cout << "    and sets up the sparse compressed column\n";
-  cout << "    column pointer array.\n";
+  cout << "  and sets up the sparse compressed column\n";
+  cout << "  column pointer array.\n";
   cout << "  NS_ADJ_COL_SET sets up the sparse compressed column\n";
-  cout << "    COL vector.\n";
+  cout << "  COL vector.\n";
   cout << "  NS_ADJ_ROW_SET sets up the sparse compressed column\n";
-  cout << "    ROW vector.\n";
+  cout << "  ROW vector.\n";
 //
 //  Plot the example.
 //
@@ -946,7 +946,7 @@ void test06 ( )
   cout << "\n";
   cout << "TEST06\n";
   cout << "  POINTS_HULL_2D computes the convex hull\n";
-  cout << "    of a set of nodes.\n";
+  cout << "  of a set of nodes.\n";
 
   r8mat_transpose_print ( DIM_NUM, NODE_NUM, node_xy, "  The nodes:" );
 
@@ -1091,7 +1091,7 @@ void test08 ( )
 
   cout << "\n";
   cout << "TEST08\n";
-  cout << "  R8RIS2 computes the Delaunay triangulation of a\n";
+  cout << "  R8TRIS2 computes the Delaunay triangulation of a\n";
   cout << "  pointset in 2D.\n";
 //
 //  Set up the Delaunay triangulation.
@@ -1161,9 +1161,9 @@ void test09 ( )
   cout << "TEST09\n";
   cout << "  For an order 3 triangle,\n";
   cout << "  TRIANGLE_ORDER3_PHYSICAL_TO_REFERENCE\n";
-  cout << "    maps a physical point to a reference point.\n";
+  cout << "  maps a physical point to a reference point.\n";
   cout << "  TRIANGLE_ORDER3_REFERENCE_TO_PHYSICAL \n";
-  cout << "    maps a reference point to a physical point.\n";
+  cout << "  maps a reference point to a physical point.\n";
   cout << "\n";
   cout << "   (  XSI    ETA ) ==> ( X      Y  ) ==> ( XSI2    ETA2 )\n";
   cout << "\n";
@@ -1234,9 +1234,9 @@ void test10 ( )
   cout << "TEST10\n";
   cout << "  For an order 6 triangle,\n";
   cout << "  TRIANGLE_ORDER6_PHYSICAL_TO_REFERENCE\n";
-  cout << "    maps a physical point to a reference point\n";
+  cout << "  maps a physical point to a reference point\n";
   cout << "  TRIANGLE_ORDER6_REFERENCE_TO_PHYSICAL\n";
-  cout << "    maps a reference point to a physical point.\n";
+  cout << "  maps a reference point to a physical point.\n";
   cout << "\n";
   cout << "   (  XSI    ETA ) ==> ( X      Y  ) ==> ( XSI2    ETA2 )\n";
   cout << "\n";
@@ -1559,6 +1559,141 @@ void test125 ( )
 }
 //****************************************************************************80
 
+void test127 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST127 tests TRIANGULATION_ORDER3_ADJACENCY.
+//
+//  Discussion:
+//
+//    41--42--43--44  45--46--47--48
+//     | \ | \ | \ |   | \ | \ | \ |
+//    33--34--35--36  37--38--39--40
+//     | \ |                   | \ |
+//    29--30                  31--32
+//     | \ |                   | \ |
+//    25--26                  27--28
+//     | \ |                   | \ |
+//    21--22                  23--24
+//     | \ |                   | \ |
+//    17--18                  19--20
+//     | \ |                   | \ |
+//     9--10--11--12--13--14--15--16
+//     | \ | \ | \ | \ | \ | \ | \ |
+//     1---2---3---4---5---6---7---8
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 March 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define ELEMENT_NUM 46
+# define NODE_NUM 48
+  
+  int *adj;
+  int element_node[3*ELEMENT_NUM] = {
+     1,  2,  9,
+     2, 10,  9,
+     2,  3, 10,
+     3, 11, 10,
+     3,  4, 11,
+     4, 12, 11,
+     4,  5, 12,
+     5, 13, 12,
+     5,  6, 13,
+     6, 14, 13,
+     6,  7, 14,
+     7, 15, 14,
+     7,  8, 15,
+     8, 16, 15,
+     9, 10, 17,
+    10, 18, 17,
+    15, 16, 19,
+    16, 20, 19,
+    17, 18, 21,
+    18, 22, 21,
+    19, 20, 23,
+    20, 24, 23,
+    21, 22, 25,
+    22, 26, 25,
+    23, 24, 27,
+    24, 28, 27,
+    25, 26, 29,
+    26, 30, 29,
+    27, 28, 31,
+    28, 32, 31,
+    29, 30, 33,
+    30, 34, 33,
+    31, 32, 39,
+    32, 40, 39,
+    33, 34, 41,
+    34, 42, 41,
+    34, 35, 42,
+    35, 43, 42,
+    35, 36, 43,
+    36, 44, 43,
+    37, 38, 45,
+    38, 46, 45,
+    38, 39, 46,
+    39, 47, 46,
+    39, 40, 47,
+    40, 48, 47 };
+  int element_num = ELEMENT_NUM;
+  int i;
+  int j;
+  int node_num = NODE_NUM;
+
+  cout << "\n";
+  cout << "TEST127\n";
+  cout << "  For an order3 triangulation:\n";
+  cout << "  TRIANGULATION_ORDER3_ADJACENCY sets the full\n";
+  cout << "  adjacency matrix.\n";
+
+  for ( j = 0; j < element_num; j++ )
+  {
+    for ( i = 0; i < 3; i++ )
+    {
+      element_node[i+j*3] = element_node[i+j*3] - 1;
+    }
+  }
+
+  adj = triangulation_order3_adjacency ( node_num, element_num, element_node );
+
+  cout << "\n";
+  cout << "  Adjacency matrix:\n";
+  cout << "\n";
+  cout << "                1         2         3         4       \n";
+  cout << "      012345678901234567890123456789012345678901234567\n";
+  cout << "\n";
+  for ( i = 0; i < node_num; i++ )
+  {
+    cout << "  " << setw(2) << i << "  ";
+    for ( j = 0; j < node_num; j++ )
+    {
+      cout << adj[i+j*node_num];
+    }
+    cout << "\n";
+  }
+
+  delete [] adj;
+
+  return;
+# undef ELEMENT_NUM
+# undef NODE_NUM
+}
+//****************************************************************************80
+
 void test13 ( )
 
 //****************************************************************************80
@@ -1673,7 +1808,7 @@ void test13 ( )
   cout << "TEST13\n";
   cout << "  For an order3 triangulation:\n";
   cout << "  TRIANGULATION_ORDER3_BOUNDARY_EDGE_COUNT counts the\n";
-  cout << "    boundary edges;\n";
+  cout << "  boundary edges;\n";
   cout << "  TRIANGULATION_ORDER3_PLOT plots the triangulation.\n";
 
   triangulation_order3_plot ( file_name, NODE_NUM, node_xy, 
@@ -2013,9 +2148,9 @@ void test17 ( )
   cout << "TEST17\n";
   cout << "  For an order3 triangulation:\n";
   cout << "  TRIANGULATION_ORDER3_EXAMPLE1_SIZE gives the sizes\n";
-  cout << "    for an example triangulation;\n";
+  cout << "  for an example triangulation;\n";
   cout << "  TRIANGULATION_ORDER3_EXAMPLE1 returns the information\n";
-  cout << "    for an example triangulation;\n";
+  cout << "  for an example triangulation;\n";
   cout << "  TRIANGULATION_ORDER3_PRINT prints a triangulation.\n";
 //
 //  Get the sizes.
@@ -2694,8 +2829,8 @@ void test217 ( )
   cout << "\n";
   cout << "  POINTS_POINT_NEAR_NAIVE_ND uses a naive method.\n";
   cout << "  TRIANGULATION_SEARCH_DELAUNAY finds a triangle\n";
-  cout << "    containing the point.  Often, one of these vertices\n";
-  cout << "    is the closest point.\n";
+  cout << "  containing the point.  Often, one of these vertices\n";
+  cout << "  is the closest point.\n";
 //
 //  Set up the Delaunay triangulation.
 //
@@ -2864,7 +2999,7 @@ void test219 ( )
   cout << "\n";
   cout << "  TRIANGULATION_SEARCH_NAIVE uses a naive method.\n";
   cout << "  TRIANGULATION_SEARCH_DELAUNAY uses a method that will work\n";
-  cout << "    fast if the triangulation is Delaunay.\n";
+  cout << "  fast if the triangulation is Delaunay.\n";
 //
 //  Set up the Delaunay triangulation.
 //
@@ -3053,7 +3188,7 @@ void test23 ( )
   cout << "TEST23\n";
   cout << "  For an order6 triangulation:\n";
   cout << "  TRIANGULATION_ORDER6_BOUNDARY_EDGE_COUNT counts the\n";
-  cout << "    boundary edges.\n";
+  cout << "  boundary edges.\n";
 
   triangulation_order6_example1_size ( &node_num, &triangle_num, &hole_num );
 
@@ -3168,7 +3303,7 @@ void test25 ( )
   cout << "TEST25\n";
   cout << "  For an order6 triangulation:\n";
   cout << "  TRIANGULATION_ORDER6_BOUNDARY_COUNT counts the boundary\n";
-  cout << "    edges.\n";
+  cout << "  edges.\n";
   cout << "  TRIANGULATION_ORDER6_PLOT plots the triangulation.\n";
 
   triangulation_order6_example1_size ( &node_num, &triangle_num, &hole_num );

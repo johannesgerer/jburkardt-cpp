@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include r8lib_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include r8lib_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling r8lib_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ r8lib_prb.o /$HOME/libcpp/$ARCH/r8lib.o -lm
 if [ $? -ne 0 ]; then

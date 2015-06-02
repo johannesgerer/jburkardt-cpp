@@ -1,0 +1,52 @@
+07 August 2013 04:37:21 PM
+
+PROBLEM1_MAIN:
+  C++ version
+  This version uses a STRUCTURE to store the covariance.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+TEST01
+  Call PRIOR_SAMPLE many times.
+  Compare statistics to PDF parameters.
+  Note that the covariance estimate can be very bad
+  unless the matrix is strongly diagonal.
+
+  Parameter dimension is 5
+  Number of samples is 10000
+
+ Index       Min            Ave              Max             MU
+
+     0        -4.56132      -0.0245422         3.48482               0
+     1        -5.10168      -0.0218223         5.50887               0
+     2        -5.93947      -0.0484467         6.15872               0
+     3        -8.01079      -0.0283803         7.79471               0
+     4        -7.89581      -0.0393701         9.62248               0
+
+  Sample covariance:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:      1.00912      0.505379      0.513965       0.47294      0.536441  
+    1:     0.505379       2.02864       0.53327      0.503469      0.528182  
+    2:     0.513965       0.53327       2.95427       0.47226      0.587384  
+    3:      0.47294      0.503469       0.47226       3.95681      0.484053  
+    4:     0.536441      0.528182      0.587384      0.484053       5.18115  
+
+  PDF covariance:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            1           0.5           0.5           0.5           0.5  
+    1:          0.5             2           0.5           0.5           0.5  
+    2:          0.5           0.5             3           0.5           0.5  
+    3:          0.5           0.5           0.5             4           0.5  
+    4:          0.5           0.5           0.5           0.5             5  
+
+PROBLEM1_MAIN:
+  Normal end of execution.
+
+07 August 2013 04:37:21 PM

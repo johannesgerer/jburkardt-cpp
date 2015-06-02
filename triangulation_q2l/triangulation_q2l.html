@@ -55,8 +55,7 @@
     </p>
 
     <p> 
-      The input and output files use the simple 
-      <a href = "../../data/table/table.html">TABLE format</a>;
+      The input and output files use the simple TABLE format;
       comment lines begin with a "#" character.  Otherwise, each line
       of the file contains one set of information, either the coordinates
       of a node (for a node file), or the indices of nodes that make up
@@ -127,6 +126,16 @@
     <h3 align = "center">
       Related Data and Programs:
     </h3>
+
+    <p>
+      <a href = "../../cpp_src/mesh_to_xml/mesh_to_xml.html">
+      MESH_TO_XML</a>,
+      a C++ program which
+      reads information defining a 1D, 2D or 3D mesh, namely
+      a file of node coordinates and a file of elements defined by
+      node indices, and creates a corresponding XML file for input
+      to DOLFIN or FENICS.
+    </p>
 
     <p>
       <a href = "../../cpp_src/table_delaunay/table_delaunay.html">
@@ -200,6 +209,16 @@
       a C++ program which
       takes an existing triangulation and deletes triangles and
       their corresponding nodes as requested by the user.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_node_to_element/triangulation_node_to_element.html">
+      TRIANGULATION_NODE_TO_ELEMENT</a>,
+      a C++ program which 
+      reads files describing a set of nodes, their triangulation, and the
+      value of one or more quantities at each node, and outputs a file
+      that averages the quantities for each element.  This operation 
+      in effect creates an "order1" finite element model of the data.
     </p>
 
     <p>

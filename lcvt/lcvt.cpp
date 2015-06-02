@@ -1735,13 +1735,13 @@ int prime ( int n )
 }
 //****************************************************************************80
 
-double r8_epsilon ( void )
+double r8_epsilon ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the roundoff unit for R8 arithmetic.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
@@ -1757,7 +1757,7 @@ double r8_epsilon ( void )
 //
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -1765,19 +1765,12 @@ double r8_epsilon ( void )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision point round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -1793,8 +1786,8 @@ double r8_uniform_01 ( int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.

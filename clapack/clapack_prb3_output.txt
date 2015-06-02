@@ -1,0 +1,26 @@
+
+CLAPACK_PRB3
+  Demonstrate the use of DGBTRF to factor a banded matrix
+  and DGBTRS to solve an associated linear system
+  using double precision real arithmetic.
+
+  Coefficient matrix:
+
+               2              -1               0               0
+              -1               2              -1               0
+               0              -1               2              -1
+               0               0              -1               2
+
+  Right hand side:
+
+               0
+               0
+               0
+               5
+
+  Computed solution:
+
+               1
+               2
+               3
+               4

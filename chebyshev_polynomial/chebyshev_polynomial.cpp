@@ -1,4 +1,5 @@
 # include <cstdlib>
+# include <stdio.h>
 # include <cmath>
 # include <iostream>
 # include <iomanip>
@@ -323,7 +324,7 @@ double dnrm2 ( int n, double x[], int incx )
   }
   else if ( n == 1 )
   {
-    norm = r8_abs ( x[0] );
+    norm = fabs ( x[0] );
   }
   else
   {
@@ -335,7 +336,7 @@ double dnrm2 ( int n, double x[], int incx )
     {
       if ( x[ix] != 0.0 )
       {
-        absxi = r8_abs ( x[ix] );
+        absxi = fabs ( x[ix] );
         if ( scale < absxi )
         {
           ssq = 1.0 + ssq * ( scale / absxi ) * ( scale / absxi );
@@ -539,7 +540,7 @@ void drotg ( double *sa, double *sb, double *c, double *s )
   double scale;
   double z;
 
-  if ( r8_abs ( *sb ) < r8_abs ( *sa ) )
+  if ( fabs ( *sb ) < fabs ( *sa ) )
   {
     roe = *sa;
   }
@@ -548,7 +549,7 @@ void drotg ( double *sa, double *sb, double *c, double *s )
     roe = *sb;
   }
 
-  scale = r8_abs ( *sa ) + r8_abs ( *sb );
+  scale = fabs ( *sa ) + fabs ( *sb );
 
   if ( scale == 0.0 )
   {
@@ -565,7 +566,7 @@ void drotg ( double *sa, double *sb, double *c, double *s )
     *s = *sb / r;
   }
 
-  if ( 0.0 < r8_abs ( *c ) && r8_abs ( *c ) <= *s )
+  if ( 0.0 < fabs ( *c ) && fabs ( *c ) <= *s )
   {
     z = 1.0 / *c;
   }
@@ -860,7 +861,7 @@ int dsvdc ( double a[], int lda, int m, int n, double s[], double e[],
       {
         if ( a[l-1+(l-1)*lda] != 0.0 )
         {
-          s[l-1] = r8_sign ( a[l-1+(l-1)*lda] ) * r8_abs ( s[l-1] );
+          s[l-1] = r8_sign ( a[l-1+(l-1)*lda] ) * fabs ( s[l-1] );
         }
         dscal ( m-l+1, 1.0 / s[l-1], a+l-1+(l-1)*lda, 1 );
         a[l-1+(l-1)*lda] = 1.0 + a[l-1+(l-1)*lda];
@@ -908,7 +909,7 @@ int dsvdc ( double a[], int lda, int m, int n, double s[], double e[],
       {
         if ( e[l] != 0.0 )
         {
-          e[l-1] = r8_sign ( e[l] ) * r8_abs ( e[l-1] );
+          e[l-1] = r8_sign ( e[l] ) * fabs ( e[l-1] );
         }
         dscal ( n-l, 1.0 / e[l-1], e+l, 1 );
         e[l] = 1.0 + e[l];
@@ -1081,8 +1082,8 @@ int dsvdc ( double a[], int lda, int m, int n, double s[], double e[],
         break;
       }
 
-      test = r8_abs ( s[l-1] ) + r8_abs ( s[l] );
-      ztest = test + r8_abs ( e[l-1] );
+      test = fabs ( s[l-1] ) + fabs ( s[l] );
+      ztest = test + fabs ( e[l-1] );
 
       if ( ztest == test )
       {
@@ -1111,15 +1112,15 @@ int dsvdc ( double a[], int lda, int m, int n, double s[], double e[],
         test = 0.0;
         if ( ls != mn )
         {
-          test = test + r8_abs ( e[ls-1] );
+          test = test + fabs ( e[ls-1] );
         }
 
         if ( ls != l + 1 )
         {
-          test = test + r8_abs ( e[ls-2] );
+          test = test + fabs ( e[ls-2] );
         }
 
-        ztest = test + r8_abs ( s[ls-1] );
+        ztest = test + fabs ( s[ls-1] );
 
         if ( ztest == test )
         {
@@ -1202,10 +1203,10 @@ int dsvdc ( double a[], int lda, int m, int n, double s[], double e[],
 //
 //  Calculate the shift.
 //
-      scale = r8_max ( r8_abs ( s[mn-1] ), 
-              r8_max ( r8_abs ( s[mn-2] ), 
-              r8_max ( r8_abs ( e[mn-2] ), 
-              r8_max ( r8_abs ( s[l-1] ), r8_abs ( e[l-1] ) ) ) ) );
+      scale = r8_max ( fabs ( s[mn-1] ), 
+              r8_max ( fabs ( s[mn-2] ), 
+              r8_max ( fabs ( e[mn-2] ), 
+              r8_max ( fabs ( s[l-1] ), fabs ( e[l-1] ) ) ) ) );
 
       sm = s[mn-1] / scale;
       smm1 = s[mn-2] / scale;
@@ -1761,7 +1762,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
           break;
         }
 
-        if ( r8_abs ( e[m-1] ) <= prec * ( r8_abs ( d[m-1] ) + r8_abs ( d[m] ) ) )
+        if ( fabs ( e[m-1] ) <= prec * ( fabs ( d[m-1] ) + fabs ( d[m] ) ) )
         {
           break;
         }
@@ -1781,7 +1782,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
       j = j + 1;
       g = ( d[l] - p ) / ( 2.0 * e[l-1] );
       r =  sqrt ( g * g + 1.0 );
-      g = d[m-1] - p + e[l-1] / ( g + r8_abs ( r ) * r8_sign ( g ) );
+      g = d[m-1] - p + e[l-1] / ( g + fabs ( r ) * r8_sign ( g ) );
       s = 1.0;
       c = 1.0;
       p = 0.0;
@@ -1793,7 +1794,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
         f = s * e[i-1];
         b = c * e[i-1];
 
-        if ( r8_abs ( g ) <= r8_abs ( f ) )
+        if ( fabs ( g ) <= fabs ( f ) )
         {
           c = g / f;
           r =  sqrt ( c * c + 1.0 );
@@ -1908,82 +1909,6 @@ int r4_nint ( float x )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = + x;
-  }
-  else
-  {
-    value = - x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_add ( double x, double y )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ADD adds two R8's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 August 2010
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, Y, the numbers to be added.
-//
-//    Output, double R8_ADD, the sum of X and Y.
-//
-{
-  double value;
-
-  value = x + y;
-
-  return value;
-}
-//****************************************************************************80
-
 double r8_choose ( int n, int k )
 
 //****************************************************************************80
@@ -2081,7 +2006,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    11 August 2010
+//    01 September 2012
 //
 //  Author:
 //
@@ -2092,23 +2017,8 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double one;
-  double temp;
-  double test;
-  double value;
+  const double value = 2.220446049250313E-016;
 
-  one = ( double ) ( 1 );
-
-  value = one;
-  temp = value / 2.0;
-  test = r8_add ( one, temp );
-
-  while ( one < test )
-  {
-    value = temp;
-    temp = value / 2.0;
-    test = r8_add ( one, temp );
-  }
   return value;
 }
 //****************************************************************************80
@@ -3034,14 +2944,14 @@ double t_double_product_integral ( int i, int j )
   if ( i < 0 )
   {
     cout << "\n";
-    cout << "T_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "T_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= I, is required.\n";
     exit ( 1 );
   }
   if ( j < 0 )
   {
     cout << "\n";
-    cout << "T_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "T_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= J is required.\n";
     exit ( 1 );
   }
@@ -4298,14 +4208,14 @@ double u_double_product_integral ( int i, int j )
   if ( i < 0 )
   {
     cout << "\n";
-    cout << "U_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "U_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= I, is required.\n";
     exit ( 1 );
   }
   if ( j < 0 )
   {
     cout << "\n";
-    cout << "U_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "U_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= J is required.\n";
     exit ( 1 );
   }
@@ -4347,7 +4257,7 @@ double u_integral ( int e )
 //
 //  Modified:
 //
-//    22 April 2012
+//    18 September 2013
 //
 //  Author:
 //
@@ -4374,7 +4284,7 @@ double u_integral ( int e )
   {
     arg1 = 0.5 * ( double ) ( 1 + e );
     arg2 = 2.0 + 0.5 * ( double ) ( e );
-    value = 0.5 * sqrt ( pi ) * gamma ( arg1 ) / gamma ( arg2 );
+    value = 0.5 * sqrt ( pi ) * tgamma ( arg1 ) / tgamma ( arg2 );
   }
 
   return value;
@@ -4833,14 +4743,14 @@ double v_double_product_integral ( int i, int j )
   if ( i < 0 )
   {
     cout << "\n";
-    cout << "V_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "V_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= I, is required.\n";
     exit ( 1 );
   }
   if ( j < 0 )
   {
     cout << "\n";
-    cout << "V_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "V_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= J is required.\n";
     exit ( 1 );
   }
@@ -5123,14 +5033,14 @@ double w_double_product_integral ( int i, int j )
   if ( i < 0 )
   {
     cout << "\n";
-    cout << "W_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "W_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= I, is required.\n";
     exit ( 1 );
   }
   if ( j < 0 )
   {
     cout << "\n";
-    cout << "W_DOUBLE_PRODUCT_INTEGRAL - Fatal error!";
+    cout << "W_DOUBLE_PRODUCT_INTEGRAL - Fatal error!\n";
     cout << "  0 <= J is required.\n";
     exit ( 1 );
   }
@@ -5371,7 +5281,7 @@ double *w_polynomial_zeros ( int n )
 
   for ( i = 0; i < n; i++ )
   {
-    angle = ( double) ( 2 * ( n - i ) * pi / ( double ) ( 2 * n + 1 );
+    angle = ( double ) ( 2 * ( n - i ) ) * pi / ( double ) ( 2 * n + 1 );
     z[i] = cos ( angle );
   }
 

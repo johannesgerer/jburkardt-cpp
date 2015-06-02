@@ -9,7 +9,7 @@
 using namespace std;
 using namespace brent;
 
-int main ( );
+const double check_tolerance(1e-15);
 
 void test_zero_all ( );
 void test_zero_rc_all ( );
@@ -55,6 +55,10 @@ int main ( )
 //
 //    MAIN is the main program for BRENT_PRB.
 //
+//  Discussion:
+//
+//    BRENT_PRB tests the BRENT library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
@@ -85,7 +89,6 @@ int main ( )
   cout << "\n";
   cout << "BRENT_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -530,6 +533,13 @@ void test_zero_one ( double a, double b, double t, double f ( double x ),
        << "  " << setw(14) << fz
        << "  " << setw(14) << fb << "\n";
 
+  if (abs(fz) > check_tolerance) {
+    cerr << "*** error ***" << endl;
+    cerr << "fz " << fz
+        << " exceeds check_tolerance " << check_tolerance << endl;
+    exit(1);
+  }
+
   return;
 }
 //****************************************************************************80
@@ -605,9 +615,16 @@ void test_zero_rc_one ( double a, double b, double t, double f ( double x ),
       break;
     }
   }
+  if (abs(value) > check_tolerance) {
+    cerr << "*** error ***" << endl;
+    cerr << "final value " << value
+        << " exceeds check_tolerance " << check_tolerance << endl;
+    exit(1);
+  }
 
   return;
 }
+
 //****************************************************************************80
 
 template <class T>
@@ -630,8 +647,7 @@ void test_local_min_one ( double a, double b, double t, T f,
 //
 //  Author:
 //
-//    John Burkardt.
-//    Modifications by John Denker.
+//    John Burkardt
 //
 //  Parameters:
 //

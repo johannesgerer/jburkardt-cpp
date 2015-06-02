@@ -22,7 +22,7 @@ int main ( void )
 //
 //  Discussion:
 //
-//    ASA032_PRB calls the ASA032 routines.
+//    ASA032_PRB tests the ASA032 library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( void )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA032_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( void )
   cout << "\n";
   cout << "ASA032_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -115,7 +113,7 @@ void test01 ( void )
          << "  " << setprecision(8) << setw(12) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;

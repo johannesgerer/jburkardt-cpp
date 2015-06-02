@@ -1,0 +1,492 @@
+<html>
+
+  <head>
+    <title>
+      FEM2D_MESH_DISPLAY_OPENGL - Display a Polygonal Mesh Using OpenGL
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM2D_MESH_DISPLAY_OPENGL<br> Display a Polygonal Mesh Using OpenGL
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM2D_MESH_DISPLAY_OPENGL</b>
+      is a C++ program which
+      reads the name of two data files
+      defining a polygonal mesh, reads the data,
+      and displays the mesh using OPENGL.
+    </p>
+
+    <p>
+      The files defining the mesh consist of one file containing
+      the coordinates of the points, and a second file that lists the
+      indices of the nodes making up each element.  All the elements
+      in the mesh must have the same order, that is, the number of vertices.
+    </p>
+
+    <h3 align = "center">
+      Usage:
+    </h3>
+
+    <p>
+      <blockquote>
+        <b>fem2d_mesh_display_opengl</b> <i>prefix</i>
+      </blockquote>
+      where <i>prefix</i> is the common filename prefix:
+      <ul>
+        <li>
+          <i>prefix</i><b>_nodes.txt</b>,    the node coordinates;
+        </li>
+        <li>
+          <i>prefix</i><b>_elements.txt</b>,    the element definitions.
+        </li>
+      </ul>
+      reads the node data from <i>nodes.txt</i>, the element data
+      from <i>elements.txt</i> and displays a plot of the mesh.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>FEM2D_MESH_DISPLAY_OPENGL</b> is available in
+      <a href = "../../cpp_src/fem2d_mesh_display_opengl/fem2d_mesh_display_opengl.html">a C++ version</a> and
+      <a href = "../../m_src/fem2d_mesh_display/fem2d_mesh_display.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/caustic_opengl/caustic_opengl.html">
+      CAUSTIC_OPENGL</a>,
+      a C++ program which
+      computes a caustic curve and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../m_src/fem_basis_t3_display/fem_basis_t3_display.html">
+      FEM_BASIS_T3_DISPLAY</a>,
+      a MATLAB program which
+      displays a basis function associated with a linear triangle ("T3") mesh.
+    </p>
+
+    <p>
+      <a href = "../../m_src/fem_basis_t6_display/fem_basis_t6_display.html">
+      FEM_BASIS_T6_DISPLAY</a>,
+      a MATLAB program which
+      reads a quadratic triangle mesh and displays any associated basis function.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fern_opengl/fern_opengl.html">
+      FERN_OPENGL</a>,
+      a C++ program which
+      uses OpenGL to display the Barnsley fractal fern.
+    </p>
+
+    <p>
+      <a href = "../../c_src/flood_opengl/flood_opengl.html">
+      FLOOD_OPENGL</a>,
+      a C program which
+      allows a user to select a region and flood it with color,
+      using OpenGL, by Art Wetzel.
+    </p>
+
+    <p>
+      <a href = "../../c_src/life_opengl/life_opengl.html">
+      LIFE_OPENGL</a>,
+      a C program which
+      simulates a version of John Conway's "Game of Life", displaying the
+      results using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lights_out_opengl/lights_out_opengl.html">
+      LIGHTS_OUT_OPENGL</a>,
+      a C++ program which
+      sets up a "Lights Out" game and allows the user to solve it,
+      using the OpenGL graphics window.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/lissajous_opengl/lissajous_opengl.html">
+      LISSAJOUS_OPENGL</a>,
+      a C++ program which
+      computes a Lissajous figure and displays it using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/opengl/opengl.html">
+      OPENGL</a>,
+      C++ programs which
+      illustrate the use of the OpenGL graphics library;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygonal_surface_display_opengl/polygonal_surface_display_opengl.html">
+      POLYGONAL_SURFACE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a surface in 3D described as a set of polygons, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rotating_cube_display_opengl/rotating_cube_display_opengl.html">
+      ROTATING_CUBE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays a rotating color cube in 3D, using OpenGL;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_xyz_display_opengl/sphere_xyz_display_opengl.html">
+      SPHERE_XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYZ information defining points in 3D,
+      and displays a unit sphere and the points, using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_delaunay/table_delaunay.html">
+      TABLE_DELAUNAY</a>,
+      a C++ program which
+      computes the Delaunay triangulation of a set of points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_io/table_io.html">
+      TABLE_IO</a>,
+      a C++ library which
+      supplies the routines used to read the TABLE file.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/table_voronoi/table_voronoi.html">
+      TABLE_VORONOI</a>,
+      a C++ program which
+      computes information about the Voronoi diagram of the points.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tri_surface_display_opengl/tri_surface_display_opengl.html">
+      TRI_SURFACE_DISPLAY_OPENGL</a>,
+      a C++ program which
+      displays the 3D graphics information in a TRI_SURFACE file using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_display_opengl/triangulation_display_opengl.html">
+      TRIANGULATION_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads data defining a triangulation and creates an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_mask/triangulation_mask.html">
+      TRIANGULATION_MASK</a>,
+      a C++ program which
+      takes an existing triangulation and deletes triangles and
+      their corresponding nodes as requested by the user.
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order3/triangulation_order3.html">
+      TRIANGULATION_ORDER3</a>,
+      a directory which
+      contains a description and
+      examples of order 3 triangulations.
+    </p>
+
+    <p>
+      <a href = "../../data/triangulation_order6/triangulation_order6.html">
+      TRIANGULATION_ORDER6</a>,
+      a directory which
+      contains a description and
+      examples of order 6 triangulations.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangulation_plot/triangulation_plot.html">
+      TRIANGULATION_PLOT</a>,
+      a C++ program which
+      reads data defining a triangulation and creates a
+      PostScript image of the nodes and triangles.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xy_display_opengl/xy_display_opengl.html">
+      XY_DISPLAY_OPENGL</a>,
+      is a C++ program which
+      reads an XY file of 2D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyl_display_opengl/xyl_display_opengl.html">
+      XYL_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads XYL information defining points and lines in 2D, and displays
+      an image using OpenGL.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/xyz_display_opengl/xyz_display_opengl.html">
+      XYZ_DISPLAY_OPENGL</a>,
+      a C++ program which
+      reads an XYZ file of 3D point coordinates, and displays
+      an image of those points using OpenGL.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Angel,<br>
+          Interactive Computer Graphics,<br>
+          A Top-Down Approach with OpenGL,<br>
+          Addison-Wesley, 2000,<br>
+          LC: T385.A514.
+        </li>
+        <li>
+          Renate Kempf, Chris Frazier, editors,<br>
+          OpenGL Reference Manual,<br>
+          Addison-Wesley, 1997,<br>
+          LC: T385.O642.
+        </li>
+        <li>
+          Mason Woo, Jackie Neider, Tom Davis,<br>
+          OpenGL Programming Guide,<br>
+          Addison-Wesley, 1997,<br>
+          LC: T385.N435.
+        </li>
+        <li>
+          Richard Wright, Michael Sweet,<br>
+          OpenGL Superbible,<br>
+          Waite Group Press, 1996,<br>
+          LC: T385.W73.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fem2d_mesh_display_opengl.cpp">
+          fem2d_mesh_display_opengl.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "fem2d_mesh_display_opengl.sh">
+          fem2d_mesh_display_opengl.sh</a>,
+          commands to compile the source code.
+        </li>
+        <li>
+          <a href = "fem2d_mesh_display_opengl_OSX.sh">
+          fem2d_mesh_display_opengl_OSX.sh</a>,
+          commands to compile the source code on an OSX system,
+          which just has to be different.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>ELL</b> is an L-shaped region covered by triangles.
+      <ul>
+        <li>
+          <a href = "ell_nodes.txt">
+          ell_nodes.txt</a>, the node coordinates.
+        </li>
+        <li>
+          <a href = "ell_elements.txt">
+          ell_elements.txt</a>, the nodes that form each element.
+        </li>
+        <li>
+          <a href = "ell.png">
+          ell.png</a>,
+          a PNG image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>RECT</b> is a rectangular region covered by quadrilaterals.
+      <ul>
+        <li>
+          <a href = "rect_nodes.txt">
+          rect_nodes.txt</a>, the node coordinates.
+        </li>
+        <li>
+          <a href = "rect_elements.txt">
+          rect_elements.txt</a>, the nodes that form each element.
+        </li>
+        <li>
+          <a href = "rect.png">
+          rect.png</a>,
+          a PNG image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>Q4</b> is a rectangular region covered by quadrilaterals, with a hole.
+      <ul>
+        <li>
+          <a href = "q4_nodes.txt">
+          q4_nodes.txt</a>, the node coordinates.
+        </li>
+        <li>
+          <a href = "q4_elements.txt">
+          q4_elements.txt</a>, the nodes that form each element.
+        </li>
+        <li>
+          <a href = "q4.png">
+          q4.png</a>,
+          a PNG image of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HEX</b> is a mesh of hexagons.
+      <ul>
+        <li>
+          <a href = "hex_nodes.txt">
+          hex_nodes.txt</a>, the node coordinates.
+        </li>
+        <li>
+          <a href = "hex_elements.txt">
+          hex_elements.txt</a>, the nodes that form each element.
+        </li>
+        <li>
+          <a href = "hex.png">
+          hex.png</a>,
+          a PNG mage of the mesh.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>MAIN</b> is the main program for FEM2D_MESH_DISPLAY_OPENGL.
+        </li>
+        <li>
+          <b>CH_EQI</b> is true if two characters are equal, disregarding case.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>DISPLAY</b> generates the graphics output.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
+        </li>
+        <li>
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
+        </li>
+        <li>
+          <b>MESH_BASE_ZERO</b> ensures that the element definition is zero-based.
+        </li>
+        <li>
+          <b>MYINIT</b> initializes OpenGL state variables dealing with viewing and attributes.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R82VEC_MAX</b> returns the maximum value in a R82VEC.
+        </li>
+        <li>
+          <b>R82VEC_MIN</b> returns the minimum value in a R82VEC.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
+        </li>
+        <li>
+          <b>S_TO_I4</b> reads an I4 from a string.
+        </li>
+        <li>
+          <b>S_TO_I4VEC</b> reads an I4VEC from a string.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 13 October 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

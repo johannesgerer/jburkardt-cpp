@@ -72,7 +72,7 @@ int main ( int argc, char *argv[] )
   {
     cout << "\n";
     cout << "UNCONTROL:\n";
-    cout << "  Please enter the name of the file to be deblanked.\n";
+    cout << "  Please enter the name of the file to be filtered.\n";
     cin >> input_filename;
   }
   else 

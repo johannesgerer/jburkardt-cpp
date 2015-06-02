@@ -1,0 +1,12 @@
+21 April 2014 04:38:12 PM
+
+TRIANGLE_SVG_PRB
+  C++ version
+  Test the TRIANGLE_SVG library.
+
+  Graphics data written to file "test01.svg"
+
+TRIANGLE_SVG_PRB
+  Normal end of execution.
+
+21 April 2014 04:38:12 PM

@@ -38,7 +38,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    CVT_PRB calls a set of problems for CVT.
+//    CVT_PRB tests the CVT library.
 //
 //  Licensing:
 //
@@ -54,7 +54,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "CVT_PRB\n";
   cout << "  C++ version\n";
@@ -81,7 +80,6 @@ int main ( )
   cout << "\n";
   cout << "CVT_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

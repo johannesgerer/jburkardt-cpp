@@ -1,15 +1,15 @@
-# include <cstdlib>
-# include <iostream>
-# include <iomanip>
 # include <cmath>
+# include <cstdlib>
 # include <cstring>
+# include <iomanip>
+# include <iostream>
 
 using namespace std;
 
 # include "geometry.hpp"
 
 int main ( );
-void test0005 ( );
+void angle_box_2d_test ( );
 void test001 ( );
 void test002 ( );
 void test0023 ( );
@@ -90,6 +90,8 @@ void test034 ( );
 void test0345 ( );
 void test0346 ( );
 void test035 ( );
+void test0351 ( );
+void test0352 ( );
 void test038 ( );
 void test0385 ( );
 void test03855 ( );
@@ -154,7 +156,7 @@ void test080 ( );
 void test0801 ( );
 void test0803 ( );
 void test0805 ( );
-void test0807 ( );
+void polygon_solid_angle_3d_test ( );
 void test081 ( );
 void test082 ( );
 void test0825 ( );
@@ -233,6 +235,7 @@ void test203234 ( );
 void test203235 ( );
 void test20324 ( );
 void test20325 ( );
+void tetrahedron_solid_angles_3d_test ( );
 void test2033 ( );
 void test204 ( );
 void test205 ( );
@@ -293,7 +296,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    GEOMETRY_PRB tests routines from the GEOMETRY library.
+//    GEOMETRY_PRB tests the GEOMETRY library.
 //
 //  Licensing:
 //
@@ -301,7 +304,7 @@ int main ( )
 //
 //  Modified:
 //
-//   09 May 2010
+//   14 April 2013
 //
 //  Author:
 //
@@ -309,13 +312,12 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "GEOMETRY_PRB\n";
   cout << "  C++ version\n";
   cout << "  Test the GEOMETRY library.\n";
 
-  test0005 ( );
+  angle_box_2d_test ( );
   test001 ( );
   test002 ( );
   test0023 ( );
@@ -396,6 +398,8 @@ int main ( )
   test0345 ( );
   test0346 ( );
   test035 ( );
+  test0351 ( );
+  test0352 ( );
   test038 ( );
   test0385 ( );
   test03855 ( );
@@ -459,7 +463,7 @@ int main ( )
   test080 ( );
   test0803 ( );
   test0805 ( );
-  test0807 ( );
+  polygon_solid_angle_3d_test ( );
   test081 ( );
   test082 ( );
   test0825 ( );
@@ -537,6 +541,7 @@ int main ( )
   test203235 ( );
   test20324 ( );
   test20325 ( );
+  tetrahedron_solid_angles_3d_test ( );
   test2033 ( );
   test204 ( );
   test205 ( );
@@ -590,7 +595,6 @@ int main ( )
   cout << "\n";
   cout << "GEOMETRY_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -598,13 +602,13 @@ int main ( )
 }
 //****************************************************************************80
 
-void test0005 ( )
+void angle_box_2d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0005 tests ANGLE_BOX_2D.
+//    ANGLE_BOX_2D_TEST tests ANGLE_BOX_2D.
 //
 //  Licensing:
 //
@@ -612,7 +616,7 @@ void test0005 ( )
 //
 //  Modified:
 //
-//    19 July 2006
+//    28 May 2015
 //
 //  Author:
 //
@@ -629,7 +633,7 @@ void test0005 ( )
   double p5[DIM_NUM];
 
   cout << "\n";
-  cout << "TEST0005\n";
+  cout << "ANGLE_BOX_2D_TEST\n";
   cout << "  ANGLE_BOX_2D\n";
   cout << "\n";
   cout << "  Compute P4 and P5, normal to\n";
@@ -966,13 +970,13 @@ void test0023 ( )
 
   angle_deg = 75.0;
   r = 3.0;
-  p1[0] = p2[0] + r * cos_deg ( angle_deg );
-  p1[1] = p2[1] + r * sin_deg ( angle_deg );
+  p1[0] = p2[0] + r * r8_cosd ( angle_deg );
+  p1[1] = p2[1] + r * r8_sind ( angle_deg );
 
   angle_deg = 15.0;
   r = 2.0;
-  p3[0] = p2[0] + r * cos_deg ( angle_deg );
-  p3[1] = p2[1] + r * sin_deg ( angle_deg );
+  p3[0] = p2[0] + r * r8_cosd ( angle_deg );
+  p3[1] = p2[1] + r * r8_sind ( angle_deg );
 
   r8vec_print ( DIM_NUM, p1, "  Point P1:" );
   r8vec_print ( DIM_NUM, p2, "  Point P2:" );
@@ -985,8 +989,8 @@ void test0023 ( )
 
   angle_deg = 45.0;
   r = 1.0;
-  p4[0] = p2[0] + r * cos_deg ( angle_deg );
-  p4[1] = p2[1] + r * sin_deg ( angle_deg );
+  p4[0] = p2[0] + r * r8_cosd ( angle_deg );
+  p4[1] = p2[1] + r * r8_sind ( angle_deg );
 
   r8vec_print ( DIM_NUM, p4, "  Expected value of P4:" );
 
@@ -4858,7 +4862,7 @@ void test0238 ( )
   cout << "\n";
   cout << "TEST0238\n";
   cout << "  DUAL_SIZE_3D finds the sizes of the dual of a\n";
-  cout << "    polyhedron;\n";
+  cout << "  polyhedron;\n";
 //
 //  Get the CUBE shape.
 //
@@ -7060,11 +7064,180 @@ void test035 ( )
 # undef DIM_NUM
 # undef TEST_NUM
 }
-//****************************************************************************80*
+//****************************************************************************80
+
+void test0351 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST0351 tests LINE_PAR_POINT_NEAR_2D and LINE_PAR_POINT_DIST_2D.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define TEST_NUM 3
+
+  double dist;
+  double f;
+  double g;
+  int i;
+  double p[2];
+  double *pn;
+  double p_test[2*TEST_NUM] = {
+    0.0,  0.0,
+    5.0, -1.0,
+    5.0,  3.0 };
+  double t;
+  int test;
+  int test_num = TEST_NUM;
+  double x0;
+  double y0;
+
+  cout << "\n";
+  cout << "TEST0351\n";
+  cout << "  LINE_PAR_POINT_NEAR_2D finds the point on\n";
+  cout << "  a parametric line (X0,Y0,F,G) nearest a point P in 2D.\n";
+
+  x0 = 1.0;
+  y0 = 3.0;
+  f = +1.0;
+  g = -1.0;
+
+  cout << "\n";
+  cout << "  Parametric line:\n";
+  cout << "  X(t) = " << x0 << " + " << f << " * t\n";
+  cout << "  Y(t) = " << y0 << " + " << g << " * t\n";
+
+  for ( test = 0; test < test_num; test++ )
+  {
+    for ( i = 0; i < 2; i++ )
+    {
+      p[i] = p_test[i+test*2];
+    }
+
+    r8vec_print ( 2, p, "  The point P:" );
+
+    dist = line_par_point_dist_2d ( f, g, x0, y0, p );
+
+    cout << "  Distance = " << dist << "\n";
+
+    pn = line_par_point_near_2d ( f, g, x0, y0, p );
+
+    r8vec_print ( 2, pn, "  Nearest point PN:" );
+
+    dist = r8vec_norm_affine ( 2, p, pn );
+
+    cout << "  Distance recomputed = " << dist << "\n";
+
+    delete [] pn;
+  }
+  return;
+# undef TEST_NUM
+}
+//****************************************************************************80
+
+void test0352 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST0352 tests LINE_PAR_POINT_DIST_3D and LINE_PAR_POINT_NEAR_3D.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define TEST_NUM 3
+
+  double dist;
+  double f;
+  double g;
+  double h;
+  int i;
+  double p[3];
+  double *pn;
+  double p_test[3*TEST_NUM] = {
+    0.0,  0.0, 2.0, 
+    5.0, -1.0, 1.0, 
+    5.0,  3.0, 3.0 };
+  int test;
+  int test_num = TEST_NUM;
+  double x0;
+  double y0;
+  double z0;
+
+  cout << "\n";
+  cout << "TEST0352\n";
+  cout << "  LINE_PAR_POINT_DIST_3D finds the distance\n";
+  cout << "  from a parametric line to a point in 3D.\n";
+
+  x0 = 1.0;
+  y0 = 3.0;
+  z0 = 2.0;
+
+  f = +3.0;
+  g = -3.0;
+  h = -1.0;
+
+  cout << "\n";
+  cout << "  Parametric line:\n";
+  cout << "  X(t) = " << x0 << " + " << f << " * t\n";
+  cout << "  Y(t) = " << y0 << " + " << g << " * t\n";
+  cout << "  Z(t) = " << z0 << " + " << h << " * t\n";
+
+  for ( test = 0; test < test_num; test++ )
+  {
+    for ( i = 0; i < 3; i++ )
+    {
+      p[i] = p_test[i+test*3];
+    }
+
+    r8vec_print ( 3, p, "  The point P:" );
+
+    dist = line_par_point_dist_3d ( f, g, h, x0, y0, z0, p );
+
+    cout << "  Distance = " << dist << "\n";
+
+    pn = line_par_point_near_3d ( f, g, h, x0, y0, z0, p );
+
+    r8vec_print ( 3, pn, "  Nearest point PN:" );
+
+    dist = r8vec_norm_affine ( 3, p, pn );
+
+    cout << "  Distance recomputed = " << dist << "\n";
+
+    delete [] pn;
+  }
+  return;
+# undef TEST_NUM
+}
+//****************************************************************************80
 
 void test038 ( )
 
-//****************************************************************************80*
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -12236,13 +12409,13 @@ void test0805 ( )
 }
 //****************************************************************************80
 
-void test0807 ( )
+void polygon_solid_angle_3d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0807 tests POLYGON_SOLID_ANGLE_3D.
+//    POLYGON_SOLID_ANGLE_3D_TEST tests POLYGON_SOLID_ANGLE_3D.
 //
 //  Discussion:
 //
@@ -12255,27 +12428,24 @@ void test0807 ( )
 //
 //  Modified:
 //
-//    29 October 2007
+//    28 May 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define DIM_NUM 3
-
   int n;
-  double p[DIM_NUM];
+  double p[3];
   double solid_angle;
   int test;
   int test_num = 4;
   double *v;
 
   cout << "\n";
-  cout << "TEST0807\n";
-  cout << "  For a polygon in 3D:\n";
+  cout << "POLYGON_SOLID_ANGLE_3D_TEST\n";
   cout << "  POLYGON_SOLID_ANGLE_3D computes the solid angle\n";
-  cout << "  subtended by a planar polygon as viewed from\n";
+  cout << "  subtended by a planar polygon in 3D as viewed from\n";
   cout << "  a point P.\n";
 
   for ( test = 1; test <= test_num; test++ )
@@ -12287,19 +12457,19 @@ void test0807 ( )
     {
       n = 3;
 
-      v = new double[DIM_NUM*n];
+      v = new double[3*n];
 
-      v[0+0*DIM_NUM] = 1.0;
-      v[0+1*DIM_NUM] = 0.0;
-      v[0+2*DIM_NUM] = 0.0;
+      v[0+0*3] = 1.0;
+      v[0+1*3] = 0.0;
+      v[0+2*3] = 0.0;
 
-      v[1+0*DIM_NUM] = 0.0;
-      v[1+1*DIM_NUM] = 1.0;
-      v[1+2*DIM_NUM] = 0.0;
+      v[1+0*3] = 0.0;
+      v[1+1*3] = 1.0;
+      v[1+2*3] = 0.0;
 
-      v[2+0*DIM_NUM] = 0.0;
-      v[2+1*DIM_NUM] = 0.0;
-      v[2+2*DIM_NUM] = 1.0;
+      v[2+0*3] = 0.0;
+      v[2+1*3] = 0.0;
+      v[2+2*3] = 1.0;
 
       p[0] = 0.0;
       p[1] = 0.0;
@@ -12312,19 +12482,19 @@ void test0807 ( )
     {
       n = 3;
 
-      v = new double[DIM_NUM*n];
+      v = new double[3*n];
 
-      v[0+0*DIM_NUM] = 1.0;
-      v[0+1*DIM_NUM] = 0.0;
-      v[0+2*DIM_NUM] = 0.0;
+      v[0+0*3] = 1.0;
+      v[0+1*3] = 0.0;
+      v[0+2*3] = 0.0;
 
-      v[1+0*DIM_NUM] = 0.0;
-      v[1+1*DIM_NUM] = 0.0;
-      v[1+2*DIM_NUM] = 1.0;
+      v[1+0*3] = 0.0;
+      v[1+1*3] = 0.0;
+      v[1+2*3] = 1.0;
 
-      v[2+0*DIM_NUM] = 0.0;
-      v[2+1*DIM_NUM] = 1.0;
-      v[2+2*DIM_NUM] = 0.0;
+      v[2+0*3] = 0.0;
+      v[2+1*3] = 1.0;
+      v[2+2*3] = 0.0;
 
       p[0] = 0.0;
       p[1] = 0.0;
@@ -12338,19 +12508,19 @@ void test0807 ( )
     {
       n = 3;
 
-      v = new double[DIM_NUM*n];
+      v = new double[3*n];
 
-      v[0+0*DIM_NUM] = 2.0;
-      v[0+1*DIM_NUM] = 1.0;
-      v[0+2*DIM_NUM] = 1.0;
+      v[0+0*3] = 2.0;
+      v[0+1*3] = 1.0;
+      v[0+2*3] = 1.0;
 
-      v[1+0*DIM_NUM] = 2.0;
-      v[1+1*DIM_NUM] = 3.0;
-      v[1+2*DIM_NUM] = 2.0;
+      v[1+0*3] = 2.0;
+      v[1+1*3] = 3.0;
+      v[1+2*3] = 2.0;
 
-      v[2+0*DIM_NUM] = 3.0;
-      v[2+1*DIM_NUM] = 3.0;
-      v[2+2*DIM_NUM] = 4.0;
+      v[2+0*3] = 3.0;
+      v[2+1*3] = 3.0;
+      v[2+2*3] = 4.0;
 
       p[0] = 1.0;
       p[1] = 2.0;
@@ -12363,19 +12533,19 @@ void test0807 ( )
     {
       n = 3;
 
-      v = new double[DIM_NUM*n];
+      v = new double[3*n];
 
-      v[0+0*DIM_NUM] = 2.0;
-      v[0+1*DIM_NUM] = 0.0;
-      v[0+2*DIM_NUM] = 0.0;
+      v[0+0*3] = 2.0;
+      v[0+1*3] = 0.0;
+      v[0+2*3] = 0.0;
 
-      v[1+0*DIM_NUM] = 0.0;
-      v[1+1*DIM_NUM] = 2.0;
-      v[1+2*DIM_NUM] = 0.0;
+      v[1+0*3] = 0.0;
+      v[1+1*3] = 2.0;
+      v[1+2*3] = 0.0;
 
-      v[2+0*DIM_NUM] = 0.0;
-      v[2+1*DIM_NUM] = 0.0;
-      v[2+2*DIM_NUM] = 2.0;
+      v[2+0*3] = 0.0;
+      v[2+1*3] = 0.0;
+      v[2+2*3] = 2.0;
 
       p[0] = 0.0;
       p[1] = 0.0;
@@ -12386,9 +12556,9 @@ void test0807 ( )
     cout << "  TEST #" << test << "\n";
     cout << "\n";
 
-    r8vec_print ( DIM_NUM, p, "  The viewing point P:" );
+    r8vec_print ( 3, p, "  The viewing point P:" );
 
-    r8mat_transpose_print ( DIM_NUM, n, v, "  The polygon vertices V:" );
+    r8mat_transpose_print ( 3, n, v, "  The polygon vertices V:" );
 
     solid_angle = polygon_solid_angle_3d ( n, v, p );
 
@@ -12398,7 +12568,6 @@ void test0807 ( )
     delete [] v;
   }
   return;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
@@ -15852,9 +16021,9 @@ void test1892 ( )
          << "  " << setw(4) << n
          << "  " << setw(13) << area
          << "  " << setw(13) << area1
-         << "  " << setw(13) << r8_abs ( area - area1 )
+         << "  " << setw(13) << fabs ( area - area1 )
          << "  " << setw(13) << area2
-         << "  " << setw(13) << r8_abs ( area - area2 ) << "\n";
+         << "  " << setw(13) << fabs ( area - area2 ) << "\n";
 
     delete [] lat;
     delete [] lon;
@@ -15904,7 +16073,7 @@ void test1895 ( )
 
   for ( ; ; )
   {
-    sphere_unit_area_values ( &n_data, &dim_num, &area );
+    sphere_unit_area_values ( n_data, dim_num, area );
 
     if ( n_data == 0 )
     {
@@ -16685,7 +16854,7 @@ void test1955 ( )
 
   for ( ; ; )
   {
-    sphere_unit_volume_values ( &n_data, &dim_num, &volume );
+    sphere_unit_volume_values ( n_data, dim_num, volume );
 
     if ( n_data == 0 )
     {
@@ -17070,7 +17239,7 @@ void test200 ( )
 //
 //  Get the spherical angles.
 //
-  sphere_triangle_sides_to_angles ( r, as, bs, cs, &a, &b, &c );
+  sphere_triangle_sides_to_angles ( r, as, bs, cs, a, b, c );
 
   cout << "\n";
   cout << "  A       = " << a << " (radians)\n";
@@ -18158,6 +18327,79 @@ void test20325 ( )
   delete [] face_order;
   delete [] face_point;
   delete [] point_coord;
+
+  return;
+# undef DIM_NUM
+}
+//****************************************************************************80
+
+void tetrahedron_solid_angles_3d_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TETRAHEDRON_SOLID_ANGLES_3D tests TETRAHEDRON_VOLUME_3D;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    28 May 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *angle;
+  double t1[3*4] = {
+     0.000000,  0.942809, -0.333333,
+    -0.816496, -0.816496, -0.333333,
+     0.816496, -0.816496, -0.333333,
+     0.000000,  0.000000,  1.000000 };
+  double t2[3*4] = {
+     0.000000,  0.000000,  0.000000, 
+     1.000000,  0.000000,  0.000000, 
+     0.000000,  1.000000,  0.000000, 
+     0.000000,  0.000000,  1.000000 };
+  double t3[3*4] = {
+     0.000000,  0.000000,  0.000000, 
+     1.000000,  0.000000,  0.000000, 
+     0.000000,  2.000000,  0.000000, 
+     0.000000,  0.000000,  4.000000 };
+  double t4[3*4] = {
+     0.000000,  0.000000,  0.000000, 
+     1.000000,  0.000000,  0.000000, 
+     0.000000,  1.000000,  0.000000, 
+     1.000000,  1.000000,  1.000000 };
+
+  cout << "\n";
+  cout << "TETRAHEDRON_SOLID_ANGLES_3D_TEST\n";
+  cout << "  TETRAHEDRON_SOLID_ANGLES_3D computes the solid angles\n";
+  cout << "  associated with the vertices of a tetrahedron in 3D.\n";
+
+  r8mat_transpose_print ( 3, 4, t1, "  Tetrahedron #1" );
+  angle = tetrahedron_solid_angles_3d ( t1 );
+  r8vec_print ( 4, angle, "  Solid angles for tetrahedron #1" );
+  delete [] angle;
+
+  r8mat_transpose_print ( 3, 4, t2, "  Tetrahedron #2" );
+  angle = tetrahedron_solid_angles_3d ( t2 );
+  r8vec_print ( 4, angle, "  Solid angles for tetrahedron #2" );
+  delete [] angle;
+
+  r8mat_transpose_print ( 3, 4, t3, "  Tetrahedron #3" );
+  angle = tetrahedron_solid_angles_3d ( t3 );
+  r8vec_print ( 4, angle, "  Solid angles for tetrahedron #3" );
+  delete [] angle;
+
+  r8mat_transpose_print ( 3, 4, t4, "  Tetrahedron #4" );
+  angle = tetrahedron_solid_angles_3d ( t4 );
+  r8vec_print ( 4, angle, "  Solid angles for tetrahedron #4" );
+  delete [] angle;
 
   return;
 # undef DIM_NUM

@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    ASA066_PRB tests ASA066.
+//    MAIN is the main program for ASA066_PRB.
+//
+//  Discussion:
+//
+//    ASA066_PRB tests the ASA066 library.
 //
 //  Licensing:
 //
@@ -36,9 +40,7 @@ int main ( )
 //    John Burkardt
 //
 {
-  cout << "\n";
   timestamp ( );
-
   cout << "\n";
   cout << "ASA066_PRB:\n";
   cout << "  C++ version\n";
@@ -53,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "ASA066_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -115,7 +116,7 @@ void test01 ( )
     cout << "  " << setprecision(4)  << setw(10) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4)  << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4)  << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;
@@ -179,7 +180,7 @@ void test02 ( )
     cout << "  " << setprecision(4)  << setw(10) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4)  << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4)  << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;
@@ -243,7 +244,7 @@ void test03 ( )
     cout << "  " << setprecision(4)  << setw(10) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4)  << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4)  << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;

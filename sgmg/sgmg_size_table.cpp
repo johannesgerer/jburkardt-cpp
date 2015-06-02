@@ -272,6 +272,44 @@ int main ( )
   std::cout << "  CPU Time = " << ctime << "\n";
   delete [] p_1d;
 //
+//  Gauss Legendre Grid (4), slow linear growth (1)
+//
+  rule_1d = 4;
+  growth_1d = 1;
+  np_1d = 0;
+  p_1d = new double[np_1d];
+  dim_min = 1;
+  dim_max = 5;
+  level_max_min = 0;
+  level_max_max = 10;
+  ctime = webbur::cpu_time ( );
+  sgmg_size_tabulate ( rule_1d, growth_1d, np_1d, 
+    p_1d, webbur::legendre_compute_points_np, 
+    dim_min, dim_max, level_max_min, level_max_max );
+  ctime = webbur::cpu_time ( ) - ctime;
+  std::cout << "\n";
+  std::cout << "  CPU_TIME = " << ctime << "\n";
+  delete [] p_1d;
+//
+//  Gauss Legendre Grid (4), slow linear growth (1)
+//
+  rule_1d = 4;
+  growth_1d = 1;
+  np_1d = 0;
+  p_1d = new double[np_1d];
+  dim_min = 6;
+  dim_max = 10;
+  level_max_min = 0;
+  level_max_max = 7;
+  ctime = webbur::cpu_time ( );
+  sgmg_size_tabulate ( rule_1d, growth_1d, np_1d, 
+    p_1d, webbur::legendre_compute_points_np, 
+    dim_min, dim_max, level_max_min, level_max_max );
+  ctime = webbur::cpu_time ( ) - ctime;
+  std::cout << "\n";
+  std::cout << "  CPU_TIME = " << ctime << "\n";
+  delete [] p_1d;
+//
 //  Gauss Legendre Grid (4), slow linear odd growth (2)
 //
   rule_1d = 4;
@@ -281,7 +319,26 @@ int main ( )
   dim_min = 1;
   dim_max = 5;
   level_max_min = 0;
-  level_max_max = 7;
+  level_max_max = 10;
+  ctime = webbur::cpu_time ( );
+  sgmg_size_tabulate ( rule_1d, growth_1d, np_1d, 
+    p_1d, webbur::legendre_compute_points_np, 
+    dim_min, dim_max, level_max_min, level_max_max );
+  ctime = webbur::cpu_time ( ) - ctime;
+  std::cout << "\n";
+  std::cout << "  CPU_TIME = " << ctime << "\n";
+  delete [] p_1d;
+//
+//  Gauss Legendre Grid (4), slow linear odd growth (2)
+//
+  rule_1d = 4;
+  growth_1d = 2;
+  np_1d = 0;
+  p_1d = new double[np_1d];
+  dim_min = 6;
+  dim_max = 10;
+  level_max_min = 0;
+  level_max_max = 8;
   ctime = webbur::cpu_time ( );
   sgmg_size_tabulate ( rule_1d, growth_1d, np_1d, 
     p_1d, webbur::legendre_compute_points_np, 
@@ -296,7 +353,6 @@ int main ( )
   std::cout << "\n";
   std::cout << "SGMG_SIZE_TABLE\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
   
@@ -326,7 +382,7 @@ void sgmg_size_tabulate ( int rule_1d, int growth_1d,
 //
 //  Modified:
 //
-//    22 March 2010
+//    13 April 2014
 //
 //  Author:
 //
@@ -396,6 +452,7 @@ void sgmg_size_tabulate ( int rule_1d, int growth_1d,
   std::cout << "  for a range of dimensions and levels.\n";
   std::cout << "\n";
   std::cout << "  1D rule index is " << rule_1d << "\n";
+  std::cout << "  1D growth index is " << growth_1d << "\n";
   std::cout << "\n";
 
   tol = std::sqrt ( webbur::r8_epsilon ( ) );
@@ -439,7 +496,7 @@ void sgmg_size_tabulate ( int rule_1d, int growth_1d,
       point_num = webbur:: sgmg_size ( dim_num, level_max, rule, 
         np, p, gw_compute_points, tol, growth );
 
-      std::cout << "  " << std::setw(6) << point_num;
+      std::cout << "  " << std::setw(8) << point_num;
 
       delete [] growth;
       delete [] gw_compute_points;

@@ -38,6 +38,7 @@ void easter_ds ( int y, int &m, int &d );
 void easter_egr ( int y, int &m, int &d );
 void easter_egr2 ( int y, int &m, int &d );
 void easter_julian ( int y, int &m, int &d );
+void easter_julian2 ( int y, int &m, int &d );
 
 double epoch_to_jed_akbar ( );
 double epoch_to_jed_alexandrian ( );
@@ -109,6 +110,7 @@ int i4_min ( int i1, int i2 );
 int i4_modp ( int i, int j );
 void i4_swap ( int &i, int &j );
 char i4_to_a ( int i );
+string i4_to_string ( int i4, string format );
 int i4_wrap ( int ival, int ilo, int ihi );
 
 void inflate_common ( int &y, int &m, int &d );
@@ -134,7 +136,7 @@ void j_carry_roman ( int &y, int &j );
 
 void jed_check ( double jed );
 double jed_test ( int i );
-void jed_to_cws_gps ( double jed, int &c, int &w, double &s );
+void jed_to_cws_gps ( double jed, int &c, int &w, double &s ); 
 double jed_to_datenum ( double jed );
 void jed_to_mayan_long ( double jed, int &pictun, int &baktun, int &katun, 
   int &tun, int &uinal, int &kin, double &f );

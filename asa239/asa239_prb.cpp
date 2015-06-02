@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA239_PRB calls the ASA239 routines.
+//    ASA239_PRB tests the ASA239 library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA239_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "ASA239_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

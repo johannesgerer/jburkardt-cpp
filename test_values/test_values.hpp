@@ -29,7 +29,7 @@ void ber0_values ( int &n_data, double &x, double &fx );
 void ber1_values ( int &n_data, double &x, double &fx );
 void bernoulli_number_values ( int &n_data, int &n, double &c );
 void bernoulli_poly_values ( int &n_data, int &n, double &x, double &fx );
-void bernstein_poly_values ( int &n_data, int &n, int &k, double &x, double &b );
+void bernstein_poly_01_values ( int &n_data, int &n, int &k, double &x, double &b );
 void bessel_i0_int_values ( int &n_data, double &x, double &fx );
 void bessel_i0_spherical_values ( int &n_data, double &x, double &fx );
 void bessel_i0_values ( int &n_data, double &x, double &fx );
@@ -119,9 +119,6 @@ void extreme_values_cdf_values ( int &n_data, double &alpha, double &beta,
 void f_cdf_values ( int &n_data, int &a, int &b, double &x, double &fx );
 void f_noncentral_cdf_values ( int &n_data, int &n1, int &n2, double &lambda, 
   double &x, double &fx );
-void factorial_values ( int &n_data, int &n, int &fn );
-void factorial2_values ( int &n_data, int &n, int &fn );
-void factorial_rising_values ( int &n_data, int &m, int &n, int &fmn );
 void fresnel_cos_values ( int &n_data, double &x, double &fx );
 void fresnel_sin_values ( int &n_data, double &x, double &fx );
 void frobenius_number_data_values ( int &n_data, int order, int c[], int &f );
@@ -155,6 +152,10 @@ void hypergeometric_u_values ( int &n_data, double &a, double &b,
   double &x, double &fx );
 void i0ml0_values ( int &n_data, double &x, double &fx );
 void i1ml1_values ( int &n_data, double &x, double &fx );
+void i4_factorial_values ( int &n_data, int &n, int &fn );
+void i4_factorial2_values ( int &n_data, int &n, int &fn );
+void i4_fall_values ( int &n_data, int &m, int &n, int &fmn );
+void i4_rise_values ( int &n_data, int &m, int &n, int &fmn );
 void int_values ( int &n_data, double &x, double &fx );
 void jacobi_cn_values ( int &n_data, double &a, double &x, double &fx );
 void jacobi_dn_values ( int &n_data, double &a, double &x, double &fx );
@@ -190,6 +191,8 @@ void lerch_values ( int &n_data, double &z, int &s, double &a, double &fx );
 void linear_system_values ( int &n_data, int &nrow, int &ncol, int &nsys, 
   double *a, double &x, double *b );
 void lobachevsky_values ( int &n_data, double &x, double &fx );
+void lobatto_polynomial_values ( int &n_data, int &n, double &x, double &fx );
+void lobatto_polynomial_derivatives ( int &n_data, int &n, double &x, double &fx );
 void log_values ( int &n_data, double &x, double &fx );
 void log_normal_cdf_values ( int &n_data, double &mu, double &sigma, 
   double &x, double &fx );
@@ -214,7 +217,6 @@ void partition_count_values ( int &n_data, int &n, int &c );
 void partition_distinct_count_values ( int &n_data, int &n, int &c );
 void phi_values ( int &n_data, int &n, int &c );
 void pi_values ( int &n_data, int &n, int &p );
-void pochhammer_values ( int &n_data, double &x, double &y, double &fxy );
 void poisson_cdf_values ( int &n_data, double &a, int &x, double &fx );
 void polylogarithm_values ( int &n_data, int &n, double &z, double &fx );
 void prandtl_values ( int &n_data, double &tc, double &p, double &pr );
@@ -223,6 +225,9 @@ void psat_values ( int &n_data, double &tc, double &p );
 void psi_values ( int &n_data, double &x, double &fx );
 void r8_factorial_values ( int &n_data, int &n, double &fn );
 void r8_factorial_log_values ( int &n_data, int &n, double &fn );
+void r8_factorial2_values ( int &n_data, int &n, double &f );
+void r8_fall_values ( int &n_data, double &x, int &n, double &f );
+void r8_rise_values ( int &n_data, double &x, int &n, double &f );
 void rayleigh_cdf_values ( int &n_data, double &sigma, double &x, double &fx );
 void secvir_values ( int &n_data, double &tc, double &vir );
 void shi_values ( int &n_data, double &x, double &fx );
@@ -271,6 +276,18 @@ void tran07_values ( int &n_data, double &x, double &fx );
 void tran08_values ( int &n_data, double &x, double &fx );
 void tran09_values ( int &n_data, double &x, double &fx );
 void trigamma_values ( int &n_data, double &x, double &fx );
+void truncated_normal_ab_cdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &b, double &x, double &fx );
+void truncated_normal_ab_pdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &b, double &x, double &fx );
+void truncated_normal_a_cdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &x, double &fx );
+void truncated_normal_a_pdf_values ( int &n_data, double &mu, double &sigma, 
+  double &a, double &x, double &fx );
+void truncated_normal_b_cdf_values ( int &n_data, double &mu, double &sigma, 
+  double &b, double &x, double &fx );
+void truncated_normal_b_pdf_values ( int &n_data, double &mu, double &sigma, 
+  double &b, double &x, double &fx );
 void tsat_values ( int &n_data, double &p, double &tc );
 void van_der_corput_values ( int &n_data, int &base, int &seed, double &value );
 void viscosity_values ( int &n_data, double &tc, double &p, double &eta );

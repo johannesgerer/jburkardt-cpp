@@ -1,0 +1,175 @@
+07 July 2014 09:03:08 PM
+
+FEM2D_BVP_SERENE_PRB
+  C++ version
+  Test the FEM2D_BVP_SERENE library.
+
+TEST01
+  Solve - del ( A del U ) + C U = F 
+  on the unit square with zero boundary conditions.
+  A1(X,Y) = 1.0
+  C1(X,Y) = 0.0
+  F1(X,Y) = 2*X*(1-X)+2*Y*(1-Y)
+  U1(X,Y) = X * ( 1 - X ) * Y * ( 1 - Y )
+
+  Number of X grid values NX = 5
+  Number of Y grid values NY = 5
+
+     I     J    X         Y               U               Uexact     Error
+
+   0     0         0         0               0               0               0
+   1     0      0.25         0               0               0               0
+   2     0       0.5         0               0               0               0
+   3     0      0.75         0               0               0               0
+   4     0         1         0               0               0               0
+   0     1         0      0.25               0               0               0
+   2     1       0.5      0.25       0.0486306        0.046875      0.00175562
+   4     1         1      0.25               0               0               0
+   0     2         0       0.5               0               0               0
+   1     2      0.25       0.5       0.0486306        0.046875      0.00175562
+   2     2       0.5       0.5       0.0589888          0.0625      0.00351124
+   3     2      0.75       0.5       0.0486306        0.046875      0.00175562
+   4     2         1       0.5               0               0               0
+   0     3         0      0.75               0               0               0
+   2     3       0.5      0.75       0.0486306        0.046875      0.00175562
+   4     3         1      0.75               0               0               0
+   0     4         0         1               0               0               0
+   1     4      0.25         1               0               0               0
+   2     4       0.5         1               0               0               0
+   3     4      0.75         1               0               0               0
+   4     4         1         1               0               0               0
+
+  l1 norm of error  = 0.000501605
+  L2 norm of error  = 0.000805291
+  Seminorm of error = 0.0123351
+
+TEST02
+  Basis function checks.
+
+  The matrix Aij = V(j)(X(i),Y(i)) should be the identity.
+
+         1        -0         0         0        -0         0         0        -0
+         0         1         0        -0         0        -0         0        -0
+        -0         0         1        -0         0        -0         0        -0
+        -0         0         0         1        -0         0        -0         0
+        -0         0        -0         0         1         0        -0         0
+        -0         0        -0         0         0         1         0         0
+        -0        -0         0        -0         0        -0         1         0
+         0        -0         0        -0         0        -0         0         1
+
+  The vectors dVdX(1:8)(X,Y) and dVdY(1:8)(X,Y)
+  should both sum to zero for any (X,Y).
+
+  Random evaluation point is (0.436837,4.91264)
+
+              dVdX        dVdY
+
+     0   -0.102179    0.137834
+     1     1.07713    0.341423
+     2   -0.974948    0.933378
+     3  -0.0835485     -1.4266
+     4  -0.00466728     0.49322
+     5   0.0492007   -0.341423
+     6  -0.0445334    0.260839
+     7   0.0835485   -0.398672
+
+  Sum:  -9.71445e-17  1.11022e-16
+
+TEST03
+  Solve - del ( A del U ) + C U = F 
+  on the unit square with zero boundary conditions.
+  A1(X,Y) = 0.0
+  C1(X,Y) = 1.0
+  F1(X,Y) = X * ( 1 - X ) * Y * ( 1 - Y )
+  U1(X,Y) = X * ( 1 - X ) * Y * ( 1 - Y )
+
+  This example is contrived so that the system matrix
+  is the WATHEN matrix.
+
+  Number of X grid values NX = 5
+  Number of Y grid values NY = 5
+
+  Wathen elementary mass matrix:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            6            -6             2            -8             3  
+    1:           -6            32            -6            20            -8  
+    2:            2            -6             6            -6             2  
+    3:           -8            20            -6            32            -6  
+    4:            3            -8             2            -6             6  
+    5:           -8            16            -8            20            -6  
+    6:            2            -8             3            -8             2  
+    7:           -6            20            -8            16            -8  
+
+  Col:          5             6             7       
+  Row
+
+    0:           -8             2            -6  
+    1:           16            -8            20  
+    2:           -8             3            -8  
+    3:           20            -8            16  
+    4:           -6             2            -8  
+    5:           32            -6            20  
+    6:           -6             6            -6  
+    7:           20            -6            32  
+
+     I     J    X         Y               U               Uexact     Error
+
+   0     0         0         0               0               0               0
+   1     0      0.25         0               0               0               0
+   2     0       0.5         0               0               0               0
+   3     0      0.75         0               0               0               0
+   4     0         1         0               0               0               0
+   0     1         0      0.25               0               0               0
+   2     1       0.5      0.25       0.0488281        0.046875      0.00195313
+   4     1         1      0.25               0               0               0
+   0     2         0       0.5               0               0               0
+   1     2      0.25       0.5       0.0488281        0.046875      0.00195312
+   2     2       0.5       0.5       0.0585938          0.0625      0.00390625
+   3     2      0.75       0.5       0.0488281        0.046875      0.00195312
+   4     2         1       0.5               0               0               0
+   0     3         0      0.75               0               0               0
+   2     3       0.5      0.75       0.0488281        0.046875      0.00195313
+   4     3         1      0.75               0               0               0
+   0     4         0         1               0               0               0
+   1     4      0.25         1               0               0               0
+   2     4       0.5         1               0               0               0
+   3     4      0.75         1               0               0               0
+   4     4         1         1               0               0               0
+
+  l1 norm of error  = 0.000558036
+  L2 norm of error  = 0.00078125
+  Seminorm of error = 0.0124347
+
+  Wathen matrix:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            6            -6             2            -6            -8  
+    1:           -6            32            -6            20            20  
+    2:            2            -6             6            -8            -6  
+    3:           -6            20            -8            32            16  
+    4:           -8            20            -6            16            32  
+    5:            2            -8             3            -6            -8  
+    6:           -8            16            -8            20            20  
+    7:            3            -8             2            -8            -6  
+
+  Col:          5             6             7       
+  Row
+
+    0:            2            -8             3  
+    1:           -8            16            -8  
+    2:            3            -8             2  
+    3:           -6            20            -8  
+    4:           -8            20            -6  
+    5:            6            -6             2  
+    6:           -6            32            -6  
+    7:            2            -6             6  
+
+FEM2D_BVP_SERENE_PRB
+  Normal end of execution.
+
+07 July 2014 09:03:08 PM

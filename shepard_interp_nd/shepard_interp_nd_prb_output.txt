@@ -1,0 +1,876 @@
+16 October 2012 01:25:38 PM
+
+SHEPARD_INTERP_ND_TEST:
+  C++ version
+  Test the SHEPARD_INTERP_ND library.
+  The R8LIB library is needed.
+  This test also needs the TEST_INTERP_ND library.
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0117522
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00506728
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00256958
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00301658
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0472496
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0419717
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0351696
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.033649
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000253547
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000169376
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000149062
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00015418
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     2.89499e-05
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     2.59249e-05
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     2.13948e-05
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     2.00691e-05
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0163525
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00672628
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00392753
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00445235
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00287417
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00264877
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00211396
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00188186
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00633563
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0042159
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00372955
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00384781
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0199775
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0178935
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.014771
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0139187
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0104323
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00660193
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00560669
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00609941
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0172363
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0159607
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0138759
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0125525
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0712269
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0485404
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.045639
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0532607
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0785209
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0785209
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0785209
+
+TEST01:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and an irregular grid of ND = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0785209
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00235326
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000877185
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000590164
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000838801
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00974289
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00767847
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00285036
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #1
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00154455
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     6.41477e-05
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     3.23504e-05
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     2.34221e-05
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     3.1258e-05
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     6.29828e-06
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     5.13576e-06
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     2.26425e-06
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #2
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     1.17851e-06
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00310234
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00106184
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00103127
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00144522
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000380484
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000299845
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     9.88496e-05
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #3
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000140923
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0016127
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000804955
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000602276
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000806064
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00436972
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00356584
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00157245
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #4
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000840341
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00269232
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00153273
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00102188
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00122883
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00359833
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00299174
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.00145333
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #5
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.000805012
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 1
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0175182
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 2
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0128424
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 4
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0127093
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 8
+  spatial dimension M = 2
+  and a regular grid of N1D^M = 25 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0142476
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 1
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0153603
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 2
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0142834
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 4
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0120435
+
+TEST02:
+  Interpolate data from TEST_INTERP_ND problem #6
+  using Shepard interpolation with P = 8
+  spatial dimension M = 5
+  and a regular grid of N1D^M = 3125 data points.
+
+  L2 interpolation error averaged per interpolant node = 0
+  L2 approximation error averaged per 1000 samples =     0.0151405
+
+SHEPARD_INTERP_ND_TEST:
+  Normal end of execution.
+
+16 October 2012 01:25:54 PM

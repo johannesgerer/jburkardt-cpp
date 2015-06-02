@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include halton_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include halton_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling halton_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ halton_prb.o /$HOME/libcpp/$ARCH/halton.o -lm
 if [ $? -ne 0 ]; then

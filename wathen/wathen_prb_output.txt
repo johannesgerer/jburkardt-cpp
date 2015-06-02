@@ -1,0 +1,133 @@
+08 June 2014 12:57:00 PM
+
+WATHEN_PRB
+  C++ version
+  Test the WATHEN library.
+
+TEST01
+  Assemble, factor and solve a Wathen system
+  defined by WATHEN_GE.
+
+  Elements in X direction NX = 4
+  Elements in Y direction NY = 4
+  Number of elements = 16
+  Number of nodes N = 65
+  Maximum solution error is 2.55351e-15
+
+TEST02
+  Assemble, factor and solve a Wathen system
+  using WATHEN_GB.
+
+  Elements in X direction NX = 4
+  Elements in Y direction NY = 4
+  Number of elements = 16
+  Number of nodes N = 65
+  Lower bandwidth ML = 16
+  Upper bandwidth MU = 16
+  Maximum solution error is 2.55351e-15
+
+TEST05
+  For various problem sizes and storage schemes,
+  measure the storage used for the Wathen system.
+
+                                   Predicted  Observed
+                              GE        Band      Band      Band    Sparse
+    NX  Elements   Nodes   storage     width     width     storage   storage
+
+     1         1       8        64        15        15       176        64
+     2         4      21       441        21        21       651       221
+     4        16      65      4225        33        33      3185       817
+     8        64     225     50625        57        57     19125      3137
+    16       256     833    693889       105       105    130781     12289
+    32      1024    3201  10246401       201       201    963501     48641
+
+TEST06
+  For various problem sizes,
+  time the assembly and factorization of a Wathen system
+  using the WATHEN_GE function.
+
+    NX  Elements   Nodes   Storage    Assembly      Factor      Error
+
+     1         1       8        64           0           0  1.58207e-15
+     2         4      21       441           0           0  3.06005e-15
+     4        16      65      4225           0           0  2.55351e-15
+     8        64     225     50625           0           0  1.9984e-15
+    16       256     833    693889        0.01        0.07  1.40221e-13
+    32      1024    3201  10246401        0.11        1.85  1.19349e-14
+
+TEST07
+  For various problem sizes,
+  time the assembly and factorization of a Wathen system
+  using the WATHEN_GB function.
+
+    NX  Elements   Nodes   Storage    Assembly      Factor      Error
+
+     1         1       8       176           0           0  1.58207e-15
+     2         4      21       651           0           0  3.06005e-15
+     4        16      65      3185           0           0  2.55351e-15
+     8        64     225     19125           0           0  1.9984e-15
+    16       256     833    130781           0        0.01  1.40221e-13
+    32      1024    3201    963501        0.01        0.14  1.19349e-14
+
+TEST08
+  For various problem sizes,
+  time the assembly and factorization of a Wathen system
+  WATHEN_GE/WATHEN_GB
+
+                   NX  Elements   Nodes   Storage      Assembly      Factor      Error
+
+  WATHEN_GE           1         1       8        64           0           0  1.58207e-15
+  WATHEN_GB           1         1       8       176           0           0  1.58207e-15
+
+  WATHEN_GE           2         4      21       441           0           0  3.06005e-15
+  WATHEN_GB           2         4      21       651           0           0  3.06005e-15
+
+  WATHEN_GE           4        16      65      4225           0           0  2.55351e-15
+  WATHEN_GB           4        16      65      3185           0           0  2.55351e-15
+
+  WATHEN_GE           8        64     225     50625           0           0  1.9984e-15
+  WATHEN_GB           8        64     225     19125           0           0  1.9984e-15
+
+  WATHEN_GE          16       256     833    693889        0.01        0.08  1.40221e-13
+  WATHEN_GB          16       256     833    130781           0        0.01  1.40221e-13
+
+  WATHEN_GE          32      1024    3201  10246401        0.14        1.86  1.19349e-14
+  WATHEN_GB          32      1024    3201    963501           0        0.14  1.19349e-14
+
+TEST10
+  Assemble, factor and solve a Wathen system
+  defined by WATHEN_GE and CG_GE.
+
+  Elements in X direction NX = 1
+  Elements in Y direction NY = 1
+  Number of elements = 1
+  Number of nodes N = 8
+  Maximum solution error is 1.04083e-15
+
+TEST11
+  Assemble, factor and solve a Wathen system
+  defined by WATHEN_ST and CG_ST.
+
+  Elements in X direction NX = 1
+  Elements in Y direction NY = 1
+  Number of elements = 1
+  Number of nodes N = 8
+  Number of nonzeros NZ_NUM = 64
+  Maximum solution error is 9.99201e-16
+
+TEST115
+  Assemble, factor and solve a Wathen system
+  using WATHEN_GB and CG_GB.
+
+  Elements in X direction NX = 4
+  Elements in Y direction NY = 4
+  Number of elements = 16
+  Number of nodes N = 65
+  Lower bandwidth ML = 16
+  Upper bandwidth MU = 16
+  Maximum solution error is 0.00122056
+
+WATHEN_PRB
+  Normal end of execution.
+
+08 June 2014 12:57:05 PM

@@ -1,0 +1,17 @@
+# ell_commands.txt
+#
+# Usage:
+#  gnuplot < ell_commands.txt
+#
+set term png
+set output 'ell.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title 'ell'
+set grid
+set key off
+set size ratio -1
+set style data lines
+plot 'ell_grid.txt' using 1:2 with points lt 3 pt 3,\
+     'ell_vertex.txt' using 1:2 lw 3 linecolor rgb 'black'
+quit

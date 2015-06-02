@@ -29,7 +29,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    HERMITE_PRB tests HERMITE.
+//    HERMITE_PRB tests the HERMITE library.
 //
 //  Licensing:
 //
@@ -45,7 +45,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "HERMITE_PRB\n";
   cout << "  C++ version\n";
@@ -65,7 +64,6 @@ int main ( )
   cout << "\n";
   cout << "HERMITE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

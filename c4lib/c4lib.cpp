@@ -10,6 +10,7 @@
 using namespace std;
 
 # include "c4lib.hpp"
+# include "r4lib.hpp"
 
 //****************************************************************************80
 
@@ -52,13 +53,138 @@ float c4_abs ( complex <float> x )
 }
 //****************************************************************************80
 
-float c4_argument ( complex <float> x )
+complex <float> c4_acos ( complex <float> c1 )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    C4_ARGUMENT returns the argument of a C4.
+//    C4_ACOS evaluates the inverse cosine of a C4.
+//
+//  Discussion:
+//
+//    Here we use the relationship:
+//
+//      C4_ACOS ( Z ) = pi/2 - C4_ASIN ( Z ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 March 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_ACOS, the function value.
+//
+{
+  complex <float> c2;
+  float c2_imag;
+  float c2_real;
+  float r4_pi_half = 1.57079632679489661923;
+
+  c2 = c4_asin ( c1 );
+
+  c2_real = r4_pi_half - real ( c2 );
+  c2_imag =            - imag ( c2 );
+
+  c2 = complex <float> ( c2_real, c2_imag );
+
+  return c2;
+}
+//****************************************************************************80
+
+complex <float> c4_acosh ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_ACOSH evaluates the inverse hyperbolic cosine of a C4.
+//
+//  Discussion:
+//
+//    Here we use the relationship:
+//
+//      C4_ACOSH ( Z ) = i * C4_ACOS ( Z ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 March 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_ACOSH, the function value.
+//
+{
+  complex <float> c2;
+
+  c2 = c4_i ( ) * c4_acos ( c1 );
+  
+  return c2;
+}
+//****************************************************************************80
+
+complex <float> c4_add ( complex <float> c1, complex <float> c2 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_ADD adds two C4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    09 March 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, C2, the arguments.
+//
+//    Output, complex <float> C4_ADD, the sum of C1 and C2.
+//
+{
+  complex <float> c3;
+
+  c3 = c1 + c2;
+
+  return c3;
+}
+//****************************************************************************80
+
+float c4_arg ( complex <float> x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_ARG returns the argument of a C4.
 //
 //  Discussion:
 //
@@ -80,7 +206,7 @@ float c4_argument ( complex <float> x )
 //
 //    Input, complex <float> X, the value whose argument is desired.
 //
-//    Output, float C4_ARGUMENT, the argument of X.
+//    Output, float C4_ARG, the argument of X.
 //
 {
   float value;
@@ -95,6 +221,382 @@ float c4_argument ( complex <float> x )
   }
 
   return value;
+}
+//****************************************************************************80
+
+complex <float> c4_asin ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_ASIN evaluates the inverse sine of a C4.
+//
+//  Discussion:
+//
+//    Here we use the relationship:
+//
+//      C4_ASIN ( Z ) = - i * log ( i * z + sqrt ( 1 - z * z ) )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_ASIN, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> ce;
+
+  c2 = c4_i ( );
+  c5 = c4_one ( ) - c1 * c1;
+  c3 = c4_sqrt ( c5 );
+  c4 = c4_log ( c3 + c2 * c1 );
+  ce = - c2 * c4;
+
+  return ce;
+}
+//****************************************************************************80
+
+complex <float> c4_asinh ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_ASINH evaluates the inverse hyperbolic sine of a C4.
+//
+//  Discussion:
+//
+//    Here we use the relationship:
+//
+//      C4_ASINH ( Z ) = - i * C4_ASIN ( i * Z ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_ASINH, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+
+  c2 = c4_i ( );
+  c3 = c2 * c1;
+  c4 = c4_asin ( c3 );
+  c5 = c2 * c4;
+  c6 = - c5;
+
+  return c6;
+}
+//****************************************************************************80
+
+complex <float> c4_atan ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_ATAN evaluates the inverse tangent of a C4.
+//
+//  Discussion:
+//
+//    Here we use the relationship:
+//
+//      C4_ATAN ( Z ) = ( i / 2 ) * log ( ( 1 - i * z ) / ( 1 + i * z ) )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_ATAN, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+  complex <float> c7;
+  complex <float> c8;
+  complex <float> c9;
+  complex <float> cx;
+
+  c2 = c4_i ( );
+  c3 = c4_one ( );
+  c4 = c4_mul ( c2, c1 );
+  c5 = c4_sub ( c3, c4 );
+  c6 = c4_add ( c3, c4 );
+  c7 = c4_div ( c5, c6 );
+
+  c8 = c4_log ( c7 );
+  c9 = c4_mul ( c2, c8 );
+  cx = c9 / complex <float> ( 2.0, 0.0 );
+
+  return cx;
+}
+//****************************************************************************80
+
+complex <float> c4_atanh ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_ATANH evaluates the inverse hyperbolic tangent of a C4.
+//
+//  Discussion:
+//
+//    Here we use the relationship:
+//
+//      C4_ATANH ( Z ) = - i * C4_ATAN ( i * Z ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_ATANH, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+
+  c2 = c4_i ( );
+
+  c3 = c4_mul ( c2, c1 );
+  c4 = c4_atan ( c3 );
+  c5 = c4_mul ( c2, c4 );
+  c6 = c4_neg ( c5 );
+
+  return c6;
+}
+//****************************************************************************80
+
+complex <float> c4_conj ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_CONJ conjugates a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_CONJ, the function value.
+//
+{
+  complex <float> c2;
+
+  c2 = conj ( c1 );
+
+  return c2;
+}
+//****************************************************************************80
+
+void c4_copy ( complex <float> c1, complex <float> c2 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_COPY copies a C4.
+//
+//  Discussion:
+//
+//    The order of the arguments may seem unnatural, but it is arranged so
+//    that the call
+//
+//      c4_copy ( c1, c2 )
+//
+//    mimics the assignment
+//
+//      c1 = c2.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Output, complex <float> C1, the copy of C2.
+//
+//    Input, complex <float> C2, the value to be copied.
+//
+{
+  c1 = c2;
+
+  return;
+}
+//****************************************************************************80
+
+complex <float> c4_cos ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_COS evaluates the cosine of a C4.
+//
+//  Discussion:
+//
+//    We use the relationship:
+//
+//      C4_COS ( C ) = ( C4_EXP ( i * C ) + C4_EXP ( - i * C ) ) / 2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_COS, the function value.
+//
+{
+  complex <float> c2;
+
+  c2 = ( exp ( c1 * c4_i ( ) ) + exp ( - c1 * c4_i ( ) ) ) 
+    / complex <float> ( 2.0, 0.0 );
+
+  return c2;
+}
+//****************************************************************************80
+
+complex <float> c4_cosh ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_COSH evaluates the hyperbolic cosine of a C4.
+//
+//  Discussion:
+//
+//    A C4 is a complex <float> value.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_COSH, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+
+  c2 = c4_exp ( c1 );
+
+  c3 = c4_neg ( c1 );
+  c4 = c4_exp ( c3 );
+
+  c5 = c4_add ( c2, c4 );
+  c6 = c4_div_r4 ( c5, 2.0 );
+
+  return c6;
 }
 //****************************************************************************80
 
@@ -133,8 +635,8 @@ complex <float> c4_cube_root ( complex <float> x )
   float magnitude;
   complex <float> value;
 
-  argument = c4_argument ( x );
-  magnitude = c4_magnitude ( x );
+  argument = c4_arg ( x );
+  magnitude = c4_mag ( x );
 
   if ( magnitude == 0.0 )
   {
@@ -147,6 +649,124 @@ complex <float> c4_cube_root ( complex <float> x )
   }
 
   return value;
+}
+//****************************************************************************80
+
+complex <float> c4_div ( complex <float> c1, complex <float> c2 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_DIV divides two C4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, C2, the arguments.
+//
+//    Output, complex <float> C4_DIV, the function value.
+//
+{
+  float c2_norm;
+  complex <float> c3;
+  float c3_imag;
+  float c3_real;
+
+  c2_norm = c4_abs ( c2 );
+
+  c3_real = ( real ( c1 ) * real ( c2 ) 
+            + imag ( c1 ) * imag ( c2 ) ) / c2_norm / c2_norm;
+
+  c3_imag = ( imag ( c1 ) * real ( c2 ) 
+            - real ( c1 ) * imag ( c2 ) ) / c2_norm / c2_norm;
+
+  c3 = complex <float> ( c3_real, c3_imag );
+
+  return c3;
+}
+//****************************************************************************80
+
+complex <float> c4_div_r4 ( complex <float> c1, float r )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_DIV_R4 divides a C4 by an R4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the value to be divided.
+//
+//    Input, float R, the divisor.
+//
+//    Output, complex <float> C4_DIV_R4, the function value.
+//
+{
+  complex <float> c2;
+
+  c2 = c1 / r;
+
+  return c2;
+}
+//****************************************************************************80
+
+complex <float> c4_exp ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_EXP exponentiates a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_EXP, the function value.
+//
+{
+  complex <float> c2;
+
+  c2 = exp ( c1 );
+
+  return c2;
 }
 //****************************************************************************80
 
@@ -184,6 +804,76 @@ complex <float> c4_i ( )
   value = complex <float> ( 0.0, 1.0 );
 
   return value;
+}
+//****************************************************************************80
+
+float c4_imag ( complex <float> c )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_IMAG returns the imaginary part of a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C, the argument.
+//
+//    Output, float C4_IMAG, the function value.
+//
+{
+  float value;
+
+  value = imag ( c );
+
+  return value;
+}
+//****************************************************************************80
+
+complex <float> c4_inv ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_INV inverts a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_INV, the function value;
+//
+{
+  complex <float> c2;
+
+  c2 = c4_one ( ) / c1;
+
+  return c2;
 }
 //****************************************************************************80
 
@@ -337,13 +1027,59 @@ bool c4_le_li ( complex <float> x, complex <float> y )
 }
 //****************************************************************************80
 
-float c4_magnitude ( complex <float> x )
+complex <float> c4_log ( complex <float> c1 )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    C4_MAGNITUDE returns the magnitude of a C4.
+//    C4_LOG evaluates the logarithm of a C4.
+//
+//  Discussion:
+//
+//    Here we use the relationship:
+//
+//      C4_LOG ( Z ) = LOG ( MAG ( Z ) ) + i * ARG ( Z )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_LOG, the function value.
+//
+{
+  float arg;
+  complex <float> c2;
+  float mag;
+
+  arg = c4_arg ( c1 );
+  mag = c4_mag ( c1 );
+
+  c2 = complex <float> ( log ( mag ), arg );
+
+  return c2;
+}
+//****************************************************************************80
+
+float c4_mag ( complex <float> x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_MAG returns the magnitude of a C4.
 //
 //  Discussion:
 //
@@ -365,12 +1101,177 @@ float c4_magnitude ( complex <float> x )
 //
 //    Input, complex <float> X, the value whose norm is desired.
 //
-//    Output, float C4_MAGNITUDE, the magnitude of X.
+//    Output, float C4_MAG, the magnitude of X.
 //
 {
   float value;
 
   value = sqrt ( pow ( real ( x ), 2 ) + pow ( imag ( x ), 2 ) );
+
+  return value;
+}
+//****************************************************************************80
+
+complex <float> c4_mul ( complex <float> c1, complex <float> c2 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_MUL multiplies two C4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, C2, the arguments.
+//
+//    Output, complex <float> C4_MUL, the function value.
+//
+{
+  complex <float> c3;
+
+  c3 = c1 * c2;
+
+  return c3;
+}
+//****************************************************************************80
+
+complex <float> c4_neg ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_NEG negates a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_NEG, the function value.
+//
+{
+  complex <float> c2;
+
+  c2 = - c1;
+
+  return c2;
+}
+//****************************************************************************80
+
+complex <float> c4_nint ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_NINT returns the nearest complex integer of a C4.
+//
+//  Discussion:
+//
+//    A C4 is a complex <float> value.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    10 May 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the value to be NINT'ed.
+//
+//    Output, complex <float> C4_NINT, the NINT'ed value.
+//
+{
+  float r;
+  float r_min;
+  float x;
+  float x_min;
+  float xc;
+  float y;
+  float y_min;
+  float yc;
+  complex <float> value;
+
+  xc = real ( c1 );
+  yc = imag ( c1 );
+//
+//  Lower left.
+//
+  x = r4_floor ( real ( c1 ) );
+  y = r4_floor ( imag ( c1 ) );
+  r = pow ( x - xc, 2 ) + pow ( y - yc, 2 );
+  r_min = r;
+  x_min = x;
+  y_min = y;
+//
+//  Lower right.
+//
+  x = r4_floor ( real ( c1 ) ) + 1.0;
+  y = r4_floor ( imag ( c1 ) );
+  r = pow ( x - xc, 2 ) + pow ( y - yc, 2 );
+  if ( r < r_min )
+  {
+    r_min = r;
+    x_min = x;
+    y_min = y;
+  }
+//
+//  Upper right.
+//
+  x = r4_floor ( real ( c1 ) ) + 1.0;
+  y = r4_floor ( imag ( c1 ) ) + 1.0;
+  r = pow ( x - xc, 2 ) + pow ( y - yc, 2 );
+  if ( r < r_min )
+  {
+    r_min = r;
+    x_min = x;
+    y_min = y;
+  }
+//
+//  Upper left.
+//
+  x = r4_floor ( real ( c1 ) );
+  y = r4_floor ( imag ( c1 ) ) + 1.0;
+  r = pow ( x - xc, 2 ) + pow ( y - yc, 2 );
+  if ( r < r_min )
+  {
+    r_min = r;
+    x_min = x;
+    y_min = y;
+  }
+
+  value = complex <float> ( x_min, y_min );
 
   return value;
 }
@@ -630,6 +1531,158 @@ void c4_print ( complex <float> a, string title )
 }
 //****************************************************************************80
 
+float c4_real ( complex <float> c )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_REAL returns the real part of a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C, the complex number.
+//
+//    Output, float C4_REAL, the function value.
+//
+{
+  float value;
+
+  value = real ( c );
+
+  return value;
+}
+//****************************************************************************80
+
+complex <float> c4_sin ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_SIN evaluates the sine of a C4.
+//
+//  Discussion:
+//
+//    We use the relationship:
+//
+//      C4_SIN ( C ) = - i * ( C4_EXP ( i * C ) - C4_EXP ( - i * C ) ) / 2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_SIN, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+  complex <float> c7;
+  complex <float> c8;
+  complex <float> c9;
+  complex <float> cx;
+  float r;
+
+  c2 = c4_i ( );
+
+  c3 = c4_mul ( c2, c1 );
+  c4 = c4_exp ( c3 );
+
+  c5 = c4_neg ( c3 );
+  c6 = c4_exp ( c5 );
+
+  c7 = c4_sub ( c4, c6 );
+
+  r = 2.0;
+  c8 = c4_div_r4 ( c7, r );
+  c9 = c4_mul ( c8, c2 );
+  cx = c4_neg ( c9 );
+
+  return cx;
+}
+//****************************************************************************80
+
+complex <float> c4_sinh ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_SINH evaluates the hyperbolic sine of a C4.
+//
+//  Discussion:
+//
+//    We use the relationship:
+//
+//      C4_SINH ( C ) = ( C4_EXP ( C ) - C4_EXP ( - i * C ) ) / 2
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_SINH, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+  float r;
+
+  c2 = c4_exp ( c1 );
+
+  c3 = c4_neg ( c1 );
+  c4 = c4_exp ( c3 );
+
+  c5 = c4_sub ( c2, c4 );
+
+  r = 2.0;
+  c6 = c4_div_r4 ( c5, r );
+
+  return c6;
+}
+//****************************************************************************80
+
 complex <float> c4_sqrt ( complex <float> x )
 
 //****************************************************************************80
@@ -665,8 +1718,8 @@ complex <float> c4_sqrt ( complex <float> x )
   float magnitude;
   complex <float> value;
 
-  argument = c4_argument ( x );
-  magnitude = c4_magnitude ( x );
+  argument = c4_arg ( x );
+  magnitude = c4_mag ( x );
 
   if ( magnitude == 0.0 )
   {
@@ -679,6 +1732,41 @@ complex <float> c4_sqrt ( complex <float> x )
   }
 
   return value;
+}
+//****************************************************************************80
+
+complex <float> c4_sub ( complex <float> c1, complex <float> c2 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_SUB subtracts two C4's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, C2, the arguments.
+//
+//    Output, complex <float> C4_SUB, the function value.
+//
+{
+  complex <float> c3;
+
+  c3 = c1 - c2;
+
+  return c3;
 }
 //****************************************************************************80
 
@@ -717,6 +1805,185 @@ void c4_swap ( complex <float> *x, complex <float> *y )
    z = *x; 
   *x = *y;
   *y =  z;
+
+  return;
+}
+//****************************************************************************80
+
+complex <float> c4_tan ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_TAN evaluates the tangent of a C4.
+//
+//  Discussion:
+//
+//    We use the relationship:
+//
+//      C4_TAN ( C ) = - i * ( C4_EXP ( i * C ) - C4_EXP ( - i * C ) ) 
+//                         / ( C4_EXP ( I * C ) + C4_EXP ( - i * C ) )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_TAN, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+  complex <float> c7;
+  complex <float> c8;
+  complex <float> c9;
+  complex <float> cx;
+  complex <float> ce;
+
+  c2 = c4_i ( );
+  c3 = c4_mul ( c2, c1 );
+  c4 = c4_neg ( c3 );
+  
+  c5 = c4_exp ( c3 );
+  c6 = c4_exp ( c4 );
+
+  c7 = c4_sub ( c5, c6 );
+  c8 = c4_add ( c5, c6 );
+
+  c9 = c4_div ( c7, c8 );
+  cx = c4_mul ( c2, c9 );
+  ce = c4_neg ( cx );
+
+  return ce;
+}
+//****************************************************************************80
+
+complex <float> c4_tanh ( complex <float> c1 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_TANH evaluates the hyperbolic tangent of a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C1, the argument.
+//
+//    Output, complex <float> C4_TANH, the function value.
+//
+{
+  complex <float> c2;
+  complex <float> c3;
+  complex <float> c4;
+  complex <float> c5;
+  complex <float> c6;
+  complex <float> c7;
+
+  c2 = c4_exp ( c1 );
+
+  c3 = c4_neg ( c1 );
+  c4 = c4_exp ( c3 );
+
+  c5 = c4_sub ( c2, c4 );
+  c6 = c4_add ( c2, c4 );
+
+  c7 = c4_div ( c5, c6 );
+
+  return c7;
+}
+//****************************************************************************80
+
+void c4_to_cartesian ( complex <float> c, float *x, float *y )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_TO_CARTESIAN converts a C4 to Cartesian form.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C, the argument.
+//
+//    Output, float *X, *Y, the Cartesian form.
+//
+{
+  *x = real ( c );
+  *y = imag ( c );
+
+  return;
+}
+//****************************************************************************80
+
+void c4_to_polar ( complex <float> c, float *r, float *theta )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_TO_POLAR converts a C4 to polar form.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, complex <float> C, the argument.
+//
+//    Output, float *R, *THETA, the polar form.
+//
+{
+  *r = c4_abs ( c );
+  *theta = c4_arg ( c );
 
   return;
 }
@@ -867,6 +2134,116 @@ complex <float> c4_zero ( )
 }
 //****************************************************************************80
 
+void c4mat_add ( int m, int n, complex <float> alpha, complex <float> a[],
+  complex <float> beta, complex <float> b[], complex <float> c[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_ADD combines two C4MAT's using complex scalar factors.
+//
+//  Discussion:
+//
+//    An C4MAT is a doubly dimensioned array of complex single precision values, 
+//    which may be stored as a vector in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, complex <float> ALPHA, the first scale factor.
+//
+//    Input, complex <float> A[M*N], the first matrix.
+//
+//    Input, complex <float> BETA, the second scale factor.
+//
+//    Input, complex <float> B[M*N], the second matrix.
+//
+//    Output, complex <float> C[M*N], the result.
+//
+{
+  int i;
+  int j;
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      c[i+j*m] = alpha * a[i+j*m] + beta * b[i+j*m];
+    }
+  }
+  return;
+}
+//****************************************************************************80
+
+void c4mat_add_r4 ( int m, int n, float alpha, complex <float> a[],
+  float beta, complex <float> b[], complex <float> c[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_ADD_R4 combines two C4MAT's using real scalar factors.
+//
+//  Discussion:
+//
+//    An C4MAT is a doubly dimensioned array of complex float precision values, 
+//    which may be stored as a vector in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, float ALPHA, the first scale factor.
+//
+//    Input, complex <float> A[M*N], the first matrix.
+//
+//    Input, float BETA, the second scale factor.
+//
+//    Input, complex <float> B[M*N], the second matrix.
+//
+//    Output, complex <float> C[M*N], the result.
+//
+{
+  int i;
+  int j;
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      c[i+j*m] = alpha * a[i+j*m] + beta * b[i+j*m];
+    }
+  }
+  return;
+}
+//****************************************************************************80
+
 void c4mat_copy ( int m, int n, complex <float> a1[], complex <float> a2[] )
 
 //****************************************************************************80
@@ -966,13 +2343,309 @@ complex <float> *c4mat_copy_new ( int m, int n, complex <float> a1[] )
 }
 //****************************************************************************80
 
-complex <float> *c4mat_identity ( int n )
+void c4mat_fss ( int n, complex <float> a[], int nb, complex <float> x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    C4MAT_IDENTITY sets a C4MAT to the identity.
+//    C4MAT_FSS factors and solves a system with multiple right hand sides.
+//
+//  Discussion:
+//
+//    This routine uses partial pivoting, but no pivot vector is required.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    05 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//    N must be positive.
+//
+//    Input/output, complex <float> A[N*N].
+//    On input, A is the coefficient matrix of the linear system.
+//    On output, A is in unit upper triangular form, and
+//    represents the U factor of an LU factorization of the
+//    original coefficient matrix.
+//
+//    Input, int NB, the number of right hand sides.
+//
+//    Input/output, complex <float> X[N*NB], on input, the right hand sides of the
+//    linear systems.  On output, the solutions of the linear systems.
+//
+{
+  int i;
+  int ipiv;
+  int j;
+  int jcol;
+  float piv;
+  complex <float> t;
+
+  for ( jcol = 1; jcol <= n; jcol++ )
+  {
+//
+//  Find the maximum element in column I.
+//
+    piv = c4_abs ( a[jcol-1+(jcol-1)*n] );
+    ipiv = jcol;
+    for ( i = jcol+1; i <= n; i++ )
+    {
+      if ( piv < c4_abs ( a[i-1+(jcol-1)*n] ) )
+      {
+        piv = c4_abs ( a[i-1+(jcol-1)*n] );
+        ipiv = i;
+      }
+    }
+
+    if ( piv == 0.0 )
+    {
+      cout << "\n";
+      cout << "C4MAT_FSS - Fatal error!\n";
+      cout << "  Zero pivot on step " << jcol << "\n";
+      exit ( 1 );
+    }
+//
+//  Switch rows JCOL and IPIV, and X.
+//
+    if ( jcol != ipiv )
+    {
+      for ( j = 1; j <= n; j++ )
+      {
+        t                 = a[jcol-1+(j-1)*n];
+        a[jcol-1+(j-1)*n] = a[ipiv-1+(j-1)*n];
+        a[ipiv-1+(j-1)*n] = t;
+      }
+      for ( j = 0; j < nb; j++ )
+      {
+        t            = x[jcol-1+j*n];
+        x[jcol-1+j*n] = x[ipiv-1+j*n];
+        x[ipiv-1+j*n] = t;
+      }
+    }
+//
+//  Scale the pivot row.
+//
+    t = a[jcol-1+(jcol-1)*n];
+    a[jcol-1+(jcol-1)*n] = 1.0;
+    for ( j = jcol+1; j <= n; j++ )
+    {
+      a[jcol-1+(j-1)*n] = a[jcol-1+(j-1)*n] / t;
+    }
+    for ( j = 0; j < nb; j++ )
+    {
+      x[jcol-1+j*n] = x[jcol-1+j*n] / t;
+    }
+//
+//  Use the pivot row to eliminate lower entries in that column.
+//
+    for ( i = jcol+1; i <= n; i++ )
+    {
+      if ( a[i-1+(jcol-1)*n] != c4_zero ( ) )
+      {
+        t = - a[i-1+(jcol-1)*n];
+        a[i-1+(jcol-1)*n] = 0.0;
+        for ( j = jcol+1; j <= n; j++ )
+        {
+          a[i-1+(j-1)*n] = a[i-1+(j-1)*n] + t * a[jcol-1+(j-1)*n];
+        }
+        for ( j = 0; j < nb; j++ )
+        {
+          x[i-1+j*n] = x[i-1+j*n] + t * x[jcol-1+j*n];
+        }
+      }
+    }
+  }
+//
+//  Back solve.
+//
+  for ( jcol = n; 2 <= jcol; jcol-- )
+  {
+    for ( i = 1; i < jcol; i++ )
+    {
+      for ( j = 0; j < nb; j++ )
+      {
+        x[i-1+j*n] = x[i-1+j*n] - a[i-1+(jcol-1)*n] * x[jcol-1+j*n];
+      }
+    }
+  }
+
+  return;
+}
+//****************************************************************************80
+
+complex <float> *c4mat_fss_new ( int n, complex <float> a[], int nb, 
+  complex <float> b[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_FSS_NEW factors and solves a system with multiple right hand sides.
+//
+//  Discussion:
+//
+//    This routine uses partial pivoting, but no pivot vector is required.
+//
+//    A C4MAT is a doubly dimensioned array of C4 values, stored as a vector
+//    in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//    N must be positive.
+//
+//    Input/output, complex <float> A[N*N].
+//    On input, A is the coefficient matrix of the linear system.
+//    On output, A is in unit upper triangular form, and
+//    represents the U factor of an LU factorization of the
+//    original coefficient matrix.
+//
+//    Input, int NB, the number of right hand sides.
+//
+//    Input, complex <float> B[N*NB], the right hand sides of the linear systems.
+//
+//    Output, complex <float> C4MAT_FSS_NEW[N*NB], the solutions of the 
+//    linear systems.
+//
+{
+  int i;
+  int ipiv;
+  int j;
+  int jcol;
+  float piv;
+  complex <float> t;
+  complex <float> *x;
+
+  x = new complex <float>[n*nb];
+
+  for ( j = 0; j < nb; j++ )
+  {
+    for ( i = 0; i < n; i++ )
+    {
+      x[i+j*n] = b[i+j*n];
+    }
+  }
+  for ( jcol = 1; jcol <= n; jcol++ )
+  {
+//
+//  Find the maximum element in column I.
+//
+    piv = c4_abs ( a[jcol-1+(jcol-1)*n] );
+    ipiv = jcol;
+    for ( i = jcol + 1; i <= n; i++ )
+    {
+      if ( piv < c4_abs ( a[i-1+(jcol-1)*n] ) )
+      {
+        piv = c4_abs ( a[i-1+(jcol-1)*n] );
+        ipiv = i;
+      }
+    }
+
+    if ( piv == 0.0 )
+    {
+      cerr << "\n";
+      cerr << "C4MAT_FSS_NEW - Fatal error!\n";
+      cerr << "  Zero pivot on step " << jcol << "\n";
+      exit ( 1 );
+    }
+//
+//  Switch rows JCOL and IPIV, and X.
+//
+    if ( jcol != ipiv )
+    {
+      for ( j = 1; j <= n; j++ )
+      {
+        t                 = a[jcol-1+(j-1)*n];
+        a[jcol-1+(j-1)*n] = a[ipiv-1+(j-1)*n];
+        a[ipiv-1+(j-1)*n] = t;
+      }
+      for ( j = 0; j < nb; j++ )
+      {
+        t            = x[jcol-1+j*n];
+        x[jcol-1+j*n] = x[ipiv-1+j*n];
+        x[ipiv-1+j*n] = t;
+      }
+    }
+//
+//  Scale the pivot row.
+//
+    t = a[jcol-1+(jcol-1)*n];
+    a[jcol-1+(jcol-1)*n] = 1.0;
+    for ( j = jcol + 1; j <= n; j++ )
+    {
+      a[jcol-1+(j-1)*n] = a[jcol-1+(j-1)*n] / t;
+    }
+    for ( j = 0; j < nb; j++ )
+    {
+      x[jcol-1+j*n] = x[jcol-1+j*n] / t;
+    }
+//
+//  Use the pivot row to eliminate lower entries in that column.
+//
+    for ( i = jcol+1; i <= n; i++ )
+    {
+      if ( a[i-1+(jcol-1)*n] != c4_zero ( ) )
+      {
+        t = - a[i-1+(jcol-1)*n];
+        a[i-1+(jcol-1)*n] = 0.0;
+        for ( j = jcol+1; j <= n; j++ )
+        {
+          a[i-1+(j-1)*n] = a[i-1+(j-1)*n] + t * a[jcol-1+(j-1)*n];
+        }
+        for ( j = 0; j < nb; j++ )
+        {
+          x[i-1+j*n] = x[i-1+j*n] + t * x[jcol-1+j*n];
+        }
+      }
+    }
+  }
+//
+//  Back solve.
+//
+  for ( jcol = n; 2 <= jcol; jcol-- )
+  {
+    for ( i = 1; i < jcol; i++ )
+    {
+      for ( j = 0; j < nb; j++ )
+      {
+        x[i-1+j*n] = x[i-1+j*n] - a[i-1+(jcol-1)*n] * x[jcol-1+j*n];
+      }
+    }
+  }
+
+  return x;
+}
+//****************************************************************************80
+
+complex <float> *c4mat_identity_new ( int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_IDENTITY_NEW sets a C4MAT to the identity.
 //
 //  Licensing:
 //
@@ -990,7 +2663,7 @@ complex <float> *c4mat_identity ( int n )
 //
 //    Input, int N, the order of the matrix.
 //
-//    Output, complex <float> C4MAT_IDENTITY[N*N], the matrix.
+//    Output, complex <float> C4MAT_IDENTITY_NEW[N*N], the matrix.
 //
 {
   complex <float> *a;
@@ -1061,6 +2734,227 @@ complex <float> *c4mat_indicator_new ( int m, int n )
 }
 //****************************************************************************80
 
+void c4mat_minvm ( int n1, int n2, complex <float> a[], 
+  complex <float> b[], complex <float> c[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_MINVM returns inverse(A) * B for C4MAT's.
+//
+//  Discussion:
+//
+//    A C4MAT is an array of C4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    05 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N1, N2, the order of the matrices.
+//
+//    Input, complex <float> A[N1*N1], B[N1*N2], the matrices.
+//
+//    Output, complex <float> C[N1*N2], the result, 
+//    C = inverse(A) * B.
+//
+{
+  complex <float> *alu;
+
+  alu = c4mat_copy_new ( n1, n1, a );
+
+  c4mat_copy ( n1, n2, b, c );
+
+  c4mat_fss ( n1, alu, n2, c );
+ 
+  delete [] alu;
+
+  return;
+}
+//****************************************************************************80
+
+complex <float> *c4mat_minvm_new ( int n1, int n2, complex <float> a[], 
+  complex <float> b[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_MINVM_NEW returns inverse(A) * B for C4MAT's.
+//
+//  Discussion:
+//
+//    A C4MAT is an array of C4 values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N1, N2, the order of the matrices.
+//
+//    Input, complex <float> A[N1*N1], B[N1*N2], the matrices.
+//
+//    Output, complex <float> C4MAT_MINVM_NEW[N1*N2], the result, 
+//    C = inverse(A) * B.
+//
+{
+  complex <float> *alu;
+  complex <float> *c;
+
+  alu = c4mat_copy_new ( n1, n1, a );
+  c = c4mat_fss_new ( n1, alu, n2, b );
+ 
+  delete [] alu;
+
+  return c;
+}
+//****************************************************************************80
+
+void c4mat_mm ( int n1, int n2, int n3, complex <float> a[], 
+  complex <float> b[], complex <float> c[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_MM multiplies two matrices.
+//
+//  Discussion:
+//
+//    A C4MAT is a doubly dimensioned array of C4 values, stored as a vector
+//    in column-major order.
+//
+//    For this routine, the result is returned as the function value.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N1, N2, N3, the order of the matrices.
+//
+//    Input, complex <float> A[N1*N2], complex <float> B[N2*N3], 
+//    the matrices to multiply.
+//
+//    Output, complex <float> C[N1*N3], the product matrix C = A * B.
+//
+{
+  complex <float> *c1;
+  int i;
+  int j;
+  int k;
+
+  c1 = new complex <float> [n1*n3];
+
+  for ( i = 0; i < n1; i ++ )
+  {
+    for ( j = 0; j < n3; j++ )
+    {
+      c1[i+j*n1] = 0.0;
+      for ( k = 0; k < n2; k++ )
+      {
+        c1[i+j*n1] = c1[i+j*n1] + a[i+k*n1] * b[k+j*n2];
+      }
+    }
+  }
+
+  c4mat_copy ( n1, n3, c1, c );
+
+  delete [] c1;
+
+  return;
+}
+//****************************************************************************80
+
+complex <float> *c4mat_mm_new ( int n1, int n2, int n3, complex <float> a[], 
+  complex <float> b[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_MM_NEW multiplies two matrices.
+//
+//  Discussion:
+//
+//    A C4MAT is a doubly dimensioned array of C4 values, stored as a vector
+//    in column-major order.
+//
+//    For this routine, the result is returned as the function value.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 June 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N1, N2, N3, the order of the matrices.
+//
+//    Input, complex <float> A[N1*N2], complex <float> B[N2*N3], 
+//    the matrices to multiply.
+//
+//    Output, complex <float> C4MAT_MM_NEW[N1*N3], the product matrix C = A * B.
+//
+{
+  complex <float> *c;
+  int i;
+  int j;
+  int k;
+
+  c = new complex <float> [n1*n3];
+
+  for ( i = 0; i < n1; i ++ )
+  {
+    for ( j = 0; j < n3; j++ )
+    {
+      c[i+j*n1] = 0.0;
+      for ( k = 0; k < n2; k++ )
+      {
+        c[i+j*n1] = c[i+j*n1] + a[i+k*n1] * b[k+j*n2];
+      }
+    }
+  }
+  return c;
+}
+//****************************************************************************80
+
 void c4mat_nint ( int m, int n, complex <float> a[] )
 
 //****************************************************************************80
@@ -1105,6 +2999,199 @@ void c4mat_nint ( int m, int n, complex <float> a[] )
     }
   }
   return;
+}
+//****************************************************************************80
+
+float c4mat_norm_fro ( int m, int n, complex <float> a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_NORM_FRO returns the Frobenius norm of a C4MAT.
+//
+//  Discussion:
+//
+//    A C4MAT is an array of C4 values.
+//
+//    The Frobenius norm is defined as
+//
+//      C4MAT_NORM_FRO = sqrt (
+//        sum ( 1 <= I <= M ) Sum ( 1 <= J <= N ) |A(I,J)| )
+//
+//    The matrix Frobenius-norm is not derived from a vector norm, but
+//    is compatible with the vector L2 norm, so that:
+//
+//      c4vec_norm_l2 ( A*x ) <= c4mat_norm_fro ( A ) * c4vec_norm_l2 ( x ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    01 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the order of the matrix.
+//
+//    Input, complex <float> A[M*N], the matrix.
+//
+//    Output, float C4MAT_NORM_FRO, the Frobenius norm of A.
+//
+{
+  int i;
+  int j;
+  float value;
+
+  value = 0.0;
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      value = value + pow ( real ( a[i+j*m] ), 2 )
+                    + pow ( imag ( a[i+j*m] ), 2 );
+    }
+  }
+  value = sqrt ( value );
+
+  return value;
+}
+//****************************************************************************80
+
+float c4mat_norm_l1 ( int m, int n, complex <float> a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_NORM_L1 returns the matrix L1 norm of a C4MAT.
+//
+//  Discussion:
+//
+//    A C4MAT is an MxN array of C4's, stored by (I,J) -> [I+J*M].
+//
+//    The matrix L1 norm is defined as:
+//
+//      C4MAT_NORM_L1 = max ( 1 <= J <= N )
+//        sum ( 1 <= I <= M ) abs ( A(I,J) ).
+//
+//    The matrix L1 norm is derived from the vector L1 norm, and
+//    satisifies:
+//
+//      c4vec_norm_l1 ( A * x ) <= c4mat_norm_l1 ( A ) * c4vec_norm_l1 ( x ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, complex <float> A[M*N], the matrix whose L1 norm is desired.
+//
+//    Output, float C4MAT_NORM_L1, the L1 norm of A.
+//
+{
+  float col_sum;
+  int i;
+  int j;
+  float value;
+
+  value = 0.0;
+
+  for ( j = 0; j < n; j++ )
+  {
+    col_sum = 0.0;
+    for ( i = 0; i < m; i++ )
+    {
+      col_sum = col_sum + c4_abs ( a[i+j*m] );
+    }
+    value = r4_max ( value, col_sum );
+  }
+
+  return value;
+}
+//****************************************************************************80
+
+float c4mat_norm_li ( int m, int n, complex <float> a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_NORM_LI returns the matrix L-oo norm of a C4MAT.
+//
+//  Discussion:
+//
+//    A C4MAT is an array of C4 values.
+//
+//    The matrix L-oo norm is defined as:
+//
+//      C4MAT_NORM_LI =  max ( 1 <= I <= M ) sum ( 1 <= J <= N ) abs ( A(I,J) ).
+//
+//    The matrix L-oo norm is derived from the vector L-oo norm,
+//    and satisifies:
+//
+//      c4vec_norm_li ( A * x ) <= c4mat_norm_li ( A ) * c4vec_norm_li ( x ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    01 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, the number of rows in A.
+//
+//    Input, int N, the number of columns in A.
+//
+//    Input, complex <float> A[M*N], the matrix whose L-oo
+//    norm is desired.
+//
+//    Output, float C4MAT_NORM_LI, the L-oo norm of A.
+//
+{
+  int i;
+  int j;
+  float row_sum;
+  float value;
+
+  value = 0.0;
+
+  for ( i = 0; i < m; i++ )
+  {
+    row_sum = 0.0;
+    for ( j = 0; j < n; j++ )
+    {
+      row_sum = row_sum + c4_abs ( a[i+j*m] );
+    }
+    value = r4_max ( value, row_sum );
+  }
+  return value;
 }
 //****************************************************************************80
 
@@ -1210,8 +3297,14 @@ void c4mat_print_some ( int m, int n, complex <float> a[], int ilo, int jlo,
   for ( j2lo = jlo; j2lo <= i4_min ( jhi, n ); j2lo = j2lo + incx )
   {
     j2hi = j2lo + incx - 1;
-    j2hi = i4_min ( j2hi, n );
-    j2hi = i4_min ( j2hi, jhi );
+    if ( n < j2hi )
+    {
+      j2hi = n;
+    }
+    if ( jhi < j2hi )
+    {
+      j2hi = jhi;
+    }
 
     inc = j2hi + 1 - j2lo;
 
@@ -1228,8 +3321,16 @@ void c4mat_print_some ( int m, int n, complex <float> a[], int ilo, int jlo,
 //
 //  Determine the range of the rows in this strip.
 //
-    i2lo = i4_max ( ilo, 1 );
-    i2hi = i4_min ( ihi, m );
+    i2lo = ilo;
+    if ( i2lo < 1 )
+    {
+      i2lo = 1;
+    }
+    i2hi = ihi;
+    if ( m < i2hi )
+    {
+      i2hi = m;
+    }
 
     for ( i = i2lo; i <= i2hi; i++ )
     {
@@ -1248,6 +3349,102 @@ void c4mat_print_some ( int m, int n, complex <float> a[], int ilo, int jlo,
     }
   }
 
+  return;
+}
+//****************************************************************************80
+
+void c4mat_scale ( int m, int n, complex <float> alpha, complex <float> a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_SCALE scales a C4MAT by a complex scalar factor.
+//
+//  Discussion:
+//
+//    An C4MAT is a doubly dimensioned array of complex float precision values, 
+//    which may be stored as a vector in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, complex <float> ALPHA, the scale factor.
+//
+//    Input/output, complex <float> A[M*N], the matrix to be scaled.
+//
+{
+  int i;
+  int j;
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      a[i+j*m] = a[i+j*m] * alpha;
+    }
+  }
+  return;
+}
+//****************************************************************************80
+
+void c4mat_scale_r4 ( int m, int n, float alpha, complex <float> a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_SCALE_R4 scales a C4MAT by a real scalar factor.
+//
+//  Discussion:
+//
+//    An C4MAT is a doubly dimensioned array of complex float precision values, 
+//    which may be stored as a vector in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, float ALPHA, the scale factor.
+//
+//    Input/output, complex <float> A[M*N], the matrix to be scaled.
+//
+{
+  int i;
+  int j;
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      a[i+j*m] = a[i+j*m] * alpha;
+    }
+  }
   return;
 }
 //****************************************************************************80
@@ -1487,6 +3684,55 @@ complex <float> *c4mat_uniform_01_new ( int m, int n, int *seed )
 }
 //****************************************************************************80
 
+complex <float> *c4mat_zero_new ( int m, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4MAT_ZERO_NEW returns a new zeroed C4MAT.
+//
+//  Discussion:
+//
+//    An C4MAT is a doubly dimensioned array of complex float precision values, 
+//    which may be stored as a vector in column-major order.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Output, complex <float> C4MAT_ZERO_NEW[M*N], the zeroed matrix.
+//
+{
+  complex <float> *a;
+  int i;
+  int j;
+
+  a = new complex <float>[m*n];
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      a[i+j*m] = 0.0;
+    }
+  }
+  return a;
+}
+//****************************************************************************80
+
 void c4vec_copy ( int n, complex <float> a1[], complex <float> a2[] )
 
 //****************************************************************************80
@@ -1612,6 +3858,48 @@ complex <float> *c4vec_indicator_new ( int n )
   }
 
   return a;
+}
+//****************************************************************************80
+
+void c4vec_nint ( int n, complex <float> a[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4VEC_NINT rounds the entries of a C4VEC.
+//
+//  Discussion:
+//
+//    A C4VEC is a vector of complex <float> values.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of components of the vector.
+//
+//    Input/output, complex <float> A[N], the vector to be nint'ed.
+//
+{
+  int i;
+
+  for ( i = 0; i < n; i++ )
+  {
+    a[i] = c4_nint ( a[i] );
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -1867,6 +4155,199 @@ void c4vec_print_some ( int n, complex <float> a[], int i_lo, int i_hi,
   }
 
   return;
+}
+//****************************************************************************80
+
+void c4vec_sort_a_l2 ( int n, complex <float> x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4VEC_SORT_A_L2 ascending sorts a C4VEC by L2 norm.
+//
+//  Discussion:
+//
+//    The L2 norm of A+Bi is sqrt ( A * A + B * B ).
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, length of input array.
+//
+//    Input/output, complex <float> X[N].
+//    On input, an unsorted array.
+//    On output, X has been sorted.
+//
+{
+  int i;
+  int indx;
+  int isgn;
+  int j;
+  float normsq_i;
+  float normsq_j;
+  complex <float> temp;
+
+  i = 0;
+  indx = 0;
+  isgn = 0;
+  j = 0;
+
+  for ( ; ; )
+  {
+    sort_heap_external ( n, &indx, &i, &j, isgn );
+
+    if ( 0 < indx )
+    {
+      temp = x[i-1];
+      x[i-1] = x[j-1];
+      x[j-1] = temp;
+    }
+    else if ( indx < 0 )
+    {
+      normsq_i = pow ( real ( x[i-1] ), 2 )
+               + pow ( imag ( x[i-1] ), 2 );
+
+      normsq_j = pow ( real ( x[j-1] ), 2 )
+               + pow ( imag ( x[j-1] ), 2 );
+
+      if ( normsq_i < normsq_j )
+      {
+        isgn = -1;
+      }
+      else
+      {
+        isgn = +1;
+      }
+    }
+    else if ( indx == 0 )
+    {
+      break;
+    }
+  }
+
+  return;
+}
+//****************************************************************************80
+
+complex <float> *c4vec_spiral ( int n, int m, complex <float> c1, 
+  complex <float> c2 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4VEC_SPIRAL returns N points on a spiral between C1 and C2.
+//
+//  Discussion:
+//
+//    A C4VEC is a vector of C8's.
+//
+//    Let the polar form of C1 be ( R1, T1 ) and the polar form of C2 
+//    be ( R2, T2 ) where, if necessary, we increase T2 by 2*PI so that T1 <= T2.
+//    
+//    Then the polar form of the I-th point C(I) is:
+//
+//      R(I) = ( ( N - I     ) * R1 
+//             + (     I - 1 ) * R2 ) 
+//              / ( N    - 1 )
+//
+//      T(I) = ( ( N - I     ) * T1 
+//             + (     I - 1 ) * ( T2 + M * 2 * PI ) ) 
+//             / ( N     - 1 )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the number of points on the spiral.
+//
+//    Input, int M, the number of full circuits the 
+//    spiral makes.
+//
+//    Input, complex <float> C1, C2, the first and last points 
+//    on the spiral.
+//
+//    Output, complex <float> C4VEC_SPIRAL_NEW[N], the points.
+//
+{
+  complex <float> *c;
+  int i;
+  float r1;
+  float r2;
+  float ri;
+  float r4_pi = 3.141592653589793;
+  float t1;
+  float t2;
+  float ti;
+
+  c = new complex <float>[n];
+
+  r1 = c4_abs ( c1 );
+  r2 = c4_abs ( c2 );
+
+  t1 = c4_arg ( c1 );
+  t2 = c4_arg ( c2 );
+
+  if ( m == 0 )
+  {
+    if ( t2 < t1 )
+    {
+      t2 = t2 + 2.0 * r4_pi;
+    }
+  }
+  else if ( 0 < m )
+  {
+    if ( t2 < t1 )
+    {
+      t2 = t2 + 2.0 * r4_pi;
+    }
+    t2 = t2 + ( float ) ( m ) * 2.0 * r4_pi;
+  }
+  else if ( m < 0 )
+  {
+    if ( t1 < t2 )
+    {
+      t2 = t2 - 2.0 * r4_pi;
+    }
+    t2 = t2 - ( float ) ( m ) * 2.0 * r4_pi;
+  }
+
+  for ( i = 0; i < n; i++ )
+  {
+    ri = ( ( float ) ( n - i - 1 ) * r1
+         + ( float ) (     i     ) * r2 )
+         / ( float ) ( n     - 1 );
+
+    ti = ( ( float ) ( n - i - 1 ) * t1
+         + ( float ) (     i     ) * t2 )
+         / ( float ) ( n     - 1 );
+
+    c[i] = polar_to_c4 ( ri, ti );
+  }
+
+  return c;
 }
 //****************************************************************************80
 
@@ -2151,6 +4632,41 @@ complex <float> *c4vec_unity ( int n )
 }
 //****************************************************************************80
 
+complex <float> cartesian_to_c4 ( float x, float y )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CARTESIAN_TO_C4 converts a Cartesian form to a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    01 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float X, Y, the Cartesian form.
+//
+//    Output, complex <float> CARTESIAN_TO_C4, the complex number.
+//
+{
+  complex <float> c;
+
+  c = complex <float> ( x, y );
+
+  return c;
+}
+//****************************************************************************80
+
 int i4_max ( int i1, int i2 )
 
 //****************************************************************************80
@@ -2233,6 +4749,41 @@ int i4_min ( int i1, int i2 )
 }
 //****************************************************************************80
 
+complex <float> polar_to_c4 ( float r, float theta )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    POLAR_TO_C4 converts a polar form to a C4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float R, THETA, the polar form.
+//
+//    Output, complex <float> POLAR_TO_C4, the complex number.
+//
+{
+  complex <float> c;
+
+  c = complex <float> ( r * cos ( theta ), r * sin ( theta ) );
+
+  return c;
+}
+//****************************************************************************80
+
 float r4_abs ( float x )
 
 //****************************************************************************80
@@ -2270,6 +4821,120 @@ float r4_abs ( float x )
   {
     value = -x;
   }
+  return value;
+}
+//****************************************************************************80
+
+complex <float> r4_csqrt ( float x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_CSQRT returns the complex square root of an R4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    24 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float X, the number whose square root is desired.
+//
+//    Output, complex <float> R4_CSQRT, the square root of X:
+//
+{
+  float argument;
+  float magnitude;
+  float pi = 3.141592653589793;
+  complex <float> value;
+
+  if ( 0.0 < x )
+  {
+    magnitude = x;
+    argument = 0.0;
+  }
+  else if ( 0.0 == x )
+  {
+    magnitude = 0.0;
+    argument = 0.0;
+  }
+  else if ( x < 0.0 )
+  {
+    magnitude = -x;
+    argument = pi;
+  }
+
+  magnitude = sqrt ( magnitude );
+  argument = argument / 2.0;
+
+  value = magnitude * complex <float> ( cos ( argument ), sin ( argument ) );
+
+  return value;
+}
+//****************************************************************************80
+
+float r4_floor ( float x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_FLOOR rounds an R4 "down" (towards -oo) to the next integer.
+//
+//  Example:
+//
+//    X        R4_FLOOR(X)
+//
+//   -1.1      -2.0
+//   -1.0      -1.0
+//   -0.9      -1.0
+//   -0.1      -1.0
+//    0.0       0.0
+//    0.1       0.0
+//    0.9       0.0
+//    1.0       1.0
+//    1.1       1.0
+//    2.9       2.0
+//    3.0       3.0
+//    3.14159   3.0
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    11 August 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float X, the number whose floor is desired.
+//
+//    Output, float R4_FLOOR, the floor of X.
+//
+{
+  float value;
+
+  value = ( int ) x;
+
+  if ( x < value )
+  {
+    value = value - 1.0;
+  }
+
   return value;
 }
 //****************************************************************************80
@@ -2369,6 +5034,47 @@ int r4_nint ( float x )
 }
 //****************************************************************************80
 
+float r4_sign ( float x )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_SIGN returns the sign of an R4.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2004
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, float X, the number whose sign is desired.
+//
+//    Output, float R4_SIGN, the sign of X.
+//
+{
+  float value;
+
+  if ( x < 0.0 )
+  {
+    value = -1.0;
+  }
+  else
+  {
+    value = 1.0;
+  }
+  return value;
+}
+//****************************************************************************80
+
 float r4_uniform_01 ( int *seed )
 
 //****************************************************************************80
@@ -2381,8 +5087,8 @@ float r4_uniform_01 ( int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      r4_uniform_01 = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      r4_uniform_01 = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -2459,6 +5165,257 @@ float r4_uniform_01 ( int *seed )
   r = ( float ) ( *seed ) * 4.656612875E-10;
 
   return r;
+}
+//****************************************************************************80
+
+void r4poly2_root ( float a, float b, float c, complex <float> *r1,
+  complex <float> *r2 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4POLY2_ROOT returns the two roots of a quadratic polynomial.
+//
+//  Discussion:
+//
+//    The polynomial has the form:
+//
+//      A * X^2 + B * X + C = 0
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 October 2005
+//
+//  Parameters:
+//
+//    Input, float A, B, C, the coefficients of the polynomial.
+//    A must not be zero.
+//
+//    Output, complex <float> *R1, *R2, the roots of the polynomial, which
+//    might be real and distinct, real and equal, or complex conjugates.
+//
+{
+  float disc;
+  complex <float> q;
+  float t;
+
+  if ( a == 0.0 )
+  {
+    cerr << "\n";
+    cerr << "R4POLY2_ROOT - Fatal error!\n";
+    cerr << "  The coefficient A is zero.\n";
+    exit ( 1 );
+  }
+
+  disc = b * b - 4.0 * a * c;
+  t = - 0.5 * ( b + r4_sign ( b ) );
+  q =  complex <float> ( t, 0.0 ) * r4_csqrt ( disc );
+  *r1 = q / a;
+  *r2 = c / q;
+
+  return;
+}
+//****************************************************************************80
+
+void r4poly3_root ( float a, float b, float c, float d,
+  complex <float> *r1, complex <float> *r2, complex <float> *r3 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4POLY3_ROOT returns the three roots of a cubic polynomial.
+//
+//  Discussion:
+//
+//    The polynomial has the form
+//
+//      A * X^3 + B * X^2 + C * X + D = 0
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 October 2005
+//
+//  Parameters:
+//
+//    Input, float A, B, C, D, the coefficients of the polynomial.
+//    A must not be zero.
+//
+//    Output, complex <float> *R1, *R2, *R3, the roots of the polynomial, which
+//    will include at least one real root.
+//
+{
+  complex <float> i;
+  float pi = 3.141592653589793;
+  float q;
+  float r;
+  float s1;
+  float s2;
+  complex <float> t;
+  float temp;
+  float theta;
+
+  if ( a == 0.0 )
+  {
+    cerr << "\n";
+    cerr << "R4POLY3_ROOT - Fatal error!\n";
+    cerr << "  A must not be zero.\n";
+    exit ( 1 );
+  }
+
+  i = complex <float> ( 0.0, 1.0 );
+
+  q = ( pow ( b / a, 2 ) - 3.0 * ( c / a ) ) / 9.0;
+
+  r = ( 2.0 * pow ( b / a, 3 ) - 9.0 * ( b / a ) * ( c / a )
+      + 27.0 * ( d / a ) ) / 54.0;
+
+  if ( r * r < q * q * q )
+  {
+    theta = acos ( r / sqrt ( pow ( q, 3 ) ) );
+    *r1 = -2.0 * sqrt ( q ) * cos (   theta              / 3.0 );
+    *r2 = -2.0 * sqrt ( q ) * cos ( ( theta + 2.0 * pi ) / 3.0 );
+    *r3 = -2.0 * sqrt ( q ) * cos ( ( theta + 4.0 * pi ) / 3.0 );
+  }
+  else if ( q * q * q <= r * r )
+  {
+    temp = -r + sqrt ( r * r - q * q * q );
+    s1 = r4_sign ( temp ) * pow ( r4_abs ( temp ), 1.0 / 3.0 );
+
+    temp = -r - sqrt ( r * r - q * q * q );
+    s2 = r4_sign ( temp ) * pow ( r4_abs ( temp ), 1.0 / 3.0 );
+
+    *r1 = s1 + s2;
+    *r2 = complex <float> ( -0.5 * ( s1 + s2 ),   0.5 * sqrt ( 3.0 ) * ( s1 - s2 ) );
+    *r3 = complex <float> ( -0.5 * ( s1 + s2 ), - 0.5 * sqrt ( 3.0 ) * ( s1 - s2 ) );
+  }
+
+  t = complex <float> ( b / ( 3.0 * a ), 0.0 );
+
+  *r1 = *r1 - t;
+  *r2 = *r2 - t;
+  *r3 = *r3 - t;
+
+  return;
+}
+//****************************************************************************80
+
+void r4poly4_root ( float a, float b, float c, float d, float e,
+  complex <float> *r1, complex <float> *r2, complex <float> *r3,
+  complex <float> *r4 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4POLY4_ROOT returns the four roots of a quartic polynomial.
+//
+//  Discussion:
+//
+//    The polynomial has the form:
+//
+//      A * X^4 + B * X^3 + C * X^2 + D * X + E = 0
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    27 October 2005
+//
+//  Parameters:
+//
+//    Input, float A, B, C, D, the coefficients of the polynomial.
+//    A must not be zero.
+//
+//    Output, complex <float> *R1, *R2, *R3, *R4, the roots of the polynomial.
+//
+{
+  float a3;
+  float a4;
+  float b3;
+  float b4;
+  float c3;
+  float c4;
+  float d3;
+  float d4;
+  complex <float> p;
+  complex <float> q;
+  complex <float> r;
+  complex <float> t;
+  complex <float> zero;
+
+  zero = 0.0;
+
+  if ( a == 0.0 )
+  {
+    cerr << "\n";
+    cerr << "R4POLY4_ROOT - Fatal error!\n";
+    cerr << "  A must not be zero.\n";
+    exit ( 1 );
+  }
+
+  a4 = b / a;
+  b4 = c / a;
+  c4 = d / a;
+  d4 = e / a;
+//
+//  Set the coefficients of the resolvent cubic equation.
+//
+  a3 = 1.0;
+  b3 = -b4;
+  c3 = a4 * c4 - 4.0 * d4;
+  d3 = -a4 * a4 * d4 + 4.0 * b4 * d4 - c4 * c4;
+//
+//  Find the roots of the resolvent cubic.
+//
+  r4poly3_root ( a3, b3, c3, d3, r1, r2, r3 );
+//
+//  Choose one root of the cubic, here R1.
+//
+//  Set R = sqrt ( 0.25 * A4^2 - B4 + R1 )
+//
+  t = complex <float> ( 0.25 * a4 * a4 - b4, 0.0 );
+  r = c4_sqrt (  t + ( *r1 ) );
+
+  if ( real ( r ) != 0.0 || imag ( r ) != 0.0 )
+  {
+    p = c4_sqrt ( - r * r + complex <float> ( 0.75 * a4 * a4 - 2.0 * b4, 0.0 )
+        + complex <float> ( 0.25 * ( 4.0 * a4 * b4 - 8.0 * c4 - a4 * a4 * a4 ) ) / r );
+
+    q = c4_sqrt ( - r * r + complex <float> ( 0.75 * a4 * a4 - 2.0 * b4, 0.0 )
+        - complex <float> ( 0.25 * ( 4.0 * a4 * b4 - 8.0 * c4 - a4 * a4 * a4 ) ) / r );
+  }
+  else
+  {
+    p = c4_sqrt ( complex <float> ( 0.75 * a4 * a4 - 2.0 * b4, 0.0 )
+      + complex <float> ( 2.0, 0.0 ) 
+      * c4_sqrt ( (*r1) * (*r1) - complex <float> ( 4.0 * d4, 0.0 ) ) );
+
+    q = c4_sqrt ( complex <float> ( 0.75 * a4 * a4 - 2.0 * b4, 0.0 )
+      - complex <float> ( 2.0, 0.0 )
+      * c4_sqrt ( (*r1) * (*r1) - complex <float> ( 4.0 * d4, 0.0 ) ) );
+  }
+//
+//  Set the roots.
+//
+  t = complex <float> ( 0.5, 0.0 );
+  *r1 = complex <float> ( -0.25 * a4, 0.0 ) + t * r + t * p;
+  *r2 = complex <float> ( -0.25 * a4, 0.0 ) + t * r - t * p;
+  *r3 = complex <float> ( -0.25 * a4, 0.0 ) - t * r + t * q;
+  *r4 = complex <float> ( -0.25 * a4, 0.0 ) - t * r - t * q;
+
+  return;
 }
 //****************************************************************************80
 

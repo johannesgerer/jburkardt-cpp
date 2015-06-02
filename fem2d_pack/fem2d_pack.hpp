@@ -88,6 +88,8 @@ void legendre_com ( int norder, double xtab[], double weight[] );
 void legendre_set ( int norder, double xtab[], double weight[] );
 double *map ( string code, int n );
 void map_test ( string code );
+double *mass_matrix_t3 ( int node_num, int element_num, int element_node[], 
+  double node_xy[] );
 double *mass_matrix_t6 ( int node_num, int element_num, int element_node[], 
   double node_xy[] );
 int next_boundary_node ( int node, string code );

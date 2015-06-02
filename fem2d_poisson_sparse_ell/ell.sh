@@ -16,7 +16,7 @@ rm ell.o
 #
 chmod ugo+x a.out
 mv a.out fem2d_poisson_sparse_ell
-./fem2d_poisson_sparse ell > ell_output.txt
+./fem2d_poisson_sparse_ell ell > ell_output.txt
 if [ $? -ne 0 ]; then
   echo "Errors running ell."
   exit

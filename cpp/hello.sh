@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c hello.cpp >& compiler.txt
+g++ -c hello.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling hello.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ hello.o
 if [ $? -ne 0 ]; then

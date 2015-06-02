@@ -1,0 +1,124 @@
+25 January 2013 03:43:31 PM
+
+FEM2D_POISSON_CG:
+  C++ version:
+
+  Compiled on Jan 25 2013 at 15:43:17.
+
+  A version of FEM2D_POISSON using sparse storage
+  and a conjugate gradient solver.
+
+  Solution of the Poisson equation in an arbitrary region
+  in 2 dimensions.
+
+  - DEL H(x,y) DEL U(x,y) + K(x,y) * U(x,y) = F(x,y) in the region
+
+                                     U(x,y) = G(x,y) on the boundary.
+
+  The finite element method is used,
+  with triangular elements,
+  which must be a 3 node linear triangle.
+
+  Node file is "baffle_nodes.txt".
+  Element file is "baffle_elements.txt".
+  Number of nodes =          512
+
+  First 10 nodes
+
+  Row:       1             2       
+  Col
+
+    1              0             1
+    2              0         1.375
+    3              0          1.75
+    4              0         2.125
+    5              0           2.5
+    6              0         2.875
+    7              0          3.25
+    8              0         3.625
+    9              0             4
+   10              0         4.375
+
+  Element order =            3
+  Number of elements =       874
+
+  First 10 elements
+
+  Row:      1       2       3  
+  Col
+
+    1     317     306     298  
+    2      28       3      18  
+    3       4       3      28  
+    4      28      33       4  
+    5      72      69      57  
+    6      49      33      28  
+    7     114     106     122  
+    8      84      80      67  
+    9      88      69      72  
+   10     147     133     131  
+
+  Quadrature order =          3
+
+  Number of nonzero coefficients NZ_NUM = 3308
+
+  Step        Residual
+
+     1         1.94589
+     2         1.02565
+     3        0.411712
+     4         0.27157
+     5        0.143458
+     6        0.102652
+     7       0.0490419
+     8       0.0317833
+     9       0.0164217
+    10      0.00860515
+    11      0.00392365
+    12      0.00229199
+    13      0.00156186
+    14     0.000742249
+    15     0.000399329
+    16     0.000205418
+    17     0.000124346
+    18     6.76339e-05
+    19      3.2241e-05
+    20      1.9699e-05
+    21     1.34579e-05
+    22     7.03567e-06
+    23     3.52624e-06
+    24     1.96816e-06
+    25     1.07468e-06
+    26     7.19786e-07
+    27     4.24296e-07
+    28     2.44519e-07
+    29     1.35357e-07
+    30      8.1082e-08
+    31     4.70307e-08
+
+  Number of iterations was 31
+  Estimated error is 2.89709e-08
+
+  Part of the solution vector vector U:
+
+         1                 0
+         2                 0
+         3                 0
+         4                 0
+         5                 0
+         6                 0
+         7                 0
+         8                 0
+         9                 0
+        10                 0
+
+  Wrote an ASCII file
+    "baffle_values.txt".
+  of the form
+    U ( X(I), Y(I) )
+  which can be used for plotting.
+
+FEM2D_POISSON_CG:
+  Normal end of execution.
+
+25 January 2013 03:43:31 PM

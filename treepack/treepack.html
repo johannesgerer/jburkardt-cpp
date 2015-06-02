@@ -1,0 +1,359 @@
+<html>
+
+  <head>
+    <title>
+      TREEPACK - Computations using Tree Graphs
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TREEPACK <br> Computations using Tree Graphs
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TREEPACK</b>
+      is a C++ library which
+      performs common calculations involving a special kind of graph
+      known as a tree.
+    </p>
+
+    <p>
+      A graph is a collection of objects or "nodes", such that any (unordered) pair of
+      nodes is connected or not connected.  If a pair of nodes <b>i</b> and <b>j</b>
+      are connected, we say there is an "edge" between them, and we may describe
+      the edge as <b>(i,j)</b>.  A graph can be represented by a drawing
+      of dots with lines connecting some of the dots.
+    </p>
+
+    <p>
+      A tree is a minimally connected graph; more precisely, it is a graph
+      with two additional properties:
+      <ul>
+        <li>
+          it is <i>connected</i>, that is, given any two pair of nodes <b>i</b>
+          and <b>j</b>, there is a sequence of edges <b>(na,nb),(nb,nc),...(nx,ny),(ny,nz)</b>
+          such that <b>na=i</b> and <b>nz=j</b>;
+        </li>
+        <li>
+          if any edge is removed from the graph, it is no longer connected.
+        </li>
+      </ul>
+      Note that a tree using <b>N</b> nodes will have exactly <b>N-1</b> edges.
+    </p>
+
+    <p>
+      There are several ways to represent a graph on the computer.
+    </p>
+
+    <p>
+      For the <b>TREE_ARC</b> representation, we simply store a list of the edges
+      of the tree, that is, pairs of nodes.
+    </p>
+
+    <p>
+      For the <b>TREE_PRUEFER</b> representation, a tree of <b>N</b> nodes 
+      is represented by a sequence of <b>N-2</b> integers known as the
+      Pruefer code.
+    </p>
+
+    <p>
+      For the <b>TREE_PARENT</b> representation, a tree of <b>N</b> nodes 
+      is represented by a list of nodes PARENT, such that, for I = 1 to N - 1,
+      the I-th edge of the tree connects node I to node PARENT(I).
+    </p>
+
+    <p>
+      For the <b>TREE_ROOTED</b> representation, a tree is assumed to have the additional
+      property that one node has been designated as the "root".
+    </p>
+
+    <p>
+      For the <b>TREE_RB</b> representation, a tree is assumed to have the additional
+      properties that one node has been designated as the "root", and that every node 
+      has exactly 1 or 2 edges.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TREEPACK</b> is available in
+      <a href = "../../c_src/treepack/treepack.html">a C version</a> and
+      <a href = "../../cpp_src/treepack/treepack.html">a C++ version</a> and
+      <a href = "../../f77_src/treepack/treepack.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/treepack/treepack.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/treepack/treepack.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/combo/combo.html">
+      COMBO</a>,
+      a C++ library which
+      includes routines for ranking, unranking, enumerating and 
+      randomly selecting balanced sequences, cycles, graphs, Gray codes, 
+      subsets, partitions, permutations, restricted growth functions, 
+      Pruefer codes and trees.
+    </p>
+
+    <p>
+      <a href = "../../data/graph_representation/graph_representation.html">
+      GRAPH_REPRESENTATION</a>,
+      a data directory which
+      contains examples of ways of representing abstract
+      mathematical graphs
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/subset/subset.html">
+      SUBSET</a>,
+      a C++ library which
+      generates, ranks and unranks various combinatorial objects.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Alan Gibbons,<br>
+          Algorithmic Graph Theory,<br>
+          Cambridge University Press, 1985,<br>
+          ISBN: 0-5212-8881-9,<br>
+          LC: QA166.G53.
+        </li>
+        <li>
+          Hang Tong Lau,<br>
+          Combinatorial Heuristic Algorithms with FORTRAN,<br>
+          Springer, 1986,<br>
+          ISBN: 3540171614,<br>
+          LC: QA402.5.L37.
+        </li>
+        <li>
+          Albert Nijenhuis, Herbert Wilf,<br>
+          Combinatorial Algorithms for Computers and Calculators,<br>
+          Second Edition,<br>
+          Academic Press, 1978,<br>
+          ISBN: 0-12-519260-6,<br>
+          LC: QA164.N54.
+        </li>
+        <li>
+          Robert Sedgewick,<br>
+          Algorithms in C,<br>
+          Addison-Wesley, 1990,<br>
+          ISBN: 0-201-51425-7,<br>
+          LC: QA76.73.C15S43.
+        </li>
+        <li>
+          Dennis Stanton, Dennis White,<br>
+          Constructive Combinatorics,<br>
+          Springer, 1986,<br>
+          ISBN: 0387963472,<br>
+          LC: QA164.S79.
+        </li>
+        <li>
+          Krishnaiyan Thulasiraman, M Swamy,<br>
+          Graphs: Theory and Algorithms,<br>
+          John Wiley, 1992,<br>
+          ISBN: 0471513563,<br>
+          LC: QA166.T58.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "treepack.cpp">treepack.cpp</a>, the source code;
+        </li>
+        <li>
+          <a href = "treepack.hpp">treepack.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "treepack.sh">treepack.sh</a>,
+          commands to compile the source code;
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "treepack_prb.cpp">treepack_prb.cpp</a>, the calling
+          program;
+        </li>
+        <li>
+          <a href = "treepack_prb.sh">treepack_prb.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "treepack_prb_output.txt">treepack_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CATALAN</b> computes the Catalan numbers, from C(0) to C(N).
+        </li>
+        <li>
+          <b>GRAPH_ADJ_EDGE_COUNT</b> counts the number of edges in a graph.
+        </li>
+        <li>
+          <b>GRAPH_ADJ_IS_NODE_CONNECTED</b> determines if a graph is nodewise connected.
+        </li>
+        <li>
+          <b>GRAPH_ADJ_IS_TREE</b> determines whether a graph is a tree.
+        </li>
+        <li>
+          <b>GRAPH_ARC_DEGREE</b> determines the degree of the nodes of a graph.
+        </li>
+        <li>
+          <b>GRAPH_ADJ_IS_TREE</b> determines whether a graph is a tree.
+        </li>
+        <li>
+          <b>GRAPH_ARC_NODE_COUNT</b> counts the number of nodes in a graph.
+        </li>
+        <li>
+          <b>GRAPH_ARC_PRINT</b> prints out a graph from an edge list.
+        </li>
+        <li>
+          <b>GRAPH_ARC_TO_GRAPH_ADJ</b> converts an arc list graph to an adjacency graph.
+        </li>
+        <li>
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4 between A and B.
+        </li>
+        <li>
+          <b>I4VEC_HEAP_D</b> reorders an I4VEC into an descending heap.
+        </li>
+        <li>
+          <b>I4VEC_INDICATOR</b> sets an I4VEC to the indicator vector.
+        </li>
+        <li>
+          <b>I4VEC_PRINT</b> prints an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_SORT_HEAP_A</b> ascending sorts an I4VEC using heap sort.
+        </li>
+        <li>
+          <b>I4VEC_SORTED_UNIQUE_COUNT</b> counts the unique elements in a sorted I4VEC.
+        </li>
+        <li>
+          <b>PRUEFER_TO_TREE_ARC</b> is given a Pruefer code, and computes the tree.
+        </li>
+        <li>
+          <b>PRUEFER_TO_TREE_2</b> produces the edge list of a tree from its Pruefer code.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TREE_ARC_CENTER</b> computes the center, eccentricity, and parity of a tree.
+        </li>
+        <li>
+          <b>TREE_ARC_DIAM</b> computes the "diameter" of a tree.
+        </li>
+        <li>
+          <b>TREE_ARC_RANDOM</b> selects a random labeled tree and its Pruefer code.
+        </li>
+        <li>
+          <b>TREE_ARC_TO_PRUEFER</b> is given a labeled tree, and computes its Pruefer code.
+        </li>
+        <li>
+          <b>TREE_ENUM</b> enumerates the labeled trees on NNODE nodes.
+        </li>
+        <li>
+          <b>TREE_PARENT_NEXT</b> generates, one at a time, all labeled trees.
+        </li>
+        <li>
+          <b>TREE_PARENT_TO_ARC</b> converts a tree from parent to arc representation.
+        </li>
+        <li>
+          <b>TREE_RB_ENUM</b> returns the number of rooted binary trees with N nodes.
+        </li>
+        <li>
+          <b>TREE_RB_LEX_NEXT</b> generates rooted binary trees in lexicographic order.
+        </li>
+        <li>
+          <b>TREE_RB_TO_PARENT</b> converts rooted binary tree to parent node representation.
+        </li>
+        <li>
+          <b>TREE_RB_YULE</b> adds two nodes to a rooted binary tree using the Yule model.
+        </li>
+        <li>
+          <b>TREE_ROOTED_CODE</b> returns the code of a rooted tree.
+        </li>
+        <li>
+          <b>TREE_ROOTED_CODE_COMPARE</b> compares a portion of the code for two rooted trees.
+        </li>
+        <li>
+          <b>TREE_ROOTED_DEPTH</b> returns the depth of a rooted tree.
+        </li>
+        <li>
+          <b>TREE_ROOTED_ENUM</b> counts the number of unlabeled rooted trees.
+        </li>
+        <li>
+          <b>TREE_ROOTED_RANDOM</b> selects a random unlabeled rooted tree.
+        </li>
+        <li>
+          <b>VEC_NEXT</b> generates all N-vectors of integers modulo a given base.
+        </li>
+        <li>
+          <b>VEC_RANDOM</b> selects a random N-vector of integers modulo a given base.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 August 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

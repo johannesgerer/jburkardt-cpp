@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include hermite_cubic_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include hermite_cubic_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling hermite_cubic_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ hermite_cubic_prb.o /$HOME/libcpp/$ARCH/hermite_cubic.o -lm
 if [ $? -ne 0 ]; then

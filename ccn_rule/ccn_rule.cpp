@@ -66,25 +66,19 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "CCN_RULE\n";
   cout << "  C++ version\n";
-  cout << "\n";
   cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
   cout << "\n";
-  cout << "  Compute a Clenshaw Curtis rule for approximating\n";
-  cout << "\n";
+  cout << "  Compute one of a family of nested Clenshaw Curtis rules\n";
+  cout << "  for approximating\n";
   cout << "    Integral ( -1 <= x <= +1 ) f(x) dx\n";
-  cout << "\n";
   cout << "  of order N.\n";
   cout << "\n";
   cout << "  The user specifies N, A, B and FILENAME.\n";
   cout << "\n";
   cout << "  N is the number of points.\n";
-  cout << "\n";
   cout << "  A is the left endpoint.\n";
-  cout << "\n";
   cout << "  B is the right endpoint.\n";
-  cout << "\n";
   cout << "  FILENAME is used to generate 3 files:\n";
-  cout << "\n";
   cout << "    filename_w.txt - the weight file\n";
   cout << "    filename_x.txt - the abscissa file.\n";
   cout << "    filename_r.txt - the region file.\n";
@@ -181,7 +175,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "CCN_RULE:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

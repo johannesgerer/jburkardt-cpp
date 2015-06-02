@@ -15,7 +15,7 @@ int ch_to_digit ( char ch );
 void comp_next ( int n, int k, int a[], bool *more, int *h, int *t );
 int file_column_count ( string input_filename );
 int file_row_count ( string input_filename );
-double *monomial_value ( int dim_num, int point_num, double x[], int expon[] );
+double *monomial_value ( int dim_num, int point_num, int expon[], double x[] );
 double *r8mat_data_read ( string input_filename, int m, int n );
 void r8mat_header_read ( string input_filename, int *m, int *n );
 double r8vec_dot_product ( int n, double a1[], double a2[] );
@@ -92,8 +92,6 @@ int main ( int argc, char *argv[] )
   cout << "TRIANGLE_EXACTNESS\n";
   cout << "  C++ version\n";
   cout << "\n";
-  cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
-  cout << "\n";
   cout << "  Investigate the polynomial exactness of a quadrature\n";
   cout << "  rule for the triangle by integrating all monomials\n";
   cout << "  of a given degree.\n";
@@ -161,9 +159,9 @@ int main ( int argc, char *argv[] )
 
   if ( dim_num != 2 )
   {
-    cout << "\n";
-    cout << "TRIANGLE_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature abscissas must be two dimensional.\n";
+    cerr << "\n";
+    cerr << "TRIANGLE_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature abscissas must be two dimensional.\n";
     exit ( 1 );
   }
 
@@ -175,19 +173,19 @@ int main ( int argc, char *argv[] )
 
   if ( dim_num2 != 1 ) 
   {
-    cout << "\n";
-    cout << "TRIANGLE_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature weight file should have exactly\n";
-    cout << "  one value on each line.\n";
+    cerr << "\n";
+    cerr << "TRIANGLE_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature weight file should have exactly\n";
+    cerr << "  one value on each line.\n";
     exit ( 1 );
   }
 
   if ( point_num2 != point_num )
   {
-    cout << "\n";
-    cout << "TRIANGLE_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature weight file should have exactly\n";
-    cout << "  the same number of lines as the abscissa file.\n";
+    cerr << "\n";
+    cerr << "TRIANGLE_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature weight file should have exactly\n";
+    cerr << "  the same number of lines as the abscissa file.\n";
     exit ( 1 );
   }
 
@@ -199,19 +197,19 @@ int main ( int argc, char *argv[] )
 
   if ( dim_num3 != dim_num )
   {
-    cout << "\n";
-    cout << "TRIANGLE_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature region file should have the same\n";
-    cout << "  number of values on each line as the abscissa file\n";
-    cout << "  does.\n";
+    cerr << "\n";
+    cerr << "TRIANGLE_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature region file should have the same\n";
+    cerr << "  number of values on each line as the abscissa file\n";
+    cerr << "  does.\n";
     exit ( 1 );
   }
 
   if ( point_num3 != 3 )
   {
-    cout << "\n";
-    cout << "TRIANGLE_EXACTNESS - Fatal error!\n";
-    cout << "  The quadrature region file should have 3 lines.\n";
+    cerr << "\n";
+    cerr << "TRIANGLE_EXACTNESS - Fatal error!\n";
+    cerr << "  The quadrature region file should have 3 lines.\n";
     exit ( 1 );
   }
 
@@ -269,7 +267,9 @@ int main ( int argc, char *argv[] )
       }
     }
   }
-
+//
+//  Free memory.
+//
   delete [] expon;
   delete [] r;
   delete [] w;
@@ -404,7 +404,7 @@ int ch_to_digit ( char ch )
 //
 //    Input, char CH, the decimal digit, '0' through '9' or blank are legal.
 //
-//    Output, int CH_TO_DIGIT, the corresponding integer value.  If the character was
+//    Output, int CH_TO_DIGIT, the corresponding value.  If the character was
 //    'illegal', then DIGIT is -1.
 //
 {
@@ -783,7 +783,7 @@ int file_row_count ( string input_filename )
 }
 //****************************************************************************80
 
-double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
+double *monomial_value ( int m, int n, int e[], double x[] )
 
 //****************************************************************************80
 //
@@ -795,11 +795,9 @@ double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
 //
 //    This routine evaluates a monomial of the form
 //
-//      product ( 1 <= dim <= dim_num ) x(dim)^expon(dim)
+//      product ( 1 <= i <= m ) x(i)^e(i)
 //
-//    where the exponents are nonnegative integers.  Note that
-//    if the combination 0^0 is encountered, it should be treated
-//    as 1.
+//    The combination 0.0^0 is encountered is treated as 1.0.
 //
 //  Licensing:
 //
@@ -807,7 +805,7 @@ double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
 //
 //  Modified:
 //
-//    05 May 2007
+//    17 August 2014
 //
 //  Author:
 //
@@ -815,41 +813,40 @@ double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
 //
 //  Parameters:
 //
-//    Input, int DIM_NUM, the spatial dimension.
+//    Input, int M, the spatial dimension.
 //
-//    Input, int POINT_NUM, the number of points at which the
-//    monomial is to be evaluated.
+//    Input, int N, the number of evaluation points.
 //
-//    Input, double X[DIM_NUM*POINT_NUM], the point coordinates.
+//    Input, int E[M], the exponents.
 //
-//    Input, int EXPON[DIM_NUM], the exponents.
+//    Input, double X[M*N], the point coordinates.
 //
-//    Output, double MONOMIAL_VALUE[POINT_NUM], the value of the monomial.
+//    Output, double MONOMIAL_VALUE[N], the monomial values.
 //
 {
-  int dim;
-  int point;
-  double *value;
+  int i;
+  int j;
+  double *v;
 
-  value = new double[point_num];
-
-  for ( point = 0; point < point_num; point++ )
+  v = new double[n];
+  for ( j = 0; j < n; j++)
   {
-    value[point] = 1.0;
+    v[j] = 1.0;
   }
+//v = r8vec_ones_new ( n );
 
-  for ( dim = 0; dim < dim_num; dim++ )
+  for ( i = 0; i < m; i++ )
   {
-    if ( 0 != expon[dim] )
+    if ( 0 != e[i] )
     {
-      for ( point = 0; point < point_num; point++ )
+      for ( j = 0; j < n; j++ )
       {
-        value[point] = value[point] * pow ( x[dim+point*dim_num], expon[dim] );
+        v[j] = v[j] * pow ( x[i+j*m], e[i] );
       }
     }
   }
 
-  return value;
+  return v;
 }
 //****************************************************************************80
 
@@ -1279,7 +1276,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
@@ -1766,7 +1763,7 @@ void triangle_order3_physical_to_reference ( double t[], int n,
 //
 //  Purpose:
 //
-//    TRIANGLE_ORDER3_PHYSICAL_TO_REFERENCE maps physical points to reference points.
+//    TRIANGLE_ORDER3_PHYSICAL_TO_REFERENCE maps physical to reference points.
 //
 //  Discussion:
 //
@@ -1914,8 +1911,8 @@ double triangle01_monomial_integral ( int dim_num, int expon[] )
 }
 //****************************************************************************80
 
-double triangle01_monomial_quadrature ( int dim_num, int expon[], int point_num, 
-  double x[], double weight[] )
+double triangle01_monomial_quadrature ( int dim_num, int expon[], 
+  int point_num, double x[], double weight[] )
 
 //****************************************************************************80
 //
@@ -1963,7 +1960,7 @@ double triangle01_monomial_quadrature ( int dim_num, int expon[], int point_num,
 //
 //  Evaluate the monomial at the quadrature points.
 //
-  value = monomial_value ( dim_num, point_num, x, expon );
+  value = monomial_value ( dim_num, point_num, expon, x );
 //
 //  Compute the weighted sum and divide by the exact value.
 //

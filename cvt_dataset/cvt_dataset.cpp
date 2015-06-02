@@ -7,7 +7,7 @@
 
 using namespace std;
 
-# include "cvt.H"
+# include "cvt.hpp"
 
 int main ( void );
 
@@ -63,7 +63,7 @@ int main ( void )
 //
 //  Modified:
 //
-//    04 July 2005
+//    17 June 2013
 //
 //  Author:
 //
@@ -493,7 +493,7 @@ int main ( void )
     cout << "  It is FASTER to set BATCH to SAMPLE_NUM;\n";
     cout << "  setting BATCH to 1 requires the least memory.\n";
     cout << "\n";
-    cout << "  (Try " << i_min ( sample_num, 1000 ) 
+    cout << "  (Try " << i4_min ( sample_num, 1000 ) 
          << " if you have no preference.)\n";
     cout << "  (A zero or negative value terminates execution.)\n";
     cout << "\n";
@@ -570,11 +570,13 @@ int main ( void )
     cvt ( dim_num, n, batch, init, sample, sample_num, it_max, it_fixed,
       &seed, r, &it_num, &it_diff, &energy );
 
-    comment = false;
+    r8mat_write ( file_out_name, dim_num, n, r );
 
-    cvt_write ( dim_num, n, batch, seed_init, seed, init_string, it_max, 
-      it_fixed, it_num, it_diff, energy, sample_string, sample_num, r,
-      file_out_name, comment );
+//  comment = false;
+
+//  cvt_write ( dim_num, n, batch, seed_init, seed, init_string, it_max, 
+//    it_fixed, it_num, it_diff, energy, sample_string, sample_num, r,
+//    file_out_name, comment );
 
     delete [] r;
 

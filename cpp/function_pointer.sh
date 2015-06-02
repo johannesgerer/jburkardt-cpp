@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c function_pointer.cpp >& compiler.txt
+g++ -c function_pointer.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling function_pointer.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ function_pointer.o
 if [ $? -ne 0 ]; then

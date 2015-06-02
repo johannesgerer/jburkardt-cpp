@@ -31,13 +31,16 @@ double *lagcheby1_interp_1d ( int nd, double xd[], double yd[], int ni,
 //
 //    for instance.
 //
+//    Thanks to John Ferrier for pointing out that DENOM and NUMER needed
+//    to be initialized, 16 September 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    30 September 2012
+//    16 September 2013
 //
 //  Author:
 //
@@ -85,6 +88,8 @@ double *lagcheby1_interp_1d ( int nd, double xd[], double yd[], int ni,
   for ( i = 0; i < ni; i++ )
   {
     exact[i] = -1;
+    denom[i] = 0.0;
+    numer[i] = 0.0;
   }
 
   for ( j = 0; j < nd; j++ )
@@ -138,13 +143,16 @@ double *lagcheby2_interp_1d ( int nd, double xd[], double yd[], int ni,
 //
 //    for instance.
 //
+//    Thanks to John Ferrier for pointing out that DENOM and NUMER needed
+//    to be initialized, 16 September 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    30 September 2012
+//    16 September 2013
 //
 //  Author:
 //
@@ -190,6 +198,8 @@ double *lagcheby2_interp_1d ( int nd, double xd[], double yd[], int ni,
   for ( i = 0; i < ni; i++ )
   {
     exact[i] = -1;
+    denom[i] = 0.0;
+    numer[i] = 0.0;
   }
 
   for ( j = 0; j < nd; j++ )
@@ -248,13 +258,16 @@ double *lageven_interp_1d ( int nd, double xd[], double yd[], int ni,
 //
 //    for instance.
 //
+//    Thanks to John Ferrier for pointing out that DENOM and NUMER needed
+//    to be initialized, 16 September 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    30 September 2012
+//    16 September 2013
 //
 //  Author:
 //
@@ -300,6 +313,8 @@ double *lageven_interp_1d ( int nd, double xd[], double yd[], int ni,
   for ( i = 0; i < ni; i++ )
   {
     exact[i] = -1;
+    denom[i] = 0.0;
+    numer[i] = 0.0;
   }
 
   for ( j = 0; j < nd; j++ )

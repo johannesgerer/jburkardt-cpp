@@ -1,0 +1,336 @@
+<html>
+
+  <head>
+    <title>
+      LAGRANGE_ND - Multivariate Lagrange Interpolation
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      LAGRANGE_ND <br> Multivariate Lagrange Interpolation
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>LAGRANGE_ND</b>
+      is a C++ library which
+      is given a set of ND points X(*) in D-dimensional space, and constructs
+      a family of ND Lagrange polynomials P(*)(X), associating polynomial P(i)
+      with point X(i), such that, for 1 <= i <= ND,
+      <pre>
+        P(i)(X(i)) = 1
+      </pre>
+      but, if i =/= j
+      <pre>
+        P(i)(X(j)) = 0
+      </pre>
+    </p>
+
+    <p>
+      The library currently includes the following primary routines:
+      <ul>
+        <li>
+          <b>LAGRANGE_COMPLETE</b> requires that the number of data points
+          ND is exactly <b>equal</b> to R, the number of monomials in D dimensions
+          of total degree N or less;
+        </li>
+        <li>
+          <b>LAGRANGE_COMPLETE2</b>, a version of LAGRANGE_COMPLETE with
+          improved "pivoting";
+        </li>
+        <li>
+          <b>LAGRANGE_PARTIAL</b> allows the number of data points
+          ND to be <b>less than or equal</b> to R, the number of monomials 
+          in D dimensions of total degree N or less;
+        </li>
+        <li>
+          <b>LAGRANGE_PARTIAL2</b>, a version of LAGRANGE_PARTIAL
+          with improved "pivoting".
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The set of ND polynomials P(*)(X) are returned as a set of three arrays:
+      <ul>
+        <li>
+          <b>PO(i)</b> contains the order, the number of nonzero coefficients,
+          for polynomial i;
+        </li>
+        <li>
+          <b>PC(i,j)</b> contains the coefficient of the j-th term in 
+          polynomial i;
+        </li>
+        <li>
+          <b>PE(i,j)</b> contains a code for the exponents of the monomial
+          associated with the j-th term in polynomial i.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      Each value of PE(i,j) is an exponent codes which can be converted 
+      to a vector of exponents that define a monomial.  For example,
+      if we are working in spatial dimension D=3, then if PE(i,j)=13,
+      the corresponding exponent vector is (0,2,1), so 
+      this means that the j-th term in polynomial i is 
+      <pre>
+        PC(i,j) * x^0 y^2 z^1
+      </pre>
+      An exponent code can be converted to an exponent vector by calling
+      mono_unrank_grlex().
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>LAGRANGE_ND</b> is available in
+      <a href = "../../cpp_src/lagrange_nd/lagrange_nd.html">a C++ version</a> and
+      <a href = "../../f_src/lagrange_nd/lagrange_nd.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/lagrange_nd/lagrange_nd.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/lagrange_interp_nd/lagrange_interp_nd.html">
+      LAGRANGE_INTERP_ND</a>,
+      a C++ library which
+      defines and evaluates the Lagrange polynomial p(x) 
+      which interpolates a set of multivariate data, so that p(x(i)) = y(i).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_interp_nd/sparse_interp_nd.html">
+      SPARSE_INTERP_ND</a>
+      a C++ library which
+      can be used to define a sparse interpolant to a function f(x) of a 
+      multidimensional argument.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_interp_nd/test_interp_nd.html">
+      TEST_INTERP_ND</a>,
+      a C++ library which
+      defines test problems for interpolation of data z(x),
+      depending on an M-dimensional argument.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Philip Davis,<br>
+          Interpolation and Approximation,<br>
+          Dover, 1975,<br>
+          ISBN: 0-486-62495-1,<br>
+          LC: QA221.D33
+        </li>
+        <li>
+          Tomas Sauer, Yuan Xu,<br>
+          On multivariate Lagrange interpolation,<br>
+          Mathematics of Computation,<br>
+          Volume 64, Number 211, July 1995, pages 1147-1170.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lagrange_nd.cpp">lagrange_nd.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "lagrange_nd.hpp">lagrange_nd.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "lagrange_nd.sh">lagrange_nd.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "lagrange_nd_prb.cpp">lagrange_nd_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "lagrange_nd_prb.sh">lagrange_nd_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "lagrange_nd_prb_output.txt">lagrange_nd_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_CHOOSE</b> computes the binomial coefficient C(N,K).
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>I4MAT_PRINT</b> prints an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_PRINT_SOME</b> prints some of an I4MAT.
+        </li>
+        <li>
+          <b>I4VEC_CONCATENATE</b> concatenates two I4VEC's.
+        </li>
+        <li>
+          <b>I4VEC_PERMUTE</b> permutes an I4VEC in place.
+        </li>
+        <li>
+          <b>I4VEC_PRINT</b> prints an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_SORT_HEAP_INDEX_A</b> does an indexed heap ascending sort of an I4VEC.
+        </li>
+        <li>
+          <b>I4VEC_SUM</b> sums the entries of an I4VEC.
+        </li>
+        <li>
+          <b>LAGRANGE_COMPLETE:</b> Complete Lagrange polynomial basis from data.
+        </li>
+        <li>
+          <b>LAGRANGE_COMPLETE2:</b> Complete Lagrange polynomial basis from data.
+        </li>
+        <li>
+          <b>LAGRANGE_PARTIAL:</b> Partial Lagrange polynomial basis from data.
+        </li>
+        <li>
+          <b>LAGRANGE_PARTIAL2:</b> Partial Lagrange polynomial basis from data.
+        </li>
+        <li>
+          <b>MONO_BETWEEN_ENUM</b> enumerates monomials in D dimensions of degrees in a range.
+        </li>
+        <li>
+          <b>MONO_BETWEEN_NEXT_GRLEX:</b> grlex next monomial, degree between N1 and N2.
+        </li>
+        <li>
+          <b>MONO_NEXT_GRLEX</b> returns the next monomial in grlex order.
+        </li>
+        <li>
+          <b>MONO_TOTAL_ENUM</b> enumerates monomials in D dimensions of degree equal to N.
+        </li>
+        <li>
+          <b>MONO_TOTAL_NEXT_GRLEX:</b> grlex next monomial with total degree equal to N.
+        </li>
+        <li>
+          <b>MONO_UNRANK_GRLEX</b> computes the composition of given grlex rank.
+        </li>
+        <li>
+          <b>MONO_UPTO_ENUM</b> enumerates monomials in D dimensions of degree up to N.
+        </li>
+        <li>
+          <b>MONO_VALUE</b> evaluates a monomial.
+        </li>
+        <li>
+          <b>PERM_CHECK</b> checks that a vector represents a permutation.
+        </li>
+        <li>
+          <b>POLYNOMIAL_AXPY</b> adds a multiple of one polynomial to another.
+        </li>
+        <li>
+          <b>POLYNOMIAL_COMPRESS</b> compresses a polynomial.
+        </li>
+        <li>
+          <b>POLYNOMIAL_PRINT</b> prints a polynomial.
+        </li>
+        <li>
+          <b>POLYNOMIAL_SORT</b> sorts the information in a polynomial.
+        </li>
+        <li>
+          <b>POLYNOMIAL_VALUE</b> evaluates a polynomial.
+        </li>
+        <li>
+          <b>R8MAT_IS_IDENTITY</b> determines if an R8MAT is the identity.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT</b> prints an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
+        </li>
+        <li>
+          <b>R8VEC_CONCATENATE</b> concatenates two R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_PERMUTE</b> permutes an R8VEC in place.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 25 January 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>
+

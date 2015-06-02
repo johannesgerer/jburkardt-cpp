@@ -15,8 +15,7 @@ int ch_to_digit ( char ch );
 void comp_next ( int n, int k, int a[], bool *more, int *h, int *t );
 int file_column_count ( string filename );
 int file_row_count ( string filename );
-double *monomial_value ( int dim_num, int point_num, double x[], int expon[] );
-double r8_abs ( double x );
+double *monomial_value ( int dim_num, int point_num, int expon[], double x[] );
 double r8_gamma ( double x );
 double *r8mat_data_read ( string input_filename, int m, int n );
 void r8mat_header_read ( string input_filename, int *m, int *n );
@@ -959,7 +958,7 @@ int file_row_count ( string input_filename )
 }
 //****************************************************************************80
 
-double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
+double *monomial_value ( int m, int n, int e[], double x[] )
 
 //****************************************************************************80
 //
@@ -971,11 +970,9 @@ double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
 //
 //    This routine evaluates a monomial of the form
 //
-//      product ( 1 <= dim <= dim_num ) x(dim)^expon(dim)
+//      product ( 1 <= i <= m ) x(i)^e(i)
 //
-//    where the exponents are nonnegative integers.  Note that
-//    if the combination 0^0 is encountered, it should be treated
-//    as 1.
+//    The combination 0.0^0 is encountered is treated as 1.0.
 //
 //  Licensing:
 //
@@ -983,7 +980,7 @@ double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
 //
 //  Modified:
 //
-//    05 May 2007
+//    17 August 2014
 //
 //  Author:
 //
@@ -991,82 +988,40 @@ double *monomial_value ( int dim_num, int point_num, double x[], int expon[] )
 //
 //  Parameters:
 //
-//    Input, int DIM_NUM, the spatial dimension.
+//    Input, int M, the spatial dimension.
 //
-//    Input, int POINT_NUM, the number of points at which the
-//    monomial is to be evaluated.
+//    Input, int N, the number of evaluation points.
 //
-//    Input, double X[DIM_NUM*POINT_NUM], the point coordinates.
+//    Input, int E[M], the exponents.
 //
-//    Input, int EXPON[DIM_NUM], the exponents.
+//    Input, double X[M*N], the point coordinates.
 //
-//    Output, double MONOMIAL_VALUE[POINT_NUM], the value of the monomial.
+//    Output, double MONOMIAL_VALUE[N], the monomial values.
 //
 {
-  int dim;
-  int point;
-  double *value;
+  int i;
+  int j;
+  double *v;
 
-  value = new double[point_num];
-
-  for ( point = 0; point < point_num; point++ )
+  v = new double[n];
+  for ( j = 0; j < n; j++)
   {
-    value[point] = 1.0;
+    v[j] = 1.0;
   }
+//v = r8vec_ones_new ( n );
 
-  for ( dim = 0; dim < dim_num; dim++ )
+  for ( i = 0; i < m; i++ )
   {
-    if ( 0 != expon[dim] )
+    if ( 0 != e[i] )
     {
-      for ( point = 0; point < point_num; point++ )
+      for ( j = 0; j < n; j++ )
       {
-        value[point] = value[point] * pow ( x[dim+point*dim_num], expon[dim] );
+        v[j] = v[j] * pow ( x[i+j*m], e[i] );
       }
     }
   }
 
-  return value;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
+  return v;
 }
 //****************************************************************************80
 
@@ -1876,7 +1831,7 @@ double s_to_r8 ( string s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
@@ -2302,7 +2257,7 @@ double sphere01_monomial_integral ( int e[] )
 {
   int i;
   double integral;
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
 
   if ( e[0] < 0 || e[1] < 0 || e[2] < 0 )
   {
@@ -2314,7 +2269,7 @@ double sphere01_monomial_integral ( int e[] )
 
   if ( e[0] == 0 && e[1] == 0 && e[2] == 0 )
   {
-    integral = 2.0 * sqrt ( pi * pi * pi ) / r8_gamma ( 1.5 );
+    integral = 2.0 * sqrt ( r8_pi * r8_pi * r8_pi ) / r8_gamma ( 1.5 );
   }
   else if ( ( e[0] % 2 == 1 ) || ( e[1] % 2 == 1 ) || ( e[2] % 2 == 1 ) )
   {
@@ -2382,7 +2337,7 @@ double sphere01_monomial_quadrature ( int expon[], int point_num, double xyz[],
 //
 //  Evaluate the monomial at the quadrature points.
 //
-  value = monomial_value ( 3, point_num, xyz, expon );
+  value = monomial_value ( 3, point_num, expon, xyz );
 //
 //  Compute the weighted sum.
 //
@@ -2390,7 +2345,7 @@ double sphere01_monomial_quadrature ( int expon[], int point_num, double xyz[],
 //
 //  Error:
 //
-  quad_error = r8_abs ( quad - exact );
+  quad_error = fabs ( quad - exact );
 
   delete [] value;
 

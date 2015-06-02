@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN is the main program for PCE_ODE_HERMITE_TEST.
+//    MAIN is the main program for PCE_ODE_HERMITE_PRB.
+//
+//  Discussion:
+//
+//    PCE_ODE_HERMITE_PRB tests the PCE_ODE_HERMITE library.
 //
 //  Licensing:
 //

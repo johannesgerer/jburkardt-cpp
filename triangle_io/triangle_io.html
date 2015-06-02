@@ -18,7 +18,7 @@
       <b>TRIANGLE_IO</b>
       is a C++ library which
       can read or write some simple versions of some of the files
-      used by Jonathan Shewchuk's <b>triangle</b> program.
+      used by Jonathan Shewchuk's triangle() program.
     </p>
 
     <h3 align = "center">
@@ -38,12 +38,25 @@
     <p>
       <b>TRIANGLE_IO</b> is available in
       <a href = "../../c_src/triangle_io/triangle_io.html">a C version</a> and
-      <a href = "../../cpp_src/triangle_io/triangle_io.html">a C++ version</a>.
+      <a href = "../../cpp_src/triangle_io/triangle_io.html">a C++ version</a> and
+      <a href = "../../f77_src/triangle_io/triangle_io.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/triangle_io/triangle_io.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/triangle_io/triangle_io.html">a MATLAB version</a>.
     </p>
 
     <h3 align = "center">
       Related Data and Programs:
     </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem_to_triangle/fem_to_triangle.html">
+      FEM_TO_TRIANGLE</a>,
+      a C++ program which
+      reads FEM files defining a 2D mesh of triangles, namely
+      a file of node coordinates and a file of elements defined by
+      node indices, and creates a corresponding pair of node
+      and element files for use by Jonathan Shewchuk's triangle program.
+    </p>
 
     <p>
       <a href = "../../data/poly/poly.html">
@@ -96,12 +109,20 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/triangle_to_mesh/triangle_to_mesh.html">
-      TRIANGLE_TO_MESH</a>,
+      <a href = "../../cpp_src/triangle_to_medit/triangle_to_medit.html">
+      TRIANGLE_TO_MEDIT</a>,
       a C++ program which 
       reads the NODE and ELE files created by TRIANGLE to
       describe a triangular mesh, and writes a corresponding MESH file
       for input to MEDIT.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_to_xml/triangle_to_xml.html">
+      TRIANGLE_TO_XML</a>,
+      a C++ program which reads the NODE and ELE files created by triangle() to
+      describe a triangular mesh in 2D, and writes out a corresponding XML mesh
+      file for use by DOLFIN or FENICS.
     </p>
 
     <h3 align = "center">
@@ -110,11 +131,6 @@
 
     <p>
       <ol>
-        <li>
-          <a href = "../../txt/triangle.txt">
-                    "../../txt/triangle.txt" </a>,
-          the information that <b>TRIANGLE</b> will print in response to the "-h" switch;
-        </li>
         <li>
           <a href = "http://www-2.cs.cmu.edu/~quake/triangle.html">
                      http://www-2.cs.cmu.edu/~quake/triangle.html</a>,
@@ -178,21 +194,6 @@
     <p>
       <ul>
         <li>
-          <b>ELEMENT_DATA_EXAMPLE</b> returns the element information for the example.
-        </li>
-        <li>
-          <b>ELEMENT_DATA_READ</b> reads the header information from an element file.
-        </li>
-        <li>
-          <b>ELEMENT_SIZE_EXAMPLE</b> returns the element size information for the example.
-        </li>
-        <li>
-          <b>ELEMENT_SIZE_READ</b> reads the header information from an element file.
-        </li>
-        <li>
-          <b>ELEMENT_WRITE</b> writes a TRIANGLE ".ele" file.
-        </li>
-        <li>
           <b>I4_MAX</b> returns the maximum of two I4's.
         </li>
         <li>
@@ -208,21 +209,6 @@
           <b>I4VEC_COPY</b> copies an I4VEC.
         </li>
         <li>
-          <b>NODE_DATA_EXAMPLE</b> returns the node information for the example.
-        </li>
-        <li>
-          <b>NODE_HEADER_READ</b> reads the header information from a node file.
-        </li>
-        <li>
-          <b>EXAMPLE_NODE_SIZE</b> returns the sizes of node information for the example.
-        </li>
-        <li>
-          <b>NODE_SIZE_READ</b> reads the header information from a node file.
-        </li>
-        <li>
-          <b>NODE_WRITE</b> writes a TRIANGLE ".node" file.
-        </li>
-        <li>
           <b>R8MAT_COPY</b> copies one R8MAT to another.
         </li>
         <li>
@@ -230,6 +216,36 @@
         </li>
         <li>
           <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRIANGLE_ELEMENT_DATA_EXAMPLE</b> returns the element information for the example.
+        </li>
+        <li>
+          <b>TRIANGLE_ELEMENT_DATA_READ</b> reads the header information from an element file.
+        </li>
+        <li>
+          <b>TRIANGLE_ELEMENT_SIZE_EXAMPLE</b> returns the element size information for the example.
+        </li>
+        <li>
+          <b>TRIANGLE_ELEMENT_SIZE_READ</b> reads the header information from an element file.
+        </li>
+        <li>
+          <b>TRIANGLE_ELEMENT_WRITE</b> writes a TRIANGLE ".ele" file.
+        </li>
+        <li>
+          <b>TRIANGLE_NODE_DATA_EXAMPLE</b> returns the node information for the example.
+        </li>
+        <li>
+          <b>TRIANGLE_NODE_HEADER_READ</b> reads the header information from a node file.
+        </li>
+        <li>
+          <b>TRIANGLE_NODE_SIZE_EXAMPLE</b> returns the sizes of node information for the example.
+        </li>
+        <li>
+          <b>TRIANGLE_NODE_SIZE_READ</b> reads the header information from a node file.
+        </li>
+        <li>
+          <b>TRIANGLE_NODE_WRITE</b> writes a TRIANGLE ".node" file.
         </li>
       </ul>
     </p>
@@ -242,7 +258,7 @@
     <hr>
 
     <i>
-      Last revised on 07 December 2010.
+      Last revised on 16 October 2014.
     </i>
 
     <!-- John Burkardt -->

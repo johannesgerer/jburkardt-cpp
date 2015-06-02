@@ -18,7 +18,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SOR_TEST tests SOR.
+//    MAIN is the main program for SOR_PRB.
+//
+//  Discussion:
+//
+//    SOR_PRB tests the SOR library.
 //
 //  Licensing:
 //
@@ -37,7 +41,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "SOR_TEST\n";
+  cout << "SOR_PRB\n";
   cout << "  C++ version.\n";
   cout << "  Test the SOR library.\n";
 
@@ -56,11 +60,11 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "SOR_TEST\n";
+  cout << "SOR_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
+
   return 0;
 }
 //****************************************************************************80

@@ -54,6 +54,7 @@
 
     <p>
       <b>HB_IO</b> is available in
+      <a href = "../../c_src/hb_io/hb_io.html">a C version</a> and
       <a href = "../../cpp_src/hb_io/hb_io.html">a C++ version</a> and
       <a href = "../../f_src/hb_io/hb_io.html">a FORTRAN90 version</a> and
       <a href = "../../m_src/hb_io/hb_io.html">a MATLAB version.</a>
@@ -65,11 +66,11 @@
     </h3>
 
     <p>
-      <a href = "../../f_src/dlap_io/dlap_io.html">
-      DLAP_IO</a>,
-      a FORTRAN90 library which
-      reads and writes matrices in a variety of formats, and includes a routine for reading
-      matrices in HB format.
+      <a href = "../../cpp_src/cc_io/cc_io.html">
+      CC_IO</a>,
+      a C++ library which
+      reads and writes sparse linear systems 
+      stored in the Compressed Column (CC) format.
     </p>
 
     <p>
@@ -125,17 +126,16 @@
     </p>
 
     <p>
-      <a href = "../../m_src/st_to_hb/st_to_hb.html">
-      ST_TO_HB</a>,
-      a MATLAB program which 
-      converts a sparse matrix file from sparse triplet (ST) format
-      to 
-      Harwell Boeing (HB) format;
+      <a href = "../../cpp_src/st_io/st_io.html">
+      ST_IO</a>,
+      a C++ library which
+      reads and writes sparse linear systems 
+      stored in the Sparse Triplet (ST) format.
     </p>
 
     <p>
-      <a href = "../../c_src/super_lu/super_lu.html">
-      SUPER_LU</a>,
+      <a href = "../../c_src/superlu/superlu.html">
+      SUPERLU</a>,
       a C library which
       includes routines which can read and write matrices in the HB format.
     </p>
@@ -331,22 +331,22 @@
           <b>I4_MIN</b> returns the smaller of two I4's.
         </li>
         <li>
-          <b>I4VEC_PRINT</b> prints an an I4VEC.
+          <b>I4VEC_PRINT</b> prints an I4VEC.
         </li>
         <li>
-          <b>I4VEC_PRINT_SOME</b> prints "some" of an I4VEC.
+          <b>I4VEC_PRINT_PART</b> prints "part" of an I4VEC.
         </li>
         <li>
-          <b>R4MAT_PRINT</b> prints an R4MAT.
+          <b>R8MAT_PRINT</b> prints an R8MAT.
         </li>
         <li>
-          <b>R4MAT_PRINT_SOME</b> prints some of an R4MAT.
+          <b>R8CMAT_PRINT_SOME</b> prints some of an R8CMAT.
         </li>
         <li>
-          <b>R4VEC_PRINT</b> prints an R4VEC.
+          <b>R8VEC_PRINT</b> prints an R8VEC.
         </li>
         <li>
-          <b>R4VEC_PRINT_SOME</b> prints "some" of an R4VEC.
+          <b>R8VEC_PRINT_PART</b> prints "part" of an R8VEC.
         </li>
         <li>
           <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
@@ -374,7 +374,7 @@
     <hr>
 
     <i>
-      Last revised on 11 November 2006.
+      Last revised on 21 January 2014.
     </i>
 
     <!-- John Burkardt -->

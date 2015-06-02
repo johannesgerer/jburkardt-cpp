@@ -55,12 +55,11 @@ int main ( )
 //
   sandia_sgmga_vcn_coef_tests ( );
 //
-//  That's all.
+//  Terminate.
 //
   std::cout << "\n";
   std::cout << "SANDIA_SGMGA_VCN_COEF_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
   

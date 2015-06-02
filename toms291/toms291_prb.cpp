@@ -22,7 +22,11 @@ int main ( )
 //
 //  Discussion:
 //
-//    TOMS291_PRB calls the TOMS291 routines.
+//    TOMS291_PRB tests the TOMS291 library.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -34,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TOMS291_PRB:\n";
   cout << "  C++ version\n";
@@ -47,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "TOMS291_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -62,6 +64,10 @@ void test01 ( )
 //  Purpose:
 //
 //    TEST01 demonstrates the use of ALOGAM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //

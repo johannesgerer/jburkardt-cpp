@@ -18,7 +18,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LCVT_PRB calls a set of problems for LCVT.
+//    MAIN is the main program for LCVT_PRB.
+//
+//  Discussion:
+//
+//    LCVT_PRB tests the LCVT library.
 //
 //  Licensing:
 //
@@ -37,7 +41,6 @@ int main ( )
   int sample_function_cvt;
 
   timestamp ( );
-
   cout << "\n";
   cout << "LCVT_PRB\n";
   cout << "  C++ version\n";
@@ -56,7 +59,6 @@ int main ( )
   cout << "\n";
   cout << "LCVT_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

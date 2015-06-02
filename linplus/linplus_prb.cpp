@@ -143,7 +143,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LINPLUS_PRB tests routines from the LINPLUS library.
+//    MAIN is the main program for LINPLUS_PRB.
+//
+//  Discussion:
+//
+//    LINPLUS_PRB tests the LINPLUS library.
 //
 //  Licensing:
 //
@@ -159,7 +163,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "LINPLUS_PRB\n";
   cout << "  C++ version\n";
@@ -252,7 +255,6 @@ int main ( )
   test443( );
   test445 ( );
   test45 ( );
-
   test46 ( );
   test47 ( );
   test48 ( );
@@ -305,7 +307,6 @@ int main ( )
   cout << "\n";
   cout << "LINPLUS_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -797,7 +798,7 @@ void test02 ( )
 //
     x = r83_cr_sl ( N, a_cr, b );
 
-    r8vec_print_some ( N, x, 10, "  Solution:" );
+    r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 
     delete [] x;
   }
@@ -886,7 +887,7 @@ void test03 ( )
 //
   x = r83_cr_sl ( N, a_cr, b );
 
-  r8vec_print_some ( N, x, 10, "  Solution:" );
+  r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 
   delete [] a_cr;
   delete [] b;
@@ -997,7 +998,7 @@ void test035 ( )
     {
       r83_gs_sl ( N, a, b, x, maxit, job );
 
-      r8vec_print_some ( N, x, 10, "  Current estimated solution:" );
+      r8vec_print_some ( N, x, 1, 10, "  Current estimated solution:" );
     }
 
     delete [] b;
@@ -1138,7 +1139,7 @@ void test04 ( )
       b = r83_vxm ( N, a, x );
     }
 
-    r8vec_print_some ( N, b, 10, "  The right hand side:" );
+    r8vec_print_some ( N, b, 1, 10, "  The right hand side:" );
 //
 //  Set the starting solution.
 //
@@ -1153,7 +1154,7 @@ void test04 ( )
     {
       r83_jac_sl ( N, a, b, x, maxit, job );
 
-      r8vec_print_some ( N, x, 10, "  Current estimated solution:" );
+      r8vec_print_some ( N, x, 1, 10, "  Current estimated solution:" );
     }
 
     delete [] b;
@@ -1197,7 +1198,7 @@ void test05 ( )
   cout << "\n";
   cout << "TEST05\n";
   cout << "  For a tridiagonal matrix that can be factored\n";
-  cout << "    with no pivoting,\n";
+  cout << "  with no pivoting,\n";
   cout << "  R83_NP_FA factors,\n";
   cout << "  R83_NP_DET computes the determinant.\n";
   cout << "\n";
@@ -1290,7 +1291,7 @@ void test06 ( )
   cout << "\n";
   cout << "TEST06\n";
   cout << "  For a tridiagonal matrix that can be factored\n";
-  cout << "    with no pivoting,\n";
+  cout << "  with no pivoting,\n";
   cout << "  R83_NP_FA factors;\n";
   cout << "  R83_NP_SL solves a factored system.\n";
   cout << "\n";
@@ -1390,7 +1391,7 @@ void test07 ( )
   cout << "\n";
   cout << "TEST07\n";
   cout << "  R83_NP_FS factors and solves a tridiagonal\n";
-  cout << "    linear system.\n";
+  cout << "  linear system.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 //
@@ -1460,7 +1461,7 @@ void test08 ( )
   cout << "\n";
   cout << "TEST08\n";
   cout << "  R83_NP_ML computes A*x or A'*x\n";
-  cout << "    where A has been factored by R83_FA.\n";
+  cout << "  where A has been factored by R83_FA.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 
@@ -1559,7 +1560,7 @@ void test09 ( )
   cout << "\n";
   cout << "TEST09\n";
   cout << "  R83P_DET, determinant of a tridiagonal\n";
-  cout << "    periodic matrix.\n";
+  cout << "  periodic matrix.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 //
@@ -1776,7 +1777,7 @@ void test11 ( )
   cout << "\n";
   cout << "TEST11\n";
   cout << "  R83P_ML computes A*x or A'*X\n";
-  cout << "    where A has been factored by R83P_FA.\n";
+  cout << "  where A has been factored by R83P_FA.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 
@@ -1913,7 +1914,7 @@ void test12 ( )
   cout << "\n";
   cout << "TEST12\n";
   cout << "  R85_NP_FS factors and solves a pentadiagonal\n";
-  cout << "    linear system, with no pivoting.\n";
+  cout << "  linear system, with no pivoting.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 //
@@ -2271,7 +2272,6 @@ void test151 ( )
   cout << "\n";
   cout << "TEST151\n";
   cout << "  R8BB_INDICATOR sets up an R8BB indicator matrix.\n";
-  cout << "\n";
   cout << "\n";
   cout << "  Matrix order N     = " << N1 + N2 << "\n";
   cout << "  Matrix suborder N1 = " << N1 << "\n";
@@ -2962,7 +2962,7 @@ void test18 ( )
   cout << "TEST18\n";
   cout << "  For a compact band matrix:\n";
   cout << "  R8CB_ML computes A*x or A'*X\n";
-  cout << "    where A has been factored by R8CB_FA.\n";
+  cout << "  where A has been factored by R8CB_FA.\n";
   cout << "\n";
   cout << "  Matrix order N     = " << N << "\n";
   cout << "  Lower bandwidth ML = " << ML << "\n";
@@ -3253,24 +3253,22 @@ void test197 ( )
 //    John Burkardt
 //
 {
-# define N 5
-
   double *a;
+  int n = 5;
 
   cout << "\n";
   cout << "TEST197\n";
   cout << "  R8CI_INDICATOR sets up an R8CI indicator matrix.\n";
   cout << "\n";
-  cout << "  Matrix order N = " << N << "\n";
+  cout << "  Matrix order N = " << n << "\n";
 
-  a = r8ci_indicator ( N );
+  a = r8ci_indicator ( n );
 
-  r8ci_print ( N, a, "  The circulant matrix:" );
+  r8ci_print ( n, a, "  The circulant matrix:" );
 
   delete [] a;
 
   return;
-# undef N
 }
 //****************************************************************************80
 
@@ -3295,12 +3293,11 @@ void test20 ( )
 //    John Burkardt
 //
 {
-# define N 10
-
   double *a;
   double *b;
   int i;
   int job;
+  int n = 10;
   int seed = 123456789;
   double *x;
 
@@ -3308,44 +3305,44 @@ void test20 ( )
   cout << "TEST20\n";
   cout << "  R8CI_SL solves a circulant system.\n";
   cout << "\n";
-  cout << "  Matrix order N = " << N << "\n";
+  cout << "  Matrix order N = " << n << "\n";
 //
 //  Set the matrix.
 //
-  a = r8ci_random ( N, &seed );
+  a = r8ci_random ( n, &seed );
 
-  r8ci_print ( N, a, "  The circulant matrix:" );
+  r8ci_print ( n, a, "  The circulant matrix:" );
 
   for ( job = 0; job <= 1; job++ )
   {
 //
 //  Set the desired solution.
 //
-    x = r8vec_indicator_new ( N );
+    x = r8vec_indicator_new ( n );
 //
 //  Compute the corresponding right hand side.
 //
     if ( job == 0 )
     {
-      b = r8ci_mxv ( N, a, x );
+      b = r8ci_mxv ( n, a, x );
     }
     else
     {
-      b = r8ci_vxm ( N, a, x );
+      b = r8ci_vxm ( n, a, x );
     }
 //
 //  Solve the linear system.
 //
     delete [] x;
-    x = r8ci_sl ( N, a, b, job );
+    x = r8ci_sl ( n, a, b, job );
 
     if ( job == 0 )
     {
-      r8vec_print ( N, x, "  Solution to A*x=b:" );
+      r8vec_print ( n, x, "  Solution to A*x=b:" );
     }
     else
     {
-      r8vec_print ( N, x, "  Solution to A'*x=b:" );
+      r8vec_print ( n, x, "  Solution to A'*x=b:" );
     }
 
     delete [] b;
@@ -3356,7 +3353,6 @@ void test20 ( )
   delete [] a;
 
   return;
-# undef N
 }
 //****************************************************************************80
 
@@ -3729,7 +3725,7 @@ void test24 ( )
   cout << "TEST24\n";
   cout << "  For a general banded matrix,\n";
   cout << "  R8GB_ML computes A*x or A'*X\n";
-  cout << "    where A has been factored by R8GB_FA.\n";
+  cout << "  where A has been factored by R8GB_FA.\n";
   cout << "\n";
   cout << "  Matrix rows M =    " << M << "\n";
   cout << "  Matrix columns N = " << N << "\n";
@@ -4479,11 +4475,11 @@ void test29 ( )
 //  Compute the determinant.
 //
   det = r8ge_det ( N, a, pivot );
-  exact = pow ( x, N-1 ) * ( x + ( ( double ) N ) * y );
+  exact = pow ( x, N - 1 ) * ( x + ( ( double ) N ) * y );
 
   cout << "\n";
   cout << "  R8GE_DET computes the determinant = " << det   << "\n";
-  cout << "  Correct determinant =              " << exact << "\n";
+  cout << "  Correct determinant =               " << exact << "\n";
 
   return;
 # undef N
@@ -4569,11 +4565,11 @@ void test295 ( )
 # undef NCOL
 # undef NROW
 }
-//********************************************************************
+//****************************************************************************80
 
 void test30 ( )
 
-//********************************************************************
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -4602,7 +4598,7 @@ void test30 ( )
   int pivot[N];
   int seed = 123456789;
   double *x;
-//
+
   cout << "\n";
   cout << "TEST30\n";
   cout << "  R8GE_FA factors a general linear system,\n";
@@ -5004,7 +5000,7 @@ void test32 ( )
   delete [] x;
   x = r8ge_np_sl ( N, a, b, job );
  
-  r8vec_print_some ( N, x, 10, "  Solution:" );
+  r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 //
 //  Set the desired solution.
 //
@@ -5023,7 +5019,7 @@ void test32 ( )
   delete [] x;
   x = r8ge_np_sl ( N, a, b, job );
 
-  r8vec_print_some ( N, x, 10, "  Solution:" );
+  r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 //
 //  Set the desired solution.
 //
@@ -5457,7 +5453,7 @@ void test36 ( )
   cout << "\n";
   cout << "TEST36\n";
   cout << "  R8GE_ML computes A*x or A'*X\n";
-  cout << "    where A has been factored by R8GE_FA.\n";
+  cout << "  where A has been factored by R8GE_FA.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 
@@ -5556,7 +5552,7 @@ void test37 ( )
   cout << "TEST37\n";
   cout << "  For a matrix in general storage,\n"; 
   cout << "  R8GE_NP_ML computes A*x or A'*X\n";
-  cout << "    where A has been factored by R8GE_NP_FA.\n";
+  cout << "  where A has been factored by R8GE_NP_FA.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 
@@ -5662,7 +5658,7 @@ void test38 ( )
   cout << "TEST38\n";
   cout << "  For a matrix in general storage,\n";
   cout << "  R8GE_MU computes A*x or A'*X\n";
-  cout << "    where A has been factored by R8GE_TRF.\n";
+  cout << "  where A has been factored by R8GE_TRF.\n";
 //
 //  First test.
 //  A is 5 x 3, and we compute A * x.
@@ -6005,7 +6001,7 @@ void test40 ( )
   cout << "TEST40\n";
   cout << "  For a matrix in general storage,\n";
   cout << "  R8GE_SL_IT applies one step of iterative \n";
-  cout << "    refinement to an R8GE_SL solution.\n";
+  cout << "  refinement to an R8GE_SL solution.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 //
@@ -7089,8 +7085,8 @@ void test45 ( )
   cout << "\n";
   cout << "TEST45\n";
   cout << "  R8PBU_CG applies the conjugate gradient method\n";
-  cout << "    to a symmetric positive definite banded\n";
-  cout << "    linear system.\n";
+  cout << "  to a symmetric positive definite banded\n";
+  cout << "  linear system.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
   cout << "  Upper bandwidth MU = " << MU << "\n";
@@ -7131,7 +7127,7 @@ void test45 ( )
 
   x = r8pbu_cg ( N, MU, a, b, x_init );
 
-  r8vec_print_some ( N, x, 10, "  Solution:" );
+  r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 //
 //  Compute the residual, A*x-b
 //
@@ -7191,7 +7187,7 @@ void test46 ( )
   cout << " \n";  
   cout << "TEST46\n";
   cout << "  R8PBU_DET, determinant of a positive definite\n";
-  cout << "    symmetric banded matrix.\n";
+  cout << "  symmetric banded matrix.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
   cout << "  Upper bandwidth MU = " << MU << "\n";
@@ -7303,12 +7299,12 @@ void test47 ( )
   delete [] x;
   x = r8pbu_sl ( N, MU, a_lu, b );
 
-  r8vec_print_some ( N, x, 10, "  Solution:" );
+  r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 
-  delete a;
-  delete a_lu;
-  delete b; 
-  delete x;
+  delete [] a;
+  delete [] a_lu;
+  delete [] b; 
+  delete [] x;
 
   return;
 # undef MU
@@ -7352,7 +7348,7 @@ void test48 ( )
   cout << "\n";
   cout << "TEST48\n";
   cout << "  R8PBU_ML computes A*x \n";
-  cout << "    where A has been factored by R8PBU_FA.\n";
+  cout << "  where A has been factored by R8PBU_FA.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
   cout << "  Upper bandwidth MU = " << MU << "\n";
@@ -7479,7 +7475,7 @@ void test49 ( )
   cout << "\n";
   cout << "TEST49\n";
   cout << "  R8PBU_SOR, SOR routine for iterative\n";
-  cout << "    solution of A*x=b.\n";
+  cout << "  solution of A*x=b.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
   cout << "  Upper bandwidth MU = " << MU << "\n";
@@ -7554,7 +7550,7 @@ void test49 ( )
     cout << "\n";
     cout << "  Relaxation factor OMEGA = " << omega << "\n";
 
-    r8vec_print_some ( N, x, 10, "  Solution:" );
+    r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 
     cout << "\n";
     cout << "  Maximum error = " << err << "\n";
@@ -7604,7 +7600,7 @@ void test50 ( )
   cout << "\n";
   cout << "TEST50\n";
   cout << "  R8PO_FA factors a positive definite symmetric\n";
-  cout << "    linear system,\n";
+  cout << "  linear system,\n";
   cout << "  R8PO_SL solves a factored system.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
@@ -7707,7 +7703,7 @@ void test505 ( )
   cout << "\n";
   cout << "TEST505\n";
   cout << "  R8PO_FA factors a positive definite symmetric\n";
-  cout << "    linear system,\n";
+  cout << "  linear system,\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 
@@ -7793,7 +7789,7 @@ void test51 ( )
   cout << "\n";
   cout << "TEST51\n";
   cout << "  For a symmetric positive definite matrix\n";
-  cout << "    factored by R8PO_FA,\n";
+  cout << "  factored by R8PO_FA,\n";
   cout << "  R8PO_DET computes the determinant;\n";
   cout << "  R8PO_INVERSE computes the inverse.\n";
   cout << "\n";
@@ -8009,7 +8005,7 @@ void test52 ( )
   cout << "\n";
   cout << "TEST52\n";
   cout << "  R8PO_RANDOM computes a random positive definite\n";
-  cout << "    symmetric matrix.\n";
+  cout << "  symmetric matrix.\n";
   cout << "  R8PO_TO_R8GE converts an R8PO matrix to R8GE format.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
@@ -8194,7 +8190,7 @@ void test53 ( )
   cout << "\n";
   cout << "TEST53\n";
   cout << "  R8PP_RANDOM, compute a random positive definite\n";
-  cout << "    symmetric packed matrix.\n";
+  cout << "  symmetric packed matrix.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 //
@@ -8419,8 +8415,8 @@ void test54 ( )
   cout << "\n";
   cout << "TEST54\n";
   cout << "  R8SD_CG applies the conjugate gradient method\n";
-  cout << "    to a symmetric positive definite linear\n";
-  cout << "    system stored by diagonals.\n";
+  cout << "  to a symmetric positive definite linear\n";
+  cout << "  system stored by diagonals.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
   cout << "  Matrix diagonals NDIAG = " << NDIAG << "\n";
@@ -8495,7 +8491,7 @@ void test54 ( )
 //
   b = r8sd_mxv ( N, NDIAG, offset, a, x );
 
-  r8vec_print_some ( N, b, 10, "  Right hand side:" );
+  r8vec_print_some ( N, b, 1, 10, "  Right hand side:" );
 //
 //  Set X to zero so no one accuses us of cheating.
 //
@@ -8519,7 +8515,7 @@ void test54 ( )
     err = r8_max ( err, r8_abs ( b2[i] - b[i] ) );
   }
  
-  r8vec_print_some ( N, x, 10, "  Solution:" );
+  r8vec_print_some ( N, x, 1, 10, "  Solution:" );
 
   cout << "\n";
   cout << "  Maximum residual = " << err << "\n";
@@ -8548,7 +8544,7 @@ void test54 ( )
     err = r8_max ( err, r8_abs ( b2[i] - b[i] ) );
   }
  
-  r8vec_print_some ( N, x, 10, "  Second attempt at solution:" );
+  r8vec_print_some ( N, x, 1, 10, "  Second attempt at solution:" );
 
   cout << "\n";
   cout << "  Maximum residual of second attempt = " << err << "\n";
@@ -8622,9 +8618,9 @@ void test55 ( )
   cout << "\n";
   cout << "TEST55\n";
   cout << "  R8SD_CG is used for linear equation solving\n";
-  cout << "    in a demonstration of inverse iteration to\n";
-  cout << "    compute eigenvalues and eigenvectors of a\n";
-  cout << "    symmetric matrix stored by diagonals.\n";
+  cout << "  in a demonstration of inverse iteration to\n";
+  cout << "  compute eigenvalues and eigenvectors of a\n";
+  cout << "  symmetric matrix stored by diagonals.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
   cout << "  Matrix diagonals NDIAG = " << NDIAG << "\n";
@@ -8769,7 +8765,7 @@ void test55 ( )
       {
         x[i] = xnew[i];
       }
-      delete xnew;
+      delete [] xnew;
 
       xnew = r8sd_cg ( N, NDIAG, offset, a, x, x );
 
@@ -8802,7 +8798,7 @@ void test55 ( )
 
   }
 
-  delete xnew;
+  delete [] xnew;
 
   return;
 # undef MAXVEC
@@ -8899,7 +8895,7 @@ void test56 ( )
   cout << "\n";
   cout << "TEST56\n";
   cout << "  R8SM_ML computes A*x or A'*X\n";
-  cout << "    where A is a Sherman Morrison matrix.\n";
+  cout << "  where A is a Sherman Morrison matrix.\n";
   cout << "\n";
   cout << "  Matrix rows M =    " << M << "\n";
   cout << "  Matrix columns N = " << N << "\n";
@@ -9004,7 +9000,7 @@ void test57 ( )
   cout << "\n";
   cout << "TEST57\n";
   cout << "  R8SM_SL implements the Sherman-Morrison method \n";
-  cout << "    for solving a perturbed linear system.\n";
+  cout << "  for solving a perturbed linear system.\n";
   cout << "\n";
   cout << "  Matrix rows M =    " << M << "\n";
   cout << "  Matrix columns N = " << N << "\n";
@@ -10230,11 +10226,11 @@ void test59 ( )
 
     if ( job == 0 )
     {
-      r8vec_print_some ( N, x, 10, "  Solution:" );
+      r8vec_print_some ( N, x, 1, 10, "  Solution:" );
     }
     else
     {
-      r8vec_print_some ( N, x, 10, "  Solution to transposed system:" );
+      r8vec_print_some ( N, x, 1, 10, "  Solution to transposed system:" );
     }
     delete [] b;
     delete [] x;
@@ -10474,7 +10470,7 @@ void test62 ( )
 //
 //  Modified:
 //
-//    06 September 2006
+//    25 February 2013
 //
 //  Author:
 //
@@ -10498,7 +10494,7 @@ void test62 ( )
 //
 //  Set the matrix.
 //
-  a = r8vm_random ( N, N, &seed );
+  a = r8vm_random ( N, N, seed );
 
   r8vm_print ( N, N, a, "  The Vandermonde matrix:" );
 //
@@ -10537,7 +10533,7 @@ void test63 ( )
 //
 //  Purpose:
 //
-//    TEST63 tests R8VM_SL.
+//    TEST63 tests R8VM_SL_NEW.
 //
 //  Licensing:
 //
@@ -10545,7 +10541,7 @@ void test63 ( )
 //
 //  Modified:
 //
-//    25 August 2006
+//    25 February 2013
 //
 //  Author:
 //
@@ -10564,13 +10560,13 @@ void test63 ( )
 
   cout << "\n";
   cout << "TEST63\n";
-  cout << "  R8VM_SL solves a Vandermonde system.\n";
+  cout << "  R8VM_SL_NEW solves a Vandermonde system.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 //
 //  Set the matrix.
 //
-  a = r8vm_random ( N, N, &seed );
+  a = r8vm_random ( N, N, seed );
 
   for ( job = 0; job <= 1; job++ )
   {
@@ -10593,15 +10589,15 @@ void test63 ( )
 //  Solve the linear system.
 //
     delete [] x;
-    x = r8vm_sl ( N, a, b, job, &info );
+    x = r8vm_sl_new ( N, a, b, job, &info );
 
     if ( job == 0 )
     {
-      r8vec_print_some ( N, x, 10, "  Solution:" );
+      r8vec_print_some ( N, x, 1, 10, "  Solution:" );
     }
     else
     {
-      r8vec_print_some ( N, x, 10, "  Solution to transposed system:" );
+      r8vec_print_some ( N, x, 1, 10, "  Solution to transposed system:" );
     }
 
     delete [] b;

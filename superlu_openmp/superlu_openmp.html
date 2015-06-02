@@ -1,0 +1,303 @@
+<html>
+
+  <head>
+    <title>
+      SUPERLU_OPENMP - Sparse Linear Equation Solver with OpenMP
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SUPERLU_OPENMP <br> Sparse Linear Equation Solver with OpenMP
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SUPERLU_OPENMP</b>,
+      C++ programs which
+      illustrate the use of the SUPERLU_OPENMP library,
+      a version of SUPERLU compiled with the OpenMP parallel programming
+      interface, for the fast direct solution of large sparse systems 
+      of linear equations.
+    </p>
+
+    <p>
+      SUPERLU_OPENMP contains a set of subroutines to solve a sparse linear
+      system A*X=B.  It uses Gaussian elimination with partial pivoting (GEPP).
+      The columns of A may be preordered before factorization; the
+      preordering for sparsity is completely separate from the factorization.
+    </p>
+
+    <p>
+      SUPERLU_OPENMP is implemented in ANSI C, and must be compiled with
+      an ANSI C compiler.  It provides functionality for both real
+      and complex matrices, in both single and double precision.  The
+      initial letter of a routine name indicates the arithmetic type
+      and precision:
+      <ul>
+        <li>
+          C, such as <b>cgstrf</b>, is for single precision complex arithmetic;
+        </li>
+        <li>
+          D, such as <b>dgstrf</b>, is for double precision real arithmetic;
+        </li>
+        <li>
+          S, such as <b>sgstrf</b>, is for single precision real arithmetic;
+        </li>
+        <li>
+          Z, such as <b>zgstrf</b>, is for double precision complex arithmetic.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      SUPERLU_OPENMP includes functions to read a sparse matrix from a file
+      in the Harwell-Boeing sparse matrix format.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      Copyright (c) 2003, The Regents of the University of California, through
+      Lawrence Berkeley National Laboratory (subject to receipt of any required 
+      approvals from U.S. Dept. of Energy) 
+    </p>
+
+    <p>
+      All rights reserved. 
+    </p>
+
+    <p>
+      Redistribution and use in source and binary forms, with or without modification,
+      are permitted provided that the following conditions are met: 
+    </p>
+
+    <p>
+      <ol>
+        <li>
+          Redistributions of source code must retain the above copyright notice,
+          this list of conditions and the following disclaimer. 
+        </li>
+        <li>
+          Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution. 
+        </li>
+        <li>
+          Neither the name of Lawrence Berkeley National Laboratory, U.S. Dept. of
+          Energy nor the names of its contributors may be used to endorse or promote
+          products derived from this software without specific prior written permission.
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+      IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+      IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+      PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+      CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+      EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+      PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+      PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+      LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+      NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+      SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+    </p>  
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SUPERLU_OPENMP</b> is available in
+      <a href = "../../c_src/superlu_openmp/superlu_openmp.html">a C version</a> and
+      <a href = "../../cpp_src/superlu_openmp/superlu_openmp.html">a C++ version</a> and
+      <a href = "../../f77_src/superlu_openmp/superlu_openmp.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/superlu_openmp/superlu_openmp.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/hb/hb.html">
+      HB</a>,
+      a data directory which
+      contains examples of Harwell Boeing (HB) files,
+      a sparse matrix file format;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hb_io/hb_io.html">
+      HB_IO</a>,
+      a C++ library which
+      reads and writes sparse linear systems stored in the Harwell Boeing (HB) 
+      format for sparse matrices.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mgmres/mgmres.html">
+      MGMRES</a>,
+      a C++ library which
+      applies the restarted GMRES algorithm to solve a sparse linear system,
+      by Lili Ju.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/openmp/openmp.html">
+      OPENMP</a>,
+      C++ programs which
+      illustrate the use of the OpenMP application program interface
+      for carrying out parallel computations in a shared memory environment.
+    </p>
+
+    <p>
+      <a href = "../../data/sparse_cc/sparse_cc.html">
+      SPARSE_CC</a>,
+      a data directory which
+      contains a description and examples of the CC format,
+      ("compressed column") for storing a sparse matrix,
+      including a way to write the matrix as a set of three files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/super_blas/super_blas.html">
+      SUPER_BLAS</a>,
+      a C++ library which
+      implements some of the Basic Linear Algebra Subprograms for fast execution.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/superlu/superlu.html">
+      SUPERLU</a>,
+      C++ programs which
+      illustrate how to use the SUPERLU library,
+      which applies a fast direct solution method to solve
+      sparse linear systems,
+      by James Demmel, John Gilbert, and Xiaoye Li.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://crd.lbl.gov/~xiaoye/SuperLU/">
+                     http://crd.lbl.gov/~xiaoye/SuperLU/</a>
+          the SuperLU web site.
+        </li>
+        <li>
+          James Demmel, John Gilbert, Xiaoye Li,<br>
+          SuperLU Users's Guide.
+        </li>
+        <li>
+          James Demmel, Stanley Eisenstat, John Gilbert, Xiaoye Li,
+          Joseph Liu<br>
+          A Supernodal Approach to Sparse Partial Pivoting,<br>
+          SIAM Journal on Matrix Analysis and Applications,<br>
+          Volume 20, Number 3, pages 720-755, 1999.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      Many of the examples read the matrix from a file, which uses the
+      Harwell-Boeing sparse matrix format.  These matrices include:
+      <ul>
+        <li>
+          <a href = "cg20_cua.txt">cg20_cua.txt</a>, 
+          a complex matrix in UA format;
+        </li>
+        <li>
+          <a href = "cmat_cua.txt">cmat_cua.txt</a>,
+          a complex matrix in UA format.
+        </li>
+        <li>
+          <a href = "g10_rua.txt">g10_rua.txt</a>, 
+          a real matrix in UA format;
+        </li>
+        <li>
+          <a href = "g20_rua.txt">g20_rua.txt</a>, 
+          a real matrix in UA format;
+        </li>
+      </ul>
+    </p>
+
+    <hr>
+
+    <p>
+      <b>PCLINSOL</b> uses CGSSV to solve a linear system one time.
+      The program reads the matrix from the file cg20_cua.txt.
+      Single precision complex arithmetic is used.
+      <ul>
+        <li>
+          <a href = "pclinsol.cpp">pclinsol.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "pclinsol.sh">pclinsol.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "pclinsol_1_output.txt">pclinsol_1_output.txt</a>, 
+          the sample output using 1 processor.
+        </li>
+        <li>
+          <a href = "pclinsol_4_output.txt">pclinsol_4_output.txt</a>, 
+          the sample output using 4 processors.
+        </li>
+      </ul>
+    </p>
+
+    <hr>
+
+    <p>
+      <b>PSLINSOL</b> uses SGSSV to solve a linear system one time.
+      The program reads the matrix from the file g20_rua.txt.
+      Single precision real arithmetic is used.
+      <ul>
+        <li>
+          <a href = "pslinsol.cpp">pslinsol.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "pslinsol.sh">pslinsol.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "pslinsol_1_output.txt">pslinsol_1_output.txt</a>, 
+          the sample output using 1 processor.
+        </li>
+        <li>
+          <a href = "pslinsol_4_output.txt">pslinsol_4_output.txt</a>, 
+          the sample output using 4 processors.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 12 March 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

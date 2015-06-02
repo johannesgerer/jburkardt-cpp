@@ -13,8 +13,9 @@ void gamma_values ( int *n_data, double *x, double *fx );
 double r8_abs ( double x );
 void test_erf ( );
 void test_erfc ( );
-void test_gamma ( );
 void test_isnan ( );
+void test_lgamma ( );
+void test_tgamma ( );
 void timestamp ( );
 
 //****************************************************************************80
@@ -33,7 +34,7 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    01 October 2010
+//    18 September 2013
 //
 //  Author:
 //
@@ -47,8 +48,9 @@ int main ( int argc, char *argv[] )
 
   test_erf ( );
   test_erfc ( );
-  test_gamma ( );
   test_isnan ( );
+  test_lgamma ( );
+  test_tgamma ( );
 //
 //  Terminate.
 //
@@ -172,61 +174,6 @@ void test_erfc ( )
 }
 //****************************************************************************80
 
-void test_gamma ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST_GAMMA tests GAMMA.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    04 April 2008
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double fx;
-  double fx2;
-  int n_data;
-  double x;
-
-  cout << "\n";
-  cout << " TEST_GAMMA:\n";
-  cout << "   Test GAMMA, which evaluates the Gamma function.\n";
-  cout << "\n";
-  cout << "      X              GAMMA(X)         GAMMA(X)        DIFF\n";
-  cout << "                    (tabulated)      (computed)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    gamma_values ( &n_data, &x, &fx );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-    fx2 = gamma ( x );
-
-    cout << "  " << setw(14) << x
-         << "  " << setw(14) << fx
-         << "  " << setw(14) << fx2
-         << "  " << setw(14) << r8_abs ( fx - fx2 ) << "\n";
-  }
-  return;
-}
-//****************************************************************************80
-
 void test_isnan ( void )
 
 //****************************************************************************80
@@ -307,6 +254,124 @@ void test_isnan ( void )
   }
   cout << "\n";
 
+  return;
+}
+//****************************************************************************80
+
+void test_lgamma ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST_LGAMMA tests LGAMMA.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    18 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  double fx2;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << " TEST_LGAMMA:\n";
+  cout << "   Test LGAMMA, which evaluates the log(Gamma) function.\n";
+  cout << "\n";
+  cout << "      X            Log(GAMMA(X))      LGAMMA(X)        DIFF\n";
+  cout << "                    (tabulated)      (computed)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_values ( &n_data, &x, &fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    if ( x <= 0.0 )
+    {
+      continue;
+    }
+
+    fx = log ( fx );
+
+    fx2 = lgamma ( x );
+
+    cout << "  " << setw(14) << x
+         << "  " << setw(14) << fx
+         << "  " << setw(14) << fx2
+         << "  " << setw(14) << r8_abs ( fx - fx2 ) << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void test_tgamma ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST_TGAMMA tests TGAMMA.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    18 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  double fx2;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << " TEST_TGAMMA:\n";
+  cout << "   Test TGAMMA, which evaluates the Gamma function.\n";
+  cout << "\n";
+  cout << "      X              GAMMA(X)         TGAMMA(X)        DIFF\n";
+  cout << "                    (tabulated)      (computed)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_values ( &n_data, &x, &fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    fx2 = tgamma ( x );
+
+    cout << "  " << setw(14) << x
+         << "  " << setw(14) << fx
+         << "  " << setw(14) << fx2
+         << "  " << setw(14) << r8_abs ( fx - fx2 ) << "\n";
+  }
   return;
 }
 //****************************************************************************80

@@ -23,7 +23,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    VANDERMONDE_APPROX_2D_TEST tests VANDERMONDE_APPROX_2D.
+//    MAIN is the main program for VANDERMONDE_APPROX_2D_PRB.
+//
+//  Discussion:
+//
+//    VANDERMONDE_APPROX_2D_PRB tests the VANDERMONDE_APPROX_2D library.
 //
 //  Licensing:
 //
@@ -48,7 +52,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "VANDERMONDE_APPROX_2D_TEST:\n";
+  cout << "VANDERMONDE_APPROX_2D_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the VANDERMONDE_APPROX_2D library.\n";
   cout << "  The QR_SOLVE library is needed.\n";
@@ -70,7 +74,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "VANDERMONDE_APPROX_2D_TEST:\n";
+  cout << "VANDERMONDE_APPROX_2D_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

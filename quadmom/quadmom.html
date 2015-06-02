@@ -1,0 +1,283 @@
+<html>
+
+  <head>
+    <title>
+      QUADMOM - Quadrature Rules from Weight Moments
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      QUADMOM <br> Quadrature Rules from Weight Moments
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>QUADMOM</b>
+      is a C++ library which
+      computes a Gaussian quadrature rule for a weight function rho(x)
+      based on the Golub-Welsch procedure that only requires knowledge
+      of the moments of rho(x).
+    </p>
+
+    <p>
+      The standard Golub-Welsch procedure expects to work with the
+      coefficients alpha() and beta() of the three term recursion 
+      for the orthogonal polynomials associated with the weight function rho(x).
+    </p>
+
+    <p>
+      However, in the same paper, Golub and Welsch discuss a related procedure
+      which, to compute a Gaussian quadrature rule of order N, requires the
+      values of the first M=2*N+1 moments associated with rho(x):
+      <pre>
+        mu(k) = integral x^k rho(x) dx,  0 <= k <= 2*n
+      </pre>
+      This library demonstrates this moment-based procedure.
+    </p>
+
+    <p>
+      Executing the sample program requires access to the TOMS655 library 
+      as well.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+ 
+    <p>
+      The computer code and data files made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>QUADMOM</b> is available in
+      <a href = "../../c_src/quadmom/quadmom.html">a C version</a> and
+      <a href = "../../cpp_src/quadmom/quadmom.html">a C++ version</a> and
+      <a href = "../../f77_src/quadmom/quadmom.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/quadmom/quadmom.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/quadmom/quadmom.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/quadrature_golub_welsch/quadrature_golub_welsch.html">
+      QUADRATURE_GOLUB_WELSCH</a>,
+      a C++ library which
+      computes the points and weights of a Gaussian quadrature rule using the 
+      Golub-Welsch procedure, assuming that the points have been specified.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrature_least_squares/quadrature_least_squares.html">
+      QUADRATURE_LEAST_SQUARES</a>,
+      a C++ library which
+      computes weights for "sub-interpolatory" quadrature rules,
+      that is, it estimates integrals by integrating a polynomial that
+      approximates the function data in a least squares sense.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule/quadrule.html">
+      QUADRULE</a>,
+      a C++ library which
+      contains information about quadrature rules, both as tabulated values,
+      and as computational procedures.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/toms655/toms655.html">
+      TOMS655</a>,
+      a C++ library which
+      computes the weights for interpolatory quadrature rules;
+      this library is commonly called IQPACK,
+      by Sylvan Elhay and Jaroslav Kautsky.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Sylvan Elhay, Jaroslav Kautsky,<br>
+          Algorithm 655:
+          IQPACK, 
+          FORTRAN Subroutines for the Weights of Interpolatory Quadrature,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 13, Number 4, December 1987, pages 399-415.
+        </li>
+        <li>
+          Gene Golub, John Welsch,<br>
+          Calculation of Gaussian Quadrature Rules,<br>
+          Mathematics of Computation,<br>
+          Volume 23, Number 106, April 1969, pages 221-230.
+        </li>
+        <li>
+          Jaroslav Kautsky, Sylvan Elhay,<br>
+          Calculation of the Weights of Interpolatory Quadratures,<br>
+          Numerische Mathematik,<br>
+          Volume 40, Number 3, October 1982, pages 407-422.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "quadmom.cpp">quadmom.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "quadmom.hpp">quadmom.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "quadmom.sh">quadmom.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "quadmom_prb.cpp">quadmom_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "quadmom_prb.sh">quadmom_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "quadmom_prb_output.txt">quadmom_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>JACOBI_EIGENVALUE</b> carries out the Jacobi eigenvalue iteration.
+        </li>
+        <li>
+          <b>MOMENT_METHOD</b> computes a quadrature rule by the method of moments.
+        </li>
+        <li>
+          <b>MOMENTS_LAGUERRE</b> returns moments of the Laguerre distribution.
+        </li>
+        <li>
+          <b>MOMENTS_LEGENDRE</b> returns moments of the Legendre weight on [A,B].
+        </li>
+        <li>
+          <b>MOMENTS_NORMAL_01</b> returns moments of the standard Normal distribution.
+        </li>
+        <li>
+          <b>MOMENTS_NORMAL</b> returns moments of the standard Normal distribution.
+        </li>
+        <li>
+          <b>MOMENTS_TRUNCATED_NORMAL_AB:</b> moments of truncated Normal distribution.
+        </li>
+        <li>
+          <b>MOMENTS_TRUNCATED_NORMAL_A:</b> moments of lower truncated Normal.
+        </li>
+        <li>
+          <b>MOMENTS_TRUNCATED_NORMAL_B:</b> moments of upper truncated Normal.
+        </li>
+        <li>
+          <b>NORMAL_01_CDF</b> evaluates the Normal 01 CDF.
+        </li>
+        <li>
+          <b>NORMAL_01_PDF</b> evaluates the Normal 01 PDF.
+        </li>
+        <li>
+          <b>R8_CHOOSE</b> computes the binomial coefficient C(N,K) as an R8.
+        </li>
+        <li>
+          <b>R8_FACTORIAL</b> computes the factorial of N.
+        </li>
+        <li>
+          <b>R8_FACTORIAL2</b> computes the double factorial function.
+        </li>
+        <li>
+          <b>R8_MOP</b> returns the I-th power of -1 as an R8 value.
+        </li>
+        <li>
+          <b>R8MAT_CHOLESKY_FACTOR_UPPER:</b> the upper Cholesky factor of a symmetric R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_COPY_NEW</b> copies one R8MAT to a "new" R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_DIAG_GET_VECTOR</b> gets the value of the diagonal of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_IDENTITY</b> sets the square matrix A to the identity.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC2_PRINT</b> prints an R8VEC2.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRUNCATED_NORMAL_AB_MOMENT:</b> moments of the truncated Normal PDF.
+        </li>
+        <li>
+          <b>TRUNCATED_NORMAL_A_MOMENT:</b> moments of the lower truncated Normal PDF.
+        </li>
+        <li>
+          <b>TRUNCATED_NORMAL_B_MOMENT:</b> moments of the upper truncated Normal PDF.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 19 September 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -62,11 +62,12 @@ int main ( )
   sandia_sgmga_vcn_timing_tests ( );
 
   sandia_sgmga_vcn_ordered_tests ( );
-
+//
+//  Terminate.
+//
   std::cout << "\n";
   std::cout << "SANDIA_SGMGA_VCN_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
   

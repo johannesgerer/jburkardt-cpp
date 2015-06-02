@@ -27,7 +27,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPARSE_GRID_GL_PRB tests the SPARSE_GRID_GL routines.
+//    SPARSE_GRID_GL_PRB tests the SPARSE_GRID_GL library.
 //
 //  Licensing:
 //
@@ -214,7 +214,6 @@ int main ( )
   cout << "\n";
   cout << "SPARSE_GRID_GL_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
   

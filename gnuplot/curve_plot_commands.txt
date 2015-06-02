@@ -1,0 +1,10 @@
+set term png
+set output "curve_plot.png"
+set grid
+set style data lines
+unset key
+set xlabel '<---X--->'
+set ylabel '<---Y--->'
+set timestamp
+plot "curve_plot_data.txt" using 1:2 with lines lw 3
+quit

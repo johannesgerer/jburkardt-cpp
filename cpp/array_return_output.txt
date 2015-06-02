@@ -1,0 +1,50 @@
+
+ARRAY_RETURN:
+  C++ version
+  Create two arrays in a function, 
+  return them in the argument list.
+
+  A as defined in MAKE_ARRAYS:
+
+         0:       10
+         1:       11
+         2:       12
+         3:       13
+         4:       14
+         5:       15
+         6:       16
+         7:       17
+         8:       18
+         9:       19
+
+  B as defined in MAKE_ARRAYS:
+
+         0:      100
+         1:      102
+         2:      104
+         3:      106
+         4:      108
+
+  A as received by main:
+
+         0:       10
+         1:       11
+         2:       12
+         3:       13
+         4:       14
+         5:       15
+         6:       16
+         7:       17
+         8:       18
+         9:       19
+
+  B as received by main:
+
+         0:      100
+         1:      102
+         2:      104
+         3:      106
+         4:      108
+
+ARRAY_RETURN:
+  Normal end of execution.

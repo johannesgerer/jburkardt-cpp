@@ -12,4 +12,5 @@ void r8mat_floyd ( int n, double a[] );
 void r8mat_print ( int m, int n, double a[], string title );
 void r8mat_print_some ( int m, int n, double a[], int ilo, int jlo, int ihi, 
   int jhi, string title );
+double r8vec_diff_norm ( int n, double a[], double b[] );
 void timestamp ( );

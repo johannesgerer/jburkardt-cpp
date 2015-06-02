@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c function_pointer_array_new.cpp >& compiler.txt
+g++ -c function_pointer_array_new.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling function_pointer_array_new.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ function_pointer_array_new.o
 if [ $? -ne 0 ]; then

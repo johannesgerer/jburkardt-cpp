@@ -1,0 +1,213 @@
+22 February 2014 08:57:28 PM
+
+QWGW_PRB:
+  C++ version
+  Test the QWGW library.
+
+TEST01:
+  Compute points and weights for Gauss quadrature
+  with the Chebyshev Type 1 weight w(x) = 1/sqrt(1-x^2).
+  Order N = 5
+  Interval = [-1,1]
+
+  Abscissas:
+
+         0       -0.951057
+         1       -0.587785
+         2     2.26221e-18
+         3        0.587785
+         4        0.951057
+
+  Weights:
+
+         0        0.628319
+         1        0.628319
+         2        0.628319
+         3        0.628319
+         4        0.628319
+
+TEST02:
+  Compute points and weights for Gauss quadrature
+  with the Chebyshev Type 2 weight w(x) = sqrt(1-x^2).
+  Order N = 5
+  Interval = [-1,1]
+
+  Abscissas:
+
+         0       -0.866025
+         1            -0.5
+         2     5.95249e-17
+         3             0.5
+         4        0.866025
+
+  Weights:
+
+         0          0.1309
+         1        0.392699
+         2        0.523599
+         3        0.392699
+         4          0.1309
+
+TEST03:
+  Compute points and weights for Gauss quadrature
+  with the Gegenbauer weight w(x) = (1-x^2)^alpha.
+  Order N = 5
+  ALPHA = 0.25
+  Interval = [-1,1]
+
+  Abscissas:
+
+         0       -0.885526
+         1       -0.518146
+         2     6.84469e-18
+         3        0.518146
+         4        0.885526
+
+  Weights:
+
+         0        0.171047
+         1         0.43055
+         2        0.544843
+         3         0.43055
+         4        0.171047
+
+TEST04:
+  Compute points and weights for Gauss quadrature
+  with the generalized Hermite weight w(x) = |x|^alpha * exp(-x^2).
+  ALPHA = 2
+  Order N = 5
+  Interval = (-oo,+oo)
+
+  Abscissas:
+
+         0         -2.3175
+         1        -1.27639
+         2     5.11203e-16
+         3         1.27639
+         4          2.3175
+
+  Weights:
+
+         0       0.0288027
+         1        0.313028
+         2        0.202566
+         3        0.313028
+         4       0.0288027
+
+TEST05:
+  Compute points and weights for Gauss quadrature
+  with the generalized Laguerre weight w(x) = x^alpha * exp(-x).
+  Order N = 5
+  ALPHA = 2
+  Interval = [0,+oo)
+
+  Abscissas:
+
+         0         1.03111
+         1         2.83721
+         2         5.62029
+         3         9.68291
+         4         15.8285
+
+  Weights:
+
+         0        0.520917
+         1         1.06671
+         2         0.38355
+         3       0.0285642
+         4     0.000262713
+
+TEST06:
+  Compute points and weights for Gauss quadrature
+  with the Hermite weight w(x) = exp(-x^2).
+  Order N = 5
+  Interval = (-oo,+oo)
+
+  Abscissas:
+
+         0        -2.02018
+         1       -0.958572
+         2     2.40258e-16
+         3        0.958572
+         4         2.02018
+
+  Weights:
+
+         0       0.0199532
+         1        0.393619
+         2        0.945309
+         3        0.393619
+         4       0.0199532
+
+TEST07:
+  Compute points and weights for Gauss quadrature
+  with the Jacobi weight w(x) = (1-x^2)^alpha*(1+x)^beta
+  Order N = 5
+  ALPHA = 0.25
+  BETA =  0.75
+  Interval = [-1,1]
+
+  Abscissas:
+
+         0       -0.835553
+         1       -0.446113
+         2        0.062007
+         3        0.552614
+         4        0.894318
+
+  Weights:
+
+         0       0.0874589
+         1        0.330899
+         2        0.538382
+         3        0.495706
+         4        0.213635
+
+TEST08:
+  Compute points and weights for Gauss quadrature
+  with the Laguerre weight w(x) = exp(-x).
+  Order N = 5
+  Interval = [0,+oo)
+
+  Abscissas:
+
+         0         0.26356
+         1          1.4134
+         2         3.59643
+         3         7.08581
+         4         12.6408
+
+  Weights:
+
+         0        0.521756
+         1        0.398667
+         2       0.0759424
+         3      0.00361176
+         4       2.337e-05
+
+TEST09:
+  Compute points and weights for Gauss quadrature
+  with the Legendre weight w(x) = 1.
+  Order N = 5
+  Interval = [-1,1]
+
+  Abscissas:
+
+         0        -0.90618
+         1       -0.538469
+         2    -1.08185e-16
+         3        0.538469
+         4         0.90618
+
+  Weights:
+
+         0        0.236927
+         1        0.478629
+         2        0.568889
+         3        0.478629
+         4        0.236927
+
+QWGW_PRB:
+  Normal end of execution.
+
+22 February 2014 08:57:28 PM

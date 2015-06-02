@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -I$HOME/include hammersley_dataset.cpp >& compiler.txt
+g++ -c -I$HOME/include hammersley_dataset.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling hammersley_dataset.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ hammersley_dataset.o $HOME/libcpp/$ARCH/hammersley.o -lm
 if [ $? -ne 0 ]; then

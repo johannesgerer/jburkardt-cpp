@@ -1,0 +1,15 @@
+29 August 2013 11:17:12 PM
+
+FD2D_HEAT_STEADY_PRB:
+  C++ version
+  Test the FD2D_HEAT_STEADY library.
+
+  Created graphics data file 'test01_data.txt'
+  Created graphics command file 'test01_commands.txt'
+
+  Mean value of U is 15.007
+
+FD2D_HEAT_STEADY_PRB:
+  Normal end of execution.
+
+29 August 2013 11:17:12 PM

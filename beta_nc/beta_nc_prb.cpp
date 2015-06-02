@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    BETA_NC_PRB calls the BETA_NC routines.
+//    BETA_NC_PRB tests the BETA_NC library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "BETA_NC_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "BETA_NC_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

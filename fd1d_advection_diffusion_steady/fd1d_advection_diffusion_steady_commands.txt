@@ -1,0 +1,11 @@
+set term png
+set output 'fd1d_advection_diffusion_steady.png'
+set grid
+set style data lines
+unset key
+set xlabel '<---X--->'
+set ylabel '<---U(X)--->'
+set title 'Exact: green line, Approx: red dots'
+plot 'fd1d_advection_diffusion_steady_data.txt' using 1:2 with points pt 7 ps 2,\
+'' using 1:3 with lines lw 3
+quit

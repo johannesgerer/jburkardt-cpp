@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include legendre_polynomial_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include legendre_polynomial_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling legendre_polynomial_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ legendre_polynomial_prb.o /$HOME/libcpp/$ARCH/legendre_polynomial.o -lm
 if [ $? -ne 0 ]; then

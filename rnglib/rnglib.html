@@ -1,0 +1,334 @@
+<html>
+
+  <head>
+    <title>
+      RNGLIB - A Package of Random Number Generators (RNG's) with Splitting Facilities
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      RNGLIB <br> A Package of Random Number Generators (RNG's) with Splitting Facilities
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>RNGLIB</b>
+      is a C++ library which
+      implements random number generators (RNG's) which can generate one 
+      or more streams of random numbers.
+    </p>
+
+    <p>
+      <b>RNGLIB</b> is a portable set of software tools for uniform random
+      variate generation.  It provides for multiple generators running simultaneously,
+      and each generator has its sequence of numbers partitioned into many long
+      disjoint substreams.  Simple procedure calls allow the user to make any
+      generator jump ahead to the beginning of its next substream.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>RNGLIB</b> is available in
+      <a href = "../../c_src/rnglib/rnglib.html">a C version</a> and
+      <a href = "../../cpp_src/rnglib/rnglib.html">a C++ version</a> and
+      <a href = "../../f77_src/rnglib/rnglib.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/rnglib/rnglib.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/rnglib/rnglib.html">a MATLAB version</a> and
+      <a href = "../../py_src/rnglib/rnglib.html">a PYTHON version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/asa183/asa183.html">
+      ASA183</a>,
+      a C++ library which
+      implements the Wichman-Hill random number generator (RNG).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/faure/faure.html">
+      FAURE</a>,
+      a C++ library which
+      computes elements of a Faure quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cpp_random/cpp_random.html">
+      CPP_RANDOM</a>,
+      C++ programs which
+      illustrate the use of C++'s random number generator (RNG) functions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/halton/halton.html">
+      HALTON</a>,
+      a C++ library which
+      computes elements of a Halton quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hammersley/hammersley.html">
+      HAMMERSLEY</a>,
+      a C++ library which
+      computes elements of a Hammersley quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/niederreiter2/niederreiter2.html">
+      NIEDERREITER2</a>,
+      a C++ library which
+      computes elements of a Niederreiter quasirandom sequence with base 2.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/normal/normal.html">
+      NORMAL</a>,
+      a C++ library which
+      implements random number generators (RNG's) for normally distributed values.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/randlc/randlc.html">
+      RANDLC</a>,
+      a C++ library which
+      implements a random number generator (RNG)
+      used by the NAS Benchmark programs.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/random_mpi/random_mpi.html">
+      RANDOM_MPI</a>,
+      a C++ program which
+      demonstrates one way to generate the same sequence of random numbers
+      for both sequential execution and parallel execution under MPI.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ranlib/ranlib.html">
+      RANLIB</a>,
+      a C++ library which
+      produces random samples from Probability Density Functions (PDF's), 
+      including Beta, Chi-square Exponential, F, Gamma, Multivariate normal,
+      Noncentral chi-square, Noncentral F, Univariate normal, random permutations,
+      Real uniform, Binomial, Negative Binomial, Multinomial, Poisson
+      and Integer uniform,
+      by Barry Brown and James Lovato.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sobol/sobol.html">
+      SOBOL</a>,
+      a C++ library which
+      computes elements of a Sobol quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uniform/uniform.html">
+      UNIFORM</a>, 
+      a C++ library which
+      implements random number generators (RNG's) for a variety of arithmetic types. 
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/van_der_corput/van_der_corput.html">
+      VAN_DER_CORPUT</a>,
+      a C++ library which
+      computes elements of a van der Corput quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ziggurat/ziggurat.html">
+      ZIGGURAT</a>,
+      a C++ program which
+      generates points from a uniform, normal or exponential distribution, using
+      the ziggurat method.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Pierre LEcuyer, Serge Cote,<br>
+          Implementing a Random Number Package with Splitting Facilities,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 17, Number 1, March 1991, pages 98-111.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "rnglib.cpp">rnglib.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "rnglib.hpp">rnglib.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "rnglib.sh">rnglib.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "rnglib_prb.cpp">rnglib_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "rnglib_prb.sh">rnglib_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "rnglib_prb_output.txt">rnglib_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>ADVANCE_STATE</b> advances the state of the current generator.
+        </li>
+        <li>
+          <b>ANTITHETIC_GET</b> queries the antithetic value for a given generator.
+        </li>
+        <li>
+          <b>ANTITHETIC_MEMORY</b> stores the antithetic value for all generators.
+        </li>
+        <li>
+          <b>ANTITHETIC_SET</b> sets the antithetic value for a given generator.
+        </li>
+        <li>
+          <b>CG_GET</b> queries the CG values for a given generator.
+        </li>
+        <li>
+          <b>CG_MEMORY</b> stores the CG values for all generators.
+        </li>
+        <li>
+          <b>CG_SET</b> sets the CG values for a given generator.
+        </li>
+        <li>
+          <b>CGN_GET</b> gets the current generator index.
+        </li>
+        <li>
+          <b>CGN_MEMORY</b> stores the current generator index.
+        </li>
+        <li>
+          <b>CGN_SET</b> sets the current generator index.
+        </li>
+        <li>
+          <b>GET_STATE</b> returns the state of the current generator.
+        </li>
+        <li>
+          <b>I4_UNI</b> generates a random positive integer.
+        </li>
+        <li>
+          <b>IG_GET</b> queries the IG values for a given generator.
+        </li>
+        <li>
+          <b>IG_MEMORY</b> stores the IG values for all generators.
+        </li>
+        <li>
+          <b>IG_SET</b> sets the IG values for a given generator.
+        </li>
+        <li>
+          <b>INIT_GENERATOR</b> sets the state of generator G to initial, last or new seed.
+        </li>
+        <li>
+          <b>INITIALIZE</b> initializes the random number generator library.
+        </li>
+        <li>
+          <b>INITIALIZED_GET</b> queries the INITIALIZED value.
+        </li>
+        <li>
+          <b>INITIALIZED_MEMORY</b> stores the INITIALIZED value for the package.
+        </li>
+        <li>
+          <b>INITIALIZED_SET</b> sets the INITIALIZED value true.
+        </li>
+        <li>
+          <b>LG_GET</b> queries the LG values for a given generator.
+        </li>
+        <li>
+          <b>LG_MEMORY</b> stores the LG values for all generators.
+        </li>
+        <li>
+          <b>LG_SET</b> sets the LG values for a given generator.
+        </li>
+        <li>
+          <b>MULTMOD</b> carries out modular multiplication.
+        </li>
+        <li>
+          <b>R4_UNI_01</b> returns a uniform random real number in [0,1].
+        </li>
+        <li>
+          <b>R8_UNI_01</b> returns a uniform random double in [0,1].
+        </li>
+        <li>
+          <b>SET_INITIAL_SEED</b> resets the initial seed and state for all generators.
+        </li>
+        <li>
+          <b>SET_SEED</b> resets the initial seed and the state of generator G.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 August 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

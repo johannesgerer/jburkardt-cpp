@@ -8,33 +8,37 @@ using namespace std;
 # include "uniform.hpp"
 
 int main ( );
-void test01 ( );
-void test02 ( );
-void test03 ( );
-void test04 ( );
-void test05 ( );
-void test06 ( );
-void test065 ( );
-void test07 ( );
-void test08 ( );
-void test09 ( );
-
-void test10 ( );
-void test11 ( );
-void test111 ( );
-void test112 ( );
-void test118 ( );
-void test119 ( );
-void test12 ( );
-void test13 ( );
-void test14 ( );
-void test15 ( );
-void test16 ( );
-void test17 ( );
-void test18 ( );
-void test19 ( );
-
-void test20 ( );
+void bvec_uniform_new_test ( );
+void c4_uniform_01_test ( );
+void c4mat_uniform_01_new_test ( );
+void c4vec_uniform_01_new_test ( );
+void c8_uniform_01_test ( );
+void c8mat_uniform_01_new_test ( );
+void c8vec_uniform_01_new_test ( );
+void ch_uniform_ab_test ( );
+void get_seed_test ( );
+void i4_seed_advance_test ( );
+void i4_uniform_0i_test ( );
+void i4_uniform_ab_test ( );
+void i4mat_uniform_ab_new_test ( );
+void i4vec_uniform_ab_new_test ( );
+void l4_uniform_test ( );
+void l4mat_uniform_new_test ( );
+void l4vec_uniform_new_test ( );
+void lcrg_anbn_test ( );
+void lcrg_seed_test ( );
+void r4_uniform_01_test ( );
+void r4_uniform_ab_test ( );
+void r4mat_uniform_ab_new_test ( );
+void r4vec_uniform_ab_new_test ( );
+void r8_uniform_01_test ( );
+void r8_uniform_ab_test ( );
+void r8col_uniform_abvec_new_test ( );
+void r8mat_uniform_ab_new_test ( );
+void r8row_uniform_abvec_new_test ( );
+void r8vec_uniform_01_new_test ( );
+void r8vec_uniform_ab_new_test ( );
+void r8vec_uniform_abvec_new_test ( );
 
 //****************************************************************************80
 
@@ -48,7 +52,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    UNIFORM_PRB calls sample problems for the UNIFORM routine.
+//    UNIFORM_PRB tests the UNIFORM library.
 //
 //  Licensing:
 //
@@ -56,7 +60,7 @@ int main ( )
 //
 //  Modified:
 //
-//    26 April 2008
+//    29 December 2014
 //
 //  Author:
 //
@@ -64,47 +68,59 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "UNIFORM_PRB\n";
   cout << "  C++ version:\n";
   cout << "  Test the UNIFORM library.\n";
 
-  test01 ( );
-  test02 ( );
-  test03 ( );
-  test04 ( );
-  test05 ( );
-  test06 ( );
-  test065 ( );
-  test07 ( );
-  test08 ( );
-  test09 ( );
+  bvec_uniform_new_test ( );
 
-  test10 ( );
-  test11 ( );
-  test111 ( );
-  test112 ( );
-  test118 ( );
-  test119 ( );
-  test12  ( );
-  test13 ( );
-  test14 ( );
-  test15 ( );
-  test16 ( );
-  test17 ( );
-  test18 ( );
-  test14 ( );
-  test19 ( );
+  c4_uniform_01_test ( );
+  c4mat_uniform_01_new_test ( );
+  c4vec_uniform_01_new_test ( );
 
-  test20 ( );
+  c8_uniform_01_test ( );
+  c8mat_uniform_01_new_test ( );
+  c8vec_uniform_01_new_test ( );
+
+  ch_uniform_ab_test ( );
+
+  get_seed_test ( );
+
+  i4_seed_advance_test ( );
+
+  i4_uniform_0i_test ( );
+  i4_uniform_ab_test ( );
+  i4mat_uniform_ab_new_test ( );
+  i4vec_uniform_ab_new_test ( );
+
+  l4_uniform_test ( );
+  l4mat_uniform_new_test ( );
+  l4vec_uniform_new_test ( );
+
+  lcrg_anbn_test ( );
+  lcrg_seed_test ( );
+
+  r4_uniform_01_test ( );
+  r4_uniform_ab_test ( );
+  r4mat_uniform_ab_new_test ( );
+  r4vec_uniform_ab_new_test ( );
+
+  r8_uniform_01_test ( );
+  r8_uniform_ab_test ( );
+  r8mat_uniform_ab_new_test ( );
+  r8vec_uniform_01_new_test ( );
+  r8vec_uniform_ab_new_test ( );
+
+  r8col_uniform_abvec_new_test ( );
+  r8row_uniform_abvec_new_test ( );
+  r8vec_uniform_abvec_new_test ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "UNIFORM_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -112,13 +128,59 @@ int main ( )
 }
 //****************************************************************************80
 
-void test01 ( )
+void bvec_uniform_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST01 tests C4_UNIFORM_01.
+//    BVEC_UNIFORM_NEW_TEST tests BVEC_UNIFORM_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    26 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int *b;
+  int i;
+  int n = 10;
+  int seed;
+
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "BVEC_UNIFORM_NEW_TEST\n";
+  cout << "  BVEC_UNIFORM_NEW computes a binary vector.\n";
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+  cout << "\n";
+  
+  for ( i = 0; i < 10; i++ )
+  {
+    b = bvec_uniform_new ( n, seed );
+    bvec_print ( n, b, "" );
+    delete [] b;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void c4_uniform_01_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C4_UNIFORM_01_TEST tests C4_UNIFORM_01.
 //
 //  Licensing:
 //
@@ -135,20 +197,18 @@ void test01 ( )
 {
   int i;
   int seed;
-  int seed_init = 123456789;
   complex <float> value;
 
+  seed = 123456789;
+
   cout << "\n";
-  cout << "TEST01\n";
+  cout << "C4_UNIFORM_01_TEST\n";
   cout << "  C4_UNIFORM_01 computes pseudorandom complex values\n";
   cout << "  uniformly distributed in the unit circle.\n";
-
-  seed = seed_init;
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
   cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
-
   for ( i = 1; i <= 10; i++ )
   {
     value = c4_uniform_01 ( seed );
@@ -162,13 +222,13 @@ void test01 ( )
 }
 //****************************************************************************80
 
-void test02 ( )
+void c4mat_uniform_01_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST02 tests C4VEC_UNIFORM_01_NEW.
+//    C4MAT_UNIFORM_01_NEW_TEST tests C4MAT_UNIFORM_01_NEW.
 //
 //  Licensing:
 //
@@ -176,53 +236,91 @@ void test02 ( )
 //
 //  Modified:
 //
-//    29 June 2006
+//    14 December 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  complex <float> *cvec;
-  int i;
+  complex <float> *c;
+  int m;
   int n;
   int seed;
-  int seed_init = 123456789;
+
+  m = 5;
+  n = 2;
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST02\n";
-  cout << "  C4VEC_UNIFORM_01_NEW computes pseudorandom complex values\n";
+  cout << "C4MAT_UNIFORM_01_NEW_TEST\n";
+  cout << "  C4MAT_UNIFORM_01_NEW computes pseudorandom complex values\n";
   cout << "  uniformly distributed in the unit circle.\n";
-
-  seed = seed_init;
-
   cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
-  n = 10;
-  cvec = c4vec_uniform_01_new ( n, seed );
+  c = c4mat_uniform_01_new ( m, n, seed );
 
-  for ( i = 0; i < n; i++ )
-  {
-    cout << "  " <<  setw(6) << i
-         << "  " << setw(12) << real ( cvec[i] )
-         << "  " << setw(12) << imag ( cvec[i] ) << "\n";
-  }
+  c4mat_print ( m, n, c, "  Uniform C4MAT:" );
 
-  delete [] cvec;
+  delete [] c;
 
   return;
 }
 //****************************************************************************80
 
-void test03 ( )
+void c4vec_uniform_01_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST03 tests C8_UNIFORM_01.
+//    C4VEC_UNIFORM_01_NEW_TEST tests C4VEC_UNIFORM_01_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  complex <float> *c;
+  int n;
+  int seed;
+
+  n = 10;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "C4VEC_UNIFORM_01_NEW_TEST\n";
+  cout << "  C4VEC_UNIFORM_01_NEW computes pseudorandom complex values\n";
+  cout << "  uniformly distributed in the unit circle.\n";
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+
+  c = c4vec_uniform_01_new ( n, seed );
+
+  c4vec_print ( n, c, "  Uniform C4VEC:" );
+
+  delete [] c;
+
+  return;
+}
+//****************************************************************************80
+
+void c8_uniform_01_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C8_UNIFORM_01_TEST tests C8_UNIFORM_01.
 //
 //  Licensing:
 //
@@ -239,20 +337,18 @@ void test03 ( )
 {
   int i;
   int seed;
-  int seed_init = 123456789;
-  complex <float> value;
+  complex <double> value;
+
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST93\n";
+  cout << "C8_UNIFORM_01_TEST\n";
   cout << "  C8_UNIFORM_01 computes pseudorandom C8 values\n";
   cout << "  uniformly distributed in the unit circle.\n";
-
-  seed = seed_init;
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
   cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
-
   for ( i = 1; i <= 10; i++ )
   {
     value = c8_uniform_01 ( seed );
@@ -266,13 +362,60 @@ void test03 ( )
 }
 //****************************************************************************80
 
-void test04 ( )
+void c8mat_uniform_01_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST04 tests C8VEC_UNIFORM_01_NEW.
+//    C8MAT_UNIFORM_01_NEW_TEST tests C8MAT_UNIFORM_01_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    16 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  complex <double> *c;
+  int m;
+  int n;
+  int seed;
+
+  m = 5;
+  n = 2;
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "C8MAT_UNIFORM_01_NEW_TEST\n";
+  cout << "  C8MAT_UNIFORM_01_NEW computes pseudorandom complex values\n";
+  cout << "  uniformly distributed in the unit circle.\n";
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+
+  c = c8mat_uniform_01_new ( m, n, seed );
+
+  c8mat_print ( m, n, c, "  Uniform C8MAT:" );
+
+  delete [] c;
+
+  return;
+}
+//****************************************************************************80
+
+void c8vec_uniform_01_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    C8VEC_UNIFORM_01_NEW_TEST tests C8VEC_UNIFORM_01_NEW.
 //
 //  Licensing:
 //
@@ -287,46 +430,37 @@ void test04 ( )
 //    John Burkardt
 //
 {
-  int i;
   int n;
   int seed;
-  int seed_init = 123456789;
-  complex <double> *zvec;
-
-  cout << "\n";
-  cout << "TEST04\n";
-  cout << "  C8VEC_UNIFORM_01_NEW computes pseudorandom C8 values\n";
-  cout << "  uniformly distributed in the unit circle.\n";
-
-  seed = seed_init;
-
-  cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
+  complex <double> *c;
 
   n = 10;
-  zvec = c8vec_uniform_01_new ( n, seed );
+  seed = 123456789;
 
-  for ( i = 0; i < n; i++ )
-  {
-    cout << "  " <<  setw(6) << i
-         << "  " << setw(12) << real ( zvec[i] )
-         << "  " << setw(12) << imag ( zvec[i] ) << "\n";
-  }
+  cout << "\n";
+  cout << "C8VEC_UNIFORM_01_NEW_TEST\n";
+  cout << "  C8VEC_UNIFORM_01_NEW computes pseudorandom C8 values\n";
+  cout << "  uniformly distributed in the unit circle.\n";
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
-  delete [] zvec;
+  c = c8vec_uniform_01_new ( n, seed );
+
+  c8vec_print ( n, c, "  Uniform C8VEC:" );
+
+  delete [] c;
 
   return;
 }
 //****************************************************************************80
 
-void test05 ( )
+void ch_uniform_ab_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST05 tests CH_UNIFORM_AB.
+//    CH_UNIFORM_AB_TEST tests CH_UNIFORM_AB.
 //
 //  Licensing:
 //
@@ -345,23 +479,21 @@ void test05 ( )
   char clo;
   int i;
   int seed;
-  int seed_init = 123456789;
-
-  cout << "\n";
-  cout << "TEST05\n";
-  cout << "  CH_UNIFORM_AB computes pseudorandom characters\n";
-  cout << "  in an interval [CLO,CHI].\n";
 
   clo = 'A';
   chi = 'J';
-  seed = seed_init;
+  seed = 123456789;
 
+  cout << "\n";
+  cout << "CH_UNIFORM_AB_TEST\n";
+  cout << "  CH_UNIFORM_AB computes pseudorandom characters\n";
+  cout << "  in an interval [CLO,CHI].\n";
   cout << "\n";
   cout << "  The lower endpoint CLO = '" << clo << "'.\n";
   cout << "  The upper endpoint CHI = '" << chi << "'.\n";
-  wcout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
+  wcout << "  The initial seed is " << seed << "\n";
 
+  cout << "\n";
   for ( i = 1; i <= 10; i++ )
   {
     cout << "  " << setw(6) << i
@@ -372,13 +504,13 @@ void test05 ( )
 }
 //****************************************************************************80
 
-void test06 ( )
+void get_seed_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST06 tests GET_SEED.
+//    GET_SEED_TEST tests GET_SEED.
 //
 //  Licensing:
 //
@@ -400,8 +532,12 @@ void test06 ( )
   int seed;
   int seed_old;
 
+  oops = 0;
+  seed = 12345678;
+  seed_old = seed;
+
   cout << "\n";
-  cout << "TEST06\n";
+  cout << "GET_SEED_TEST\n";
   cout << "  GET_SEED picks an initial seed value for R8_UNIFORM_01.\n";
   cout << "  The value chosen should vary over time, because\n";
   cout << "  the seed is based on reading the clock.\n";
@@ -409,11 +545,6 @@ void test06 ( )
   cout << "  This is just the \"calendar\" clock, which does\n";
   cout << "  not change very fast, so calling GET_SEED several\n";
   cout << "  times in a row may result in the same value.\n";
-
-  oops = 0;
-  seed = 12345678;
-  seed_old = seed;
-
   cout << "\n";
   cout << "  Initial seed is " << seed << "\n";
   cout << "\n";
@@ -467,13 +598,13 @@ void test06 ( )
 }
 //****************************************************************************80
 
-void test065 ( )
+void i4_seed_advance_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST065 tests I4_SEED_ADVANCE.
+//    I4_SEED_ADVANCE_TEST tests I4_SEED_ADVANCE.
 //
 //  Licensing:
 //
@@ -492,14 +623,14 @@ void test065 ( )
   int seed_new;
   int step;
 
+  seed_new = 12345;
+
   cout << "\n";
-  cout << "TEST065\n";
+  cout << "I4_SEED_ADVANCE_TEST\n";
   cout << "  I4_SEED_ADVANCE advances the seed.\n";
   cout << "\n";
   cout << "  Step        SEED input       SEED output\n";
   cout << "\n";
-
-  seed_new = 12345;
 
   for ( step = 1; step <= 10; step++)
   {
@@ -515,148 +646,13 @@ void test065 ( )
 }
 //****************************************************************************80
 
-void test07 ( )
+void i4_uniform_0i_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST07 tests I4_UNIFORM_AB.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    29 June 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-# define A 6
-# define B 10
-
-  int a = A;
-  int b = B;
-  int freq[B+1-A];
-  int i;
-  int j;
-  int seed;
-  int seed_init = 123456789;
-
-  cout << "\n";
-  cout << "TEST07\n";
-  cout << "  I4_UNIFORM_AB computes pseudorandom values\n";
-  cout << "  in an interval [A,B].\n";
-
-  seed = seed_init;
-
-  cout << "\n";
-  cout << "  The lower endpoint A = " << a << "\n";
-  cout << "  The upper endpoint B = " << b << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
-
-  for ( i = a; i <= b; i++ )
-  {
-    freq[i-a] = 0;
-  }
-
-  for ( i = 1; i <= 10000; i++ )
-  {
-    j = i4_uniform_ab ( a, b, seed );
-    if ( j < a ) 
-    {
-      cout << "  Illegal value J = " << j << "\n";
-    }
-    else if ( j <= b )
-    {
-      freq[j-a] = freq[j-a] + 1;
-    }
-    else
-    {
-      cout << "  Illegal value J = " << j << "\n";
-    }
-  }
-
-  cout << "\n";
-  cout << "         I    Frequency\n";
-  cout << "\n";
-  for ( i = a; i <= b; i++ )
-  {
-    cout << "  " << setw(8) << i
-         << "  " << setw(8) << freq[i-a] << "\n";
-  }
-
-  return;
-# undef A
-# undef B
-}
-//****************************************************************************80
-
-void test08 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST08 tests I4_UNIFORM_AB.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    01 December 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int a = -100;
-  int b = 200;
-  int i;
-  int j;
-  int seed;
-  int seed_init = 123456789;
-
-  cout << "\n";
-  cout << "TEST08\n";
-  cout << "  I4_UNIFORM_AB computes pseudorandom values\n";
-  cout << "  in an interval [A,B].\n";
-
-  seed = seed_init;
-
-  cout << "\n";
-  cout << "  The lower endpoint A = " << a << "\n";
-  cout << "  The upper endpoint B = " << b << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
-
-  for ( i = 1; i <= 20; i++ )
-  {
-    j = i4_uniform_ab ( a, b, seed );
-
-    cout << "  " << setw(8) << i
-         << "  " << setw(8) << j << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test09 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST09 tests I4_UNIFORM_0I
+//    I4_UNIFORM_0I_TEST tests I4_UNIFORM_0I
 //
 //  Licensing:
 //
@@ -679,13 +675,12 @@ void test09 ( )
   double variance;
   int x[N];
 
-  cout << "\n";
-  cout << "TEST09\n";
-  cout << "  I4_UNIFORM_0I samples a uniform random\n";
-  cout << "  integer distribution in [0,2**31-1].\n";
-
   seed = 123456789;
 
+  cout << "\n";
+  cout << "I4_UNIFORM_0I_TEST\n";
+  cout << "  I4_UNIFORM_0I samples a uniform random\n";
+  cout << "  integer distribution in [0,2**31-1].\n";
   cout << "\n";
   cout << "  Starting with seed = " << seed << "\n";
 
@@ -719,13 +714,13 @@ void test09 ( )
 }
 //****************************************************************************80
 
-void test10 ( )
+void i4_uniform_ab_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST10 tests I4VEC_UNIFORM_AB_NEW.
+//    I4_UNIFORM_AB_TEST tests I4_UNIFORM_AB.
 //
 //  Licensing:
 //
@@ -733,88 +728,48 @@ void test10 ( )
 //
 //  Modified:
 //
-//    27 November 2006
+//    27 October 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define A 6
-# define B 10
-# define N 10000
-
-  int a = A;
-  int b = B;
-  int freq[B+1-A];
+  int a = -100;
+  int b = 200;
   int i;
-  int *i4vec;
   int j;
-  int seed;
-  int seed_init = 123456789;
+  int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST10\n";
-  cout << "  I4VEC_UNIFORM_AB_NEW computes a vector of pseudorandom values\n";
+  cout << "I4_UNIFORM_AB_TEST\n";
+  cout << "  I4_UNIFORM_AB computes pseudorandom values\n";
   cout << "  in an interval [A,B].\n";
-
-  seed = seed_init;
-
   cout << "\n";
   cout << "  The lower endpoint A = " << a << "\n";
   cout << "  The upper endpoint B = " << b << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
-
-  for ( i = a; i <= b; i++ )
-  {
-    freq[i-a] = 0;
-  }
-
-  i4vec = i4vec_uniform_ab_new ( N, a, b, seed );
-
-  for ( i = 0; i < N; i++ )
-  {
-    j = i4vec[i];
-    if ( j < a ) 
-    {
-      cout << "  Illegal value J = " << j << "\n";
-    }
-    else if ( j <= b )
-    {
-      freq[j-a] = freq[j-a] + 1;
-    }
-    else
-    {
-      cout << "  Illegal value J = " << j << "\n";
-    }
-  }
+  cout << "  The initial seed is " << seed << "\n";
 
   cout << "\n";
-  cout << "         I    Frequency\n";
-  cout << "\n";
-  for ( i = a; i <= b; i++ )
+  for ( i = 1; i <= 20; i++ )
   {
+    j = i4_uniform_ab ( a, b, seed );
+
     cout << "  " << setw(8) << i
-         << "  " << setw(8) << freq[i-a] << "\n";
+         << "  " << setw(8) << j << "\n";
   }
-
-  delete [] i4vec;
 
   return;
-# undef A
-# undef B
-# undef N
 }
 //****************************************************************************80
 
-void test11 ( )
+void i4mat_uniform_ab_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST11 tests I8_UNIFORM_AB.
+//    I4MAT_UNIFORM_AB_NEW_TEST tests I4MAT_UNIFORM_AB_NEW.
 //
 //  Licensing:
 //
@@ -822,55 +777,92 @@ void test11 ( )
 //
 //  Modified:
 //
-//    31 May 2007
+//    18 December 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-
-  long long int a;
-  long long int b;
-  int i;
-  int seed;
-  int seed_init = 123456789;
+  int a = -100;
+  int b = 200;
+  int m = 5;
+  int n = 4;
+  int seed = 123456789;
+  int *v;
 
   cout << "\n";
-  cout << "TEST11\n";
-  cout << "  I8_UNIFORM_AB computes pseudorandom values \n";
+  cout << "I4MAT_UNIFORM_AB_NEW_TEST\n";
+  cout << "  I4MAT_UNIFORM_AB_NEW computes pseudorandom values\n";
   cout << "  in an interval [A,B].\n";
-
-//a = 100000;
-  a = 1000000000LL;
-//b = 800000;
-  b = 8000000000LL;
-
-  seed = seed_init;
-
   cout << "\n";
   cout << "  The lower endpoint A = " << a << "\n";
   cout << "  The upper endpoint B = " << b << "\n";
-  cout << "  The initial seed is    " << seed_init << "\n";
-  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
-  for ( i = 1; i <= 10; i++ )
-  {
-    cout << "  " << setw(8)  << i
-         << "  " << setw(24) << i8_uniform_ab ( a, b, seed ) << "\n";
-  }
+  v = i4mat_uniform_ab_new ( m, n, a, b, seed );
+
+  i4mat_print ( m, n, v, "  Uniform I4MAT:" );
+
+  delete [] v;
 
   return;
 }
 //****************************************************************************80
 
-void test111 ( )
+void i4vec_uniform_ab_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST111 tests L_UNIFORM.
+//    I4VEC_UNIFORM_AB_NEW_TEST tests I4VEC_UNIFORM_AB_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 October 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int a = -100;
+  int b = 200;
+  int n = 20;
+  int seed = 123456789;
+  int *v;
+
+  cout << "\n";
+  cout << "I4VEC_UNIFORM_AB_NEW_TEST\n";
+  cout << "  I4VEC_UNIFORM_AB_NEW computes pseudorandom values\n";
+  cout << "  in an interval [A,B].\n";
+  cout << "\n";
+  cout << "  The lower endpoint A = " << a << "\n";
+  cout << "  The upper endpoint B = " << b << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+
+  v = i4vec_uniform_ab_new ( n, a, b, seed );
+
+  i4vec_print ( n, v, "  Uniform I4VEC:" );
+
+  delete [] v;
+
+  return;
+}
+//****************************************************************************80
+
+void l4_uniform_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4_UNIFORM_TEST tests L4_UNIFORM.
 //
 //  Licensing:
 //
@@ -887,35 +879,79 @@ void test111 ( )
 {
   int i;
   int seed;
-  int seed_init = 123456789;
+
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST111\n";
-  cout << "  L_UNIFORM computes pseudorandom logical values.\n";
-
-  seed = seed_init;
+  cout << "L4_UNIFORM_TEST\n";
+  cout << "  L4_UNIFORM computes pseudorandom logical values.\n";
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
   cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
-
   for ( i = 1; i <= 10; i++ )
   {
    cout << "  " << setw(8) << i
-        << "  " << setw(1) <<  l_uniform ( seed ) << "\n";
+        << "  " << setw(1) <<  l4_uniform ( seed ) << "\n";
   }
 
   return;
 }
 //****************************************************************************80
 
-void test112 ( )
+void l4mat_uniform_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST112 tests LVEC_UNIFORM_NEW.
+//    L4MAT_UNIFORM_NEW_TEST tests L4MAT_UNIFORM_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  bool *l;
+  int m = 5;
+  int n = 4;
+  int seed;
+
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "L4MAT_UNIFORM_NEW_TEST\n";
+  cout << "  L4MAT_UNIFORM_NEW computes a vector of\n";
+  cout << "  pseudorandom logical values.\n";
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+
+  l = l4mat_uniform_new ( m, n, seed );
+
+  l4mat_print ( m, n, l, "  Uniform L4MAT:" );
+
+  delete [] l;
+
+  return;
+}
+//****************************************************************************80
+
+void l4vec_uniform_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    L4VEC_UNIFORM_NEW_TEST tests L4VEC_UNIFORM_NEW.
 //
 //  Licensing:
 //
@@ -931,105 +967,36 @@ void test112 ( )
 //
 {
   int i;
-  bool *lvec;
+  bool *l;
   int n = 10;
   int seed;
-  int seed_init = 123456789;
+
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST112\n";
-  cout << "  LVEC_UNIFORM_NEW computes a vector of\n";
+  cout << "L4VEC_UNIFORM_NEW_TEST\n";
+  cout << "  L4VEC_UNIFORM_NEW computes a vector of\n";
   cout << "  pseudorandom logical values.\n";
-
-  seed = seed_init;
-
   cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
-  lvec = lvec_uniform_new ( n, seed );
+  l = l4vec_uniform_new ( n, seed );
 
-  cout << "\n";
+  l4vec_print ( n, l, "  Uniform L4VEC:" );
 
-  for ( i = 0; i < n; i++ )
-  {
-    cout << "  " << setw(8) << i + 1
-         << "  " << setw(1) << lvec[i] << "\n";
-  }
-
-  delete [] lvec;
+  delete [] l;
 
   return;
 }
 //****************************************************************************80
 
-void test118 ( )
+void lcrg_anbn_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST118 tests LCRG_ANBN.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    26 April 2008
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int a;
-  int an;
-  int b;
-  int bn;
-  int c;
-  int n;
-
-  cout << "\n";
-  cout << "TEST118\n";
-  cout << "  LCRG_ANBN determines a linear congruential random\n";
-  cout << "  number generator equivalent to N steps of a given one.\n";
-//
-//  These parameters define the old (1969) IBM 360 random number generator:
-//
-  a = 16807;
-  b = 0;
-  c = 2147483647;
-
-  cout << "\n";
-  cout << "  LCRG parameters:\n";
-  cout << "\n";
-  cout << "  A = " << a << "\n";
-  cout << "  B = " << b << "\n";
-  cout << "  C = " << c << "\n";
-  cout << "\n";
-  cout << "             N             A             B\n";
-  cout << "\n";
-
-  for ( n = 0; n <= 10; n++ )
-  {
-    lcrg_anbn ( a, b, c, n, &an, &bn );
-    cout << "  " << setw(12) << n
-         << "  " << setw(12) << an
-         << "  " << setw(12) << bn << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test119 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST119 tests LCRG_ANBN.
+//    LCRG_ANBN_TEST tests LCRG_ANBN.
 //
 //  Licensing:
 //
@@ -1056,11 +1023,6 @@ void test119 ( )
   int v;
   int *x;
   int *y;
-
-  cout << "\n";
-  cout << "TEST119\n";
-  cout << "  LCRG_ANBN determines a linear congruential random\n";
-  cout << "  number generator equivalent to N steps of a given one.\n";
 //
 //  These parameters define the old (1969) IBM 360 random number generator:
 //
@@ -1069,11 +1031,27 @@ void test119 ( )
   c = 2147483647;
 
   cout << "\n";
+  cout << "LCRG_ANBN_TEST\n";
+  cout << "  LCRG_ANBN determines a linear congruential random\n";
+  cout << "  number generator equivalent to N steps of a given one.\n";
+  cout << "\n";
   cout << " LCRG parameters:\n";
   cout << "\n";
   cout << "  A = " << a << "\n";
   cout << "  B = " << b << "\n";
   cout << "  C = " << c << "\n";
+  cout << "\n";
+  cout << "             N             A             B\n";
+  cout << "\n";
+
+  for ( n = 0; n <= 10; n++ )
+  {
+    lcrg_anbn ( a, b, c, n, &an, &bn );
+    cout << "  " << setw(12) << n
+         << "  " << setw(12) << an
+         << "  " << setw(12) << bn << "\n";
+  }
+
   cout << "\n";
   cout << "                          N            In           Out\n";
   cout << "\n";
@@ -1146,13 +1124,13 @@ void test119 ( )
 }
 //****************************************************************************80
 
-void test12 ( )
+void lcrg_seed_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST12 tests LCRG_SEED
+//    LCRG_SEED_TEST tests LCRG_SEED
 //
 //  Licensing:
 //
@@ -1177,16 +1155,6 @@ void test12 ( )
   int seed_out;
   int seed_start;
   float u;
-
-  cout << "\n";
-  cout << "TEST13\n";
-  cout << "  LCRG_SEED directly computes the updated value of a\n";
-  cout << "  seed used by an linear congruential random number\n";
-  cout << "  generator.\n";
-  cout << "\n";
-  cout << "       I          SEED          SEED          SEED    U\n";
-  cout << "                 Input        Output          LCRG\n";
-  cout << "\n";
 //
 //  These parameters define the old (1969) IBM 360 random number generator:
 //
@@ -1199,6 +1167,16 @@ void test12 ( )
   seed_start = 12345;
 
   seed = seed_start;
+
+  cout << "\n";
+  cout << "LCRG_SEED_TEST\n";
+  cout << "  LCRG_SEED directly computes the updated value of a\n";
+  cout << "  seed used by an linear congruential random number\n";
+  cout << "  generator.\n";
+  cout << "\n";
+  cout << "       I          SEED          SEED          SEED    U\n";
+  cout << "                 Input        Output          LCRG\n";
+  cout << "\n";
 //
 //  Compute 1000 random numbers "the hard way", that is, sequentially.
 //  Every now and then, call LCRG_SEED to compute SEED directly.
@@ -1226,13 +1204,57 @@ void test12 ( )
 }
 //****************************************************************************80
 
-void test13 ( )
+void r4_uniform_01_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST13 tests R4_UNIFORM_AB.
+//    R4_UNIFORM_01_TEST tests R4_UNIFORM_01.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    29 June 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int seed;
+
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "R4_UNIFORM_01_TEST\n";
+  cout << "  R4_UNIFORM_01 computes pseudorandom values \n";
+  cout << "  in the interval [0,1].\n";
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+
+  cout << "\n";
+  for ( i = 1; i <= 10; i++ )
+  {
+    cout << "  " << setw(6) << i
+         << "  " << setw(14) << r4_uniform_01 ( seed ) << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r4_uniform_ab_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4_UNIFORM_AB_TEST tests R4_UNIFORM_AB.
 //
 //  Licensing:
 //
@@ -1251,23 +1273,21 @@ void test13 ( )
   float b;
   int i;
   int seed;
-  int seed_init = 123456789;
-
-  cout << "\n";
-  cout << "TEST13\n";
-  cout << "  R4_UNIFORM_AB computes pseudorandom values\n";
-  cout << "  in an interval [A,B].\n";
 
   a = 5.0;
   b = 10.0;
-  seed = seed_init;
+  seed = 123456789;
 
+  cout << "\n";
+  cout << "R4_UNIFORM_AB_TEST\n";
+  cout << "  R4_UNIFORM_AB computes pseudorandom values\n";
+  cout << "  in an interval [A,B].\n";
   cout << "\n";
   cout << "  The lower endpoint A = " << a << "\n";
   cout << "  The upper endpoint B = " << b << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
+  cout << "\n";
   for ( i = 1; i <= 10; i++ )
   {
     cout << "  " << setw(6)  << i
@@ -1278,13 +1298,108 @@ void test13 ( )
 }
 //****************************************************************************80
 
-void test14 ( )
+void r4mat_uniform_ab_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST14 tests R4_UNIFORM_01.
+//    R4MAT_UNIFORM_AB_NEW_TEST tests R4MAT_UNIFORM_AB_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    24 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  float a = -5.0;
+  float b = 10.0;
+  int m = 5;
+  int n = 4;
+  int seed = 123456789;
+  float *v;
+
+  cout << "\n";
+  cout << "R4MAT_UNIFORM_AB_NEW_TEST\n";
+  cout << "  R4MAT_UNIFORM_AB_NEW computes pseudorandom values\n";
+  cout << "  in an interval [A,B].\n";
+  cout << "\n";
+  cout << "  The lower endpoint A = " << a << "\n";
+  cout << "  The upper endpoint B = " << b << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+  cout << "\n";
+
+  v = r4mat_uniform_ab_new ( m, n, a, b, seed );
+
+  r4mat_print ( m, n, v, "  Uniform R4MAT:" );
+
+  delete [] v;
+
+  return;
+}
+//****************************************************************************80
+
+void r4vec_uniform_ab_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R4VEC_UNIFORM_AB_NEW_TEST tests R4VEC_UNIFORM_AB_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    24 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  float a = -5.0;
+  float b = 10.0;
+  int n = 20;
+  int seed = 123456789;
+  float *v;
+
+  cout << "\n";
+  cout << "R4VEC_UNIFORM_AB_NEW_TEST\n";
+  cout << "  R4VEC_UNIFORM_AB_NEW computes pseudorandom values\n";
+  cout << "  in an interval [A,B].\n";
+  cout << "\n";
+  cout << "  The lower endpoint A = " << a << "\n";
+  cout << "  The upper endpoint B = " << b << "\n";
+  cout << "  The initial seed is " << seed << "\n";
+  cout << "\n";
+
+  v = r4vec_uniform_ab_new ( n, a, b, seed );
+
+  r4vec_print ( n, v, "  Uniform R4VEC:" );
+
+  delete [] v;
+
+  return;
+}
+//****************************************************************************80
+
+void r8_uniform_01_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_UNIFORM_01_TEST tests R8_UNIFORM_01.
 //
 //  Licensing:
 //
@@ -1301,36 +1416,34 @@ void test14 ( )
 {
   int i;
   int seed;
-  int seed_init = 123456789;
+
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST14\n";
-  cout << "  R4_UNIFORM_01 computes pseudorandom values \n";
+  cout << "R8_UNIFORM_01_TEST\n";
+  cout << "  R8_UNIFORM_01 computes pseudorandom values \n";
   cout << "  in the interval [0,1].\n";
-
-  seed = seed_init;
+  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
   cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
-
   for ( i = 1; i <= 10; i++ )
   {
     cout << "  " << setw(6) << i
-         << "  " << setw(14) << r4_uniform_01 ( seed ) << "\n";
+         << "  " << setw(14) << r8_uniform_01 ( seed ) << "\n";
   }
 
   return;
 }
 //****************************************************************************80
 
-void test15 ( )
+void r8_uniform_ab_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST15 tests R8_UNIFORM_AB.
+//    R8_UNIFORM_AB_TEST tests R8_UNIFORM_AB.
 //
 //  Licensing:
 //
@@ -1349,23 +1462,21 @@ void test15 ( )
   double b;
   int i;
   int seed;
-  int seed_init = 123456789;
-
-  cout << "\n";
-  cout << "TEST15\n";
-  cout << "  R8_UNIFORM_AB computes pseudorandom values\n";
-  cout << "  in an interval [A,B].\n";
 
   a = 5.0;
   b = 10.0;
-  seed = seed_init;
+  seed = 123456789;
 
+  cout << "\n";
+  cout << "R8_UNIFORM_AB_TEST\n";
+  cout << "  R8_UNIFORM_AB computes pseudorandom values\n";
+  cout << "  in an interval [A,B].\n";
   cout << "\n";
   cout << "  The lower endpoint A = " << a << "\n";
   cout << "  The upper endpoint B = " << b << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
-  cout << "\n";
+  cout << "  The initial seed is " << seed << "\n";
 
+  cout << "\n";
   for ( i = 1; i <= 10; i++ )
   {
     cout << "  " << setw(6)  << i
@@ -1376,13 +1487,13 @@ void test15 ( )
 }
 //****************************************************************************80
 
-void test16 ( )
+void r8mat_uniform_ab_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST16 tests R8_UNIFORM_01.
+//    R8MAT_UNIFORM_AB_NEW_TEST tests R8MAT_UNIFORM_AB_NEW.
 //
 //  Licensing:
 //
@@ -1390,45 +1501,47 @@ void test16 ( )
 //
 //  Modified:
 //
-//    29 June 2006
+//    25 December 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  int i;
-  int seed;
-  int seed_init = 123456789;
+  double a = -5.0;
+  double b = 10.0;
+  int m = 5;
+  int n = 4;
+  int seed = 123456789;
+  double *v;
 
   cout << "\n";
-  cout << "TEST16\n";
-  cout << "  R8_UNIFORM_01 computes pseudorandom values \n";
-  cout << "  in the interval [0,1].\n";
-
-  seed = seed_init;
-
+  cout << "R8MAT_UNIFORM_AB_NEW_TEST\n";
+  cout << "  R8MAT_UNIFORM_AB_NEW computes pseudorandom values\n";
+  cout << "  in an interval [A,B].\n";
   cout << "\n";
-  cout << "  The initial seed is " << seed_init << "\n";
+  cout << "  The lower endpoint A = " << a << "\n";
+  cout << "  The upper endpoint B = " << b << "\n";
+  cout << "  The initial seed is " << seed << "\n";
   cout << "\n";
 
-  for ( i = 1; i <= 10; i++ )
-  {
-    cout << "  " << setw(6) << i
-         << "  " << setw(14) << r8_uniform_01 ( seed ) << "\n";
-  }
+  v = r8mat_uniform_ab_new ( m, n, a, b, seed );
+
+  r8mat_print ( m, n, v, "  Uniform R8MAT:" );
+
+  delete [] v;
 
   return;
 }
 //****************************************************************************80
 
-void test17 ( )
+void r8vec_uniform_01_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST17 tests R8_UNIFORM_01;
+//    R8VEC_UNIFORM_01_NEW_TEST tests R8VEC_UNIFORM_01_NEW.
 //
 //  Licensing:
 //
@@ -1436,92 +1549,43 @@ void test17 ( )
 //
 //  Modified:
 //
-//    29 June 2006
+//    29 October 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define N 1000
-
-  int i;
+  int n = 10;
   int seed;
-  int seed_in;
-  int seed_out;
-  double u[N];
-  double u_avg;
-  double u_var;
+  double *v;
+
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST17\n";
-  cout << "  R8_UNIFORM_01 computes a sequence of uniformly distributed\n";
-  cout << "  pseudorandom numbers.\n";
-
-  seed = 12345;
-
+  cout << "R8VEC_UNIFORM_01_NEW_TEST\n";
+  cout << "  R8VEC_UNIFORM_01_NEW computes a random R8VEC.\n";
   cout << "\n";
-  cout << "  Initial SEED = " << seed << "\n";
+  cout << "  Initial seed is " << seed << "\n";
 
-  cout << "\n";
-  cout << "  First 10 values:\n";
-  cout << "\n";
-  cout << "       I         Input        Output   R8_UNIFORM_01\n";
-  cout << "                  SEED          SEED\n";
-  cout << "\n";
+  v = r8vec_uniform_01_new ( n, seed );
 
-  for ( i = 0; i < 10; i++ )
-  {
-    seed_in = seed;
-    u[i] = r8_uniform_01 ( seed );
-    seed_out = seed;
+  r8vec_print ( n, v, "  Uniform R8VEC:" );
 
-    cout                         << "  "
-         << setw(6)  << i + 1    << "  " 
-         << setw(12) << seed_in  << "  " 
-         << setw(12) << seed_out << "  " 
-         << setw(10) << u[i]     << "\n";
-  }
-
-  cout << "\n";
-  cout << "  Now call R8_UNIFORM_01 " << N << " times.\n";
-
-  u_avg = 0.0;
-  for ( i = 0; i < N; i++ )
-  {
-    u[i] = r8_uniform_01 ( seed );
-    u_avg = u_avg + u[i];
-  }
-
-  u_avg = u_avg / ( ( double ) N );
-
-  u_var = 0.0;
-  for ( i = 0; i < N; i++ )
-  {
-    u_var = u_var + ( u[i] - u_avg ) * ( u[i] - u_avg );
-  }
-  u_var = u_var / ( ( double ) ( N - 1 ) );
-
-  cout << "\n";
-  cout << "  Average value = " << u_avg      << "\n";
-  cout << "  Expecting       " << 0.5        << "\n";
-
-  cout << "\n";
-  cout << "  Variance =      " << u_var      << "\n";
-  cout << "  Expecting       " << 1.0 / 12.0 << "\n";
+  delete [] v;
 
   return;
 # undef N
 }
 //****************************************************************************80
 
-void test18 ( )
+void r8vec_uniform_ab_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST18 tests R8_UNIFORM_01.
+//    R8VEC_UNIFORM_AB_NEW_TEST tests R8VEC_UNIFORM_AB_NEW.
 //
 //  Licensing:
 //
@@ -1529,191 +1593,48 @@ void test18 ( )
 //
 //  Modified:
 //
-//    29 June 2006
+//    29 October 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  int i;
+  double a;
+  double b;
+  int n = 10;
   int seed;
-  int seed_in;
-  int seed_out;
-  int seed_save;
-  double x;
+  double *v;
+
+  a = -1.0;
+  b = 5.0;
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST18\n";
-  cout << "  R8_UNIFORM_01 computes a sequence of pseudorandom numbers\n";
-  cout << "  but all computations depend on the seed value.\n";
-  cout << "  In this test, we show how a sequence of \"random\"\n";
-  cout << "  values can be manipulated by accessing the seed.\n";
-
-  seed = 1066;
-
+  cout << "R8VEC_UNIFORM_AB_NEW_TEST\n";
+  cout << "  R8VEC_UNIFORM_AB_NEW computes a random R8VEC.\n";
   cout << "\n";
-  cout << "  Set SEED to " << seed << "\n";
-  cout << "\n";
-  cout << "  Now call R8_UNIFORM_01 10 times, and watch SEED.\n";
-  cout << "\n";
-  cout << "       I         Input        Output   R8_UNIFORM_01\n";
-  cout << "                  SEED          SEED\n";
-  cout << "\n";
+  cout << "  " << a << " <= X <= " << b << "\n";
+  cout << "  Initial seed is " << seed << "\n";
 
-  for ( i = 1; i <= 10; i++ )
-  {
-    seed_in = seed;
+  v = r8vec_uniform_ab_new ( n, a, b, seed );
 
-    if ( i == 5 )
-    {
-      seed_save = seed;
-    }
-    x = r8_uniform_01 ( seed );
-    seed_out = seed;
-    cout                            << "  "
-         << setw ( 6 )  << i        << "  "
-         << setw ( 12 ) << seed_in  << "  "
-         << setw ( 12 ) << seed_out << "  "
-         << setw ( 10 ) << x        << "\n";
+  r8vec_print ( n, v, "  Uniform R8VEC:" );
 
-  }
-
-  seed = seed_save;
-
-  cout << "\n";
-  cout << "  Reset SEED to its value at step 5, = " << seed << "\n";
-  cout << "\n";
-  cout << "  Now call R8_UNIFORM_01 10 times, and watch how SEED\n";
-  cout << "  and R8_UNIFORM_01 restart themselves.\n";
-  cout << "\n";
-  cout << "       I         Input        Output   R8_UNIFORM_01\n";
-  cout << "                  SEED          SEED\n";
-  cout << "\n";
-
-  for ( i = 1; i <= 10; i++ )
-  {
-    seed_in = seed;
-    x = r8_uniform_01 ( seed );
-    seed_out = seed;
-    cout                            << "  "
-         << setw ( 6 )  << i        << "  "
-         << setw ( 12 ) << seed_in  << "  "
-         << setw ( 12 ) << seed_out << "  "
-         << setw ( 10 ) << x        << "\n";
-  }
-
-  seed = -12345678;
-
-  cout << "\n";
-  cout << "  What happens with an initial negative SEED?\n";
-  cout << "\n";
-  cout << "       I         Input        Output   R8_UNIFORM_01\n";
-  cout << "                  SEED          SEED\n";
-  cout << "\n";
-
-  for ( i = 1; i <= 10; i++ )
-  {
-    seed_in = seed;
-    x = r8_uniform_01 ( seed );
-    seed_out = seed;
-    cout                            << "  "
-         << setw ( 6 )  << i        << "  "
-         << setw ( 12 ) << seed_in  << "  "
-         << setw ( 12 ) << seed_out << "  "
-         << setw ( 10 ) << x        << "\n";
-  }
+  delete [] v;
 
   return;
-}
-//****************************************************************************80
-
-void test19 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST19 tests R8_UNIFORM_01 and R8MAT_UNIFORM_01_NEW.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    03 August 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-# define M 100
-# define N 10
-
-  double a[M*N];
-  double *b;
-  int i;
-  int j;
-  int k;
-  int seed;
-  int seed_init = 123456789;
-
-  cout << "\n";
-  cout << "TEST19\n";
-  cout << "  R8_UNIFORM_01 computes pseudorandom values one at a time.\n";
-  cout << "  R8MAT_UNIFORM_01_NEW computes a matrix of values.\n";
-  cout << "\n";
-  cout << "  For the same initial seed, the results should be identical,\n";
-  cout << "  but R8MAT_UNIFORM_01_NEW might be faster.\n";
-  cout << "\n";
-  cout << "  Initial seed is " << seed_init << "\n";
-
-  seed = seed_init;
-  for ( j = 0; j < N; j++ )
-  {
-    for ( i = 0; i < M; i++ )
-    {
-      a[i+j*M] = r8_uniform_01 ( seed );
-    }
-  }
-
-  seed = seed_init;
-  b = r8mat_uniform_01_new ( M, N, seed );
-
-  cout << "\n";
-  cout << "      I       J      A[I,J]        B[I,J]\n";
-  cout << "                 (R8_UNIFORM_01)  (R8MAT_UNIFORM_01_NEW)\n";
-  cout << "\n";
-
-  for ( k = 0; k < 11; k++ )
-  {
-    i = ( k * ( M - 1 ) ) / 10;
-    j = ( k * ( N - 1 ) ) / 10;
-
-    cout << " "
-         << setw(6) << i         << "  "
-         << setw(6) << j         << "  "
-         << setw(12) << a[i+j*M] << "  "
-         << setw(12) << b[i+j*M] << "\n";
-  }
-  
-  delete [] b;
-
-  return;
-# undef M
 # undef N
 }
 //****************************************************************************80
 
-void test20 ( )
+void r8col_uniform_abvec_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST20 tests R8_UNIFORM_01 and R8VEC_UNIFORM_01_NEW.
+//    R8COL_UNIFORM_ABVEC_NEW_TEST tests R8COL_UNIFORM_ABVEC_NEW.
 //
 //  Licensing:
 //
@@ -1721,56 +1642,170 @@ void test20 ( )
 //
 //  Modified:
 //
-//    07 August 2009
+//    29 December 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define N 10
-
-  double a[N];
-  double *b;
+  double a[5] = { 0.0, 0.20, 10.0, 52.0, -1.0 };
+  double b[5] = { 1.0, 0.25, 20.0, 54.0, +1.0 };
   int i;
   int j;
-  int k;
+  int m = 5;
+  int n = 4;
   int seed;
-  int seed_init = 123456789;
+  double *v;
+
+  seed = 123456789;
 
   cout << "\n";
-  cout << "TEST20\n";
-  cout << "  R8_UNIFORM_01 computes pseudeorandom values one at a time.\n";
-  cout << "  R8VEC_UNIFORM_01_NEW computes a vector of values.\n";
+  cout << "R8COL_UNIFORM_ABVEC_NEW_TEST\n";
+  cout << "  R8COL_UNIFORM_ABVEC_NEW computes a random R8COL.\n";
   cout << "\n";
-  cout << "  For the same initial seed, the results should be identical,\n";
-  cout << "  but R8VEC_UNIFORM_01 might be faster.\n";
-  cout << "\n";
-  cout << "  Initial seed is " << seed_init << "\n";
+  cout << "  Initial seed is " << seed << "\n";
 
-  seed = seed_init;
-  for ( i = 0; i < N; i++ )
+  v = r8col_uniform_abvec_new ( m, n, a, b, seed );
+
+  cout << "\n";
+  for ( i = 0; i < m; i++ )
   {
-    a[i] = r8_uniform_01 ( seed );
+    cout << "  " << setw(4) << i
+         << "  " << setw(8) << a[i] << ":  ";
+    for ( j = 0; j < n; j++ )
+    {
+      cout << "  " << setw(8) << v[i+j*m];
+    }
+    cout << "    :" << setw(8) <<  b[i] << "\n";
   }
 
-  seed = seed_init;
-  b = r8vec_uniform_01_new ( N, seed );
+  delete [] v;
+
+  return;
+}
+//****************************************************************************80
+
+void r8row_uniform_abvec_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8ROW_UNIFORM_ABVEC_NEW_TEST tests R8ROW_UNIFORM_ABVEC_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    29 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a[5] = { 0.0, 0.20, 10.0, 52.0, -1.0 };
+  double b[5] = { 1.0, 0.25, 20.0, 54.0, +1.0 };
+  int i;
+  int j;
+  int m = 4;
+  int n = 5;
+  int seed;
+  double *v;
+
+  seed = 123456789;
 
   cout << "\n";
-  cout << "      I      A[I]          B[I]\n";
-  cout << "         (R8_UNIFORM_01)  (R8VEC_UNIFORM_01)\n";
+  cout << "R8ROW_UNIFORM_ABVEC_NEW_TEST\n";
+  cout << "  R8ROW_UNIFORM_ABVEC_NEW computes a random R8ROW.\n";
+  cout << "\n";
+  cout << "  Initial seed is " << seed << "\n";
   cout << "\n";
 
-  for ( i = 1; i < N; i++ )
+  v = r8row_uniform_abvec_new ( m, n, a, b, seed );
+
+  for ( j = 0; j < n; j++ )
   {
-    cout << " "
-         << setw(6) << i         << "  "
-         << setw(12) << a[i] << "  "
-         << setw(12) << b[i] << "\n";
+    cout << "  " << setw(8) << b[j];
   }
-  
-  delete [] b;
+  cout << "\n";
+  cout << "\n";
+
+  for ( i = 0; i < m; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      cout << "  " << setw(8) << v[i+j*m];
+    }
+    cout << "\n";
+  }
+
+  cout << "\n";
+  for ( j = 0; j < n; j++ )
+  {
+    cout << "  " << setw(8) << a[j];
+  }
+  cout << "\n";;
+
+  delete [] v;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_uniform_abvec_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_UNIFORM_ABVEC_NEW_TEST tests R8VEC_UNIFORM_ABVEC_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    28 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a[5] = { 0.0, 0.20, 10.0, 52.0, -1.0 };
+  double b[5] = { 1.0, 0.25, 20.0, 54.0, +1.0 };
+  int i;
+  int n = 5;
+  int seed;
+  double *v;
+
+  seed = 123456789;
+
+  cout << "\n";
+  cout << "R8VEC_UNIFORM_ABVEC_NEW_TEST\n";
+  cout << "  R8VEC_UNIFORM_ABVEC_NEW computes a random R8VEC.\n";
+  cout << "\n";
+  cout << "  Initial seed is " << seed << "\n";
+
+  v = r8vec_uniform_abvec_new ( n, a, b, seed );
+
+  cout << "\n";
+  cout << "   I         A         X         B\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(4) << i
+         << "  " << setw(8) << a[i]
+         << "  " << setw(8) << v[i]
+         << "  " << setw(8) << b[i] << "\n";
+  }
+
+  delete [] v;
 
   return;
 # undef N

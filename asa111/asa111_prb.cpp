@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    ASA111_PRB tests ASA111.
+//    MAIN is the main program for ASA111_PRB.
+//
+//  Discussion:
+//
+//    ASA111_PRB tests the ASA111 library.
 //
 //  Licensing:
 //
@@ -34,9 +38,7 @@ int main ( )
 //    John Burkardt
 //
 {
-  cout << "\n";
   timestamp ( );
-
   cout << "\n";
   cout << "ASA111_PRB:\n";
   cout << "  C++ version\n";
@@ -49,7 +51,6 @@ int main ( )
   cout << "\n";
   cout << "ASA111_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -110,7 +111,7 @@ void test01 ( )
     cout << "  " << setprecision(4)  << setw(10) << fx
          << "  " << setprecision(16) << setw(24) << x
          << "  " << setprecision(16) << setw(24) << x2
-         << "  " << setprecision(4)  << setw(10) << r8_abs ( x - x2 ) << "\n";
+         << "  " << setprecision(4)  << setw(10) << fabs ( x - x2 ) << "\n";
   }
 
   return;

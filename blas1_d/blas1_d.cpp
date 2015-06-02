@@ -3,9 +3,11 @@
 # include <iomanip>
 # include <cmath>
 # include <ctime>
+# include <complex>
 
 using namespace std;
 
+# include "blas0.hpp"
 # include "blas1_d.hpp"
 
 //****************************************************************************80
@@ -65,7 +67,7 @@ double dasum ( int n, double x[], int incx )
 
   for ( i = 0; i < n; i++ )
   {
-    value = value + r8_abs ( x[j] );
+    value = value + fabs ( x[j] );
     j = j + incx;
   }
 
@@ -445,130 +447,6 @@ double ddot ( int n, double dx[], int incx, double dy[], int incy )
 }
 //****************************************************************************80
 
-double dmach ( int job )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DMACH computes machine parameters of double precision real arithmetic.
-//
-//  Discussion:
-//
-//    This routine is for testing only.  It is not required by LINPACK.
-//
-//    If there is trouble with the automatic computation of these quantities,
-//    they can be set by direct assignment statements.
-//
-//    We assume the computer has
-//
-//      B = base of arithmetic;
-//      T = number of base B digits;
-//      L = smallest possible exponent;
-//      U = largest possible exponent.
-//
-//    then
-//
-//      EPS = B^(1-T)
-//      TINY = 100.0 * B^(-L+T)
-//      HUGE = 0.01 * B^(U-T)
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 May 2005
-//
-//  Author:
-//
-//    Original FORTRAN77 version by Charles Lawson, Richard Hanson, 
-//    David Kincaid, Fred Krogh.
-//    C++ version by John Burkardt.
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for Fortran Usage,
-//    Algorithm 539,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, September 1979, pages 308-323.
-//
-//  Parameters:
-//
-//    Input, int JOB:
-//    1: requests EPS;
-//    2: requests TINY;
-//    3: requests HUGE.
-//
-//    Output, double DMACH, the requested value.
-//
-{
-  double eps;
-  double huge;
-  double s;
-  double tiny;
-  double value;
-
-  eps = 1.0;
-  for ( ; ; )
-  {
-    value = 1.0 + ( eps / 2.0 );
-    if ( value <= 1.0 )
-    {
-      break;
-    }
-    eps = eps / 2.0;
-  }
-
-  s = 1.0;
-
-  for ( ; ; )
-  {
-    tiny = s;
-    s = s / 16.0;
-
-    if ( s * 1.0 == 0.0 )
-    {
-      break;
-    }
-
-  }
-
-  tiny = ( tiny / eps ) * 100.0;
-  huge = 1.0 / tiny;
-
-  if ( job == 1 )
-  {
-    value = eps;
-  }
-  else if ( job == 2 )
-  {
-    value = tiny;
-  }
-  else if ( job == 3 )
-  {
-    value = huge;
-  }
-  else
-  {
-    cout << "\n";
-    cout << "DMACH - Fatal error!\n";
-    cout << "  Illegal input value of JOB = " << job << "\n";
-    exit ( 1 );
-  }
-
-  return value;
-}
-//****************************************************************************80
-
 double dnrm2 ( int n, double x[], int incx )
 
 //****************************************************************************80
@@ -634,7 +512,7 @@ double dnrm2 ( int n, double x[], int incx )
   }
   else if ( n == 1 )
   {
-    norm = r8_abs ( x[0] );
+    norm = fabs ( x[0] );
   }
   else
   {
@@ -646,7 +524,7 @@ double dnrm2 ( int n, double x[], int incx )
     {
       if ( x[ix] != 0.0 )
       {
-        absxi = r8_abs ( x[ix] );
+        absxi = fabs ( x[ix] );
         if ( scale < absxi )
         {
           ssq = 1.0 + ssq * ( scale / absxi ) * ( scale / absxi );
@@ -854,7 +732,7 @@ void drotg ( double *sa, double *sb, double *c, double *s )
   double scale;
   double z;
 
-  if ( r8_abs ( *sb ) < r8_abs ( *sa ) )
+  if ( fabs ( *sb ) < fabs ( *sa ) )
   {
     roe = *sa;
   }
@@ -863,7 +741,7 @@ void drotg ( double *sa, double *sb, double *c, double *s )
     roe = *sb;
   }
 
-  scale = r8_abs ( *sa ) + r8_abs ( *sb );
+  scale = fabs ( *sa ) + fabs ( *sb );
 
   if ( scale == 0.0 )
   {
@@ -880,7 +758,7 @@ void drotg ( double *sa, double *sb, double *c, double *s )
     *s = *sb / r;
   }
 
-  if ( 0.0 < r8_abs ( *c ) && r8_abs ( *c ) <= *s )
+  if ( 0.0 < fabs ( *c ) && fabs ( *c ) <= *s )
   {
     z = 1.0 / *c;
   }
@@ -1110,88 +988,6 @@ void dswap ( int n, double x[], int incx, double y[], int incy )
 }
 //****************************************************************************80
 
-int i4_max ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MAX returns the maximum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, are two integers to be compared.
-//
-//    Output, int I4_MAX, the larger of I1 and I2.
-//
-{
-  int value;
-
-  if ( i2 < i1 )
-  {
-    value = i1;
-  }
-  else
-  {
-    value = i2;
-  }
-  return value;
-}
-//****************************************************************************80
-
-int i4_min ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MIN returns the minimum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, two integers to be compared.
-//
-//    Output, int I4_MIN, the smaller of I1 and I2.
-//
-{
-  int value;
-
-  if ( i1 < i2 )
-  {
-    value = i1;
-  }
-  else
-  {
-    value = i2;
-  }
-  return value;
-}
-//****************************************************************************80
-
 int idamax ( int n, double dx[], int incx )
 
 //****************************************************************************80
@@ -1265,29 +1061,29 @@ int idamax ( int n, double dx[], int incx )
 
   if ( incx == 1 )
   {
-    dmax = r8_abs ( dx[0] );
+    dmax = fabs ( dx[0] );
 
     for ( i = 1; i < n; i++ )
     {
-      if ( dmax < r8_abs ( dx[i] ) )
+      if ( dmax < fabs ( dx[i] ) )
       {
         value = i + 1;
-        dmax = r8_abs ( dx[i] );
+        dmax = fabs ( dx[i] );
       }
     }
   }
   else
   {
     ix = 0;
-    dmax = r8_abs ( dx[0] );
+    dmax = fabs ( dx[0] );
     ix = ix + incx;
 
     for ( i = 1; i < n; i++ )
     {
-      if ( dmax < r8_abs ( dx[ix] ) )
+      if ( dmax < fabs ( dx[ix] ) )
       {
         value = i + 1;
-        dmax = r8_abs ( dx[ix] );
+        dmax = fabs ( dx[ix] );
       }
       ix = ix + incx;
     }
@@ -1295,247 +1091,4 @@ int idamax ( int n, double dx[], int incx )
 
   return value;
 }
-//****************************************************************************80
 
-bool lsame ( char ca, char cb )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LSAME returns TRUE if CA is the same letter as CB regardless of case.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 May 2005
-//
-//  Author:
-//
-//    Original FORTRAN77 version by Charles Lawson, Richard Hanson, 
-//    David Kincaid, Fred Krogh.
-//    C++ version by John Burkardt.
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for Fortran Usage,
-//    Algorithm 539,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, September 1979, pages 308-323.
-//
-//  Parameters:
-//
-//    Input, char CA, CB, the characters to compare.
-//
-//    Output, bool LSAME, is TRUE if the characters are equal,
-//    disregarding case.
-//
-{
-  if ( ca == cb )
-  {
-    return true;
-  }
-
-  if ( 'A' <= ca && ca <= 'Z' )
-  {
-    if ( ca - 'A' == cb - 'a' )
-    {
-      return true;
-    }
-  }
-  else if ( 'a' <= ca && ca <= 'z' )
-  {
-    if ( ca - 'a' == cb - 'A' )
-    {
-      return true;
-    }
-  }
-
-  return false;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of a R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 April 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_max ( double x, double y )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_MAX returns the maximum of two R8's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    18 August 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, Y, the quantities to compare.
-//
-//    Output, double R8_MAX, the maximum of X and Y.
-//
-{
-  double value;
-
-  if ( y < x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = y;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_sign ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_SIGN returns the sign of a R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    18 October 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the number whose sign is desired.
-//
-//    Output, double R8_SIGN, the sign of X.
-//
-{
-  double value;
-
-  if ( x < 0.0 )
-  {
-    value = -1.0;
-  }
-  else
-  {
-    value = 1.0;
-  }
-  return value;
-}
-//****************************************************************************80
-
-void xerbla ( char *srname, int info )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    XERBLA is an error handler for the LAPACK routines.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 May 2005
-//
-//  Author:
-//
-//    Original FORTRAN77 version by Charles Lawson, Richard Hanson, 
-//    David Kincaid, Fred Krogh.
-//    C++ version by John Burkardt.
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for Fortran Usage,
-//    Algorithm 539,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, September 1979, pages 308-323.
-//
-//  Parameters:
-//
-//    Input, char *SRNAME, the name of the routine
-//    which called XERBLA.
-//
-//    Input, int INFO, the position of the invalid parameter in
-//    the parameter list of the calling routine.
-//
-{
-  cout << "\n";
-  cout << "XERBLA - Fatal error!\n";
-  cout << "  On entry to routine " << srname << "\n";
-  cout << "  input parameter number " << info << " had an illegal value.\n";
-  exit ( 1 );
-}

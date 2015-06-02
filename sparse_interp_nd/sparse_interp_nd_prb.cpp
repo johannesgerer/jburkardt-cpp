@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SPARSE_INTERP_ND_PRB tests SPARSE_INTERP_ND.
+//    MAIN is the main program for SPARSE_INTERP_ND_PRB.
+//
+//  Discussion:
+//
+//    SPARSE_INTERP_ND_PRB tests the SPARSE_INTERP_ND library.
 //
 //  Licensing:
 //
@@ -68,7 +72,6 @@ int main ( )
   cout << " \n";
   cout << "SPARSE_INTERP_ND_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << " \n";
   timestamp ( );
 

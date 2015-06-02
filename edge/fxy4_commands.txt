@@ -1,0 +1,18 @@
+# fxy4_commands.txt
+#
+# Usage:
+#  gnuplot < fxy4_commands.txt
+#
+set term png
+set output 'fxy4.png'
+set view 30, 45
+set hidden3d
+set timestamp
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set zlabel '<--- Z --->'
+set title '2D test function #4, the discontinuous medium wave, P(x,t)'
+set grid
+set style data lines
+splot 'fxy4_data.txt' with lines
+quit

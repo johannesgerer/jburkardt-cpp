@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g hermite_rule.cpp >& compiler.txt
+g++ -c hermite_rule.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling hermite_rule.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ hermite_rule.o
 if [ $? -ne 0 ]; then

@@ -76,7 +76,6 @@ int main ( )
   std::cout << "\n";
   std::cout << "SANDIA_SGMGA_UNIQUE_INDEX_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
   

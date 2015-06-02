@@ -3,9 +3,11 @@
 # include <iomanip>
 # include <cmath>
 # include <ctime>
+# include <complex>
 
 using namespace std;
 
+# include "blas0.hpp"
 # include "blas1_d.hpp"
 
 int main ( );
@@ -21,8 +23,6 @@ void test09 ( );
 void test10 ( );
 void test11 ( );
 void test12 ( );
-double r8_uniform_01 ( int *seed );
-void timestamp ( );
 
 //****************************************************************************80
 
@@ -36,7 +36,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    BLAS1_D_PRB tests the BLAS1 routines.
+//    BLAS1_D_PRB tests the BLAS1_D library.
 //
 //  Licensing:
 //
@@ -52,7 +52,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "BLAS1_D_PRB:\n";
   cout << "  C++ version\n";
@@ -77,7 +76,6 @@ int main ( )
   cout << "\n";
   cout << "BLAS1_D_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -834,8 +832,8 @@ void test08 ( )
 
   for ( test = 1; test <= test_num; test++ )
   {
-    a = r8_uniform_01 ( &seed );
-    b = r8_uniform_01 ( &seed );
+    a = r8_uniform_01 ( seed );
+    b = r8_uniform_01 ( seed );
 
     sa = a;
     sb = b;
@@ -1243,144 +1241,4 @@ void test12 ( )
 # undef LDA
 # undef N
 }
-//****************************************************************************80
 
-double r8_uniform_01 ( int *seed )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_UNIFORM_01 returns a unit double precision pseudorandom number.
-//
-//  Discussion:
-//
-//    This routine implements the recursion
-//
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      r8_uniform_01 = seed / ( 2**31 - 1 )
-//
-//    The integer arithmetic never requires more than 32 bits,
-//    including a sign bit.
-//
-//    If the initial seed is 12345, then the first three computations are
-//
-//      Input     Output      R8_UNIFORM_01
-//      SEED      SEED
-//
-//         12345   207482415  0.096616
-//     207482415  1790989824  0.833995
-//    1790989824  2035175616  0.947702
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 August 2004
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Paul Bratley, Bennett Fox, Linus Schrage,
-//    A Guide to Simulation,
-//    Springer Verlag, pages 201-202, 1983.
-//
-//    Pierre L'Ecuyer,
-//    Random Number Generation,
-//    in Handbook of Simulation
-//    edited by Jerry Banks,
-//    Wiley Interscience, page 95, 1998.
-//
-//    Bennett Fox,
-//    Algorithm 647:
-//    Implementation and Relative Efficiency of Quasirandom
-//    Sequence Generators,
-//    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, pages 362-376, 1986.
-//
-//    Philip Lewis, Allen Goodman, James Miller,
-//    A Pseudo-Random Number Generator for the System/360,
-//    IBM Systems Journal,
-//    Volume 8, pages 136-143, 1969.
-//
-//  Parameters:
-//
-//    Input/output, int *SEED, the "seed" value.  Normally, this
-//    value should not be 0.  On output, SEED has been updated.
-//
-//    Output, double R8_UNIFORM_01, a new pseudorandom variate, strictly between
-//    0 and 1.
-//
-{
-  int k;
-  double r;
-
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
-  {
-    *seed = *seed + 2147483647;
-  }
-//
-//  Although SEED can be represented exactly as a 32 bit integer,
-//  it generally cannot be represented exactly as a 32 bit real number!
-//
-  r = ( double ) ( *seed ) * 4.656612875E-10;
-
-  return r;
-}
-//****************************************************************************80
-
-void timestamp ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TIMESTAMP prints the current YMDHMS date as a time stamp.
-//
-//  Example:
-//
-//    May 31 2001 09:45:54 AM
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    24 September 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    None
-//
-{
-# define TIME_SIZE 40
-
-  static char time_buffer[TIME_SIZE];
-  const struct tm *tm;
-  size_t len;
-  time_t now;
-
-  now = time ( NULL );
-  tm = localtime ( &now );
-
-  len = strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
-
-  cout << time_buffer << "\n";
-
-  return;
-# undef TIME_SIZE
-}

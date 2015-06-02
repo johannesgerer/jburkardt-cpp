@@ -21,7 +21,11 @@ int main ( int argc, char *argv[] )
 //
 //  Purpose:
 //
-//    PGMB_IO_PRB calls the PGMB_IO test routines.
+//    MAIN tests the PGMB_IO_PRB library.
+//
+//  Discussion:
+//
+//    PGMB_IO_PRB tests the PGMB_IO library.
 //
 //  Licensing:
 //
@@ -69,7 +73,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "PGMB_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

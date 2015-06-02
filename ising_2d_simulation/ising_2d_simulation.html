@@ -17,15 +17,17 @@
     <p>
       <b>ISING_2D_SIMULATION</b>
       is a C++ program which
-      carries out a Monte Carlo simulation of a 2D Ising model.
+      carries out a Monte Carlo simulation of a 2D Ising model,
+      using gnuplot to display the initial and final configurations.
     </p>
 
     <p>
       A 2D Ising model is defined on an MxN array of cells.  Each cell
-      can have a "charge" or "spin" of +1 or -1.  A neighborhood of a cell is defined to
-      be itself, and the four immediate neighbors to the north, south, east, and
-      west.  A cell may change its charge; the likelihood of doing so depends
-      on whether the charge of the neighbors agrees with the charge of the cell.
+      can have a "charge" or "spin" of +1 or -1.  A neighborhood of a cell is
+      defined to be itself, and the four immediate neighbors to the north, 
+      south, east, and west.  A cell may change its charge; the likelihood of
+      doing so depends on whether the charge of the neighbors agrees with the
+      charge of the cell.
     </p>
 
     <p>
@@ -135,6 +137,23 @@
     </p>
 
     <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which
+      illustrate how a program can write data and command files
+      so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/high_card_simulation/high_card_simulation.html">
+      HIGH_CARD_SIMULATION</a>,
+      a C++ program which
+      simulates a situation in which you see the cards in a deck one by one,
+      and must select the one you think is the highest and stop;
+      the program uses GNUPLOT for graphics.
+    </p>
+
+    <p>
       <a href = "../../cpp_src/ising_2d_simulation/ising_2d_simulation.html">
       ISING_2D_SIMULATION</a>,
       a C++ program which
@@ -200,7 +219,7 @@
     </p>
 
     <h3 align = "center">
-      Source Code:
+      Examples and Tests:
     </h3>
 
     <p>
@@ -208,6 +227,22 @@
         <li>
           <a href = "ising_2d_output.txt">ising_2d_output.txt</a>, 
           the output file, using the default options.
+        </li>
+        <li>
+          <a href = "ising_2d_initial.txt">ising_2d_initial.txt</a>, 
+          GNUPLOT commands to plot the initial configuration.
+        </li>
+        <li>
+          <a href = "ising_2d_initial.png">ising_2d_initial.png</a>, 
+          a plot of the initial configuration.
+        </li>
+        <li>
+          <a href = "ising_2d_final.txt">ising_2d_final.txt</a>, 
+          GNUPLOT commands to plot the final configuration.
+        </li>
+        <li>
+          <a href = "ising_2d_final.png">ising_2d_final.png</a>, 
+          a plot of the final configuration.
         </li>
       </ul>
     </p>

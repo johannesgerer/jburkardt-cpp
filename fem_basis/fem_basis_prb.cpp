@@ -25,7 +25,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    FEM_BASIS_PRB
+//    MAIN is the main program for FEM_BASIS_PRB.
+//
+//  Discussion:
+//
+//    FEM_BASIS_PRB tests the FEM_BASIS library.
 //
 //  Licensing:
 //
@@ -41,7 +45,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "FEM_BASIS_PRB:\n";
   cout << "  C++ version.\n";

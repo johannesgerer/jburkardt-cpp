@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c precision_output.cpp >& compiler.txt
+g++ -c precision_output.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling precision_output.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ precision_output.o
 if [ $? -ne 0 ]; then

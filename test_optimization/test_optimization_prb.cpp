@@ -26,7 +26,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TEST_OPTIMIZATION_PRB calls the TEST_OPTIMIZATION tests.
+//    TEST_OPTIMIZATION_PRB tests the TEST_OPTIMIZATION library.
 //
 //  Licensing:
 //
@@ -42,7 +42,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TEST_OPTIMIZATION_PRB\n";
   cout << "  C++ version\n";
@@ -57,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "TEST_OPTIMIZATION_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

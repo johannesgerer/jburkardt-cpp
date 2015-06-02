@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c heated_plate.cpp >& compiler.txt
+g++ -c heated_plate.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling heated_plate.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ heated_plate.o -lm
 if [ $? -ne 0 ]; then

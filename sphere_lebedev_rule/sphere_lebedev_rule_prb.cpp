@@ -24,7 +24,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPHERE_LEBEDEV_RULE_PRB calls the SPHERE_LEBEDEV_RULE tests.
+//    SPHERE_LEBEDEV_RULE_PRB tests the SPHERE_LEBEDEV_RULE library.
 //
 //  Licensing:
 //
@@ -53,7 +53,6 @@ int main ( )
   cout << "\n";
   cout << "SPHERE_LEBEDEV_RULE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

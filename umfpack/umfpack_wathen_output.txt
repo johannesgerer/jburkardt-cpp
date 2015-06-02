@@ -1,0 +1,15 @@
+20 July 2014 11:37:48 PM
+
+UMFPACK_WATHEN:
+  C++ version
+  Use UMFPACK to solve a sparse linear system A*x=b.
+
+  Number of ST values = 576
+  Number of CC values = 472
+
+  L2 error ||X1 - X2||: 3.47827e-15
+
+UMFPACK_SIMPLE:
+  Normal end of execution.
+
+20 July 2014 11:37:48 PM

@@ -1,0 +1,252 @@
+<html>
+
+  <head>
+    <title>
+      CUBE_EXACTNESS - Exactness of 3D Quadrature Rules
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      CUBE_EXACTNESS <br> Exactness of 3D Quadrature Rules
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CUBE_EXACTNESS</b>
+      is a C++ library which
+      investigates the polynomial exactness of quadrature rules
+      over the interior of a cube in 3D.
+    </p>
+
+    <p>
+      We assume that the integral to be approximated is of a Legendre
+      type, over a rectangular region:
+      <pre>
+        I(f) = integral ( z1 &lt;= z &lt;= z2 )
+               integral ( y1 &lt;= y &lt;= y2 ) 
+               integral ( x1 &lt;= x &lt;= x2 ) f(x,y,z) dx dy dz
+      </pre>
+      and that such integrals are to be approximated by:
+      <pre>
+        Q(f) = sum ( 1 &lt;= i &lt;= N ) w(i) * f(x(i),y(i),z(i))
+      </pre>
+    </p>
+
+    <p>
+      To determine the exactness of a given quadrature rule, we simply compare 
+      the exact integral I(f) to the estimated integral Q(f) for a sequence of
+      monomials of increasing total degree D.  This sequence begins with:
+      <pre>
+        D = 0:  1
+        D = 1:  x    y     z
+        D = 2:  x^2  xy    xz    y^2   yz   z^2 
+        D = 3:  x^3  x^2y  x^2z  xy^2  xyz  xz^2  y^3  y^2z  yz^2  z^3
+      </pre>
+      and the exactness of a quadrature rule is defined as the largest value 
+      of D such that I(f) and Q(f) are equal for all monomials up to and
+      including those of total degree D.
+    </p>
+
+    <p>
+      Note that if the 3D quadrature rule is formed as a product of
+      two 1D rules, then knowledge of the 1D exactness of the individual
+      factors gives sufficient information to determine the exactness
+      of the product rule, which will simply be the minimum of the exactnesses
+      of the three factor rules.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>CUBE_EXACTNESS</b> is available in
+      <a href = "../../c_src/cube_exactness/cube_exactness.html">a C version</a> and
+      <a href = "../../cpp_src/cube_exactness/cube_exactness.html">a C++ version</a> and
+      <a href = "../../f77_src/cube_exactness/cube_exactness.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/cube_exactness/cube_exactness.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/cube_exactness/cube_exactness.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cube_felippa_rule/cube_felippa_rule.html">
+      CUBE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a cube in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cube_grid/cube_grid.html">
+      CUBE_GRID</a>,
+      a C++ library which
+      computes a grid of points
+      over the interior of a cube in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hypercube_exactness/hypercube_exactness.html">
+      HYPERCUBE_EXACTNESS</a>,
+      a C++ program which
+      measures the monomial exactness of an M-dimensional quadrature rule
+      over the interior of the unit hypercube in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pyramid_exactness/pyramid_exactness.html">
+      PYRAMID_EXACTNESS</a>,
+      a C++ program which
+      investigates the monomial exactness of a quadrature rule 
+      over the interior of a pyramid in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_exactness/sphere_exactness.html">
+      SPHERE_EXACTNESS</a>,
+      a C++ program which
+      tests the monomial exactness of a quadrature rule
+      on the surface of the unit sphere in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/square_exactness/square_exactness.html">
+      SQUARE_EXACTNESS</a>,
+      a C++ library which
+      investigates the polynomial exactness of quadrature rules for f(x,y) 
+      over the interior of a rectangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_exactness/tetrahedron_exactness.html">
+      TETRAHEDRON_EXACTNESS</a>,
+      a C++ program which
+      investigates the monomial exactness of a quadrature rule 
+      over the interior of a tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_exactness/triangle_exactness.html">
+      TRIANGLE_EXACTNESS</a>,
+      a C++ program which
+      investigates the monomial exactness quadrature rule 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wedge_exactness/wedge_exactness.html">
+      WEDGE_EXACTNESS</a>,
+      a C++ program which
+      investigates the monomial exactness of a quadrature rule 
+      over the interior of the unit wedge in 3D.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Philip Davis, Philip Rabinowitz,<br>
+          Methods of Numerical Integration,<br>
+          Second Edition,<br>
+          Dover, 2007,<br>
+          ISBN: 0486453391,<br>
+          LC: QA299.3.D28.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "cube_exactness.cpp">cube_exactness.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "cube_exactness.hpp">cube_exactness.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "cube_exactness.sh">cube_exactness.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "cube_exactness_prb.cpp">cube_exactness_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "cube_exactness_prb.sh">cube_exactness_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "cube_exactness_prb_output.txt">cube_exactness_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>LEGENDRE_3D_EXACTNESS:</b> monomial exactness for the 3D Legendre integral.
+        </li>
+        <li>
+          <b>LEGENDRE_3D_MONOMIAL_INTEGRAL</b> the Legendre integral of a monomial.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 16 August 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

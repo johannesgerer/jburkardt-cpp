@@ -1,0 +1,12 @@
+set term png
+set grid
+set style data lines
+set size ratio 0.150043
+set timestamp
+unset key
+set output 'symmetric.png'
+set xlabel '<---X--->'
+set ylabel '<---Y--->'
+set title 'NACA Symmetric Airfoil'
+plot 'symmetric_data.txt' using 1:2 with lines lw 3
+quit

@@ -1,0 +1,126 @@
+25 January 2013 02:39:07 PM
+
+FEM2D_POISSON_SPARSE:
+  C++ version:
+
+  Compiled on Jan 25 2013 at 14:39:03.
+
+  A version of FEM2D_POISSON using sparse storage
+  and an iterative solver.
+
+  Solution of the Poisson equation in an arbitrary region
+  in 2 dimensions.
+
+  - DEL H(x,y) DEL U(x,y) + K(x,y) * U(x,y) = F(x,y) in the region
+
+                                     U(x,y) = G(x,y) on the boundary.
+
+  The finite element method is used,
+  with triangular elements,
+  which must be a 3 node linear triangle.
+
+  Node file is "baffle_nodes.txt".
+  Element file is "baffle_elements.txt".
+  Number of nodes =          512
+
+  First 10 nodes
+
+  Row:       1             2       
+  Col
+
+    1              0             1
+    2              0         1.375
+    3              0          1.75
+    4              0         2.125
+    5              0           2.5
+    6              0         2.875
+    7              0          3.25
+    8              0         3.625
+    9              0             4
+   10              0         4.375
+
+  Element order =            3
+  Number of elements =       874
+
+  First 10 elements
+
+  Row:      1       2       3  
+  Col
+
+    1     317     306     298  
+    2      28       3      18  
+    3       4       3      28  
+    4      28      33       4  
+    5      72      69      57  
+    6      49      33      28  
+    7     114     106     122  
+    8      84      80      67  
+    9      88      69      72  
+   10     147     133     131  
+
+  Quadrature order =          3
+
+  Number of nonzero coefficients NZ_NUM = 3308
+  ITR = 1  Residual = 22.4453
+  K =   1  Residual = 8.1109
+  K =   2  Residual = 5.46359
+  K =   3  Residual = 3.72912
+  K =   4  Residual = 2.70686
+  K =   5  Residual = 2.01206
+  K =   6  Residual = 1.3362
+  K =   7  Residual = 0.77398
+  K =   8  Residual = 0.399518
+  K =   9  Residual = 0.217129
+  K =   10  Residual = 0.126072
+  K =   11  Residual = 0.0718644
+  K =   12  Residual = 0.0382729
+  K =   13  Residual = 0.0218797
+  K =   14  Residual = 0.0141424
+  K =   15  Residual = 0.00895071
+  K =   16  Residual = 0.00483571
+  K =   17  Residual = 0.00257604
+  K =   18  Residual = 0.00138985
+  K =   19  Residual = 0.000822672
+  K =   20  Residual = 0.000531744
+  ITR = 2  Residual = 0.000531744
+  K =   1  Residual = 0.000400467
+  K =   2  Residual = 0.000252209
+  K =   3  Residual = 0.000143165
+  K =   4  Residual = 7.72489e-05
+  K =   5  Residual = 4.29428e-05
+  K =   6  Residual = 2.65632e-05
+  K =   7  Residual = 1.67421e-05
+  K =   8  Residual = 9.74224e-06
+  K =   9  Residual = 5.45471e-06
+  K =   10  Residual = 2.98395e-06
+  K =   11  Residual = 1.5875e-06
+  K =   12  Residual = 8.4608e-07
+
+MGMRES
+  Number of iterations = 32
+  Final residual = 8.4608e-07
+
+  Part of the solution vector vector U:
+
+         1       9.99811e-10
+         2       4.37755e-09
+         3       3.79708e-09
+         4       2.57116e-09
+         5       1.90107e-09
+         6       3.02659e-10
+         7       1.17906e-09
+         8       5.03328e-10
+         9       2.00627e-10
+        10       2.90198e-09
+
+FEM2D_POISSON_SPARSE:
+  Wrote an ASCII file
+    "baffle_solution.txt".
+  of the form
+    U ( X(I), Y(I) )
+  which can be used for plotting.
+
+FEM2D_POISSON_SPARSE:
+  Normal end of execution.
+
+25 January 2013 02:39:07 PM

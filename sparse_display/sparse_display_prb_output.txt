@@ -1,0 +1,32 @@
+16 September 2014 11:36:54 PM
+
+SPARSE_DISPLAY_PRB
+  C++ version
+  Test the SPARSE_DISPLAY library.
+
+TEST01
+  SPY_GE generates a sparsity plot for a matrix stored
+  in general (GE) format.
+
+  Created sparsity data file 'wathen_ge_data.txt'
+  Created graphics command file 'wathen_ge_commands.txt'
+
+TEST02
+  SPY_FILE generates a sparsity plot for a matrix for
+  which there exists a file containing all the pairs
+  (I,J) corresponding to nonzero entries.
+  Created graphics command file 'before_commands.txt'
+  Created graphics command file 'after_commands.txt'
+
+TEST03
+  SPY_GE generates a sparsity plot for a matrix stored
+  in general (GE) format.
+  Just to orient ourselves, generate an upper triangular matrix.
+
+  Created sparsity data file '20x30_data.txt'
+  Created graphics command file '20x30_commands.txt'
+
+SPARSE_DISPLAY_PRB
+  Normal end of execution.
+
+16 September 2014 11:36:54 PM

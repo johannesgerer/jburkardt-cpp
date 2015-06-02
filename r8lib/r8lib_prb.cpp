@@ -9,217 +9,319 @@ using namespace std;
 
 int main ( );
 
-void test001 ( );
-void test002 ( );
-void test003 ( );
-void test004 ( );
-void test005 ( );
-void test006 ( );
-void test007 ( );
-void test008 ( );
-void test009 ( );
+void i4int_to_r8int_test ( );
 
-void test010 ( );
-void test011 ( );
-void test012 ( );
-void test013 ( );
-void test014 ( );
-void test015 ( );
-void test016 ( );
-void test017 ( );
-void test018 ( );
-void test019 ( );
+void perm0_check_test ( );
+void perm0_uniform_test ( );
 
-void test020 ( );
-void test021 ( );
-void test022 ( );
-void test023 ( );
-void test0235 ( );
-void test024 ( );
-void test025 ( );
-void test026 ( );
-void test027 ( );
-void test028 ( );
-void test029 ( );
-void test0295 ( );
+void perm1_check_test ( );
+void perm1_uniform_test ( );
 
-void test031 ( );
-void test032 ( );
-void test033 ( );
-void test034 ( );
-void test035 ( );
-void test036 ( );
-void test0363 ( );
-void test0365 ( );
-void test037 ( );
-void test038 ( );
-void test0385 ( );
-void test039 ( );
-void test0393 ( );
-void test0395 ( );
-void test0397 ( );
+void r8_abs_test ( );
+void r8_acos_test ( );
+void r8_acosh_test ( );
+void r8_asinh_test ( );
+void r8_atan_test ( );
+void r8_atanh_test ( );
+void r8_big_test ( );
+void r8_cas_test ( );
+void r8_ceiling_test ( );
+void r8_choose_test ( );
+void r8_cosd_test ( );
+void r8_cotd_test ( );
+void r8_cscd_test ( );
+void r8_cube_root_test ( );
+void r8_diff_test ( );
+void r8_digit_test ( );
+void r8_e_test ( );
+void r8_epsilon_test ( );
+void r8_epsilon_compute_test ( );
+void r8_factorial_test ( );
+void r8_factorial2_test ( );
+void r8_fall_test ( );
+void r8_fractional_test ( );
+void r8_gamma_test ( );
+void r8_gamma_log_test ( );
+void r8_huge_test ( );
+void r8_log_2_test ( );
+void r8_log_b_test ( );
+void r8_mant_test ( );
+void r8_max_test ( );
+void r8_min_test ( );
+void r8_mod_test ( );
+void r8_modp_test ( );
+void r8_mop_test ( );
+void r8_nint_test ( );
+void r8_normal_01_test ( );
+void r8_pi_test ( );
+void r8_power_test ( );
+void r8_power_fast_test ( );
+void r8_rise_test ( );
+void r8_round2_test ( );
+void r8_roundb_test ( );
+void r8_roundx_test ( );
+void r8_secd_test ( );
+void r8_sign_test ( );
+void r8_sign3_test ( );
+void r8_sind_test ( );
+void r8_swap_test ( );
+void r8_swap3_test ( );
+void r8_tand_test ( );
+void r8_to_i4_test ( );
+void r8_to_r8_discrete_test ( );
+void r8_uniform_01_test ( );
+void r8_uniform_ab_test ( );
+void r8_walsh_1d_test ( );
+void r8_wrap_test ( );
 
-void test040 ( );
-void test041 ( );
-void test0415 ( );
-void test042 ( );
-void test043 ( );
-void test044 ( );
-void test0442 ( );
-void test0443 ( );
-void test0445 ( );
-void test045 ( );
-void test046 ( );
-void test047 ( );
-void test048 ( );
-void test049 ( );
+void r82col_print_part_test ( );
 
-void test050 ( );
-void test051 ( );
-void test052 ( );
-void test053 ( );
-void test054 ( );
-void test055 ( );
-void test0555 ( );
-void test056 ( );
-void test057 ( );
-void test058 ( );
-double test058_f ( int n, double x[] );
-double *test058_hess ( int n, double x[] );
-void test059 ( );
+void r82poly2_type_test ( );
 
-void test060 ( );
-void test061 ( );
-void test062 ( );
-void test063 ( );
-void test064 ( );
-void test065 ( );
-void test066 ( );
-double *test067_f ( int m, int n, double x[] );
-double *test067_jac ( int m, int n, double x[] );
-void test067 ( );
-void test068 ( );
-void test069 ( );
+void r82row_order_type_test( );
+void r82row_part_quick_a_test ( );
+void r82row_print_part_test ( );
+void r82row_sort_heap_index_a_test ( );
+void r82row_sort_quick_a_test ( );
 
-void test070 ( );
-void test071 ( );
-void test072 ( );
-void test073 ( );
-void test0731 ( );
-void test0732 ( );
-void test0733 ( );
-void test0734 ( );
-void test0735 ( );
-void test0736 ( );
-void test07365 ( );
-void test0737 ( );
-void test074 ( );
-void test075 ( );
-void test076 ( );
-void test0764 ( );
-void test0766 ( );
-void test077 ( );
-void test0775 ( );
-void test0776 ( );
-void test078 ( );
-void test079 ( );
+void r83col_print_part_test ( );
 
-void test080 ( );
-void test081 ( );
-void test082 ( );
-void test083 ( );
-void test084 ( );
-void test085 ( );
-void test086 ( );
-void test087 ( );
-void test088 ( );
-void test089 ( );
+void r83row_print_part_test ( );
 
-void test090 ( );
-void test091 ( );
-void test092 ( );
-void test093 ( );
-void test094 ( );
-void test095 ( );
-void test098 ( );
-void test099 ( );
+void r8block_expand_linear_test ( );
+void r8block_new_test ( );
+void r8block_print_test ( );
 
-void test100 ( );
-void test100_f ( double x, double *y, double *yp, double *ypp );
-void test101 ( );
-void test105 ( );
-void test106 ( );
-void test107 ( );
-void test108 ( );
-void test109 ( );
+void r8cmat_to_r8mat_new_test ( );
 
-void test110 ( );
-void test111 ( );
-void test112 ( );
-void test113 ( );
-void test114 ( );
-void test1143 ( );
-void test1145 ( );
-void test1147 ( );
-void test115 ( );
-void test116 ( );
-double test116_f ( double x );
-void test1165 ( );
-void test1166 ( );
-void test117 ( );
-void test118 ( );
+void r8col_find_test ( );
+void r8col_insert_test ( );
+void r8col_sort_heap_a_test ( );
+void r8col_sort_heap_index_a_test ( );
+void r8col_sort_quick_a_test ( );
+void r8col_sorted_tol_unique_test ( );
+void r8col_sorted_unique_count_test ( );
+void r8col_sorted_tol_undex_test ( );
+void r8col_max_test ( );
+void r8col_mean_test ( );
+void r8col_min_test ( );
+void r8col_permute_test ( );
+void r8col_sortr_a_test ( );
+void r8col_sum_test ( );
+void r8col_swap_test ( );
+void r8col_to_r8vec_test ( );
+void r8col_tol_undex_test ( );
+void r8col_undex_test ( );
+void r8col_unique_count_test ( );
+void r8col_variance_test ( );
 
-void test120 ( );
-void test121 ( );
-void test122 ( );
-void test123 ( );
-void test124 ( );
-void test125 ( );
-void test1251 ( );
-void test1252 ( );
-void test1255 ( );
-void test1256 ( );
-void test1258 ( );
-void test126 ( );
-void test127 ( );
-void test128 ( );
-void test129 ( );
+void r8int_to_i4int_test ( );
 
-void test130 ( );
-void test131 ( );
-void test132 ( );
-void test133 ( );
-void test134 ( );
-void test135 ( );
-void test136 ( );
-void test137 ( );
-void test138 ( );
-void test139 ( );
+void r8mat_cholesky_inverse_test ( );
+void r8mat_cholesky_solve_test ( );
+void r8mat_cholesky_solve_upper_test ( );
+void r8mat_det_2d_test ( );
+void r8mat_det_3d_test ( );
+void r8mat_det_4d_test ( );
+void r8mat_det_5d_test ( );
+void r8mat_expand_linear_test ( );
+void r8mat_expand_linear2_test ( );
+void r8mat_fs_new_test ( );
+void r8mat_fss_new_test ( );
+void r8mat_givens_post_test ( );
+void r8mat_givens_pre_test ( );
+void r8mat_hess_test ( );
+double r8mat_hess_f ( int n, double x[] );
+double *r8mat_hess_exact ( int n, double x[] );
+void r8mat_house_axh_test ( );
+void r8mat_house_form_test ( );
+void r8mat_house_post_test ( );
+void r8mat_house_pre_test ( );
+void r8mat_indicator_new_test ( );
+void r8mat_inverse_2d_test ( );
+void r8mat_inverse_3d_test ( );
+void r8mat_inverse_4d_test ( );
+void r8mat_jac_test ( );
+double *r8mat_jac_f ( int m, int n, double x[] );
+double *r8mat_jac_exact ( int m, int n, double x[] );
+void r8mat_kronecker_test ( );
+void r8mat_l_inverse_test ( );
+void r8mat_l_print_test ( );
+void r8mat_l1_inverse_test ( );
+void r8mat_lu_test ( );
+void r8mat_max_test ( );
+void r8mat_max_index_test ( );
+void r8mat_maxcol_minrow_test ( );
+void r8mat_maxrow_mincol_test ( );
+void r8mat_min_test ( );
+void r8mat_min_index_test ( );
+void r8mat_mincol_maxrow_test ( );
+void r8mat_minrow_maxcol_test ( );
+void r8mat_mm_test ( );
+void r8mat_mm_new_test ( );
+void r8mat_mv_new_test ( );
+void r8mat_mv_test ( );
+void r8mat_mtv_new_test ( );
+void r8mat_mtv_test ( );
+void r8mat_nint_test ( );
+void r8mat_nonzeros_test ( );
+void r8mat_norm_fro_test ( );
+void r8mat_norm_l1_test ( );
+void r8mat_nullspace_test ( );
+void r8mat_nullspace_size_test ( );
+void r8mat_orth_uniform_new_test ( );
+void r8mat_plot_test ( );
+void r8mat_power_method_test ( );
+void r8mat_print_test ( );
+void r8mat_print_some_test ( );
+void r8mat_ref_test ( );
+void r8mat_rref_test ( );
+void r8mat_solve_test ( );
+void r8mat_solve_2d_test ( );
+void r8mat_solve_3d_test ( );
+void r8mat_solve2_test ( );
+void r8mat_sub_new_test ( );
+void r8mat_symm_jacobi_test ( );
+void r8mat_to_r8cmat_new_test ( );
+void r8mat_to_r8plu_test ( );
+void r8mat_to_r8rmat_test ( );
+void r8mat_trace_test ( );
+void r8mat_transpose_new_test ( );
+void r8mat_transpose_print_test ( );
+void r8mat_u_inverse_test ( );
+void r8mat_u1_inverse_test ( );
+void r8mat_uniform_ab_new_test ( );
 
-void test140 ( );
-void test141 ( );
-void test142 ( );
-void test143 ( );
-void test144 ( );
-void test145 ( );
-void test146 ( );
-void test1465 ( );
-void test147 ( );
-void test1475 ( );
-void test148 ( );
-void test149 ( );
+void r8plu_det_test ( );
+void r8plu_inverse_test ( );
+void r8plu_mul_test ( );
+void r8plu_sol_test ( );
+void r8plu_to_r8mat_test ( );
 
-void test150 ( );
-void test1504 ( );
-void test1505 ( );
-void test151 ( );
-void test152 ( );
-void test153 ( );
-void test154 ( );
-void test155 ( );
-void test156 ( );
-void test157 ( );
-void test158 ( );
+void r8poly_degree_test ( );
+void r8poly_deriv_test ( );
+void r8poly_lagrange_coef_test ( );
+void r8poly_lagrange_0_test ( );
+void r8poly_lagrange_1_test ( );
+void r8poly_lagrange_2_test ( );
+void r8poly_lagrange_factor_test ( );
+void r8poly_lagrange_val_test ( );
+void r8poly_print_test ( );
+void r8poly_value_horner_test ( );
+void r8poly_values_horner_test ( );
+
+void r8poly2_ex_test ( );
+void r8poly2_ex2_test ( );
+void r8poly2_val_test ( );
+void r8poly2_val_f ( double x, double *y, double *yp, double *ypp );
+void r8poly2_val2_test ( );
+
+void r8rmat_new_test ( );
+void r8rmat_to_r8mat_test ( );
+
+void r8row_max_test ( );
+void r8row_mean_test ( );
+void r8row_min_test ( );
+void r8row_sum_test ( );
+void r8row_swap_test ( );
+void r8row_to_r8vec_test ( );
+void r8row_variance_test ( );
+
+void r8r8vec_index_insert_unique_test ( );
+
+void r8r8r8vec_index_insert_unique_test ( );
+
+void r8slmat_print_test ( );
+
+void r8vec_amax_test ( );
+void r8vec_amin_test ( );
+void r8vec_bracket_test ( );
+void r8vec_bracket2_test ( );
+void r8vec_bracket3_test ( );
+void r8vec_bracket5_test ( );
+void r8vec_chebyspace_new_test ( );
+void r8vec_concatenate_new_test ( );
+void r8vec_convolution_test ( );
+void r8vec_convolution_circ_test ( );
+void r8vec_dif_test ( );
+double r8vec_dif_f ( double x );
+void r8vec_direct_product_test ( );
+void r8vec_direct_product2_test ( );
+void r8vec_even_test ( );
+void r8vec_even2_test ( );
+void r8vec_expand_linear_test ( );
+void r8vec_frac_test ( );
+void r8vec_histogram_test ( );
+void r8vec_house_column_test ( );
+void r8vec_index_delete_all_test ( );
+void r8vec_index_delete_dupes_test ( );
+void r8vec_index_delete_one_test ( );
+void r8vec_index_insert_test ( );
+void r8vec_index_insert_unique_test ( );
+void r8vec_index_order_test ( );
+void r8vec_index_search_test ( );
+void r8vec_index_sorted_range_test ( );
+void r8vec_indexed_heap_d_test ( );
+void r8vec_indexed_heap_d_extract_test ( );
+void r8vec_indexed_heap_d_insert_test ( );
+void r8vec_indexed_heap_d_max_test ( );
+void r8vec_indicator0_new_test ( );
+void r8vec_legendre_test ( );
+void r8vec_linspace_new_test ( );
+void r8vec_max_test ( );
+void r8vec_max_index_test ( );
+void r8vec_mean_test ( );
+void r8vec_median_test ( );
+void r8vec_midspace_new_test ( );
+void r8vec_min_test ( );
+void r8vec_min_index_test ( );
+void r8vec_nint_test ( );
+void r8vec_norm_l0_test ( );
+void r8vec_norm_l1_test ( );
+void r8vec_norm_l2_test ( );
+void r8vec_norm_li_test ( );
+void r8vec_normal_01_test ( );
+void r8vec_normalize_l1_test ( );
+void r8vec_order_type_test ( );
+void r8vec_permute_test ( );
+void r8vec_permute_uniform_test ( );
+void r8vec_polarize_test ( );
+void r8vec_print_test ( );
+void r8vec_rotate_test ( );
+void r8vec_reverse_test ( );
+void r8vec_search_binary_a_test ( );
+void r8vec_sort_bubble_a_test ( );
+void r8vec_sort_heap_a_test ( );
+void r8vec_sort_heap_d_test ( );
+void r8vec_sort_heap_index_a_new_test ( );
+void r8vec_sort_heap_index_d_new_test ( );
+void r8vec_sort_heap_mask_a_test ( );
+void r8vec_sort_insert_a_test ( );
+void r8vec_sort_insert_index_a_test ( );
+void r8vec_sort_quick_a_test ( );
+void r8vec_sorted_merge_a_test ( );
+void r8vec_sorted_nearest_test ( );
+void r8vec_sorted_range_test ( );
+void r8vec_sorted_split_test ( );
+void r8vec_sorted_undex_test ( );
+void r8vec_sorted_unique_test ( );
+void r8vec_sorted_unique_count_test ( );
+void r8vec_sorted_unique_hist_test ( );
+void r8vec_split_test ( );
+void r8vec_transpose_print_test ( );
+void r8vec_undex_test ( );
+void r8vec_uniform_01_new_test ( );
+void r8vec_uniform_ab_new_test ( );
+void r8vec_variance_test ( );
+
+void r8vec2_sort_a_test ( );
+void r8vec2_sort_d_test ( );
+void r8vec2_sort_heap_index_a_test ( );
+void r8vec2_sorted_unique_test ( );
+void r8vec2_sorted_unique_index_test ( );
+void r8vec2_sum_max_index_test ( );
+
+void roots_to_r8poly_test ( );
 
 //****************************************************************************80
 
@@ -233,7 +335,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    R8LIB_PRB calls the R8LIB tests.
+//    R8LIB_PRB tests the R8LIB library.
 //
 //  Licensing:
 //
@@ -241,7 +343,7 @@ int main ( )
 //
 //  Modified:
 //
-//    25 June 2012
+//    23 May 2015
 //
 //  Author:
 //
@@ -254,218 +356,319 @@ int main ( )
   cout << "  C++ version\n";
   cout << "  Test the R8LIB library.\n";
 
-  test001 ( );
-  test002 ( );
-  test003 ( );
-  test004 ( );
-  test005 ( );
-  test006 ( );
-  test007 ( );
-  test008 ( );
-  test009 ( );
+  i4int_to_r8int_test ( );
 
-  test010 ( );
-  test011 ( );
-  test012 ( );
-  test013 ( );
-  test014 ( );
-  test015 ( );
-  test016 ( );
-  test017 ( );
-  test018 ( );
-  test019 ( );
+  perm0_check_test ( );
+  perm0_uniform_test ( );
 
-  test020 ( );
-  test021 ( );
-  test022 ( );
-  test023 ( );
-  test0235 ( );
-  test024 ( );
-  test025 ( );
-  test026 ( );
-  test027 ( );
-  test028 ( );
-  test029 ( );
-  test0295 ( );
+  perm1_check_test ( );
+  perm1_uniform_test ( );
 
-  test031 ( );
-  test032 ( );
-  test033 ( );
-  test034 ( );
-  test035 ( );
-  test036 ( );
-  test0363 ( );
-  test0365 ( );
-  test037 ( );
-  test038 ( );
-  test0385 ( );
-  test039 ( );
-  test0393 ( );
-  test0395 ( );
-  test0397 ( );
+  r8_abs_test ( );
+  r8_acos_test ( );
+  r8_acosh_test ( );
+  r8_asinh_test ( );
+  r8_atan_test ( );
+  r8_atanh_test ( );
+  r8_big_test ( );
+  r8_cas_test ( );
+  r8_ceiling_test ( );
+  r8_choose_test ( );
+  r8_cosd_test ( );
+  r8_cotd_test ( );
+  r8_cscd_test ( );
+  r8_cube_root_test ( );
+  r8_diff_test ( );
+  r8_digit_test ( );
+  r8_e_test ( );
+  r8_epsilon_test ( );
+  r8_epsilon_compute_test ( );
+  r8_factorial_test ( );
+  r8_factorial2_test ( );
+  r8_fall_test ( );
+  r8_fractional_test ( );
+  r8_gamma_test ( );
+  r8_gamma_log_test ( );
+  r8_huge_test ( );
+  r8_log_2_test ( );
+  r8_log_b_test ( );
+  r8_mant_test ( );
+  r8_max_test ( );
+  r8_min_test ( );
+  r8_mod_test ( );
+  r8_modp_test ( );
+  r8_mop_test ( );
+  r8_nint_test ( );
+  r8_normal_01_test ( );
+  r8_pi_test ( );
+  r8_power_test ( );
+  r8_power_fast_test ( );
+  r8_rise_test ( );
+  r8_round2_test ( );
+  r8_roundb_test ( );
+  r8_roundx_test ( );
+  r8_secd_test ( );
+  r8_sign_test ( );
+  r8_sign3_test ( );
+  r8_sind_test ( );
+  r8_swap_test ( );
+  r8_swap3_test ( );
+  r8_tand_test ( );
+  r8_to_i4_test ( );
+  r8_to_r8_discrete_test ( );
+  r8_uniform_01_test ( );
+  r8_uniform_ab_test ( );
+  r8_walsh_1d_test ( );
+  r8_wrap_test ( );
 
-  test040 ( );
-  test041 ( );
-  test0415 ( );
-  test042 ( );
-  test043 ( );
-  test044 ( );
-  test0442 ( );
-  test0443 ( );
-  test0445 ( );
-  test045 ( );
-  test046 ( );
-  test047 ( );
-  test048 ( );
-  test049 ( );
+  r82col_print_part_test ( );
 
-  test050 ( );
-  test051 ( );
-  test052 ( );
-  test053 ( );
-  test054 ( );
-  test055 ( );
-  test0555 ( );
-  test056 ( );
-  test057 ( );
-  test058 ( );
-  test059 ( );
+  r82poly2_type_test ( );
 
-  test060 ( );
-  test061 ( );
-  test062 ( );
-  test063 ( );
-  test064 ( );
-  test065 ( );
-  test066 ( );
-  test067 ( );
-  test068 ( );
-  test069 ( );
+  r82row_order_type_test ( );
+  r82row_part_quick_a_test ( );
+  r82row_print_part_test ( );
+  r82row_sort_heap_index_a_test ( );
+  r82row_sort_quick_a_test ( );
 
-  test070 ( );
-  test071 ( );
-  test072 ( );
-  test073 ( );
-  test0731 ( );
-  test0732 ( );
-  test0733 ( );
-  test0734 ( );
-  test0735 ( );
-  test0736 ( );
-  test07365 ( );
-  test0737 ( );
-  test074 ( );
-  test075 ( );
-  test076 ( );
-  test0764 ( );
-  test0766 ( );
-  test077 ( );
-  test0775 ( );
-  test0776 ( );
-  test078 ( );
-  test079 ( );
+  r83col_print_part_test ( );
 
-  test080 ( );
-  test081 ( );
-  test082 ( );
-  test083 ( );
-  test084 ( );
-  test085 ( );
-  test086 ( );
-  test086 ( );
-  test088 ( );
-  test089 ( );
+  r83row_print_part_test ( );
 
-  test090 ( );
-  test091 ( );
-  test092 ( );
-  test093 ( );
-  test094 ( );
-  test095 ( );
-  test098 ( );
-  test099 ( );
+  r8block_expand_linear_test ( );
+  r8block_new_test ( );
+  r8block_print_test ( );
 
-  test100 ( );
-  test101 ( );
-  test105 ( );
-  test106 ( );
-  test107 ( );
-  test108 ( );
-  test109 ( );
+  r8cmat_to_r8mat_new_test ( );
 
-  test110 ( );
-  test111 ( );
-  test112 ( );
-  test113 ( );
-  test114 ( );
-  test1143 ( );
-  test1145 ( );
-  test1147 ( );
-  test115 ( );
-  test116 ( );
-  test1165 ( );
-  test1166 ( );
-  test117 ( );
-  test118 ( );
+  r8col_find_test ( );
+  r8col_insert_test ( );
+  r8col_sort_heap_a_test ( );
+  r8col_sort_heap_index_a_test ( );
+  r8col_sort_quick_a_test ( );
+  r8col_sorted_tol_unique_test ( );
+  r8col_sorted_unique_count_test ( );
+  r8col_sorted_tol_undex_test ( );
+  r8col_max_test ( );
+  r8col_mean_test ( );
+  r8col_min_test ( );
+  r8col_permute_test ( );
+  r8col_sortr_a_test ( );
+  r8col_sum_test ( );
+  r8col_swap_test ( );
+  r8col_to_r8vec_test ( );
+  r8col_tol_undex_test ( );
+  r8col_undex_test ( );
+  r8col_unique_count_test ( );
+  r8col_variance_test ( );
 
-  test120 ( );
-  test121 ( );
-  test122 ( );
-  test123 ( );
-  test124 ( );
-  test125 ( );
-  test1251 ( );
-  test1252 ( );
-  test1255 ( );
-  test1256 ( );
-  test1258 ( );
-  test126 ( );
-  test127 ( );
-  test128 ( );
-  test129 ( );
+  r8int_to_i4int_test ( );
 
-  test130 ( );
-  test152 ( );
-  test131 ( );
-  test132 ( );
-  test133 ( );
-  test134 ( );
-  test135 ( );
-  test136 ( );
-  test137 ( );
-  test138 ( );
-  test139 ( );
+  r8mat_cholesky_inverse_test ( );
+  r8mat_cholesky_solve_test ( );
+  r8mat_cholesky_solve_upper_test ( );
+  r8mat_det_2d_test ( );
+  r8mat_det_3d_test ( );
+  r8mat_det_4d_test ( );
+  r8mat_det_5d_test ( );
+  r8mat_expand_linear_test ( );
+  r8mat_expand_linear2_test ( );
+  r8mat_fs_new_test ( );
+  r8mat_fss_new_test ( );
+  r8mat_givens_post_test ( );
+  r8mat_givens_pre_test ( );
+  r8mat_hess_test ( );
+  r8mat_house_axh_test ( );
+  r8mat_house_form_test ( );
+  r8mat_house_post_test ( );
+  r8mat_house_pre_test ( );
+  r8mat_indicator_new_test ( );
+  r8mat_inverse_2d_test ( );
+  r8mat_inverse_3d_test ( );
+  r8mat_inverse_4d_test ( );
+  r8mat_jac_test ( );
+  r8mat_kronecker_test ( );
+  r8mat_l_inverse_test ( );
+  r8mat_l_print_test ( );
+  r8mat_l1_inverse_test ( );
+  r8mat_lu_test ( );
+  r8mat_max_test ( );
+  r8mat_max_index_test ( );
+  r8mat_maxcol_minrow_test ( );
+  r8mat_maxrow_mincol_test ( );
+  r8mat_min_test ( );
+  r8mat_min_index_test ( );
+  r8mat_mincol_maxrow_test ( );
+  r8mat_minrow_maxcol_test ( );
+  r8mat_mm_test ( );
+  r8mat_mm_new_test ( );
+  r8mat_mv_new_test ( );
+  r8mat_mv_test ( );
+  r8mat_mtv_new_test ( );
+  r8mat_mtv_test ( );
+  r8mat_nint_test ( );
+  r8mat_nonzeros_test ( );
+  r8mat_norm_fro_test ( );
+  r8mat_norm_l1_test ( );
+  r8mat_nullspace_test ( );
+  r8mat_nullspace_size_test ( );
+  r8mat_orth_uniform_new_test ( );
+  r8mat_plot_test ( );
+  r8mat_power_method_test ( );
+  r8mat_print_test ( );
+  r8mat_print_some_test ( );
+  r8mat_ref_test ( );
+  r8mat_rref_test ( );
+  r8mat_solve_test ( );
+  r8mat_solve_2d_test ( );
+  r8mat_solve_3d_test ( );
+  r8mat_solve2_test ( );
+  r8mat_sub_new_test ( );
+  r8mat_symm_jacobi_test ( );
+  r8mat_to_r8cmat_new_test ( );
+  r8mat_to_r8plu_test ( );
+  r8mat_to_r8rmat_test ( );
+  r8mat_trace_test ( );
+  r8mat_transpose_new_test ( );
+  r8mat_transpose_print_test ( );
+  r8mat_u_inverse_test ( );
+  r8mat_u1_inverse_test ( );
+  r8mat_uniform_ab_new_test ( );
 
-  test140 ( );
-  test141 ( );
-  test142 ( );
-  test143 ( );
-  test144 ( );
-  test145 ( );
-  test146 ( );
-  test1465 ( );
-  test147 ( );
-  test1475 ( );
-  test148 ( );
-  test149 ( );
+  r8plu_det_test ( );
+  r8plu_inverse_test ( );
+  r8plu_mul_test ( );
+  r8plu_sol_test ( );
+  r8plu_to_r8mat_test ( );
 
-  test150 ( );
-  test1504 ( );
-  test1505 ( );
-  test151 ( );
-  test153 ( );
-  test154 ( );
-  test155 ( );
-  test156 ( );
-  test157 ( );
-  test158 ( );
+  r8poly_degree_test ( );
+  r8poly_deriv_test ( );
+  r8poly_lagrange_coef_test ( );
+  r8poly_lagrange_0_test ( );
+  r8poly_lagrange_1_test ( );
+  r8poly_lagrange_2_test ( );
+  r8poly_lagrange_factor_test ( );
+  r8poly_lagrange_val_test ( );
+  r8poly_print_test ( );
+  r8poly_value_horner_test ( );
+  r8poly_values_horner_test ( );
+
+  r8poly2_ex_test ( );
+  r8poly2_ex2_test ( );
+  r8poly2_val_test ( );
+  r8poly2_val2_test ( );
+
+  r8r8vec_index_insert_unique_test ( );
+
+  r8r8r8vec_index_insert_unique_test ( );
+
+  r8rmat_new_test ( );
+  r8rmat_to_r8mat_test ( );
+
+  r8row_max_test ( );
+  r8row_mean_test ( );
+  r8row_min_test ( );
+  r8row_sum_test ( );
+  r8row_swap_test ( );
+  r8row_to_r8vec_test ( );
+  r8row_variance_test ( );
+
+  r8slmat_print_test ( );
+
+  r8vec_amax_test ( );
+  r8vec_amin_test ( );
+  r8vec_bracket_test ( );
+  r8vec_bracket2_test ( );
+  r8vec_bracket3_test ( );
+  r8vec_bracket5_test ( );
+  r8vec_chebyspace_new_test ( );
+  r8vec_concatenate_new_test ( );
+  r8vec_convolution_test ( );
+  r8vec_convolution_circ_test ( );
+  r8vec_dif_test ( );
+  r8vec_direct_product_test ( );
+  r8vec_direct_product2_test ( );
+  r8vec_even_test ( );
+  r8vec_even2_test ( );
+  r8vec_expand_linear_test ( );
+  r8vec_frac_test ( );
+  r8vec_histogram_test ( );
+  r8vec_house_column_test ( );
+  r8vec_index_delete_all_test ( );
+  r8vec_index_delete_dupes_test ( );
+  r8vec_index_delete_one_test ( );
+  r8vec_index_insert_test ( );
+  r8vec_index_insert_unique_test ( );
+  r8vec_index_order_test ( );
+  r8vec_index_search_test ( );
+  r8vec_index_sorted_range_test ( );
+  r8vec_indexed_heap_d_test ( );
+  r8vec_indexed_heap_d_extract_test ( );
+  r8vec_indexed_heap_d_insert_test ( );
+  r8vec_indexed_heap_d_max_test ( );
+  r8vec_indicator0_new_test ( );
+  r8vec_legendre_test ( );
+  r8vec_linspace_new_test ( );
+  r8vec_max_test ( );
+  r8vec_max_index_test ( );
+  r8vec_mean_test ( );
+  r8vec_median_test ( );
+  r8vec_midspace_new_test ( );
+  r8vec_min_test ( );
+  r8vec_min_index_test ( );
+  r8vec_nint_test ( );
+  r8vec_norm_l0_test ( );
+  r8vec_norm_l1_test ( );
+  r8vec_norm_l2_test ( );
+  r8vec_norm_li_test ( );
+  r8vec_normal_01_test ( );
+  r8vec_normalize_l1_test ( );
+  r8vec_order_type_test ( );
+  r8vec_permute_test ( );
+  r8vec_permute_uniform_test ( );
+  r8vec_polarize_test ( );
+  r8vec_print_test ( );
+  r8vec_rotate_test ( );
+  r8vec_reverse_test ( );
+  r8vec_search_binary_a_test ( );
+  r8vec_sort_bubble_a_test ( );
+  r8vec_sort_heap_a_test ( );
+  r8vec_sort_heap_d_test ( );
+  r8vec_sort_heap_index_a_new_test ( );
+  r8vec_sort_heap_index_d_new_test ( );
+  r8vec_sort_heap_mask_a_test ( );
+  r8vec_sort_insert_a_test ( );
+  r8vec_sort_insert_index_a_test ( );
+  r8vec_sort_quick_a_test ( );
+  r8vec_sorted_merge_a_test ( );
+  r8vec_sorted_nearest_test ( );
+  r8vec_sorted_range_test ( );
+  r8vec_sorted_split_test ( );
+  r8vec_sorted_undex_test ( );
+  r8vec_sorted_unique_test ( );
+  r8vec_sorted_unique_count_test ( );
+  r8vec_sorted_unique_hist_test ( );
+  r8vec_split_test ( );
+  r8vec_transpose_print_test ( );
+  r8vec_undex_test ( );
+  r8vec_uniform_01_new_test ( );
+  r8vec_uniform_ab_new_test ( );
+  r8vec_variance_test ( );
+
+  r8vec2_sort_a_test ( );
+  r8vec2_sort_d_test ( );
+  r8vec2_sort_heap_index_a_test ( );
+  r8vec2_sorted_unique_test ( );
+  r8vec2_sorted_unique_index_test ( );
+  r8vec2_sum_max_index_test ( );
+
+  roots_to_r8poly_test ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "R8LIB_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -473,13 +676,266 @@ int main ( )
 }
 //****************************************************************************80
 
-void test001 ( )
+void i4int_to_r8int_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST001 tests R8_ABS.
+//    I4INT_TO_R8INT_TEST tests I4INT_TO_R8INT;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int ihi = 11;
+  int ilo = 1;
+  int ir;
+  double r;
+  double r2;
+  double rhi = 200.0;
+  double rhi2;
+  double rlo = 100.0;
+  double rlo2;
+  int seed;
+  int test;
+  int test_num = 10;
+
+  cout << "\n";
+  cout << "I4INT_TO_R8INT_TEST\n";
+  cout << "  For data in an interval,\n";
+  cout << "  I4INT_TO_R8INT converts an integer to a real;\n";
+  cout << "\n";
+  cout << "  Integer interval: [" << ilo << ", " << ihi << "]\n";
+  cout << "  Real interval:    [" << rlo << ", " << rhi << "]\n";
+  cout << "\n";
+  cout << "         R         I(R)        R(I(R))\n";
+  cout << "\n";
+
+  seed = 123456789;
+
+  rlo2 = rlo - 15.0;
+  rhi2 = rhi + 15.0;
+
+  for ( test = 1; test <= test_num; test++ )
+  {
+    r = r8_uniform_ab ( rlo2, rhi2, seed );
+    ir = r8int_to_i4int ( rlo, rhi, r, ilo, ihi );
+    r2 = i4int_to_r8int ( ilo, ihi, ir, rlo, rhi );
+    cout << "  " << setw(12) << r
+         << "  " << setw(6)  << ir
+         << "  " << setw(12) << r2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void perm0_check_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    PERM0_CHECK_TEST tests PERM0_CHECK.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    24 May 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  bool check;
+  int n = 5;
+  int p1[5] = { 5, 2, 3, 4, 1 };
+  int p2[5] = { 4, 1, 3, 0, 2 };
+  int p3[5] = { 0, 2, 1, 3, 2 };
+
+  cout << "\n";
+  cout << "PERM0_CHECK_TEST\n";
+  cout << "  PERM0_CHECK checks a permutation of 0, ..., N-1.\n";
+  cout << "\n";
+
+  i4vec_transpose_print ( n, p1, "  Permutation 1:" );
+  check = perm0_check( n, p1 );
+
+  i4vec_transpose_print ( n, p2, "  Permutation 2:" );
+  check = perm0_check( n, p2 );
+
+  i4vec_transpose_print ( n, p3, "  Permutation 3:" );
+  check = perm0_check( n, p3 );
+
+  return;
+}
+//****************************************************************************80
+
+void perm0_uniform_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    PERM0_UNIFORM_TEST tests PERM0_UNIFORM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 May 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n = 10;
+  int *p;
+  int seed;
+  int test;
+
+  cout << "\n";
+  cout << "PERM0_UNIFORM_TEST\n";
+  cout << "  PERM0_UNIFORM randomly selects a permutation of 0,...,N-1.\n";
+  cout << "\n";
+
+  seed = 123456789;
+
+  for ( test = 1; test <= 5; test++ )
+  {
+    p = perm0_uniform_new ( n, seed );
+    cout << "  ";
+    for ( i = 0; i < n; i++ )
+    {
+      cout << setw(4) << p[i];
+    }
+    cout << "\n";
+    delete [] p;
+  }
+  return;
+}
+//****************************************************************************80
+
+void perm1_check_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    PERM1_CHECK_TEST tests PERM1_CHECK.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    24 May 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  bool check;
+  int n = 5;
+  int p1[5] = { 5, 2, 3, 4, 1 };
+  int p2[5] = { 4, 1, 3, 0, 2 };
+  int p3[5] = { 0, 2, 1, 3, 2 };
+
+  cout << "\n";
+  cout << "PERM1_CHECK_TEST\n";
+  cout << "  PERM1_CHECK checks a permutation of 1, ..., N.\n";
+  cout << "\n";
+
+  i4vec_transpose_print ( n, p1, "  Permutation 1:" );
+  check = perm1_check( n, p1 );
+
+  i4vec_transpose_print ( n, p2, "  Permutation 2:" );
+  check = perm1_check( n, p2 );
+
+  i4vec_transpose_print ( n, p3, "  Permutation 3:" );
+  check = perm1_check( n, p3 );
+
+  return;
+}
+//****************************************************************************80
+
+void perm1_uniform_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    PERM1_UNIFORM_TEST tests PERM1_UNIFORM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 May 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n = 10;
+  int *p;
+  int seed;
+  int test;
+
+  cout << "\n";
+  cout << "PERM1_UNIFORM_TEST\n";
+  cout << "  PERM1_UNIFORM randomly selects a permutation of 1,...,N.\n";
+  cout << "\n";
+
+  seed = 123456789;
+
+  for ( test = 1; test <= 5; test++ )
+  {
+    p = perm1_uniform_new ( n, seed );
+    cout << "  ";
+    for ( i = 0; i < n; i++ )
+    {
+      cout << setw(4) << p[i];
+    }
+    cout << "\n";
+    delete [] p;
+  }
+  return;
+}
+//****************************************************************************80
+
+void r8_abs_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ABS_TEST tests R8_ABS.
 //
 //  Licensing:
 //
@@ -505,7 +961,7 @@ void test001 ( )
   seed = 123456789;
 
   cout << "\n";
-  cout << "TEST001\n";
+  cout << "R8_ABS_TEST\n";
   cout << "  R8_ABS returns the absolute value of an R8.\n";
   cout << "\n";
   cout << "      X         R8_ABS(X)\n";
@@ -523,13 +979,159 @@ void test001 ( )
 }
 //****************************************************************************80
 
-void test002 ( )
+void r8_acos_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST002 tests R8_ATAN.
+//    R8_ACOS_TEST tests R8_ACOS.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double c;
+  int test;
+
+  cout << "\n";
+  cout << "R8_ACOS_TEST\n";
+  cout << "  R8_ACOS computes the arc-cosine of an angle.\n"; 
+  cout << "\n";
+  cout << "       C            R8_ACOS(C)        ACOS(C)\n";
+  cout << "\n";
+
+  for ( test = -1; test <= 13; test++ )
+  {
+    c = ( double ) ( test - 6 ) / ( double ) ( 6 );
+
+    cout << setw(14) << c << "  "
+         << setw(14) << r8_acos ( c );
+
+    if ( -1.0 <= c && c <= 1.0 )
+    {
+      cout << "  " << setw(14) << acos ( c );
+    }
+    cout << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_acosh_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ACOSH_TEST tests R8_ACOSH.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  int test;
+  double x;
+  double x2;
+
+  cout << "\n";
+  cout << "R8_ACOSH_TEST\n";
+  cout << "  R8_ACOSH computes the arc-hyperbolic-cosine of an angle.\n";
+  cout << "\n";
+  cout << "       X            A=R8_ACOSH(X)    COSH(A)\n";
+  cout << "\n";
+
+  for ( test = 0; test <= 8; test++ )
+  {
+    x = 1.0 + ( double ) ( test ) / 2.0;
+    a = r8_acosh ( x );
+    x2 = cosh ( a );
+    cout << setw(14) << x << "  "
+         << setw(14) << a << "  "
+         << setw(14) << x2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_asinh_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ASINH_TEST tests R8_ASINH.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 June 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  int i;
+  double x;
+  double x2;
+
+  cout << "\n";
+  cout << "R8_ASINH_TEST\n";
+  cout << "  R8_ASINH computes the inverse hyperbolic sine\n";
+  cout << "  of a given value.\n";
+  cout << "\n";
+  cout << "         X   R8_ASINH(X)     SINH(R8_ASINH(X))\n";
+  cout << "\n";
+
+  for ( i = 0; i <= 10; i++ )
+  {
+    x = 1.0 + ( ( double ) i ) / 5.0;
+    a = r8_asinh ( x );
+    x2 = sinh ( a );
+
+    cout                   << "  "
+         << setw(10) << x  << "  "
+         << setw(10) << a  << "  "
+         << setw(10) << x2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_atan_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ATAN_TEST tests R8_ATAN.
 //
 //  Licensing:
 //
@@ -557,7 +1159,7 @@ void test002 ( )
      0.0, -1.0, -1.0, -1.0 };
 
   cout << "\n";
-  cout << "TEST002\n";
+  cout << "R8_ATAN_TEST\n";
   cout << "  R8_ATAN computes the arc-tangent given Y and X;\n";
   cout << "  ATAN2 is the system version of this routine.\n";
   cout << "\n";
@@ -579,13 +1181,94 @@ void test002 ( )
 }
 //****************************************************************************80
 
-void test003 ( )
+void r8_atanh_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST003 tests R8_CAS.
+//    R8_ATANH_TEST tests R8_ATANH.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 June 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  int i;
+  double x;
+  double x2;
+
+  cout << "\n";
+  cout << "R8_ATANH_TEST\n";
+  cout << "  R8_ATANH computes the inverse hyperbolic tangent\n";
+  cout << "  of a given value.\n";
+  cout << "\n";
+  cout << "         X     R8_ATANH(X)     TANH(R8_ATANH(X))\n";
+  cout << "\n";
+
+  for ( i = -2; i <= 9; i++ )
+  {
+    x = ( ( double ) i ) / 10.0;
+    a = r8_atanh ( x );
+    x2 = tanh ( a );
+
+    cout                   << "  "
+         << setw(10) << x  << "  "
+         << setw(10) << a  << "  "
+         << setw(10) << x2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_big_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_BIG_TEST tests R8_BIG.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    08 November 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  cout << "\n";
+  cout << "R8_BIG_TEST\n";
+  cout << "  R8_BIG returns a 'big' R8 value;\n";
+  cout << "\n";
+  cout << "  R8_BIG =   " << r8_big ( ) << "\n";
+
+  return;
+}
+//****************************************************************************80
+
+void r8_cas_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_CAS_TEST tests R8_CAS.
 //
 //  Licensing:
 //
@@ -606,10 +1289,10 @@ void test003 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST003\n";
+  cout << "R8_CAS_TEST\n";
   cout << "  R8_CAS evaluates the casine of a number.\n";
   cout << "\n";
-  cout << "        X           R8_CAS ( X )\n";
+  cout << "          X           R8_CAS ( X )\n";
   cout << "\n";
 
   for ( test = 0; test <= TEST_NUM; test++ )
@@ -624,13 +1307,13 @@ void test003 ( )
 }
 //****************************************************************************80
 
-void test004 ( )
+void r8_ceiling_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST004 tests R8_CEILING.
+//    R8_CEILING_TEST tests R8_CEILING.
 //
 //  Licensing:
 //
@@ -650,8 +1333,10 @@ void test004 ( )
   double rval_rounded;
 
   cout << "\n";
-  cout << "TEST004\n";
+  cout << "R8_CEILING_TEST\n";
   cout << "  R8_CEILING rounds a value up.\n";
+  cout << "\n";
+  cout << "           X       R8_CEILING(X)\n";
   cout << "\n";
 
   for ( i = -6; i <= 6; i++ )
@@ -666,13 +1351,259 @@ void test004 ( )
 }
 //****************************************************************************80
 
-void test005 ( )
+void r8_choose_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST005 tests R8_DIFF.
+//    R8_CHOOSE_TEST tests R8_CHOOSE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    26 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double cnk;
+  int k;
+  int n;
+
+  cout << "\n";
+  cout << "R8_CHOOSE_TEST\n";
+  cout << "  R8_CHOOSE evaluates C(N,K).\n";
+  cout << "\n";
+  cout << "         N         K       CNK\n";
+ 
+  for ( n = 0; n <= 5; n++ )
+  {
+    cout << "\n";
+    for ( k = 0; k <= n; k++ )
+    {
+      cnk = r8_choose ( n, k );
+      cout << setw(10) << n << "  "
+           << setw(8) << k << "  "
+           << setw(14) << cnk << "\n";
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_cosd_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_COSD_TEST tests R8_COSD.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    10 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double angle;
+  int i;
+
+  cout << "\n";
+  cout << "R8_COSD_TEST\n";
+  cout << "  R8_COSD computes the cosine of an angle\n";
+  cout << "  given in degrees.\n";
+  cout << "\n";
+  cout << "  ANGLE    R8_COSD(ANGLE)\n";
+  cout << "\n";
+ 
+  for ( i = 0; i <= 360; i = i + 15 )
+  {
+    angle = ( double ) ( i );
+    cout << "  " << setw(8) << angle
+         << "  " << setw(14) <<  r8_cosd ( angle ) << "\n";
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_cotd_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_COTD_TEST tests R8_COTD.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double angle;
+  int i;
+
+  cout << "\n";
+  cout << "R8_COTD_TEST\n";
+  cout << "  R8_COTD computes the cotangent of an angle\n";
+  cout << "  given in degrees.\n";
+  cout << "\n";
+  cout << "  ANGLE    R8_COTD(ANGLE)\n";
+  cout << "\n";
+ 
+  for ( i = 0; i <= 360; i = i + 15 )
+  {
+    angle = ( double ) ( i );
+    if ( i % 180 == 0 )
+    {
+      cout << "  " << setw(8) << angle
+           << "    Undefined\n";
+    }
+    else
+    {
+      cout << "  " << setw(8) << angle
+           << "  " << setw(14) <<  r8_cotd ( angle ) << "\n";
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_cscd_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_CSCD_TEST tests R8_CSCD.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double angle;
+  int i;
+
+  cout << "\n";
+  cout << "R8_CSCD_TEST\n";
+  cout << "  R8_CSCD computes the cosecant of an angle\n";
+  cout << "  given in degrees.\n";
+  cout << "\n";
+  cout << "  ANGLE    R8_CSCD(ANGLE)\n";
+  cout << "\n";
+ 
+  for ( i = 0; i <= 360; i = i + 15 )
+  {
+    angle = ( double ) ( i );
+    if ( i % 180 == 0 )
+    {
+      cout << "  " << setw(8) << angle
+           << "    Undefined\n";
+    }
+    else
+    {
+      cout << "  " << setw(8) << angle
+           << "  " << setw(14) <<  r8_cscd ( angle ) << "\n";
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_cube_root_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_CUBE_ROOT_TEST tests R8_CUBE_ROOT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    26 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int i;
+  int seed;
+  double x1;
+  double y;
+  double x2;
+
+  cout << "\n";
+  cout << "R8_CUBE_ROOT_TEST\n";
+  cout << "  R8_CUBE_ROOT computes the cube root of an R8.\n";
+  cout << "\n";
+  cout << "       X               Y               Y^3\n";
+  cout << "\n";
+
+  a = -10.0;
+  b = +10.0;
+  seed = 123456789;
+
+  for ( i = 1; i <= 10; i++ )
+  {
+    x1 = r8_uniform_ab ( a, b, seed );
+    y = r8_cube_root ( x1 );
+    x2 = pow ( y, 3 );
+    cout << setw(14) << x1 << "  "
+         << setw(14) << y << "  "
+         << setw(14) << x2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_diff_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_DIFF_TEST tests R8_DIFF.
 //
 //  Licensing:
 //
@@ -699,7 +1630,7 @@ void test005 ( )
     1.01,   1.05,  1.10, 3.0,  10.0 };
 
   cout << "\n";
-  cout << "TEST005\n";
+  cout << "R8_DIFF_TEST\n";
   cout << "  R8_DIFF computes a difference X-Y to a given\n";
   cout << "  number of binary places.\n";
   cout << "\n";
@@ -722,13 +1653,13 @@ void test005 ( )
 }
 //****************************************************************************80
 
-void test006 ( )
+void r8_digit_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST006 tests R8_DIGIT.
+//    R8_DIGIT_TEST tests R8_DIGIT.
 //
 //  Licensing:
 //
@@ -751,7 +1682,7 @@ void test006 ( )
   x = r8_pi ( );
 
   cout << "\n";
-  cout << "TEST006\n";
+  cout << "R8_DIGIT_TEST\n";
   cout << "  R8_DIGIT extracts decimal digits.\n";
   cout << "\n";
   cout << "  Here, we get digits of " << x << "\n";
@@ -776,13 +1707,63 @@ void test006 ( )
 }
 //****************************************************************************80
 
-void test007 ( )
+void r8_e_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST007 tests R8_EPSILON and R8_EPSILON_COMPUTE.
+//    R8_E_TEST tests R8_E.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n;
+  double value1;
+  double value2;
+
+  cout << "\n";
+  cout << "R8_E_TEST\n";
+  cout << "  R8_E returns the value of E.\n";
+  cout << "  Compare E to (1+1/n)^n\n";
+  value1 = r8_e ( );
+  cout << "  R8_E =      " << value1 << "\n";
+  cout << "\n";
+  cout << "         N     Estimate      Error\n";
+  cout << "\n";
+
+  n = 1;
+  for ( i = 0; i <= 20; i++ )
+  {
+    value2 = pow ( ( double ) ( n + 1 ) / ( double ) ( n ), n );
+    cout << "  " << setw(8) << n
+         << "  " << setw(14) << value2
+         << "  " << setw(14) << fabs ( value1 - value2 ) << "\n";
+    n = n * 2;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_epsilon_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_EPSILON_TEST tests R8_EPSILON.
 //
 //  Licensing:
 //
@@ -797,42 +1778,301 @@ void test007 ( )
 //    John Burkardt
 //
 {
-  double r1;
-  double r2;
+  double r;
   double s;
+  streamsize ss;
   double t;
 
   cout << "\n";
-  cout << "TEST007\n";
+  cout << "R8_EPSILON_TEST\n";
   cout << "  R8_EPSILON produces the R8 roundoff unit.\n";
-  cout << "  R8_EPSILON_COMPUTE computes the R8 roundoff unit.\n";
   cout << "\n";
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
 
-  r1 = r8_epsilon ( );
-  cout << "  R = R8_EPSILON()         = " << setprecision(16) << setw(24) << r1 << "\n";
+  r = r8_epsilon ( );
+  cout << "  R = R8_EPSILON()         = " 
+       << setprecision(16) << setw(24) << r << "\n";
 
-  r2 = r8_epsilon_compute ( );
-  cout << "  R = R8_EPSILON_COMPUTE() =  " << setprecision(16) << setw(24) << r2 << "\n";
-
-  s = 1.0 + r2;
+  s = 1.0 + r;
   t = s - 1.0;
-  cout << "  ( 1 + R2 ) - 1           =     " << setprecision(16) << setw(24) << t << "\n";
+  cout << "  ( 1 + R ) - 1           =     " 
+       << setprecision(16) << setw(24) << t << "\n";
 
-  s = 1.0 + ( r2 / 2.0 );
+  s = 1.0 + ( r / 2.0 );
   t = s - 1.0;
-  cout << "  ( 1 + (R2/2) ) - 1       = " << setw(10) << t << "\n";
+  cout << "  ( 1 + (R/2) ) - 1       = " << setw(10) << t << "\n";
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
 
   return;
 }
 //****************************************************************************80
 
-void test008 ( )
+void r8_epsilon_compute_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST008 tests R8_FRACTIONAL.
+//    R8_EPSILON_COMPUTE_TEST tests R8_EPSILON_COMPUTE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    01 September 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double r;
+  double s;
+  streamsize ss;
+  double t;
+
+  cout << "\n";
+  cout << "R8_EPSILON_COMPUTE_TEST\n";
+  cout << "  R8_EPSILON_COMPUTE computes the R8 roundoff unit.\n";
+  cout << "\n";
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
+
+  r = r8_epsilon_compute ( );
+  cout << "  R = R8_EPSILON_COMPUTE() =  " 
+       << setprecision(16) << setw(24) << r << "\n";
+
+  s = 1.0 + r;
+  t = s - 1.0;
+  cout << "  ( 1 + R ) - 1           =     " 
+       << setprecision(16) << setw(24) << t << "\n";
+
+  s = 1.0 + ( r / 2.0 );
+  t = s - 1.0;
+  cout << "  ( 1 + (R/2) ) - 1       = " << setw(10) << t << "\n";
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
+
+  return;
+}
+//****************************************************************************80
+
+void r8_factorial_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_FACTORIAL_TEST tests R8_FACTORIAL.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double f1;
+  double f2;
+  int n;
+  int n_data;
+  streamsize ss;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
+
+  cout << "\n";
+  cout << "R8_FACTORIAL_TEST\n";
+  cout << "  R8_FACTORIAL evaluates the factorial function.\n";
+  cout << "\n";
+  cout << "    N                Exact                  Computed\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    r8_factorial_values ( n_data, n, f1 );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    f2 = r8_factorial ( n );
+
+    cout << "  "
+         << setw(4) << n << "  "
+         << setprecision(16) << setw(24) << f1 << "  "
+         << setprecision(16) << setw(24) << f2 << "\n";
+  }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
+
+  return;
+}
+//****************************************************************************80
+
+void r8_factorial2_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_FACTORIAL2_TEST tests R8_FACTORIAL2.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    08 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double f1;
+  double f2;
+  int n;
+  int n_data;
+  streamsize ss;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
+
+  cout << "\n";
+  cout << "R8_FACTORIAL2_TEST\n";
+  cout << "  R8_FACTORIAL2 evaluates the double factorial function.\n";
+  cout << "\n";
+  cout << "    N                Exact                  Computed\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    r8_factorial2_values ( n_data, n, f1 );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    f2 = r8_factorial2 ( n );
+
+    cout << "  "
+         << setw(4) << n << "  "
+         << setprecision(16) << setw(24) << f1 << "  "
+         << setprecision(16) << setw(24) << f2 << "\n";
+  }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
+
+  return;
+}
+//****************************************************************************80
+
+void r8_fall_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_FALL_TEST tests R8_FALL.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    22 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double f1;
+  double f2;
+  int n;
+  int n_data;
+  streamsize ss;
+  double x;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
+
+  cout << "\n";
+  cout << "R8_FALL_TEST\n";
+  cout << "  R8_FALL evaluates the falling factorial Fall(X,N).\n";
+  cout << "\n";
+  cout << "    X          N                Exact                  Computed\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    r8_fall_values ( n_data, x, n, f1 );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    f2 = r8_fall ( x, n );
+
+    cout << "  "
+         << setw(8) << x << "  "
+         << setw(4) << n << "  "
+         << setprecision(16) << setw(24) << f1 << "  "
+         << setprecision(16) << setw(24) << f2 << "\n";
+  }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
+
+  return;
+}
+//****************************************************************************80
+
+void r8_fractional_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_FRACTIONAL_TEST tests R8_FRACTIONAL.
 //
 //  Licensing:
 //
@@ -856,29 +2096,157 @@ void test008 ( )
   int test_num = 10;
 
   cout << "\n";
-  cout << "TEST008\n";
+  cout << "R8_FRACTIONAL_TEST\n";
   cout << "  R8_FRACTIONAL returns the fractional part of an R8.\n";
+  cout << "\n";
+  cout << "          X           R8_FRACTIONAL ( X )\n";
   cout << "\n";
 
   for ( test = 1; test <= test_num; test++ )
   {
     r8 = r8_uniform_ab ( r8_lo, r8_hi, seed );
     fractional = r8_fractional ( r8 );
-    cout << "  " << setw(10) << r8
-         << "  " << setw(10) << fractional << "\n";
+    cout << "  " << setw(14) << r8
+         << "  " << setw(14) << fractional << "\n";
   }
 
   return;
 }
 //****************************************************************************80
 
-void test009 ( )
+void r8_gamma_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST009 tests R8_HUGE.
+//    R8_GAMMA_TEST tests R8_GAMMA.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx1;
+  double fx2;
+  int n_data;
+  streamsize ss;
+  double x;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
+
+  cout << "\n";
+  cout << "R8_GAMMA_TEST:\n";
+  cout << "   R8_GAMMA evaluates the Gamma function.\n";
+  cout << "\n";
+  cout << "      X            GAMMA(X)     R8_GAMMA(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_values ( n_data, x, fx1 );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    fx2 = r8_gamma ( x );
+
+    cout << "  " << setw(12)                     << x  
+         << "  " << setw(24) << setprecision(16) << fx1 
+         << "  " << setw(24) << setprecision(16) << fx2 << "\n";
+  }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
+
+  return;
+}
+//****************************************************************************80
+
+void r8_gamma_log_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_GAMMA_LOG_TEST tests R8_GAMMA_LOG.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx1;
+  double fx2;
+  int n_data;
+  streamsize ss;
+  double x;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
+
+  cout << "\n";
+  cout << "R8_GAMMA_LOG_TEST:\n";
+  cout << "   R8_GAMMA_LOG evaluates the logarithm of the Gamma function.\n";
+  cout << "\n";
+  cout << "      X            GAMMA_LOG(X)     R8_GAMMA_LOG(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_log_values ( n_data, x, fx1 );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    fx2 = r8_gamma_log ( x );
+    cout << "  " << setw(12)                     << x
+         << "  " << setw(24) << setprecision(16) << fx1
+         << "  " << setw(24) << setprecision(16) << fx2 << "\n";
+  }
+
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
+
+  return;
+}
+//****************************************************************************80
+
+void r8_huge_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_HUGE_TEST tests R8_HUGE.
 //
 //  Licensing:
 //
@@ -894,8 +2262,8 @@ void test009 ( )
 //
 {
   cout << "\n";
-  cout << "TEST009\n";
-  cout << "  R8_HUGE returns a large R8 value;\n";
+  cout << "R8_HUGE_TEST\n";
+  cout << "  R8_HUGE returns a 'huge' R8 value;\n";
   cout << "\n";
   cout << "  R8_HUGE =   " << r8_huge ( ) << "\n";
 
@@ -903,13 +2271,13 @@ void test009 ( )
 }
 //****************************************************************************80
 
-void test010 ( )
+void r8_log_2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST010 tests R8_LOG_2.
+//    R8_LOG_2_TEST tests R8_LOG_2.
 //
 //  Licensing:
 //
@@ -935,10 +2303,10 @@ void test010 ( )
     0.25, 0.20, 0.01 };
 
   cout << "\n";
-  cout << "TEST010\n";
+  cout << "R8_LOG_2_TEST\n";
   cout << "  R8_LOG_2: computes the logarithm base 2.\n";
   cout << "\n";
-  cout << "  X       R8_LOG_2\n";
+  cout << "        X       R8_LOG_2\n";
   cout << "\n";
 
   for ( test = 0; test < TEST_NUM; test++ )
@@ -953,13 +2321,13 @@ void test010 ( )
 }
 //****************************************************************************80
 
-void test011 ( )
+void r8_log_b_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST011 tests R8_LOG_B.
+//    R8_LOG_B_TEST tests R8_LOG_B.
 //
 //  Licensing:
 //
@@ -986,10 +2354,10 @@ void test011 ( )
   x = 16.0;
 
   cout << "\n";
-  cout << "TEST011\n";
+  cout << "R8_LOG_B_TEST\n";
   cout << "  R8_LOG_B computes the logarithm base B.\n";
   cout << "\n";
-  cout << "  X, B, R8_LOG_B\n";
+  cout << "       X       B      R8_LOG_B\n";
   cout << "\n";
 
   for ( test = 0; test < TEST_NUM; test++ )
@@ -1006,13 +2374,13 @@ void test011 ( )
 }
 //****************************************************************************80
 
-void test012 ( )
+void r8_mant_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST012 tests R8_MANT.
+//    R8_MANT_TEST tests R8_MANT.
 //
 //  Licensing:
 //
@@ -1020,42 +2388,152 @@ void test012 ( )
 //
 //  Modified:
 //
-//    11 September 2005
+//    06 January 2013
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  int is;
   int l;
   double r;
+  int s;
   double x;
 
   x = -314.159;
 
   cout << "\n";
-  cout << "TEST012\n";
+  cout << "R8_MANT_TEST\n";
   cout << "  R8_MANT decomposes a value.\n";
   cout << "\n";
   cout << "  Number to be decomposed: X = " << x << "\n";
 
-  r8_mant ( x, &is, &r, &l );
+  r8_mant ( x, s, r, l );
 
   cout << "\n";
-  cout << "  X = " << is << " * " << r << " * 2 ^ " << l << "\n";
+  cout << "  X = " << s << " * " << r << " * 2 ^ " << l << "\n";
 
   return;
 }
 //****************************************************************************80
 
-void test013 ( )
+void r8_max_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST013 tests R8_MOD.
+//    R8_MAX_TEST tests R8_MAX.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 March 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double c;
+  int i;
+  double r8_hi;
+  double r8_lo;
+  int seed;
+
+  cout << "\n";
+  cout << "R8_MAX_TEST\n";
+  cout << "  R8_MAX returns the maximum of two R8's.\n";
+  cout << "\n";
+  cout << "       A       B      C=R8_MAX(A,B)\n";
+  cout << "\n";
+
+  r8_lo = -5.0;
+  r8_hi = +5.0;
+  seed = 123456789;
+
+  for ( i = 0; i < 10; i++ )
+  {
+    a = r8_uniform_ab ( r8_lo, r8_hi, seed );
+    b = r8_uniform_ab ( r8_lo, r8_hi, seed );
+    c = r8_max ( a, b );
+    cout << "  " << setw(8) << a
+         << "  " << setw(8) << b
+         << "  " << setw(8) << c << "\n";
+  }
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8_min_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_MIN_TEST tests R8_MIN.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 March 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double c;
+  int i;
+  double r8_hi;
+  double r8_lo;
+  int seed;
+
+  cout << "\n";
+  cout << "R8_MIN_TEST\n";
+  cout << "  R8_MIN returns the minimum of two R8's.\n";
+  cout << "\n";
+  cout << "       A       B      C=R8_MIN(A,B)\n";
+  cout << "\n";
+
+  r8_lo = -5.0;
+  r8_hi = +5.0;
+  seed = 123456789;
+
+  for ( i = 0; i < 10; i++ )
+  {
+    a = r8_uniform_ab ( r8_lo, r8_hi, seed );
+    b = r8_uniform_ab ( r8_lo, r8_hi, seed );
+    c = r8_min ( a, b );
+    cout << "  " << setw(8) << a
+         << "  " << setw(8) << b
+         << "  " << setw(8) << c << "\n";
+  }
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8_mod_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_MOD_TEST tests R8_MOD.
 //
 //  Licensing:
 //
@@ -1081,7 +2559,7 @@ void test013 ( )
   double z2;
 
   cout << "\n";
-  cout << "TEST013\n";
+  cout << "R8_MOD_TEST\n";
   cout << "  R8_MOD returns the remainder after division.\n";
   cout << "  R8_MOD ( X, Y ) has the same sign as X.\n";
   cout << "\n";
@@ -1106,13 +2584,13 @@ void test013 ( )
 }
 //****************************************************************************80
 
-void test014 ( )
+void r8_modp_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST014 tests R8_MODP.
+//    R8_MODP_TEST tests R8_MODP.
 //
 //  Licensing:
 //
@@ -1138,7 +2616,7 @@ void test014 ( )
   double z2;
 
   cout << "\n";
-  cout << "TEST014\n";
+  cout << "R8_MODP_TEST\n";
   cout << "  R8_MODP returns the remainder after division.\n";
   cout << "  R8_MODP ( X, Y ) is positive.\n";
   cout << "\n";
@@ -1163,13 +2641,64 @@ void test014 ( )
 }
 //****************************************************************************80
 
-void test015 ( )
+void r8_mop_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST015 tests R8_NINT
+//    R8_MOP_TEST tests R8_MOP.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    06 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i4;
+  int i4_max;
+  int i4_min;
+  double r8;
+  int seed = 123456789;
+  int test;
+
+  cout << "\n";
+  cout << "R8_MOP_TEST\n";
+  cout << "  R8_MOP evaluates (-1.0)^I4 as an R8.\n";
+  cout << "\n";
+  cout << "    I4  R8_MOP(I4)\n";
+  cout << "\n";
+
+  i4_min = -100;
+  i4_max = +100;
+
+  for ( test = 1; test <= 10; test++ )
+  {
+    i4 = i4_uniform_ab ( i4_min, i4_max, seed );
+    r8 = r8_mop ( i4 );
+    cout << "  "
+         << setw(4) << i4 << "  "
+         << setw(4) <<r8 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_nint_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_NINT_TEST tests R8_NINT
 //
 //  Licensing:
 //
@@ -1192,8 +2721,10 @@ void test015 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST015\n";
+  cout << "R8_NINT_TEST\n";
   cout << "  R8_NINT produces the nearest integer.\n";
+  cout << "\n";
+  cout << "      X      R8_NINT(X)\n";
   cout << "\n";
 
   b = -10.0;
@@ -1210,13 +2741,13 @@ void test015 ( )
 }
 //****************************************************************************80
 
-void test016 ( )
+void r8_normal_01_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST016 tests R8_NORMAL_01.
+//    R8_NORMAL_01_TEST tests R8_NORMAL_01.
 //
 //  Licensing:
 //
@@ -1238,7 +2769,7 @@ void test016 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST016\n";
+  cout << "R8_NORMAL_01_TEST\n";
   cout << "  R8_NORMAL_01 generates normally distributed random values.\n";
   cout << "  Using initial random number seed = " << seed << "\n";
   cout << "\n";
@@ -1255,13 +2786,13 @@ void test016 ( )
 }
 //****************************************************************************80
 
-void test017 ( )
+void r8_pi_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST017 tests R8_PI.
+//    R8_PI_TEST tests R8_PI.
 //
 //  Licensing:
 //
@@ -1285,7 +2816,7 @@ void test017 ( )
   one = ( double ) ( 1 );
 
   cout << "\n";
-  cout << "TEST017\n";
+  cout << "R8_PI_TEST\n";
   cout << "  R8_PI returns the value of PI.\n";
   cout << "\n";
   v1 = r8_pi ( );
@@ -1297,13 +2828,13 @@ void test017 ( )
 }
 //****************************************************************************80
 
-void test018 ( )
+void r8_power_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST018 tests R8_POWER.
+//    R8_POWER_TEST tests R8_POWER.
 //
 //  Licensing:
 //
@@ -1323,10 +2854,10 @@ void test018 ( )
   double value;
 
   cout << "\n";
-  cout << "TEST018\n";
+  cout << "R8_POWER_TEST\n";
   cout << "  R8_POWER computes R^P\n";
   cout << "\n";
-  cout << "      R          P       R**P\n";
+  cout << "      R          P       R^P\n";
   cout << "\n";
 
   for ( p = -5; p <= 5; p++ )
@@ -1342,13 +2873,13 @@ void test018 ( )
 }
 //****************************************************************************80
 
-void test019 ( )
+void r8_power_fast_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST019 tests R8_POWER_FAST.
+//    R8_POWER_FAST_TEST tests R8_POWER_FAST.
 //
 //  Licensing:
 //
@@ -1370,18 +2901,18 @@ void test019 ( )
   double rp;
 
   cout << "\n";
-  cout << "TEST019\n";
+  cout << "R8_POWER_FAST_TEST\n";
   cout << "  R8_POWER_FAST computes R^P, economizing on\n";
-  cout << "    multiplications.\n";
+  cout << "  multiplications.\n";
   cout << "\n";
-  cout << "      R          P       R**P       Mults\n";
+  cout << "      R          P       R^P         Mults\n";
   cout << "\n";
 
   for ( i = -10; i <= 40; i++ )
   {
     r = 2.0;
     p = i;
-    rp = r8_power_fast ( r, p, &mults );
+    rp = r8_power_fast ( r, p, mults );
     cout << "  " << setw(12) << r
          << "  " << setw(6)  << p
          << "  " << setw(12) << rp
@@ -1392,13 +2923,80 @@ void test019 ( )
 }
 //****************************************************************************80
 
-void test020 ( )
+void r8_rise_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST020 tests R8_ROUND2.
+//    R8_RISE_TEST tests R8_RISE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    22 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double f1;
+  double f2;
+  int n;
+  int n_data;
+  streamsize ss;
+  double x;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
+
+  cout << "\n";
+  cout << "R8_RISE_TEST\n";
+  cout << "  R8_RISE evaluates the rising factorial Fall(X,N).\n";
+  cout << "\n";
+  cout << "    X          N                Exact                  Computed\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    r8_rise_values ( n_data, x, n, f1 );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    f2 = r8_rise ( x, n );
+
+    cout << "  "
+         << setw(8) << x << "  "
+         << setw(4) << n << "  "
+         << setprecision(16) << setw(24) << f1 << "  "
+         << setprecision(16) << setw(24) << f2 << "\n";
+  }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
+
+  return;
+}
+//****************************************************************************80
+
+void r8_round2_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_ROUND2_TEST tests R8_ROUND2.
 //
 //  Licensing:
 //
@@ -1415,15 +3013,20 @@ void test020 ( )
 {
   int i;
   int nplace;
+  streamsize ss;
   double x;
   double xround;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
 
   x = r8_pi ( );
 
   cout << "\n";
-  cout << "TEST020\n";
+  cout << "R8_ROUND2_TEST\n";
   cout << "  R8_ROUND2 rounds a number to a\n";
-  cout << "    specified number of base 2 digits.\n";
+  cout << "  specified number of base 2 digits.\n";
   cout << "\n";
   cout << "  Test effect on PI:\n";
   cout << "  X = " << x << "\n";
@@ -1438,18 +3041,22 @@ void test020 ( )
     cout << "  " << setw(8) << i
          << "  " << setprecision(16) << setw(24) << xround << "\n";
   }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
 
   return;
 }
 //****************************************************************************80
 
-void test021 ( )
+void r8_roundb_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST021 tests R8_ROUNDB.
+//    R8_ROUNDB_TEST tests R8_ROUNDB.
 //
 //  Licensing:
 //
@@ -1467,14 +3074,19 @@ void test021 ( )
   int base;
   int i;
   int nplace;
+  streamsize ss;
   double x;
   double xround;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
 
   base = 3;
   x = r8_pi ( );
 
   cout << "\n";
-  cout << "TEST021\n";
+  cout << "R8_ROUNDB_TEST\n";
   cout << "  R8_ROUNDB rounds a number to a \n";
   cout << "  specified number of base IBASE digits.\n";
   cout << "\n";
@@ -1510,18 +3122,22 @@ void test021 ( )
     cout << "\n";
     cout << "  Output value to " << nplace << " places is " << xround << "\n";
   }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
 
   return;
 }
 //****************************************************************************80
 
-void test022 ( )
+void r8_roundx_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST022 tests R8_ROUNDX.
+//    R8_ROUNDX_TEST tests R8_ROUNDX.
 //
 //  Licensing:
 //
@@ -1539,14 +3155,19 @@ void test022 ( )
   int i;
   int nplace;
   int seed;
+  streamsize ss;
   double x;
   double xround;
+//
+//  Save the current precision.
+//
+  ss = cout.precision ( );
 
   seed = 123456789;
   x = r8_pi ( );
 
   cout << "\n";
-  cout << "TEST022\n";
+  cout << "R8_ROUNDX_TEST\n";
   cout << "  R8_ROUNDX rounds a number to a \n";
   cout << "  specified number of decimal digits.\n";
   cout << "\n";
@@ -1585,18 +3206,73 @@ void test022 ( )
            << "  " << setw(20) << xround << "\n";
     }
   }
+//
+//  Restore the default precision.
+//
+  cout.precision ( ss );
 
   return;
 }
 //****************************************************************************80
 
-void test023 ( )
+void r8_secd_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST023 tests R8_SIGN.
+//    R8_SECD_TEST tests R8_SECD.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double angle;
+  int i;
+
+  cout << "\n";
+  cout << "R8_SECD_TEST\n";
+  cout << "  R8_SECD computes the secant of an angle\n";
+  cout << "  given in degrees.\n";
+  cout << "\n";
+  cout << "  ANGLE    R8_SECD(ANGLE)\n";
+  cout << "\n";
+ 
+  for ( i = 0; i <= 360; i = i + 15 )
+  {
+    angle = ( double ) ( i );
+    if ( ( i + 90 ) % 180 == 0 )
+    {
+      cout << "  " << setw(8) << angle
+           << "    Undefined\n";
+    }
+    else
+    {
+      cout << "  " << setw(8) << angle
+           << "  " << setw(14) <<  r8_secd ( angle ) << "\n";
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_sign_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_SIGN_TEST tests R8_SIGN.
 //
 //  Licensing:
 //
@@ -1604,43 +3280,134 @@ void test023 ( )
 //
 //  Modified:
 //
-//    11 September 2005
+//    28 September 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define TEST_NUM 5
-
+  double r8;
+  double r8_test[5] = { -1.25, -0.25, 0.0, +0.5, +9.0 };
+  double s;
   int test;
-  double x;
-  double x_test[TEST_NUM] = { -1.25, -0.25, 0.0, +0.5, +9.0 };
+  const int test_num = 5;
 
   cout << "\n";
-  cout << "TEST023\n";
-  cout << "  R8_SIGN returns the sign of a number.\n";
+  cout << "R8_SIGN_TEST\n";
+  cout << "  R8_SIGN returns the sign of an R8.\n";
+  cout << "\n";
+  cout << "      R8      R8_SIGN(R8)\n";
   cout << "\n";
 
-  for ( test = 0; test < TEST_NUM; test++ )
+  for ( test = 0; test < test_num; test++ )
   {
-    x = x_test[test];
-    cout << "  " << setprecision(6) << setw(8) << x
-         << "  " << r8_sign ( x ) << "\n";
+    r8 = r8_test[test];
+    s = r8_sign ( r8 );
+    cout << setw(10) << r8 << "  "
+         << setw(10) << s << "\n";
   }
 
   return;
-# undef TEST_NUM
 }
 //****************************************************************************80
 
-void test0235 ( )
+void r8_sign3_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0235 tests R8_SWAP.
+//    R8_SIGN3_TEST tests R8_SIGN3.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    28 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double r8;
+  double r8_test[5] = { -1.25, -0.25, 0.0, +0.5, +9.0 };
+  double s;
+  int test;
+  const int test_num = 5;
+
+  cout << "\n";
+  cout << "R8_SIGN3_TEST\n";
+  cout << "  R8_SIGN3 returns the three-way sign of an R8.\n";
+  cout << "\n";
+  cout << "      R8      R8_SIGN3(R8)\n";
+  cout << "\n";
+
+  for ( test = 0; test < test_num; test++ )
+  {
+    r8 = r8_test[test];
+    s = r8_sign3 ( r8 );
+    cout << setw(10) << r8 << "  "
+         << setw(10) << s << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_sind_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_SIND_TEST tests R8_SIND.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double angle;
+  int i;
+
+  cout << "\n";
+  cout << "R8_SIND_TEST\n";
+  cout << "  R8_SIND computes the sine of an angle\n";
+  cout << "  given in degrees.\n";
+  cout << "\n";
+  cout << "  ANGLE    R8_SIND(ANGLE)\n";
+  cout << "\n";
+ 
+  for ( i = 0; i <= 360; i = i + 15 )
+  {
+    angle = ( double ) ( i );
+    cout << "  " << setw(8) << angle
+         << "  " << setw(14) <<  r8_sind ( angle ) << "\n";
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_swap_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_SWAP_TEST tests R8_SWAP.
 //
 //  Licensing:
 //
@@ -1659,7 +3426,7 @@ void test0235 ( )
   double y;
 
   cout << "\n";
-  cout << "TEST0235\n";
+  cout << "R8_SWAP_TEST\n";
   cout << "  R8_SWAP swaps two reals.\n";
 
   x = 1.0;
@@ -1671,7 +3438,7 @@ void test0235 ( )
   cout << "    X = " << x << "\n";
   cout << "    Y = " << y << "\n";
 
-  r8_swap ( &x, &y );
+  r8_swap ( x, y );
 
   cout << "\n";
   cout << "  After swapping: \n";
@@ -1683,13 +3450,113 @@ void test0235 ( )
 }
 //****************************************************************************80
 
-void test024 ( )
+void r8_swap3_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST024 tests R8_TO_R8_DISCRETE.
+//    R8_SWAP3_TEST tests R8_SWAP3.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    06 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  double x;
+  double y;
+  double z;
+
+  cout << "\n";
+  cout << "R8_SWAP3_TEST\n";
+  cout << "  R8_SWAP3 swaps three reals.\n";
+
+  x = 1.0;
+  y = 3.14159;
+  z = 1952.0;
+
+  cout << "\n";
+  cout << "              X       Y       Z\n";
+  cout << "\n";
+  cout << "  Start: " << x << "  " << y << "  " << z << "\n";
+
+  for ( i = 1; i <= 3; i++ )
+  {
+    r8_swap3 ( x, y, z );
+    cout << "  Swap " << i << "  " << x << "  " << y << "  " << z << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_tand_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_TAND_TEST tests R8_TAND.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double angle;
+  int i;
+
+  cout << "\n";
+  cout << "R8_TAND_TEST\n";
+  cout << "  R8_TAND computes the tangent of an angle\n";
+  cout << "  given in degrees.\n";
+  cout << "\n";
+  cout << "  ANGLE    R8_TAND(ANGLE)\n";
+  cout << "\n";
+ 
+  for ( i = 0; i <= 360; i = i + 15 )
+  {
+    angle = ( double ) ( i );
+    if ( ( i + 90 ) % 180 == 0 )
+    {
+      cout << "  " << setw(8) << angle
+           << "    Undefined\n";
+    }
+    else
+    {
+      cout << "  " << setw(8) << angle
+           << "  " << setw(14) <<  r8_tand ( angle ) << "\n";
+    }
+  }
+ 
+  return;
+}
+//****************************************************************************80
+
+void r8_to_r8_discrete_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_TO_R8_DISCRETE_TEST tests R8_TO_R8_DISCRETE.
 //
 //  Licensing:
 //
@@ -1716,14 +3583,14 @@ void test024 ( )
   int test_num = 15;
 
   cout << "\n";
-  cout << "TEST024\n";
+  cout << "R8_TO_R8_DISCRETE_TEST\n";
   cout << "  R8_TO_R8_DISCRETE maps numbers to a discrete set\n";
   cout << "  of equally spaced numbers in an interval.\n";
   cout << "\n";
   cout << "  Number of discrete values = " << ndx << "\n";
   cout << "  Real interval: " << rlo << "  " << rhi << "\n";
   cout << "\n";
-  cout << "  R   RD\n";
+  cout << "      R       RD\n";
   cout << "\n";
 
   seed = 123456789;
@@ -1743,13 +3610,13 @@ void test024 ( )
 }
 //****************************************************************************80
 
-void test025 ( )
+void r8_to_i4_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST025 tests R8_TO_I4.
+//    R8_TO_I4_TEST tests R8_TO_I4.
 //
 //  Licensing:
 //
@@ -1757,7 +3624,7 @@ void test025 ( )
 //
 //  Modified:
 //
-//    11 April 2007
+//    19 April 2014
 //
 //  Author:
 //
@@ -1772,7 +3639,7 @@ void test025 ( )
   double xmin;
 
   cout << "\n";
-  cout << "TEST025\n";
+  cout << "R8_TO_I4_TEST\n";
   cout << "  R8_TO_I4 finds an integer IX in [IXMIN,IXMAX]\n";
   cout << "  corresponding to X in [XMIN,XMAX].\n";
 
@@ -1783,7 +3650,7 @@ void test025 ( )
   ixmin = 10;
   ixmax = 40;
 
-  ix = r8_to_i4 ( x, xmin, xmax, ixmin, ixmax );
+  ix = r8_to_i4 ( xmin, xmax, x, ixmin, ixmax );
 
   cout << "\n";
   cout << "   XMIN " <<  xmin << "   X = " <<  x << "  XMAX = "
@@ -1795,130 +3662,13 @@ void test025 ( )
 }
 //****************************************************************************80
 
-void test026 ( )
+void r8_uniform_01_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST026 tests R8_UNIFORM.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 April 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  double a;
-  double b;
-  double c;
-  int i;
-  int seed;
-
-  b = 10.0;
-  c = 25.0;
-  seed = 17;
-
-  cout << "\n";
-  cout << "TEST026\n";
-  cout << "  R8_UNIFORM produces a random real in a given range.\n";
-  cout << "\n";
-  cout << "  Using range " << b << " <= A <= " << c << ".\n";
-  cout << "\n";
-
-  cout << "\n";
-  cout << "  I   A\n";
-  cout << "\n";
-  for ( i = 0; i < 10; i++ )
-  {
-    a = r8_uniform_ab ( b, c, seed );
-    cout << setw ( 6 )  << i << " "
-         << setw ( 10 ) << a << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test027 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST027 tests R8_UNIFORM_01.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 April 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int i;
-  int seed;
-  double x;
-
-  cout << "\n";
-  cout << "TEST027\n";
-  cout << "  R8_UNIFORM_01 produces a sequence of random values.\n";
-
-  seed = 123456789;
-
-  cout << "\n";
-  cout << "  Using random seed " << seed << ".\n";
-
-  cout << "\n";
-  cout << "  SEED   R8_UNIFORM_01(SEED)\n";
-  cout << "\n";
-  for ( i = 0; i < 10; i++ )
-  {
-    cout << setw(12) << seed << "  ";
-    x = r8_uniform_01 ( seed );
-    cout << setw(10) << x << "\n";
-  }
-
-  cout << "\n";
-  cout << "  Verify that the sequence can be restarted.\n";
-  cout << "  Set the seed back to its original value, and see that\n";
-  cout << "  we generate the same sequence.\n";
-
-  seed = 123456789;
-  cout << "\n";
-  cout << "  SEED   R8_UNIFORM_01(SEED)\n";
-  cout << "\n";
-
-  for ( i = 0; i < 10; i++ )
-  {
-    cout << setw(12) << seed << "  ";
-    x = r8_uniform_01 ( seed );
-    cout << setw(10) << x << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test028 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST028 tests R8_UNIFORM_01.
+//    R8_UNIFORM_01_TEST tests R8_UNIFORM_01.
 //
 //  Licensing:
 //
@@ -1945,7 +3695,7 @@ void test028 ( )
   double variance;
 
   cout << "\n";
-  cout << "TEST028\n";
+  cout << "R8_UNIFORM_01_TEST\n";
   cout << "  R8_UNIFORM_01 samples a uniform random distribution in [0,1].\n";
   cout << "  distributed random numbers.\n";
   cout << "  Using initial random number seed = " << seed << "\n";
@@ -1980,13 +3730,65 @@ void test028 ( )
 }
 //****************************************************************************80
 
-void test029 ( )
+void r8_uniform_ab_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST029 tests R8_WALSH_1D;
+//    R8_UNIFORM_AB_TEST tests R8_UNIFORM_AB.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    11 April 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double c;
+  int i;
+  int seed;
+
+  b = 10.0;
+  c = 25.0;
+  seed = 17;
+
+  cout << "\n";
+  cout << "R8_UNIFORM_AB_TEST\n";
+  cout << "  R8_UNIFORM_AB produces a random real in a given range.\n";
+  cout << "\n";
+  cout << "  Using range " << b << " <= A <= " << c << ".\n";
+  cout << "\n";
+
+  cout << "\n";
+  cout << "      I       A\n";
+  cout << "\n";
+  for ( i = 0; i < 10; i++ )
+  {
+    a = r8_uniform_ab ( b, c, seed );
+    cout << setw ( 6 )  << i << " "
+         << setw ( 10 ) << a << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8_walsh_1d_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_WALSH_1D_TEST tests R8_WALSH_1D;
 //
 //  Licensing:
 //
@@ -2011,7 +3813,7 @@ void test029 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST029\n";
+  cout << "R8_WALSH_1D_TEST\n";
   cout << "  R8_WALSH_1D evaluates 1D Walsh functions:\n";
   cout << "\n";
   cout << "  X  W(+2) W(+1) W(0) W(-1) W(-2) W(-3)\n";
@@ -2041,13 +3843,13 @@ void test029 ( )
 }
 //****************************************************************************80
 
-void test0295 ( )
+void r8_wrap_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0295 tests R8_WRAP;
+//    R8_WRAP_TEST tests R8_WRAP;
 //
 //  Discussion:
 //
@@ -2078,7 +3880,7 @@ void test0295 ( )
   int test_num = 20;
 
   cout << "\n";
-  cout << "TEST0295\n";
+  cout << "R8_WRAP_TEST\n";
   cout << "  R8_WRAP \"wraps\" an R8 to lie within an interval:\n";
   cout << "\n";
   cout << "  Wrapping interval is " << rlo << ", " << rhi << "\n";
@@ -2099,13 +3901,57 @@ void test0295 ( )
 }
 //****************************************************************************80
 
-void test031 ( )
+void r82col_print_part_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST031 tests R82POLY2_TYPE.
+//    R82COL_PRINT_PART_TEST tests R82COL_PRINT_PART.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    10 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int max_print;
+  int n = 10;
+  double v[10*2] = {
+    11.0,  21.0, 31.0, 41.0, 51.0, 61.0, 71.0, 81.0, 91.0, 101.0, 
+    12.0,  22.0, 32.0, 42.0, 52.0, 62.0, 72.0, 82.0, 92.0, 102.0 };
+
+  cout << "\n";
+  cout << "R82COL_PRINT_PART_TEST\n";
+  cout << "  R82COL_PRINT_PART prints part of an R82COL.\n";
+
+  max_print = 2;
+  r82col_print_part ( n, v, max_print, "  Output with MAX_PRINT = 2" );
+
+  max_print = 5;
+  r82col_print_part ( n, v, max_print, "  Output with MAX_PRINT = 5" );
+
+  max_print = 25;
+  r82col_print_part ( n, v, max_print, "  Output with MAX_PRINT = 25" );
+
+  return;
+}
+//****************************************************************************80
+
+void r82poly2_type_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R82POLY2_TYPE_TEST tests R82POLY2_TYPE.
 //
 //  Licensing:
 //
@@ -2156,7 +4002,7 @@ void test031 ( )
   int type;
 
   cout << "\n";
-  cout << "TEST031\n";
+  cout << "R82POLY2_TYPE_TEST\n";
   cout << "  R82POLY2_TYPE determines the type of a second order\n";
   cout << "  equation in two variables.\n";
   cout << "\n";
@@ -2186,13 +4032,13 @@ void test031 ( )
 }
 //****************************************************************************80
 
-void test032 ( )
+void r82row_order_type_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST032 tests R82VEC_ORDER_TYPE.
+//    R82ROW_ORDER_TYPE_TEST tests R82ROW_ORDER_TYPE.
 //
 //  Licensing:
 //
@@ -2218,8 +4064,8 @@ void test032 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST032\n";
-  cout << "  R82VEC_ORDER_TYPE classifies an R8VEC as\n";
+  cout << "R82ROW_ORDER_TYPE_TEST\n";
+  cout << "  R82ROW_ORDER_TYPE classifies an R8VEC as\n";
   cout << "  -1: no order\n";
   cout << "   0: all equal;\n";
   cout << "   1: ascending;\n";
@@ -2239,11 +4085,11 @@ void test032 ( )
         x[i+j*2] = ( double ) ( r8_nint ( 3.0 * x[i+j*2] ) );
       }
     }
-    order = r82vec_order_type ( N, x );
+    order = r82row_order_type ( N, x );
 
     cout << "  Order type = " << order << "\n";
 
-    r82vec_print ( N, x, " " );
+    r82row_print ( N, x, " " );
 
     delete [] x;
   }
@@ -2254,13 +4100,13 @@ void test032 ( )
 }
 //****************************************************************************80
 
-void test033 ( )
+void r82row_part_quick_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST033 tests R82VEC_PART_QUICK_A.
+//    R82ROW_PART_QUICK_A_TEST tests R82ROW_PART_QUICK_A.
 //
 //  Licensing:
 //
@@ -2286,16 +4132,16 @@ void test033 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST033\n";
-  cout << "  R82VEC_PART_QUICK_A reorders an R82VEC\n";
+  cout << "R82ROW_PART_QUICK_A_TEST\n";
+  cout << "  R82ROW_PART_QUICK_A reorders an R82ROW\n";
   cout << "  as part of a quick sort.\n";
   cout << "  Using initial random number seed = " << seed << "\n";
 
   a = r8mat_uniform_ab_new ( 2, N, b, c, seed );
 
-  r82vec_print ( N, a, "  Before rearrangment:" );
+  r82row_print ( N, a, "  Before rearrangment:" );
 
-  r82vec_part_quick_a ( N, a, &l, &r );
+  r82row_part_quick_a ( N, a, l, r );
 
   cout << "\n";
   cout << "  Rearranged array\n";
@@ -2303,9 +4149,9 @@ void test033 ( )
   cout << "  Key index =   " << l+1 << "\n";
   cout << "  Right index = " << r << "\n";
 
-  r82vec_print ( l,     a,         "  Left half:" );
-  r82vec_print ( 1,     a+2*l,     "  Key:" );
-  r82vec_print ( N-l-1, a+2*(l+1), "  Right half:" );
+  r82row_print ( l,     a,         "  Left half:" );
+  r82row_print ( 1,     a+2*l,     "  Key:" );
+  r82row_print ( N-l-1, a+2*(l+1), "  Right half:" );
 
   delete [] a;
 
@@ -2314,13 +4160,65 @@ void test033 ( )
 }
 //****************************************************************************80
 
-void test034 ( )
+void r82row_print_part_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST034 tests R82VEC_SORT_HEAP_INDEX_A.
+//    R82ROW_PRINT_PART_TEST tests R82ROW_PRINT_PART.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    08 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int max_print;
+  int n = 10;
+  double v[2*10] = {
+     11.0,  21.0, 
+     12.0,  22.0, 
+     13.0,  23.0, 
+     14.0,  24.0, 
+     15.0,  25.0, 
+     16.0,  26.0, 
+     17.0,  27.0, 
+     18.0,  28.0, 
+     19.0,  29.0, 
+     20.0,  30.0 };
+
+  cout << "\n";
+  cout << "R82ROW_PRINT_PART_TEST\n";
+  cout << "  R82ROW_PRINT_PART prints part of an R82ROW.\n";
+
+  max_print = 2;
+  r82row_print_part ( n, v, max_print, "  Output with MAX_PRINT = 2" );
+
+  max_print = 5;
+  r82row_print_part ( n, v, max_print, "  Output with MAX_PRINT = 5" );
+
+  max_print = 25;
+  r82row_print_part ( n, v, max_print, "  Output with MAX_PRINT = 25" );
+
+  return;
+}
+//****************************************************************************80
+
+void r82row_sort_heap_index_a_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R82ROW_SORT_HEAP_INDEX_A_TEST tests R82ROW_SORT_HEAP_INDEX_A.
 //
 //  Licensing:
 //
@@ -2339,15 +4237,14 @@ void test034 ( )
 
   double *a;
   double b = 0.0;
-  int base = 0;
   double c = 10.0;
   int i;
   int *indx;
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST034\n";
-  cout << "  R82VEC_SORT_HEAP_INDEX_A index sorts an R82VEC\n";
+  cout << "R82ROW_SORT_HEAP_INDEX_A_TEST\n";
+  cout << "  R82ROW_SORT_HEAP_INDEX_A index sorts an R82ROW\n";
   cout << "  using heapsort.\n";
   cout << "  Using initial random number seed = " << seed << "\n";
 
@@ -2368,9 +4265,9 @@ void test034 ( )
   a[0+6*2] = a[0+10*2];
   a[1+6*2] = a[1+10*2];
 
-  r82vec_print ( N, a, "  Before rearrangement:" );
+  r82row_print ( N, a, "  Before rearrangement:" );
 
-  indx = r82vec_sort_heap_index_a ( N, base, a );
+  indx = r82row_sort_heap_index_a ( N, a );
 
   cout << "\n";
   cout << "         I     Index   A(Index)\n";
@@ -2384,9 +4281,9 @@ void test034 ( )
          << "  " << setw(12) << a[1+indx[i]*2] << "\n";
   }
 
-  r82vec_permute ( N, indx, base, a );
+  r82row_permute ( N, indx, a );
 
-  r82vec_print ( N, a, "  After rearrangement by R82VEC_PERMUTE:" );
+  r82row_print ( N, a, "  After rearrangement by R82ROW_PERMUTE:" );
 
   delete [] a;
   delete [] indx;
@@ -2396,13 +4293,13 @@ void test034 ( )
 }
 //****************************************************************************80
 
-void test035 ( )
+void r82row_sort_quick_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST035 tests R82VEC_SORT_QUICK_A.
+//    R82ROW_SORT_QUICK_A_TEST tests R82ROW_SORT_QUICK_A.
 //
 //  Licensing:
 //
@@ -2426,8 +4323,8 @@ void test035 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST035\n";
-  cout << "  R82VEC_SORT_QUICK_A sorts an R82VEC\n";
+  cout << "R82ROW_SORT_QUICK_A_TEST\n";
+  cout << "  R82ROW_SORT_QUICK_A sorts an R82ROW\n";
   cout << "  as part of a quick sort.\n";
   cout << "  Using initial random number seed = " << seed << "\n";
 
@@ -2443,11 +4340,11 @@ void test035 ( )
   a[2*(7-1)+0] = a[2*(11-1)+0];
   a[2*(7-1)+1] = a[2*(11-1)+1];
 
-  r82vec_print ( N, a, "  Before sorting:" );
+  r82row_print ( N, a, "  Before sorting:" );
 
-  r82vec_sort_quick_a ( N, a );
+  r82row_sort_quick_a ( N, a );
 
-  r82vec_print ( N, a, "  Sorted array:" );
+  r82row_print ( N, a, "  Sorted array:" );
 
   delete [] a;
 
@@ -2456,13 +4353,110 @@ void test035 ( )
 }
 //****************************************************************************80
 
-void test036 ( )
+void r83col_print_part_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST036 tests R8BLOCK_EXPAND_LINEAR.
+//    R83COL_PRINT_PART_TEST tests R83COL_PRINT_PART.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    12 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int max_print;
+  int n = 10;
+  double v[10*3] = {
+    11.0,  21.0, 31.0, 41.0, 51.0, 61.0, 71.0, 81.0, 91.0, 101.0, 
+    12.0,  22.0, 32.0, 42.0, 52.0, 62.0, 72.0, 82.0, 92.0, 102.0,
+    13.0,  23.0, 33.0, 43.0, 53.0, 63.0, 73.0, 83.0, 93.0, 103.0 };
+
+  cout << "\n";
+  cout << "R83COL_PRINT_PART_TEST\n";
+  cout << "  R83COL_PRINT_PART prints part of an R83COL.\n";
+
+  max_print = 2;
+  r83col_print_part ( n, v, max_print, "  Output with MAX_PRINT = 2" );
+
+  max_print = 5;
+  r83col_print_part ( n, v, max_print, "  Output with MAX_PRINT = 5" );
+
+  max_print = 25;
+  r83col_print_part ( n, v, max_print, "  Output with MAX_PRINT = 25" );
+
+  return;
+}
+//****************************************************************************80
+
+void r83row_print_part_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R83ROW_PRINT_PART_TEST tests R83ROW_PRINT_PART.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    12 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int max_print;
+  int n = 10;
+  double v[3*10] = {
+     11.0,  21.0,  31.0,
+     12.0,  22.0,  32.0,
+     13.0,  23.0,  33.0,
+     14.0,  24.0,  34.0,
+     15.0,  25.0,  35.0,
+     16.0,  26.0,  36.0,
+     17.0,  27.0,  37.0,
+     18.0,  28.0,  38.0,
+     19.0,  29.0,  39.0,
+     20.0,  30.0,  40.0, };
+
+  cout << "\n";
+  cout << "R83ROW_PRINT_PART_TEST\n";
+  cout << "  R83ROW_PRINT_PART prints part of an R83ROW.\n";
+
+  max_print = 2;
+  r83row_print_part ( n, v, max_print, "  Output with MAX_PRINT = 2" );
+
+  max_print = 5;
+  r83row_print_part ( n, v, max_print, "  Output with MAX_PRINT = 5" );
+
+  max_print = 25;
+  r83row_print_part ( n, v, max_print, "  Output with MAX_PRINT = 25" );
+
+  return;
+}
+//****************************************************************************80
+
+void r8block_expand_linear_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8BLOCK_EXPAND_LINEAR_TEST tests R8BLOCK_EXPAND_LINEAR.
 //
 //  Licensing:
 //
@@ -2500,7 +4494,7 @@ void test036 ( )
   n2 = ( N - 1 ) * ( nfat + 1 ) + 1;
 
   cout << "\n";
-  cout << "TEST036\n";
+  cout << "R8BLOCK_EXPAND_LINEAR_TEST\n";
   cout << "  R8BLOCK_EXPAND_LINEAR linearly interpolates new data\n";
   cout << "  between old values in a 3D block.\n";
 
@@ -2524,13 +4518,13 @@ void test036 ( )
 }
 //****************************************************************************80
 
-void test0363 ( )
+void r8block_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0363 tests R8BLOCK_NEW and R8BLOCK_DELETE.
+//    TEST0363 tests R8BLOCK_NEW.
 //
 //  Licensing:
 //
@@ -2555,9 +4549,8 @@ void test0363 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST0363:\n";
+  cout << "R8BLOCK_NEW_TEST:\n";
   cout << "  R8BLOCK_NEW dynamically creates a 3D array.\n";
-  cout << "  R8BLOCK_DELETE deletes it.\n";
   cout << "  Array entries can be addressed using the\n";
   cout << "  notation \"a[i][j][k]\".\n";
 //
@@ -2613,19 +4606,19 @@ void test0363 ( )
 //
 //  Free memory.
 //
-  r8block_delete ( a, l, m, n );
+  r8block_delete ( l, m, n, a );
 
   return;
 }
 //****************************************************************************80
 
-void test0365 ( )
+void r8block_print_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0365 tests R8BLOCK_PRINT.
+//    R8BLOCK_PRINT_TEST tests R8BLOCK_PRINT.
 //
 //  Licensing:
 //
@@ -2652,7 +4645,7 @@ void test0365 ( )
         2.0, 16.0, 54.0, 128.0 };
 
   cout << "\n";
-  cout << "TEST0365\n";
+  cout << "R8BLOCK_PRINT_TEST\n";
   cout << "  R8BLOCK_PRINT prints an R8BLOCK.\n";
 
   r8block_print ( L, M, N, x, "  The 3D array:" );
@@ -2664,13 +4657,72 @@ void test0365 ( )
 }
 //****************************************************************************80
 
-void test037 ( )
+void r8cmat_to_r8mat_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST037 tests R8COL_FIND.
+//    R8CMAT_TO_R8MAT_NEW_TEST tests R8CMAT_TO_R8MAT_NEW;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 January 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double **b;
+  double *c;
+  int m = 5;
+  int n = 4;
+
+  cout << "\n";
+  cout << "R8CMAT_TO_R8MAT_NEW_TEST\n";
+  cout << "  R8CMAT_TO_R8MAT_NEW converts an R8CMAT to an R8MAT.\n";
+  cout << "\n";
+  cout << "  Data is of order (" << m << "," << n << ".\n";
+//
+//  Set the R8MAT.
+//
+  a = r8mat_indicator_new ( m, n );
+  r8mat_print ( m, n, a, "  The R8MAT A:" );
+//
+//  Convert.
+//
+  b = r8mat_to_r8cmat_new ( m, n, a );
+  r8cmat_print ( m, n, b, "  The R8CMAT B:" );
+//
+//  Recover the matrix.
+//
+  c = r8cmat_to_r8mat_new ( m, n, b );
+  r8mat_print ( m, n, c, "  The R8MAT C:" );
+//
+//  Free memory.
+//
+  delete [] a;
+  r8cmat_delete ( m, n, b );
+  delete [] c;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8col_find_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8COL_FIND_TEST tests R8COL_FIND.
 //
 //  Licensing:
 //
@@ -2713,7 +4765,7 @@ void test037 ( )
   col = r8col_find ( M, N, dtab, r8vec );
 
   cout << "\n";
-  cout << "TEST037\n";
+  cout << "R8COL_FIND_TEST\n";
   cout << "  R8COL_FIND finds a column in a table matching\n";
   cout << "  a given set of data.\n";
   cout << "\n";
@@ -2725,13 +4777,13 @@ void test037 ( )
 }
 //****************************************************************************80
 
-void test038 ( )
+void r8col_insert_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST038 tests R8COL_INSERT and R8COL_SORT_HEAP_A.
+//    R8COL_INSERT_TEST tests R8COL_INSERT.
 //
 //  Licensing:
 //
@@ -2766,9 +4818,8 @@ void test038 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST038\n";
-  cout << "  R8COL_SORT_HEAP_A ascending heap sorts a table of columns.\n";
-  cout << "  R8COL_INSERT inserts new columns.\n";
+  cout << "R8COL_INSERT_TEST\n";
+  cout << "  R8COL_INSERT inserts new columns into a sorted R8COL.\n";
 
   n = 4;
 
@@ -2812,13 +4863,71 @@ void test038 ( )
 }
 //****************************************************************************80
 
-void test0385 ( )
+void r8col_sort_heap_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0385 tests R8COL_SORT_HEAP_INDEX_A.
+//    R8COL_SORT_HEAP_A_TEST tests R8COL_SORT_HEAP_A.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 3
+# define N_MAX 10
+
+  double a[M*N_MAX] = {
+    2.0,  6.0, 10.0,
+    4.0,  8.0, 12.0,
+    1.0,  5.0,  9.0,
+    3.0,  7.0, 11.0,
+    0.0,  0.0,  0.0,
+    0.0,  0.0,  0.0,
+    0.0,  0.0,  0.0,
+    0.0,  0.0,  0.0,
+    0.0,  0.0,  0.0,
+    0.0,  0.0,  0.0 };
+  int col;
+  double r8vec1[M] = { 3.0, 7.0, 11.0 };
+  double r8vec2[M] = { 3.0, 4.0, 18.0 };
+  int n;
+
+  cout << "\n";
+  cout << "R8COL_SORT_HEAP_A_TEST\n";
+  cout << "  R8COL_SORT_HEAP_A ascending heap sorts a table of columns.\n";
+
+  n = 4;
+
+  r8mat_print ( M, n, a, "  The unsorted matrix:" );
+
+  r8col_sort_heap_a ( M, n, a );
+
+  r8mat_print ( M, n, a, "  The sorted matrix:" );
+
+  return;
+# undef M
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8col_sort_heap_index_a_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8COL_SORT_HEAP_INDEX_A_TEST tests R8COL_SORT_HEAP_INDEX_A.
 //
 //  Licensing:
 //
@@ -2852,7 +4961,6 @@ void test0385 ( )
     1.0,  5.0,  9.0,
     1.0,  5.0,  9.1,
     1.0,  5.1,  9.0 };
-  int base = 0;
   int i;
   int *indx;
   int j;
@@ -2861,13 +4969,13 @@ void test0385 ( )
   int n = N;
 
   cout << "\n";
-  cout << "TEST0385\n";
+  cout << "R8COL_SORT_HEAP_INDEX_A_TEST\n";
   cout << "  R8COL_SORT_HEAP_INDEX_A computes an index vector which\n";
   cout << "  ascending sorts an R8COL.\n";
 
   r8mat_transpose_print ( m, n, a, "  The unsorted R8COL (transposed):" );
 
-  indx = r8col_sort_heap_index_a ( m, n, base, a );
+  indx = r8col_sort_heap_index_a ( m, n, a );
 
   cout << "\n";
   cout << "  The implicitly sorted R8COL (transposed)\n";
@@ -2890,13 +4998,13 @@ void test0385 ( )
 }
 //****************************************************************************80
 
-void test039 ( )
+void r8col_sort_quick_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST039 tests R8COL_SORT_QUICK_A.
+//    R8COL_SORT_QUICK_A_TEST tests R8COL_SORT_QUICK_A.
 //
 //  Licensing:
 //
@@ -2920,7 +5028,7 @@ void test039 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST039\n";
+  cout << "R8COL_SORT_QUICK_A_TEST\n";
   cout << "  R8COL_SORT_QUICK_A sorts a table of columns.\n";
 
   seed = 123456789;
@@ -2941,13 +5049,13 @@ void test039 ( )
 }
 //****************************************************************************80
 
-void test0393 ( )
+void r8col_sorted_tol_unique_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0393 tests R8COL_SORTED_TOL_UNIQUE.
+//    R8COL_SORTED_TOL_UNIQUE_TEST tests R8COL_SORTED_TOL_UNIQUE.
 //
 //  Licensing:
 //
@@ -2994,7 +5102,7 @@ void test0393 ( )
   int unique_num;
 
   cout << "\n";
-  cout << "TEST0393\n";
+  cout << "R8COL_SORTED_TOL_UNIQUE_TEST\n";
   cout << "  R8COL_SORTED_TOL_UNIQUE finds tolerably unique columns \n";
   cout << "  in a sorted R8COL.\n";
 
@@ -3023,13 +5131,13 @@ void test0393 ( )
 }
 //****************************************************************************80
 
-void test0395 ( )
+void r8col_sorted_unique_count_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0395 tests R8COL_SORTED_UNIQUE_COUNT.
+//    R8COL_SORTED_UNIQUE_COUNT_TEST tests R8COL_SORTED_UNIQUE_COUNT.
 //
 //  Licensing:
 //
@@ -3076,7 +5184,7 @@ void test0395 ( )
   int unique_num;
 
   cout << "\n";
-  cout << "TEST0395\n";
+  cout << "R8COL_SORTED_UNIQUE_COUNT_TEST\n";
   cout << "  R8COL_SORTED_UNIQUE_COUNT counts tolerably unique columns \n";
   cout << "  in a sorted R8COL.\n";
 
@@ -3102,13 +5210,13 @@ void test0395 ( )
 }
 //****************************************************************************80
 
-void test0397 ( )
+void r8col_sorted_tol_undex_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0397 tests R8COL_SORTED_TOL_UNDEX.
+//    R8COL_SORTED_TOL_UNDEX_TEST tests R8COL_SORTED_TOL_UNDEX.
 //
 //  Licensing:
 //
@@ -3162,7 +5270,7 @@ void test0397 ( )
   int *xdnu;
 
   cout << "\n";
-  cout << "TEST0397\n";
+  cout << "R8COL_SORTED_TOL_UNDEX_TEST\n";
   cout << "  R8COL_SORTED_TOL_UNDEX produces index vectors which create a sorted\n";
   cout << "  list of the tolerably unique columns of a sorted R8COL,\n";
   cout << "  and a map from the original R8COL to the (implicit)\n";
@@ -3228,13 +5336,13 @@ void test0397 ( )
 }
 //****************************************************************************80
 
-void test040 ( )
+void r8col_max_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST040 tests R8COL_MAX and R8COL_MIN;
+//    R8COL_MAX_TEST tests R8COL_MAX;
 //
 //  Licensing:
 //
@@ -3254,15 +5362,13 @@ void test040 ( )
 
   double a[M*N];
   double *amax;
-  double *amin;
   int i;
   int j;
   int k;
 
   cout << "\n";
-  cout << "TEST040\n";
+  cout << "R8COL_MAX_TEST\n";
   cout << "  R8COL_MAX computes maximums of an R8COL;\n";
-  cout << "  R8COL_MIN computes minimums of an R8COL;\n";
 
   k = 0;
   for ( i = 0; i < M; i++ )
@@ -3278,21 +5384,9 @@ void test040 ( )
 
   amax = r8col_max ( M, N, a );
 
-  amin = r8col_min ( M, N, a );
-
-  cout << "\n";
-  cout << "  Column, maximum, minimum:\n";
-  cout << "\n";
-
-  for ( j = 0; j < N; j++ )
-  {
-    cout << "  " << setw(3) << j+1
-         << "  " << setw(10) << amax[j]
-         << "  " << setw(10) << amin[j] << "\n";
-  }
+  r8vec_print ( N, amax, "  Column maximums:" );
 
   delete [] amax;
-  delete [] amin;
 
   return;
 # undef M
@@ -3300,13 +5394,13 @@ void test040 ( )
 }
 //****************************************************************************80
 
-void test041 ( )
+void r8col_mean_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST041 tests R8COL_MEAN and R8COL_SUM;
+//    R8COL_MEAN_TEST tests R8COL_MEAN;
 //
 //  Licensing:
 //
@@ -3332,9 +5426,8 @@ void test041 ( )
   double *mean;
 
   cout << "\n";
-  cout << "TEST041\n";
+  cout << "R8COL_MEAN_TEST\n";
   cout << "  R8COL_MEAN computes means of an R8COL;\n";
-  cout << "  R8COL_SUM computes sums of an R8COL;\n";
 
   k = 0;
   for ( i = 0; i < M; i++ )
@@ -3348,23 +5441,11 @@ void test041 ( )
 
   r8mat_print ( M, N, a, "  The array:" );
 
-  colsum = r8col_sum ( M, N, a );
-
   mean = r8col_mean ( M, N, a );
 
-  cout << "\n";
-  cout << "  Column  sum, mean:\n";
-  cout << "\n";
-
-  for ( j = 0; j < N; j++ )
-  {
-    cout << "  " << setw(3) << j+1
-         << "  " << setw(10) << colsum[j]
-         << "  " << setw(10) << mean[j] << "\n";
-  }
+  r8vec_print ( N, mean, "  The column means:" );
 
   delete [] mean;
-  delete [] colsum;
 
   return;
 # undef M
@@ -3372,13 +5453,71 @@ void test041 ( )
 }
 //****************************************************************************80
 
-void test0415 ( )
+void r8col_min_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0415 tests R8VEC_PERMUTE.
+//    R8COL_MIN_TEST tests R8COL_MIN;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 3
+# define N 4
+
+  double a[M*N];
+  double *amin;
+  int i;
+  int j;
+  int k;
+
+  cout << "\n";
+  cout << "R8COL_MIN_TEST\n";
+  cout << "  R8COL_MIN computes minimums of an R8COL;\n";
+
+  k = 0;
+  for ( i = 0; i < M; i++ )
+  {
+    for ( j = 0; j < N; j++ )
+    {
+      k = k + 1;
+      a[i+j*M] = ( double ) k;
+    }
+  }
+
+  r8mat_print ( M, N, a, "  The array:" );
+
+  amin = r8col_min ( M, N, a );
+
+  r8vec_print ( N, amin, "  Column minimums:" );
+
+  delete [] amin;
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8col_permute_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8COL_PERMUTE_TEST tests R8COL_PERMUTE.
 //
 //  Licensing:
 //
@@ -3402,19 +5541,18 @@ void test0415 ( )
     13.0, 23.0, 33.0,
     14.0, 24.0, 34.0,
     15.0, 25.0, 35.0 };
-  int base = 1;
-  int perm[N] = { 2, 4, 5, 1, 3 };
+  int perm[N] = { 1, 3, 4, 0, 2 };
 
 
   cout << "\n";
-  cout << "TEST0415\n";
+  cout << "R8COL_PERMUTE_TEST\n";
   cout << "  R8COL_PERMUTE permutes an R8COL in place.\n";
 
   r8mat_print ( M, N, a, "  A (unpermuted):" );
 
   i4vec_print ( N, perm, "  The (column) permutation vector:" );
 
-  r8col_permute ( M, N, perm, base, a );
+  r8col_permute ( M, N, perm, a );
 
   r8mat_print ( M, N, a, "  A (permuted):" );
 
@@ -3424,13 +5562,13 @@ void test0415 ( )
 }
 //****************************************************************************80
 
-void test042 ( )
+void r8col_sortr_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST042 tests R8COL_SORTR_A.
+//    R8COL_SORTR_A_TEST tests R8COL_SORTR_A.
 //
 //  Licensing:
 //
@@ -3455,7 +5593,7 @@ void test042 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST042\n";
+  cout << "R8COL_SORTR_A_TEST\n";
   cout << "  R8COL_SORTR_A is given an array, and reorders\n";
   cout << "  it so that a particular column is sorted.\n";
 
@@ -3481,13 +5619,13 @@ void test042 ( )
 }
 //****************************************************************************80
 
-void test043 ( )
+void r8col_sum_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST043 tests R8COL_SWAP;
+//    R8COL_SUM_TEST tests R8COL_SUM;
 //
 //  Licensing:
 //
@@ -3495,7 +5633,7 @@ void test043 ( )
 //
 //  Modified:
 //
-//    14 September 2005
+//    16 September 2005
 //
 //  Author:
 //
@@ -3506,15 +5644,15 @@ void test043 ( )
 # define N 4
 
   double a[M*N];
+  double *colsum;
   int i;
-  int icol1;
-  int icol2;
   int j;
   int k;
+  double *mean;
 
   cout << "\n";
-  cout << "TEST043\n";
-  cout << "  R8COL_SWAP swaps two columns of an R8COL;\n";
+  cout << "R8COL_SUM_TEST\n";
+  cout << "  R8COL_SUM computes sums of an R8COL;\n";
 
   k = 0;
   for ( i = 0; i < M; i++ )
@@ -3522,21 +5660,17 @@ void test043 ( )
     for ( j = 0; j < N; j++ )
     {
       k = k + 1;
-      a[i+j*M] = ( double ) ( k );
+      a[i+j*M] = ( double ) k;
     }
   }
 
   r8mat_print ( M, N, a, "  The array:" );
 
-  icol1 = 1;
-  icol2 = 3;
+  colsum = r8col_sum ( M, N, a );
 
-  cout << "\n";
-  cout << "  Swap columns " << icol1 << " and " << icol2 << ":\n";
+  r8vec_print ( N, colsum, "  The column sums" );
 
-  r8col_swap ( M, N, a, icol1, icol2 );
-
-  r8mat_print ( M, N, a, "  The updated matrix:" );
+  delete [] colsum;
 
   return;
 # undef M
@@ -3544,13 +5678,64 @@ void test043 ( )
 }
 //****************************************************************************80
 
-void test044 ( )
+void r8col_swap_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST044 tests R8COL_TO_R8VEC.
+//    R8COL_SWAP_TEST tests R8COL_SWAP;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    05 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int icol1;
+  int icol2;
+  int m = 3;
+  int n = 4;
+
+  cout << "\n";
+  cout << "R8COL_SWAP_TEST\n";
+  cout << "  R8COL_SWAP swaps two columns of an R8COL;\n";
+
+  a = r8mat_indicator_new ( m, n );
+
+  r8mat_print ( m, n, a, "  The array:" );
+
+  icol1 = 1;
+  icol2 = 3;
+
+  cout << "\n";
+  cout << "  Swap columns " << icol1 << " and " << icol2 << ":\n";
+
+  r8col_swap ( m, n, a, icol1, icol2 );
+
+  r8mat_print ( m, n, a, "  The updated matrix:" );
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8col_to_r8vec_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8COL_TO_R8VEC_TEST tests R8COL_TO_R8VEC.
 //
 //  Licensing:
 //
@@ -3574,7 +5759,7 @@ void test044 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST044\n";
+  cout << "R8COL_TO_R8VEC_TEST\n";
   cout << "  R8COL_TO_R8VEC converts an array of columns to a vector.\n";
   cout << "\n";
 
@@ -3600,13 +5785,13 @@ void test044 ( )
 }
 //****************************************************************************80
 
-void test0442 ( )
+void r8col_tol_undex_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0442 tests R8COL_TOL_UNDEX.
+//    R8COL_TOL_UNDEX_TEST tests R8COL_TOL_UNDEX.
 //
 //  Licensing:
 //
@@ -3660,7 +5845,7 @@ void test0442 ( )
   int *xdnu;
 
   cout << "\n";
-  cout << "TEST0442\n";
+  cout << "R8COL_TOL_UNDEX_TEST\n";
   cout << "  R8COL_TOL_UNDEX produces index vectors which create a sorted\n";
   cout << "  list of the tolerably unique columns of an R8COL,\n";
   cout << "  and a map from the original R8COL to the (implicit)\n";
@@ -3723,13 +5908,13 @@ void test0442 ( )
 }
 //****************************************************************************80
 
-void test0443 ( )
+void r8col_undex_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0443 tests R8COL_UNDEX.
+//    R8COL_UNDEX_TEST tests R8COL_UNDEX.
 //
 //  Licensing:
 //
@@ -3782,7 +5967,7 @@ void test0443 ( )
   int *xdnu;
 
   cout << "\n";
-  cout << "TEST0443\n";
+  cout << "R8COL_UNDEX_TEST\n";
   cout << "  R8COL_UNDEX produces index vectors which create a sorted\n";
   cout << "  list of the unique columns of an (unsorted) R8COL,\n";
   cout << "  and a map from the original R8COL to the (implicit)\n";
@@ -3839,13 +6024,13 @@ void test0443 ( )
 }
 //****************************************************************************80
 
-void test0445 ( )
+void r8col_unique_count_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0445 tests R8COL_UNIQUE_COUNT.
+//    R8COL_UNIQUE_COUNT_TEST tests R8COL_UNIQUE_COUNT.
 //
 //  Licensing:
 //
@@ -3892,7 +6077,7 @@ void test0445 ( )
   int unique_num;
 
   cout << "\n";
-  cout << "TEST0445\n";
+  cout << "R8COL_UNIQUE_COUNT_TEST\n";
   cout << "  R8COL_UNIQUE_COUNT counts unique columns.\n";
 
   r8mat_transpose_print ( m, n, a, "  The R8COL (transposed):" );
@@ -3908,13 +6093,13 @@ void test0445 ( )
 }
 //****************************************************************************80
 
-void test045 ( )
+void r8col_variance_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST045 tests R8COL_VARIANCE.
+//    R8COL_VARIANCE_TEST tests R8COL_VARIANCE.
 //
 //  Licensing:
 //
@@ -3939,7 +6124,7 @@ void test045 ( )
   double *variance;
 
   cout << "\n";
-  cout << "TEST045\n";
+  cout << "R8COL_VARIANCE_TEST\n";
   cout << "  R8COL_VARIANCE computes variances of an R8COL;\n";
 
   k = 0;
@@ -3974,13 +6159,78 @@ void test045 ( )
 }
 //****************************************************************************80
 
-void test046 ( )
+void r8int_to_i4int_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST046 tests R8R8VEC_INDEX_INSERT_UNIQUE.
+//    R8INT_TO_I4INT_TEST tests R8INT_TO_I4INT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int ihi = 11;
+  int ilo = 1;
+  int ir;
+  double r;
+  double r2;
+  double rhi = 200.0;
+  double rhi2;
+  double rlo = 100.0;
+  double rlo2;
+  int seed;
+  int test;
+  int test_num = 10;
+
+  cout << "\n";
+  cout << "R8INT_TO_I4INT_TEST\n";
+  cout << "  For data in an interval,\n";
+  cout << "  R8INT_TO_I4INT converts a real to an integer.\n";
+  cout << "\n";
+  cout << "  Integer interval: [" << ilo << ", " << ihi << "]\n";
+  cout << "  Real interval:    [" << rlo << ", " << rhi << "]\n";
+  cout << "\n";
+  cout << "  R   I(R)  R(I(R))\n";
+  cout << "\n";
+
+  seed = 123456789;
+
+  rlo2 = rlo - 15.0;
+  rhi2 = rhi + 15.0;
+
+  for ( test = 1; test <= test_num; test++ )
+  {
+    r = r8_uniform_ab ( rlo2, rhi2, seed );
+    ir = r8int_to_i4int ( rlo, rhi, r, ilo, ihi );
+    r2 = i4int_to_r8int ( ilo, ihi, ir, rlo, rhi );
+    cout << "  " << setw(12) << r
+         << "  " << setw(6)  << ir
+         << "  " << setw(12) << r2 << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8r8vec_index_insert_unique_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8R8_INDEX_INSERT_UNIQUE_TEST tests R8R8VEC_INDEX_INSERT_UNIQUE.
 //
 //  Licensing:
 //
@@ -4015,7 +6265,7 @@ void test046 ( )
   n = 0;
 
   cout << "\n";
-  cout << "TEST046\n";
+  cout << "R8R8_INDEX_INSERT_UNIQUE_TEST\n";
   cout << "  R8R8VEC_INDEX_INSERT_UNIQUE inserts unique values into an\n";
   cout << "  index sorted array.\n";
   cout << "\n";
@@ -4033,8 +6283,8 @@ void test046 ( )
     yval = r8_uniform_ab ( y_min, y_max, seed );
     yval = ( double ) ( r8_nint ( yval ) );
 
-    r8r8vec_index_insert_unique ( N_MAX, &n, x, y, indx, xval, yval,
-      &ival, &ierror );
+    r8r8vec_index_insert_unique ( N_MAX, n, x, y, indx, xval, yval,
+      ival, ierror );
 
     cout << "  " << setw(6)  << ival
          << "  " << setw(12) << xval
@@ -4071,13 +6321,13 @@ void test046 ( )
 }
 //****************************************************************************80
 
-void test047 ( )
+void r8r8r8vec_index_insert_unique_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST047 tests R8R8R8VEC_INDEX_INSERT_UNIQUE.
+//    R8R8R8VEC_INDEX_INSERT_UNIQUE_TEST tests R8R8R8VEC_INDEX_INSERT_UNIQUE.
 //
 //  Licensing:
 //
@@ -4110,7 +6360,7 @@ void test047 ( )
   n = 0;
 
   cout << "\n";
-  cout << "TEST047\n";
+  cout << "R8R8R8VEC_INDEX_INSERT_UNIQUE_TEST\n";
   cout << "  R8R8R8VEC_INDEX_INSERT_UNIQUE inserts unique values into\n";
   cout << "  an index sorted array.\n";
   cout << "\n";
@@ -4130,8 +6380,8 @@ void test047 ( )
     zval = r8_uniform_ab ( 1.0, 4.0, seed );
     zval = ( double ) ( r8_nint ( zval ) );
 
-    r8r8r8vec_index_insert_unique ( N_MAX, &n, x, y, z, indx,
-      xval, yval, zval, &ival, &ierror );
+    r8r8r8vec_index_insert_unique ( N_MAX, n, x, y, z, indx,
+      xval, yval, zval, ival, ierror );
 
     cout << "  " << setw(6) << xval
          << "  " << setw(6) << yval
@@ -4171,13 +6421,13 @@ void test047 ( )
 }
 //****************************************************************************80
 
-void test048 ( )
+void r8mat_cholesky_inverse_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST048 tests R8INT_TO_I4INT and I4INT_TO_R8INT;
+//    R8MAT_CHOLESKY_INVERSE_TEST tests R8MAT_CHOLESKY_INVERSE.
 //
 //  Licensing:
 //
@@ -4185,195 +6435,280 @@ void test048 ( )
 //
 //  Modified:
 //
-//    18 October 2005
+//    22 October 2013
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  int i;
-  int ihi = 11;
-  int ilo = 1;
-  int ir;
-  double r;
-  double r2;
-  double rhi = 200.0;
-  double rhi2;
-  double rlo = 100.0;
-  double rlo2;
-  int seed;
-  int test;
-  int test_num = 10;
-
-  cout << "\n";
-  cout << "TEST048\n";
-  cout << "  For data in an interval,\n";
-  cout << "  I4INT_TO_R8INT converts an integer to a real;\n";
-  cout << "  R8INT_TO_I4INT converts a real to an integer.\n";
-  cout << "\n";
-  cout << "  Integer interval: [" << ilo << ", " << ihi << "]\n";
-  cout << "  Real interval:    [" << rlo << ", " << rhi << "]\n";
-  cout << "\n";
-  cout << "  R   I(R)  R(I(R))\n";
-  cout << "\n";
-
-  seed = 123456789;
-
-  rlo2 = rlo - 15.0;
-  rhi2 = rhi + 15.0;
-
-  for ( test = 1; test <= test_num; test++ )
-  {
-    r = r8_uniform_ab ( rlo2, rhi2, seed );
-    ir = r8int_to_i4int ( rlo, rhi, r, ilo, ihi );
-    r2 = i4int_to_r8int ( ilo, ihi, ir, rlo, rhi );
-    cout << "  " << setw(12) << r
-         << "  " << setw(6)  << ir
-         << "  " << setw(12) << r2 << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test049 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST049 tests R8MAT_CHOLESKY_FACTOR, R8MAT_CHORESKY_FACTOR and R8MAT_CHOLESKY_SOLVE.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    21 April 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-# define N 5
-
-  double a[N*N];
-  double b[N];
-  int flag;
-  double *d;
+  double *a;
+  double *a2;
+  double *a3;
   int i;
   int j;
-  double *l;
-  double *lt;
-  double *r;
-  double *rt;
-  double *x;
+  int n = 5;
+  int test;
 
   cout << "\n";
-  cout << "TEST049\n";
+  cout << "R8MAT_CHOLESKY_INVERSE_TEST\n";
   cout << "  For a positive definite symmetric matrix,\n";
-  cout << "  R8MAT_CHOLESKY_FACTOR computes the lower\n";
-  cout << "  triangular Cholesky factor;\n";
-  cout << "  R8MAT_CHORESKY_FACTOR computes the upper\n";
-  cout << "  triangular Cholesky factor;\n";
-  cout << "  R8MAT_CHOLESKY_SOLVE solves a linear system\n";
-  cout << "  using the Cholesky factorization.\n";
+  cout << "  R8MAT_CHOLESKY_INVERSE computes the inverse.\n";
 
-  for ( i = 0; i < N; i++ )
+  a = new double[n*n];
+
+  for ( i = 0; i < n; i++ )
   {
-    for ( j = 0; j < N; j++ )
+    for ( j = 0; j < n; j++ )
     {
       if ( i == j )
       {
-        a[i+j*N] = 2.0;
+        a[i+j*n] = 2.0;
       }
       else if ( abs ( i - j ) == 1 )
       {
-        a[i+j*N] = -1.0;
+        a[i+j*n] = -1.0;
       }
       else
       {
-        a[i+j*N] = 0.0;
+        a[i+j*n] = 0.0;
       }
     }
   }
 
-  r8mat_print ( N, N, a, "  Matrix to be factored:" );
-//
-//  Compute L, the lower Cholesky factor.
-//
-  l = r8mat_cholesky_factor ( N, a, flag );
+  r8mat_print ( n, n, a, "  Matrix to be inverted:" );
 
-  if ( flag != 0 )
-  {
-    cout << "\n";
-    cout << "  R8MAT_CHOLESKY_FACTOR failed.\n";
-    return;
-  }
+  a2 = r8mat_copy_new ( n, n, a );
 
-  r8mat_print ( N, N, l, "  Cholesky factor L:" );
+  r8mat_cholesky_inverse ( n, a2 );
 
-  lt = r8mat_transpose_new ( N, N, l );
+  r8mat_print ( n, n, a2, "  Inverse matrix:" );
 
-  d = r8mat_mm_new ( N, N, N, l, lt );
+  a3 = r8mat_mm_new ( n, n, n, a2, a );
+  
+  r8mat_print ( n, n, a3, "  Product inv(A) * A:" );
 
-  r8mat_print ( N, N, d, "  Product L * L':" );
-//
-//  Compute R, the upper Cholesky factor.
-//
-  r = r8mat_choresky_factor ( N, a, flag );
-
-  if ( flag != 0 )
-  {
-    cout << "\n";
-    cout << "  R8MAT_CHORESKY_FACTOR failed.\n";
-    return;
-  }
-
-  r8mat_print ( N, N, r, "  Cholesky factor R:" );
-
-  rt = r8mat_transpose_new ( N, N, r );
-
-  d = r8mat_mm_new ( N, N, N, r, rt );
-
-  r8mat_print ( N, N, d, "  Product R * R':" );
-//
-//  Solve a system.
-//
-  for ( i = 0; i < N-1; i++ )
-  {
-    b[i] = 0.0;
-  }
-  b[N-1] = ( double ) ( N + 1 );
-
-  r8vec_print ( N, b, "  Right hand side:" );
-
-  x = r8mat_cholesky_solve ( N, l, b );
-
-  r8vec_print ( N, x, "  Computed solution:" );
-
-  delete [] d;
-  delete [] l;
-  delete [] lt;
-  delete [] r;
-  delete [] rt;
-  delete [] x;
+  delete [] a;
+  delete [] a2;
+  delete [] a3;
 
   return;
-# undef N
 }
 //****************************************************************************80
 
-void test050 ( )
+void r8mat_cholesky_solve_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST050 tests R8MAT_DET_2D;
+//    R8MAT_CHOLESKY_SOLVE_TEST tests R8MAT_CHOLESKY_SOLVE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    22 October 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double *a2;
+  double *a3;
+  double *b;
+  double *d;
+  int flag;
+  int i;
+  int j;
+  double *l;
+  int n = 5;
+  double *r;
+  int test;
+  double *x;
+
+  cout << "\n";
+  cout << "R8MAT_CHOLESKY_SOLVE_TEST\n";
+  cout << "  For a positive definite symmetric matrix,\n";
+  cout << "  R8MAT_CHOLESKY_SOLVE solves a linear system\n";
+  cout << "  using the lower Cholesky factorization.\n";
+
+  a = new double[n*n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      if ( i == j )
+      {
+        a[i+j*n] = 2.0;
+      }
+      else if ( abs ( i - j ) == 1 )
+      {
+        a[i+j*n] = -1.0;
+      }
+      else
+      {
+        a[i+j*n] = 0.0;
+      }
+    }
+  }
+
+  r8mat_print ( n, n, a, "  Matrix to be factored:" );
+//
+//  Compute the Cholesky factor.
+//
+  l = r8mat_cholesky_factor ( n, a, flag );
+  if ( flag != 0 )
+  {
+    cerr << "\n";
+    cerr << "  R8MAT_CHOLESKY_FACTOR failed.\n";
+    return;
+  }
+  r8mat_print ( n, n, l, "  Cholesky factor L:" );
+  d = r8mat_mmt_new ( n, n, n, l, l );
+  r8mat_print ( n, n, d, "  Product L * L':" );
+//
+//  Solve a system.
+//
+  b = new double[n];
+
+  for ( i = 0; i < n - 1; i++ )
+  {
+    b[i] = 0.0;
+  }
+  b[n-1] = ( double ) ( n + 1 );
+
+  r8vec_print ( n, b, "  Right hand side:" );
+
+  x = r8mat_cholesky_solve ( n, l, b );
+
+  r8vec_print ( n, x, "  Computed solution:" );
+
+  delete [] a;
+  delete [] b;
+  delete [] d;
+  delete [] l;
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_cholesky_solve_upper_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_CHOLESKY_SOLVE_UPPER_TEST tests the Cholesky routines.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    22 October 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double *a2;
+  double *a3;
+  double *b;
+  double *d;
+  int flag;
+  int i;
+  int j;
+  double *l;
+  int n = 5;
+  double *r;
+  int test;
+  double *x;
+
+  cout << "\n";
+  cout << "R8MAT_CHOLESKY_SOLVE_UPPER_TEST\n";
+  cout << "  For a positive definite symmetric matrix,\n";
+  cout << "  R8MAT_CHOLESKY_SOLVE_UPPER solves a linear system\n";
+  cout << "  using the upper Cholesky factorization.\n";
+
+  a = new double[n*n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      if ( i == j )
+      {
+        a[i+j*n] = 2.0;
+      }
+      else if ( abs ( i - j ) == 1 )
+      {
+        a[i+j*n] = -1.0;
+      }
+      else
+      {
+        a[i+j*n] = 0.0;
+      }
+    }
+  }
+
+  r8mat_print ( n, n, a, "  Matrix to be factored:" );
+//
+//  Compute the Cholesky factor.
+//
+  r = r8mat_cholesky_factor_upper ( n, a, flag );
+  if ( flag != 0 )
+  {
+    cerr << "\n";
+    cerr << "  R8MAT_CHOLESKY_FACTOR_UPPER failed.\n";
+    return;
+  }
+  r8mat_print ( n, n, r, "  Cholesky factor R:" );
+  d = r8mat_mtm_new ( n, n, n, r, r );
+  r8mat_print ( n, n, d, "  Product R' * R:" );
+//
+//  Solve a system.
+//
+  b = new double[n];
+
+  for ( i = 0; i < n - 1; i++ )
+  {
+    b[i] = 0.0;
+  }
+  b[n-1] = ( double ) ( n + 1 );
+
+  r8vec_print ( n, b, "  Right hand side:" );
+
+  x = r8mat_cholesky_solve_upper ( n, r, b );
+
+  r8vec_print ( n, x, "  Computed solution:" );
+
+  delete [] a;
+  delete [] b;
+  delete [] d;
+  delete [] r;
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_det_2d_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_DET_2D_TEST tests R8MAT_DET_2D;
 //
 //  Licensing:
 //
@@ -4397,7 +6732,7 @@ void test050 ( )
   double x[N] = { 1.0, 10.0 };
 
   cout << "\n";
-  cout << "TEST050\n";
+  cout << "R8MAT_DET_2D_TEST\n";
   cout << "  R8MAT_DET_2D: determinant of a 2 by 2 matrix;\n";
 
   a = r8mat_vand2 ( N, x );
@@ -4427,13 +6762,13 @@ void test050 ( )
 }
 //****************************************************************************80
 
-void test051 ( )
+void r8mat_det_3d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST051 tests R8MAT_DET_3D;
+//    R8MAT_DET_3D_TEST tests R8MAT_DET_3D;
 //
 //  Licensing:
 //
@@ -4457,7 +6792,7 @@ void test051 ( )
   double x[N] = { 1.0, 10.0, 4.0 };
 
   cout << "\n";
-  cout << "TEST051\n";
+  cout << "R8MAT_DET_3D_TEST\n";
   cout << "  R8MAT_DET_3D: determinant of a 3 by 3 matrix;\n";
 
   a = r8mat_vand2 ( N, x );
@@ -4487,13 +6822,13 @@ void test051 ( )
 }
 //****************************************************************************80
 
-void test052 ( )
+void r8mat_det_4d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST052 tests R8MAT_DET_4D;
+//    R8MAT_DET_4D_TEST tests R8MAT_DET_4D;
 //
 //  Licensing:
 //
@@ -4517,7 +6852,7 @@ void test052 ( )
   double x[N] = { 1.0, 10.0, 4.0, 2.0 };
 
   cout << "\n";
-  cout << "TEST052\n";
+  cout << "R8MAT_DET_4D_TEST\n";
   cout << "  R8MAT_DET_4D determinant of a 4 by 4 matrix;\n";
 
   a = r8mat_vand2 ( N, x );
@@ -4547,13 +6882,13 @@ void test052 ( )
 }
 //****************************************************************************80
 
-void test053 ( )
+void r8mat_det_5d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST053 tests R8MAT_DET_5D;
+//    R8MAT_DET_5D_TEST tests R8MAT_DET_5D;
 //
 //  Licensing:
 //
@@ -4577,7 +6912,7 @@ void test053 ( )
   double x[N] = { 1.0, 10.0, 4.0, 2.0, 3.0 };
 
   cout << "\n";
-  cout << "TEST053\n";
+  cout << "R8MAT_DET_5D_TEST\n";
   cout << "  R8MAT_DET_5D determinant of a 5 by 5 matrix;\n";
 
   a = r8mat_vand2 ( N, x );
@@ -4607,13 +6942,13 @@ void test053 ( )
 }
 //****************************************************************************80
 
-void test054 ( )
+void r8mat_expand_linear_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST054 tests R8MAT_EXPAND_LINEAR.
+//    R8MAT_EXPAND_LINEAR_TEST tests R8MAT_EXPAND_LINEAR.
 //
 //  Licensing:
 //
@@ -4648,7 +6983,7 @@ void test054 ( )
   n2 = ( N - 1 ) * ( nfat + 1 ) + 1;
 
   cout << "\n";
-  cout << "TEST054\n";
+  cout << "R8MAT_EXPAND_LINEAR_TEST\n";
   cout << "  R8MAT_EXPAND_LINEAR linearly interpolates new data\n";
   cout << "  between old values in a matrix.\n";
 
@@ -4670,13 +7005,13 @@ void test054 ( )
 }
 //****************************************************************************80
 
-void test055 ( )
+void r8mat_expand_linear2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST055 tests R8MAT_EXPAND_LINEAR2.
+//    R8MAT_EXPAND_LINEAR2_TEST tests R8MAT_EXPAND_LINEAR2.
 //
 //  Licensing:
 //
@@ -4702,7 +7037,7 @@ void test055 ( )
   int n2 = 5;
 
   cout << "\n";
-  cout << "TEST055\n";
+  cout << "R8MAT_EXPAND_LINEAR2_TEST\n";
   cout << "  R8MAT_EXPAND_LINEAR2 fills in a large array by\n";
   cout << "  interpolating data from a small array.\n";
   cout << "\n";
@@ -4736,13 +7071,93 @@ void test055 ( )
 }
 //****************************************************************************80
 
-void test0555 ( )
+void r8mat_fs_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0555 tests R8MAT_FSS_NEW.
+//    R8MAT_FS_NEW_TEST tests R8MAT_FS_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    28 November 2011
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+
+  double *a;
+  double *b;
+  int i;
+  int info;
+  int j;
+  int k;
+  int n = N;
+  int seed = 123456789;
+  double *x;
+
+  cout << "\n";
+  cout << "R8MAT_FS_NEW_TEST\n";
+  cout << "  For a matrix in general storage,\n";
+  cout << "  R8MAT_FS_NEW factors and solves a linear system.\n";
+  cout << "\n";
+  cout << "  Matrix order N = " << n << "\n";
+//
+//  Set the matrix.
+//
+  a = r8mat_uniform_01_new ( n, n, seed );
+//
+//  Set the desired solutions.
+//
+  b = new double[n];
+
+  x = new double[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    x[i] = ( double ) ( i + 1 );
+  }
+  for ( i = 0; i < n; i++ )
+  {
+    b[i] = 0.0;
+    for ( j = 0; j < n; j++ )
+    {
+      b[i] = b[i] + a[i+j*n] * x[j];
+    }
+  }
+//
+//  Factor and solve the system.
+//
+  delete [] x;
+
+  x = r8mat_fs_new ( n, a, b );
+  
+  r8vec_print ( n, x, "  Solution:" );
+
+  delete [] a;
+  delete [] b;
+  delete [] x;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8mat_fss_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_FSS_NEW_TEST tests R8MAT_FSS_NEW.
 //
 //  Licensing:
 //
@@ -4772,7 +7187,7 @@ void test0555 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST0555\n";
+  cout << "R8MAT_FSS_NEW_TEST\n";
   cout << "  For a matrix in general storage,\n";
   cout << "  R8MAT_FSS_NEW factors and solves multiple linear systems.\n";
   cout << "\n";
@@ -4847,13 +7262,13 @@ void test0555 ( )
 }
 //****************************************************************************80
 
-void test056 ( )
+void r8mat_givens_post_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST056 tests R8MAT_GIVENS_POST.
+//    R8MAT_GIVENS_POST_TEST tests R8MAT_GIVENS_POST.
 //
 //  Licensing:
 //
@@ -4879,7 +7294,7 @@ void test056 ( )
   int row;
 
   cout << "\n";
-  cout << "TEST056\n";
+  cout << "R8MAT_GIVENS_POST_TEST\n";
   cout << "  R8MAT_GIVENS_POST computes a Givens postmultiplier rotation matrix.\n";
 
   for ( i = 0; i < N; i++ )
@@ -4914,13 +7329,13 @@ void test056 ( )
 }
 //****************************************************************************80
 
-void test057 ( )
+void r8mat_givens_pre_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST057 tests R8MAT_GIVENS_PRE.
+//    R8MAT_GIVENS_PRE_TEST tests R8MAT_GIVENS_PRE.
 //
 //  Licensing:
 //
@@ -4946,7 +7361,7 @@ void test057 ( )
   int row;
 
   cout << "\n";
-  cout << "TEST057\n";
+  cout << "R8MAT_GIVENS_PRE_TEST\n";
   cout << "  R8MAT_GIVENS_PRE computes a Givens premultiplier rotation matrix.\n";
 
   for ( i = 0; i < N; i++ )
@@ -4981,13 +7396,13 @@ void test057 ( )
 }
 //****************************************************************************80
 
-void test058 ( )
+void r8mat_hess_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST058 tests R8MAT_HESS.
+//    R8MAT_HESS_TEST tests R8MAT_HESS.
 //
 //  Licensing:
 //
@@ -5008,17 +7423,17 @@ void test058 ( )
   double x[N] = { 1.0, 2.0, 3.0 };
 
   cout << "\n";
-  cout << "TEST058\n";
+  cout << "R8MAT_HESS_TEST\n";
   cout << "  R8MAT_HESS estimates the Hessian matrix\n";
   cout << "  of a scalar function.\n";
 
-  h = r8mat_hess ( test058_f, N, x );
+  h = r8mat_hess ( r8mat_hess_f, N, x );
 
   r8mat_print ( N, N, h, "  Estimated jacobian:" );
 
   delete [] h;
 
-  h = test058_hess ( N, x );
+  h = r8mat_hess_exact ( N, x );
 
   r8mat_print ( N, N, h, "  Exact jacobian:" );
 
@@ -5029,13 +7444,13 @@ void test058 ( )
 }
 //****************************************************************************80
 
-double test058_f ( int n, double x[] )
+double r8mat_hess_f ( int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST058_F is a sample nonlinear function for treatment by R8MAT_JAC.
+//    R8MAT_HESS_F is a sample nonlinear function for treatment by R8MAT_HESS.
 //
 //  Licensing:
 //
@@ -5055,7 +7470,7 @@ double test058_f ( int n, double x[] )
 //
 //    Input, double X[N], the parameter values.
 //
-//    Output, double TEST058_F, the function value.
+//    Output, double R8MAT_HESS_F, the function value.
 //
 {
   double f;
@@ -5066,13 +7481,13 @@ double test058_f ( int n, double x[] )
 }
 //****************************************************************************80
 
-double *test058_hess ( int n, double x[] )
+double *r8mat_hess_exact ( int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST058_HESS is the exact Hessian of TEST058_F.
+//    R8MAT_HESS_EXACT is the exact Hessian of R8MAT_HESS_F.
 //
 //  Licensing:
 //
@@ -5092,7 +7507,7 @@ double *test058_hess ( int n, double x[] )
 //
 //    Input, double X[N], the parameter values.
 //
-//    Output, double TEST058_H[N*N], the Hessian values.
+//    Output, double R8MAT_HESS_EXACT[N*N], the Hessian values.
 //
 {
   double *h;
@@ -5115,13 +7530,13 @@ double *test058_hess ( int n, double x[] )
 }
 //****************************************************************************80
 
-void test059 ( )
+void r8mat_house_axh_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST059 tests R8MAT_HOUSE_FORM and R8VEC_HOUSE_COLUMN.
+//    R8MAT_HOUSE_AXH_TEST tests R8MAT_HOUSE_AXH.
 //
 //  Licensing:
 //
@@ -5129,7 +7544,7 @@ void test059 ( )
 //
 //  Modified:
 //
-//    08 October 2005
+//    14 March 2015
 //
 //  Author:
 //
@@ -5137,75 +7552,83 @@ void test059 ( )
 //
 {
   double *a;
-  double b = 0.0;
-  double c = 5.0;
+  double *a_col;
+  double *ah;
   double *h;
   double *ha;
-  int i;
-  int j;
   int k;
-  int n = 4;
+  int n = 5;
+  double r8_hi;
+  double r8_lo;
   int seed;
   double *v;
 
   cout << "\n";
-  cout << "TEST059\n";
-  cout << "  R8VEC_HOUSE_COLUMN returns the compact form of\n";
-  cout << "  a Householder matrix that packs a column\n";
-  cout << "  of a matrix.\n";
-//
-//  Get a random matrix.
-//
+  cout << "R8MAT_HOUSE_AXH_TEST\n";
+  cout << "  R8MAT_HOUSE_AXH multiplies a matrix A times a\n";
+  cout << "  compact Householder matrix.\n";
+
+  r8_lo = -5.0;
+  r8_hi = +5.0;
   seed = 123456789;
 
-  a = r8mat_uniform_ab_new ( n, n, b, c, seed );
+  a = r8mat_uniform_ab_new ( n, n, r8_lo, r8_hi, seed );
 
   r8mat_print ( n, n, a, "  Matrix A:" );
-
-  for ( k = 1; k <= n-1; k++ )
-  {
-    cout << "\n";
-    cout << "  Working on column K = " << k << "\n";
-
-    v = r8vec_house_column ( n, a+(k-1)*n, k );
-
-    h = r8mat_house_form ( n, v );
-
-    r8mat_print ( n, n, h, "  Householder matrix H:" );
-
-    ha = r8mat_mm_new ( n, n, n, h, a );
-
-    r8mat_print ( n, n, ha, "  Product H*A:" );
 //
-//  If we set A := HA, then we can successively convert A to upper
-//  triangular form.
+//  Request V, the compact form of the Householder matrix H
+//  such that H*A packs column 3 of A.
 //
-    for ( j = 0; j < n; j++ )
-    {
-      for ( i = 0; i < n; i++ )
-      {
-        a[i+j*n] = ha[i+j*n];
-      }
-    }
+  k = 3;
+  a_col = ( a + ( k - 1 ) * n );
+  v = r8vec_house_column ( n, a_col, k );
 
-    delete [] h;
-    delete [] ha;
-    delete [] v;
-  }
+  r8vec_print ( n, v, "  Compact vector V so H*A packs column 3:" );
 
+  h = r8mat_house_form ( n, v );
+
+  r8mat_print ( n, n, h, "  Householder matrix H:" );
+//
+//  Compute A*H.
+//
+  ah = r8mat_house_axh_new ( n, a, v );
+
+  r8mat_print ( n, n, ah, "  Indirect product A*H:" );
+
+  delete [] ah;
+//
+//  Compare with a direct calculation.
+//
+  ah = r8mat_mm_new ( n, n, n, a, h );
+
+  r8mat_print ( n, n, ah, "  Direct product A*H:" );
+//
+//  Verify that H*A packs column 3:
+//
+  ha = r8mat_mm_new ( n, n, n, h, a );
+
+  r8mat_print ( n, n, ha, "  H*A should have packed column 3:" );
+//
+//  Free memory.
+//
   delete [] a;
+  delete [] ah;
+  delete [] h;
+  delete [] ha;
+  delete [] v;
 
   return;
+# undef N
 }
 //****************************************************************************80
 
-void test060 ( )
+void r8mat_house_form_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST060 tests R8MAT_HOUSE_FORM.
+//    R8MAT_HOUSE_FORM_TEST tests R8MAT_HOUSE_FORM.
 //
 //  Licensing:
 //
@@ -5226,7 +7649,7 @@ void test060 ( )
   double v[N] = { 0.0, 0.0, 1.0, 2.0, 3.0 };
 
   cout << "\n";
-  cout << "TEST060\n";
+  cout << "R8MAT_HOUSE_FORM_TEST\n";
   cout << "  R8MAT_HOUSE_FORM forms a Householder\n";
   cout << "  matrix from its compact form.\n";
 
@@ -5243,13 +7666,13 @@ void test060 ( )
 }
 //****************************************************************************80
 
-void test061 ( )
+void r8mat_house_post_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST061 tests R8MAT_HOUSE_POST.
+//    R8MAT_HOUSE_POST_TEST tests R8MAT_HOUSE_POST.
 //
 //  Licensing:
 //
@@ -5275,7 +7698,7 @@ void test061 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST061\n";
+  cout << "R8MAT_HOUSE_POST_TEST\n";
   cout << "  R8MAT_HOUSE_POST computes a Householder postmultiplier;\n";
 
   seed = 123456789;
@@ -5306,13 +7729,13 @@ void test061 ( )
 }
 //****************************************************************************80
 
-void test062 ( )
+void r8mat_house_pre_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST062 tests R8MAT_HOUSE_PRE.
+//    R8MAT_HOUSE_PRE_TEST tests R8MAT_HOUSE_PRE.
 //
 //  Licensing:
 //
@@ -5339,7 +7762,7 @@ void test062 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST062\n";
+  cout << "R8MAT_HOUSE_PRE_TEST\n";
   cout << "  R8MAT_HOUSE_PRE computes a Householder premultiplier;\n";
 
   seed = 123456789;
@@ -5371,13 +7794,13 @@ void test062 ( )
 }
 //****************************************************************************80
 
-void test063 ( )
+void r8mat_indicator_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST063 tests R8MAT_MAX_INDEX and R8MAT_MIN_INDEX.
+//    R8MAT_INDICATOR_NEW_TEST tests R8MAT_INDICATOR_NEW.
 //
 //  Licensing:
 //
@@ -5385,56 +7808,38 @@ void test063 ( )
 //
 //  Modified:
 //
-//    07 October 2005
+//    03 December 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define M 5
-# define N 3
-
   double *a;
-  double b = 0.0;
-  double c = 10.0;
-  int i;
-  int j;
-  int seed;
+  int m = 5;
+  int n = 4;
 
   cout << "\n";
-  cout << "TEST063\n";
-  cout << "  R8MAT_MAX_INDEX locates the maximum entry of an R8MAT;\n";
-  cout << "  R8MAT_MIN_INDEX locates the minimum entry of an R8MAT;\n";
+  cout << "R8MAT_INDICATOR_NEW_TEST\n";
+  cout << "  R8MAT_INDICATOR_NEW returns an indicator matrix.\n";
 
-  seed = 123456789;
+  a = r8mat_indicator_new ( m, n );
 
-  a = r8mat_uniform_ab_new ( M, N, b, c, seed );
-
-  r8mat_print ( M, N, a, "  Random array:" );
-
-  r8mat_max_index ( M, N, a, &i, &j );
-
-  cout << "\n";
-  cout << "  Maximum I,J indices            " << i << "  " << j << "\n";
-  r8mat_min_index ( M, N, a, &i, &j );
-  cout << "  Minimum I,J indices            " << i << "  " << j << "\n";
+  r8mat_print ( m, n, a, "  The indicator matrix:" );
 
   delete [] a;
 
   return;
-# undef M
-# undef N
 }
 //****************************************************************************80
 
-void test064 ( )
+void r8mat_inverse_2d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST064 tests R8MAT_INVERSE_2D.
+//    R8MAT_INVERSE_2D_TEST tests R8MAT_INVERSE_2D.
 //
 //  Licensing:
 //
@@ -5459,7 +7864,7 @@ void test064 ( )
   int k;
 
   cout << "\n";
-  cout << "TEST064\n";
+  cout << "R8MAT_INVERSE_2D_TEST\n";
   cout << "  R8MAT_INVERSE_2D inverts a 2 by 2 matrix.\n";
 
   a[0+0*N] = 1.0;
@@ -5496,13 +7901,13 @@ void test064 ( )
 }
 //****************************************************************************80
 
-void test065 ( )
+void r8mat_inverse_3d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST065 tests R8MAT_INVERSE_3D.
+//    R8MAT_INVERSE_3D_TEST tests R8MAT_INVERSE_3D.
 //
 //  Licensing:
 //
@@ -5527,7 +7932,7 @@ void test065 ( )
   int k;
 
   cout << "\n";
-  cout << "TEST065\n";
+  cout << "R8MAT_INVERSE_3D_TEST\n";
   cout << "  R8MAT_INVERSE_3D inverts a 3 by 3 matrix.\n";
 
   a[0+0*N] = 3.0;
@@ -5570,13 +7975,13 @@ void test065 ( )
 }
 //****************************************************************************80
 
-void test066 ( )
+void r8mat_inverse_4d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST066 tests R8MAT_INVERSE_4D.
+//    R8MAT_INVERSE_4D_TEST tests R8MAT_INVERSE_4D.
 //
 //  Licensing:
 //
@@ -5601,7 +8006,7 @@ void test066 ( )
   int k;
 
   cout << "\n";
-  cout << "TEST066\n";
+  cout << "R8MAT_INVERSE_4D_TEST\n";
   cout << "  R8MAT_INVERSE_4D inverts a 4 x 4 matrix.\n";
 
 
@@ -5651,13 +8056,13 @@ void test066 ( )
 }
 //****************************************************************************80
 
-void test067 ( )
+void r8mat_jac_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST067 tests R8MAT_JAC.
+//    R8MAT_JAC_TEST tests R8MAT_JAC.
 //
 //  Licensing:
 //
@@ -5680,17 +8085,17 @@ void test067 ( )
   double x[N] = { 1.0, 2.0, 3.0, 4.0 };
 
   cout << "\n";
-  cout << "TEST067\n";
+  cout << "R8MAT_JAC_TEST\n";
   cout << "  R8MAT_JAC estimates the M by N jacobian matrix\n";
   cout << "  of a nonlinear function.\n";
 
-  fprime = r8mat_jac ( m, N, eps, test067_f, x );
+  fprime = r8mat_jac ( m, N, eps, r8mat_jac_f, x );
 
   r8mat_print ( m, N, fprime, "  Estimated jacobian:" );
 
   delete [] fprime;
 
-  fprime = test067_jac ( m, N, x );
+  fprime = r8mat_jac_exact ( m, N, x );
 
   r8mat_print (  m, N, fprime, "  Exact jacobian:" );
 
@@ -5701,13 +8106,13 @@ void test067 ( )
 }
 //****************************************************************************80
 
-double *test067_f ( int m, int n, double x[] )
+double *r8mat_jac_f ( int m, int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST067_F is a sample nonlinear function for treatment by R8MAT_JAC.
+//    R8MAT_JAC_F is a sample nonlinear function for treatment by R8MAT_JAC.
 //
 //  Licensing:
 //
@@ -5729,7 +8134,7 @@ double *test067_f ( int m, int n, double x[] )
 //
 //    Input, double X[N], the parameter values.
 //
-//    Output, double TEST067_F[M], the function values.
+//    Output, double R8MAT_JAC_F[M], the function values.
 //
 {
   double *f;
@@ -5744,13 +8149,13 @@ double *test067_f ( int m, int n, double x[] )
 }
 //****************************************************************************80
 
-double *test067_jac ( int m, int n, double x[] )
+double *r8mat_jac_exact ( int m, int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST067_JAC is the exact jacobian of TEST067_F.
+//    R8MAT_JAC_EXACT is the exact jacobian of R8MAT_JAC_F.
 //
 //  Licensing:
 //
@@ -5772,7 +8177,7 @@ double *test067_jac ( int m, int n, double x[] )
 //
 //    Input, double X[N], the parameter values.
 //
-//    Output, double FPRIME[M*N], the jacobian values.
+//    Output, double R8MAT_JAC_EXACT[M*N], the jacobian values.
 //
 {
   double *fprime;
@@ -5798,13 +8203,68 @@ double *test067_jac ( int m, int n, double x[] )
 }
 //****************************************************************************80
 
-void test068 ( )
+void r8mat_kronecker_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST068 tests R8MAT_L_INVERSE.
+//    R8MAT_KRONECKER_TEST tests R8MAT_KRONECKER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    01 December 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int m1 = 2;
+  int m2 = 3;
+  int m = m1 * m2;
+  int n1 = 3;
+  int n2 = 2;
+  int n = n1 * n2;
+
+  double a[2*3] = {
+    1.0, 4.0, 
+    2.0, 5.0, 
+    3.0, 6.0 };
+  double b[3*2] = {
+    7.0,  9.0, 11.0, 
+    8.0, 10.0, 12.0 };
+  double *c;
+
+  cout << "\n";
+  cout << "R8MAT_KRONECKER_TEST\n";
+  cout << "  R8MAT_KRONECKER computes the Kronecker product\n";
+  cout << "  of two R8MAT's.\n";
+
+  r8mat_print ( m1, n1, a, "  Factor matrix A:" );
+  r8mat_print ( m2, n2, b, "  Factor matrix B:" );
+
+  c = r8mat_kronecker ( m1, n1, a, m2, n2, b );
+
+  r8mat_print ( m, n, c, "  Kronecker product C = kron(A,B)" );
+
+  delete [] c;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_l_inverse_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_L_INVERSE_TEST tests R8MAT_L_INVERSE.
 //
 //  Licensing:
 //
@@ -5832,8 +8292,8 @@ void test068 ( )
   double *c;
 
   cout << "\n";
-  cout << "TEST068\n";
-  cout << "  R8MAT_L_INVERSE inverts a lower triangular matrix.\n";
+  cout << "R8MAT_L_INVERSE_TEST\n";
+  cout << "  R8MAT_L_INVERSE inverts a lower triangular R8MAT.\n";
 
   r8mat_print ( N, N, a, "  Matrix A to be inverted:" );
 
@@ -5853,13 +8313,13 @@ void test068 ( )
 }
 //****************************************************************************80
 
-void test069 ( )
+void r8mat_l_print_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST069 tests R8MAT_L_PRINT.
+//    R8MAT_L_PRINT_TEST tests R8MAT_L_PRINT.
 //
 //  Licensing:
 //
@@ -5899,8 +8359,8 @@ void test069 ( )
   int n3 = 7;
 
   cout << "\n";
-  cout << "TEST069\n";
-  cout << "  R8MAT_L_PRINT prints a lower triangular matrix\n";
+  cout << "R8MAT_L_PRINT_TEST\n";
+  cout << "  R8MAT_L_PRINT prints a lower triangular R8MAT\n";
   cout << "  stored compactly.  Only the (possibly) nonzero\n";
   cout << "  elements are printed.\n";
 
@@ -5914,13 +8374,13 @@ void test069 ( )
 }
 //****************************************************************************80
 
-void test070 ( )
+void r8mat_l1_inverse_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST070 tests R8MAT_L1_INVERSE.
+//    R8MAT_L1_INVERSE_TEST tests R8MAT_L1_INVERSE.
 //
 //  Licensing:
 //
@@ -5950,8 +8410,8 @@ void test070 ( )
   double *c;
 
   cout << "\n";
-  cout << "TEST070\n";
-  cout << "  R8MAT_L1_INVERSE inverts a unit lower triangular matrix.\n";
+  cout << "R8MAT_L1_INVERSE_TEST\n";
+  cout << "  R8MAT_L1_INVERSE inverts a unit lower triangular R8MAT.\n";
 
   r8mat_print ( N, N, a, "  Matrix A to be inverted:" );
 
@@ -5971,13 +8431,13 @@ void test070 ( )
 }
 //****************************************************************************80
 
-void test071 ( )
+void r8mat_lu_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST071 tests R8MAT_LU.
+//    R8MAT_LU_TEST tests R8MAT_LU.
 //
 //  Licensing:
 //
@@ -6004,8 +8464,8 @@ void test071 ( )
   double x[N] = { 1.0, 10.0, 4.0, 2.0, 3.0 };
 
   cout << "\n";
-  cout << "TEST071\n";
-  cout << "  R8MAT_LU computes the LU factors of a matrix.\n";
+  cout << "R8MAT_LU_TEST\n";
+  cout << "  R8MAT_LU computes the LU factors of an R8MAT.\n";
 
   a = r8mat_vand2 ( N, x );
 
@@ -6035,13 +8495,13 @@ void test071 ( )
 }
 //****************************************************************************80
 
-void test072 ( )
+void r8mat_max_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST072 tests R8MAT_MAX and R8MAT_MIN.
+//    R8MAT_MAX_TEST tests R8MAT_MAX.
 //
 //  Licensing:
 //
@@ -6062,27 +8522,22 @@ void test072 ( )
   int m = 5;
   int n = 3;
   int seed;
-  double temp1;
-  double temp2;
+  double temp;
 
   cout << "\n";
-  cout << "TEST072\n";
-  cout << "  For a real matrix,\n";
-  cout << "  R8MAT_MAX computes the maximum value;\n";
-  cout << "  R8MAT_MIN computes the minimum value;\n";
-
+  cout << "R8MAT_MAX_TEST\n";
+  cout << "  R8MAT_MAX computes the maximum value of an R8MAT.\n";
+ 
   seed = 123456789;
 
   a = r8mat_uniform_ab_new ( m, n, b, c, seed );
 
   r8mat_print ( m, n, a, "  Random array:" );
 
-  temp1 = r8mat_min ( m, n, a );
-  temp2 = r8mat_max ( m, n, a );
+  temp = r8mat_max ( m, n, a );
 
   cout << "\n";
-  cout << "  Minimum value = " << temp1 << "\n";
-  cout << "  Maximum value = " << temp2 << "\n";
+  cout << "  Maximum value = " << temp << "\n";
 
   delete [] a;
 
@@ -6090,13 +8545,114 @@ void test072 ( )
 }
 //****************************************************************************80
 
-void test073 ( )
+void r8mat_max_index_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST073 tests R8MAT_MAXCOL_MINROW, and its variations.
+//    R8MAT_MAX_INDEX_TEST tests R8MAT_MAX_INDEX.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 5
+# define N 3
+
+  double *a;
+  double b = 0.0;
+  double c = 10.0;
+  int i;
+  int j;
+  int seed;
+
+  cout << "\n";
+  cout << "R8MAT_MAX_INDEX_TEST\n";
+  cout << "  R8MAT_MAX_INDEX locates the maximum entry of an R8MAT;\n";
+
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( M, N, b, c, seed );
+
+  r8mat_print ( M, N, a, "  Random array:" );
+
+  r8mat_max_index ( M, N, a, i, j );
+
+  cout << "\n";
+  cout << "  Maximum I,J indices            " << i << "  " << j << "\n";
+
+  delete [] a;
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8mat_maxcol_minrow_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_MAXCOL_MINROW_TEST tests R8MAT_MAXCOL_MINROW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double b = 0.0;
+  double c = 10.0;
+  int m = 5;
+  int n = 3;
+  int seed;
+
+  cout << "\n";
+  cout << "R8MAT_MAXCOL_MINROW_TEST\n";
+  cout << "  R8MAT_MAXCOL_MINROW computes the maximum over\n";
+  cout << "  columns of the mininum over rows;\n";
+
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( m, n, b, c, seed );
+
+  r8mat_print ( m, n, a, "  Random array:" );
+
+  cout << "  MAXCOL_MINROW = " << r8mat_maxcol_minrow ( m, n, a ) << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_maxrow_mincol_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_MAXROW_MINCOL_TEST tests R8MAT_MAXROW_MINCOL.
 //
 //  Licensing:
 //
@@ -6121,13 +8677,209 @@ void test073 ( )
   double temp2;
 
   cout << "\n";
-  cout << "TEST073\n";
-  cout << "  R8MAT_MAXCOL_MINROW computes the maximum over\n";
-  cout << "  columns of the mininum over rows;\n";
+  cout << "R8MAT_MAXROW_MINCOL_TEST\n";
   cout << "  R8MAT_MAXROW_MINCOL computes the maximum over\n";
   cout << "  rows of the mininum over columns;\n";
+
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( m, n, b, c, seed );
+
+  r8mat_print ( m, n, a, "  Random array:" );
+
+  cout << "  MAXROW_MINCOL = " << r8mat_maxrow_mincol ( m, n, a ) << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_min_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_MIN_TEST tests R8MAT_MIN.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    27 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double b = 0.0;
+  double c = 10.0;
+  int m = 5;
+  int n = 3;
+  int seed;
+  double temp;
+
+  cout << "\n";
+  cout << "R8MAT_MIN_TESTn";
+  cout << "  For a real matrix,\n";
+  cout << "  R8MAT_MIN computes the minimum value;\n";
+
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( m, n, b, c, seed );
+
+  r8mat_print ( m, n, a, "  Random array:" );
+
+  temp = r8mat_min ( m, n, a );
+
+  cout << "\n";
+  cout << "  Minimum value = " << temp << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_min_index_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_MIN_INDEX_TEST tests R8MAT_MIN_INDEX.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 5
+# define N 3
+
+  double *a;
+  double b = 0.0;
+  double c = 10.0;
+  int i;
+  int j;
+  int seed;
+
+  cout << "\n";
+  cout << "R8MAT_MIN_INDEX_TEST\n";
+  cout << "  R8MAT_MIN_INDEX locates the minimum entry of an R8MAT;\n";
+
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( M, N, b, c, seed );
+
+  r8mat_print ( M, N, a, "  Random array:" );
+
+  cout << "\n";
+  r8mat_min_index ( M, N, a, i, j );
+  cout << "  Minimum I,J indices            " << i << "  " << j << "\n";
+
+  delete [] a;
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8mat_mincol_maxrow_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_MINCOL_MAXROW_TEST tests R8MAT_MINCOL_MAXROW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double b = 0.0;
+  double c = 10.0;
+  int m = 5;
+  int n = 3;
+  int seed;
+  double temp1;
+  double temp2;
+
+  cout << "\n";
+  cout << "R8MAT_MINCOL_MAXROW_TEST\n";
   cout << "  R8MAT_MINCOL_MAXROW computes the minimum over\n";
   cout << "  columns of the maxinum over rows;\n";
+
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( m, n, b, c, seed );
+
+  r8mat_print ( m, n, a, "  Random array:" );
+
+  cout << "  MINCOL_MAXROW = " << r8mat_mincol_maxrow ( m, n, a ) << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_minrow_maxcol_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_MINROW_MAXCOL_TEST tests R8MAT_MINROW_MAXCOL_TEST.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double b = 0.0;
+  double c = 10.0;
+  int m = 5;
+  int n = 3;
+  int seed;
+  double temp1;
+  double temp2;
+
+  cout << "\n";
+  cout << "R8MAT_MINROW_MAXCOL_TEST\n";
   cout << "  R8MAT_MINROW_MAXCOL computes the minimum over\n";
   cout << "  rows of the maxinum over columns;\n";
   cout << "\n";
@@ -6138,10 +8890,7 @@ void test073 ( )
 
   r8mat_print ( m, n, a, "  Random array:" );
 
-  cout << "  MAXCOL_MINROW = " << r8mat_maxcol_minrow ( m, n, a ) << "\n";
   cout << "  MINROW_MAXCOL = " << r8mat_minrow_maxcol ( m, n, a ) << "\n";
-  cout << "  MAXROW_MINCOL = " << r8mat_maxrow_mincol ( m, n, a ) << "\n";
-  cout << "  MINCOL_MAXROW = " << r8mat_mincol_maxrow ( m, n, a ) << "\n";
 
   delete [] a;
 
@@ -6149,13 +8898,13 @@ void test073 ( )
 }
 //****************************************************************************80
 
-void test0731 ( )
+void r8mat_mm_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0731 tests R8MAT_MM.
+//    R8MAT_MM_NEW_TEST tests R8MAT_MM_NEW.
 //
 //  Licensing:
 //
@@ -6188,8 +8937,8 @@ void test0731 ( )
   double *c;
 
   cout << "\n";
-  cout << "TEST0731\n";
-  cout << "  R8MAT_MM multiplies two (rectangular) matrices\n";
+  cout << "R8MAT_MM_NEW_TEST\n";
+  cout << "  R8MAT_MM_NEW multiplies two (rectangular) matrices\n";
   cout << "  and returns the result as the function value.\n";
 
   r8mat_print ( N1, N2, a, "  Matrix A:" );
@@ -6209,13 +8958,13 @@ void test0731 ( )
 }
 //****************************************************************************80
 
-void test0732 ( )
+void r8mat_mm_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0732 tests R8MAT_MXM.
+//    R8MAT_MM_TEST tests R8MAT_MM.
 //
 //  Licensing:
 //
@@ -6248,15 +8997,15 @@ void test0732 ( )
   double c[N1*N3];
 
   cout << "\n";
-  cout << "TEST0732\n";
-  cout << "  R8MAT_MXM multiplies two (rectangular) matrices\n";
+  cout << "R8MAT_MM_TEST\n";
+  cout << "  R8MAT_MM multiplies two (rectangular) matrices\n";
   cout << "  and returns the result as an argument.\n";
 
   r8mat_print ( N1, N2, a, "  Matrix A:" );
 
   r8mat_print ( N2, N3, b, "  Matrix B:" );
 
-  r8mat_mxm ( N1, N2, N3, a, b, c );
+  r8mat_mm ( N1, N2, N3, a, b, c );
 
   r8mat_print ( N1, N3, c, "  Product C = A * B:" );
 
@@ -6267,13 +9016,13 @@ void test0732 ( )
 }
 //****************************************************************************80
 
-void test0733 ( )
+void r8mat_mv_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0733 tests R8MAT_MV_NEW.
+//    R8MAT_MV_NEW_TEST tests R8MAT_MV_NEW.
 //
 //  Licensing:
 //
@@ -6302,7 +9051,7 @@ void test0733 ( )
   double *c;
 
   cout << "\n";
-  cout << "TEST0733\n";
+  cout << "R8MAT_MV_NEW_TEST\n";
   cout << "  R8MAT_MV_NEW multiplies a (rectangular) matrix times a vector,\n";
   cout << "  and returns the result as the function value.\n";
 
@@ -6322,13 +9071,13 @@ void test0733 ( )
 }
 //****************************************************************************80
 
-void test0734 ( )
+void r8mat_mv_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0734 tests R8MAT_MV.
+//    R8MAT_MV_TEST tests R8MAT_MV.
 //
 //  Licensing:
 //
@@ -6357,7 +9106,7 @@ void test0734 ( )
   double c[N1];
 
   cout << "\n";
-  cout << "TEST0734\n";
+  cout << "R8MAT_MV_TEST\n";
   cout << "  R8MAT_MV multiplies a (rectangular) matrix times a vector,\n";
   cout << "  and returns the result as an argument.\n";
 
@@ -6375,13 +9124,13 @@ void test0734 ( )
 }
 //****************************************************************************80
 
-void test0735 ( )
+void r8mat_mtv_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0735 tests R8MAT_MTV_NEW.
+//    R8MAT_MTV_NEW_TEST tests R8MAT_MTV_NEW.
 //
 //  Licensing:
 //
@@ -6410,7 +9159,7 @@ void test0735 ( )
   double *c;
 
   cout << "\n";
-  cout << "TEST0735\n";
+  cout << "R8MAT_MTV_NEW_TEST\n";
   cout << "  R8MAT_MTV_NEW multiplies a transposed matrix times a vector,\n";
   cout << "  and returns the result as the function value.\n";
 
@@ -6430,13 +9179,13 @@ void test0735 ( )
 }
 //****************************************************************************80
 
-void test0736 ( )
+void r8mat_mtv_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0736 tests R8MAT_MTV.
+//    R8MAT_MTV_TEST tests R8MAT_MTV.
 //
 //  Licensing:
 //
@@ -6465,7 +9214,7 @@ void test0736 ( )
   double c[N2];
 
   cout << "\n";
-  cout << "TEST0736\n";
+  cout << "R8MAT_MTV_TEST\n";
   cout << "  R8MAT_MTV multiplies a transposed matrix times a vector,\n";
   cout << "  and returns the result as an argument.\n";
 
@@ -6483,130 +9232,245 @@ void test0736 ( )
 }
 //****************************************************************************80
 
-void test07365 ( )
+void r8mat_nint_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST07365 tests R8MAT_NEW and R8MAT_DELETE.
+//    R8MAT_NINT_TEST tests R8MAT_NINT.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 March 2012
+//    06 December 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  double **a;
-  double **b;
-  int i;
-  int j;
-  int k;
+  double *a;
   int m;
   int n;
+  int seed;
+  double x1;
+  double x2;
 
   cout << "\n";
-  cout << "TEST07365:\n";
-  cout << "  R8MAT_NEW dynamically creates a 2D array.\n";
-  cout << "  R8MAT_DELETE deletes it.\n";
-  cout << "  Array entries can be addressed using the\n";
-  cout << "  notation \"a[i][j]\".\n";
-//
-//  These dimensions could be entered by the user; they could depend on
-//  some other calculation; or they could be changed repeatedly during this
-//  computation, as long as old memory is deleted by R8MAT_DELETE and new memory
-//  requested by R8MAT_NEW.
-//
-  m = 4;
-  n = 5;
-//
-//  Allocate memory.
-//
-  cout << "\n";
-  cout << "  Allocating memory for array A of size " << m << " by " << n << ".\n";
+  cout << "R8MAT_NINT_TEST\n";
+  cout << "  R8MAT_NINT rounds an R8MAT.\n";
 
-  a = r8mat_new ( m, n );
+  m = 5;
+  n = 4;
+  x1 = -5.0;
+  x2 = +5.0;
+  seed = 123456789;
+  a = r8mat_uniform_ab_new ( m, n, x1, x2, seed );
+  r8mat_print ( m, n, a, "  Matrix A:" );
+  r8mat_nint ( m, n, a );
+  r8mat_print ( m, n, a, "  Rounded matrix A:" );
 
-  cout << "\n";
-  cout << "  Assigning values to A.\n";
-//
-//  Store values in A.
-//
-  for ( i = 0; i < m; i++ )
-  {
-    for ( j = 0; j < n; j++ )
-    {
-      a[i][j] = ( double ) ( 10 * i + j );
-    }
-  }
-//
-//  Print A.
-//
-  cout << "\n";
-  cout << "  Dynamically allocated matrix A:\n";
-  cout << "\n";
-  for ( i = 0; i < m; i++ )
-  {
-    for ( j = 0; j < n; j++ )
-    {
-      cout << "  " << setw(8) << a[i][j];
-    }
-    cout << "\n";
-  }
-//
-//  Create a new matrix B to store A' * A.
-//
-  b = r8mat_new ( n, n );
-
-  for ( i = 0; i < n; i++ )
-  {
-    for ( j = 0; j < n; j++ )
-    {
-      b[i][j] = 0.0;
-      for ( k = 0; k < m; k++ )
-      {
-        b[i][j] = b[i][j] + a[k][i] * a[k][j];
-      }
-    }
-  }
-//
-//  Print the matrix.
-//
-  cout << "\n";
-  cout << "  Dynamically allocated matrix B = A' * A:\n";
-  cout << "\n";
-  for ( i = 0; i < n; i++ )
-  {
-    for ( j = 0; j < n; j++ )
-    {
-      cout << "  " << setw(8) << b[i][j];
-    }
-    cout << "\n";
-  }
-//
-//  Free memory.
-//
-  r8mat_delete ( a, m, n );
-  r8mat_delete ( b, n, n );
+  delete [] a;
 
   return;
 }
 //****************************************************************************80
 
-void test0737 ( )
+void r8mat_nonzeros_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0737 tests R8MAT_NULLSPACE_SIZE and R8MAT_NULLSPACE.
+//    R8MAT_NONZEROS_TEST tests R8MAT_NONZEROS.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    05 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int i;
+  int j;
+  int m = 5;
+  int n = 4;
+  int c1;
+  int c2;
+
+  cout << "\n";
+  cout << "R8MAT_NONZEROS_TEST\n";
+  cout << "  R8MAT_NONZEROS counts nonzeros in an R8MAT.\n";
+
+  a = new double[m*n];
+
+  c1 = 0;
+  for ( i = 0; i < m; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      if ( ( i % 2 ) == 0 && ( j % 2 ) == 0 )
+      {
+        a[i+j*m] = 1;
+        c1 = c1 + 1;
+      }
+      else
+      {
+        a[i+j*m] = 0;
+      }
+    }
+  }
+
+  r8mat_print ( m, n, a, "  Matrix A:" );
+
+  c2 = r8mat_nonzeros ( m, n, a );
+
+  cout << "\n";
+  cout << "  Expected nonzeros = " << c1 << "\n";
+  cout << "  Computed nonzeros = " << c2 << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_norm_fro_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_NORM_FRO_TEST tests R8MAT_NORM_FRO.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    04 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int i;
+  int j;
+  int k;
+  int m = 5;
+  int n = 4;
+  double t1;
+  double t2;
+
+  cout << "\n";
+  cout << "R8MAT_NORM_FRO_TEST\n";
+  cout << "  R8MAT_NORM_FRO computes the Frobenius norm of a matrix.\n";
+
+  a = new double[m*n];
+
+  k = 0;
+  t1 = 0.0;
+  for ( i = 0; i < m; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      k = k + 1;
+      a[i+j*m] = ( double ) ( k );
+      t1 = t1 + k * k;
+    }
+  }
+  t1 = sqrt ( t1 );
+
+  r8mat_print ( m, n, a, "  Matrix A:" );
+
+  t2 = r8mat_norm_fro ( m, n, a );
+
+  cout << "\n";
+  cout << "  Expected Frobenius norm = " << t1 << "\n";
+  cout << "  Computed Frobenius norm = " << t2 << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_norm_l1_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_NORM_L1_TEST tests R8MAT_NORM_L1.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    05 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int m;
+  int n;
+  int seed;
+  double t;
+  double x1;
+  double x2;
+
+  cout << "\n";
+  cout << "R8MAT_NORM_L1_TEST\n";
+  cout << "  R8MAT_NORM_L1 computes the L1 norm of a matrix.\n";
+
+  m = 5;
+  n = 4;
+  x1 = -5.0;
+  x2 = +5.0;
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( m, n, x1, x2, seed );
+  r8mat_nint ( m, n, a );
+
+  r8mat_print ( m, n, a, "  Matrix A:" );
+
+  t = r8mat_norm_l1 ( m, n, a );
+
+  cout << "\n";
+  cout << "  L1 norm = " << t << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_nullspace_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_NULLSPACE_TEST tests R8MAT_NULLSPACE.
 //
 //  Licensing:
 //
@@ -6639,8 +9503,7 @@ void test0737 ( )
   int nullspace_size;
 
   cout << "\n";
-  cout << "TEST0737\n";
-  cout << "  R8MAT_NULLSPACE_SIZE computes the size of the nullspace of a matrix.\n";
+  cout << "R8MAT_NULLSPACE_TEST\n";
   cout << "  R8MAT_NULLSPACE computes the nullspace of a matrix.\n";
 
   r8mat_print ( m, n, a, "  Input A:" );
@@ -6654,7 +9517,7 @@ void test0737 ( )
 
   r8mat_print ( n, nullspace_size, nullspace, "  Nullspace vectors:" );
 
-  ax = r8mat_mxm_new ( m, n, nullspace_size, a, nullspace );
+  ax = r8mat_mm_new ( m, n, nullspace_size, a, nullspace );
 
   r8mat_print ( m, nullspace_size, ax, "  Product A * Nullspace vectors:" );
 
@@ -6667,13 +9530,66 @@ void test0737 ( )
 }
 //****************************************************************************80
 
-void test074 ( )
+void r8mat_nullspace_size_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST074 tests R8MAT_ORTH_UNIFORM_NEW.
+//    R8MAT_NULLSPACE_SIZE_TEST tests R8MAT_NULLSPACE_SIZE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 October 2008
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 4
+# define N 7
+
+  double a[M*N] = {
+    1.0, -2.0, 3.0, -1.0,
+    3.0, -6.0, 9.0, -3.0,
+    0.0,  0.0, 0.0,  0.0,
+    2.0, -2.0, 0.0,  1.0,
+    6.0, -8.0, 6.0,  0.0,
+    3.0,  3.0, 6.0,  9.0,
+    1.0,  1.0, 2.0,  3.0 };
+  int m = M;
+  int n = N;
+  int nullspace_size;
+
+  cout << "\n";
+  cout << "R8MAT_NULLSPACE_SIZE_TEST\n";
+  cout << "  R8MAT_NULLSPACE_SIZE computes the size of the nullspace of a matrix.\n";
+
+  r8mat_print ( m, n, a, "  Input A:" );
+
+  nullspace_size = r8mat_nullspace_size ( m, n, a );
+
+  cout << "\n";
+  cout << "  Nullspace size is " << nullspace_size << "\n";
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8mat_orth_uniform_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_ORTH_UNIFORM_NEW_TEST tests R8MAT_ORTH_UNIFORM_NEW.
 //
 //  Licensing:
 //
@@ -6695,7 +9611,7 @@ void test074 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST074\n";
+  cout << "R8MAT_ORTH_UNIFORM_NEW_TEST\n";
   cout << "  R8MAT_ORTH_UNIFORM_NEW computes a random orthogonal matrix.\n";
 
   seed = 123456789;
@@ -6718,13 +9634,13 @@ void test074 ( )
 }
 //****************************************************************************80
 
-void test075 ( )
+void r8mat_plot_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST075 tests R8MAT_PLOT.
+//    R8MAT_PLOT_TEST tests R8MAT_PLOT.
 //
 //  Licensing:
 //
@@ -6776,7 +9692,7 @@ void test075 ( )
   }
 
   cout << "\n";
-  cout << "TEST075\n";
+  cout << "R8MAT_PLOT_TEST\n";
   cout << "  R8MAT_PLOT prints a symbolic picture of a matrix.\n";
   cout << "  Typically,\n";
   cout << "\n";
@@ -6798,13 +9714,13 @@ void test075 ( )
 }
 //****************************************************************************80
 
-void test076 ( )
+void r8mat_power_method_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST076 tests R8MAT_POWER_METHOD.
+//    R8MAT_POWER_METHOD_TEST tests R8MAT_POWER_METHOD.
 //
 //  Licensing:
 //
@@ -6829,7 +9745,7 @@ void test076 ( )
   double v[N];
 
   cout << "\n";
-  cout << "TEST076\n";
+  cout << "R8MAT_POWER_METHOD_TEST\n";
   cout << "  R8MAT_POWER_METHOD applies the power method\n";
   cout << "  to a matrix.\n";
 
@@ -6871,13 +9787,111 @@ void test076 ( )
 }
 //****************************************************************************80
 
-void test0764 ( )
+void r8mat_print_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST076 tests R8MAT_REF.
+//    R8MAT_PRINT_TEST tests R8MAT_PRINT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    31 August 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 6
+# define N 4
+
+  double a[M*N];
+  int i;
+  int j;
+  int m = M;
+  int n = N;
+
+  cout << "\n";
+  cout << "R8MAT_PRINT_TEST\n";
+  cout << "  R8MAT_PRINT prints an R8MAT.\n";
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      a[i+j*m] = ( double ) ( ( i + 1 ) * 10 + ( j + 1 ) );
+    }
+  }
+  r8mat_print ( m, n, a, "  The R8MAT:" );
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8mat_print_some_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_PRINT_SOME_TEST tests R8MAT_PRINT_SOME.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    31 August 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 6
+# define N 4
+
+  double a[M*N];
+  int i;
+  int j;
+  int m = M;
+  int n = N;
+
+  cout << "\n";
+  cout << "R8MAT_PRINT_SOME_TEST\n";
+  cout << "  R8MAT_PRINT_SOME prints some of an R8MAT.\n";
+
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      a[i+j*m] = ( double ) ( ( i + 1 ) * 10 + ( j + 1 ) );
+    }
+  }
+  r8mat_print_some ( m, n, a, 2, 1, 4, 2, "  The R8MAT, rows 2:4, cols 1:2:" );
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8mat_ref_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_REF_TEST tests R8MAT_REF.
 //
 //  Licensing:
 //
@@ -6907,7 +9921,7 @@ void test0764 ( )
   int n = N;
 
   cout << "\n";
-  cout << "TEST0764\n";
+  cout << "R8MAT_REF_TEST\n";
   cout << "  R8MAT_REF computes the row echelon form of a matrix.\n";
 
   r8mat_print ( m, n, a, "  Input A:" );
@@ -6922,13 +9936,13 @@ void test0764 ( )
 }
 //****************************************************************************80
 
-void test0766 ( )
+void r8mat_rref_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0766 tests R8MAT_RREF.
+//    R8MAT_RREF_TEST tests R8MAT_RREF.
 //
 //  Licensing:
 //
@@ -6958,7 +9972,7 @@ void test0766 ( )
   int n = N;
 
   cout << "\n";
-  cout << "TEST0766\n";
+  cout << "R8MAT_RREF_TEST\n";
   cout << "  R8MAT_RREF computes the reduced row echelon form of a matrix.\n";
 
   r8mat_print ( m, n, a, "  Input A:" );
@@ -6973,13 +9987,13 @@ void test0766 ( )
 }
 //****************************************************************************80
 
-void test077 ( )
+void r8mat_solve_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST077 tests R8MAT_SOLVE.
+//    R8MAT_SOLVE_TEST tests R8MAT_SOLVE.
 //
 //  Licensing:
 //
@@ -7008,7 +10022,7 @@ void test077 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST077\n";
+  cout << "R8MAT_SOLVE_TEST\n";
   cout << "  R8MAT_SOLVE solves linear systems.\n";
 //
 //  Print out the matrix to be inverted.
@@ -7045,13 +10059,13 @@ void test077 ( )
 }
 //****************************************************************************80
 
-void test0775 ( )
+void r8mat_solve_2d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0775 tests R8MAT_SOLVE_2D.
+//    R8MAT_SOLVE_2D_TEST tests R8MAT_SOLVE_2D.
 //
 //  Licensing:
 //
@@ -7078,7 +10092,7 @@ void test0775 ( )
   double *x2;
 
   cout << "\n";
-  cout << "TEST0775\n";
+  cout << "R8MAT_SOLVE_2D_TEST\n";
   cout << "  R8MAT_SOLVE_2D solves 2D linear systems.\n";
 
   seed = 123456789;
@@ -7111,13 +10125,13 @@ void test0775 ( )
 }
 //****************************************************************************80
 
-void test0776 ( )
+void r8mat_solve_3d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0776 tests R8MAT_SOLVE_3D.
+//    R8MAT_SOLVE_3D_TEST tests R8MAT_SOLVE_3D.
 //
 //  Licensing:
 //
@@ -7144,7 +10158,7 @@ void test0776 ( )
   double *x2;
 
   cout << "\n";
-  cout << "TEST0776\n";
+  cout << "R8MAT_SOLVE_3D_TEST\n";
   cout << "  R8MAT_SOLVE_3D solves 3D linear systems.\n";
 
   seed = 123456789;
@@ -7177,13 +10191,13 @@ void test0776 ( )
 }
 //****************************************************************************80
 
-void test078 ( )
+void r8mat_solve2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST078 tests R8MAT_SOLVE2.
+//    R8MAT_SOLVE2_TEST tests R8MAT_SOLVE2.
 //
 //  Licensing:
 //
@@ -7191,7 +10205,7 @@ void test078 ( )
 //
 //  Modified:
 //
-//    29 October 2005
+//    21 February 2014
 //
 //  Author:
 //
@@ -7229,7 +10243,7 @@ void test078 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST078\n";
+  cout << "R8MAT_SOLVE2_TEST\n";
   cout << "  R8MAT_SOLVE2 is a linear solver.\n";
   cout << "\n";
 
@@ -7260,7 +10274,7 @@ void test078 ( )
 
     r8vec_print ( n, b, "  Right hand side:" );
 
-    x = r8mat_solve2 ( n, a, b, &ierror );
+    x = r8mat_solve2 ( n, a, b, ierror );
 
     cout << "\n";
     if ( ierror == 0 )
@@ -7286,13 +10300,62 @@ void test078 ( )
 }
 //****************************************************************************80
 
-void test079 ( )
+void r8mat_sub_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST079 tests R8MAT_SYMM_JACOBI;
+//    R8MAT_SUB_NEW_TEST tests R8MAT_SUB_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 March 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double *b;
+  double *c;
+  int m = 4;
+  int n = 4;
+
+  cout << "\n";
+  cout << "R8MAT_SUB_NEW_TEST\n";
+  cout << "  R8MAT_SUB_NEW computes C = A - B for R8MAT's\n";
+
+  a = r8mat_indicator_new ( m, n );
+
+  b = r8mat_transpose_new ( m, n, a );
+
+  c = r8mat_sub_new ( m, n, a, b );
+
+  r8mat_print ( m, n, a, "  A:" );
+  r8mat_print ( m, n, b, "  B:" );
+  r8mat_print ( m, n, c, "  C = A-B:" );
+
+  delete [] a;
+  delete [] b;
+  delete [] c;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_symm_jacobi_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_SYMM_JACOBI_TEST tests R8MAT_SYMM_JACOBI;
 //
 //  Licensing:
 //
@@ -7315,13 +10378,13 @@ void test079 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST079\n";
+  cout << "R8MAT_SYMM_JACOBI_TEST\n";
   cout << "  For a symmetric R8MAT:\n";
   cout << "  R8MAT_SYMM_JACOBI diagonalizes;\n";
 //
 //  Choose eigenvalues.
 //
-  x = r8vec_indicator_new ( n );
+  x = r8vec_indicator1_new ( n );
 //
 //  Choose eigenvectors.
 //
@@ -7353,13 +10416,72 @@ void test079 ( )
 }
 //****************************************************************************80
 
-void test080 ( )
+void r8mat_to_r8cmat_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST080 tests R8MAT_TO_R8PLU and R8PLU_TO_R8MAT;
+//    R8MAT_TO_R8CMAT_NEW_TEST tests R8MAT_TO_R8CMAT_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 January 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double **b;
+  double *c;
+  int m = 5;
+  int n = 4;
+
+  cout << "\n";
+  cout << "R8MAT_TO_R8CMAT_NEW_TEST\n";
+  cout << "  R8MAT_TO_R8CMAT_NEW converts an R8MAT to an R8CMAT.\n";
+  cout << "\n";
+  cout << "  Data is of order (" << m << "," << n << ".\n";
+//
+//  Set the R8MAT.
+//
+  a = r8mat_indicator_new ( m, n );
+  r8mat_print ( m, n, a, "  The R8MAT A:" );
+//
+//  Convert.
+//
+  b = r8mat_to_r8cmat_new ( m, n, a );
+  r8cmat_print ( m, n, b, "  The R8CMAT B:" );
+//
+//  Recover the matrix.
+//
+  c = r8cmat_to_r8mat_new ( m, n, b );
+  r8mat_print ( m, n, c, "  The R8MAT C:" );
+//
+//  Free memory.
+//
+  delete [] a;
+  r8cmat_delete ( m, n, b );
+  delete [] c;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8mat_to_r8plu_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_TO_R8PLU_TEST tests R8MAT_TO_R8PLU;
 //
 //  Licensing:
 //
@@ -7386,11 +10508,9 @@ void test080 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST080\n";
+  cout << "R8MAT_TO_R8PLU_TEST\n";
   cout << "  R8MAT_TO_R8PLU determines the compressed PLU factors\n";
   cout << "  of a real general matrix.\n";
-  cout << "  R8PLU_TO_R8MAT determines the original matrix from\n";
-  cout << "  the compressed PLU factors.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
 //
@@ -7431,13 +10551,71 @@ void test080 ( )
 }
 //****************************************************************************80
 
-void test081 ( )
+void r8mat_to_r8rmat_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST081 tests R8MAT_TRACE.
+//    R8MAT_TO_R8RMAT_TEST tests R8MAT_TO_R8RMAT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 January 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double **b;
+  double *c;
+  int m = 5;
+  int n = 4;
+
+  cout << "\n";
+  cout << "R8MAT_TO_R8RMAT_TEST\n";
+  cout << "  R8MAT_TO_R8RMAT converts an R8MAT to an R8RMAT.\n";
+  cout << "\n";
+  cout << "  Data is of order (" << m << "," << n << ").\n";
+//
+//  Set the R8MAT.
+//
+  a = r8mat_indicator_new ( m, n );
+  r8mat_print ( m, n, a, "  The R8MAT A:" );
+//
+//  Convert.
+//
+  b = r8mat_to_r8rmat ( m, n, a );
+  r8rmat_print ( m, n, b, "  The R8RMAT B:" );
+//
+//  Recover the matrix.
+//
+  c = r8rmat_to_r8mat ( m, n, b );
+  r8mat_print ( m, n, c, "  The R8MAT C:" );
+//
+//  Free memory.
+//
+  free ( a );
+  r8rmat_delete ( m, n, b );
+  free ( c );
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_trace_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_TRACE_TEST tests R8MAT_TRACE.
 //
 //  Licensing:
 //
@@ -7479,8 +10657,8 @@ void test081 ( )
   }
 
   cout << "\n";
-  cout << "TEST081\n";
-  cout << "  R8MAT_TRACE computes the trace of a matrix\n";
+  cout << "R8MAT_TRACE_TEST\n";
+  cout << "  R8MAT_TRACE computes the trace of an R8MAT\n";
 
   r8mat_print ( N, N, a, "  Matrix:" );
 
@@ -7494,13 +10672,58 @@ void test081 ( )
 }
 //****************************************************************************80
 
-void test082 ( )
+void r8mat_transpose_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST082 tests R8MAT_TRANSPOSE_PRINT;
+//    R8MAT_TRANSPOSE_NEW_TEST tests R8MAT_TRANSPOSE_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 March 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double *at;
+  int m;
+  int n;
+
+  cout << "\n";
+  cout << "R8MAT_TRANSPOSE_NEW_TEST\n";
+  cout << "  R8MAT_TRANSPOSE_NEW transposes an R8MAT.\n";
+
+  m = 5;
+  n = 4;
+  a = r8mat_indicator_new ( m, n );
+  r8mat_print ( m, n, a, "  Matrix A:" );
+
+  at = r8mat_transpose_new ( m, n, a );
+  r8mat_print ( n, m, at, "  Transposed matrix At:" );
+
+  delete [] a;
+  delete [] at;
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_transpose_print_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_TRANSPOSE_PRINT_TEST tests R8MAT_TRANSPOSE_PRINT;
 //
 //  Licensing:
 //
@@ -7523,7 +10746,7 @@ void test082 ( )
   int j;
 
   cout << "\n";
-  cout << "TEST082\n";
+  cout << "R8MAT_TRANSPOSE_PRINT_TEST\n";
   cout << "  R8MAT_TRANSPOSE_PRINT prints an R8MAT,\n";
   cout << "  transposed.\n";
   cout << "\n";
@@ -7548,13 +10771,13 @@ void test082 ( )
 }
 //****************************************************************************80
 
-void test083 ( )
+void r8mat_u_inverse_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST083 tests R8MAT_U_INVERSE.
+//    R8MAT_U_INVERSE_TEST tests R8MAT_U_INVERSE.
 //
 //  Licensing:
 //
@@ -7583,8 +10806,8 @@ void test083 ( )
   int i;
 
   cout << "\n";
-  cout << "TEST083\n";
-  cout << "  R8MAT_U_INVERSE inverts an upper triangular matrix.\n";
+  cout << "R8MAT_U_INVERSE_TEST\n";
+  cout << "  R8MAT_U_INVERSE inverts an upper triangular R8MAT.\n";
 
   r8mat_print ( N, N, a, "  Input matrix A" );
 
@@ -7604,13 +10827,13 @@ void test083 ( )
 }
 //****************************************************************************80
 
-void test084 ( )
+void r8mat_u1_inverse_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST084 tests R8MAT_U1_INVERSE.
+//    R8MAT_U1_INVERSE_TEST tests R8MAT_U1_INVERSE.
 //
 //  Licensing:
 //
@@ -7640,8 +10863,8 @@ void test084 ( )
   double *c;
 
   cout << "\n";
-  cout << "TEST084\n";
-  cout << "  R8MAT_U1_INVERSE inverts a unit upper triangular matrix.\n";
+  cout << "R8MAT_U1_INVERSE_TEST\n";
+  cout << "  R8MAT_U1_INVERSE inverts a unit upper triangular R8MAT.\n";
 
   r8mat_print ( N, N, a, "  Input matrix A" );
 
@@ -7661,13 +10884,13 @@ void test084 ( )
 }
 //****************************************************************************80
 
-void test085 ( )
+void r8mat_uniform_ab_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST085 tests R8MAT_UNIFORM.
+//    R8MAT_UNIFORM_AB_NEW_TEST tests R8MAT_UNIFORM_AB_NEW.
 //
 //  Licensing:
 //
@@ -7691,15 +10914,13 @@ void test085 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST085\n";
-  cout << "  R8MAT_UNIFORM sets a matrix to random values.\n";
+  cout << "R8MAT_UNIFORM_AB_NEW_TEST\n";
+  cout << "  R8MAT_UNIFORM_AB_NEW returns a random R8MAT in [A,B].\n";
   cout << "\n";
 
   a = r8mat_uniform_ab_new ( M, N, b, c, seed );
-//
-//  Print out the matrix to be inverted.
-//
-  r8mat_print ( M, N, a, "  The random matrix:" );
+
+  r8mat_print ( M, N, a, "  The random R8MAT:" );
 
   delete [] a;
 
@@ -7709,13 +10930,13 @@ void test085 ( )
 }
 //****************************************************************************80
 
-void test086 ( )
+void r8plu_det_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST086 tests R8PLU_DET;
+//    R8PLU_DET_TEST tests R8PLU_DET;
 //
 //  Licensing:
 //
@@ -7742,8 +10963,8 @@ void test086 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST086\n";
-  cout << "  R8PLU_DET determines the determinant of a matrix from its\n";
+  cout << "R8PLU_DET_TEST\n";
+  cout << "  R8PLU_DET determines the determinant of an R8MAT from its\n";
   cout << "  compressed PLU factors.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
@@ -7780,13 +11001,13 @@ void test086 ( )
 }
 //****************************************************************************80
 
-void test087 ( )
+void r8plu_inverse_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST087 tests R8PLU_INVERSE;
+//    R8PLU_INVERSE_TEST tests R8PLU_INVERSE;
 //
 //  Licensing:
 //
@@ -7812,8 +11033,8 @@ void test087 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST087\n";
-  cout << "  R8PLU_INVERSE determines the inverse of a matrix from its\n";
+  cout << "R8PLU_INVERSE_TEST\n";
+  cout << "  R8PLU_INVERSE determines the inverse of an R8MAT from its\n";
   cout << "  compressed PLU factors.\n";
   cout << "\n";
   cout << "  Matrix order N = " << N << "\n";
@@ -7856,13 +11077,13 @@ void test087 ( )
 }
 //****************************************************************************80
 
-void test088 ( )
+void r8plu_mul_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST088 tests R8PLU_MUL;
+//    R8PLU_MUL_TEST tests R8PLU_MUL;
 //
 //  Licensing:
 //
@@ -7889,7 +11110,7 @@ void test088 ( )
   double x[N];
 
   cout << "\n";
-  cout << "TEST088\n";
+  cout << "R8PLU_MUL_TEST\n";
   cout << "  R8PLU_MUL computes the product A*x\n";
   cout << "  using the compressed PLU factors of A.\n";
   cout << "\n";
@@ -7930,13 +11151,13 @@ void test088 ( )
 }
 //****************************************************************************80
 
-void test089 ( )
+void r8plu_sol_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST089 tests R8PLU_SOL;
+//    R8PLU_SOL_TEST tests R8PLU_SOL;
 //
 //  Licensing:
 //
@@ -7963,7 +11184,7 @@ void test089 ( )
   double x[N];
 
   cout << "\n";
-  cout << "TEST089\n";
+  cout << "R8PLU_SOL_TEST\n";
   cout << "  R8PLU_SOL solves the linear system A*x=b\n";
   cout << "  using the compressed PLU factors of A.\n";
   cout << "\n";
@@ -8019,13 +11240,148 @@ void test089 ( )
 }
 //****************************************************************************80
 
-void test090 ( )
+void r8plu_to_r8mat_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST090 tests R8POLY_DERIV.
+//    R8PLU_TO_R8MAT_TEST tests R8PLU_TO_R8MAT;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 5
+
+  double *a;
+  double a2[N*N];
+  double b = 0.0;
+  double c = 1.0;
+  int info;
+  double lu[N*N];
+  int pivot[N];
+  int seed = 123456789;
+
+  cout << "\n";
+  cout << "R8PLU_TO_R8MAT_TEST\n";
+  cout << "  R8PLU_TO_R8MAT determines the original matrix from\n";
+  cout << "  the compressed PLU factors.\n";
+  cout << "\n";
+  cout << "  Matrix order N = " << N << "\n";
+//
+//  Set the matrix.
+//
+  a = r8mat_uniform_ab_new ( N, N, b, c, seed );
+
+  r8mat_print ( N, N, a, "  The matrix A:" );
+//
+//  Factor the matrix.
+//
+  info = r8mat_to_r8plu ( N, a, pivot, lu );
+
+  if ( info != 0 )
+  {
+    cout << "\n";
+    cout << "Warning!\n";
+    cout << "  R8MAT_TO_R8PLU declares the matrix is singular!\n";
+    cout << "  The value of INFO is " << info << "\n";
+  }
+//
+//  Display the gory details.
+//
+  i4vec_print ( N, pivot, "  The pivot vector P:" );
+
+  r8mat_print ( N, N, lu, "  The compressed LU factors:" );
+//
+//  Recover the matrix from the PLU factors.
+//
+  r8plu_to_r8mat ( N, pivot, lu, a2 );
+
+  r8mat_print ( N, N, a2, "  The recovered matrix A2:" );
+
+  delete [] a;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8poly_degree_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY_DEGREE_TEST tests R8POLY_DEGREE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    06 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double c1[4] = { 1.0, 2.0, 3.0, 4.0 }; 
+  double c2[4] = { 1.0, 2.0, 3.0, 0.0 };
+  double c3[4] = { 1.0, 2.0, 0.0, 4.0 };
+  double c4[4] = { 1.0, 0.0, 0.0, 0.0 };
+  double c5[4] = { 0.0, 0.0, 0.0, 0.0 };
+  int d;
+  int m;
+ 
+  cout << "\n";
+  cout << "R8POLY_DEGREE_TEST\n";
+  cout << "  R8POLY_DEGREE determines the degree of an R8POLY.\n";
+
+  m = 3;
+
+  r8poly_print ( m, c1, "  The R8POLY:" );
+  d = r8poly_degree ( m, c1 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c2, "  The R8POLY:" );
+  d = r8poly_degree ( m, c2 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c3, "  The R8POLY:" );
+  d = r8poly_degree ( m, c3 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c4, "  The R8POLY:" );
+  d = r8poly_degree ( m, c4 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  r8poly_print ( m, c5, "  The R8POLY:" );
+  d = r8poly_degree ( m, c5 );
+  cout << "  Dimensioned degree = " << m << ",  Actual degree = " << d << "\n";
+
+  return;
+}
+//****************************************************************************80
+
+void r8poly_deriv_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY_DERIV_TEST tests R8POLY_DERIV.
 //
 //  Licensing:
 //
@@ -8048,11 +11404,11 @@ void test090 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST090\n";
+  cout << "R8POLY_DERIV_TEST\n";
   cout << "  R8POLY_DERIV computes the coefficients of\n";
   cout << "  the derivative of a polynomial.\n";
 
-  x = r8vec_indicator_new ( N );
+  x = r8vec_indicator1_new ( N );
 
   c = roots_to_r8poly ( N, x );
 
@@ -8076,13 +11432,13 @@ void test090 ( )
 }
 //****************************************************************************80
 
-void test091 ( )
+void r8poly_lagrange_coef_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST091 tests R8POLY_LAGRANGE_COEF.
+//    R8POLY_LAGRANGE_COEF_TEST tests R8POLY_LAGRANGE_COEF.
 //
 //  Licensing:
 //
@@ -8105,11 +11461,11 @@ void test091 ( )
   double *xpol;
 
   cout << "\n";
-  cout << "TEST091\n";
+  cout << "R8POLY_LAGRANGE_COEF_TEST\n";
   cout << "  R8POLY_LAGRANGE_COEF returns the coefficients for\n";
   cout << "  a Lagrange basis polynomial.\n";
 
-  xpol = r8vec_indicator_new ( NPOL );
+  xpol = r8vec_indicator1_new ( NPOL );
 
   r8vec_print ( NPOL, xpol, "  Abscissas:" );
 
@@ -8137,13 +11493,13 @@ void test091 ( )
 }
 //****************************************************************************80
 
-void test092 ( )
+void r8poly_lagrange_0_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST092 tests R8POLY_LAGRANGE_COEF and R8POLY_DERIV.
+//    R8POLY_LAGRANGE_0_TEST tests R8POLY_LAGRANGE_0.
 //
 //  Licensing:
 //
@@ -8151,7 +11507,7 @@ void test092 ( )
 //
 //  Modified:
 //
-//    19 September 2005
+//    17 September 2005
 //
 //  Author:
 //
@@ -8160,38 +11516,46 @@ void test092 ( )
 {
 # define NPOL 5
 
-  int d;
-  int ipol;
-  double *pcof;
-  double *pprime;
+  int ival;
+  int nx;
+  double wval;
+  double xhi;
+  double xlo;
   double *xpol;
+  double xval;
 
   cout << "\n";
-  cout << "TEST092\n";
-  cout << "  R8POLY_LAGRANGE_COEF returns the coefficients\n";
-  cout << "  for a Lagrange basis polynomial.\n";
-  cout << "  R8POLY_DERIV computes derivatives of a polynomial.\n";
+  cout << "R8POLY_LAGRANGE_0_TEST\n";
+  cout << "  R8POLY_LAGRANGE_0 evaluates the Lagrange\n";
+  cout << "  factor W(X) at a point.\n";
+  cout << "\n";
+  cout << "  The number of data points is " << NPOL << "\n";
+//
+//  Set the abscissas of the polynomials.
+//
+  xlo = 0.0E+00;
+  xhi = ( double ) ( NPOL - 1 );
 
-  xpol = r8vec_indicator_new ( NPOL );
+  xpol = r8vec_even_new ( NPOL, xlo, xhi );
 
   r8vec_print ( NPOL, xpol, "  Abscissas:" );
+//
+//  Evaluate W(X), W'(X).
+//
+  cout << "\n";
+  cout << "      X          W(X)\n";
+  cout << "\n";
 
-  for ( ipol = 1; ipol <= NPOL; ipol++ )
+  nx = 4 * NPOL - 1;
+
+  for ( ival = 1; ival <= nx; ival++ )
   {
-    pcof = r8poly_lagrange_coef ( NPOL, ipol, xpol );
+    xval = r8vec_even_select ( nx, xlo, xhi, ival );
 
-    r8poly_print ( NPOL-1, pcof, "  The Lagrange basis polynomial:" );
+    wval = r8poly_lagrange_0 ( NPOL, xpol, xval );
 
-    for ( d = 1; d <= NPOL-1; d++ )
-    {
-      pprime = r8poly_deriv ( NPOL-1, pcof, d );
-      cout << "\n";
-      cout << "  The derivative of order " << d << "\n";
-      r8poly_print ( NPOL-1-d, pprime, " " );
-      delete [] pprime;
-    }
-
-    delete [] pcof;
+    cout << setw(12) << xval   << "  "
+         << setw(12) << wval   << "\n";
   }
 
   delete [] xpol;
@@ -8201,13 +11565,85 @@ void test092 ( )
 }
 //****************************************************************************80
 
-void test093 ( )
+void r8poly_lagrange_1_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST093 tests R8POLY_LAGRANGE_0, R8POLY_LAGRANGE_1 and R8POLY_LAGRANGE_2.
+//    R8POLY_LAGRANGE_1_TEST tests R8POLY_LAGRANGE_1.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define NPOL 5
+
+  double dwdx;
+  int ival;
+  int nx;
+  double xhi;
+  double xlo;
+  double *xpol;
+  double xval;
+
+  cout << "\n";
+  cout << "R8POLY_LAGRANGE_1_TEST\n";
+  cout << "  R8POLY_LAGRANGE_1 evaluates the Lagrange\n";
+  cout << "  factor W'(X) at a point.\n";
+  cout << "\n";
+  cout << "  The number of data points is " << NPOL << "\n";
+//
+//  Set the abscissas of the polynomials.
+//
+  xlo = 0.0E+00;
+  xhi = ( double ) ( NPOL - 1 );
+
+  xpol = r8vec_even_new ( NPOL, xlo, xhi );
+
+  r8vec_print ( NPOL, xpol, "  Abscissas:" );
+//
+//  Evaluate W(X), W'(X).
+//
+  cout << "\n";
+  cout << "      X          W'(X)\n";
+  cout << "\n";
+
+  nx = 4 * NPOL - 1;
+
+  for ( ival = 1; ival <= nx; ival++ )
+  {
+    xval = r8vec_even_select ( nx, xlo, xhi, ival );
+
+    dwdx = r8poly_lagrange_1 ( NPOL, xpol, xval );
+
+    cout << setw(12) << xval   << "  "
+         << setw(12) << dwdx   << "\n";
+  }
+
+  delete [] xpol;
+
+  return;
+# undef NPOL
+}
+//****************************************************************************80
+
+void r8poly_lagrange_2_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY_LAGRANGE_2_TEST tests R8POLY_LAGRANGE_2.
 //
 //  Licensing:
 //
@@ -8225,21 +11661,15 @@ void test093 ( )
 # define NPOL 5
 
   double dw2dx2;
-  double dwdx;
   int ival;
   int nx;
-  double wval;
   double xhi;
   double xlo;
   double *xpol;
   double xval;
 
   cout << "\n";
-  cout << "TEST093\n";
-  cout << "  R8POLY_LAGRANGE_0 evaluates the Lagrange\n";
-  cout << "  factor W(X) at a point.\n";
-  cout << "  R8POLY_LAGRANGE_1 evaluates the Lagrange\n";
-  cout << "  factor W'(X) at a point.\n";
+  cout << "R8POLY_LAGRANGE_2_TEST\n";
   cout << "  R8POLY_LAGRANGE_2 evaluates the Lagrange\n";
   cout << "  factor W''(X) at a point.\n";
   cout << "\n";
@@ -8254,10 +11684,10 @@ void test093 ( )
 
   r8vec_print ( NPOL, xpol, "  Abscissas:" );
 //
-//  Evaluate W(X), W'(X), W''.
+//  Evaluate W''.
 //
   cout << "\n";
-  cout << "      X          W(X)          W'(X)        W''(X)\n";
+  cout << "      X          W''(X)\n";
   cout << "\n";
 
   nx = 4 * NPOL - 1;
@@ -8266,13 +11696,9 @@ void test093 ( )
   {
     xval = r8vec_even_select ( nx, xlo, xhi, ival );
 
-    wval = r8poly_lagrange_0 ( NPOL, xpol, xval );
-    dwdx = r8poly_lagrange_1 ( NPOL, xpol, xval );
     dw2dx2 = r8poly_lagrange_2 ( NPOL, xpol, xval );
 
     cout << setw(12) << xval   << "  "
-         << setw(12) << wval   << "  "
-         << setw(12) << dwdx   << "  "
          << setw(12) << dw2dx2 << "\n";
   }
 
@@ -8283,13 +11709,13 @@ void test093 ( )
 }
 //****************************************************************************80
 
-void test094 ( )
+void r8poly_lagrange_factor_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST094 tests R8POLY_LAGRANGE_FACTOR.
+//    R8POLY_LAGRANGE_FACTOR_TEST tests R8POLY_LAGRANGE_FACTOR.
 //
 //  Licensing:
 //
@@ -8315,7 +11741,7 @@ void test094 ( )
   double xval;
 
   cout << "\n";
-  cout << "TEST094\n";
+  cout << "R8POLY_LAGRANGE_FACTOR_TEST\n";
   cout << "  R8POLY_LAGRANGE_FACTOR evaluates the Lagrange\n";
   cout << "  factor W(X) at a point.\n";
   cout << "\n";
@@ -8355,13 +11781,13 @@ void test094 ( )
 }
 //****************************************************************************80
 
-void test095 ( )
+void r8poly_lagrange_val_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST095 tests R8POLY_LAGRANGE_VAL.
+//    R8POLY_LAGRANGE_VAL_TEST tests R8POLY_LAGRANGE_VAL.
 //
 //  Licensing:
 //
@@ -8389,7 +11815,7 @@ void test095 ( )
   double xval;
 
   cout << "\n";
-  cout << "TEST095\n";
+  cout << "R8POLY_LAGRANGE_VAL_TEST\n";
   cout << "  R8POLY_LAGRANGE_VAL evaluates a Lagrange\n";
   cout << "  interpolating polynomial at a point.\n";
   cout << "\n";
@@ -8451,13 +11877,13 @@ void test095 ( )
 }
 //****************************************************************************80
 
-void test098 ( )
+void r8poly_print_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST098 tests R8POLY_VALUE_HORNER.
+//    R8POLY_PRINT_TEST tests R8POLY_PRINT.
 //
 //  Licensing:
 //
@@ -8465,51 +11891,144 @@ void test098 ( )
 //
 //  Modified:
 //
-//    16 September 2005
+//    03 January 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define N 4
-
-  int i;
-  double p[N+1] = { 24.0, -50.0, +35.0, -10.0, 1.0 };
-  double pval;
-  double x;
+  double c[6] = { 2.0, -3.4, 56.0, 0.0, 0.78, 9.0 };
+  int m = 5;
 
   cout << "\n";
-  cout << "TEST098\n";
-  cout << "  R8POLY_VALUE_HORNER evaluates a polynomial at a\n";
-  cout << "  point, using Horner's method.\n";
+  cout << "R8POLY_PRINT_TEST\n";
+  cout << "  R8POLY_PRINT prints an R8POLY.\n";
 
-  r8poly_print ( N, p, "  The polynomial:" );
-
-  cout << "\n";
-  cout << "        X            P(X)\n";
-  cout << "\n";
-
-  for ( i = 0; i <= 15; i++ )
-  {
-    x = ( double ) ( i ) / 3.0;
-    pval = r8poly_value_horner ( N, p, x );
-    cout << "  " << setw(14) << x
-         << "  " << setw(14) << pval << "\n";
-  }
+  r8poly_print ( m, c, "  The R8POLY:" );
 
   return;
-# undef N
 }
 //****************************************************************************80
 
-void test099 ( )
+void r8poly_value_horner_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST099 tests R8POLY2_EX and R8POLY2_EX2.
+//    R8POLY_VALUE_HORNER_TEST tests R8POLY_VALUE_HORNER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double c[5] = { 24.0, -50.0, +35.0, -10.0, 1.0 };
+  int i;
+  int m = 4;
+  int n = 16;
+  double p;
+  double *x;
+  double x_hi;
+  double x_lo;
+
+  cout << "\n";
+  cout << "R8POLY_VALUE_HORNER_TEST\n";
+  cout << "  R8POLY_VALUE_HORNER evaluates a polynomial at\n";
+  cout << "  one point, using Horner's method.\n";
+
+  r8poly_print ( m, c, "  The polynomial coefficients:" );
+
+  x_lo = 0.0;
+  x_hi = 5.0;
+  x = r8vec_linspace_new ( n, x_lo, x_hi );
+
+  cout << "\n";
+  cout << "   I    X    P(X)\n";
+  cout << "\n";
+
+  for ( i = 0; i < n; i++ )
+  {
+    p = r8poly_value_horner ( m, c, x[i] );
+    cout << "  " << setw(2) << i
+         << "  " << setw(8) << x[i]
+         << "  " << setw(14) << p << "\n";
+  }
+
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void r8poly_values_horner_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY_VALUES_HORNER_TEST tests R8POLY_VALUES_HORNER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 December 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double c[5] = { 24.0, -50.0, +35.0, -10.0, 1.0 };
+  int i;
+  int m = 4;
+  int n = 16;
+  double *p;
+  double *x;
+  double x_hi;
+  double x_lo;
+
+  cout << "\n";
+  cout << "R8POLY_VALUES_HORNER_TEST\n";
+  cout << "  R8POLY_VALUES_HORNER evaluates a polynomial at a\n";
+  cout << "  point, using Horner's method.\n";
+
+  r8poly_print ( m, c, "  The polynomial:" );
+
+  x_lo = 0.0;
+  x_hi = 5.0;
+  x = r8vec_linspace_new ( n, x_lo, x_hi );
+
+  p = r8poly_values_horner ( m, c, n, x );
+
+  r8vec2_print ( n, x, p, "  X, P(X):" );
+
+  delete [] p;
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void r8poly2_ex_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY2_EX_TEST tests R8POLY2_EX.
 //
 //  Licensing:
 //
@@ -8538,10 +12057,8 @@ void test099 ( )
   double ymin;
 
   cout << "\n";
-  cout << "TEST099\n";
+  cout << "R8POLY2_EX_TEST\n";
   cout << "  R8POLY2_EX finds the extreme value\n";
-  cout << "  of a parabola determined by three points.\n";
-  cout << "  R8POLY2_EX2 finds the extreme value\n";
   cout << "  of a parabola determined by three points.\n";
 
   a =  2.0;
@@ -8583,6 +12100,74 @@ void test099 ( )
     cout << "  R8POLY2_EX returns error code " << ierror << ".\n";
   }
 
+  return;
+}
+//****************************************************************************80
+
+void r8poly2_ex2_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8POLY2_EX2_TEST tests R8POLY2_EX and R8POLY2_EX2.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double c;
+  int ierror;
+  double x1;
+  double x2;
+  double x3;
+  double xmin;
+  double y1;
+  double y2;
+  double y3;
+  double ymin;
+
+  cout << "\n";
+  cout << "R8POLY2_EX2_TEST\n";
+  cout << "  R8POLY2_EX2 finds the extreme value\n";
+  cout << "  of a parabola determined by three points.\n";
+
+  a =  2.0;
+  b = -4.0;
+  c = 10.0;
+
+  x1 = 1.0;
+  y1 = a * x1 * x1 + b * x1 + c;
+  x2 = 2.0;
+  y2 = a * x2 * x2 + b * x2 + c;
+  x3 = 3.0;
+  y3 = a * x3 * x3 + b * x3 + c;
+
+  cout << "\n";
+  cout << "  Parabolic coefficients A = "
+    << a << ", B = " << b << ", c = " << c << "\n";
+  cout << "\n";
+  cout << "  X, Y data:\n";
+  cout << "\n";
+  cout << "  " << x1 << "  " << y1;
+  cout << "  " << x2 << "  " << y2;
+  cout << "  " << x3 << "  " << y3;
+
+  a = 0.0;
+  b = 0.0;
+  c = 0.0;
+
   ierror = r8poly2_ex2 ( x1, y1, x2, y2, x3, y3, &xmin, &ymin, &a, &b, &c );
 
   if ( ierror == 0 )
@@ -8602,13 +12187,13 @@ void test099 ( )
 }
 //****************************************************************************80
 
-void test100 ( )
+void r8poly2_val_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST100 tests R8POLY2_VAL.
+//    R8POLY2_VAL_TEST tests R8POLY2_VAL.
 //
 //  Licensing:
 //
@@ -8636,7 +12221,7 @@ void test100 ( )
   double ypp;
 
   cout << "\n";
-  cout << "TEST100\n";
+  cout << "R8POLY2_VAL_TEST\n";
   cout << "  R8POLY2_VAL evaluates a parabola given\n";
   cout << "  3 data points.\n";
   cout << "\n";
@@ -8649,9 +12234,9 @@ void test100 ( )
   x2 = 1.0;
   x3 = 3.0;
 
-  test100_f ( x1, &y1, &yp, &ypp );
-  test100_f ( x2, &y2, &yp, &ypp );
-  test100_f ( x3, &y3, &yp, &ypp );
+  r8poly2_val_f ( x1, &y1, &yp, &ypp );
+  r8poly2_val_f ( x2, &y2, &yp, &ypp );
+  r8poly2_val_f ( x3, &y3, &yp, &ypp );
 
   cout << "  " << x1 << " " << y1 << "\n";
   cout << "  " << x2 << " " << y2 << "\n";
@@ -8677,8 +12262,8 @@ void test100 ( )
   x2 = -1.0;
   x3 = 3.0;
 
-  test100_f ( x1, &y1, &y2, &ypp );
-  test100_f ( x3, &y3, &yp, &ypp );
+  r8poly2_val_f ( x1, &y1, &y2, &ypp );
+  r8poly2_val_f ( x3, &y3, &yp, &ypp );
 
   cout << "  " << x1 << "  " << y1 << "\n";
   cout << "  " << x2 << "  " << y2 << "\n";
@@ -8704,7 +12289,7 @@ void test100 ( )
   x2 = -1.0;
   x3 = -1.0;
 
-  test100_f ( x1, &y1, &y2, &y3 );
+  r8poly2_val_f ( x1, &y1, &y2, &y3 );
 
   cout << "  " << x1 << "  " << y1 << "\n";
   cout << "  " << x2 << "  " << y2 << "\n";
@@ -8726,13 +12311,13 @@ void test100 ( )
 }
 //****************************************************************************80
 
-void test100_f ( double x, double *y, double *yp, double *ypp )
+void r8poly2_val_f ( double x, double *y, double *yp, double *ypp )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST100_F evaluates a parabola for us.
+//    R8POLY2_VAL_F evaluates a parabola for us.
 //
 //  Licensing:
 //
@@ -8755,13 +12340,13 @@ void test100_f ( double x, double *y, double *yp, double *ypp )
 }
 //****************************************************************************80
 
-void test101 ( )
+void r8poly2_val2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST101 tests R8POLY2_VAL2.
+//    R8POLY2_VAL2_TEST tests R8POLY2_VAL2.
 //
 //  Licensing:
 //
@@ -8788,7 +12373,7 @@ void test101 ( )
   double zval;
 
   cout << "\n";
-  cout << "TEST101\n";
+  cout << "R8POLY2_VAL2_TEST\n";
   cout << "  R8POLY2_VAL2 evaluates parabolas through\n";
   cout << "  3 points in a table\n";
   cout << "\n";
@@ -8841,13 +12426,187 @@ void test101 ( )
 }
 //****************************************************************************80
 
-void test105 ( )
+void r8rmat_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST105 tests R8ROW_MAX and R8ROW_MIN;
+//    R8RMAT_NEW_TEST tests R8RMAT_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    01 March 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double **a;
+  double **b;
+  int i;
+  int j;
+  int k;
+  int m;
+  int n;
+
+  cout << "\n";
+  cout << "R8RMAT_NEW_TEST:\n";
+  cout << "  R8RMAT_NEW dynamically creates a 2D array.\n";
+  cout << "  Array entries can be addressed using the\n";
+  cout << "  notation \"a[i][j]\".\n";
+//
+//  These dimensions could be entered by the user; they could depend on
+//  some other calculation; or they could be changed repeatedly during this
+//  computation, as long as old memory is deleted by R8MAT_DELETE and new memory
+//  requested by R8RMAT_NEW.
+//
+  m = 4;
+  n = 5;
+//
+//  Allocate memory.
+//
+  cout << "\n";
+  cout << "  Allocating memory for array A of size " << m << " by " << n << ".\n";
+
+  a = r8rmat_new ( m, n );
+
+  cout << "\n";
+  cout << "  Assigning values to A.\n";
+//
+//  Store values in A.
+//
+  for ( i = 0; i < m; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      a[i][j] = ( double ) ( 10 * i + j );
+    }
+  }
+//
+//  Print A.
+//
+  cout << "\n";
+  cout << "  Dynamically allocated matrix A:\n";
+  cout << "\n";
+  for ( i = 0; i < m; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      cout << "  " << setw(8) << a[i][j];
+    }
+    cout << "\n";
+  }
+//
+//  Create a new matrix B to store A' * A.
+//
+  b = r8rmat_new ( n, n );
+
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      b[i][j] = 0.0;
+      for ( k = 0; k < m; k++ )
+      {
+        b[i][j] = b[i][j] + a[k][i] * a[k][j];
+      }
+    }
+  }
+//
+//  Print the matrix.
+//
+  cout << "\n";
+  cout << "  Dynamically allocated matrix B = A' * A:\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    for ( j = 0; j < n; j++ )
+    {
+      cout << "  " << setw(8) << b[i][j];
+    }
+    cout << "\n";
+  }
+//
+//  Free memory.
+//
+  r8rmat_delete ( m, n, a );
+  r8rmat_delete ( n, n, b );
+
+  return;
+}
+//****************************************************************************80
+
+void r8rmat_to_r8mat_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8RMAT_TO_R8MAT_TEST tests R8RMAT_TO_R8MAT;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    07 January 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double **b;
+  double *c;
+  int m = 5;
+  int n = 4;
+
+  cout << "\n";
+  cout << "R8RMAT_TO_R8MAT_TEST\n";
+  cout << "  R8RMAT_TO_R8MAT converts an R8RMAT to an R8MAT.\n";
+  cout << "\n";
+  cout << "  Data is of order (" << m << "," << n << ").\n";
+//
+//  Set the R8MAT.
+//
+  a = r8mat_indicator_new ( m, n );
+  r8mat_print ( m, n, a, "  The R8MAT A:" );
+//
+//  Convert.
+//
+  b = r8mat_to_r8rmat ( m, n, a );
+  r8rmat_print ( m, n, b, "  The R8RMAT B:" );
+//
+//  Recover the matrix.
+//
+  c = r8rmat_to_r8mat ( m, n, b );
+  r8mat_print ( m, n, c, "  The R8MAT C:" );
+//
+//  Free memory.
+//
+  free ( a );
+  r8rmat_delete ( m, n, b );
+  free ( c );
+
+  return;
+}
+//****************************************************************************80
+
+void r8row_max_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8ROW_MAX_TEST tests R8ROW_MAX
 //
 //  Licensing:
 //
@@ -8867,16 +12626,14 @@ void test105 ( )
 
   double a[M*N];
   double *amax;
-  double *amin;
   int i;
   int j;
   int k;
 
   cout << "\n";
-  cout << "TEST105\n";
+  cout << "R8ROW_MAX_TEST\n";
   cout << "  For an R8ROW (a matrix regarded as rows):\n";
   cout << "  R8ROW_MAX computes maximums;\n";
-  cout << "  R8ROW_MIN computes minimums;\n";
 
   k = 0;
   for ( i = 0; i < M; i++ )
@@ -8892,21 +12649,9 @@ void test105 ( )
 
   amax = r8row_max ( M, N, a );
 
-  amin = r8row_min ( M, N, a );
-
-  cout << "\n";
-  cout << "  Row maximum, minimum:\n";
-  cout << "\n";
-
-  for ( i = 0; i < M; i++ )
-  {
-    cout << "  " << setw(3) << i+1
-         << "  " << setw(10) << amax[i]
-         << "  " << setw(10) << amin[i] << "\n";
-  }
+  r8vec_print ( M, amax, "  The row maximums:" );
 
   delete [] amax;
-  delete [] amin;
 
   return;
 # undef M
@@ -8914,13 +12659,13 @@ void test105 ( )
 }
 //****************************************************************************80
 
-void test106 ( )
+void r8row_mean_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST106 tests R8ROW_MEAN and R8ROW_SUM;
+//    R8ROW_MEAN_TEST tests R8ROW_MEAN.
 //
 //  Licensing:
 //
@@ -8946,9 +12691,126 @@ void test106 ( )
   double *rowsum;
 
   cout << "\n";
-  cout << "TEST106\n";
+  cout << "R8ROW_MEAN_TEST\n";
   cout << "  For an R8ROW (a matrix regarded as rows):\n";
   cout << "  R8ROW_MEAN computes means;\n";
+
+  k = 0;
+  for ( i = 0; i < M; i++ )
+  {
+    for ( j = 0; j < N; j++ )
+    {
+      k = k + 1;
+      a[i+j*M] = ( double ) k;
+    }
+  }
+
+  r8mat_print ( M, N, a, "  The original matrix:" );
+
+  mean = r8row_mean ( M, N, a );
+
+  r8vec_print ( M, mean, "  Row means:" );
+
+  delete [] mean;
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8row_min_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8ROW_MIN_TEST tests R8ROW_MIN;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 3
+# define N 4
+
+  double a[M*N];
+  double *amin;
+  int i;
+  int j;
+  int k;
+
+  cout << "\n";
+  cout << "R8ROW_MIN_TEST\n";
+  cout << "  For an R8ROW (a matrix regarded as rows):\n";
+  cout << "  R8ROW_MIN computes minimums;\n";
+
+  k = 0;
+  for ( i = 0; i < M; i++ )
+  {
+    for ( j = 0; j < N; j++ )
+    {
+      k = k + 1;
+      a[i+j*M] = ( double ) k;
+    }
+  }
+
+  r8mat_print ( M, N, a, "  The original matrix:" );
+
+  amin = r8row_min ( M, N, a );
+
+  r8vec_print ( M, amin, "  The row minimums:" );
+
+  delete [] amin;
+
+  return;
+# undef M
+# undef N
+}
+//****************************************************************************80
+
+void r8row_sum_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8ROW_SUM_TEST tests R8ROW_SUM;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 3
+# define N 4
+
+  double a[M*N];
+  int i;
+  int j;
+  int k;
+  double *rowsum;
+
+  cout << "\n";
+  cout << "R8ROW_SUM_TEST\n";
+  cout << "  For an R8ROW (a matrix regarded as rows):\n";
   cout << "  R8ROW_SUM computes sums;\n";
 
   k = 0;
@@ -8965,21 +12827,9 @@ void test106 ( )
 
   rowsum = r8row_sum ( M, N, a );
 
-  mean = r8row_mean ( M, N, a );
-
-  cout << "\n";
-  cout << "  Row sum, mean:\n";
-  cout << "\n";
-
-  for ( i = 0; i < M; i++ )
-  {
-    cout << "  " << setw(3) << i+1
-         << "  " << setw(10) << rowsum[i]
-         << "  " << setw(10) << mean[i] << "\n";
-  }
+  r8vec_print ( M, rowsum, "  The row sums:" );
 
   delete [] rowsum;
-  delete [] mean;
 
   return;
 # undef M
@@ -8987,13 +12837,13 @@ void test106 ( )
 }
 //****************************************************************************80
 
-void test107 ( )
+void r8row_swap_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST107 tests R8ROW_SWAP;
+//    R8ROW_SWAP_TEST tests R8ROW_SWAP;
 //
 //  Licensing:
 //
@@ -9019,7 +12869,7 @@ void test107 ( )
   int k;
 
   cout << "\n";
-  cout << "TEST107\n";
+  cout << "R8ROW_SWAP_TEST\n";
   cout << "  For an R8ROW (a matrix regarded as rows):\n";
   cout << "  R8ROW_SWAP swaps two rows;\n";
 
@@ -9051,13 +12901,13 @@ void test107 ( )
 }
 //****************************************************************************80
 
-void test108 ( )
+void r8row_to_r8vec_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST108 tests R8ROW_TO_R8VEC.
+//    R8ROW_TO_R8VEC_TEST tests R8ROW_TO_R8VEC.
 //
 //  Licensing:
 //
@@ -9082,7 +12932,7 @@ void test108 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST108\n";
+  cout << "R8ROW_TO_R8VEC_TEST\n";
   cout << "  R8ROW_TO_R8VEC converts an array of rows into a vector.\n";
 
   for ( i = 0; i < M; i++ )
@@ -9108,13 +12958,13 @@ void test108 ( )
 }
 //****************************************************************************80
 
-void test109 ( )
+void r8row_variance_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST109 tests R8ROW_VARIANCE.
+//    R8ROW_VARIANCE_TEST tests R8ROW_VARIANCE.
 //
 //  Licensing:
 //
@@ -9139,7 +12989,7 @@ void test109 ( )
   double *variance;
 
   cout << "\n";
-  cout << "TEST109\n";
+  cout << "R8ROW_VARIANCE_TEST\n";
   cout << "  For an R8ROW (a matrix regarded as rows):\n";
   cout << "  R8ROW_VARIANCE computes variances;\n";
 
@@ -9175,13 +13025,13 @@ void test109 ( )
 }
 //****************************************************************************80
 
-void test110 ( )
+void r8slmat_print_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST110 tests R8SLMAT_PRINT.
+//    R8SLMAT_PRINT_TEST tests R8SLMAT_PRINT.
 //
 //  Licensing:
 //
@@ -9223,7 +13073,7 @@ void test110 ( )
   int test;
 
   cout << "\n";
-  cout << "TEST110\n";
+  cout << "R8SLMAT_PRINT_TEST\n";
   cout << "  R8SLMAT_PRINT prints a strictly lower triangular matrix\n";
   cout << "  stored compactly.  Only the (possibly) nonzero \n";
   cout << "  elements are printed.\n";
@@ -9258,13 +13108,13 @@ void test110 ( )
 }
 //****************************************************************************80
 
-void test111 ( )
+void r8vec_amax_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST111 tests R8VEC_AMAX and R8VEC_AMIN;
+//    R8VEC_AMAX_TEST tests R8VEC_AMAX;
 //
 //  Licensing:
 //
@@ -9288,10 +13138,9 @@ void test111 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST111\n";
+  cout << "R8VEC_AMAX_TEST\n";
   cout << "  For an R8VEC:\n";
   cout << "  R8VEC_AMAX:      maximum magnitude entry;\n";
-  cout << "  R8VEC_AMIN:      minimum magnitude entry.\n";
 
   b = - ( double ) N;
   c =  ( double ) N;
@@ -9307,6 +13156,58 @@ void test111 ( )
   aval = r8vec_amax ( N, a );
   cout << "  Maximum absolute:         " << aval << "\n";
 
+  delete [] a;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8vec_amin_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_AMIN_TEST tests R8VEC_AMIN;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+
+  double *a;
+  double aval;
+  double b;
+  double c;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_AMIN_TEST\n";
+  cout << "  For an R8VEC:\n";
+  cout << "  R8VEC_AMIN:      minimum magnitude entry.\n";
+
+  b = - ( double ) N;
+  c =  ( double ) N;
+
+  seed = 123456789;
+
+  a = r8vec_uniform_ab_new ( N, b, c, seed );
+
+  r8vec_print ( N, a, "  Input vector:" );
+
+  cout << "\n";
+
   aval = r8vec_amin ( N, a );
   cout << "  Minimum absolute:         " << aval << "\n";
 
@@ -9317,13 +13218,13 @@ void test111 ( )
 }
 //****************************************************************************80
 
-void test112 ( )
+void r8vec_bracket_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST112 tests R8VEC_BRACKET.
+//    R8VEC_BRACKET_TEST tests R8VEC_BRACKET.
 //
 //  Licensing:
 //
@@ -9350,7 +13251,7 @@ void test112 ( )
   double xval;
 
   cout << "\n";
-  cout << "TEST112\n";
+  cout << "R8VEC_BRACKET_TEST\n";
   cout << "  R8VEC_BRACKET finds a pair of entries in a\n";
   cout << "  sorted real array which bracket a value.\n";
 
@@ -9369,7 +13270,7 @@ void test112 ( )
     cout << "\n";
     cout << "  Search for XVAL = " << xval << "\n";
 
-    r8vec_bracket ( N, x, xval, &left, &right );
+    r8vec_bracket ( N, x, xval, left, right );
 
     cout << "  X[" << left  << "-1] = " << x[left-1]  << "\n";
     cout << "  X[" << right << "-1] = " << x[right-1] << "\n";
@@ -9382,13 +13283,13 @@ void test112 ( )
 }
 //****************************************************************************80
 
-void test113 ( )
+void r8vec_bracket2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST113 tests R8VEC_BRACKET2.
+//    R8VEC_BRACKET2_TEST tests R8VEC_BRACKET2.
 //
 //  Licensing:
 //
@@ -9416,7 +13317,7 @@ void test113 ( )
   double xval;
 
   cout << "\n";
-  cout << "TEST113\n";
+  cout << "R8VEC_BRACKET2_TEST\n";
   cout << "  R8VEC_BRACKET2 finds a pair of entries in a\n";
   cout << "  sorted R8VEC which bracket a value.\n";
 
@@ -9447,7 +13348,7 @@ void test113 ( )
 
     cout << "  Start = " << start << "\n";
 
-    r8vec_bracket2 ( N, x, xval, start, &left, &right );
+    r8vec_bracket2 ( N, x, xval, start, left, right );
 
     cout << "  Left =  " << left  << "\n";
     cout << "  Right = " << right << "\n";
@@ -9468,13 +13369,13 @@ void test113 ( )
 }
 //****************************************************************************80
 
-void test114 ( )
+void r8vec_bracket3_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST114 tests R8VEC_BRACKET3.
+//    R8VEC_BRACKET3_TEST tests R8VEC_BRACKET3.
 //
 //  Licensing:
 //
@@ -9500,7 +13401,7 @@ void test114 ( )
   double xval;
 
   cout << "\n";
-  cout << "TEST114\n";
+  cout << "R8VEC_BRACKET3_TEST\n";
   cout << "  R8VEC_BRACKET3 finds a pair of entries in a\n";
   cout << "  sorted real array which bracket a value.\n";
 
@@ -9523,7 +13424,7 @@ void test114 ( )
 
     cout << "  Starting guess for interval is = " << left << "\n";
 
-    r8vec_bracket3 ( N, x, xval, &left );
+    r8vec_bracket3 ( N, x, xval, left );
 
     cout << "  Nearest interval:\n";
     cout << "   X[" << left   << "]= " << x[left  ] << "\n";
@@ -9536,13 +13437,13 @@ void test114 ( )
 }
 //****************************************************************************80
 
-void test1143 ( )
+void r8vec_bracket5_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1143 tests R8VEC_BRACKET5.
+//    R8VEC_BRACKET5_TEST tests R8VEC_BRACKET5.
 //
 //  Licensing:
 //
@@ -9567,11 +13468,11 @@ void test1143 ( )
   double xval;
 
   cout << "\n";
-  cout << "TEST1143\n";
+  cout << "R8VEC_BRACKET5_TEST\n";
   cout << "  R8VEC_BRACKET5 finds a pair of entries in a\n";
   cout << "  sorted R8VEC which bracket a value.\n";
 
-  x = r8vec_indicator_new ( n );
+  x = r8vec_indicator1_new ( n );
   x[5] = x[4];
 
   r8vec_print ( n, x, "  Sorted array:" );
@@ -9610,13 +13511,13 @@ void test1143 ( )
 }
 //****************************************************************************80
 
-void test1145 ( void )
+void r8vec_chebyspace_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1145 tests R8VEC_CHEBYSPACE_NEW.
+//    R8VEC_CHEBYSPACE_NEW_TEST tests R8VEC_CHEBYSPACE_NEW.
 //
 //  Licensing:
 //
@@ -9637,7 +13538,7 @@ void test1145 ( void )
   double r2;
 
   cout << "\n";
-  cout << "TEST1145\n";
+  cout << "R8VEC_CHEBYSPACE_NEW_TEST\n";
   cout << "  R8VEC_CHEBYSPACE_NEW computes N Chebyshev points in [R1,R2].\n";
 
   r1 = -1.0;
@@ -9670,13 +13571,57 @@ void test1145 ( void )
 }
 //****************************************************************************80
 
-void test1147 ( )
+void r8vec_concatenate_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1147 tests R8VEC_CONVOLUTION
+//    R8VEC_CONCATENATE_NEW_TEST tests R8VEC_CONCATENATE_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    24 October 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n1 = 5;
+  int n2 = 3;
+  int n3 = n1 + n2;
+
+  double a1[5] = { 91.1, 31.2, 71.3, 51.4, 31.5 };
+  double a2[3] = { 42.6, 22.7, 12.8 };
+  double *a3;
+
+  cout << "\n";
+  cout << "R8VEC_CONCATENATE_NEW_TEST\n";
+  cout << "  R8VEC_CONCATENATE_NEW concatenates two R8VECs\n";
+
+  r8vec_print ( n1, a1, "  Array 1:" );
+  r8vec_print ( n2, a2, "  Array 2:" );
+  a3 = r8vec_concatenate_new ( n1, a1, n2, a2 );
+  r8vec_print ( n3, a3, "  Array 3 = Array 1 + Array 2:" );
+
+  delete [] a3;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_convolution_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_CONVOLUTION_TEST tests R8VEC_CONVOLUTION
 //
 //  Licensing:
 //
@@ -9703,7 +13648,7 @@ void test1147 ( )
   double z_correct[M+N-1] = { -1.0, 3.0, 10.0, 17.0, 29.0, 12.0 };
 
   cout << "\n";
-  cout << "TEST1147\n";
+  cout << "R8VEC_CONVOLUTION_TEST\n";
   cout << "  R8VEC_CONVOLUTION computes the convolution\n";
   cout << "  of two vectors.\n";
 
@@ -9724,13 +13669,13 @@ void test1147 ( )
 }
 //****************************************************************************80
 
-void test115 ( )
+void r8vec_convolution_circ_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST115 tests R8VEC_CONVOLUTION_CIRC
+//    R8VEC_CONVOLUTION_CIRC_TEST tests R8VEC_CONVOLUTION_CIRC
 //
 //  Licensing:
 //
@@ -9753,7 +13698,7 @@ void test115 ( )
   double z_correct[N] = { 37.0, 44.0, 43.0, 26.0 };
 
   cout << "\n";
-  cout << "TEST115\n";
+  cout << "R8VEC_CONVOLUTION_CIRC_TEST\n";
   cout << "  R8VEC_CONVOLUTION_CIRC computes the circular convolution\n";
   cout << "  of two vectors.\n";
 
@@ -9773,13 +13718,13 @@ void test115 ( )
 }
 //****************************************************************************80
 
-void test116 ( )
+void r8vec_dif_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST116 tests R8VEC_DIF.
+//    R8VEC_DIF_TEST tests R8VEC_DIF.
 //
 //  Licensing:
 //
@@ -9803,7 +13748,7 @@ void test116 ( )
   double xi;
 
   cout << "\n";
-  cout << "TEST116\n";
+  cout << "R8VEC_DIF_TEST\n";
   cout << "  R8VEC_DIF estimates derivatives.\n";
   cout << "\n";
   cout << "  Estimate the derivative of order N = " << n << "\n";
@@ -9820,7 +13765,7 @@ void test116 ( )
   for ( i = 0; i <= n; i++ )
   {
     xi = x + ( double ) ( 2 * i - n ) * h;
-    fdif = fdif + cof[i] * test116_f ( xi );
+    fdif = fdif + cof[i] * r8vec_dif_f ( xi );
   }
 
   cout << "\n";
@@ -9832,13 +13777,13 @@ void test116 ( )
 }
 //****************************************************************************80
 
-double test116_f ( double x )
+double r8vec_dif_f ( double x )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST116_F evaluates the function used in TEST116.
+//    R8VEC_DIF_F evaluates the function used in R8VEC_DIF_TEST.
 //
 //  Licensing:
 //
@@ -9861,13 +13806,13 @@ double test116_f ( double x )
 }
 //****************************************************************************80
 
-void test1165 ( )
+void r8vec_direct_product_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1165 tests R8VEC_DIRECT_PRODUCT.
+//    R8VEC_DIRECT_PRODUCT_TEST tests R8VEC_DIRECT_PRODUCT.
 //
 //  Licensing:
 //
@@ -9893,7 +13838,7 @@ void test1165 ( )
   double x[factor_num*point_num];
 
   cout << "\n";
-  cout << "TEST1165\n";
+  cout << "R8VEC_DIRECT_PRODUCT_TEST\n";
   cout << "  R8VEC_DIRECT_PRODUCT forms the entries of a\n";
   cout << "  direct product of a given number of R8VEC factors.\n";
 
@@ -9956,13 +13901,13 @@ void test1165 ( )
 }
 //****************************************************************************80
 
-void test1166 ( )
+void r8vec_direct_product2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1166 tests R8VEC_DIRECT_PRODUCT2.
+//    R8VEC_DIRECT_PRODUCT2_TEST tests R8VEC_DIRECT_PRODUCT2.
 //
 //  Licensing:
 //
@@ -9988,7 +13933,7 @@ void test1166 ( )
   double w[point_num];
 
   cout << "\n";
-  cout << "TEST1166\n";
+  cout << "R8VEC_DIRECT_PRODUCT2_TEST\n";
   cout << "  R8VEC_DIRECT_PRODUCT2 forms the entries of a\n";
   cout << "  direct product of a given number of R8VEC factors.\n";
 
@@ -10044,13 +13989,13 @@ void test1166 ( )
 }
 //****************************************************************************80
 
-void test117 ( )
+void r8vec_even_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST117 tests R8VEC_EVEN.
+//    R8VEC_EVEN_TEST tests R8VEC_EVEN.
 //
 //  Licensing:
 //
@@ -10072,7 +14017,7 @@ void test117 ( )
   double xlo = 0.0;
 
   cout << "\n";
-  cout << "TEST117\n";
+  cout << "R8VEC_EVEN_TEST\n";
   cout << "  R8VEC_EVEN computes N evenly spaced values\n";
   cout << "  between XLO and XHI.\n";
   cout << "\n";
@@ -10091,13 +14036,13 @@ void test117 ( )
 }
 //****************************************************************************80
 
-void test118 ( )
+void r8vec_even2_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST118 tests R8VEC_EVEN2.
+//    R8VEC_EVEN2_TEST tests R8VEC_EVEN2.
 //
 //  Licensing:
 //
@@ -10124,7 +14069,7 @@ void test118 ( )
   double xval[MAXVAL];
 
   cout << "\n";
-  cout << "TEST118:\n";
+  cout << "R8VEC_EVEN2_TEST:\n";
   cout << "  R8VEC_EVEN2 interpolates a specified number of\n";
   cout << "  points pairs of values in a vector.\n";
   cout << "\n";
@@ -10139,7 +14084,7 @@ void test118 ( )
     }
   }
 
-  r8vec_even2 ( MAXVAL, nfill, NOLD, xold, &nval, xval );
+  r8vec_even2 ( MAXVAL, nfill, NOLD, xold, nval, xval );
 
   cout << "\n";
   cout << "  Resulting vector:\n";
@@ -10171,13 +14116,13 @@ void test118 ( )
 }
 //****************************************************************************80
 
-void test120 ( )
+void r8vec_expand_linear_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST120 tests R8VEC_EXPAND_LINEAR.
+//    R8VEC_EXPAND_LINEAR_TEST tests R8VEC_EXPAND_LINEAR.
 //
 //  Licensing:
 //
@@ -10200,7 +14145,7 @@ void test120 ( )
   double *xfat;
 
   cout << "\n";
-  cout << "TEST120\n";
+  cout << "R8VEC_EXPAND_LINEAR_TEST\n";
   cout << "  R8VEC_EXPAND_LINEAR linearly interpolates new data\n";
   cout << "  between old values.\n";
   cout << "\n";
@@ -10223,13 +14168,13 @@ void test120 ( )
 }
 //****************************************************************************80
 
-void test121 ( )
+void r8vec_frac_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST121 tests R8VEC_FRAC.
+//    R8VEC_FRAC_TEST tests R8VEC_FRAC.
 //
 //  Licensing:
 //
@@ -10252,7 +14197,7 @@ void test121 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST121\n";
+  cout << "R8VEC_FRAC_TEST\n";
   cout << "  R8VEC_FRAC: K-th smallest R8VEC entry;\n";
 
   seed = 123456789;
@@ -10279,13 +14224,13 @@ void test121 ( )
 }
 //****************************************************************************80
 
-void test122 ( )
+void r8vec_histogram_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST122 tests R8VEC_HISTOGRAM.
+//    R8VEC_HISTOGRAM_TEST tests R8VEC_HISTOGRAM.
 //
 //  Licensing:
 //
@@ -10315,7 +14260,7 @@ void test122 ( )
   int test_num = 2;
 
   cout << "\n";
-  cout << "TEST122\n";
+  cout << "R8VEC_HISTOGRAM_TEST\n";
   cout << "  R8VEC_HISTOGRAM histograms a real vector.\n";
 
   for ( test = 1; test <= test_num; test++ )
@@ -10383,13 +14328,97 @@ void test122 ( )
 }
 //****************************************************************************80
 
-void test123 ( )
+void r8vec_house_column_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST123 tests R8VEC_INDEX_INSERT, R8VEC_INDEX_DELETE_ALL, R8VEC_INDEX_DELETE_DUPES.
+//    R8VEC_HOUSE_COLUMN_TEST tests R8VEC_HOUSE_COLUMN.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    08 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double b = 0.0;
+  double c = 5.0;
+  double *h;
+  double *ha;
+  int i;
+  int j;
+  int k;
+  int n = 4;
+  int seed;
+  double *v;
+
+  cout << "\n";
+  cout << "R8VEC_HOUSE_COLUMN_TEST\n";
+  cout << "  R8VEC_HOUSE_COLUMN returns the compact form of\n";
+  cout << "  a Householder matrix that packs a column\n";
+  cout << "  of a matrix.\n";
+//
+//  Get a random matrix.
+//
+  seed = 123456789;
+
+  a = r8mat_uniform_ab_new ( n, n, b, c, seed );
+
+  r8mat_print ( n, n, a, "  Matrix A:" );
+
+  for ( k = 1; k <= n-1; k++ )
+  {
+    cout << "\n";
+    cout << "  Working on column K = " << k << "\n";
+
+    v = r8vec_house_column ( n, a+(k-1)*n, k );
+
+    h = r8mat_house_form ( n, v );
+
+    r8mat_print ( n, n, h, "  Householder matrix H:" );
+
+    ha = r8mat_mm_new ( n, n, n, h, a );
+
+    r8mat_print ( n, n, ha, "  Product H*A:" );
+//
+//  If we set A := HA, then we can successively convert A to upper
+//  triangular form.
+//
+    for ( j = 0; j < n; j++ )
+    {
+      for ( i = 0; i < n; i++ )
+      {
+        a[i+j*n] = ha[i+j*n];
+      }
+    }
+
+    delete [] h;
+    delete [] ha;
+    delete [] v;
+  }
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_index_delete_all_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_INDEX_DELETE_ALL_TEST tests R8VEC_INDEX_DELETE_ALL.
 //
 //  Licensing:
 //
@@ -10417,23 +14446,15 @@ void test123 ( )
   n = 0;
 
   cout << "\n";
-  cout << "TEST123\n";
-  cout << "  R8VEC_INDEX_INSERT inserts values into an\n";
-  cout << "  index sorted array.\n";
+  cout << "R8VEC_INDEX_DELETE_ALL_TEST\n";
   cout << "  R8VEC_INDEX_DELETE_ALL deletes all copies of a\n";
   cout << "  particular value.\n";
-  cout << "  R8VEC_INDEX_DELETE_ONE deletes one copies of a\n";
-  cout << "  particular value.\n";
-  cout << "  R8VEC_INDEX_DELETE_DUPES deletes duplicates.\n";
-  cout << "\n";
-  cout << "  Generate some random values:\n";
-  cout << "\n";
 
   xval = 8.0;
-  r8vec_index_insert ( &n, x, indx, xval );
+  r8vec_index_insert ( n, x, indx, xval );
 
   xval = 7.0;
-  r8vec_index_insert ( &n, x, indx, xval );
+  r8vec_index_insert ( n, x, indx, xval );
 
   seed = 123456789;
 
@@ -10442,14 +14463,14 @@ void test123 ( )
     xval = r8_uniform_ab ( 0.0, 20.0, seed );
     xval = ( double ) ( r8_nint ( xval ) );
     cout << "  " << xval << "\n";
-    r8vec_index_insert ( &n, x, indx, xval );
+    r8vec_index_insert ( n, x, indx, xval );
   }
 
   xval = 7.0;
-  r8vec_index_insert ( &n, x, indx, xval );
+  r8vec_index_insert ( n, x, indx, xval );
 
   xval = 8.0;
-  r8vec_index_insert ( &n, x, indx, xval );
+  r8vec_index_insert ( n, x, indx, xval );
 
   cout << "\n";
   cout << "  Indexed list of entries:\n";
@@ -10465,16 +14486,87 @@ void test123 ( )
   }
 
   cout << "\n";
-  cout << "  Call R8VEC_INDEX_DELETE_ONE to delete one value of 8:\n";
-
-  xval = 8.0;
-  r8vec_index_delete_one ( n, x, indx, xval, &n, x, indx );
-
-  cout << "\n";
   cout << "  Call R8VEC_INDEX_DELETE_ALL to delete all values of 7:\n";
 
   xval = 7.0;
-  r8vec_index_delete_all ( n, x, indx, xval, &n, x, indx );
+  r8vec_index_delete_all ( n, x, indx, xval, n, x, indx );
+
+  cout << "\n";
+  cout << "  Indexed list of entries:\n";
+  cout << "\n";
+  cout << "  I  INDX(I)  X(I)  X(INDX(I))\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(3) << i+1
+         << "  " << setw(3) << indx[i]
+         << "  " << setw(6) << x[i]
+         << "  " << setw(6) << x[indx[i]-1] << "\n";
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8vec_index_delete_dupes_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_INDEX_DELETE_DUPES_TEST tests R8VEC_INDEX_DELETE_DUPES
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N_MAX 25
+
+  int i;
+  int indx[N_MAX];
+  int n;
+  int n2;
+  int seed;
+  double x[N_MAX];
+  double xval;
+
+  n = 0;
+
+  cout << "\n";
+  cout << "R8VEC_INDEX_DELETE_DUPES_TEST\n";
+  cout << "  R8VEC_INDEX_DELETE_DUPES deletes duplicates.\n";
+
+  xval = 8.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  xval = 7.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  seed = 123456789;
+
+  for ( i = 1; i <= 20; i++ )
+  {
+    xval = r8_uniform_ab ( 0.0, 20.0, seed );
+    xval = ( double ) ( r8_nint ( xval ) );
+    cout << "  " << xval << "\n";
+    r8vec_index_insert ( n, x, indx, xval );
+  }
+
+  xval = 7.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  xval = 8.0;
+  r8vec_index_insert ( n, x, indx, xval );
 
   cout << "\n";
   cout << "  Indexed list of entries:\n";
@@ -10492,7 +14584,7 @@ void test123 ( )
   cout << "\n";
   cout << "  Call R8VEC_INDEX_DELETE_DUPES to delete duplicates:\n";
 
-  r8vec_index_delete_dupes ( n, x, indx, &n, x, indx );
+  r8vec_index_delete_dupes ( n, x, indx, n, x, indx );
 
   cout << "\n";
   cout << "  Indexed list of unique entries:\n";
@@ -10511,13 +14603,13 @@ void test123 ( )
 }
 //****************************************************************************80
 
-void test124 ( )
+void r8vec_index_delete_one_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST124 tests R8VEC_INDEX_INSERT_UNIQUE and R8VEC_INDEX_ORDER.
+//    R8VEC_INDEX_DELETE_ONE_TEST tests R8VEC_DELETE_ONE.
 //
 //  Licensing:
 //
@@ -10525,18 +14617,19 @@ void test124 ( )
 //
 //  Modified:
 //
-//    18 October 2005
+//    25 October 2005
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define N_MAX 20
+# define N_MAX 25
 
   int i;
   int indx[N_MAX];
   int n;
+  int n2;
   int seed;
   double x[N_MAX];
   double xval;
@@ -10544,56 +14637,153 @@ void test124 ( )
   n = 0;
 
   cout << "\n";
-  cout << "TEST124\n";
-  cout << "  R8VEC_INDEX_INSERT_UNIQUE inserts unique values into an\n";
-  cout << "  index sorted array.\n";
-  cout << "  R8VEC_INDEX_ORDER sorts an index sorted array.\n";
-  cout << "\n";
-  cout << "  Generate some random values:\n";
-  cout << "\n";
+  cout << "R8VEC_INDEX_DELETE_ONE_TEST\n";
+  cout << "  R8VEC_INDEX_DELETE_ONE deletes one copies of a\n";
+  cout << "  particular value.\n";
+
+  xval = 8.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  xval = 7.0;
+  r8vec_index_insert ( n, x, indx, xval );
 
   seed = 123456789;
 
-  for ( i = 1; i <= N_MAX; i++ )
+  for ( i = 1; i <= 20; i++ )
   {
     xval = r8_uniform_ab ( 0.0, 20.0, seed );
     xval = ( double ) ( r8_nint ( xval ) );
-    cout << "  " << setw(6) << xval << "\n";
-    r8vec_index_insert_unique ( &n, x, indx, xval );
+    cout << "  " << xval << "\n";
+    r8vec_index_insert ( n, x, indx, xval );
   }
 
+  xval = 7.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  xval = 8.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
   cout << "\n";
-  cout << "  Indexed list of unique entries:\n";
+  cout << "  Indexed list of entries:\n";
   cout << "\n";
   cout << "  I  INDX(I)  X(I)  X(INDX(I))\n";
   cout << "\n";
   for ( i = 0; i < n; i++ )
   {
-    cout << "  " << i+1
+    cout << "  " << setw(3) << i+1
          << "  " << setw(3) << indx[i]
          << "  " << setw(6) << x[i]
          << "  " << setw(6) << x[indx[i]-1] << "\n";
   }
 
   cout << "\n";
-  cout << "  Now call R8VEC_INDEX_ORDER to carry out the sorting:\n";
+  cout << "  Call R8VEC_INDEX_DELETE_ONE to delete one value of 8:\n";
 
-  r8vec_index_order ( n, x, indx );
+  xval = 8.0;
+  r8vec_index_delete_one ( n, x, indx, xval, n, x, indx );
 
-  r8vec_print ( n, x, "  X:" );
+  cout << "\n";
+  cout << "  Indexed list of unique entries:\n";
+  cout << "\n";
+  cout << "  I  INDX(I)  X(I)\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(3) << i+1
+         << "  " << setw(3) << indx[i]
+         << "  " << setw(6) << x[i] << "\n";
+  }
 
   return;
 # undef N_MAX
 }
 //****************************************************************************80
 
-void test125 ( )
+void r8vec_index_insert_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST125 tests R8VEC_INDEX_INSERT_UNIQUE and R8VEC_INDEX_SEARCH.
+//    R8VEC_INDEX_INSERT_TEST tests R8VEC_INDEX_INSERT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N_MAX 25
+
+  int i;
+  int indx[N_MAX];
+  int n;
+  int n2;
+  int seed;
+  double x[N_MAX];
+  double xval;
+
+  n = 0;
+
+  cout << "\n";
+  cout << "R8VEC_INDEX_INSERT_TEST\n";
+  cout << "  R8VEC_INDEX_INSERT inserts values into an\n";
+  cout << "  index sorted array.\n";
+
+  xval = 8.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  xval = 7.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  seed = 123456789;
+
+  for ( i = 1; i <= 20; i++ )
+  {
+    xval = r8_uniform_ab ( 0.0, 20.0, seed );
+    xval = ( double ) ( r8_nint ( xval ) );
+    cout << "  " << xval << "\n";
+    r8vec_index_insert ( n, x, indx, xval );
+  }
+
+  xval = 7.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  xval = 8.0;
+  r8vec_index_insert ( n, x, indx, xval );
+
+  cout << "\n";
+  cout << "  Indexed list of entries:\n";
+  cout << "\n";
+  cout << "  I  INDX(I)  X(I)  X(INDX(I))\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(3) << i+1
+         << "  " << setw(3) << indx[i]
+         << "  " << setw(6) << x[i]
+         << "  " << setw(6) << x[indx[i]-1] << "\n";
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8vec_index_insert_unique_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_INDEX_INSERT_UNIQUE_TEST tests R8VEC_INDEX_INSERT_UNIQUE.
 //
 //  Licensing:
 //
@@ -10625,14 +14815,9 @@ void test125 ( )
   n = 0;
 
   cout << "\n";
-  cout << "TEST125\n";
+  cout << "R8VEC_INDEX_INSERT_UNIQUE_TEST\n";
   cout << "  R8VEC_INDEX_INSERT_UNIQUE inserts unique values into an\n";
   cout << "  index sorted array.\n";
-  cout << "  R8VEC_INDEX_SEARCH searches for an entry \n";
-  cout << "  with a given value.\n";
-  cout << "\n";
-  cout << "  Generate some random values:\n";
-  cout << "\n";
 
   b = 0.0;
   c = 20.0;
@@ -10643,7 +14828,7 @@ void test125 ( )
     xval = r8_uniform_ab ( b, c, seed );
     xval = ( double ) ( r8_nint ( xval ) );
     cout << "    " << setw(6) << xval << "\n";
-    r8vec_index_insert_unique ( &n, x, indx, xval );
+    r8vec_index_insert_unique ( n, x, indx, xval );
   }
 
   cout << "\n";
@@ -10668,7 +14853,7 @@ void test125 ( )
   for ( i = 0; i <= N_MAX; i++ )
   {
     xval = ( double ) ( i );
-    r8vec_index_search ( n, x, indx, xval, &less, &equal, &more );
+    r8vec_index_search ( n, x, indx, xval, less, equal, more );
     cout << "  " << setw(6) << xval
          << "  " << setw(3) << less
          << "  " << setw(3) << equal
@@ -10680,13 +14865,178 @@ void test125 ( )
 }
 //****************************************************************************80
 
-void test1251 ( )
+void r8vec_index_order_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1251 tests R8VEC_INDEX_SORTED_RANGE.
+//    R8VEC_INDEX_ORDER_TEST tests R8VEC_INDEX_ORDER.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N_MAX 20
+
+  int i;
+  int indx[N_MAX];
+  int n;
+  int seed;
+  double x[N_MAX];
+  double xval;
+
+  n = 0;
+
+  cout << "\n";
+  cout << "R8VEC_INDEX_ORDER_TEST\n";
+  cout << "  R8VEC_INDEX_ORDER sorts an index sorted array.\n";
+  cout << "\n";
+  cout << "  Generate some random values:\n";
+  cout << "\n";
+
+  seed = 123456789;
+
+  for ( i = 1; i <= N_MAX; i++ )
+  {
+    xval = r8_uniform_ab ( 0.0, 20.0, seed );
+    xval = ( double ) ( r8_nint ( xval ) );
+    cout << "  " << setw(6) << xval << "\n";
+    r8vec_index_insert_unique ( n, x, indx, xval );
+  }
+
+  cout << "\n";
+  cout << "  Indexed list of unique entries:\n";
+  cout << "\n";
+  cout << "  I  INDX(I)  X(I)  X(INDX(I))\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << i+1
+         << "  " << setw(3) << indx[i]
+         << "  " << setw(6) << x[i]
+         << "  " << setw(6) << x[indx[i]-1] << "\n";
+  }
+
+  cout << "\n";
+  cout << "  Now call R8VEC_INDEX_ORDER to carry out the sorting:\n";
+
+  r8vec_index_order ( n, x, indx );
+
+  r8vec_print ( n, x, "  X:" );
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8vec_index_search_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_INDEX_SEARCH_TEST tests R8VEC_INDEX_SEARCH.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    17 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N_MAX 20
+
+  double b;
+  double c;
+  int equal;
+  int i;
+  int indx[N_MAX];
+  int less;
+  int more;
+  int n;
+  int seed;
+  double x[N_MAX];
+  double xval;
+
+  n = 0;
+
+  cout << "\n";
+  cout << "R8VEC_INDEX_SEARCH_TEST\n";
+  cout << "  R8VEC_INDEX_SEARCH searches for an entry \n";
+  cout << "  with a given value.\n";
+  cout << "\n";
+  cout << "  Generate some random values:\n";
+  cout << "\n";
+
+  b = 0.0;
+  c = 20.0;
+  seed = 123456789;
+
+  for ( i = 1; i <= N_MAX; i++ )
+  {
+    xval = r8_uniform_ab ( b, c, seed );
+    xval = ( double ) ( r8_nint ( xval ) );
+    cout << "    " << setw(6) << xval << "\n";
+    r8vec_index_insert_unique ( n, x, indx, xval );
+  }
+
+  cout << "\n";
+  cout << "  Indexed list of entries:\n";
+  cout << "\n";
+  cout << "  I  INDX(I)  X(I)  X(INDX(I))\n";
+  cout << "\n";
+  for ( i = 1; i <= n; i++ )
+  {
+    cout << "  " << setw(3) << i+1
+         << "  " << setw(3) << indx[i]
+         << "  " << setw(6) << x[i]
+         << "  " << setw(6) << x[indx[i]-1] << "\n";
+  }
+
+  cout << "\n";
+  cout << "  Results of search for given XVAL:\n";
+  cout << "\n";
+  cout << "  XVAL  Less Equal More\n";
+  cout << "\n";
+
+  for ( i = 0; i <= N_MAX; i++ )
+  {
+    xval = ( double ) ( i );
+    r8vec_index_search ( n, x, indx, xval, less, equal, more );
+    cout << "  " << setw(6) << xval
+         << "  " << setw(3) << less
+         << "  " << setw(3) << equal
+         << "  " << setw(3) << more << "\n";
+  }
+
+  return;
+# undef N_MAX
+}
+//****************************************************************************80
+
+void r8vec_index_sorted_range_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_INDEX_SORTED_RANGE_TEST tests R8VEC_INDEX_SORTED_RANGE.
 //
 //  Licensing:
 //
@@ -10714,7 +15064,7 @@ void test1251 ( )
   int test;
 
   cout << "\n";
-  cout << "TEST1251\n";
+  cout << "R8VEC_INDEX_SORTED_RANGE_TEST\n";
   cout << "  R8VEC_INDEX_SORTED_RANGE seeks the range I_LO:I_HI\n";
   cout << "  of entries of sorted indexed R so that\n";
   cout << "  R_LO <= R(INDX(I)) <= R_HI for I_LO <= I <= I_HI.\n";
@@ -10749,7 +15099,7 @@ void test1251 ( )
       r_hi = t;
     }
 
-    r8vec_index_sorted_range ( n, r, indx, r_lo, r_hi, &i_lo, &i_hi );
+    r8vec_index_sorted_range ( n, r, indx, r_lo, r_hi, i_lo, i_hi );
 
     cout << "\n";
     if ( i_hi < i_lo )
@@ -10780,13 +15130,13 @@ void test1251 ( )
 }
 //****************************************************************************80
 
-void test1252 ( )
+void r8vec_indexed_heap_d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1252 tests R8VEC_INDEXED_HEAP_D;
+//    R8VEC_INDEXED_HEAP_D_TEST tests R8VEC_INDEXED_HEAP_D;
 //
 //  Licensing:
 //
@@ -10811,7 +15161,7 @@ void test1252 ( )
   int n = 10;
 
   cout << "\n";
-  cout << "TEST1252\n";
+  cout << "R8VEC_INDEXED_HEAP_D_TEST\n";
   cout << "  R8VEC_INDEXED_HEAP_D creates a descending heap\n";
   cout << "  from an indexed vector.\n";
 //
@@ -10849,13 +15199,13 @@ void test1252 ( )
 }
 //****************************************************************************80
 
-void test1255 ( )
+void r8vec_indexed_heap_d_extract_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1255 tests R8VEC_INDEXED_HEAP_D_EXTRACT and related routines.
+//    R8VEC_INDEXED_HEAP_D_EXTRACT_TEST tests R8VEC_INDEXED_HEAP_D_EXTRACT.
 //
 //  Licensing:
 //
@@ -10881,17 +15231,13 @@ void test1255 ( )
   int n_max = 20;
 
   cout << "\n";
-  cout << "TEST1255\n";
+  cout << "R8VEC_INDEXED_HEAP_D_EXTRACT_TEST\n";
   cout << "  For an indexed R8VEC,\n";
-  cout << "  R8VEC_INDEXED_HEAP_D_INSERT inserts a value into the heap.\n";
   cout << "  R8VEC_INDEXED_HEAP_D_EXTRACT extracts the maximum value;\n";
-  cout << "  R8VEC_INDEXED_HEAP_D_MAX reports the maximum value.\n";
-  cout << "\n";
-  cout << "  These 3 operations are enough to model a priority queue.\n";
 //
 //  Set the data array.  To keep things easy, we will use the indicator vector.
 //
-  a = r8vec_indicator_new ( m );
+  a = r8vec_indicator1_new ( m );
 //
 //  The index array will initially be a random subset of the numbers 1 to M,
 //  in random order.
@@ -10943,7 +15289,7 @@ void test1255 ( )
     cout << "\n";
     cout << "  Inserting value " << a[indx_insert] << "\n";
 
-    r8vec_indexed_heap_d_insert ( &n, a, indx, indx_insert );
+    r8vec_indexed_heap_d_insert ( n, a, indx, indx_insert );
 
     indx_max = r8vec_indexed_heap_d_max ( n, a, indx );
 
@@ -10968,7 +15314,7 @@ void test1255 ( )
 
   for ( i = 0; i < 5; i++ )
   {
-    indx_extract = r8vec_indexed_heap_d_extract ( &n, a, indx );
+    indx_extract = r8vec_indexed_heap_d_extract ( n, a, indx );
     cout << "  Extracting maximum element A[" << indx_extract
          << "] = " << a[indx_extract] << "\n";
   }
@@ -10989,13 +15335,276 @@ void test1255 ( )
 }
 //****************************************************************************80
 
-void test1256 ( )
+void r8vec_indexed_heap_d_insert_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1256 tests R8VEC_LEGENDRE.
+//    R8VEC_INDEXED_HEAP_D_INSERT_TEST tests R8VEC_INDEXED_HEAP_D_INSERT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 August 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int i;
+  int indx[20];
+  int indx_extract;
+  int indx_insert;
+  int indx_max;
+  int m = 20;
+  int n;
+  int n_max = 20;
+
+  cout << "\n";
+  cout << "R8VEC_INDEXED_HEAP_D_INSERT_TEST\n";
+  cout << "  For an indexed R8VEC,\n";
+  cout << "  R8VEC_INDEXED_HEAP_D_INSERT inserts a value into the heap.\n";
+//
+//  Set the data array.  To keep things easy, we will use the indicator vector.
+//
+  a = r8vec_indicator1_new ( m );
+//
+//  The index array will initially be a random subset of the numbers 1 to M,
+//  in random order.
+//
+  n = 5;
+  indx[0]  =  8;
+  indx[1]  =  1;
+  indx[2]  =  7;
+  indx[3]  = 13;
+  indx[4]  =  4;
+  indx[5]  =  6;
+  indx[6]  = 14;
+  indx[7]  =  0;
+  indx[8]  = 18;
+  indx[9]  = 19;
+  indx[10] =  2;
+
+  r8vec_print ( m, a, "  The data vector:" );
+  i4vec_print ( n, indx, "  The index vector:" );
+  cout << "\n";
+  cout << "  A(INDX):\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(4) << i
+         << "  " << setw(10) << a[indx[i]] << "\n";
+  }
+//
+//  Create a descending heap from the indexed array.
+//
+  r8vec_indexed_heap_d ( n, a, indx );
+
+  i4vec_print ( n, indx, "  The index vector after heaping:" );
+  cout << "\n";
+  cout << "  A(INDX) after heaping:\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(4) << i
+         << "  " << setw(10) << a[indx[i]] << "\n";
+  }
+//
+//  Insert five entries, and monitor the maximum.
+//
+  for ( i = 0; i < 5; i++ )
+  {
+    indx_insert = indx[n];
+
+    cout << "\n";
+    cout << "  Inserting value " << a[indx_insert] << "\n";
+
+    r8vec_indexed_heap_d_insert ( n, a, indx, indx_insert );
+
+    indx_max = r8vec_indexed_heap_d_max ( n, a, indx );
+
+    cout << "  Current maximum is " << a[indx_max] << "\n";
+  }
+  r8vec_print ( m, a, "  The data vector after insertions:" );
+  i4vec_print ( n, indx, "  The index vector after insertions:" );
+  cout << "\n";
+  cout << "  A(INDX) after insertions:\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(4) << i
+         << "  " << setw(10) << a[indx[i]] << "\n";
+  }
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_indexed_heap_d_max_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_INDEXED_HEAP_D_MAX_TEST tests R8VEC_INDEXED_HEAP_D_MAX
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 August 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int i;
+  int indx[20];
+  int indx_extract;
+  int indx_insert;
+  int indx_max;
+  int m = 20;
+  int n;
+  int n_max = 20;
+
+  cout << "\n";
+  cout << "R8VEC_INDEXED_HEAP_D_MAX_TEST\n";
+  cout << "  For an indexed R8VEC,\n";
+  cout << "  R8VEC_INDEXED_HEAP_D_MAX reports the maximum value.\n";
+//
+//  Set the data array.  To keep things easy, we will use the indicator vector.
+//
+  a = r8vec_indicator1_new ( m );
+//
+//  The index array will initially be a random subset of the numbers 1 to M,
+//  in random order.
+//
+  n = 5;
+  indx[0]  =  8;
+  indx[1]  =  1;
+  indx[2]  =  7;
+  indx[3]  = 13;
+  indx[4]  =  4;
+  indx[5]  =  6;
+  indx[6]  = 14;
+  indx[7]  =  0;
+  indx[8]  = 18;
+  indx[9]  = 19;
+  indx[10] =  2;
+
+  r8vec_print ( m, a, "  The data vector:" );
+  i4vec_print ( n, indx, "  The index vector:" );
+  cout << "\n";
+  cout << "  A(INDX):\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(4) << i
+         << "  " << setw(10) << a[indx[i]] << "\n";
+  }
+//
+//  Create a descending heap from the indexed array.
+//
+  r8vec_indexed_heap_d ( n, a, indx );
+
+  i4vec_print ( n, indx, "  The index vector after heaping:" );
+  cout << "\n";
+  cout << "  A(INDX) after heaping:\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(4) << i
+         << "  " << setw(10) << a[indx[i]] << "\n";
+  }
+//
+//  Insert five entries, and monitor the maximum.
+//
+  for ( i = 0; i < 5; i++ )
+  {
+    indx_insert = indx[n];
+
+    cout << "\n";
+    cout << "  Inserting value " << a[indx_insert] << "\n";
+
+    r8vec_indexed_heap_d_insert ( n, a, indx, indx_insert );
+
+    indx_max = r8vec_indexed_heap_d_max ( n, a, indx );
+
+    cout << "  Current maximum is " << a[indx_max] << "\n";
+  }
+  r8vec_print ( m, a, "  The data vector after insertions:" );
+  i4vec_print ( n, indx, "  The index vector after insertions:" );
+  cout << "\n";
+  cout << "  A(INDX) after insertions:\n";
+  cout << "\n";
+  for ( i = 0; i < n; i++ )
+  {
+    cout << "  " << setw(4) << i
+         << "  " << setw(10) << a[indx[i]] << "\n";
+  }
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_indicator0_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_INDICATOR0_NEW_TEST tests R8VEC_INDICATOR0_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n;
+  double *v;
+
+  cout << "\n";
+  cout << "TEST012555\n";
+  cout << "  R8VEC_INDICATOR0_NEW returns an indicator vector.\n";
+
+  n = 10;
+  v = r8vec_indicator0_new ( n );
+  r8vec_print ( n, v, "  Indicator0 vector:" );
+  delete [] v;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_legendre_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_LEGENDRE_TEST tests R8VEC_LEGENDRE.
 //
 //  Licensing:
 //
@@ -11016,7 +15625,7 @@ void test1256 ( )
   double r2;
 
   cout << "\n";
-  cout << "TEST1256\n";
+  cout << "R8VEC_LEGENDRE_TEST\n";
   cout << "  R8VEC_LEGENDRE computes N Legendre points in [R1,R2].\n";
 
   r1 = -1.0;
@@ -11053,13 +15662,13 @@ void test1256 ( )
 }
 //****************************************************************************80
 
-void test1258 ( )
+void r8vec_linspace_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1258 tests R8VEC_LINSPACE_NEW and R8VEC_MIDSPACE_NEW.
+//    R8VEC_LINSPACE_NEW_TEST tests R8VEC_LINSPACE_NEW.
 //
 //  Licensing:
 //
@@ -11067,7 +15676,7 @@ void test1258 ( )
 //
 //  Modified:
 //
-//    03 June 2012
+//    26 February 2015
 //
 //  Author:
 //
@@ -11080,10 +15689,9 @@ void test1258 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST1258\n";
+  cout << "R8VEC_LINSPACE_NEW_TEST\n";
   cout << "  For a R8VEC:\n";
   cout << "  R8VEC_LINSPACE_NEW: evenly spaced points between A and B;\n";
-  cout << "  R8VEC_MIDSPACE_NEW: evenly spaced midpoints between A and B\n";
 
   a = 10.0;
   b = 20.0;
@@ -11092,21 +15700,17 @@ void test1258 ( )
   r8vec_print ( n, x, "  r8vec_linspace ( 5, 10, 20 )" );
   delete [] x;
 
-  x = r8vec_midspace_new ( n, a, b );
-  r8vec_print ( n, x, "  r8vec_midspace ( 5, 10, 20 )" );
-  delete [] x;
-
   return;
 }
 //****************************************************************************80
 
-void test126 ( )
+void r8vec_max_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST126 tests R8VEC_MAX and R8VEC_MIN.
+//    R8VEC_MAX_TEST tests R8VEC_MAX.
 //
 //  Licensing:
 //
@@ -11121,49 +15725,41 @@ void test126 ( )
 //    John Burkardt
 //
 {
-# define N 10
-
   double *a;
   int i;
+  int n;
   double rmax;
-  double rmin;
   int seed;
 
   cout << "\n";
-  cout << "TEST126\n";
+  cout << "R8VEC_MAX_TEST\n";
   cout << "  R8VEC_MAX produces the maximum entry in a real array.\n";
-  cout << "  R8VEC_MIN produces the minimum entry.\n";
 
+  n = 10;
   seed = 123456789;
 
-  cout << "\n";
-  cout << "  Using random seed " << seed << ".\n";
+  a = r8vec_uniform_01_new ( n, seed );
 
-  a = r8vec_uniform_01_new ( N, seed );
+  r8vec_print ( n, a, "  The array:" );
 
-  r8vec_print ( N, a, "  The array:" );
-
-  rmax = r8vec_max ( N, a );
-  rmin = r8vec_min ( N, a );
+  rmax = r8vec_max ( n, a );
 
   cout << "\n";
   cout << "  R8VEC_MAX reports the maximum value is " << rmax << ".\n";
-  cout << "  R8VEC_MIN reports the minimum value is " << rmin << ".\n";
 
   delete [] a;
 
   return;
-# undef N
 }
 //****************************************************************************80
 
-void test127 ( )
+void r8vec_max_index_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST127 tests R8VEC_MAX_INDEX and R8VEC_MIN_INDEX.
+//    R8VEC_MAX_INDEX_TEST tests R8VEC_MAX_INDEX.
 //
 //  Licensing:
 //
@@ -11188,10 +15784,9 @@ void test127 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST127\n";
+  cout << "R8VEC_MAX_INDEX_TEST\n";
   cout << "  For an R8VEC:\n";
   cout << "  R8VEC_MAX_INDEX: index of maximum entry;\n";
-  cout << "  R8VEC_MIN_INDEX: index of minimum entry;\n";
 
   b = - ( double ) ( N );
   c =   ( double ) ( N );
@@ -11207,9 +15802,6 @@ void test127 ( )
   ival = r8vec_max_index ( N, a );
   cout << "  Maximum index:           " << ival << "\n";
 
-  ival = r8vec_min_index ( N, a );
-  cout << "  Minimum index:           " << ival << "\n";
-
   delete [] a;
 
   return;
@@ -11217,13 +15809,63 @@ void test127 ( )
 }
 //****************************************************************************80
 
-void test128 ( )
+void r8vec_mean_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST128 tests R8VEC_MEAN and R8VEC_MEDIAN;
+//    R8VEC_MEAN_TEST tests R8VEC_MEAN;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 March 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double mean;
+  int n = 10;
+  double r8_hi;
+  double r8_lo;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_MEAN_TEST\n";
+  cout << "  R8VEC_MEAN computes the mean of an R8VEC;\n";
+
+  r8_lo = - 5.0;
+  r8_hi = + 5.0;
+  seed = 123456789;
+  a = r8vec_uniform_ab_new ( n, r8_lo, r8_hi, seed );
+
+  r8vec_print ( n, a, "  Input vector:" );
+
+  mean = r8vec_mean ( n, a );
+
+  cout << "\n";
+  cout << "  Mean:    " << mean << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_median_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_MEDIAN_TEST tests R8VEC_MEDIAN;
 //
 //  Licensing:
 //
@@ -11243,14 +15885,12 @@ void test128 ( )
   double *a;
   double b;
   double c;
-  double mean;
   double median;
   int seed;
 
   cout << "\n";
-  cout << "TEST128\n";
+  cout << "R8VEC_MEDIAN_TEST\n";
   cout << "  For an R8VEC:\n";
-  cout << "  R8VEC_MEAN:      mean value;\n";
   cout << "  R8VEC_MEDIAN:    median value;\n";
 
   b = - ( double ) ( N );
@@ -11264,8 +15904,6 @@ void test128 ( )
 
   cout << "\n";
 
-  mean = r8vec_mean ( N, a );
-  cout << "  Mean:    " << mean << "\n";
   median = r8vec_median ( N, a );
   cout << "  Median:  " << median << "\n";
 
@@ -11276,13 +15914,257 @@ void test128 ( )
 }
 //****************************************************************************80
 
-void test129 ( )
+void r8vec_midspace_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST129 tests R8VEC_NORM_L1, R8VEC_NORM_L2, R8VEC_NORM_LI.
+//    R8VEC_MIDSPACE_NEW_TEST tests R8VEC_MIDSPACE_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    03 June 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  int n = 5;
+  double *x;
+
+  cout << "\n";
+  cout << "R8VEC_MIDSPACE_NEW_TEST\n";
+  cout << "  For a R8VEC:\n";
+  cout << "  R8VEC_MIDSPACE_NEW: evenly spaced midpoints between A and B\n";
+
+  a = 10.0;
+  b = 20.0;
+
+  x = r8vec_midspace_new ( n, a, b );
+  r8vec_print ( n, x, "  r8vec_midspace ( 5, 10, 20 )" );
+  delete [] x;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_min_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_MIN_TEST tests R8VEC_MIN.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 October 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int i;
+  int n;
+  double rmin;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_MIN_TEST\n";
+  cout << "  R8VEC_MIN produces the minimum entry.\n";
+
+  n = 10;
+  seed = 123456789;
+
+  a = r8vec_uniform_01_new ( n, seed );
+
+  r8vec_print ( n, a, "  The array:" );
+
+  rmin = r8vec_min ( n, a );
+
+  cout << "\n";
+  cout << "  R8VEC_MIN reports the minimum value is " << rmin << ".\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_min_index_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_MIN_INDEX_TEST tests R8VEC_MIN_INDEX.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 April 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+
+  double *a;
+  double aval;
+  double b;
+  double c;
+  int ival;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_MIN_INDEX_TEST\n";
+  cout << "  For an R8VEC:\n";
+  cout << "  R8VEC_MIN_INDEX: index of minimum entry;\n";
+
+  b = - ( double ) ( N );
+  c =   ( double ) ( N );
+
+  seed = 123456789;
+
+  a = r8vec_uniform_ab_new ( N, b, c, seed );
+
+  r8vec_print ( N, a, "  Input vector:" );
+
+  cout << "\n";
+
+  ival = r8vec_min_index ( N, a );
+  cout << "  Minimum index:           " << ival << "\n";
+
+  delete [] a;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8vec_nint_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_NINT_TEST tests R8VEC_NINT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    06 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int n;
+  int seed;
+  double x1;
+  double x2;
+
+  cout << "\n";
+  cout << "R8VEC_NINT_TEST\n";
+  cout << "  R8VEC_NINT rounds an R8VEC.\n";
+
+  n = 5;
+  x1 = -5.0;
+  x2 = +5.0;
+  seed = 123456789;
+  a = r8vec_uniform_ab_new ( n, x1, x2, seed );
+  r8vec_print ( n, a, "  Vector A:" );
+  r8vec_nint ( n, a );
+  r8vec_print ( n, a, "  Rounded vector A:" );
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_norm_l0_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_NORM_L0_TEST tests R8VEC_NORM_L0.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double a_hi;
+  double a_lo;
+  int n;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_NORM_L0_TEST\n";
+  cout << "  R8VEC_NORM_L0 computes the L0 'norm' of an R8VEC.\n";
+
+  n = 10;
+  a_lo = - 2.0;
+  a_hi = + 2.0;
+  seed = 123456789;
+
+  a = r8vec_uniform_ab_new ( n, a_lo, a_hi, seed );
+
+  r8vec_nint ( n, a );
+
+  r8vec_print ( n, a, "  Input vector:" );
+
+  cout << "\n";
+  cout << "  L0 norm:           " << r8vec_norm_l0 ( n, a ) << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_norm_l1_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_NORM_L1_TEST tests R8VEC_NORM_L1.
 //
 //  Licensing:
 //
@@ -11305,11 +16187,8 @@ void test129 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST129\n";
-  cout << "  For an R8VEC:\n";
-  cout << "  R8VEC_NORM_L1:   L1 norm.\n";
-  cout << "  R8VEC_NORM_L2:   L2 norm.\n";
-  cout << "  R8VEC_NORM_LI:   L-infinity norm.\n";
+  cout << "R8VEC_NORM_L1_TEST\n";
+  cout << "  R8VEC_NORM_L1 computes the L1 norm of an R8VEC.\n";
 
   b = - ( double ) ( N );
   c = ( double ) ( N );
@@ -11322,7 +16201,107 @@ void test129 ( )
 
   cout << "\n";
   cout << "  L1 norm:           " << r8vec_norm_l1 ( N, a ) << "\n";
+
+  delete [] a;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8vec_norm_l2_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_NORM_L2_TEST tests R8VEC_NORM_L2.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    26 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+
+  double *a;
+  double b;
+  double c;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_NORM_L2_TEST\n";
+  cout << "  R8VEC_NORM_L2 computes the L2 norm of an R8VEC.\n";
+
+  b = - ( double ) ( N );
+  c = ( double ) ( N );
+
+  seed = 123456789;
+
+  a = r8vec_uniform_ab_new ( N, b, c, seed );
+
+  r8vec_print ( N, a, "  Input vector:" );
+
+  cout << "\n";
   cout << "  L2 norm:           " << r8vec_norm_l2 ( N, a ) << "\n";
+
+  delete [] a;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8vec_norm_li_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_NORM_LI_TEST tests R8VEC_NORM_LI.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    26 September 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+
+  double *a;
+  double b;
+  double c;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_NORM_LI_TEST\n";
+  cout << "  R8VEC_NORM_LI computes the Loo norm of an R8VEC.\n";
+
+  b = - ( double ) ( N );
+  c = ( double ) ( N );
+
+  seed = 123456789;
+
+  a = r8vec_uniform_ab_new ( N, b, c, seed );
+
+  r8vec_print ( N, a, "  Input vector:" );
+
+  cout << "\n";
   cout << "  L-Infinity norm:   " << r8vec_norm_li ( N, a ) << "\n";;
 
   delete [] a;
@@ -11332,13 +16311,13 @@ void test129 ( )
 }
 //****************************************************************************80
 
-void test130 ( )
+void r8vec_normal_01_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST130 tests R8VEC_NORMAL_01.
+//    R8VEC_NORMAL_01_TEST tests R8VEC_NORMAL_01.
 //
 //  Licensing:
 //
@@ -11365,7 +16344,7 @@ void test130 ( )
   double x_var;
 
   cout << "\n";
-  cout << "TEST130\n";
+  cout << "R8VEC_NORMAL_01_TEST\n";
   cout << "  R8VEC_NORMAL_01 computes a vector of normally\n";
   cout << "  distributed random numbers.\n";
   cout << "  Using initial random number seed = " << seed << "\n";
@@ -11395,10 +16374,6 @@ void test130 ( )
   cout << "  The results should be identical.\n";
   cout << "\n";
 
-  n = -1;
-  x = r8vec_normal_01_new ( n, seed );
-  delete [] x;
-
   seed = 123456789;
 
   n = 1;
@@ -11418,10 +16393,6 @@ void test130 ( )
   cout << "  Call 1 time for 5 values.\n";
   cout << "  The results should be identical.\n";
   cout << "\n";
-
-  n = -1;
-  x = r8vec_normal_01_new ( n, seed );
-  delete [] x;
 
   seed = 123456789;
 
@@ -11443,10 +16414,6 @@ void test130 ( )
   cout << "  Call for 2, 1, and 2 values.\n";
   cout << "  The results should be identical.\n";
   cout << "\n";
-
-  n = -1;
-  x = r8vec_normal_01_new ( n, seed );
-  delete [] x;
 
   seed = 123456789;
 
@@ -11506,13 +16473,13 @@ void test130 ( )
 }
 //****************************************************************************80
 
-void test152 ( )
+void r8vec_normalize_l1_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST152 tests R8VEC_NORMALIZE_L1.
+//    R8VEC_NORMALIZE_L1_TEST tests R8VEC_NORMALIZE_L1.
 //
 //  Licensing:
 //
@@ -11535,7 +16502,7 @@ void test152 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST152\n";
+  cout << "R8VEC_NORMALIZE_L1_TEST\n";
   cout << "  For an R8VEC:\n";
   cout << "  R8VEC_NORMALIZE_L1:  make unit sum;\n";
 
@@ -11559,13 +16526,13 @@ void test152 ( )
 }
 //****************************************************************************80
 
-void test131 ( )
+void r8vec_order_type_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST131 tests R8VEC_ORDER_TYPE.
+//    R8VEC_ORDER_TYPE_TEST tests R8VEC_ORDER_TYPE.
 //
 //  Licensing:
 //
@@ -11589,7 +16556,7 @@ void test131 ( )
   double x[N];
 
   cout << "\n";
-  cout << "TEST131\n";
+  cout << "R8VEC_ORDER_TYPE_TEST\n";
   cout << "  R8VEC_ORDER_TYPE classifies a real vector as\n";
   cout << "  -1: no order\n";
   cout << "   0: all equal;\n";
@@ -11659,13 +16626,13 @@ void test131 ( )
 }
 //****************************************************************************80
 
-void test132 ( )
+void r8vec_permute_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST132 tests R8VEC_PERMUTE.
+//    R8VEC_PERMUTE_TEST tests R8VEC_PERMUTE.
 //
 //  Licensing:
 //
@@ -11673,49 +16640,91 @@ void test132 ( )
 //
 //  Modified:
 //
-//    18 September 2005
+//    26 October 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define N 5
-
-  int base = 1;
   int i;
-  int perm[N] = { 2, 4, 5, 1, 3 };
-  double x[N] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
+  int n = 5;
+  int p[5] = { 1, 3, 4, 0, 2 };
+  double x[5] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
 
   cout << "\n";
-  cout << "TEST132\n";
+  cout << "R8VEC_PERMUTE_TEST\n";
   cout << "  R8VEC_PERMUTE permutes an R8VEC in place.\n";
-  cout << "\n";
-  cout << "  I, Perm(I), X(I)\n";
-  cout << "\n";
-  for ( i = 0; i < N; i++ )
-  {
-    cout << "  " << setw(6)  << i+1
-         << "  " << setw(6)  << perm[i]
-         << "  " << setw(12) << x[i] << "\n";
-  }
 
-  r8vec_permute ( N, perm, base, x );
+  r8vec_print ( n, x, "  Original Array X[]:" );
 
-  r8vec_print ( N, x, "  Permuted array:" );
+  i4vec_print ( n, p, "  Permutation Vector P[]:" );
+
+  r8vec_permute ( n, p, x );
+
+  r8vec_print ( n, x, "  Permuted array X[P[]]:" );
 
   return;
-# undef N
 }
 //****************************************************************************80
 
-void test133 ( )
+void r8vec_permute_uniform_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST133 tests R8VEC_POLARIZE.
+//    R8VEC_PERMUTE_UNIFORM_TEST tests R8VEC_PERMUTE_UNIFORM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 May 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int i;
+  int n = 10;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_PERMUTE_UNIFORM_TEST\n";
+  cout << "  R8VEC_PERMUTE_UNIFORM randomly reorders an R8VEC.\n";
+
+  a = new double[n];
+
+  for ( i = 0; i < n; i++ )
+  {
+    a[i] = ( double ) ( 101 + i );
+  }
+  seed = 123456789;
+
+  r8vec_print ( n, a, "  A, before rearrangement:" );
+
+  r8vec_permute_uniform ( n, a, seed );
+
+  r8vec_print ( n, a, "  A, after random permutation:" );
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_polarize_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_POLARIZE_TEST tests R8VEC_POLARIZE.
 //
 //  Licensing:
 //
@@ -11744,7 +16753,7 @@ void test133 ( )
   double pap;
 
   cout << "\n";
-  cout << "TEST133\n";
+  cout << "R8VEC_POLARIZE_TEST\n";
   cout << "  R8VEC_POLARIZE decomposes a vector into\n";
   cout << "  components parallel and normal to a direction.\n";
 
@@ -11781,13 +16790,47 @@ void test133 ( )
 }
 //****************************************************************************80
 
-void test134 ( )
+void r8vec_print_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST134 tests R8VEC_ROTATE.
+//    R8VEC_PRINT_TEST tests R8VEC_PRINT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    31 August 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a[4] = { 123.456, 0.000005, -1.0E+06, 3.14159265 };
+  int n = 4;
+
+  cout << "\n";
+  cout << "TEST1335\n";
+  cout << "  R8VEC_PRINT prints an R8VEC.\n";
+
+  r8vec_print ( n, a, "  The R8VEC:" );
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_rotate_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_ROTATE_TEST tests R8VEC_ROTATE.
 //
 //  Licensing:
 //
@@ -11808,7 +16851,7 @@ void test134 ( )
   int m = 2;
 
   cout << "\n";
-  cout << "TEST134\n";
+  cout << "R8VEC_ROTATE_TEST\n";
   cout << "  R8VEC_ROTATE rotates an R8VEC in place.\n";
   cout << "\n";
   cout << "  Rotate entries " << m << " places to the right.\n";
@@ -11824,13 +16867,13 @@ void test134 ( )
 }
 //****************************************************************************80
 
-void test135 ( )
+void r8vec_reverse_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST135 tests R8VEC_REVERSE.
+//    R8VEC_REVERSE_TEST tests R8VEC_REVERSE.
 //
 //  Licensing:
 //
@@ -11850,10 +16893,10 @@ void test135 ( )
   double *a;
 
   cout << "\n";
-  cout << "TEST135\n";
+  cout << "R8VEC_REVERSE_TEST\n";
   cout << "  R8VEC_REVERSE reverses an R8VEC.\n";
 
-  a = r8vec_indicator_new ( N );
+  a = r8vec_indicator1_new ( N );
 
   r8vec_print ( N, a, "  Original array:" );
 
@@ -11868,13 +16911,13 @@ void test135 ( )
 }
 //****************************************************************************80
 
-void test136 ( )
+void r8vec_search_binary_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST136 tests R8VEC_SEARCH_BINARY_A;
+//    R8VEC_SEARCH_BINARY_A_TEST tests R8VEC_SEARCH_BINARY_A;
 //
 //  Licensing:
 //
@@ -11898,7 +16941,7 @@ void test136 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST136\n";
+  cout << "R8VEC_SEARCH_BINARY_A_TEST\n";
   cout << "  For ascending order:\n";
   cout << "  R8VEC_SEARCH_BINARY_A searches a sorted array;\n";
   cout << "\n";
@@ -11939,13 +16982,13 @@ void test136 ( )
 }
 //****************************************************************************80
 
-void test137 ( )
+void r8vec_sort_bubble_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST137 tests R8VEC_SORT_BUBBLE_A.
+//    R8VEC_SORT_BUBBLE_A_TEST tests R8VEC_SORT_BUBBLE_A.
 //
 //  Licensing:
 //
@@ -11967,7 +17010,7 @@ void test137 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST137\n";
+  cout << "R8VEC_SORT_BUBBLE_A_TEST\n";
   cout << "  R8VEC_SORT_BUBBLE_A sorts a real array.\n";
 
   seed = 123456789;
@@ -11990,13 +17033,13 @@ void test137 ( )
 }
 //****************************************************************************80
 
-void test138 ( )
+void r8vec_sort_heap_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST138 tests R8VEC_SORT_HEAP_A.
+//    R8VEC_SORT_HEAP_A_TEST tests R8VEC_SORT_HEAP_A.
 //
 //  Licensing:
 //
@@ -12019,7 +17062,7 @@ void test138 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST138\n";
+  cout << "R8VEC_SORT_HEAP_A_TEST\n";
   cout << "  R8VEC_SORT_HEAP_A ascending sorts an R8VEC.\n";
   cout << "\n";
 
@@ -12042,13 +17085,13 @@ void test138 ( )
 }
 //****************************************************************************80
 
-void test139 ( )
+void r8vec_sort_heap_d_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST139 tests R8VEC_SORT_HEAP_D.
+//    R8VEC_SORT_HEAP_D_TEST tests R8VEC_SORT_HEAP_D.
 //
 //  Licensing:
 //
@@ -12071,7 +17114,7 @@ void test139 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST139\n";
+  cout << "R8VEC_SORT_HEAP_D_TEST\n";
   cout << "  R8VEC_SORT_HEAP_D descending sorts an R8VEC.\n";
   cout << "\n";
 
@@ -12094,13 +17137,13 @@ void test139 ( )
 }
 //****************************************************************************80
 
-void test140 ( )
+void r8vec_sort_heap_index_a_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST140 tests R8VEC_SORT_HEAP_INDEX_A_NEW and R8VEC_SORT_HEAP_INDEX_D_NEW.
+//    R8VEC_SORT_HEAP_INDEX_A_NEW_TEST tests R8VEC_SORT_HEAP_INDEX_A_NEW.
 //
 //  Licensing:
 //
@@ -12119,17 +17162,14 @@ void test140 ( )
 
   double *a;
   double b;
-  int base;
   double c;
   int i;
   int *indx;
   int seed;
 
   cout << "\n";
-  cout << "TEST140\n";
+  cout << "R8VEC_SORT_HEAP_INDEX_A_NEW_TEST\n";
   cout << "  R8VEC_SORT_HEAP_INDEX_A_NEW creates an ascending\n";
-  cout << "  sort index for an R8VEC.\n";
-  cout << "  R8VEC_SORT_HEAP_INDEX_D_NEW creates a descending\n";
   cout << "  sort index for an R8VEC.\n";
 
   b = 0.0;
@@ -12169,12 +17209,52 @@ void test140 ( )
   cout << "  Call R8VEC_PERMUTE to carry out the permutation explicitly.\n";
   cout << "\n";
 
-  base = 0;
-  r8vec_permute ( N, indx, base, a );
+  r8vec_permute ( N, indx, a );
 
   r8vec_print ( N, a, "  I, A(I)" );
 
+  delete [] a;
   delete [] indx;
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8vec_sort_heap_index_d_new_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_SORT_HEAP_INDEX_D_NEW_TEST.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 October 2010
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 20
+
+  double *a;
+  double b;
+  double c;
+  int i;
+  int *indx;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_SORT_HEAP_INDEX_D_NEW_TEST\n";
+  cout << "  R8VEC_SORT_HEAP_INDEX_D_NEW creates a descending\n";
+  cout << "  sort index for an R8VEC.\n";
 
   b = 0.0;
   c = 3.0 * ( double ) ( N );
@@ -12182,12 +17262,14 @@ void test140 ( )
 
   a = r8vec_uniform_ab_new ( N, b, c, seed );
 
+  r8vec_print ( N, a, "  Unsorted array:" );
+
   indx = r8vec_sort_heap_index_d_new ( N, a );
 
   cout << "\n";
   cout << "  After indexed descending sort:\n";
   cout << "\n";
-  cout << "         I  INDX(I)  A(I)\n";
+  cout << "         I INDX(I)       A(I)\n";
   cout << "\n";
   for ( i = 0; i < N; i++ )
   {
@@ -12200,13 +17282,20 @@ void test140 ( )
   cout << "  Now use the index array to carry out the\n";
   cout << "  permutation implicitly.\n";
   cout << "\n";
-  cout << "   INDX(I)  ARRAY(INDX(I))\n";
+  cout << "   INDX(I)  A(INDX(I))\n";
   cout << "\n";
   for ( i = 0; i < N; i++ )
   {
     cout << "  " << setw(8) << indx[i]
          << "  " << setw(12) << a[indx[i]] << "\n";
   }
+  cout << "\n";
+  cout << "  Call R8VEC_PERMUTE to carry out the permutation explicitly.\n";
+  cout << "\n";
+
+  r8vec_permute ( N, indx, a );
+
+  r8vec_print ( N, a, "  I, A(I)" );
 
   delete [] a;
   delete [] indx;
@@ -12216,13 +17305,13 @@ void test140 ( )
 }
 //****************************************************************************80
 
-void test141 ( )
+void r8vec_sort_heap_mask_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST141 tests R8VEC_SORT_HEAP_MASK_A.
+//    R8VEC_SORT_HEAP_MASK_A_TEST tests R8VEC_SORT_HEAP_MASK_A.
 //
 //  Licensing:
 //
@@ -12242,15 +17331,14 @@ void test141 ( )
 
   double *a;
   double b;
-  int base;
   double c;
   int i;
   int *indx;
-  int mask[MASK_NUM] = { 2, 4, 7, 8, 9, 12, 13, 16, 18, 19 };
+  int mask[MASK_NUM] = { 1, 3, 6, 7, 8, 11, 12, 15, 17, 18 };
   int seed;
 
   cout << "\n";
-  cout << "TEST141\n";
+  cout << "R8VEC_SORT_HEAP_MASK_A_TEST\n";
   cout << "  R8VEC_SORT_HEAP_MASK_A creates an ascending\n";
   cout << "  sort index for a masked R8VEC.\n";
 
@@ -12275,10 +17363,10 @@ void test141 ( )
   cout << "\n";
   for ( i = 0; i < MASK_NUM; i++ )
   {
-    cout << "  " << setw(6) << i+1
+    cout << "  " << setw(6) << i
          << "  " << setw(6) << indx[i]
-         << "  " << setw(6) << mask[indx[i]-1]
-         << "  " << setw(14) << a[mask[indx[i]-1]-1] << "\n";
+         << "  " << setw(6) << mask[indx[i]]
+         << "  " << setw(14) << a[mask[indx[i]]] << "\n";
   }
 
   cout << "\n";
@@ -12286,14 +17374,13 @@ void test141 ( )
   cout << "  explicitly on the MASK vector.\n";
   cout << "\n";
 
-  base = 1;
-  i4vec_permute ( MASK_NUM, indx, base, mask );
+  i4vec_permute ( MASK_NUM, indx, mask );
 //
 //  Essentially, INDX becomes the identity vector now.
 //
   delete [] indx;
 
-  indx = i4vec_indicator_new ( MASK_NUM );
+  indx = i4vec_indicator1_new ( MASK_NUM );
 
   i4vec_print ( MASK_NUM, mask, "  The reordered mask array:" );
 
@@ -12309,13 +17396,13 @@ void test141 ( )
 }
 //****************************************************************************80
 
-void test142 ( )
+void r8vec_sort_insert_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST142 tests R8VEC_SORT_INSERT_A.
+//    R8VEC_SORT_INSERT_A_TEST tests R8VEC_SORT_INSERT_A.
 //
 //  Licensing:
 //
@@ -12338,7 +17425,7 @@ void test142 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST142\n";
+  cout << "R8VEC_SORT_INSERT_A_TEST\n";
   cout << "  R8VEC_SORT_INSERT_A ascending sorts an R8VEC.\n";
 
   b = 0.0;
@@ -12360,13 +17447,13 @@ void test142 ( )
 }
 //****************************************************************************80
 
-void test143 ( )
+void r8vec_sort_insert_index_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST143 tests R8VEC_SORT_INSERT_INDEX_A.
+//    R8VEC_SORT_INSERT_INDEX_A_TEST tests R8VEC_SORT_INSERT_INDEX_A.
 //
 //  Licensing:
 //
@@ -12385,14 +17472,13 @@ void test143 ( )
 
   double *a;
   double b;
-  int base = 1;
   double c;
   int i;
   int *indx;
   int seed;
 
   cout << "\n";
-  cout << "TEST143\n";
+  cout << "R8VEC_SORT_INSERT_INDEX_A_TEST\n";
   cout << "  R8VEC_SORT_INSERT_INDEX_A creates an ascending\n";
   cout << "  sort index for an R8VEC.\n";
 
@@ -12409,11 +17495,11 @@ void test143 ( )
   cout << "\n";
   cout << "  After indexed ascending sort:\n";
   cout << "\n";
-  cout << "  I, INDX(I), A(I)\n";
+  cout << "       I  INDX(I), A(I)\n";
   cout << "\n";
   for ( i = 0; i < N; i++ )
   {
-    cout << "  " << setw(6) << i+1
+    cout << "  " << setw(6) << i
          << "  " << setw(6) << indx[i]
          << "  " << setw(12) << a[i] << "\n";
   }
@@ -12422,20 +17508,20 @@ void test143 ( )
   cout << "  Now use the index array to carry out the\n";
   cout << "  permutation implicitly.\n";
   cout << "\n";
-  cout << "  I, INDX(I), A(INDX(I))\n";
+  cout << "       I  INDX(I), A(INDX(I))\n";
   cout << "\n";
   for ( i = 0; i < N; i++ )
   {
-    cout << "  " << setw(6) << i+1
+    cout << "  " << setw(6) << i
          << "  " << setw(6) << indx[i]
-         << "  " << setw(12) << a[indx[i]-1] << "\n";
+         << "  " << setw(12) << a[indx[i]] << "\n";
   }
 
   cout << "\n";
   cout << "  Call R8VEC_PERMUTE to carry out the permutation explicitly.\n";
   cout << "\n";
 
-  r8vec_permute ( N, indx, base, a );
+  r8vec_permute ( N, indx, a );
 
   r8vec_print_some ( N, a, 1, 10, "  Permuted data" );
 
@@ -12447,13 +17533,13 @@ void test143 ( )
 }
 //****************************************************************************80
 
-void test144 ( )
+void r8vec_sort_quick_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST144 tests R8VEC_SORT_QUICK_A.
+//    R8VEC_SORT_QUICK_A_TEST tests R8VEC_SORT_QUICK_A.
 //
 //  Licensing:
 //
@@ -12476,7 +17562,7 @@ void test144 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST144\n";
+  cout << "R8VEC_SORT_QUICK_A_TEST\n";
   cout << "  R8VEC_SORT_QUICK_A sorts an R8VEC\n";
   cout << "  using quick sort.\n";
 
@@ -12499,13 +17585,13 @@ void test144 ( )
 }
 //****************************************************************************80
 
-void test145 ( )
+void r8vec_sorted_merge_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST145 tests R8VEC_SORTED_MERGE_A;
+//    R8VEC_SORTEC_MERGE_A_TEST tests R8VEC_SORTED_MERGE_A;
 //
 //  Licensing:
 //
@@ -12529,7 +17615,7 @@ void test145 ( )
   int seed = 123456789;
 
   cout << "\n";
-  cout << "TEST145\n";
+  cout << "R8VEC_SORTED_MERGE_A_TEST\n";
   cout << "  For ascending order:\n";
   cout << "  R8VEC_SORTED_MERGE_A merges two sorted R8VEC's;\n";
   cout << "\n";
@@ -12546,7 +17632,7 @@ void test145 ( )
 
   r8vec_print ( nb, b, "  Sorted vector B:" );
 
-  c = r8vec_sorted_merge_a ( na, a, nb, b, &nc );
+  c = r8vec_sorted_merge_a ( na, a, nb, b, nc );
 
   r8vec_print ( nc, c, "  Merged vector C:" );
 
@@ -12558,13 +17644,13 @@ void test145 ( )
 }
 //****************************************************************************80
 
-void test146 ( )
+void r8vec_sorted_nearest_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST146 tests R8VEC_SORTED_NEAREST.
+//    R8VEC_SORTED_NEAREST_TEST tests R8VEC_SORTED_NEAREST.
 //
 //  Licensing:
 //
@@ -12590,7 +17676,7 @@ void test146 ( )
   double xval;
 
   cout << "\n";
-  cout << "TEST146\n";
+  cout << "R8VEC_SORTED_NEAREST_TEST\n";
   cout << "  R8VEC_SORTED_NEAREST finds the nearest entry\n";
   cout << "  in a sorted real array.\n";
 
@@ -12626,13 +17712,13 @@ void test146 ( )
 }
 //****************************************************************************80
 
-void test1465 ( )
+void r8vec_sorted_range_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1465 tests R8VEC_SORTED_RANGE.
+//    R8VEC_SORTED_RANGE_TEST tests R8VEC_SORTED_RANGE.
 //
 //  Licensing:
 //
@@ -12659,7 +17745,7 @@ void test1465 ( )
   int test;
 
   cout << "\n";
-  cout << "TEST1465\n";
+  cout << "R8VEC_SORTED_RANGE_TEST\n";
   cout << "  R8VEC_SORTED_RANGE seeks the range of indices\n";
   cout << "  in a sorted vector R so that\n";
   cout << "  R_LO <= R(I_LO:I_HI) <= R_HI.\n";
@@ -12684,7 +17770,7 @@ void test1465 ( )
       r_hi = t;
     }
 
-    r8vec_sorted_range ( n, r, r_lo, r_hi, &i_lo, &i_hi );
+    r8vec_sorted_range ( n, r, r_lo, r_hi, i_lo, i_hi );
 
     cout << "\n";
     if ( i_hi < i_lo )
@@ -12707,13 +17793,13 @@ void test1465 ( )
 }
 //****************************************************************************80
 
-void test147 ( )
+void r8vec_sorted_split_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST147 tests R8VEC_SORTED_SPLIT and R8VEC_SPLIT.
+//    R8VEC_SORTED_SPLIT_TEST tests R8VEC_SORTED_SPLIT.
 //
 //  Licensing:
 //
@@ -12740,13 +17826,10 @@ void test147 ( )
   double split;
 
   cout << "\n";
-  cout << "TEST147\n";
+  cout << "R8VEC_SORTED_SPLIT_TEST\n";
   cout << "  R8VEC_SORTED_SPLIT splits a sorted vector into\n";
   cout << "  entries less than and greater than a\n";
   cout << "  splitting value.\n";
-  cout << "  R8VEC_SPLIT splits an unsorted vector\n";
-  cout << "  in the same way.\n";
-  cout << "\n";
 
   b = 0.0;
   c = 10.0;
@@ -12769,25 +17852,10 @@ void test147 ( )
   cout << "  Splitting value is " << split << "\n";
   cout << "\n";
 
-  r8vec_sorted_split ( n, a, split, &i_lt, &i_gt );
+  r8vec_sorted_split ( n, a, split, i_lt, i_gt );
 
   cout << "  Lower index I_LT = " << i_lt << "\n";
   cout << "  Upper index I_GT = " << i_gt << "\n";
-
-  cout << "\n";
-  cout << "  Now repeat test with R8VEC_SPLIT.\n";
-  cout << "\n";
-
-  r8vec_permute_uniform ( n, a, seed );
-
-  r8vec_print ( n, a, "  The shuffled array:" );
-
-  isplit = r8vec_split ( n, a, split );
-
-  r8vec_print ( n, a, "  The split array:" );
-
-  cout << "\n";
-  cout << "  Array entries <= SPLIT up to index " << isplit << "\n";
 
   delete [] a;
 
@@ -12795,13 +17863,13 @@ void test147 ( )
 }
 //****************************************************************************80
 
-void test1475 ( )
+void r8vec_sorted_undex_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8LIB_TEST1475 tests R8VEC_UNDEX.
+//    R8VEC_SORTED_UNDEX_TEST tests R8VEC_SORTED_UNDEX.
 //
 //  Licensing:
 //
@@ -12828,7 +17896,7 @@ void test1475 ( )
   double *xu_val;
 
   cout << "\n";
-  cout << "R8LIB_TEST1475\n";
+  cout << "R8VEC_SORTED_UNDEX_TEST\n";
   cout << "  R8VEC_SORTED_UNDEX produces index vectors which create a sorted\n";
   cout << "  list of the unique elements of a sorted R8VEC,\n";
   cout << "  and a map from the original vector to the (implicit)\n";
@@ -12904,13 +17972,13 @@ void test1475 ( )
 }
 //****************************************************************************80
 
-void test148 ( )
+void r8vec_sorted_unique_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST148 tests R8VEC_SORTED_UNIQUE;
+//    R8VEC_SORTED_UNIQUE_TEST tests R8VEC_SORTED_UNIQUE;
 //
 //  Licensing:
 //
@@ -12925,54 +17993,50 @@ void test148 ( )
 //    John Burkardt
 //
 {
-# define N 20
-
   double *a;
-  double *a_nint;
   double *a_unique;
   double b;
   double c;
   int i;
+  int n = 20;
   int seed;
   double tol = 0.25;
   int unique_num;
 
   cout << "\n";
-  cout << "TEST148\n";
+  cout << "R8VEC_SORTED_UNIQUE_TEST\n";
   cout << "  R8VEC_SORTED_UNIQUE finds unique entries in a sorted R8VEC;\n";
 
   b = 0.0;
-  c = ( double ) ( N );
+  c = ( double ) ( n );
   seed = 123456789;
 
-  a = r8vec_uniform_ab_new ( N, b, c, seed );
+  a = r8vec_uniform_ab_new ( n, b, c, seed );
 
-  a_nint = r8vec_nint ( N, a );
+  r8vec_nint ( n, a );
 
-  r8vec_print_some ( N, a_nint, 1, 10, "  Unsorted array:" );
+  r8vec_print_some ( n, a, 1, 10, "  Unsorted array:" );
 
-  r8vec_sort_heap_a ( N, a_nint );
+  r8vec_sort_heap_a ( n, a );
 
-  a_unique = r8vec_sorted_unique ( N, a_nint, tol, &unique_num );
+  a_unique = r8vec_sorted_unique ( n, a, tol, unique_num );
 
   r8vec_print ( unique_num, a_unique, "  Unique entries" );
 
   delete [] a;
-  delete [] a_nint;
   delete [] a_unique;
 
   return;
-# undef N
 }
 //****************************************************************************80
 
-void test149 ( )
+void r8vec_sorted_unique_count_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST149 tests R8VEC_SORTED_UNIQUE_COUNT;
+//    R8VEC_SORTED_UNIQUE_COUNT_TEST tests R8VEC_SORTED_UNIQUE_COUNT;
 //
 //  Licensing:
 //
@@ -12998,7 +18062,7 @@ void test149 ( )
   double tol = 0.25;
 
   cout << "\n";
-  cout << "TEST149\n";
+  cout << "R8VEC_SORTED_UNIQUE_COUNT_TEST\n";
   cout << "  R8VEC_SORTED_UNIQUE_COUNT counts unique entries in a sorted R8VEC;\n";
 
   b = 0.0;
@@ -13026,13 +18090,13 @@ void test149 ( )
 }
 //****************************************************************************80
 
-void test150 ( )
+void r8vec_sorted_unique_hist_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST150 tests R8VEC_SORTED_UNIQUE_HIST.
+//    R8VEC_SORTED_UNIQUE_HIST_TEST tests R8VEC_SORTED_UNIQUE_HIST.
 //
 //  Licensing:
 //
@@ -13061,7 +18125,7 @@ void test150 ( )
   double tol = 0.25;
 
   cout << "\n";
-  cout << "TEST150\n";
+  cout << "R8VEC_SORTED_UNIQUE_HIST_TEST\n";
   cout << "  R8VEC_SORTED_UNIQUE_HIST stores the unique entries\n";
   cout << "  and their multiplicities.\n";
 
@@ -13085,7 +18149,7 @@ void test150 ( )
 
   r8vec_print ( N, a, "  Sorted array:" );
 
-  r8vec_sorted_unique_hist ( N, a, tol, MAXUNIQ, &unique_num, auniq, acount );
+  r8vec_sorted_unique_hist ( N, a, tol, MAXUNIQ, unique_num, auniq, acount );
 
   cout << "\n";
   cout << "  R8VEC_SORTED_UNIQUE_HIST counts " << unique_num << " unique entries.\n";
@@ -13107,13 +18171,81 @@ void test150 ( )
 }
 //****************************************************************************80
 
-void test1504 ( void )
+void r8vec_split_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8LIB_TEST1504 tests R8VEC_TRANSPOSE_PRINT.
+//    R8VEC_SPLIT_TEST tests R8VEC_SPLIT.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  double b;
+  double c;
+  int i;
+  int i_gt;
+  int i_lt;
+  int isplit;
+  int n = 25;
+  int seed;
+  double split;
+
+  cout << "\n";
+  cout << "R8VEC_SPLIT_TEST\n";
+  cout << "  R8VEC_SPLIT splits a vector into\n";
+  cout << "  entries less than and greater than a\n";
+  cout << "  splitting value.\n";
+
+  b = 0.0;
+  c = 10.0;
+  seed = 123456789;
+
+  a = r8vec_uniform_ab_new ( n, b, c, seed );
+
+  for ( i = 0; i < n; i++ )
+  {
+    a[i] = 0.5 * ( double ) ( r8_nint ( a[i] ) );
+  }
+
+  split = 0.5 * ( a[0] + a[n-1] );
+
+  cout << "\n";
+  cout << "  Splitting value is " << split << "\n";
+  cout << "\n";
+
+  isplit = r8vec_split ( n, a, split );
+
+  r8vec_print ( n, a, "  The split array:" );
+
+  cout << "\n";
+  cout << "  Array entries <= SPLIT up to index " << isplit << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec_transpose_print_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_TRANSPOSE_PRINT_TEST tests R8VEC_TRANSPOSE_PRINT.
 //
 //  Licensing:
 //
@@ -13135,8 +18267,8 @@ void test1504 ( void )
   seed = 123456789;
 
   cout << "\n";
-  cout << "R8LIB_TEST1504\n";
-  cout << "  R8VEC_TRANSPOSE_PRINT prints an R8VEC \"tranposed\",\n";
+  cout << "R8VEC_TRANSPOSE_PRINT_TEST\n";
+  cout << "  R8VEC_TRANSPOSE_PRINT prints an R8VEC \"transposed\",\n";
   cout << "  that is, placing multiple entries on a line.\n";
 
   x = r8vec_uniform_01_new ( n, seed );
@@ -13149,13 +18281,13 @@ void test1504 ( void )
 }
 //****************************************************************************80
 
-void test1505 ( )
+void r8vec_undex_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8LIB_TEST1505 tests R8VEC_UNDEX.
+//    R8VEC_UNDEX_TEST tests R8VEC_UNDEX.
 //
 //  Licensing:
 //
@@ -13182,7 +18314,7 @@ void test1505 ( )
   double *xu_val;
 
   cout << "\n";
-  cout << "R8LIB_TEST1505\n";
+  cout << "R8VEC_UNDEX_TEST\n";
   cout << "  R8VEC_UNDEX produces index vectors which create a sorted\n";
   cout << "  list of the unique elements of an (unsorted) R8VEC,\n";
   cout << "  and a map from the original vector to the (implicit)\n";
@@ -13258,13 +18390,13 @@ void test1505 ( )
 }
 //****************************************************************************80
 
-void test151 ( )
+void r8vec_uniform_01_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST151 tests R8VEC_UNIFORM.
+//    R8VEC_UNIFORM_01_NEW_TEST tests R8VEC_UNIFORM_01_NEW.
 //
 //  Licensing:
 //
@@ -13279,22 +18411,16 @@ void test151 ( )
 //    John Burkardt
 //
 {
-# define N 20
+# define N 10
 
-  double b = 10.0;
-  double c = 20.0;
   int j;
   double *r;
   int seed;
 
   cout << "\n";
-  cout << "TEST151\n";
-  cout << "  R8VEC_UNIFORM returns a random real vector\n";
-  cout << "  with entries in a given range [ B, C ]\n";
-  cout << "\n";
-  cout << "  For this problem:\n";
-  cout << "  B = " << b << "\n";
-  cout << "  C = " << c << "\n";
+  cout << "R8VEC_UNIFORM_01_NEW_TEST\n";
+  cout << "  R8VEC_UNIFORM returns a random R8VEC\n";
+  cout << "  with entries in [ 0.0, 1.0 ]\n";
   cout << "\n";
 
   seed = 123456789;
@@ -13305,9 +18431,9 @@ void test151 ( )
     cout << "  Input SEED = " << seed << "\n";
     cout << "\n";
 
-    r = r8vec_uniform_ab_new ( N, b, c, seed );
+    r = r8vec_uniform_01_new ( N, seed );
 
-    r8vec_print_some ( N, r, 1, 10, "  Random vector:" );
+    r8vec_print ( N, r, "  Random R8VEC:" );
 
     delete [] r;
   }
@@ -13317,13 +18443,122 @@ void test151 ( )
 }
 //****************************************************************************80
 
-void test153 ( )
+void r8vec_uniform_ab_new_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST153 tests R8VEC2_SORT_A and R8VEC2_SORT_D.
+//    R8VEC_UNIFORM_AB_NEW_TEST tests R8VEC_UNIFORM_AB_NEW.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 October 2006
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define N 10
+
+  double a = 10.0;
+  double b = 20.0;
+  int j;
+  double *r;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC_UNIFORM_AB_NEW_TEST\n";
+  cout << "  R8VEC_UNIFORM returns a random R8VEC\n";
+  cout << "  with entries in a given range [ A, B ]\n";
+  cout << "\n";
+  cout << "  For this problem:\n";
+  cout << "  A = " << a << "\n";
+  cout << "  B = " << b << "\n";
+  cout << "\n";
+
+  seed = 123456789;
+
+  for ( j = 1; j <= 3; j++ )
+  {
+    cout << "\n";
+    cout << "  Input SEED = " << seed << "\n";
+    cout << "\n";
+
+    r = r8vec_uniform_ab_new ( N, a, b, seed );
+
+    r8vec_print ( N, r, "  Random R8VEC:" );
+
+    delete [] r;
+  }
+
+  return;
+# undef N
+}
+//****************************************************************************80
+
+void r8vec_variance_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC_VARIANCE_TEST tests R8VEC_VARIANCE;
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    02 March 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a;
+  int n = 10;
+  double r8_hi;
+  double r8_lo;
+  int seed;
+  double variance;
+
+  cout << "\n";
+  cout << "R8VEC_VARIANCE_TEST\n";
+  cout << "  R8VEC_VARIANCE computes the variance of an R8VEC;\n";
+
+  r8_lo = - 5.0;
+  r8_hi = + 5.0;
+  seed = 123456789;
+  a = r8vec_uniform_ab_new ( n, r8_lo, r8_hi, seed );
+
+  r8vec_print ( n, a, "  Input vector:" );
+
+  variance = r8vec_variance ( n, a );
+
+  cout << "\n";
+  cout << "  Variance:    " << variance << "\n";
+
+  delete [] a;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec2_sort_a_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC2_SORT_A_TEST tests R8VEC2_SORT_A.
 //
 //  Licensing:
 //
@@ -13346,10 +18581,9 @@ void test153 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST153\n";
+  cout << "R8VEC2_SORT_A_TEST\n";
   cout << "  For a pair of R8VEC's:\n";
   cout << "  R8VEC2_SORT_A ascending sorts;\n";
-  cout << "  R8VEC2_SORT_D descending sorts;\n";
 
   b = 1.0;
   c = 3.0;
@@ -13377,6 +18611,68 @@ void test153 ( )
 
   r8vec2_print ( n, a1, a2, "  Arrays after ascending sort:" );
 
+  delete [] a1;
+  delete [] a2;
+
+  return;
+}
+//****************************************************************************80
+
+void r8vec2_sort_d_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8VEC2_SORT_D_TEST tests R8VEC2_SORT_D.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 October 2005
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double *a1;
+  double *a2;
+  double b;
+  double c;
+  int n = 10;
+  int seed;
+
+  cout << "\n";
+  cout << "R8VEC2_SORT_D_TEST\n";
+  cout << "  For a pair of R8VEC's:\n";
+  cout << "  R8VEC2_SORT_D descending sorts;\n";
+
+  b = 1.0;
+  c = 3.0;
+  seed = 123456789;
+
+  a1 = r8vec_uniform_ab_new ( n, b, c, seed );
+
+  b = 5.0;
+  c = 10.0;
+
+  a2 = r8vec_uniform_ab_new ( n, b, c, seed );
+
+  a1[2] = a1[0];
+  a2[2] = a2[0];
+
+  a1[5] = a1[1];
+  a2[5] = a2[1];
+
+  a1[8] = a1[0];
+  a2[8] = a2[0];
+
+  r8vec2_print ( n, a1, a2, "  The pair of arrays:" );
+
   r8vec2_sort_d ( n, a1, a2 );
 
   r8vec2_print ( n, a1, a2, "  Arrays after descending sort:" );
@@ -13388,13 +18684,13 @@ void test153 ( )
 }
 //****************************************************************************80
 
-void test154 ( )
+void r8vec2_sort_heap_index_a_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST154 tests R8VEC2_SORT_HEAP_INDEX_A.
+//    R8VEC2_SORT_HEAP_INDEX_A_TEST tests R8VEC2_SORT_HEAP_INDEX_A.
 //
 //  Licensing:
 //
@@ -13411,7 +18707,6 @@ void test154 ( )
 {
 # define N 20
 
-  int base = 0;
   int i;
   int *indx;
   int seed = 123456789;
@@ -13419,7 +18714,7 @@ void test154 ( )
   double y[N];
 
   cout << "\n";
-  cout << "TEST154\n";
+  cout << "R8VEC2_SORT_HEAP_INDEX_A_TEST\n";
   cout << "  R8VEC2_SORT_HEAP_INDEX_A creates a sort index\n";
   cout << "  for an (X,Y) array.\n";
 
@@ -13441,7 +18736,7 @@ void test154 ( )
          << "  " << setw(12) << y[i] << "\n";
   }
 
-  indx = r8vec2_sort_heap_index_a ( N, base, x, y );
+  indx = r8vec2_sort_heap_index_a ( N, x, y );
 
   cout << "\n";
   cout << "  After sorting:\n";
@@ -13473,8 +18768,8 @@ void test154 ( )
   cout << "\n";
   cout << "  R8VEC_PERMUTE carries out the permutation.\n";
 
-  r8vec_permute ( N, indx, base, x );
-  r8vec_permute ( N, indx, base, y );
+  r8vec_permute ( N, indx, x );
+  r8vec_permute ( N, indx, y );
 
   cout << "\n";
   cout << "         I X(I), Y(I)\n";
@@ -13491,13 +18786,13 @@ void test154 ( )
 }
 //****************************************************************************80
 
-void test155 ( )
+void r8vec2_sorted_unique_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST155 tests R8VEC2_SORTED_UNIQUE.
+//    R8VEC2_SORTED_UNIQUE_TEST tests R8VEC2_SORTED_UNIQUE.
 //
 //  Licensing:
 //
@@ -13521,7 +18816,7 @@ void test155 ( )
   int unique_num;
 
   cout << "\n";
-  cout << "TEST155\n";
+  cout << "R8VEC2_SORTED_UNIQUE_TEST\n";
   cout << "  For a pair of R8VEC's:\n";
   cout << "  R8VEC2_SORTED_UNIQUE counts unique entries.\n";
 
@@ -13551,7 +18846,7 @@ void test155 ( )
 
   r8vec2_print ( n, a1, a2, "  Arrays after ascending sort:" );
 
-  r8vec2_sorted_unique ( n, a1, a2, &unique_num );
+  r8vec2_sorted_unique ( n, a1, a2, unique_num );
 
   r8vec2_print ( unique_num, a1, a2, "  UNIQed array:" );
 
@@ -13562,13 +18857,13 @@ void test155 ( )
 }
 //****************************************************************************80
 
-void test156 ( )
+void r8vec2_sorted_unique_index_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST156 tests R8VEC2_SORTED_UNIQUE_INDEX.
+//    R8VEC2_SORTED_UNIQUE_INDEX_TEST tests R8VEC2_SORTED_UNIQUE_INDEX.
 //
 //  Licensing:
 //
@@ -13594,7 +18889,7 @@ void test156 ( )
   int unique_num;
 
   cout << "\n";
-  cout << "TEST156\n";
+  cout << "R8VEC2_SORTED_UNIQUE_INDEX_TEST\n";
   cout << "  For a pair of R8VEC's:\n";
   cout << "  R8VEC2_SORTED_UNIQUE_INDEX indexes unique entries.\n";
 
@@ -13620,7 +18915,7 @@ void test156 ( )
 
   r8vec2_print ( N, a1, a2, "  The pair of arrays:" );
 
-  r8vec2_sorted_unique_index ( N, a1, a2, &unique_num, indx );
+  r8vec2_sorted_unique_index ( N, a1, a2, unique_num, indx );
 
   cout << "\n";
   cout << "  The number of unique elements is " << unique_num << "\n";
@@ -13640,13 +18935,13 @@ void test156 ( )
 }
 //****************************************************************************80
 
-void test157 ( )
+void r8vec2_sum_max_index_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST157 tests R8VEC2_SUM_MAX_INDEX.
+//    R8VEC2_SUM_MAX_INDEX_TEST tests R8VEC2_SUM_MAX_INDEX.
 //
 //  Licensing:
 //
@@ -13670,7 +18965,7 @@ void test157 ( )
   int seed;
 
   cout << "\n";
-  cout << "TEST157\n";
+  cout << "R8VEC2_SUM_MAX_INDEX_TEST\n";
   cout << "  For a pair of R8VEC's:\n";
   cout << "  R8VEC2_SUM_MAX_INDEX: index of the sum vector\n";
   cout << "  with maximum value.\n";
@@ -13700,13 +18995,13 @@ void test157 ( )
 }
 //****************************************************************************80
 
-void test158 ( )
+void roots_to_r8poly_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST158 tests R8VECS_PRINT.
+//    ROOTS_TO_R8POLY_TEST tests ROOTS_TO_R8POLY.
 //
 //  Licensing:
 //
@@ -13714,30 +19009,30 @@ void test158 ( )
 //
 //  Modified:
 //
-//    26 June 2012
+//    11 March 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  int m = 5;
-  int na = 15;
-
-  double a[15] = {
-    11.0, 12.0, 13.0, 
-    21.0, 22.0, 
-    31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0, 
-    41.0, 42.0, 
-    51.0 };
-
-  int nvec[6] = { 1, 4, 6, 13, 15, 16 };
+  double *c;
+  int n = 5;
+  double x[5] = { 1.0, -4.0, 3.0, 0.0, 3.0 };
 
   cout << "\n";
-  cout << "TEST158\n";
-  cout << "  R8VECS_PRINT prints a packed R8VEC.\n";
+  cout << "ROOTS_TO_R8POLY_TEST:\n";
+  cout << "  ROOTS_TO_R8POLY is given N real roots,\n";
+  cout << "  and constructs the coefficient vector\n";
+  cout << "  of the corresponding polynomial.\n";
 
-  r8vecs_print ( m, nvec, na, a, "  Packed R8VEC:" );
+  r8vec_print ( n, x, "  N real roots:" );
+
+  c = roots_to_r8poly ( n, x );
+
+  r8poly_print ( n, c, "  Corresponding polynomial:" );
+
+  delete [] c;
 
   return;
 }

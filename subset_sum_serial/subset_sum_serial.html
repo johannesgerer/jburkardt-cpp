@@ -1,0 +1,253 @@
+<html>
+
+  <head>
+    <title>
+      SUBSET_SUM_SERIAL - Solve a Subset Sum Problem by Exhaustive Search
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SUBSET_SUM_SERIAL <br>
+      Solve a Subset Sum Problem by Exhaustive Search
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SUBSET_SUM_SERIAL</b>
+      is a C++ library which
+      illustrates how a subset sum problem can be solved by exhaustive search.
+    </p>
+
+    <p>
+      We are given a collection of (21) weights and a
+      <i>target value</i> (24639098).  We seek a combination of the weights which
+      adds up to the target value.
+    </p>
+
+    <p>
+      The function <i>subset_sum_serial.m</i> simply considers every possible subset of the
+      weights, determines its sum, and compares that to the target value.  The
+      first case in which the target value is matched is returned as the solution.
+    </p>
+
+    <p>
+      This program, which solves the problem serially, is primarily intended to
+      be a starting point for a parallel programming approach.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SUBSET_SUM_SERIAL</b> is available in
+      <a href = "../../c_src/subset_sum_serial/subset_sum_serial.html">a C version</a> and
+      <a href = "../../cpp_src/subset_sum_serial/subset_sum_serial.html">a C++ version</a> and
+      <a href = "../../f77_src/subset_sum_serial/subset_sum_serial.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/subset_sum_serial/subset_sum_serial.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/subset_sum_serial/subset_sum_serial.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fft_serial/fft_serial.html">
+      FFT_SERIAL</a>,
+      a C++ program which
+      demonstrates the computation of a Fast Fourier Transform,
+      and is intended as a starting point for developing a parallel version
+      using OpenMP.
+    <p>
+
+    <p>
+      <a href = "../../cpp_src/fire_serial/fire_serial.html">
+      FIRE_SERIAL</a>,
+      a C++ program which
+      simulates a forest fire over a rectangular array of trees,
+      starting at a single random location.  It is intended as a starting
+      point for the development of a parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/heated_plate/heated_plate.html">
+      HEATED_PLATE</a>,
+      a C++ program which 
+      solves the steady state heat equation in a 2D
+      rectangular region, and is intended as
+      a starting point for implementing an OpenMP parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/md/md.html">
+      MD</a>,
+      a C++ program which 
+      carries out a molecular dynamics simulation, and is intended as
+      a starting point for implementing an OpenMP parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mxm_serial/mxm_serial.html">
+      MXM_SERIAL</a>,
+      a C++ program which
+      sets up a matrix multiplication problem A=B*C,
+      intended as a starting point for implementing a parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/poisson_serial/poisson_serial.html">
+      POISSON_SERIAL</a>,
+      a C++ program which
+      computes an approximate solution to the Poisson equation in a rectangle,
+      and is intended as the starting point for the creation of a parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/prime_serial/prime_serial.html">
+      PRIME_SERIAL</a>,
+      a C++ program which
+      counts the number of primes between 1 and N,
+      intended as a starting point for the creation of a parallel version.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quad_serial/quad_serial.html">
+      QUAD_SERIAL</a>,
+      a C++ program which
+      approximates an integral using a quadrature rule,
+      and is intended as a starting point for parallelization exercises.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quad2d_serial/quad2d_serial.html">
+      QUAD2D_SERIAL</a>,
+      a C++ program which
+      approximates an integral over a 2D region using a product quadrature rule,
+      and is intended as a starting point for parallelization exercises.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/search_serial/search_serial.html">
+      SEARCH_SERIAL</a>,
+      a C++ program which
+      searches the integers from A to B for a value J such that F(J) = C.
+      this version of the program is intended as a starting point for
+      a parallel approach.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/subset_sum/subset_sum.html">
+      SUBSET_SUM</a>,
+      a C++ library which
+      seeks solutions of the subset sum problem.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Silvano Martello, Paolo Toth,<br>
+          Knapsack Problems: Algorithms and Computer Implementations,<br>
+          Wiley, 1990,<br>
+          ISBN: 0-471-92420-2,<br>
+          LC: QA267.7.M37.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "subset_sum_serial.cpp">subset_sum_serial.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "subset_sum_serial.hpp">subset_sum_serial.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "subset_sum_serial.sh">subset_sum_serial.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "subset_sum_serial_prb.cpp">subset_sum_serial_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "subset_sum_serial_prb.sh">subset_sum_serial_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "subset_sum_serial_prb_output.txt">subset_sum_serial_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_POWER</b> returns the value of I^J.
+        </li>
+        <li>
+          <b>I4VEC_DOT_PRODUCT</b> computes the dot product of two I4VEC's.
+        </li>
+        <li>
+          <b>SUBSET_SUM_SERIAL</b> seeks a subset of a set that has a given sum.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 01 July 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

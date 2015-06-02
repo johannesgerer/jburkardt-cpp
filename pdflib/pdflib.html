@@ -1,0 +1,277 @@
+<html>
+
+  <head>
+    <title>
+      PDFLIB - Evaluate and Sample Probability Density Functions
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      PDFLIB <br> Evaluate and Sample Probability Density Functions
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>PDFLIB</b>
+      is a C++ library which
+      evaluates Probability Density Functions (PDF's)
+      and produces random samples from them,
+      including beta, binomial, chi, exponential, gamma, inverse chi,
+      inverse gamma, multinomial, normal, scaled inverse chi, and uniform.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>PDFLIB</b> is available in
+      <a href = "../../c_src/pdflib/pdflib.html">a C version</a> and
+      <a href = "../../cpp_src/pdflib/pdflib.html">a C++ version</a> and
+      <a href = "../../f77_src/pdflib/pdflib.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/pdflib/pdflib.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/pdflib/pdflib.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/prob/prob.html">
+      PROB</a>,
+      a C++ library which
+      evaluates, samples and inverts a number of 
+      Probability Density Functions (PDF's).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ranlib/ranlib.html">
+      RANLIB</a>,
+      a C++ library which
+      produces random samples from Probability Density Functions (PDF's), 
+      including Beta, Chi-square Exponential, F, Gamma, Multivariate normal,
+      Noncentral chi-square, Noncentral F, Univariate normal, 
+      random permutations, Real uniform, Binomial, Negative Binomial, 
+      Multinomial, Poisson and Integer uniform,
+      by Barry Brown and James Lovato.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rnglib/rnglib.html">
+      RNGLIB</a>,
+      a C++ library which
+      implements a random number generator (RNG) with splitting facilities,
+      allowing multiple independent streams to be computed,
+      by L'Ecuyer and Cote.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pdflib.cpp">pdflib.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "pdflib.hpp">pdflib.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "pdflib.sh">pdflib.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "pdflib_prb.cpp">pdflib_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "pdflib_prb.sh">pdflib_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "pdflib_prb_output.txt">pdflib_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4_BINOMIAL_PDF</b> evaluates the binomial PDF.
+        </li>
+        <li>
+          <b>I4_BINOMIAL_SAMPLE</b> generates a binomial random deviate.
+        </li>
+        <li>
+          <b>I4VEC_MULTINOMIAL_PDF</b> evaluates the multinomial PDF.
+        </li>
+        <li>
+          <b>I4VEC_MULTINOMIAL_SAMPLE</b> generates a multinomial random deviate.
+        </li>
+        <li>
+          <b>R8_BETA_PDF</b> evaluates the PDF of a beta distribution.
+        </li>
+        <li>
+          <b>R8_BETA_SAMPLE</b> generates a beta random deviate.
+        </li>
+        <li>
+          <b>R8_CHI_PDF</b> evaluates the PDF of a chi-squared distribution.
+        </li>
+        <li>
+          <b>R8_CHI_SAMPLE</b> generates a Chi-Square random deviate.
+        </li>
+        <li>
+          <b>R8_CHOOSE</b> computes the binomial coefficient C(N,K) as an R8.
+        </li>
+        <li>
+          <b>R8_EPSILON</b> returns the R8 roundoff unit.
+        </li>
+        <li>
+          <b>R8_EXPONENTIAL_PDF</b> evaluates the PDF of an exponential distribution.
+        </li>
+        <li>
+          <b>R8_EXPONENTIAL_SAMPLE</b> samples the exponential PDF.
+        </li>
+        <li>
+          <b>R8_EXPONENTIAL_01_PDF:</b> PDF of the standard exponential distribution.
+        </li>
+        <li>
+          <b>R8_EXPONENTIAL_01_SAMPLE</b> samples the standard exponential PDF.
+        </li>
+        <li>
+          <b>R8_GAMMA_LOG</b> evaluates the logarithm of the gamma function.
+        </li>
+        <li>
+          <b>R8_GAMMA_PDF</b> evaluates the PDF of a gamma distribution.
+        </li>
+        <li>
+          <b>R8_GAMMA_SAMPLE</b> generates a Gamma random deviate.
+        </li>
+        <li>
+          <b>R8_GAMMA_01_PDF</b> evaluates the PDF of a standard gamma distribution.
+        </li>
+        <li>
+          <b>R8_GAMMA_01_SAMPLE</b> samples the standard Gamma distribution.
+        </li>
+        <li>
+          <b>R8_INVCHI_PDF</b> evaluates the PDF of an inverse chi-squared distribution.
+        </li>
+        <li>
+          <b>R8_INVCHI_SAMPLE</b> samples the inverse chi-squared distribution.
+        </li>
+        <li>
+          <b>R8_INVGAM_PDF</b> evaluates the PDF of an inverse gamma distribution.
+        </li>
+        <li>
+          <b>R8_INVGAM_SAMPLE</b> samples an inverse gamma distribution.
+        </li>
+        <li>
+          <b>R8_MAX</b> returns the maximum of two R8's.
+        </li>
+        <li>
+          <b>R8_MIN</b> returns the minimum of two R8's.
+        </li>
+        <li>
+          <b>R8_NORMAL_PDF</b> evaluates the PDF of a normal distribution.
+        </li>
+        <li>
+          <b>R8_NORMAL_SAMPLE</b> generates a normal random deviate.
+        </li>
+        <li>
+          <b>R8_NORMAL_01_PDF</b> evaluates the PDF of a standard normal distribution.
+        </li>
+        <li>
+          <b>R8_NORMAL_01_SAMPLE</b> samples the standard normal probability distribution.
+        </li>
+        <li>
+          <b>R8_SCINVCHI_PDF:</b> PDF for a scaled inverse chi-squared distribution.
+        </li>
+        <li>
+          <b>R8_SCINVCHI_SAMPLE:</b> sample a scaled inverse chi-squared distribution.
+        </li>
+        <li>
+          <b>R8_UNIFORM_PDF</b> evaluates the PDF of a uniform distribution.
+        </li>
+        <li>
+          <b>R8_UNIFORM_SAMPLE</b> generates a uniform random deviate.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01_PDF</b> evaluates the PDF of a standard uniform distribution.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01_SAMPLE</b> generates a uniform random deviate from [0,1].
+        </li>
+        <li>
+          <b>R8MAT_MV_NEW</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_POFAC</b> factors a real symmetric positive definite matrix.
+        </li>
+        <li>
+          <b>R8MAT_POINV</b> computes the inverse of a factored positive definite matrix.
+        </li>
+        <li>
+          <b>R8MAT_UPSOL</b> solves R * X = B, for an upper triangular matrix R.
+        </li>
+        <li>
+          <b>R8MAT_UTSOL</b> solves R' * X = B for an upper triangular matrix R.
+        </li>
+        <li>
+          <b>R8VEC_DOT_PRODUCT</b> computes the dot product of a pair of R8VEC's.
+        </li>
+        <li>
+          <b>R8VEC_MULTINORMAL_PDF</b> evaluates a multivariate normal PDF.
+        </li>
+        <li>
+          <b>R8VEC_MULTINORMAL_SAMPLE</b> samples a multivariate normal PDF.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 05 August 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

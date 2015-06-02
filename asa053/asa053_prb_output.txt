@@ -1,0 +1,77 @@
+17 April 2014 08:16:06 AM
+
+ASA053_PRB:
+  C++ version
+  Test the ASA053 library.
+
+TEST01
+  Generate a single Wishart deviate.
+
+  The number of variables is 3
+  The number of degrees of freedom is 1
+
+  The upper Cholesky factor:
+
+  Col:       1             2             3       
+  Row
+  ---
+     1             3             2             1  
+     2             0             4             2  
+     3             0             0             5  
+
+  The sample matrix:
+
+  Col:       1             2             3       
+  Row
+  ---
+     1       54.5541       43.2451      -3.81605  
+     2       43.2451       53.5239      -0.15578  
+     3      -3.81605      -0.15578       4.72559  
+
+TEST02
+  Generate many Wishart deviates.
+  Compare to D' * D * np / n
+
+  The number of variables is 3
+  The number of degrees of freedom is 2
+
+  The upper Cholesky factor:
+
+  Col:       1             2             3       
+  Row
+  ---
+     1             3             2             1  
+     2             0             4             2  
+     3             0             0             5  
+
+  The averaged matrix:
+
+  Col:       1             2             3       
+  Row
+  ---
+     1   1.34591e+06        897139        448088  
+     2        897139   3.00573e+06   1.49865e+06  
+     3        448088   1.49865e+06   4.50242e+06  
+
+  The averaged matrix:
+
+  Col:       1             2             3       
+  Row
+  ---
+     1       13.4591       8.97139       4.48088  
+     2       8.97139       30.0573       14.9865  
+     3       4.48088       14.9865       45.0242  
+
+  Expected result:
+
+  Col:          0             1             2       
+  Row
+
+    0:         13.5             9           4.5  
+    1:            9            30            15  
+    2:          4.5            15            45  
+
+ASA053_PRB:
+  Normal end of execution.
+
+17 April 2014 08:16:07 AM

@@ -1,10 +1,10 @@
-12 March 2012 05:05:07 PM
+07 February 2015 12:09:32 PM
 
 TEST_VALUES_PRB:
   C++ version,
   Test the TEST_VALUES library.
 
-TEST001:
+ABRAM0_VALUES_TEST:
   ABRAM0_VALUES stores values of 
   the Abramowitz function of order 0.
 
@@ -31,7 +31,7 @@ TEST001:
                         20     9.122975919095675e-07
                         40      2.56282877379527e-10
 
-TEST002:
+ABRAM1_VALUES_TEST:
   ABRAM1_VALUES stores values of 
   the Abramowitz function of order 1.
 
@@ -58,7 +58,7 @@ TEST002:
                         20     2.034457889260163e-06
                         40     7.111651723620965e-10
 
-TEST003:
+ABRAM2_VALUES_TEST:
   ABRAM2_VALUES stores values of 
   the Abramowitz function of order 2.
 
@@ -85,7 +85,7 @@ TEST003:
                         20      4.68906784273241e-06
                         40     2.016154485099642e-09
 
-TEST0035:
+AGM_VALUES_TEST:
   AGM_VALUES stores values of 
   the arithmetic geometric mean function.
 
@@ -107,7 +107,7 @@ TEST0035:
                1               8         3.615756177597363
              1.5               8         4.081692408022163
 
-TEST004:
+AIRY_AI_VALUES_TEST:
   AIRY_AI_VALUES stores values of 
   the Airy functions Ai(X).
 
@@ -125,7 +125,7 @@ TEST004:
                        0.9        0.1518868036405444
                          1        0.1352924163128814
 
-TEST005:
+AIRY_AI_INT_VALUES_TEST:
   AIRY_AI_INT_VALUES stores values of 
   the integral of the Airy Ai function.
 
@@ -152,7 +152,7 @@ TEST005:
                         10         0.333333333299169
                         12        0.3333333333332938
 
-TEST006:
+AIRY_AI_PRIME_VALUES_TEST:
   AIRY_AI_PRIME_VALUES stores values of 
   the derivative of the Airy function Ai'(X).
 
@@ -170,7 +170,7 @@ TEST006:
                        0.9       -0.1727638434616347
                          1       -0.1591474412967932
 
-TEST007:
+AIRY_BI_VALUES_TEST:
   AIRY_BI_VALUES stores values of 
   the Airy function Bi.
 
@@ -188,7 +188,7 @@ TEST007:
                        0.9         1.119872813134447
                          1         1.207423594952871
 
-TEST008:
+AIRY_BI_INT_VALUES_TEST:
   AIRY_BI_INT_VALUES stores values of 
   the integral of the Airy Bi function.
 
@@ -215,7 +215,7 @@ TEST008:
                         12         97037614223.61343
                         14         116327376388098.8
 
-TEST009:
+AIRY_BI_PRIME_VALUES_TEST:
   AIRY_BI_PRIME_VALUES stores values of 
   the derivative of Airy function Bi'(X).
 
@@ -233,7 +233,7 @@ TEST009:
                        0.9         0.821903890307209
                          1        0.9324359333927756
 
-TEST0093:
+AIRY_CAI_VALUES_TEST:
   AIRY_CAI_VALUES stores values of 
   the Airy functions Ai(X) for complex argument.
 
@@ -250,7 +250,7 @@ TEST0093:
         0.309017       -0.951057        0.2215404472324631        0.2588711788891803
         0.809017       -0.587785        0.1433824486882056        0.1092193342707378
 
-TEST0095:
+AIRY_CBI_VALUES_TEST:
   AIRY_CBI_VALUES stores values of 
   the Airy functions Bi(X) for complex argument.
 
@@ -267,7 +267,7 @@ TEST0095:
         0.309017       -0.951057        0.6824453575635721       -0.3343047153635002
         0.809017       -0.587785        0.9127160108293936       -0.3800456133135556
 
-TEST010:
+AIRY_GI_VALUES_TEST:
   AIRY_GI_VALUES stores values of 
   the modified Airy function Gi(X).
 
@@ -294,7 +294,7 @@ TEST010:
                         10       0.03189600510067959
                         12       0.02655689271351241
 
-TEST011:
+AIRY_HI_VALUES_TEST:
   AIRY_HI_VALUES stores values of 
   the modified Airy function Hi(X).
 
@@ -321,7 +321,7 @@ TEST011:
                         10         455641153.5163291
                         12         329807225829.0476
 
-TEST0114:
+ARCCOS_VALUES_TEST:
   ARCCOS_VALUES stores values of the arc cosine function.
 
                 X                     FX
@@ -339,7 +339,7 @@ TEST0114:
                        0.9        0.4510268117962624
                          1                         0
 
-TEST01145:
+ARCCOSH_VALUES_TEST:
   ARCCOSH_VALUES stores values of the hyperbolic arc cosine function.
 
                 X                     FX
@@ -360,7 +360,7 @@ TEST01145:
                        100         5.298292365610485
                       1000         7.600902209541989
 
-TEST0115:
+ARCSIN_VALUES_TEST:
   ARCSIN_VALUES stores values of the arc sine function.
 
                 X                     FX
@@ -378,7 +378,7 @@ TEST0115:
                        0.9         1.119769514998634
                          1         1.570796326794897
 
-TEST01155:
+ARCSINH_VALUES_TEST:
   ARCSINH_VALUES stores values of the hyperbolic arc sine function.
 
                 X                     FX
@@ -404,7 +404,7 @@ TEST01155:
                        100         5.298342365610589
                       1000         7.600902709541988
 
-TEST0116:
+ARCTAN_VALUES_TEST:
   ARCTAN_VALUES stores values of the arc tangent function.
 
                 X                     FX
@@ -421,7 +421,7 @@ TEST0116:
                         10         1.471127674303735
                         20         1.520837931072954
 
-TEST012:
+ARCTAN_INT_VALUES_TEST:
   ARCTAN_INT_VALUES stores values of 
   the arctangent integral.
 
@@ -448,7 +448,7 @@ TEST012:
                        -50        -6.164990478502749
                        100         7.243784301308353
 
-TEST0123:
+ARCTANH_VALUES_TEST:
   ARCTANH_VALUES stores values of the hyperbolic arc tangent function.
 
                 X                     FX
@@ -469,7 +469,7 @@ TEST0123:
                      0.999           3.8002011672502
                   0.999999         7.254328619262047
 
-TEST0127:
+BEI0_VALUES_TEST:
   BEI0_VALUES stores values of 
   the Kelvin function BEI of order 0.
 
@@ -487,7 +487,7 @@ TEST0127:
                        4.5         1.686017203632139
                          5        0.1160343815502004
 
-TEST0128:
+BEI1_VALUES_TEST:
   BEI1_VALUES stores values of 
   the Kelvin function BEI of order 1.
 
@@ -505,7 +505,7 @@ TEST0128:
                        4.5        -4.105685408400878
                          5        -5.797907901792625
 
-TEST013:
+BELL_VALUES_TEST:
   BELL_VALUES returns values of 
   the Bell numbers.
 
@@ -523,7 +523,7 @@ TEST013:
        9       21147
       10      115975
 
-TEST0134:
+BER0_VALUES_TEST:
   BER0_VALUES stores values of 
   the Kelvin function BER of order 0.
 
@@ -541,7 +541,7 @@ TEST0134:
                        4.5        -4.299086551599756
                          5        -6.230082478666358
 
-TEST0135:
+BER1_VALUES_TEST:
   BER1_VALUES stores values of 
   the Kelvin function BER of order 1.
 
@@ -559,7 +559,7 @@ TEST0135:
                        4.5        -1.202821631480086
                          5        0.3597766667766728
 
-TEST014:
+BERNOULLI_NUMBER_VALUES_TEST:
   BERNOULLI_NUMBER_VALUES returns values of 
   the Bernoulli numbers.
 
@@ -576,7 +576,7 @@ TEST014:
       20  -529.1242424242424
       30  601580873.9006424
 
-TEST015:
+BERNOULLI_POLY_VALUES_TEST:
   BERNOULLI_POLY_VALUES returns values of 
   the Bernoulli Polynomials.
 
@@ -610,8 +610,8 @@ TEST015:
        5           0.9       0.01524
        5             1             0
 
-TEST016:
-  BERNSTEIN_POLY_VALUES returns values of 
+BERNSTEIN_POLY_01_VALUES_TEST:
+  BERNSTEIN_POLY_01_VALUES returns values of 
   the Bernstein Polynomials.
 
      N     K       X      BERNSTEIN(N,K)(X)
@@ -632,7 +632,7 @@ TEST016:
        4       3          0.25      0.046875
        4       4          0.25    0.00390625
 
-TEST017:
+BESSEL_I0_VALUES_TEST:
   BESSEL_I0_VALUES stores values of 
   the Bessel I0 function.
 
@@ -659,7 +659,7 @@ TEST017:
              8  427.5641157218048
             10  2815.716628466254
 
-TEST018:
+BESSEL_I0_INT_VALUES_TEST:
   BESSEL_I0_INT_VALUES stores values of 
   the integral of the Bessel I0 function.
 
@@ -686,7 +686,7 @@ TEST018:
                         30         795538858184.7236
                         40      1.50897150827192e+16
 
-TEST0185:
+BESSEL_I0_SPHERICAL_VALUES_TEST:
   BESSEL_I0_SPHERICAL_VALUES stores values of
   the spherical Bessel i0 function.
 
@@ -714,7 +714,7 @@ TEST0185:
            3.8  5.878791279137455
              4  6.822479299281938
 
-TEST019:
+BESSEL_I1_VALUES_TEST:
   BESSEL_I1_VALUES stores values of 
   the Bessel I1 function.
 
@@ -741,7 +741,7 @@ TEST019:
              8  399.8731367825601
             10  2670.988303701255
 
-TEST0195:
+BESSEL_I1_SPHERICAL_VALUES_TEST:
   BESSEL_I1_SPHERICAL_VALUES stores values of
   the spherical Bessel i1 function.
 
@@ -769,7 +769,7 @@ TEST0195:
            3.8  4.337627987747642
              4  5.121438384183637
 
-TEST020:
+BESSEL_IN_VALUES_TEST:
   BESSEL_IN_VALUES stores values of 
   the Bessel In function.
 
@@ -804,7 +804,7 @@ TEST020:
       20            10  0.0001250799735644948
       20            50  5.442008402752998e+18
 
-TEST0205:
+BESSEL_IX_VALUES_TEST:
   BESSEL_IX_VALUES stores values of 
   the Bessel In function for NONINTEGER order.
 
@@ -839,7 +839,7 @@ TEST0205:
           2.75            10  1894.575731562383
           2.75            50  2.716911375760483e+20
 
-TEST021:
+BESSEL_J0_VALUES_TEST:
   BESSEL_J0_VALUES stores values of 
   the Bessel J0 function.
 
@@ -867,7 +867,7 @@ TEST021:
             14  0.1710734761104587
             15  -0.01422447282678077
 
-TEST022:
+BESSEL_J0_INT_VALUES_TEST:
   BESSEL_J0_INT_VALUES stores values of 
   the integral of the Bessel J0 function.
 
@@ -894,7 +894,7 @@ TEST022:
                        -80        -0.944822819383344
                        100        0.9226625569601661
 
-TEST023:
+BESSEL_J0_SPHERICAL_VALUES_TEST:
   BESSEL_J0_SPHERICAL_VALUES stores values of
   the spherical Bessel j0 function.
 
@@ -922,7 +922,7 @@ TEST023:
            3.8  -0.1610152344586103
              4  -0.1892006238269821
 
-TEST024:
+BESSEL_J1_VALUES_TEST:
   BESSEL_J1_VALUES stores values of 
   the Bessel J1 function.
 
@@ -950,7 +950,7 @@ TEST024:
             14  0.1333751546987933
             15  0.2051040386135228
 
-TEST025:
+BESSEL_J1_SPHERICAL_VALUES_TEST:
   BESSEL_J1_SPHERICAL_VALUES stores values of
   the spherical Bessel j1 function.
 
@@ -978,7 +978,7 @@ TEST025:
            3.8  0.165776967751528
              4  0.1161107492591575
 
-TEST026:
+BESSEL_JN_VALUES_TEST:
   BESSEL_JN_VALUES stores values of 
   the Bessel Jn function.
 
@@ -1005,7 +1005,7 @@ TEST026:
       20            10  1.15133692478134e-05
       20            50  -0.1167043527595797
 
-TEST0265:
+BESSEL_JX_VALUES_TEST:
   BESSEL_JX_VALUES stores values of 
   the Bessel Jn function for NONINTEGER order.
 
@@ -1040,7 +1040,7 @@ TEST0265:
           2.75            10  0.1340289119304364
           2.75            50  0.06235967135106445
 
-TEST027:
+BESSEL_K0_VALUES_TEST:
   BESSEL_K0_VALUES stores values of 
   the Bessel K0 function.
 
@@ -1067,7 +1067,7 @@ TEST027:
              8  0.0001464707052228154
             10  1.778006231616765e-05
 
-TEST028:
+BESSEL_K0_INT_VALUES_TEST:
   BESSEL_K0_INT_VALUES stores values of 
   the integral of the Bessel K0 function.
 
@@ -1094,7 +1094,7 @@ TEST028:
                         80         1.570796326794897
                        100         1.570796326794897
 
-TEST029:
+BESSEL_K1_VALUES_TEST:
   BESSEL_K1_VALUES stores values of 
   the Bessel K1 function.
 
@@ -1121,7 +1121,7 @@ TEST029:
              8  0.0001553692118050011
             10  1.864877345382558e-05
 
-TEST030:
+BESSEL_KN_VALUES_TEST:
   BESSEL_KN_VALUES stores values of 
   the Bessel Kn function.
 
@@ -1156,7 +1156,7 @@ TEST030:
       20            10  178.7442782077055
       20            50  1.706148379722035e-21
 
-TEST0305:
+BESSEL_KX_VALUES_TEST:
   BESSEL_KX_VALUES stores values of 
   the Bessel Kn function for NONINTEGER order.
 
@@ -1191,7 +1191,7 @@ TEST0305:
           2.75            10  2.546421294106458e-05
           2.75            50  3.675275677913656e-23
 
-TEST031:
+BESSEL_Y0_VALUES_TEST:
   BESSEL_Y0_VALUES stores values of 
   the Bessel Y0 function.
 
@@ -1214,7 +1214,7 @@ TEST031:
             14  0.1271925685821837
             15  0.2054642960389183
 
-TEST032:
+BESSEL_Y0_INT_VALUES_TEST:
   BESSEL_Y0_INT_VALUES stores values of 
   the integral of the Bessel Y0 function.
 
@@ -1241,7 +1241,7 @@ TEST032:
                        100      -0.01959806485340497
                        125     -0.008308477235715477
 
-TEST033:
+BESSEL_Y0_SPHERICAL_VALUES_TEST:
   BESSEL_Y0_SPHERICAL_VALUES stores values of
   the spherical Bessel y0 function.
 
@@ -1269,7 +1269,7 @@ TEST033:
                        3.8        0.2081493978722149
                          4         0.163410905215903
 
-TEST034:
+BESSEL_Y1_VALUES_TEST:
   BESSEL_Y1_VALUES stores values of 
   the Bessel Y1 function.
 
@@ -1292,7 +1292,7 @@ TEST034:
                         14       -0.1666448418561723
                         15       0.02107362803687351
 
-TEST035:
+BESSEL_Y1_SPHERICAL_VALUES_TEST:
   BESSEL_Y1_SPHERICAL_VALUES stores values of
   the spherical Bessel y1 function.
 
@@ -1320,7 +1320,7 @@ TEST035:
                        3.8        0.2157913917934037
                          4        0.2300533501309578
 
-TEST036:
+BESSEL_YN_VALUES_TEST:
   BESSEL_YN_VALUES stores values of 
   the Bessel Yn function.
 
@@ -1347,7 +1347,7 @@ TEST036:
       20            10  -1597.483848269626
       20            50  0.01644263394811578
 
-TEST0365:
+BESSEL_YX_VALUES_TEST:
   BESSEL_YX_VALUES stores values of 
   the Bessel Yn function for NONINTEGER order.
 
@@ -1382,7 +1382,7 @@ TEST0365:
           2.75            10  -0.219361773656676
           2.75            50  0.09413988344515077
 
-TEST037:
+BETA_CDF_VALUES_TEST:
   BETA_CDF_VALUES stores values of
   the Beta CDF.
 
@@ -1430,8 +1430,11 @@ TEST037:
              3             2           0.3                    0.0837
              4             2           0.3                   0.03078
              5             2           0.3                  0.010935
+       1.30625       11.7562      0.225609         0.918884684620518
+       1.30625       11.7562     0.0335568          0.21052977489419
+       1.30625       11.7562     0.0295222        0.1824130512500673
 
-TEST038:
+BETA_INC_VALUES_TEST:
   BETA_INC_VALUES stores values of
   the incomplete Beta function.
 
@@ -1479,8 +1482,11 @@ TEST038:
              3             2           0.3                    0.0837
              4             2           0.3                   0.03078
              5             2           0.3                  0.010935
+       1.30625       11.7562      0.225609         0.918884684620518
+       1.30625       11.7562     0.0335568          0.21052977489419
+       1.30625       11.7562     0.0295222        0.1824130512500673
 
-TEST039:
+BETA_LOG_VALUES_TEST:
   BETA_LOG_VALUES stores values of
   the logarithm of the Beta function.
 
@@ -1504,7 +1510,7 @@ TEST039:
              6             6        -7.927324360309794
              7             7         -9.39366142910322
 
-TEST0395:
+BETA_NONCENTRAL_CDF_VALUES_TEST:
   BETA_NONCENTRAL_CDF_VALUES stores values of
   the noncentral Beta CDF.
 
@@ -1536,7 +1542,7 @@ TEST0395:
             30            30           140           0.8              0.7813366615
             35            30            20          0.67              0.8867126477
 
-TEST040:
+BETA_VALUES_TEST:
   BETA_VALUES stores values of
   the Beta function.
 
@@ -1560,7 +1566,7 @@ TEST040:
              6             6     0.0003607503607503608
              7             7     8.325008325008325e-05
 
-TEST041:
+BINOMIAL_VALUES_TEST:
   BINOMIAL_VALUES returns values of
   the binomial numbers.
 
@@ -1587,7 +1593,7 @@ TEST041:
       25      15       3268760
       25      17       1081575
 
-TEST042:
+BINOMIAL_CDF_VALUES_TEST:
   BINOMIAL_CDF_VALUES returns values of 
   the Binomial Cumulative Density Function.
 
@@ -1611,7 +1617,7 @@ TEST042:
       10       0.4     4              0.6331032576
       10       0.5     4               0.376953125
 
-TEST0425:
+BIVARIATE_NORMAL_CDF_VALUES_TEST:
   BIVARIATE_NORMAL_CDF_VALUES stores values of
   the bivariate normal CDF.
 
@@ -1659,7 +1665,7 @@ TEST0425:
             -1            -1           0.5       0.06251409470431653
   0.7071067811865475  0.7071067811865475           0.5        0.6337020457912916
 
-TEST043:
+CATALAN_VALUES_TEST:
   CATALAN_VALUES returns values of 
   the Catalan numbers.
 
@@ -1677,7 +1683,7 @@ TEST043:
        9        4862
       10       16796
 
-TEST044:
+CAUCHY_CDF_VALUES_TEST:
   CAUCHY_CDF_VALUES returns values of 
   the Cauchy Cumulative Density Function.
 
@@ -1696,7 +1702,7 @@ TEST044:
          4         2         3        0.3524163823495667
          5         2         3                      0.25
 
-TEST0445:
+CBRT_VALUES_TEST:
   CBRT_VALUES stores values of the cube root function.
 
       X            CBRT(X)
@@ -1716,7 +1722,7 @@ TEST0445:
             97  4.594700892207039
     -123456789  -497.9338592181745
 
-TEST045:
+CHEBY_T_POLY_VALUES_TEST:
   CHEBY_T_POLY_VALUES returns values of
   the Chebyshev T polynomials.
 
@@ -1736,7 +1742,7 @@ TEST045:
       11       0.8  0.70005137408
       12       0.8  0.131585609728
 
-TEST046:
+CHEBY_U_POLY_VALUES_TEST:
   CHEBY_U_POLY_VALUES returns values of
   the Chebyshev U polynomials.
 
@@ -1750,13 +1756,53 @@ TEST046:
        5       0.8      -1.09824
        6       0.8     -1.630784
        7       0.8    -1.5110144
-       8       0.8  -0.078683904
+       8       0.8   -0.78683904
        9       0.8   0.252071936
       10       0.8  1.1901541376
       11       0.8  1.65217468416
       12       0.8  1.453325357056
 
-TEST0465:
+CHEBY_V_POLY_VALUES_TEST:
+  CHEBY_V_POLY_VALUES returns values of
+  the Chebyshev V polynomials.
+
+     N       X      V(N)(X)
+
+       0       0.8             1
+       1       0.8           0.6
+       2       0.8         -0.04
+       3       0.8        -0.664
+       4       0.8       -1.0224
+       5       0.8      -0.97184
+       6       0.8     -0.532544
+       7       0.8     0.1197696
+       8       0.8    0.72417536
+       9       0.8   1.038910976
+      10       0.8  0.9380822016
+      11       0.8  0.46202054656
+      12       0.8  -0.198849327104
+
+CHEBY_W_POLY_VALUES_TEST:
+  CHEBY_W_POLY_VALUES returns values of
+  the Chebyshev W polynomials.
+
+     N       X      W(N)(X)
+
+       0       0.8             1
+       1       0.8           2.6
+       2       0.8          3.16
+       3       0.8         2.456
+       4       0.8        0.7696
+       5       0.8      -1.22464
+       6       0.8     -2.729024
+       7       0.8    -3.1417984
+       8       0.8   -2.29785344
+       9       0.8  -0.534767104
+      10       0.8  1.4422260736
+      11       0.8  2.84232882176
+      12       0.8  3.105500041216
+
+CHI_VALUES_TEST:
   CHI_VALUES stores values of
   the Hyperbolic Cosine Integral function CHI(X).
 
@@ -1779,7 +1825,7 @@ TEST0465:
              4  9.813547558823187
            4.5  13.96581164859243
 
-TEST047:
+CHI_SQUARE_CDF_VALUES_TEST:
   CHI_SQUARE_CDF_VALUES returns values of 
   the Chi-Squared Cumulative Density Function.
 
@@ -1807,7 +1853,7 @@ TEST047:
       10         2  0.003659846827343712
       10         3  0.01857593622214067
 
-TEST048:
+CHI_SQUARE_NONCENTRAL_CDF_VALUES_TEST:
   CHI_SQUARE_NONCENTRAL_CDF_VALUES returns values of
   the noncentral Chi-Squared Cumulative Density Function.
 
@@ -1842,7 +1888,7 @@ TEST048:
            6         4    10  0.05932010895599639
            5       0.5     8  0.2110395656918684
 
-TEST049:
+CI_VALUES_TEST:
   CI_VALUES stores values of
   the Cosine Integral function CI(X).
 
@@ -1865,7 +1911,7 @@ TEST049:
              4  -0.1409816978869304
            4.5  -0.1934911221017388
 
-TEST050:
+CIN_VALUES_TEST:
   CIN_VALUES stores values of
   the Cosine Integral function CIN(X).
 
@@ -1888,7 +1934,31 @@ TEST050:
              4  2.104491723908354
            4.5  2.274784183779546
 
-TEST051:
+CINH_VALUES_TEST:
+  CINH_VALUES stores values of
+  the Hyperbolic Cosine Integral function CINH(X).
+
+      X            CINH(X)
+
+             0             0
+           0.5  0.06315467070191882
+           0.6  0.09136085223843649
+           0.7  0.1250284547325902
+           0.8  0.1643278712460683
+           0.9  0.2094587379417273
+             1  0.2606512760786754
+           1.2  0.3823047024751071
+           1.4  0.531806174266898
+           1.6  0.7122865135136963
+           1.8  0.9275748842583805
+             2  1.182304077185436
+           2.5  2.030919091578478
+             3  3.284564141195967
+           3.5  5.129213294250493
+             4  7.850037532801762
+           4.5  11.88451858691463
+
+CLAUSEN_VALUES_TEST:
   CLAUSEN_VALUES stores values of 
   Clausen's integral function.
 
@@ -1915,7 +1985,7 @@ TEST051:
                        -30        0.9633208904436308
                         50       -0.6178269948192932
 
-TEST05125:
+CLEBSCH_GORDAN_VALUES_TEST:
   CLEBSCH_GORDAN_VALUES returns values of
   the Clebsch Gordan coefficient.
 
@@ -1934,7 +2004,7 @@ TEST05125:
      1.5       2     2.5     0.5       1       1        0.8944271909999159
      1.5       2     3.5     1.5      -1      -1        0.3380617018914066
 
-TEST0515:
+COLLATZ_COUNT_VALUES_TEST:
   COLLATZ_COUNT_VALUES returns values of
   the length of the Collatz sequence that
   starts at N.
@@ -1962,7 +2032,7 @@ TEST0515:
        700            83
        800            29
 
-TEST0517:
+COS_VALUES_TEST:
    COS_VALUES stores values of the cosine function.
 
                 X                     FX
@@ -1981,7 +2051,53 @@ TEST0517:
                          4       -0.6536436208636119
                          5        0.2836621854632262
 
-TEST0519:
+COS_DEGREE_VALUES_TEST:
+   COS_DEGREE_VALUES stores values of the cosine function.
+
+                X                     FX
+
+                        -5        0.9961946980917455
+                         0                         1
+                         1        0.9998476951563913
+                         2        0.9993908270190958
+                         3        0.9986295347545738
+                         4        0.9975640502598242
+                         5        0.9961946980917455
+                        10         0.984807753012208
+                        15        0.9659258262890683
+                        30        0.8660254037844386
+                        45        0.7071067811865476
+                        60                       0.5
+                        75        0.2588190451025207
+                        85       0.08715574274765818
+                        86        0.0697564737441253
+                        87       0.05233595624294383
+                        88       0.03489949670250097
+                        89       0.01745240643728351
+                        90                         0
+                        91      -0.01745240643728351
+                       105       -0.2588190451025207
+                       180                        -1
+
+COS_POWER_INT_VALUES_TEST:
+  COS_POWER_INT_VALUES returns values of
+  the integral of the N-th power of the cosine function.
+
+         A         B       N        FX
+
+         0  3.141592653589793       0         3.141592653589793
+         0  3.141592653589793       1                         0
+         0  3.141592653589793       2         1.570796326794897
+         0  3.141592653589793       3                         0
+         0  3.141592653589793       4         1.178097245096172
+         0  3.141592653589793       5                         0
+         0  3.141592653589793       6        0.9817477042468103
+         0  3.141592653589793       7                         0
+         0  3.141592653589793       8        0.8590292412159591
+         0  3.141592653589793       9                         0
+         0  3.141592653589793      10        0.7731263170943632
+
+COSH_VALUES_TEST:
    COSH_VALUES stores values of the hyperbolic cosine function.
 
                 X                     FX
@@ -2005,7 +2121,28 @@ TEST0519:
                          5         74.20994852478785
                         10         11013.23292010332
 
-TEST052:
+COT_VALUES_TEST:
+   COT_VALUES stores values of the cotangent function.
+
+                X                     FX
+
+       0.08333333333333333         11.97220935362866
+        0.2617993877991495         3.732050807568877
+                       0.5         1.830487721712452
+        0.5235987755982989         1.732050807568877
+        0.7853981633974483                         1
+                         1        0.6420926159343308
+         1.047197551196598        0.5773502691896257
+         1.308996938995747        0.2679491924311227
+         1.570796326794897                         0
+         1.439896632895322        0.1316524975873959
+         1.505346479845109       0.06554346281523823
+                         2       -0.4576575543602858
+                         3        -7.015252551434534
+                         4        0.8636911544506166
+                         5       -0.2958129155327455
+
+CP_VALUES_TEST:
   CP_VALUES stores values of
   the specific heat CP
   as a function of temperature and pressure.
@@ -2037,7 +2174,7 @@ TEST052:
              0          2000         3.786
              0          5000          2.89
 
-TEST053:
+DAWSON_VALUES_TEST:
   DAWSON_VALUES stores values of
   Dawson's integral function.
 
@@ -2065,7 +2202,7 @@ TEST053:
            1.9  0.3229743193228178
              2  0.301340388923792
 
-TEST054:
+DEBYE1_VALUES_TEST:
   DEBYE1_VALUES stores values of 
   the Debye function of order 1.
 
@@ -2092,7 +2229,7 @@ TEST054:
                         30       0.05483113556151085
                         50       0.03289868133696453
 
-TEST055:
+DEBYE2_VALUES_TEST:
   DEBYE2_VALUES stores values of 
   the Debye function of order 2.
 
@@ -2119,7 +2256,7 @@ TEST055:
                         30      0.005342475124953707
                         50      0.001923291045055351
 
-TEST056:
+DEBYE3_VALUES_TEST:
   DEBYE3_VALUES stores values of 
   the Debye function of order 3.
 
@@ -2146,7 +2283,7 @@ TEST056:
                         30     0.0007215488221633566
                         50     0.0001558545456544039
 
-TEST057:
+DEBYE4_VALUES_TEST:
   DEBYE4_VALUES stores values of 
   the Debye function of order 4.
 
@@ -2173,7 +2310,7 @@ TEST057:
                         30     0.0001228951409207786
                         50     1.592721031900216e-05
 
-TEST0575:
+DEDEKIND_SUM_VALUES_TEST:
   DEDEKIND_SUM_VALUES stores values of the Dedekind sum
   (N/D) = Dedekind_Sum(P,Q).
 
@@ -2275,7 +2412,7 @@ TEST0575:
        7      19       3      38
        7      20       3       8
 
-TEST058:
+DIELECTRIC_VALUES_TEST:
   DIELECTRIC_VALUES stores values of
   the dielectric function.
 
@@ -2297,7 +2434,7 @@ TEST058:
            500           100          1.11
            600           100          1.08
 
-TEST059:
+DILOGARITHM_VALUES_TEST:
   DILOGARITHM_VALUES stores values of
   the dilogarithm function.
 
@@ -2325,7 +2462,7 @@ TEST059:
           0.95  1.440633796970039
              1  1.644934066848226
 
-TEST060:
+E1_VALUES_TEST:
   E1_VALUES stores values of
   the exponential integral function E1(X).
 
@@ -2348,7 +2485,7 @@ TEST060:
            1.9  0.05620437817453485
              2  0.04890051070806112
 
-TEST061:
+EI_VALUES_TEST:
   EI_VALUES stores values of
   the exponential integral function EI(X).
 
@@ -2371,7 +2508,7 @@ TEST061:
            1.9  4.593713686953585
              2  4.95423435600189
 
-TEST062:
+ELLIPTIC_EA_VALUES_TEST:
   ELLIPTIC_EA_VALUES stores values of
   the complete elliptic integral of the second
   kind, with parameter angle ALPHA in degrees.
@@ -2398,7 +2535,7 @@ TEST062:
             85  1.012663506234396
             90             1
 
-TEST063:
+ELLIPTIC_EM_VALUES_TEST:
   ELLIPTIC_EM_VALUES stores values of
   the complete elliptic integral of the second
   kind, with parameter modulus M.
@@ -2427,7 +2564,7 @@ TEST063:
           0.95  1.060473727766278
              1             1
 
-TEST064:
+ELLIPTIC_KA_VALUES_TEST:
   ELLIPTIC_KA_VALUES stores values of
   the complete elliptic integral of the first
   kind, with parameter angle ALPHA in degrees.
@@ -2453,7 +2590,7 @@ TEST064:
             80  3.153385251887839
             85  3.831741999784146
 
-TEST065:
+ELLIIPTIC_KM_VALUES_TEST:
   ELLIPTIC_KM_VALUES stores values of
   the complete elliptic integral of the first
   kind, with parameter modulus M.
@@ -2481,7 +2618,7 @@ TEST065:
            0.9  2.578092113348173
           0.95  2.908337248444552
 
-TEST066:
+ERF_VALUES_TEST:
   ERF_VALUES stores values of
   the error function ERF(X).
 
@@ -2509,7 +2646,7 @@ TEST066:
            1.9  0.9927904292352575
              2  0.9953222650189527
 
-TEST0665:
+ERFC_VALUES_TEST:
   ERFC_VALUES stores values of
   the complementary error function ERFC(X).
 
@@ -2537,7 +2674,7 @@ TEST0665:
            3.8  7.700392745696413e-08
              4  1.541725790028002e-08
 
-TEST067:
+EULER_NUMBER_VALUES_TEST:
   EULER_NUMBER_VALUES returns values of
   the Euler numbers.
 
@@ -2547,12 +2684,12 @@ TEST067:
        1           0
        2          -1
        4           5
-       6          61
+       6         -61
        8        1385
       10      -50521
       12     2702765
 
-TEST068:
+EULER_POLY_VALUES_TEST:
   EULER_POLY_VALUES returns values of
   the Euler numbers.
 
@@ -2586,7 +2723,7 @@ TEST068:
        5       0.9           0.47524
        5         1               0.5
 
-TEST0685:
+EXP_VALUES_TEST:
    EXP_VALUES stores values of the exponential function.
 
                 X                     FX
@@ -2616,7 +2753,7 @@ TEST0685:
                         20         485165195.4097903
                         40       2.3538526683702e+17
 
-TEST069:
+EXP3_INT_VALUES_TEST:
   EXP3_INT_VALUES stores values of 
   the exponential integral function.
 
@@ -2643,7 +2780,7 @@ TEST069:
                       3.75        0.8929795115692493
                          4        0.8929795115692493
 
-TEST070:
+EXPONENTIAL_CDF_VALUES_TEST:
   EXPONENTIAL_CDF_VALUES stores values of 
   the exponential CDF.
 
@@ -2659,7 +2796,7 @@ TEST070:
                          4                         2        0.9996645373720975
                          5                         2        0.9999546000702375
 
-TEST071:
+EXTREME_VALUES_CDF_VALUES_TEST:
   EXTREME_VALUES_CDF_VALUES stores values of 
   the extreme values CDF.
 
@@ -2678,9 +2815,9 @@ TEST071:
              4             2             3        0.1922956455479649
              5             2             3       0.06598803584531254
 
- TEST072:
-   F_CDF_VALUES stores values of
-   the F cumulative density function.
+F_CDF_VALUES_TEST:
+  F_CDF_VALUES stores values of
+  the F cumulative density function.
 
      A       B            X            CDF(X)
 
@@ -2705,9 +2842,9 @@ TEST071:
        4       5             1  0.5143428032407864
        5       5             1           0.5
 
- TEST073:
-   F_NONCENTRAL_CDF_VALUES stores values of
-   the F cumulative density function.
+F_NONCENTRAL_CDF_VALUES_TEST:
+  F_NONCENTRAL_CDF_VALUES stores values of
+  the F cumulative density function.
 
      A       B            LAMBDA    X            CDF
 
@@ -2734,9 +2871,9 @@ TEST071:
        8      16         1             2  0.8445888579504827
       16       8         1             2  0.4339300273343604
 
- TEST074:
-   FRESNEL_COS_VALUES stores values of
-   the Fresnel cosine integral C(X).
+FRESNEL_COS_VALUES_TEST:
+  FRESNEL_COS_VALUES stores values of
+  the Fresnel cosine integral C(X).
 
       X           C(X)
 
@@ -2757,9 +2894,9 @@ TEST071:
            2.8        0.4674916516989059
              3        0.6057207892976856
 
- TEST075:
-   FRESNEL_SIN_VALUES stores values of
-   the Fresnel sine integral S(X).
+FRESNEL_SIN_VALUES_TEST:
+  FRESNEL_SIN_VALUES stores values of
+  the Fresnel sine integral S(X).
 
       X           S(X)
 
@@ -2780,22 +2917,7 @@ TEST071:
            2.8        0.3915284435431718
              3         0.496312998967375
 
-TEST0755:
-  FROBENIUS_NUMBER_ORDER2_VALUES returns values of 
-  the Frobenius number of order 2.
-
-         C1        C2          F(C1,C2)
-
-         2         5         3
-         3        17        31
-         4        19        53
-         5        13        47
-        12        11       109
-        99       100      9701
-
-TEST0756:
-  FROBENIUS_NUMBER_ORDER_VALUES returns the order for
-  a Frobenius problem;
+FROBENIUS_NUMBER_DATA_VALUES_TEST:
   FROBENIUS_NUMBER_DATA_VALUES returns the corresponding
   coin denominations.
 
@@ -2875,8 +2997,66 @@ TEST0756:
      13429     26850     26855     40280     40281     53711     53714     67141
   Frobenius number = 45094583
 
- TEST076:
-   GAMMA_VALUES stores values of the Gamma function.
+FROBENIUS_NUMBER_ORDER_VALUES_TEST:
+  FROBENIUS_NUMBER_ORDER_VALUES returns the order for
+  a Frobenius problem;
+
+   Problem   ORDER
+
+
+     1     2
+
+     2     2
+
+     3     2
+
+     4     2
+
+     5     2
+
+     6     2
+
+     7     3
+
+     8     3
+
+     9     3
+
+    10     4
+
+    11     4
+
+    12     5
+
+    13     5
+
+    14     5
+
+    15     6
+
+    16     6
+
+    17     6
+
+    18     7
+
+    19     8
+
+FROBENIUS_NUMBER_ORDER2_VALUES_TEST:
+  FROBENIUS_NUMBER_ORDER2_VALUES returns values of 
+  the Frobenius number of order 2.
+
+         C1        C2          F(C1,C2)
+
+         2         5         3
+         3        17        31
+         4        19        53
+         5        13        47
+        12        11       109
+        99       100      9701
+
+GAMMA_VALUES_TEST:
+  GAMMA_VALUES stores values of the Gamma function.
 
       X            GAMMA(X)
 
@@ -2906,9 +3086,9 @@ TEST0756:
             20      1.21645100408832e+17
             30     8.841761993739702e+30
 
- TEST077:
-   GAMMA_CDF_VALUES stores values of
-   the Gamma CDF.
+GAMMA_CDF_VALUES_TEST:
+  GAMMA_CDF_VALUES stores values of
+  the Gamma CDF.
 
       M    Sigma      X            CDF((X)
 
@@ -2925,7 +3105,7 @@ TEST0756:
              4             2             3       0.06564245437845009
              5             2             3       0.01857593622214067
 
- TEST078:
+GAMMA_INC_VALUES_TEST:
    GAMMA_INC_VALUES stores values of
    the incomplete Gamma function.
 
@@ -2952,9 +3132,90 @@ TEST0756:
             26            25     8.576480283455533e+24
             41            45     2.085031346403364e+47
 
- TEST079:
-   GAMMA_LOG_VALUES stores values of
-   the logarithm of the Gamma function.
+GAMMA_INC_P_VALUES_TEST:
+   GAMMA_INC_P_VALUES stores values of
+   the incomplete Gamma P function.
+
+      A            X            F(X)
+
+           0.1          0.03        0.7382350532339351
+           0.1           0.3        0.9083579897300343
+           0.1           1.5        0.9886559833621947
+           0.5         0.075        0.3014646416966613
+           0.5          0.75        0.7793286380801532
+           0.5           3.5        0.9918490284064972
+             1           0.1       0.09516258196404043
+             1             1        0.6321205588285577
+             1             5        0.9932620530009145
+           1.1           0.1       0.07205974576054322
+           1.1             1        0.5891809618706485
+           1.1             5        0.9915368159845525
+             2          0.15       0.01018582711118352
+             2           1.5        0.4421745996289254
+             2             7        0.9927049442755639
+             6           2.5       0.04202103819530612
+             6            12        0.9796589705830716
+            11            16        0.9226039842296428
+            26            25        0.4470785799755852
+            41            45        0.7444549220718699
+
+GAMMA_INC_Q_VALUES_TEST:
+   GAMMA_INC_Q_VALUES stores values of
+   the incomplete Gamma Q function.
+
+      A            X            F(X)
+
+           0.1          0.03        0.2617649467660649
+           0.1           0.3       0.09164201026996573
+           0.1           1.5       0.01134401663780527
+           0.5         0.075        0.6985353583033387
+           0.5          0.75        0.2206713619198468
+           0.5           3.5        0.0081509715935027
+             1           0.1        0.9048374180359596
+             1             1        0.3678794411714423
+             1             5      0.006737946999085467
+           1.1           0.1        0.9279402542394568
+           1.1             1        0.4108190381293515
+           1.1             5      0.008463184015447498
+             2          0.15        0.9898141728888165
+             2           1.5        0.5578254003710746
+             2             7       0.00729505572443613
+             6           2.5        0.9579789618046939
+             6            12       0.02034102941692837
+            11            16       0.07739601577035708
+            26            25        0.5529214200244148
+            41            45        0.2555450779281301
+
+GAMMA_INC_TRICOMI_VALUES_TEST:
+   GAMMA_INC_TRICOMI_VALUES stores values of
+   the incomplete Tricomi Gamma function.
+
+      A            X            F(X)
+
+           0.1          0.03         1.048292641463504
+           0.1           0.3         1.024577737369574
+           0.1           1.5        0.9493712443185374
+           0.5         0.075         1.100793230316492
+           0.5          0.75        0.8998911979655217
+           0.5           3.5        0.5301656062431039
+             1           0.1        0.9516258196404043
+             1             1        0.6321205588285577
+             1             5        0.1986524106001829
+           1.1           0.1        0.9071784510537487
+           1.1             1        0.5891809618706485
+           1.1             5        0.1688269752193589
+             2          0.15        0.4527034271637121
+             2           1.5        0.1965220442795224
+             2             7       0.02025928457705232
+             6           2.5     0.0001721181724479739
+             6            12     3.280858070850586e-07
+            11            16      5.24439647182159e-14
+            26            25     2.013462926183376e-37
+            41            45     1.230623887499875e-68
+
+GAMMA_LOG_VALUES_TEST:
+  GAMMA_LOG_VALUES stores values of
+  the logarithm of the Gamma function.
 
       X            GAMMA_LOG(X)
 
@@ -2979,7 +3240,7 @@ TEST0756:
             20         39.33988418719949
             30         71.25703896716801
 
-TEST080:
+GEGENBAUER_POLY_VALUES_TEST:
   GEGENBAUER_POLY_VALUES returns values of
   the Gegenbauer polynomials.
 
@@ -3024,9 +3285,9 @@ TEST080:
        5           3         0.9                 100.88928
        5           3           1                       252
 
- TEST081:
-   GEOMETRIC_CDF_VALUES stores values of
-   the Geometric Probability Cumulative Density Function.
+GEOMETRIC_CDF_VALUES_TEST:
+  GEOMETRIC_CDF_VALUES stores values of
+  the Geometric Probability Cumulative Density Function.
 
       X      P       CDF
 
@@ -3045,7 +3306,7 @@ TEST080:
       10       0.5             0.99951171875
        3       0.9                    0.9999
 
-TEST082:
+GOODWIN_VALUES_TEST:
   GOODWIN_VALUES stores values of 
   the Goodwin function.
 
@@ -3072,9 +3333,9 @@ TEST082:
                          6        0.1355498719104907
                          7         0.117516050600851
 
- TEST083:
-   GUD_VALUES stores values of
-   the Gudermannian function.
+GUD_VALUES_TEST:
+  GUD_VALUES stores values of
+  the Gudermannian function.
 
       X            GUD(X)
 
@@ -3092,9 +3353,9 @@ TEST082:
            3.5           1.5104199075457
              4         1.534169144334733
 
- TEST0835
-   HERMITE_FUNCTION_VALUES stores values of
-   the Hermite function.
+HERMITE_FUNCTION_VALUES_TEST
+  HERMITE_FUNCTION_VALUES stores values of
+  the Hermite function.
 
      N      X            Hf(N,X)
 
@@ -3122,9 +3383,9 @@ TEST082:
        5             3        0.5138426125477819
        5             4       0.09355563118061758
 
- TEST084
-   HERMITE_POLY_PHYS_VALUES stores values of
-   the physicist's Hermite polynomials.
+HERMITE_POLY_PHYS_VALUES_TEST
+  HERMITE_POLY_PHYS_VALUES stores values of
+  the physicist's Hermite polynomials.
 
      N      X            H(N,X)
 
@@ -3147,9 +3408,9 @@ TEST082:
        5             3                      3816
        5            10                   3041200
 
- TEST0843
-   HERMITE_POLY_PROB_VALUES stores values of
-   the probabilist's Hermite polynomials.
+HERMITE_POLY_PROB_VALUES_TEST
+  HERMITE_POLY_PROB_VALUES stores values of
+  the probabilist's Hermite polynomials.
 
      N      X            He(N,X)
 
@@ -3172,9 +3433,40 @@ TEST082:
        5             3                        18
        5            10                     90150
 
- TEST0845:
-   HYPER_2F1_VALUES stores values of
-   the hypergeometric function 2F1.
+HYPER_1F1_VALUES_TEST:
+  HYPER_1F1_VALUES stores values of
+  the hypergeometric function 1F1.
+
+      A      B      X   Hyper_1F1(A,B,X)
+
+      -2.5       3.3      0.25        0.8187992668926519
+      -0.5       1.1      0.25        0.8828398482803297
+       0.5       1.1      0.25         1.124502376495263
+       2.5       3.3      0.25          1.21010493016396
+      -2.5       3.3      1.55        0.1272304553678157
+      -0.5       1.1      1.55        0.1232601687154404
+       0.5       1.1      1.55         2.329795466512829
+       2.5       3.3      1.55         3.389002026446801
+      -2.5       3.3      2.85       -0.1881951028251677
+      -0.5       1.1      2.85        -1.076420380654702
+       0.5       1.1      2.85         5.752182468090797
+       2.5       3.3      2.85         9.999856740330408
+     0.825       6.7      0.25         1.031720896431989
+       1.1       6.7      0.25         1.042486702924995
+      1.65       6.7      0.25         1.064311200094909
+       3.3       6.7      0.25         1.132184436974234
+     0.825       6.7      1.55         1.232840268856845
+       1.1       6.7      1.55         1.320065448202734
+      1.65       6.7      1.55         1.510481152231083
+       3.3       6.7      1.55         2.230752078594052
+     0.825       6.7      2.85         1.519728629818314
+       1.1       6.7      2.85         1.736493817025085
+      1.65       6.7      2.85         2.249233030766814
+       3.3       6.7      2.85         4.637773711917896
+
+HYPER_2F1_VALUES_TEST:
+  HYPER_2F1_VALUES stores values of
+  the hypergeometric function 2F1.
 
       A      B     C      X   Hyper_2F1(A,B,C,X)
 
@@ -3203,9 +3495,9 @@ TEST082:
        1.1       6.7       0.5      0.85         5383505.756129573
        3.3       6.7       4.5      0.85         20396.91377601966
 
- TEST085:
-   HYPERGEOMETRIC_CDF_VALUES stores values of
-   the Hypergeometric CDF.
+HYPERGEOMETRIC_CDF_VALUES_TEST:
+  HYPERGEOMETRIC_CDF_VALUES stores values of
+  the Hypergeometric CDF.
 
      SAM    SUC   POP     X   HyperCDF(S,S,P)(X)
 
@@ -3226,9 +3518,9 @@ TEST082:
         10        90      1000         0        0.3876752992448843
         10        90     10000         0        0.9135215248834896
 
- TEST0855:
-   HYPERGEOMETRIC_PDF_VALUES stores values of
-   the Hypergeometric PDF.
+HYPERGEOMETRIC_PDF_VALUES_TEST:
+  HYPERGEOMETRIC_PDF_VALUES stores values of
+  the Hypergeometric PDF.
 
      SAM    SUC   POP     X   HyperPDF(S,S,P)(X)
 
@@ -3249,65 +3541,38 @@ TEST082:
         10        90      1000         0        0.3876752992448843
         10        90     10000         0        0.9135215248834896
 
- TEST086:
-   FACTORIAL_VALUES returns values of
-   the factorial function.
+HYPERGEOMETRIC_U_VALUES_TEST:
+  HYPERGEOMETRIC_U_VALUES stores values of
+  the hypergeometric function U.
 
-      N        Factorial(N)
+      A      B      X   HyperU(A,B,X)
 
-       0             1
-       1             1
-       2             2
-       3             6
-       4            24
-       5           120
-       6           720
-       7          5040
-       8         40320
-       9        362880
-      10       3628800
-      11      39916800
-      12     479001600
+      -2.5       3.3      0.25        -68.69362872807861
+      -0.5       1.1      0.25     -0.002971055137476107
+       0.5       1.1      0.25          1.50086317421778
+       2.5       3.3      0.25          20.6146882442006
+      -2.5       3.3      1.55         7.456381546930555
+      -0.5       1.1      1.55         1.015579376774929
+       0.5       1.1      1.55        0.7344653893662267
+       2.5       3.3      1.55         0.280464049418794
+      -2.5       3.3      2.85         3.450815374144655
+      -0.5       1.1      2.85         1.515663736875306
+       0.5       1.1      2.85          0.56042118587935
+       2.5       3.3      2.85       0.06489714773513422
+     0.825       6.7      0.25         223432.0235697746
+       1.1       6.7      0.25         263079.2598074081
+      1.65       6.7      0.25         269802.9031935128
+       3.3       6.7      0.25         82809.31133560656
+     0.825       6.7      1.55         26.46568478313185
+       1.1       6.7      1.55         28.09350617251606
+      1.65       6.7      1.55         23.88916462451887
+       3.3       6.7      1.55         4.533884785707039
+     0.825       6.7      2.85         3.022446936269484
+       1.1       6.7      2.85         2.804065091371336
+      1.65       6.7      2.85         1.926257811148017
+       3.3       6.7      2.85        0.2302051811586091
 
- TEST087:
-   FACTORIAL2_VALUES return;s values of
-   the double factorial function.
-
-      N         DoubleFactorial(N)
-
-       0             1
-       1             1
-       2             2
-       3             3
-       4             8
-       5            15
-       6            48
-       7           105
-       8           384
-       9           945
-      10          3840
-      11         10395
-      12         46080
-      13        135135
-      14        645120
-      15       2027025
-
-TEST088:
-  FACTORIAL_RISING_VALUES returns some exact values
-  of the Pochhammer symbol:
-
-     M     N      Factorial_Rising(M,N)
-
-      50       0             1
-      10       1            10
-    4000       1          4000
-      10       2           110
-      18       3          6840
-       4       4           840
-      98       3        970200
-       1       7          5040
-
-TEST089:
+I0ML0_VALUES_TEST:
   I0ML0_VALUES stores values of 
   the I0-L0 function.
 
@@ -3334,7 +3599,7 @@ TEST089:
                        100      0.006366834917845447
                        125      0.005093284316312255
 
-TEST090:
+I1ML1_VALUES_TEST:
   I1ML1_VALUES stores values of 
   the I1-L1 function.
 
@@ -3361,7 +3626,125 @@ TEST090:
                        100        0.6365560912630026
                        125        0.6365790208718393
 
-TEST091:
+I4_FACTORIAL_TEST:
+   I4_FACTORIAL_VALUES returns values of
+   the factorial function.
+
+      N        Factorial(N)
+
+       0             1
+       1             1
+       2             2
+       3             6
+       4            24
+       5           120
+       6           720
+       7          5040
+       8         40320
+       9        362880
+      10       3628800
+      11      39916800
+      12     479001600
+
+I4_FACTORIAL2_TEST:
+   I4_FACTORIAL2_VALUES return;s values of
+   the double factorial function.
+
+      N         DoubleFactorial(N)
+
+       0             1
+       1             1
+       2             2
+       3             3
+       4             8
+       5            15
+       6            48
+       7           105
+       8           384
+       9           945
+      10          3840
+      11         10395
+      12         46080
+      13        135135
+      14        645120
+      15       2027025
+
+I4_FALL_VALUES_TEST:
+  I4_FALL_VALUES returns some exact values
+  of the integer falling factorial function:
+
+     M     N      I4_FALL(M,N)
+
+       5       0             1
+       5       1             5
+       5       2            20
+       5       3            60
+       5       4           120
+       5       5           120
+       5       6             0
+      50       0             1
+      10       1            10
+    4000       1          4000
+      10       2            90
+      18       3          4896
+       4       4            24
+      98       3        912576
+       1       7             0
+
+I4_RISE_VALUES_TEST:
+  I4_RISE_VALUES returns some exact values
+  of the integer rising factorial function:
+
+     M     N      I4_RISE(M,N)
+
+       5       0             1
+       5       1             5
+       5       2            30
+       5       3           210
+       5       4          1680
+       5       5         15120
+       5       6        151200
+      50       0             1
+      10       1            10
+    4000       1          4000
+      10       2           110
+      18       3          6840
+       4       4           840
+      98       3        970200
+       1       7          5040
+
+INT_VALUES_TEST:
+  INT_VALUES stores values of the integer part of a real number.
+
+      X            INT(X)
+
+         -2.01            -2
+         -1.99            -1
+          -1.5            -1
+          -1.1            -1
+         -1.01            -1
+            -1            -1
+         -0.99             0
+          -0.9             0
+         -0.51             0
+          -0.5             0
+         -0.49             0
+         -0.01             0
+             0             0
+          0.01             0
+          0.49             0
+           0.5             0
+          0.51             0
+           0.9             0
+          0.99             0
+             1             1
+          1.01             1
+           1.1             1
+           1.5             1
+          1.99             1
+          2.01             2
+
+JACOBI_CN_VALUES_TEST:
   JACOBI_CN_VALUES returns values of 
   the Jacobi elliptic CN function.
 
@@ -3388,7 +3771,7 @@ TEST091:
            1          -1        0.6480542736638853
            1          -2        0.2658022288340797
 
-TEST092:
+JACOBI_DN_VALUES_TEST:
   JACOBI_DN_VALUES returns values of 
   the Jacobi elliptic DN function.
 
@@ -3415,40 +3798,40 @@ TEST092:
            1          -1        0.6480542736638853
            1          -2        0.2658022288340797
 
-TEST093:
+JACOBI_POLY_VALUES_TEST:
   JACOBI_POLY_VALUES returns values of
   the Jacobi polynomial.
 
-       N       A       B      X       J(N,A,B)(X)
+       N         A         B      X       J(N,A,B)(X)
 
-       0       0       1         0.5                         1
-       1       0       1         0.5                      0.25
-       2       0       1         0.5                    -0.375
-       3       0       1         0.5                 -0.484375
-       4       0       1         0.5                -0.1328125
-       5       0       1         0.5               0.275390625
-       5       1       1         0.5                -0.1640625
-       5       2       1         0.5             -1.1748046875
-       5       3       1         0.5              -2.361328125
-       5       4       1         0.5             -2.6162109375
-       5       5       1         0.5                 0.1171875
-       5       0       2         0.5                  0.421875
-       5       0       3         0.5              0.5048828125
-       5       0       4         0.5               0.509765625
-       5       0       5         0.5              0.4306640625
-       5       0       1          -1                        -6
-       5       0       1        -0.8                   0.03862
-       5       0       1        -0.6                   0.81184
-       5       0       1        -0.4                   0.03666
-       5       0       1        -0.2                  -0.48512
-       5       0       1           0                   -0.3125
-       5       0       1         0.2                   0.18912
-       5       0       1         0.4                   0.40234
-       5       0       1         0.6                   0.01216
-       5       0       1         0.8                  -0.43962
-       5       0       1           1                         1
+       0         0         1         0.5                         1
+       1         0         1         0.5                      0.25
+       2         0         1         0.5                    -0.375
+       3         0         1         0.5                 -0.484375
+       4         0         1         0.5                -0.1328125
+       5         0         1         0.5               0.275390625
+       5         1         1         0.5                -0.1640625
+       5         2         1         0.5             -1.1748046875
+       5         3         1         0.5              -2.361328125
+       5         4         1         0.5             -2.6162109375
+       5         5         1         0.5                 0.1171875
+       5         0         2         0.5                  0.421875
+       5         0         3         0.5              0.5048828125
+       5         0         4         0.5               0.509765625
+       5         0         5         0.5              0.4306640625
+       5         0         1          -1                        -6
+       5         0         1        -0.8                   0.03862
+       5         0         1        -0.6                   0.81184
+       5         0         1        -0.4                   0.03666
+       5         0         1        -0.2                  -0.48512
+       5         0         1           0                   -0.3125
+       5         0         1         0.2                   0.18912
+       5         0         1         0.4                   0.40234
+       5         0         1         0.6                   0.01216
+       5         0         1         0.8                  -0.43962
+       5         0         1           1                         1
 
-TEST094:
+JACOBI_SN_VALUES_TEST:
   JACOBI_SN_VALUES returns values of 
   the Jacobi elliptic SN function.
 
@@ -3475,7 +3858,7 @@ TEST094:
            1          -1       -0.7615941559557649
            1          -2       -0.9640275800758169
 
-TEST0945:
+JED_CE_VALUES_TEST:
   JED_CE_VALUES returns:
   JED, a Julian Ephemeris Date, and
   YMDF, the corresponding year, month, day, fraction.
@@ -3534,7 +3917,7 @@ TEST0945:
      2456284.5    2012  12  23       0
        2913943    3266   1   1     0.5
 
-TEST095:
+JED_MJD_VALUES_TEST:
   JED_MJD_VALUES returns:
   JED, a Julian Ephemeris Date, and
   MJD, the corresponding Modified Julian Day count.
@@ -3575,7 +3958,7 @@ TEST095:
      2465737.5         65737
      2486076.5         86076
 
-TEST096:
+JED_RD_VALUES_TEST:
   JED_RD_VALUES returns:
   JED, a Julian Ephemeris Date, and
   RD, the corresponding Reingold Dershowitz Day count.
@@ -3616,7 +3999,7 @@ TEST096:
      2465737.5        744313
      2486076.5        764652
 
-TEST097:
+JED_WEEKDAY_VALUES_TEST:
   JED_WEEKDAY_VALUES returns Julian Ephemeris Dates 
   (JED) and the corresponding weekday
 
@@ -3656,7 +4039,7 @@ TEST097:
      2465737.5  4  Wednesday
      2486076.5  1  Sunday
 
-TEST0972:
+KEI0_VALUES_TEST:
   KEI0_VALUES stores values of 
   the Kelvin function KEI of order 0.
 
@@ -3674,7 +4057,7 @@ TEST0972:
                        4.5      0.009720918540151989
                          5       0.01118758650986964
 
-TEST0973:
+KEI1_VALUES_TEST:
   KEI1_VALUES stores values of 
   the Kelvin function KEI of order 1.
 
@@ -3691,7 +4074,7 @@ TEST0973:
                        4.5        0.0230021602469025
                          5       0.01157775439325247
 
-TEST0974:
+KER0_VALUES_TEST:
   KER0_VALUES stores values of 
   the Kelvin function KER of order 0.
 
@@ -3708,7 +4091,7 @@ TEST0974:
                        4.5      -0.02199987504667382
                          5      -0.01151172719949066
 
-TEST0975:
+KER1_VALUES_TEST:
   KER1_VALUES stores values of 
   the Kelvin function KER of order 1.
 
@@ -3725,7 +4108,7 @@ TEST0975:
                        4.5       0.01209090413515866
                          5       0.01273739048421857
 
-TEST098:
+LAGUERRE_ASSOCIATED_VALUES_TEST:
   LAGUERRE_ASSOCIATED_VALUES stores values of
   the associated Laguerre polynomials.
 
@@ -3752,7 +4135,34 @@ TEST098:
        9       4          0.25         442.6100000097533
       10       5          0.25          1936.87657228825
 
-TEST099:
+LAGUERRE_GENERAL_VALUES_TEST:
+  LAGUERRE_GENERAL_VALUES stores values of
+  the generalized Laguerre function.
+
+     N     A    X             L(N,A)(X)
+
+       5             0          0.25       0.03726399739583333
+       5          0.25          0.25        0.3494791666666667
+       5           0.5          0.25        0.8710042317708333
+       5          0.75          0.25         1.672395833333333
+       5           1.5          0.25         6.657625325520833
+       5           2.5          0.25         23.95726725260417
+       5             5          0.25         203.1344319661458
+       8           1.2             0              12.841939968
+       8           1.2           0.2         5.359924801587302
+       8           1.2           0.4        0.9204589064126985
+       8           1.2           0.6        -1.341585114857143
+       8           1.2           0.8        -2.119726307555556
+       8           1.2             1        -1.959193658349206
+       0           5.2          0.75                         1
+       1           5.2          0.75                      5.45
+       2           5.2          0.75                  17.20125
+       3           5.2          0.75                41.1039375
+       4           5.2          0.75            82.39745859375
+       5           5.2          0.75         146.0179186171875
+       6           5.2          0.75         235.9204608298828
+
+LAGUERRE_POLYNOMIAL_VALUES_TEST:
   LAGUERRE_POLYNOMIAL_VALUES stores values of 
   the Laguerre polynomials.
 
@@ -3776,7 +4186,7 @@ TEST099:
        5             5        -3.166666666666667
        5            10         34.33333333333333
 
-TEST0995:
+LAMBERT_W_VALUES_TEST:
   LAMBERT_W_VALUES stores values of 
   the Lambert W function.
 
@@ -3805,7 +4215,7 @@ TEST0995:
                       1000         5.249602852401596
                    1000000         11.38335808614005
 
-TEST100:
+LAPLACE_CDF_VALUES_TEST:
   LAPLACE_CDF_VALUES returns values of 
   the Laplace Cumulative Density Function.
 
@@ -3824,7 +4234,7 @@ TEST100:
          3         2         1        0.1839397205857212
          4         2         1        0.1115650800742149
 
-TEST101:
+LEGENDRE_ASSOCIATED_VALUES_TEST:
   LEGENDRE_ASSOCIATED_VALUES stores values of
   the associated Legendre polynomials.
 
@@ -3851,7 +4261,7 @@ TEST101:
        9       4          0.25         1638.320624828339
       10       5          0.25        -20256.87389227225
 
-TEST1015:
+LEGENDRE_ASSOCIATED_NORMALIZED_VALUES_TEST:
   LEGENDRE_ASSOCIATED_NORMALIZED_VALUES stores values of
   the normalized associated Legendre polynomials.
 
@@ -3879,7 +4289,7 @@ TEST1015:
        5       4           0.5         1.034723155272289
        5       5           0.5        -0.566741212915553
 
-TEST1016:
+LEGENDRE_ASSOCIATED_NORMALIZED_SPHERE_VALUES_TEST:
   LEGENDRE_ASSOCIATED_NORMALIZED_SPHERE_VALUES stores values of
   the associated Legendre polynomials, normalized for the unit sphere.
 
@@ -3907,7 +4317,7 @@ TEST1016:
        5       4           0.5        0.4127948151484925
        5       5           0.5       -0.2260970318780046
 
-TEST102:
+LEGENDRE_POLY_VALUES_TEST:
   LEGENDRE_POLY_VALUES stores values of 
   the Legendre polynomials.
 
@@ -3936,7 +4346,7 @@ TEST102:
        3           0.9                    0.4725
        3             1                         1
 
-TEST103:
+LEGENDRE_FUNCTION_Q_VALUES_TEST:
   LEGENDRE_FUNCTION_Q_VALUES stores values of
   the Legendre Q function.
 
@@ -3964,7 +4374,7 @@ TEST103:
        3           0.8       -0.8454443502398846
        3           0.9       -0.6627096245052618
 
-TEST1035:
+LERCH_VALUES_TEST:
   LERCH_VALUES returns values of
   the Lerch transcendent function.
 
@@ -3983,7 +4393,7 @@ TEST1035:
                        0.1       3             3       0.03868447922298962
                        0.1      10             3     1.703149614186634e-05
 
-TEST104:
+LOBACHEVSKY_VALUES_TEST:
   LOBACHEVSKY_VALUES stores values of 
   the Lobachevsky function.
 
@@ -4010,7 +4420,83 @@ TEST104:
             50         34.83823658944912
            100          69.6570624378374
 
-TEST1037:
+LOBATTO_POLYNOMIAL_VALUES_TEST:
+  LOBATTO_POLYNOMIAL_VALUES stores values of 
+  the completed Lobatto polynomials.
+
+     N    X             Lo(N)(X)
+
+       1          0.25                    0.9375
+       2          0.25                  0.703125
+       3          0.25              -0.966796875
+       4          0.25            -1.50146484375
+       5          0.25         0.363922119140625
+       6          0.25         2.001914978027344
+       7          0.25         0.659794807434082
+       8          0.25        -1.934441328048706
+       9          0.25        -1.769941113889217
+      10          0.25         1.215243665501475
+       3            -1                         0
+       3          -0.9                   0.86925
+       3          -0.8                     1.188
+       3          -0.7                   1.10925
+       3          -0.6                     0.768
+       3          -0.5                   0.28125
+       3          -0.4                    -0.252
+       3          -0.3                  -0.75075
+       3          -0.2                    -1.152
+       3          -0.1                  -1.41075
+       3             0                      -1.5
+       3           0.1                  -1.41075
+       3           0.2                    -1.152
+       3           0.3                  -0.75075
+       3           0.4                    -0.252
+       3           0.5                   0.28125
+       3           0.6                     0.768
+       3           0.7                   1.10925
+       3           0.8                     1.188
+       3           0.9                   0.86925
+       3             1                         0
+
+LOBATTO_POLYNOMIAL_DERIVATIVES_TEST:
+  LOBATTO_POLYNOMIAL_VALUES stores derivatives of 
+  the completed Lobatto polynomials.
+
+     N    X             Lo'(N)(X)
+
+       1          0.25                      -0.5
+       2          0.25                    2.4375
+       3          0.25                   4.03125
+       4          0.25              -3.154296875
+       5          0.25          -10.191650390625
+       6          0.25        -1.019622802734375
+       7          0.25         15.67544555664063
+       8          0.25         10.97668933868408
+       9          0.25        -15.91419786214828
+      10          0.25        -24.33202382177114
+       3            -1                        12
+       3          -0.9                      5.67
+       3          -0.8                      0.96
+       3          -0.7                     -2.31
+       3          -0.6                     -4.32
+       3          -0.5                     -5.25
+       3          -0.4                     -5.28
+       3          -0.3                     -4.59
+       3          -0.2                     -3.36
+       3          -0.1                     -1.77
+       3             0                         0
+       3           0.1                      1.77
+       3           0.2                      3.36
+       3           0.3                      4.59
+       3           0.4                      5.28
+       3           0.5                      5.25
+       3           0.6                      4.32
+       3           0.7                      2.31
+       3           0.8                     -0.96
+       3           0.9                     -5.67
+       3             1                       -12
+
+LOG_VALUES_TEST:
    LOG_VALUES stores values of the natural logarithm function.
 
                 X                     FX
@@ -4036,7 +4522,7 @@ TEST1037:
                        100         4.605170185988092
                  123456789         18.63140176616802
 
-TEST105:
+LOG_NORMAL_CDF_VALUES_TEST:
   LOG_NORMAL_CDF_VALUES returns values of 
   the Log Normal Cumulative Density Function.
 
@@ -4055,7 +4541,7 @@ TEST105:
          4         2         3        0.0734325635795206
          5         2         3       0.02554673736161761
 
-TEST106:
+LOG_SERIES_CDF_VALUES_TEST:
   LOG_SERIES_CDF_VALUES returns values of 
   the Log Series Cumulative Density Function.
 
@@ -4091,7 +4577,33 @@ TEST106:
                       0.99       9        0.5951442521714636
                       0.99      10        0.6147826594068904
 
-TEST107:
+LOG10_VALUES_TEST:
+   LOG10_VALUES stores values of the base 10 logarithm function.
+
+                X                     FX
+
+                     1e-05                        -5
+                      0.01                        -2
+                       0.1                        -1
+                       0.2       -0.6989700043360189
+                       0.3       -0.5228787452803375
+                       0.4       -0.3979400086720376
+                       0.5       -0.3010299956639812
+                       0.6       -0.2218487496163564
+                       0.7       -0.1549019599857432
+                       0.8      -0.09691001300805642
+                       0.9      -0.04575749056067512
+                         1                         0
+                         2        0.3010299956639812
+                         3        0.4771212547196624
+         3.141592653589793        0.4971498726941339
+                         5        0.6989700043360189
+                        10                         1
+                        20         1.301029995663981
+                       100                         2
+                 123456789          8.09151497716927
+
+LOGARITHMIC_INTEGRAL_VALUES_TEST:
   LOGARITHMIC_INTEGAL_VALUES stores values of
   the logarithmic integral function.
 
@@ -4126,7 +4638,7 @@ TEST107:
           1024         181.0780396816945
           2048         321.1144156746837
 
-TEST108:
+LOGISTIC_CDF_VALUES_TEST:
   LOGISTIC_CDF_VALUES returns values of 
   the Logistic Cumulative Density Function.
 
@@ -4145,7 +4657,7 @@ TEST108:
          4         2         3        0.3775406687981454
          5         2         3        0.2689414213699951
 
-TEST10875:
+MERTENS_VALUES_TEST:
   MERTENS_VALUES returns values of
   the Mertens function.
 
@@ -4167,7 +4679,7 @@ TEST10875:
       1000             2
      10000           -23
 
-TEST109:
+MOEBIUS_VALUES_TEST:
   MOEBIUS_VALUES returns values of
   the Moebius function.
 
@@ -4194,7 +4706,7 @@ TEST109:
         19            -1
         20             0
 
-TEST110:
+NEGATIVE_BINOMIAL_CDF_VALUES_TEST:
   NEGATIVE_BINOMIAL_CDF_VALUES stores values of
   the Negative Binomial Cumulative Density Function.
 
@@ -4228,8 +4740,8 @@ TEST110:
        1       1          0.01                    0.0199
        0       2          0.01                    0.0001
 
-TEST1105:
-  GSL_SF_COUPLING_9J returns values of
+NINE_J_VALUES_TEST:
+  NINE_J_VALUES returns values of
   the Wigner 9J coefficient.
 
       J1      J2      J3      J4      J5      J6      J7      J8      J9        NINE_J
@@ -4244,7 +4756,7 @@ TEST1105:
        1     0.5       1       2       1     1.5     1.5     0.5     1.5      0.006211299937499411
      1.5     0.5       1       2       1     1.5     1.5     0.5     1.5       0.03042903097250921
 
-TEST111:
+NORMAL_CDF_VALUES_TEST:
   NORMAL_CDF_VALUES stores values of
   the Normal Cumulative Density Function.
 
@@ -4263,7 +4775,7 @@ TEST111:
              4             2             3        0.3085375387259869
              5             2             3        0.1586552539314571
 
-TEST112:
+NORMAL_01_CDF_VALUES_TEST:
   NORMAL_01_CDF_VALUES stores values of
   the Normal 01 Cumulative Density Function.
 
@@ -4287,13 +4799,13 @@ TEST112:
                        3.5        0.9997673709209645
                          4        0.9999683287581669
 
-TEST113:
+OMEGA_VALUES_TEST:
   OMEGA_VALUES returns values of
   the Omega function.
 
      N           OMEGA(N)
 
-             1           1
+             1           0
              2           1
              3           1
              4           1
@@ -4317,7 +4829,7 @@ TEST113:
         510510           7
        9699690           8
 
-TEST1135
+OWEN_VALUES_TEST
   OWEN_VALUES stores values of
   Owen's T function.
 
@@ -4352,7 +4864,7 @@ TEST1135
      0.0078125            10        0.2340886964802671
      0.0078125           100        0.2479460829231492
 
-TEST114:
+PARTITION_COUNT_VALUES_TEST:
   PARTITION_COUNT_VALUES returns values of 
   the integer partition count function.
 
@@ -4380,7 +4892,7 @@ TEST114:
       19           490
       20           627
 
-TEST115:
+PARTITION_DISTINCT_COUNT_VALUES_TEST:
   PARTITION_DISTINCT_COUNT_VALUES returns values of 
   the integer distinct partition count function.
 
@@ -4408,7 +4920,7 @@ TEST115:
       19            54
       20            64
 
-TEST116:
+PHI_VALUES_TEST:
   PHI_VALUES returns values of
   the PHI function.
 
@@ -4435,7 +4947,7 @@ TEST116:
      750         200
      999         648
 
-TEST117:
+PI_VALUES_TEST:
   PI_VALUES returns values of
   the PI function.
 
@@ -4459,7 +4971,7 @@ TEST117:
      100000000     5761455
     1000000000    50847534
 
-TEST118:
+POISSON_CDF_VALUES_TEST:
   POISSON_CDF_VALUES returns values of
   the Poisson Cumulative Density Function.
 
@@ -4487,7 +4999,7 @@ TEST118:
          5     5        0.6159606548330631
          5     6        0.7621834629729387
 
-TEST1185:
+POLYLOGARITHM_VALUES_TEST:
   POLYLOGARITHM_VALUES returns values of 
   the polylogarithm function.
 
@@ -4506,7 +5018,7 @@ TEST1185:
        3                       0.1         0.101288684479223
       10                       0.1        0.1000097826564961
 
-TEST119:
+PRANDTL_VALUES_TEST:
   PRANDTL_VALUES stores values of
   the Prandtl number of water
   as a function of temperature and pressure.
@@ -4549,7 +5061,7 @@ TEST119:
            600             1         0.899
            800             1         0.882
 
-TEST120:
+PRIME_VALUES_TEST:
   PRIME_VALUES returns values of
   the prime function.
 
@@ -4578,9 +5090,9 @@ TEST120:
        1024000      15881419
        2048000      33283031
        4096000      69600977
-       8129000     145253029
+       8192000     145253029
 
-TEST121:
+PSAT_VALUES_TEST:
   PSAT_VALUES stores values of
   the saturation pressure of water
   as a function of temperature.
@@ -4600,12 +5112,21 @@ TEST121:
                        350                    165.21
                    373.976                    220.55
 
-TEST122
+PSI_VALUES_TEST
   PSI_VALUES stores values of
   the PSI function.
 
       X            PSI(X)
 
+           0.1        -10.42375494041108
+           0.2        -5.289039896592188
+           0.3        -3.502524222200133
+           0.4        -2.561384544585116
+           0.5        -1.963510026021423
+           0.6         -1.54061921389319
+           0.7        -1.220023553697935
+           0.8       -0.9650085667061385
+           0.9       -0.7549269499470515
              1       -0.5772156649015329
            1.1       -0.4237549404110768
            1.2       -0.2890398965921883
@@ -4618,7 +5139,7 @@ TEST122
            1.9        0.3561841611640597
              2        0.4227843350984671
 
-TEST123:
+R8_FACTORIAL_VALUES_TEST:
   R8_FACTORIAL_VALUES stores values of
   the factorial function (using double arithmetic).
 
@@ -4650,7 +5171,7 @@ TEST123:
      100    9.332621544394415e+157
      150    5.713383956445855e+262
 
-TEST124:
+R8_FACTORIAL_LOG_VALUES_TEST:
   R8_FACTORIAL_LOG_VALUES stores values of
   the logarithm of the factorial function
   (using real arithmetic).
@@ -4685,7 +5206,90 @@ TEST124:
      500         2611.330458460156
     1000         5912.128178488163
 
-TEST125:
+R8_FACTORIAL2_VALUES_TEST:
+  R8_FACTORIAL2_VALUES stores values of
+  the double factorial function (using double arithmetic).
+
+      N       F
+
+       0                         1
+       1                         1
+       2                         2
+       3                         3
+       4                         8
+       5                        15
+       6                        48
+       7                       105
+       8                       384
+       9                       945
+      10                      3840
+      11                     10395
+      12                     46080
+      13                    135135
+      14                    645120
+      15                   2027025
+
+R8_FALL_VALUES_TEST:
+  R8_FALL_VALUES returns some exact values
+  of the falling factorial function:
+
+     X     N      R8_FALL(X,N)
+
+         5         4           120
+      5.25         4  163.16015625
+       5.5         4      216.5625
+      5.75         4  281.66015625
+         6         4           360
+       7.5         0             1
+       7.5         1           7.5
+       7.5         2         48.75
+       7.5         3       268.125
+       7.5         4     1206.5625
+       7.5         5    4222.96875
+       7.5         6  10557.421875
+       7.5         7  15836.1328125
+       7.5         8  7918.06640625
+       7.5         9  -3959.033203125
+
+R8_RISE_VALUES_TEST:
+  R8_RISE_VALUES returns some exact values
+  of the  rising factorial function:
+
+     X     N      R8_RISE(X,N)
+
+         5         4          1680
+      5.25         4  1962.59765625
+       5.5         4     2279.0625
+      5.75         4  2631.97265625
+         6         4          3024
+       7.5         0             1
+       7.5         1           7.5
+       7.5         2         63.75
+       7.5         3       605.625
+       7.5         4     6359.0625
+       7.5         5   73129.21875
+       7.5         6  914115.234375
+       7.5         7  12340555.6640625
+       7.5         8  178938057.1289063
+       7.5         9  2773539885.498047
+
+RAYLEIGH_CDF_VALUES_TEST:
+  RAYLEIGH_CDF_VALUES stores values of
+  the Rayleigh CDF.
+
+      SIGMA        X            CDF(X)
+
+           0.5             1        0.8646647167633873
+           0.5             2        0.9996645373720975
+           0.5             3        0.9999999847700203
+           0.5             4         0.999999999999987
+             1             2        0.8646647167633873
+             2             2        0.3934693402873666
+             3             2         0.199262597083192
+             4             2        0.1175030974154046
+             5             2       0.07688365361336422
+
+SECVIR_VALUES_TEST:
   SECVIR_VALUES stores values of
   the second virial coefficient of water
   as a function of temperature.
@@ -4712,7 +5316,7 @@ TEST125:
           1000         -0.39
           2000          0.53
 
-TEST1255:
+SHI_VALUES_TEST:
   SHI_VALUES stores values of
   the hyperbolic sine integral function.
 
@@ -4735,7 +5339,7 @@ TEST1255:
              4         9.817326911233033
            4.5         13.96788504934715
 
-TEST126:
+SI_VALUES_TEST:
   SI_VALUES stores values of
   the sine integral function.
 
@@ -4758,7 +5362,7 @@ TEST126:
              4         1.758203138949053
            4.5         1.654140414379244
 
-TEST127:
+SIGMA_VALUES_TEST:
   SIGMA_VALUES returns values of
   the SIGMA function.
 
@@ -4785,7 +5389,7 @@ TEST127:
      816          2232
     1000          2340
 
-TEST1275:
+SIN_VALUES_TEST:
    SIN_VALUES stores values of the sine function.
 
                 X                     FX
@@ -4804,7 +5408,35 @@ TEST1275:
                          4       -0.7568024953079282
                          5       -0.9589242746631385
 
-TEST128:
+SIN_DEGREE_VALUES_TEST:
+   SIN_DEGREE_VALUES stores values of the sine function.
+
+                X                     FX
+
+                        -5      -0.08715574274765818
+                         0                         0
+                         1       0.01745240643728351
+                         2       0.03489949670250097
+                         3       0.05233595624294383
+                         4        0.0697564737441253
+                         5       0.08715574274765818
+                        10        0.1736481776669304
+                        15        0.2588190451025207
+                        30                       0.5
+                        45        0.7071067811865476
+                        60        0.8660254037844386
+                        75        0.9659258262890683
+                        85        0.9961946980917455
+                        86        0.9975640502598242
+                        87        0.9986295347545738
+                        88        0.9993908270190958
+                        89        0.9998476951563913
+                        90                         1
+                        91        0.9998476951563913
+                       105        0.9659258262890683
+                       180                         0
+
+SIN_POWER_INT_VALUES_TEST:
   SIN_POWER_INT_VALUES returns values of
   the integral of the N-th power of the sine function.
 
@@ -4821,7 +5453,7 @@ TEST128:
          0         1      10       0.02188752242172985
          0         1      11       0.01702343937406933
 
-TEST1283:
+SINH_VALUES_TEST:
    SINH_VALUES stores values of the hyperbolic sine function.
 
                 X                     FX
@@ -4845,7 +5477,7 @@ TEST1283:
                          5         74.20321057778875
                         10         11013.23287470339
 
-TEST1285:
+SIX_J_VALUES_TEST:
   SIX_J_VALUES returns values of 
   the Wigner 6J coefficient.
 
@@ -4867,7 +5499,7 @@ TEST1285:
       14       8       7     6.5     7.5     7.5       0.01483990561221713
       15       8       7     6.5     7.5     7.5      0.002708577680633186
 
-TEST129:
+SOUND_VALUES_TEST:
   SOUND_VALUES stores values of
   the spead of sound in water
   as a function of temperature and pressure.
@@ -4895,7 +5527,7 @@ TEST129:
              0          1000        1577.1
              0          2500        1913.4
 
-TEST131:
+SPHERE_UNIT_AREA_VALUES_TEST:
   SPHERE_UNIT_AREA_VALUES stores values of
   the area of the unit sphere in various dimensions.
 
@@ -4922,7 +5554,7 @@ TEST131:
       19        0.8858104195716824
       20        0.5161378278002812
 
-TEST132:
+SPHERE_UNIT_VOLUME_VALUES_TEST:
   SPHERE_UNIT_VOLUME_VALUES stores values of
   the volume of the unit sphere in various dimensions.
 
@@ -4949,7 +5581,7 @@ TEST132:
       19       0.04662160103008855
       20       0.02580689139001406
 
-TEST1325:
+SPHERICAL_HARMONIC_VALUES_TEST:
   SPHERICAL_HARMONIC_VALUES stores values of
   the spherical harmonic function.
 
@@ -4976,7 +5608,7 @@ TEST1325:
    3  -1    0.3927     1.795        -0.089930360657043       -0.3940106541811563
    3  -1    0.3927     2.244       -0.2519792711195075       -0.3159720118970196
 
-TEST130:
+SQRT_VALUES_TEST:
   SQRT_VALUES returns some exact values.
 
      X       Fx
@@ -4996,7 +5628,7 @@ TEST130:
             97         9.848857801796106
      123456789         11111.11106055556
 
-TEST133:
+STIRLING1_VALUES_TEST:
   STIRLING1_VALUES returns values of
   the Stirling numbers of the first kind.
 
@@ -5019,7 +5651,7 @@ TEST133:
        8       7           -28
        8       8             1
 
-TEST134:
+STIRLING2_VALUES_TEST:
   STIRLING2_VALUES returns values of
   the Stirling numbers of the second kind.
 
@@ -5042,7 +5674,7 @@ TEST134:
        8       7           -28
        8       8             1
 
-TEST135:
+STROMGEN_VALUES_TEST:
   STROMGEN_VALUES stores values of 
   the Stromgen function.
 
@@ -5069,7 +5701,7 @@ TEST135:
                         30         196.5194676600821
                         50         196.5195692086832
 
-TEST136:
+STRUVE_H0_VALUES_TEST:
   STRUVE_H0_VALUES stores values of
   the Struve H0 function.
 
@@ -5096,7 +5728,7 @@ TEST136:
            100      -0.07087875168964734
           -125       0.06575290807335278
 
-TEST137:
+STRUVE_H1_VALUES_TEST:
   STRUVE_H1_VALUES stores values of
   the Struve H1 function.
 
@@ -5123,7 +5755,7 @@ TEST137:
            100        0.6163111032720134
           -125        0.6277848076544366
 
-TEST138:
+STRUVE_L0_VALUES_TEST:
   STRUVE_L0_VALUES stores values of
   the Struve L0 function.
 
@@ -5150,7 +5782,7 @@ TEST138:
             60     5.894077055609801e+24
            -70    -1.201588957912546e+29
 
-TEST139:
+STRUVE_L1_VALUES_TEST:
   STRUVE_L1_VALUES stores values of
   the Struve L1 function.
 
@@ -5177,7 +5809,7 @@ TEST139:
             60     5.844751588390468e+24
            -70     1.192975078889231e+29
 
-TEST140:
+STUDENT_CDF_VALUES_TEST:
   STUDENT_CDF_VALUES returns values of
   the Student T Cumulative Density Function.
 
@@ -5197,7 +5829,7 @@ TEST140:
                  4             3.747        0.9900004567580596
                  5             3.365        0.9900007637471291
 
-TEST141:
+STUDENT_NONCENTRAL_CDF_VALUES_TEST:
   STUDENT_NONCENTRAL_CDF_VALUES returns values of
   the noncentral Student T Cumulative Density Function.
 
@@ -5234,9 +5866,9 @@ TEST141:
       10         3         6              0.9610341649
       10         4         6               0.868800735
 
- TEST1415:
-   SUBFACTORIAL_VALUES returns values of
-   the subfactorial function.
+SUBFACTORIAL_VALUES_TEST:
+  SUBFACTORIAL_VALUES returns values of
+  the subfactorial function.
 
       N       Subfactorial[N]
 
@@ -5254,7 +5886,7 @@ TEST141:
       11      14684570
       12     176214841
 
-TEST142:
+SURTEN_VALUES_TEST:
   SURTEN_VALUES stores values of
   the surface tension of water
   as a function of temperature.
@@ -5276,7 +5908,7 @@ TEST142:
            370           0.4
        373.976             0
 
-TEST143:
+SYNCH1_VALUES_TEST:
   SYNCH1_VALUES stores values of 
   the Synchrotron function of order 1.
 
@@ -5303,7 +5935,7 @@ TEST143:
                         20     1.196863445609745e-08
                         25     8.956424677223712e-11
 
-TEST144:
+SYNCH2_VALUES_TEST:
   SYNCH2_VALUES stores values of 
   the Synchrotron function of order 2.
 
@@ -5330,7 +5962,7 @@ TEST144:
                         20     1.160769685438516e-08
                         25     8.736234374622152e-11
 
-TEST1445:
+TAN_VALUES_TEST:
    TAN_VALUES stores values of the tangent function.
 
                 X                     FX
@@ -5351,7 +5983,7 @@ TEST1445:
                          4         1.157821282349577
                          5        -3.380515006246586
 
-TEST1447:
+TANH_VALUES_TEST:
    TANH_VALUES stores values of the hyperbolic tangent function.
 
                 X                     FX
@@ -5375,7 +6007,7 @@ TEST1447:
                          5        0.9999092042625951
                         10        0.9999999958776927
 
-TEST145:
+TAU_VALUES_TEST:
   TAU_VALUES returns values of
   the TAU function.
 
@@ -5402,7 +6034,7 @@ TEST145:
      832            14
      960            28
 
-TEST146:
+THERCON_VALUES_TEST:
   THERCON_VALUES stores values of
   the thermal conductivity of water
   as a function of temperature and pressure.
@@ -5445,7 +6077,7 @@ TEST146:
            600             1         79.89
            800             1         107.3
 
-TEST1465:
+THREE_J_VALUES_TEST:
   THREE_J_VALUES returns values of
   the Wigner 3J coefficient.
 
@@ -5460,7 +6092,7 @@ TEST1465:
        7     4.5     3.5       1    -3.5     2.5      -0.05536235693131719
        8     4.5     3.5       1    -3.5     2.5       0.01799835451137786
 
-TEST147:
+TRAN02_VALUES_TEST:
   TRAN02_VALUES stores values of 
   the Transport function of order 2.
 
@@ -5487,7 +6119,7 @@ TEST147:
                         30         3.289868133606432
                         50         3.289868133696453
 
-TEST148:
+TRAN03_VALUES_TEST:
   TRAN03_VALUES stores values of 
   the Transport function of order 3.
 
@@ -5514,7 +6146,7 @@ TEST148:
                         30         7.212341416160947
                         50         7.212341418957566
 
-TEST149:
+TRAN04_VALUES_TEST:
   TRAN04_VALUES stores values of 
   the Transport function of order 4.
 
@@ -5541,7 +6173,7 @@ TEST149:
                         30         25.97575752208409
                         50         25.97575760906732
 
-TEST150:
+TRAN05_VALUES_TEST:
   TRAN05_VALUES stores values of 
   the Transport function of order 5.
 
@@ -5568,7 +6200,7 @@ TEST150:
                         30         124.4313279083859
                         50         124.4313306172043
 
-TEST151:
+TRAN06_VALUES_TEST:
   TRAN06_VALUES stores values of 
   the Transport function of order 6.
 
@@ -5595,7 +6227,7 @@ TEST151:
                         30         732.4869201588209
                         50         732.4870046287999
 
-TEST152:
+TRAN07_VALUES_TEST:
   TRAN07_VALUES stores values of 
   the Transport function of order 7.
 
@@ -5622,7 +6254,7 @@ TEST152:
                         30         5082.077720202871
                         50         5082.080358004717
 
-TEST153:
+TRAN08_VALUES_TEST:
   TRAN08_VALUES stores values of 
   the Transport function of order 8.
 
@@ -5649,7 +6281,7 @@ TEST153:
                         30         40484.31650412065
                         50         40484.39900189218
 
-TEST154:
+TRAN09_VALUES_TEST:
   TRAN09_VALUES stores values of 
   the Transport function of order 9.
 
@@ -5676,7 +6308,7 @@ TEST154:
                         30         363606.2212477756
                         50         363608.8055882716
 
-TEST1545
+TRIGAMMA_VALUES_TEST
   TRIGAMMA_VALUES stores values of
   the TriGamma function.
 
@@ -5694,7 +6326,115 @@ TEST1545
            1.9        0.6879720582426356
              2        0.6449340668482264
 
-TEST155:
+TRUNCATED_NORMAL_AB_CDF_VALUES_TEST:
+  TRUNCATED_NORMAL_AB_CDF_VALUES stores values of
+  the Truncated Normal Cumulative Density Function.
+
+        MU     SIGMA       A         B         X        CDF(X)
+
+       100        25        50       150        90        0.3371694242213513
+       100        25        50       150        92        0.3685009225506048
+       100        25        50       150        94        0.4006444233448185
+       100        25        50       150        96         0.433410706690304
+       100        25        50       150        98        0.4665988676496338
+       100        25        50       150       100                       0.5
+       100        25        50       150       102        0.5334011323503662
+       100        25        50       150       104         0.566589293309696
+       100        25        50       150       106        0.5993555766551815
+       100        25        50       150       108        0.6314990774493952
+       100        25        50       150       110        0.6628305757786487
+
+TEST1547:
+  TRUNCATED_NORMAL_AB_PDF_VALUES stores values of
+  the Truncated Normal Probability Density Function.
+
+        MU     SIGMA       A         B         X        PDF(X)
+
+       100        25        50       150        90       0.01543301171801836
+       100        25        50       150        92       0.01588394472270638
+       100        25        50       150        94       0.01624375997031919
+       100        25        50       150        96       0.01650575046469259
+       100        25        50       150        98       0.01666496869385951
+       100        25        50       150       100       0.01671838200940538
+       100        25        50       150       102       0.01666496869385951
+       100        25        50       150       104       0.01650575046469259
+       100        25        50       150       106       0.01624375997031919
+       100        25        50       150       108       0.01588394472270638
+       100        25        50       150       110       0.01543301171801836
+
+TEST1548:
+  TRUNCATED_NORMAL_A_CDF_VALUES stores values of
+  the lower Truncated Normal Cumulative Density Function.
+
+        MU     SIGMA       A         X        CDF(X)
+
+       100        25        50        90        0.3293202045481688
+       100        25        50        92        0.3599223134505957
+       100        25        50        94        0.3913175216041539
+       100        25        50        96        0.4233210140873113
+       100        25        50        98        0.4557365629792204
+       100        25        50       100        0.4883601253415709
+       100        25        50       102        0.5209836877039214
+       100        25        50       104        0.5533992365958303
+       100        25        50       106        0.5854027290789878
+       100        25        50       108        0.6167979372325459
+       100        25        50       110        0.6474000461349729
+
+TRUNCATED_NORMAL_A_PDF_VALUES_TEST:
+  TRUNCATED_NORMAL_A_PDF_VALUES stores values of
+  the lower Truncated Normal Probability Density Function.
+
+        MU     SIGMA       A         X        PDF(X)
+
+       100        25        50        90       0.01507373507401876
+       100        25        50        92       0.01551417047139894
+       100        25        50        94       0.01586560931024694
+       100        25        50        96       0.01612150073158793
+       100        25        50        98       0.01627701240029317
+       100        25        50       100       0.01632918226724295
+       100        25        50       102       0.01627701240029317
+       100        25        50       104       0.01612150073158793
+       100        25        50       106       0.01586560931024694
+       100        25        50       108       0.01551417047139894
+       100        25        50       110       0.01507373507401876
+
+TRUNCATED_NORMAL_B_CDF_VALUES_TEST:
+  TRUNCATED_NORMAL_B_CDF_VALUES stores values of
+  the upper Truncated Normal Cumulative Density Function.
+
+        MU     SIGMA       B         X        CDF(X)
+
+       100        25       150        90        0.3525999538650271
+       100        25       150        92         0.383202062767454
+       100        25       150        94        0.4145972709210122
+       100        25       150        96        0.4466007634041696
+       100        25       150        98        0.4790163122960786
+       100        25       150       100        0.5116398746584291
+       100        25       150       102        0.5442634370207796
+       100        25       150       104        0.5766789859126887
+       100        25       150       106        0.6086824783958461
+       100        25       150       108        0.6400776865494043
+       100        25       150       110        0.6706797954518312
+
+TRUNCATED_NORMAL_B_PDF_VALUES_TEST:
+  TRUNCATED_NORMAL_B_PDF_VALUES stores values of
+  the upper Truncated Normal Probability Density Function.
+
+        MU     SIGMA       B         X        PDF(X)
+
+       100        25       150        90       0.01507373507401876
+       100        25       150        92       0.01551417047139894
+       100        25       150        94       0.01586560931024694
+       100        25       150        96       0.01612150073158793
+       100        25       150        98       0.01627701240029317
+       100        25       150       100       0.01632918226724295
+       100        25       150       102       0.01627701240029317
+       100        25       150       104       0.01612150073158793
+       100        25       150       106       0.01586560931024694
+       100        25       150       108       0.01551417047139894
+       100        25       150       110       0.01507373507401876
+
+TSAT_VALUES_TEST:
   TSAT_VALUES stores values of
   the saturation temperature
   as a function of pressure.
@@ -5722,7 +6462,7 @@ TEST155:
            200         365.8
         220.55       373.976
 
-TEST156:
+VAN_DER_CORPUT_VALUES_TEST:
   VAN_DER_CORPUT_VALUES stores values of
   the van der Corput sequence in a given base.
 
@@ -5804,7 +6544,7 @@ TEST156:
        409      1003  0.4523346943167484
        409      1004  0.4547796820918096
 
-TEST157:
+VISCOSITY_VALUES_TEST:
   VISCOSITY_VALUES stores values of
   the viscosity of water
   as a function of temperature and pressure.
@@ -5846,7 +6586,7 @@ TEST157:
            600             1         32.61
            800             1         40.38
 
-TEST1575:
+VON_MISES_CDF_VALUES_TEST:
   VON_MISES_CDF_VALUES stores values of
   the von Mises CDF.
 
@@ -5876,7 +6616,48 @@ TEST1575:
              0             4  0.7853981633974483        0.9291058600568743
              0             5  0.7853981633974483        0.9514289900655436
 
-TEST158:
+WEEKDAY_VALUES_TEST:
+  WEEKDAY_VALUES returns values of 
+  the weekday for a given Y/M/D date.
+
+     Y     M     D     W
+
+  -587     7    30     1
+  -169    12     8     4
+    70     9    26     4
+   135    10     3     1
+   470     1     7     4
+   576     5    18     2
+   694    11     7     7
+  1013     4    19     1
+  1066    10    14     7
+  1096     5    18     1
+  1190     3    16     6
+  1240     3     3     7
+  1288     3    26     6
+  1298     4    20     1
+  1391     6     4     1
+  1436     1    25     4
+  1492     3    31     7
+  1553     9     9     7
+  1560     2    24     7
+  1648     6    10     4
+  1680     6    30     1
+  1716     7    24     6
+  1768     6    19     1
+  1819     8     2     2
+  1839     3    27     4
+  1903     4    19     1
+  1929     8    25     1
+  1941     9    29     2
+  1943     4    19     2
+  1943    10     7     5
+  1992     3    17     3
+  1996     2    25     1
+  2038    11    10     4
+  2094     7    18     1
+
+WEIBULL_CDF_VALUES_TEST:
   WEIBULL_CDF_VALUES returns values of 
   the Weibull Cumulative Density Function.
 
@@ -5895,7 +6676,7 @@ TEST158:
          4         2         3        0.9936702845725143
          5         2         3         0.999496410950263
 
-TEST159:
+ZETA_VALUES_TEST:
   ZETA_VALUES returns values of 
   the Riemann Zeta function.
 
@@ -5920,4 +6701,4 @@ TEST159:
 TEST_VALUES_PRB:
   Normal end of execution.
 
-12 March 2012 05:05:07 PM
+07 February 2015 12:09:32 PM

@@ -1,0 +1,16 @@
+# padua_10_commands.txt
+#
+# Usage:
+#  gnuplot < padua_10_commands.txt
+#
+set term png
+set output 'padua_10.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title 'Padua Points, Level 10
+set grid
+set key off
+set size ratio -1
+set style data lines
+set timestamp
+plot [-1:+1] [-1:+1] 'padua_10_data.txt' using 1:2 with points lt 3 pt 3

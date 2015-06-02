@@ -1,6 +1,8 @@
 # include <cstdlib>
 # include <cmath>
 # include <iostream>
+# include <fstream>
+# include <sstream>
 # include <iomanip>
 # include <ctime>
 # include <cstring>
@@ -93,7 +95,7 @@ int i4_min ( int i1, int i2 )
 }
 //****************************************************************************80
 
-string i4_to_string ( int i4, string format )
+string i4_to_string ( int i4 )
 
 //****************************************************************************80
 //
@@ -107,7 +109,7 @@ string i4_to_string ( int i4, string format )
 //
 //  Modified:
 //
-//    09 July 2009
+//    16 January 2013
 //
 //  Author:
 //
@@ -122,14 +124,14 @@ string i4_to_string ( int i4, string format )
 //    Output, string I4_TO_STRING, the string.
 //
 {
-  char i4_char[80];
-  string i4_string;
+  ostringstream fred;
+  string value;
 
-  sprintf ( i4_char, format.c_str ( ), i4 );
+  fred << i4;
 
-  i4_string = string ( i4_char );
+  value = fred.str ( );
 
-  return i4_string;
+  return value;
 }
 //****************************************************************************80
 
@@ -234,7 +236,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
           break;
         }
 
-        if ( r8_abs ( e[m-1] ) <= prec * ( r8_abs ( d[m-1] ) + r8_abs ( d[m] ) ) )
+        if ( fabs ( e[m-1] ) <= prec * ( fabs ( d[m-1] ) + fabs ( d[m] ) ) )
         {
           break;
         }
@@ -254,7 +256,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
       j = j + 1;
       g = ( d[l] - p ) / ( 2.0 * e[l-1] );
       r =  sqrt ( g * g + 1.0 );
-      g = d[m-1] - p + e[l-1] / ( g + r8_abs ( r ) * r8_sign ( g ) );
+      g = d[m-1] - p + e[l-1] / ( g + fabs ( r ) * r8_sign ( g ) );
       s = 1.0;
       c = 1.0;
       p = 0.0;
@@ -266,7 +268,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
         f = s * e[i-1];
         b = c * e[i-1];
 
-        if ( r8_abs ( g ) <= r8_abs ( f ) )
+        if ( fabs ( g ) <= fabs ( f ) )
         {
           c = g / f;
           r =  sqrt ( c * c + 1.0 );
@@ -374,10 +376,10 @@ double j_double_product_integral ( int i, int j, double a, double b )
 
     value = pow ( 2, a + b + 1.0 ) 
       / ( 2.0 * i_r8 + a + b + 1.0 ) 
-      * gamma ( i_r8 + a + 1.0 ) 
-      * gamma ( i_r8 + b + 1.0 )
+      * tgamma ( i_r8 + a + 1.0 ) 
+      * tgamma ( i_r8 + b + 1.0 )
       / r8_factorial ( i ) 
-     / gamma ( i_r8 + a + b + 1.0 );
+      / tgamma ( i_r8 + a + b + 1.0 );
   }
   return value;
 }
@@ -813,8 +815,8 @@ double *j_polynomial_zeros ( int n, double alpha, double beta )
 //
 //  Define the zero-th moment.
 //
-  zemu = pow ( 2.0, ab + 1.0 ) * gamma ( alpha + 1.0 ) 
-    * gamma ( beta + 1.0 ) / gamma ( abi );
+  zemu = pow ( 2.0, ab + 1.0 ) * tgamma ( alpha + 1.0 ) 
+    * tgamma ( beta + 1.0 ) / tgamma ( abi );
 //
 //  Define the Jacobi matrix.
 //
@@ -924,8 +926,8 @@ void j_quadrature_rule ( int n, double alpha, double beta, double x[],
 //
 //  Define the zero-th moment.
 //
-  zemu = pow ( 2.0, ab + 1.0 ) * gamma ( alpha + 1.0 ) 
-    * gamma ( beta + 1.0 ) / gamma ( abi );
+  zemu = pow ( 2.0, ab + 1.0 ) * tgamma ( alpha + 1.0 ) 
+    * tgamma ( beta + 1.0 ) / tgamma ( abi );
 //
 //  Define the Jacobi matrix.
 //
@@ -979,82 +981,6 @@ void j_quadrature_rule ( int n, double alpha, double beta, double x[],
   delete [] bj;
 
   return;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = + x;
-  }
-  else
-  {
-    value = - x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_add ( double x, double y )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ADD adds two R8's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 August 2010
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, Y, the numbers to be added.
-//
-//    Output, double R8_ADD, the sum of X and Y.
-//
-{
-  double value;
-
-  value = x + y;
-
-  return value;
 }
 //****************************************************************************80
 
@@ -1155,7 +1081,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    11 August 2010
+//    01 September 2012
 //
 //  Author:
 //
@@ -1166,23 +1092,8 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double one;
-  double temp;
-  double test;
-  double value;
+  const double value = 2.220446049250313E-016;
 
-  one = ( double ) ( 1 );
-
-  value = one;
-  temp = value / 2.0;
-  test = r8_add ( one, temp );
-
-  while ( one < test )
-  {
-    value = temp;
-    temp = value / 2.0;
-    test = r8_add ( one, temp );
-  }
   return value;
 }
 //****************************************************************************80

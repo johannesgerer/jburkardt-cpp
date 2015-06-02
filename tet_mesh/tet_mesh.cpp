@@ -129,13 +129,13 @@ void i4_swap ( int *i, int *j )
 }
 //****************************************************************************80
 
-int i4_uniform ( int a, int b, int *seed )
+int i4_uniform_ab ( int a, int b, int *seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    I4_UNIFORM returns a scaled pseudorandom I4.
+//    I4_UNIFORM_AB returns a scaled pseudorandom I4.
 //
 //  Discussion:
 //
@@ -185,7 +185,7 @@ int i4_uniform ( int a, int b, int *seed )
 //    Input/output, int *SEED, the "seed" value, which should NOT be 0.
 //    On output, SEED has been updated.
 //
-//    Output, int I4_UNIFORM, a number between A and B.
+//    Output, int I4_UNIFORM_AB, a number between A and B.
 //
 {
   int k;
@@ -195,7 +195,7 @@ int i4_uniform ( int a, int b, int *seed )
   if ( *seed == 0 )
   {
     cerr << "\n";
-    cerr << "I4_UNIFORM - Fatal error!\n";
+    cerr << "I4_UNIFORM_AB - Fatal error!\n";
     cerr << "  Input value of SEED = 0.\n";
     exit ( 1 );
   }
@@ -1064,7 +1064,106 @@ void i4vec_zero ( int n, int a[] )
 }
 //****************************************************************************80
 
-void mesh_base_zero ( int node_num, int element_order, int element_num, 
+void mesh_base_one ( int node_num, int element_order, int element_num,
+  int element_node[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    MESH_BASE_ONE ensures that the element definition is 1-based.
+//
+//  Discussion:
+//
+//    The ELEMENT_NODE array contains nodes indices that form elements.
+//    The convention for node indexing might start at 0 or at 1.
+//
+//    If this function detects 0-based indexing, it converts to 1-based.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int ELEMENT_ORDER, the order of the elements.
+//
+//    Input, int ELEMENT_NUM, the number of elements.
+//
+//    Input/output, int ELEMENT_NODE[ELEMENT_ORDER*ELEMENT_NUM], the element
+//    definitions.
+//
+{
+  int element;
+  const int i4_huge = 2147483647;
+  int node;
+  int node_max;
+  int node_min;
+  int order;
+
+  node_min = + i4_huge;
+  node_max = - i4_huge;
+  for ( element = 0; element < element_num; element++ )
+  {
+    for ( order = 0; order < element_order; order++ )
+    {
+      node = element_node[order+element*element_order];
+      if ( node < node_min )
+      {
+        node_min = node;
+      }
+      if ( node_max < node )
+      {
+        node_max = node;
+      }
+    }
+  }
+  if ( node_min == 0 && node_max == node_num - 1 )
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ONE:\n";
+    cout << "  The element indexing appears to be 0-based!\n";
+    cout << "  This will be converted to 1-based.\n";
+    for ( element = 0; element < element_num; element++ )
+    {
+      for ( order = 0; order < element_order; order++ )
+      {
+        element_node[order+element*element_order] =
+          element_node[order+element*element_order] + 1;
+      }
+    }
+  }
+  else if ( node_min == 1 && node_max == node_num )
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ONE:\n";
+    cout << "  The element indexing appears to be 1-based!\n";
+    cout << "  No conversion is necessary.\n";
+  }
+  else
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ONE - Warning!\n";
+    cout << "  The element indexing is not of a recognized type.\n";
+    cout << "  NODE_MIN = " << node_min << "\n";
+    cout << "  NODE_MAX = " << node_max << "\n";
+    cout << "  NODE_NUM = " << node_num << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void mesh_base_zero ( int node_num, int element_order, int element_num,
   int element_node[] )
 
 //****************************************************************************80
@@ -1085,11 +1184,11 @@ void mesh_base_zero ( int node_num, int element_order, int element_num,
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    02 October 2009
+//    18 October 2014
 //
 //  Author:
 //
@@ -1108,24 +1207,38 @@ void mesh_base_zero ( int node_num, int element_order, int element_num,
 //
 {
   int element;
+  const int i4_huge = 2147483647;
   int node;
   int node_max;
   int node_min;
   int order;
 
-  node_min = node_num + 1;
-  node_max = -1;
+  node_min = + i4_huge;
+  node_max = - i4_huge;
   for ( element = 0; element < element_num; element++ )
   {
     for ( order = 0; order < element_order; order++ )
     {
       node = element_node[order+element*element_order];
-      node_min = i4_min ( node_min, node );
-      node_max = i4_max ( node_max, node );
+      if ( node < node_min )
+      {
+        node_min = node;
+      }
+      if ( node_max < node )
+      {
+        node_max = node;
+      }
     }
   }
 
-  if ( node_min == 1 && node_max == node_num )
+  if ( node_min == 0 && node_max == node_num - 1 )
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ZERO:\n";
+    cout << "  The element indexing appears to be 0-based!\n";
+    cout << "  No conversion is necessary.\n";
+  }
+  else if ( node_min == 1 && node_max == node_num )
   {
     cout << "\n";
     cout << "MESH_BASE_ZERO:\n";
@@ -1139,13 +1252,6 @@ void mesh_base_zero ( int node_num, int element_order, int element_num,
           element_node[order+element*element_order] - 1;
       }
     }
-  }
-  else if ( node_min == 0 && node_max == node_num - 1 )
-  {
-    cout << "\n";
-    cout << "MESH_BASE_ZERO:\n";
-    cout << "  The element indexing appears to be 0-based!\n";
-    cout << "  No conversion is necessary.\n";
   }
   else
   {
@@ -1420,8 +1526,8 @@ double r8_uniform_01 ( int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      r8_uniform_01 = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      r8_uniform_01 = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -1565,13 +1671,13 @@ double r8mat_det_4d ( double a[4*4] )
 }
 //****************************************************************************80
 
-double *r8mat_mv ( int m, int n, double a[], double x[] )
+double *r8mat_mv_new ( int m, int n, double a[], double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8MAT_MV multiplies a matrix times a vector.
+//    R8MAT_MV_NEW multiplies a matrix times a vector.
 //
 //  Discussion: 							    
 //
@@ -1600,7 +1706,7 @@ double *r8mat_mv ( int m, int n, double a[], double x[] )
 //
 //    Input, double X[N], the vector to be multiplied by A.
 //
-//    Output, double R8MAT_MV[M], the product A*X.
+//    Output, double R8MAT_MV_NEW[M], the product A*X.
 //
 {
   int i;
@@ -2017,13 +2123,13 @@ void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo,
 }
 //****************************************************************************80
 
-double *r8mat_uniform_01 ( int m, int n, int *seed )
+double *r8mat_uniform_01_new ( int m, int n, int *seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8MAT_UNIFORM_01 fills a double precision array with unit pseudorandom values.
+//    R8MAT_UNIFORM_01_NEW fills a double precision array with unit pseudorandom values.
 //
 //  Discussion: 							    
 //
@@ -2032,8 +2138,8 @@ double *r8mat_uniform_01 ( int m, int n, int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -2077,7 +2183,7 @@ double *r8mat_uniform_01 ( int m, int n, int *seed )
 //    will still be 0, and R8_UNIFORM will be 0.  On output, SEED has 
 //    been updated.
 //
-//    Output, double R8MAT_UNIFORM_01[M*N], a matrix of pseudorandom values.
+//    Output, double R8MAT_UNIFORM_01_NEW[M*N], a matrix of pseudorandom values.
 //
 {
   int i;
@@ -2533,13 +2639,13 @@ double r8vec_sum ( int n, double a[] )
 }
 //****************************************************************************80
 
-double *r8vec_uniform_01 ( int n, int *seed )
+double *r8vec_uniform_01_new ( int n, int *seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8VEC_UNIFORM_01 returns a unit pseudorandom R8VEC.
+//    R8VEC_UNIFORM_01_NEW returns a unit pseudorandom R8VEC.
 //
 //  Discussion:
 //
@@ -2547,8 +2653,8 @@ double *r8vec_uniform_01 ( int n, int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -2584,7 +2690,7 @@ double *r8vec_uniform_01 ( int n, int *seed )
 //
 //    Input/output, int *SEED, a seed for the random number generator.
 //
-//    Output, double R8VEC_UNIFORM_01[N], the vector of pseudorandom values.
+//    Output, double R8VEC_UNIFORM_01_NEW[N], the vector of pseudorandom values.
 //
 {
   int i;
@@ -2736,7 +2842,7 @@ int s_len_trim ( string s )
 
   while ( 0 < n ) 
   {
-    if ( s[n-1] != ' ' )
+    if ( s[n-1] != ' ' && s[n-1] != '\n' )
     {
       return n;
     }
@@ -3369,6 +3475,148 @@ void tet_mesh_order4_adj_count ( int node_num, int tetra_num,
   delete [] pair;
 
   return;
+}
+//****************************************************************************80
+
+int *tet_mesh_order4_adj_set ( int node_num, int element_num, 
+  int element_node[], int adj_num, int adj_row[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TET_MESH_ORDER4_ADJ_SET sets the nodal adjacency matrix.
+//
+//  Discussion:
+//
+//    A compressed format is used for the nodal adjacency matrix.
+//
+//    It is assumed that we know ADJ_NUM, the number of adjacency entries
+//    and the ADJ_ROW array, which keeps track of the list of slots
+//    in ADJ where we can store adjacency information for each row.
+//
+//    We essentially repeat the work of TET_MESH_ORDER4_ADJ_COUNT, but
+//    now we have a place to store the adjacency information.
+//
+//    A copy of the ADJ_ROW array is useful, as we can use it to keep track
+//    of the next available entry in ADJ for adjacencies associated with
+//    a given row.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    13 January 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int TETRA_NUM, the number of tetrahedrons.
+//
+//    Input, int TETRA_NODE[4*TETRA_NUM], the indices of the nodes.
+//
+//    Input, int ADJ_NUM, the total number of adjacency relationships,
+//
+//    Input, int ADJ_ROW[NODE_NUM+1], the ADJ pointer array.
+//
+//    Output, int TET_MESH_ORDER4_ADJ_SET[ADJ_NUM], 
+//    the adjacency information.
+//
+{
+  int *adj;
+  int *adj_row_copy;
+  int i;
+  int j;
+  int k;
+  int node;
+  int *pair;
+  int pair_num;
+  int tetra;
+//
+//  Each order 4 tetrahedron defines 6 adjacency pairs.
+//
+  pair = new int[2*6*element_num];
+
+  for ( tetra = 0; tetra < element_num; tetra++ )
+  {
+    pair[0+             tetra *2] = element_node[0+tetra*4];
+    pair[1+             tetra *2] = element_node[1+tetra*4];
+
+    pair[0+(  element_num+tetra)*2] = element_node[0+tetra*4];
+    pair[1+(  element_num+tetra)*2] = element_node[2+tetra*4];
+
+    pair[0+(2*element_num+tetra)*2] = element_node[0+tetra*4];
+    pair[1+(2*element_num+tetra)*2] = element_node[3+tetra*4];
+
+    pair[0+(3*element_num+tetra)*2] = element_node[1+tetra*4];
+    pair[1+(3*element_num+tetra)*2] = element_node[2+tetra*4];
+
+    pair[0+(4*element_num+tetra)*2] = element_node[1+tetra*4];
+    pair[1+(4*element_num+tetra)*2] = element_node[3+tetra*4];
+
+    pair[0+(5*element_num+tetra)*2] = element_node[2+tetra*4];
+    pair[1+(5*element_num+tetra)*2] = element_node[3+tetra*4];
+  }
+  pair_num = 6 * element_num;
+//
+//  Force the nodes of each pair to be listed in ascending order.
+//
+  i4col_sort2_a ( 2, pair_num, pair );
+//
+//  Rearrange the columns in ascending order.
+//
+  i4col_sort_a ( 2, pair_num, pair );
+//
+//  Mark all entries of ADJ so we will know later if we missed one.
+//
+  adj = new int[adj_num];
+
+  for ( i = 0; i < adj_num; i++ )
+  {
+    adj[i] = -1;
+  }
+//
+//  Copy the ADJ_ROW array and use it to keep track of the next
+//  free entry for each row.
+//
+  adj_row_copy = new int[node_num];
+
+  for ( node = 0; node < node_num; node++ )
+  {
+    adj_row_copy[node] = adj_row[node];
+  }
+//
+//  Now set up the ADJ_ROW counts.
+//
+  for ( k = 0; k < pair_num; k++ )
+  {
+    if ( 0 < k )
+    {
+      if ( pair[0+(k-1)*2] == pair[0+k*2] &&
+           pair[1+(k-1)*2] == pair[1+k*2] )
+      {
+        continue;
+      }
+    }
+    i = pair[0+k*2];
+    j = pair[1+k*2];
+
+    adj[adj_row_copy[i]] = j;
+    adj_row_copy[i] = adj_row_copy[i] + 1;
+    adj[adj_row_copy[j]] = i;
+    adj_row_copy[j] = adj_row_copy[j] + 1;
+  }
+  delete [] adj_row_copy;
+  delete [] pair;
+
+  return adj;
 }
 //****************************************************************************80
 
@@ -4645,6 +4893,278 @@ void tet_mesh_order4_to_order10_size ( int tetra_num, int tetra_node1[],
   }
 
   return;
+}
+//****************************************************************************80
+
+void tet_mesh_order10_adj_count ( int node_num, int tet_num, 
+  int tet_node[], int *adj_num, int adj_row[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TET_MESH_ORDER10_ADJ_COUNT counts the number of nodal adjacencies.
+//
+//  Discussion:
+//
+//    Assuming that the tet mesh is to be used in a finite element
+//    computation, we declare that two distinct nodes are "adjacent" if and
+//    only if they are both included in some tetrahedron.
+//
+//    It is the purpose of this routine to determine the number of
+//    such adjacency relationships.
+//
+//    The initial count gets only the (I,J) relationships, for which
+//    node I is strictly less than node J.  This value is doubled
+//    to account for symmetry.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    08 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int TET_NUM, the number of tetrahedrons.
+//
+//    Input, int TET_NODE[10*TET_NUM], the indices of the nodes.
+//
+//    Output, int *ADJ_NUM, the total number of adjacency relationships,
+//
+//    Output, int ADJ_ROW[NODE_NUM+1], the ADJ pointer array.
+//
+{
+  int i;
+  int j;
+  int k;
+  int l;
+  int node;
+  int *pair;
+  int pair_num;
+  int pair_unique_num;
+//
+//  Each order 10 tetrahedron defines 45 adjacency pairs.
+//
+  pair = new int[2*45*tet_num];
+
+  k = 0;
+  for ( i = 0; i < 9; i++ )
+  {
+    for ( j = i + 1; j < 10; j++ )
+    {
+      for ( l = 0; l < tet_num; l++ )
+      {
+        pair[0+(k*tet_num+l)*2] = tet_node[i+l*10];
+        pair[1+(k*tet_num+l)*2] = tet_node[j+l*10];
+      }
+      k = k + 1;
+    }
+  }
+//
+//  Force the nodes of each pair to be listed in ascending order.
+//
+  pair_num = 45 * tet_num;
+
+  i4col_sort2_a ( 2, pair_num, pair );
+//
+//  Rearrange the columns in ascending order.
+//
+  i4col_sort_a ( 2, pair_num, pair );
+//
+//  Get the number of unique columns.
+//
+  pair_unique_num = i4col_sorted_unique_count ( 2, pair_num, pair );
+//
+//  The number of adjacencies is TWICE this value, plus the number of nodes.
+//
+  *adj_num = 2 * pair_unique_num;
+//
+//  Now set up the ADJ_ROW counts.
+//
+  for ( node = 0; node < node_num; node++ )
+  {
+    adj_row[node] = 0;
+  }
+
+  for ( k = 0; k < pair_num; k++ )
+  {
+    if ( 0 < k )
+    {
+      if ( pair[0+(k-1)*2] == pair[0+k*2] &&
+           pair[1+(k-1)*2] == pair[1+k*2] )
+      {
+        continue;
+      }
+    }
+    i = pair[0+k*2];
+    j = pair[1+k*2];
+
+    adj_row[i-1] = adj_row[i-1] + 1;
+    adj_row[j-1] = adj_row[j-1] + 1;
+  }
+//
+//  We used ADJ_ROW to count the number of entries in each row.
+//  Convert it to pointers into the ADJ array.
+//
+  for ( node = node_num-1; 0 <= node; node-- )
+  {
+    adj_row[node] = adj_row[node+1];
+  }
+
+  adj_row[0] = 1;
+  for ( node = 1; node <= node_num; node++ )
+  {
+    adj_row[node] = adj_row[node-1] + adj_row[i];
+  }
+
+  delete [] pair;
+
+  return;
+}
+//****************************************************************************80
+
+int *tet_mesh_order10_adj_set ( int node_num, int tet_num, 
+  int tet_node[], int adj_num, int adj_row[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TET_MESH_ORDER10_ADJ_SET sets the nodal adjacency matrix.
+//
+//  Discussion:
+//
+//    A compressed format is used for the nodal adjacency matrix.
+//
+//    It is assumed that we know ADJ_NUM, the number of adjacency entries
+//    and the ADJ_ROW array, which keeps track of the list of slots
+//    in ADJ where we can store adjacency information for each row.
+//
+//    We essentially repeat the work of TET_MESH_ORDER4_ADJ_COUNT, but
+//    now we have a place to store the adjacency information.
+//
+//    A copy of the ADJ_ROW array is useful, as we can use it to keep track
+//    of the next available entry in ADJ for adjacencies associated with
+//    a given row.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    08 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int TET_NUM, the number of tetrahedrons.
+//
+//    Input, int TET_NODE[10*TET_NUM], the indices of the nodes.
+//
+//    Input, int ADJ_NUM, the total number of adjacency relationships,
+//
+//    Input, int ADJ_ROW[NODE_NUM+1], the ADJ pointer array.
+//
+//    Output, int TET_MESH_ORDER4_ADJ_SET[ADJ_NUM], 
+//    the adjacency information.
+//
+{
+  int *adj;
+  int *adj_row_copy;
+  int i;
+  int j;
+  int k;
+  int l;
+  int node;
+  int *pair;
+  int pair_num;
+//
+//  Each order 10 tetrahedron defines 45 adjacency pairs.
+//
+  pair = new int[2*45*tet_num];
+
+  k = 0;
+  for ( i = 0; i < 9; i++ )
+  {
+    for ( j = i + 1; j < 10; j++ )
+    {
+      for ( l = 0; l < tet_num; l++ )
+      {
+        pair[0+(k*tet_num+l)*2] = tet_node[i+l*10];
+        pair[1+(k*tet_num+l)*2] = tet_node[j+l*10];
+      }
+      k = k + 1;
+    }
+  }
+//
+//  Force the nodes of each pair to be listed in ascending order.
+//
+  pair_num = 45 * tet_num;
+
+  i4col_sort2_a ( 2, pair_num, pair );
+//
+//  Rearrange the columns in ascending order.
+//
+  i4col_sort_a ( 2, pair_num, pair );
+//
+//  Mark all entries of ADJ so we will know later if we missed one.
+//
+  adj = new int[adj_num];
+
+  for ( i = 0; i < adj_num; i++ )
+  {
+    adj[i] = -1;
+  }
+//
+//  Copy the ADJ_ROW array and use it to keep track of the next
+//  free entry for each row.
+//
+  adj_row_copy = new int[node_num];
+
+  for ( node = 0; node < node_num; node++ )
+  {
+    adj_row_copy[node] = adj_row[node];
+  }
+//
+//  Now set up the ADJ_ROW counts.
+//
+  for ( k = 0; k < pair_num; k++ )
+  {
+    if ( 0 < k )
+    {
+      if ( pair[0+(k-1)*2] == pair[0+k*2] &&
+           pair[1+(k-1)*2] == pair[1+k*2] )
+      {
+        continue;
+      }
+    }
+    i = pair[0+k*2];
+    j = pair[1+k*2];
+
+    adj[adj_row_copy[i]] = j;
+    adj_row_copy[i] = adj_row_copy[i] + 1;
+    adj[adj_row_copy[j]] = i;
+    adj_row_copy[j] = adj_row_copy[j] + 1;
+  }
+  delete [] adj_row_copy;
+  delete [] pair;
+
+  return adj;
 }
 //****************************************************************************80
 

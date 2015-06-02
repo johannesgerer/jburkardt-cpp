@@ -1,0 +1,80 @@
+01 March 2014 10:11:04 PM
+
+TOMS097_PRB
+  C++ version
+  Test the TOMS097 library.
+
+TEST01
+  I4MAT_SHORTEST_PATH uses Floyd''s algorithm to find the
+  shortest distance between all pairs of nodes
+  in a directed graph, starting from the initial array
+  of direct node-to-node distances.
+
+  In the initial direct distance array, if
+    A(I,J) = HUGE,
+  this indicates there is NO directed link from
+  node I to node J.  In that case, the value of
+  of A(I,J) is essentially 'infinity'.
+
+  Initial direct-link distance matrix:
+
+     0     2     5    -1    -1    -1
+    -1     0     7     1    -1     8
+    -1    -1     0     4    -1    -1
+    -1    -1    -1     0     3    -1
+    -1    -1     2    -1     0     3
+    -1     5    -1     2     4     0
+
+  In the final shortest distance array, if
+    A(I,J) = -1,
+  this indicates there is NO directed path from
+  node I to node J.
+
+  Final distance matrix:
+
+     0     2     5     3     6     9
+    -1     0     6     1     4     7
+    -1    15     0     4     7    10
+    -1    11     5     0     3     6
+    -1     8     2     5     0     3
+    -1     5     6     2     4     0
+
+TEST02
+  R8MAT_SHORTEST_PATH uses Floyd''s algorithm to find the
+  shortest distance between all pairs of nodes
+  in a directed graph, starting from the initial array
+  of direct node-to-node distances.
+
+  In the initial direct distance array, if
+    A(I,J) = -1,
+  this indicates there is NO directed link from
+  node I to node J.  In that case, the value of
+  of A(I,J) is essentially 'infinity'.
+
+  Initial direct-link distance matrix:
+
+         0         2         5        -1        -1        -1
+        -1         0         7         1        -1         8
+        -1        -1         0         4        -1        -1
+        -1        -1        -1         0         3        -1
+        -1        -1         2        -1         0         3
+        -1         5        -1         2         4         0
+
+  In the final shortest distance array, if
+    A(I,J) = -1,
+  this indicates there is NO directed path from
+  node I to node J.
+
+  Final distance matrix:
+
+         0         2         5         3         6         9
+        -1         0         6         1         4         7
+        -1        15         0         4         7        10
+        -1        11         5         0         3         6
+        -1         8         2         5         0         3
+        -1         5         6         2         4         0
+
+TOMS097_PRB
+  Normal end of execution.
+
+01 March 2014 10:11:04 PM

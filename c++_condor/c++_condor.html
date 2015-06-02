@@ -1,0 +1,399 @@
+<html>
+
+  <head>
+    <title>
+      C++_CONDOR - C++ Execution Under the CONDOR Batch Queueing System
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      C++_CONDOR <br> C++ Execution Under the CONDOR Batch Queueing System
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>C++_CONDOR</b>
+      is a directory of examples which
+      demonstrate how a C++ program can be executed on a remote machine
+      using the CONDOR batch queueing system.
+    </p>
+
+    <p>
+      CONDOR allows a user to submit jobs for batch execution on an informal
+      cluster composed of various computers that often have idle time.
+      Based on information from the user's submission file, CONDOR chooses
+      one or more appropriate and available computers, transfers files to the
+      target systems, executes the program, and returns data to the user.
+    </p>
+
+    <p>
+      CONDOR has many features, and its proper use varies from site to site.
+      The information in this document was inspired by the CONDOR system 
+      supported by the FSU Research Computing Center (RCC).  Some of the
+      information therefore is peculiar to this local installation.
+    </p>
+
+    <p>
+      The first thing to note is that the FSU CONDOR cluster does not have
+      a shared file system.  Thus, you should probably imagine that you are
+      trying to run your program on a remote machine that might be someone's
+      iPhone.  None of your files are there, and if you don't say so, you don't
+      even know what kind of processor or operating system you are dealing with!
+    </p>
+
+    <p>
+      So you are responsible for explaining to CONDOR what files you want to
+      transfer to this remote machine, and you must specify whether you have
+      any requirements, such as a specific operating system or processor type.
+      In particular, when working with a C++ program, you must precompile
+      the program on the CONDOR login node, and one of your requirements will
+      then be that the remote computer has the same processor and operating
+      system as the login node.
+    </p>
+
+
+    <p>
+      The information about file transfer and system requirements is all part
+      of what is called a CONDOR submission script.  The script is a combination
+      of comment lines, which begin with the "#" sign, commands of the form
+      "A = B" which set certain options, and a few commands that make things happen.
+      A typical script might be called "program.condor".
+    </p>
+
+    <p>
+      The user and CONDOR interact on a special computer called the CONDOR
+      login node or submit node.  The user's files must be transferred there,
+      the user's CONDOR submission script must be submitted there, and the
+      results from the remote machine will be copied back to this place.
+    </p>
+
+    <p>
+      The user logs into the CONDOR submit node interactively:
+      <pre>
+        ssh condor-login.rcc.fsu.edu
+      </pre>
+      There are TWO reasons why this might not work for you, however.
+      <ol> 
+        <li>
+          you must already have a valid RCC account;
+        </li>
+        <li>
+          you must be logged in locally; as far as I can tell, you can't
+          log in from home, or another university, or a national lab, for instance;
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      File transfer is done with the SFTP command.
+      <pre>
+        sftp condor-login.rcc.fsu.edu
+          put program.condor
+          put mandelbrot.f90
+          quit
+      </pre>
+    </p>
+
+    <p>
+      When ready, the CONDOR submission script is sent by the command
+    </p>
+      <pre>
+        condor_submit program.condor
+      </pre>
+      The user can check on the status of the job with the command
+      <pre>
+        condor_q
+      </pre>
+      If all goes well, the job output will be returned to the CONDOR
+      submit node.
+      However, if things do not go well, or the job is taking too much
+      time, user "username" can delete all jobs in the condor queue with 
+      the command
+      <pre>
+        condor_rm username
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Using Files:
+    </h3>
+
+    <p>
+      On the FSU RCC Condor cluster, you must first copy your files to the 
+      CONDOR login machine.  When you submit your job to the CONDOR queue,
+      however, the program execution will take place on some unknown machine,
+      which initially does not have any of your files.  Therefore, an important
+      part of using CONDOR is making sure that you copy to the remote machine
+      all the files needed for input, including a compiled copy of your C
+      program.  Luckily, CONDOR will automatically copy back to the login node
+      every file that is created by the program execution.
+    </p>
+
+    <p>
+      Because the file system is not shared, the following commands should
+      appear in your CONDOR script:
+      <pre>
+        should_transfer_files = yes
+        when_to_transfer_output = on_exit
+      </pre>
+      that allows you to specify the name of this file.
+    </p>
+
+    <p>
+      If your executable reads from "standard input", (such as the C++ statement
+      <pre>
+        cin >> i;
+      </pre>
+      then your CONDOR job will need a file containing that information.  
+      CONDOR includes a command of the form
+      <pre>
+        input = filename
+      </pre>
+      that allows you to specify the name of this file.  Similarly, if
+      your program writes to "standard output", such as the C++ statement
+      <pre>
+        cout << "The answer is " << 42 << "\n";
+      </pre>
+      then CONDOR allows you to
+      specify the name of a file where this information will go:
+      <pre>
+        output = filename
+      </pre>
+      The input file must exist on your CONDOR login node before you submit
+      the job.  The output file is created during the run, and
+      will automatically be copied back to your CONDOR login node when the
+      job is completed.
+    </p>
+
+    <p>
+      Your job may require other data files to run than simply the standard
+      input file.  If so, you need to tell CONDOR the names of these files, in a 
+      comma-separated list:
+      <pre>
+        transfer_input_files = file1, file2, ..., file99
+      </pre>
+    </p>
+
+    <p>
+      Your job may create many files aside from simply standard output.
+      Luckily, all files created by the run will be automatically copied back.
+    </p>
+
+    <p>
+      We are going to compile the C executable on the CONDOR login node,
+      but run it on some other remote machine.  Therefore, we need the following
+      command to guarantee that the remote machine can understand the executable:
+      <pre>
+        requirements = ( OpSYS="LINUX" &amp;&amp; Arch=="X86_64 )
+      </pre>
+    </p>
+
+    <p>
+      Suppose that the C++ program we want to run is named "mandelbrot.cpp".
+      We compile this program on the CONDOR login node with commands like
+      <pre>
+        g++ mandelbrot.cpp -lm
+        mv a.out mandelbrot
+      </pre>
+      which creates an executable program called "mandelbrot".
+      This program must be copied to the remote machine,
+      so your CONDOR script must include the statement:
+      <pre>
+        executable = mandelbrot
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      A Sample CONDOR Script
+    </h3>
+
+    <p>
+      Here is a file called "mandelbrot.condor" which ought to be able to run
+      our compiled program somewhere, and return the results to us:
+      <pre>
+        universe = vanilla
+        executable = mandelbrot
+        arguments =
+        input =
+        requirements = ( OpSYS="LINUX" &amp;&amp; Arch=="X86_64 )
+        should_transfer_files = yes
+        when_to_transfer_files = on_exit
+        notification = never
+        output = mandelbrot_output.txt
+        log = mandelbrot_log.txt
+        queue
+      </pre>
+    </p>
+
+    <p>
+      A few comments are in order.  
+      <ul>
+        <li>
+          The "universe" command is required,
+          and on the FSU CONDOR system, we only have the "vanilla" universe.
+        </li>
+        <li>
+          The "arguments" command allows you to pass commandline arguments to
+          the executable program.
+        </li>
+        <li>
+          Setting "notification" to "yes" will cause CONDOR to send you
+          email when the job completes, and perhaps at some other stages as well.
+        </li>
+        <li>
+          The "log" command species a name to use for the file in which CONDOR
+          records the progress of the job.
+        </li>
+        <li>
+          The "error" command allows you to capture output to standard error.
+        </li>
+        <li>
+          The "queue" command is necessary, and tells CONDOR to actually
+          begin running your job.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>C++_CONDOR</b> is available in
+      <a href = "../../c_src/c_condor/c_condor.html">a C version</a> and
+      <a href = "../../cpp_src/c++_condor/c++_condor.html">a C++ version</a> and
+      <a href = "../../f77_src/f77_condor/f77_condor.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/f90_condor/f90_condor.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/matlab_condor/matlab_condor.html">a MATLAB version</a>
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../c_src/c_condor/c_condor.html">
+      C_CONDOR</a>,
+      C programs which
+      illustrate how a C program can be run in batch mode using the condor
+      queueing system.
+    </p>
+
+    <p>
+      <a href = "../../examples/condor/condor.html">
+      CONDOR</a>,
+      examples which
+      demonstrates the use of the CONDOR queueing system to submit jobs
+      that run on a one or more remote machines.
+    </p>
+
+    <p>
+      <a href = "../../f77_src/f77_condor/f77_condor.html">
+      F77_CONDOR</a>,
+      FORTRAN77 programs which
+      illustrate how a FORTRAN77 program can be run in batch mode using the condor
+      queueing system.
+    </p>
+
+    <p>
+      <a href = "../../f_src/f90_condor/f90_condor.html">
+      F90_CONDOR</a>,
+      programs which
+      illustrate how a FORTRAN90 program can be executed with the CONDOR
+      batch queueing system.
+    </p>
+
+    <p>
+      <a href = "../../m_src/matlab_condor/matlab_condor.html">
+      MATLAB_CONDOR</a>,
+      programs which
+      illustrate how a MATLAB program can be executed with the CONDOR
+      batch queueing system.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "../../pdf/condor.pdf">condor.pdf</a>,<br>
+          Condor Team,<br>
+          University of Wisconsin, Madison,<br>
+          Condor Version 8.0.2 Manual;
+        </li>
+        <li>
+          <a href = "http://www.cs.wisc.edu/htcondor/">
+                     http://www.cs.wisc.edu/htcondor/</a>,<br>
+          The HTCondor home page;
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>MANDELBROT</b> is an example which creates a PPM image file of the
+      Mandelbrot set.
+      <ul>
+        <li>
+          <a href = "mandelbrot.cpp">mandelbrot.cpp</a>,
+          the program.  This must be compiled and named "mandelbrot".
+        </li>
+        <li>
+          <a href = "mandelbrot.condor">mandelbrot.condor</a>,
+          the CONDOR submission file.  This is used by issuing the command
+          "condor_submit simple.condor".
+        </li>
+        <li>
+          <a href = "mandelbrot.ppm">mandelbrot.ppm</a>,
+          the PPM image file created on the remote machine.
+        </li>
+        <li>
+          <a href = "mandelbrot.png">mandelbrot.png</a>,
+          a PNG version of the image file.
+        </li>
+        <li>
+          <a href = "mandelbrot_output.txt">mandelbrot_output.txt</a>,
+          the output file.
+        </li>
+        <li>
+          <a href = "mandelbrot_log.txt">mandelbrot_log.txt</a>,
+          CONDOR's log file (records the job submission, execution, and completion).
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last modified on 29 August 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>
+

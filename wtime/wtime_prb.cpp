@@ -21,11 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN is the main program for TIMER_CLOCK.
+//    MAIN is the main program for WTIME_PRB.
 //
 //  Discussion:
 //
-//    TIMER_CLOCK uses CLOCK as the timer.
+//    WTIME_PRB tests the WTIME library.
 //
 //    CLOCK is a timing utility accessible to C codes. It returns the number of
 //    "ticks" of processor time devoted to the user's job.  Dividing this by
@@ -49,7 +49,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "WTIME_PRB\n";
   cout << "  C++ version\n";
@@ -62,7 +61,6 @@ int main ( )
   cout << "\n";
   cout << "WTIME_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

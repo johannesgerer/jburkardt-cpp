@@ -7,123 +7,9 @@
 
 using namespace std;
 
+# include "blas0.hpp"
 # include "blas1_c.hpp"
 
-//****************************************************************************80
-
-float cabs1 ( complex <float> z )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    CABS1 returns the L1 norm of a number.
-//
-//  Discussion:
-//
-//    This routine uses single precision complex arithmetic.
-//
-//    The L1 norm of a complex number is the sum of the absolute values
-//    of the real and imaginary components.
-//
-//    CABS1 ( Z ) = abs ( real ( Z ) ) + abs ( imaginary ( Z ) )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    31 March 2007
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for FORTRAN usage,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, pages 308-323, 1979.
-//
-//  Parameters:
-//
-//    Input, complex <float> Z, the number whose norm is desired.
-//
-//    Output, float CABS1, the L1 norm of Z.
-//
-{
-  float value;
-
-  value = r4_abs ( real ( z ) ) + r4_abs ( imag ( z ) );
-
-  return value;
-}
-//****************************************************************************80
-
-float cabs2 ( complex <float> z )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    CABS2 returns the L2 norm of a number.
-//
-//  Discussion:
-//
-//    This routine uses single precision complex arithmetic.
-//
-//    The L2 norm of a complex number is the square root of the sum
-//    of the squares of the real and imaginary components.
-//
-//    CABS2 ( Z ) = sqrt ( ( real ( Z ) )**2 + ( imaginary ( Z ) )**2 )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    10 April 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for FORTRAN usage,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, pages 308-323, 1979.
-//
-//  Parameters:
-//
-//    Input, complex <float> Z, the number whose norm is desired.
-//
-//    Output, float CABS2, the L2 norm of Z.
-//
-{
-  float value;
-
-  value = sqrt ( pow ( real ( z ), 2 )
-               + pow ( imag ( z ), 2 ) );
-
-  return value;
-}
 //****************************************************************************80
 
 void caxpy ( int n, complex <float> ca, complex <float> cx[],
@@ -544,152 +430,6 @@ complex <float> cdotu ( int n, complex <float> cx[], int incx,
 }
 //****************************************************************************80
 
-float cmach ( int job )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    CMACH computes machine parameters for complex arithmetic.
-//
-//  Discussion:
-//
-//    Assume the computer has
-//
-//      B = base of arithmetic;
-//      T = number of base B digits;
-//      L = smallest possible exponent;
-//      U = largest possible exponent;
-//
-//    then
-//
-//      EPS = B**(1-T)
-//      TINY = 100.0 * B**(-L+T)
-//      HUGE = 0.01 * B**(U-T)
-//
-//    If complex division is done by
-//
-//      1 / (X+i*Y) = (X-i*Y) / (X**2+Y**2)
-//
-//    then
-//
-//      TINY = sqrt ( TINY )
-//      HUGE = sqrt ( HUGE )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    12 April 2006
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for FORTRAN usage,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, pages 308-323, 1979.
-//
-//  Parameters:
-//
-//    Input, int JOB:
-//    1, EPS is desired;
-//    2, TINY is desired;
-//    3, HUGE is desired.
-//
-//    Output, float CMACH, the requested value.
-//
-{
-  float eps;
-  float huge;
-  float s;
-  complex <float> temp1;
-  complex <float> temp2;
-  complex <float> temp3;
-  float tiny;
-  float value;
-
-  eps = 1.0;
-
-  for ( ; ; )
-  {
-    eps = eps / 2.0;
-    s = 1.0 + eps;
-    if ( s <= 1.0 )
-    {
-      break;
-    }
-  }
-
-  eps = 2.0 * eps;
-
-  s = 1.0;
-
-  for ( ; ; )
-  {
-    tiny = s;
-    s = s / 16.0;
-
-    if ( s * 1.0 == 0.0 )
-    {
-      break;
-    }
-  }
-
-  tiny = ( tiny / eps ) * 100.0;
-//
-//  Had to insert this manually!
-//
-  tiny = sqrt ( tiny );
-
-  if ( false )
-  {
-    temp1 = complex <float> ( 1.0,  0.0 );
-    temp2 = complex <float> ( tiny, 0.0 );
-    temp3 = temp1 / temp2;
-
-    s = real ( temp3 );
-
-    if ( s != 1.0 / tiny )
-    {
-      tiny = sqrt ( tiny );
-    }
-  }
-
-  huge = 1.0 / tiny;
-
-  if ( job == 1 )
-  {
-    value = eps;
-  }
-  else if ( job == 2 )
-  {
-    value = tiny;
-  }
-  else if ( job == 3 )
-  {
-    value = huge;
-  }
-  else
-  {
-    value = 0.0;
-  }
-
-  return value;
-}
-//****************************************************************************80
-
 void crotg ( complex <float> *ca, complex <float> cb, float *c,
   complex <float> *s )
 
@@ -857,104 +597,6 @@ void cscal ( int n, complex <float> ca, complex <float> cx[], int incx )
     }
   }
   return;
-}
-//****************************************************************************80
-
-complex <float> csign1 ( complex <float> z1, complex <float> z2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    CSIGN1 is a transfer-of-sign function.
-//
-//  Discussion:
-//
-//    This routine uses single precision complex arithmetic.
-//
-//    The L1 norm is used.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 April 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, complex <float> Z1, Z2, the arguments.
-//
-//    Output, complex <float> CSIGN1,  a complex value, with the magnitude of
-//    Z1, and the argument of Z2.
-//
-{
-  complex <float> value;
-
-  if ( cabs1 ( z2 ) == 0.0 )
-  {
-    value = complex <float> ( 0.0, 0.0 );
-  }
-  else
-  {
-    value = cabs1 ( z1 ) * ( z2 / cabs1 ( z2 ) );
-  }
-
-  return value;
-}
-//****************************************************************************80
-
-complex <float> csign2 ( complex <float> z1, complex <float> z2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    CSIGN2 is a transfer-of-sign function.
-//
-//  Discussion:
-//
-//    This routine uses single precision complex arithmetic.
-//
-//    The L2 norm is used.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 April 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, complex <float> Z1, Z2, the arguments.
-//
-//    Output, complex <float> CSIGN2,  a complex value, with the magnitude of
-//    Z1, and the argument of Z2.
-//
-{
-  complex <float> value;
-
-  if ( cabs2 ( z2 ) == 0.0 )
-  {
-    value = complex <float> ( 0.0, 0.0 );
-  }
-  else
-  {
-    value = cabs2 ( z1 ) * ( z2 / cabs2 ( z2 ) );
-  }
-
-  return value;
 }
 //****************************************************************************80
 
@@ -1247,88 +889,6 @@ void cswap ( int n, complex <float> cx[], int incx, complex <float> cy[],
 }
 //****************************************************************************80
 
-int i4_max ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MAX returns the maximum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, are two integers to be compared.
-//
-//    Output, int I4_MAX, the larger of I1 and I2.
-//
-{
-  int value;
-
-  if ( i2 < i1 )
-  {
-    value = i1;
-  }
-  else
-  {
-    value = i2;
-  }
-  return value;
-}
-//****************************************************************************80
-
-int i4_min ( int i1, int i2 )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    I4_MIN returns the minimum of two I4's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    13 October 1998
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, int I1, I2, two integers to be compared.
-//
-//    Output, int I4_MIN, the smaller of I1 and I2.
-//
-{
-  int value;
-
-  if ( i1 < i2 )
-  {
-    value = i1;
-  }
-  else
-  {
-    value = i2;
-  }
-  return value;
-}
-//****************************************************************************80
-
 int icamax ( int n, complex <float> x[], int incx )
 
 //****************************************************************************80
@@ -1432,154 +992,6 @@ int icamax ( int n, complex <float> x[], int incx )
 }
 //****************************************************************************80
 
-bool lsame ( char ca, char cb )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    LSAME returns TRUE if CA is the same letter as CB regardless of case.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 May 2005
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for Fortran Usage,
-//    Algorithm 539,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, September 1979, pages 308-323.
-//
-//  Parameters:
-//
-//    Input, char CA, CB, the characters to compare.
-//
-//    Output, bool LSAME, is TRUE if the characters are equal,
-//    disregarding case.
-//
-{
-  if ( ca == cb )
-  {
-    return true;
-  }
-
-  if ( 'A' <= ca && ca <= 'Z' )
-  {
-    if ( ca - 'A' == cb - 'a' )
-    {
-      return true;
-    }
-  }
-  else if ( 'a' <= ca && ca <= 'z' )
-  {
-    if ( ca - 'a' == cb - 'A' )
-    {
-      return true;
-    }
-  }
-
-  return false;
-}
-//****************************************************************************80
-
-float r4_abs ( float x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4_ABS returns the absolute value of an R4.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    23 February 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float X, the quantity whose absolute value is desired.
-//
-//    Output, float R4_ABS, the absolute value of X.
-//
-{
-  float value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-float r4_sign ( float x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4_SIGN returns the sign of an R4.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    23 February 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float X, the number whose sign is desired.
-//
-//    Output, float R4_SIGN, the sign of X.
-//
-{
-  float value;
-
-  if ( x < 0.0 )
-  {
-    value = -1.0;
-  }
-  else
-  {
-    value = 1.0;
-  }
-  return value;
-}
-//****************************************************************************80
-
 float scasum ( int n, complex <float> x[], int incx )
 
 //****************************************************************************80
@@ -1643,8 +1055,8 @@ float scasum ( int n, complex <float> x[], int incx )
   {
     for ( i = 0; i < n; i++ )
     {
-      value = value + r4_abs ( real ( x[i] ) )
-                    + r4_abs ( imag ( x[i] ) );
+      value = value + fabs ( real ( x[i] ) )
+                    + fabs ( imag ( x[i] ) );
     }
   }
   else
@@ -1652,8 +1064,8 @@ float scasum ( int n, complex <float> x[], int incx )
     ix = 0;
     for ( i = 0; i < n; i++ )
     {
-      value = value + r4_abs ( real ( x[ix] ) )
-                    + r4_abs ( imag ( x[ix] ) );
+      value = value + fabs ( real ( x[ix] ) )
+                    + fabs ( imag ( x[ix] ) );
       ix = ix + incx;
     }
   }
@@ -1733,7 +1145,7 @@ float scnrm2 ( int n, complex <float> x[], int incx )
     {
       if ( real ( x[ix] ) != 0.0 )
       {
-        temp = r4_abs ( real ( x[ix] ) );
+        temp = fabs ( real ( x[ix] ) );
         if ( scale < temp )
         {
           ssq = 1.0 + ssq * pow ( scale / temp, 2 );
@@ -1747,7 +1159,7 @@ float scnrm2 ( int n, complex <float> x[], int incx )
 
       if ( imag ( x[ix] ) != 0.0 )
       {
-        temp = r4_abs ( imag ( x[ix] ) );
+        temp = fabs ( imag ( x[ix] ) );
         if ( scale < temp )
         {
           ssq = 1.0 + ssq * pow ( scale / temp, 2 );
@@ -1764,54 +1176,4 @@ float scnrm2 ( int n, complex <float> x[], int incx )
   }
   return value;
 }
-//****************************************************************************80
 
-void xerbla ( char *srname, int info )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    XERBLA is an error handler for the LAPACK routines.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    02 May 2005
-//
-//  Author:
-//
-//    C++ version by John Burkardt
-//
-//  Reference:
-//
-//    Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart,
-//    LINPACK User's Guide,
-//    SIAM, 1979,
-//    ISBN13: 978-0-898711-72-1,
-//    LC: QA214.L56.
-//
-//    Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh,
-//    Basic Linear Algebra Subprograms for Fortran Usage,
-//    Algorithm 539,
-//    ACM Transactions on Mathematical Software,
-//    Volume 5, Number 3, September 1979, pages 308-323.
-//
-//  Parameters:
-//
-//    Input, char *SRNAME, the name of the routine
-//    which called XERBLA.
-//
-//    Input, int INFO, the position of the invalid parameter in
-//    the parameter list of the calling routine.
-//
-{
-  cout << "\n";
-  cout << "XERBLA - Fatal error!\n";
-  cout << "  On entry to routine " << srname << "\n";
-  cout << "  input parameter number " << info << " had an illegal value.\n";
-  exit ( 1 );
-}

@@ -74,21 +74,15 @@ int main ( int argc, char *argv[] )
   cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
   cout << "\n";
   cout << "  Compute a Gauss-Patterson rule for approximating\n";
-  cout << "\n";
   cout << "    Integral ( -1 <= x <= +1 ) f(x) dx\n";
-  cout << "\n";
   cout << "  of order ORDER.\n";
   cout << "\n";
   cout << "  The user specifies ORDER, A, B, and FILENAME.\n";
   cout << "\n";
   cout << "  ORDER is 1, 3, 7, 15, 31, 63, 127, 255 or 511.\n";
-  cout << "\n";
   cout << "  A is the left endpoint.\n";
-  cout << "\n";
   cout << "  B is the right endpoint.\n";
-  cout << "\n";
   cout << "  FILENAME is used to generate 3 files:\n";
-  cout << "\n";
   cout << "    filename_w.txt - the weight file\n";
   cout << "    filename_x.txt - the abscissa file.\n";
   cout << "    filename_r.txt - the region file.\n";
@@ -181,16 +175,17 @@ int main ( int argc, char *argv[] )
 //
   rule_write ( order, filename, x, w, r );
 //
-//  Terminate.
+//  Free memory.
 //
   delete [] r;
   delete [] w;
   delete [] x;
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "PATTERSON_RULE:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

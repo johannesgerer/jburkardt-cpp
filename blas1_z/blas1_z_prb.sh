@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include blas1_z_prb.cpp >& compiler.txt
+g++ -c -g -I$HOME/include blas1_z_prb.cpp >& compiler.txt
 if [ $? -ne 0 ]; then
   echo "Errors compiling blas1_z_prb.cpp"
   exit
 fi
 rm compiler.txt
 #
-g++ blas1_z_prb.o /$HOME/libcpp/$ARCH/blas1_z.o -lm
+g++ blas1_z_prb.o $HOME/libcpp/$ARCH/blas0.o $HOME/libcpp/$ARCH/blas1_z.o -lm
 if [ $? -ne 0 ]; then
   echo "Errors linking and loading blas1_z_prb.o."
   exit

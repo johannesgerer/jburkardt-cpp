@@ -1,0 +1,25 @@
+03 December 2012 04:14:54 PM
+
+FILES_MULTIPLE:
+  C++ version.
+  Demonstrate how to work with multiple files.
+
+TEST01
+  Create 4 files, and count to 100.
+  "divisor1.txt" will contain multiples of 2;
+  "divisor2.txt" will contain multiples of 3;
+  "divisor3.txt" will contain multiples of 5;
+  "divisor4.txt" will contain multiples of 7;
+
+TEST02
+  Create 4 files.
+  The vector X contains 100 values,
+  and is set 20 times.
+
+  Write X[9], X[24], X[63] and X[80] to the files
+  "x1.txt", "x2.txt", "x3.txt" and "x4.txt"
+
+FILES_MULTIPLE:
+  Normal end of execution.
+
+03 December 2012 04:14:54 PM

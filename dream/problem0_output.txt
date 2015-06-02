@@ -1,0 +1,161 @@
+09 June 2013 12:27:49 PM
+
+DREAM
+  C++ version
+  MCMC acceleration by Differential Evolution.
+
+INPUT_PRINT:
+
+  Number of parameters
+  PAR_NUM = 10
+
+  LIMITS: Lower and upper limits for each parameter:
+
+  Index           Lower           Upper
+
+      0             -10              10
+      1             -10              10
+      2             -10              10
+      3             -10              10
+      4             -10              10
+      5             -10              10
+      6             -10              10
+      7             -10              10
+      8             -10              10
+      9             -10              10
+
+  Number of generations:
+  GEN_NUM = 10
+
+  Number of simultaneous chains:
+  CHAIN_NUM = 10
+
+  Chain filename (base):
+  CHAIN_FILENAME = "problem0_chain00.txt".
+
+  Number of pairs of chains for crossover:
+  PAIR_NUM = 3
+
+  Number of crossover values:
+  CR_NUM = 3
+
+  Number of steps til a long jump:
+  JUMPSTEP = 5
+
+  Interval between Gelman-Rubin computations:
+  PRINTSTEP = 10
+
+  Gelman-Rubin data filename:
+  GR_FILENAME = "problem0_gr.txt".
+  GR_THRESHOLD = 1.2
+
+  Restart read filename:
+  RESTART_READ_FILENAME = "(Null)".
+
+  Restart write filename:
+  RESTART_WRITE_FILENAME = "problem0_restart.txt".
+
+JUMPRATE_TABLE_PRINT
+
+   I        Jumprate
+
+   0        0.971631
+   1        0.687047
+   2        0.560971
+   3        0.485815
+   4        0.434527
+   5        0.396667
+   6        0.367242
+   7        0.343523
+   8        0.323877
+   9        0.307257
+
+GR_PRINT:
+  GR_CONV  = 0
+  GR_COUNT = 0
+  GR_NUM   = 1
+
+R8_UNIFORM_01 - Note:
+  Initializing RNGLIB package.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+CHAIN_INIT_PRINT
+  Display initial values of Markov chains.
+  Initialization by sampling prior density.
+
+  Chain 0
+  Fitness -109.149
+        -3.52579        -3.51216       -0.132247         -4.2254        -2.93987
+        -6.92078         1.32422          6.4144        -3.49011        -3.19841
+
+  Chain 1
+  Fitness -230.358
+         7.90353        -3.26801        -4.29954       0.0676193         5.47061
+        -9.57686        -9.25974        -4.18806        -8.27845         4.95174
+
+  Chain 2
+  Fitness -228.315
+        -2.81108        -5.83744        -8.40467        -7.04136         4.16311
+        -2.09107          5.2884         2.91881       -0.538775         7.19098
+
+  Chain 3
+  Fitness -257.7
+      -0.0497613        -9.95291         8.46672         5.05045        -2.25397
+        -1.19924          6.0223        -9.46987        -6.93607        -8.30483
+
+  Chain 4
+  Fitness -183.604
+         8.64886        -3.84746       -0.187535         4.72641        -6.45913
+         4.66445        -3.29423         7.72043         2.56232       -0.530195
+
+  Chain 5
+  Fitness -176.522
+        -4.16083        -7.19818        -1.18375       -0.382345          4.3055
+        -8.42172         4.93212        0.699766         3.51565        -6.94875
+
+  Chain 6
+  Fitness -183.237
+        -1.32429        0.913762         8.12025        -2.36622        -7.26709
+         4.45175       0.0679817       0.0704523         7.94569       -0.762888
+
+  Chain 7
+  Fitness -211.343
+         1.80628         7.65045        -0.25284         5.27621        -9.92894
+         1.09033         9.30248         7.74325        -5.44265         5.24791
+
+  Chain 8
+  Fitness -142.274
+        -6.46197         4.87455         -5.1371         4.12475         -2.3365
+         -1.3271         1.23655        -2.58794       -0.314158        -7.91509
+
+  Chain 9
+  Fitness -282.357
+        -7.23256        -8.74982        -7.37064         6.68935        -6.12329
+        -7.19838       -0.846644         7.05144         8.60849         1.61518
+
+  The acceptance rate is 0.211111
+
+GR_WRITE:
+  Created the file "problem0_gr.txt".
+
+RESTART_WRITE:
+  Created restart file "problem0_restart.txt".
+
+CHAIN_WRITE:
+  Created file "problem0_chain00.txt".
+  Created file "problem0_chain01.txt".
+  Created file "problem0_chain02.txt".
+  Created file "problem0_chain03.txt".
+  Created file "problem0_chain04.txt".
+  Created file "problem0_chain05.txt".
+  Created file "problem0_chain06.txt".
+  Created file "problem0_chain07.txt".
+  Created file "problem0_chain08.txt".
+  Created file "problem0_chain09.txt".
+
+DREAM
+  Normal end of execution.
+
+09 June 2013 12:27:49 PM

@@ -1,0 +1,358 @@
+<html>
+
+  <head>
+    <title>
+      POLYGON_TRIANGULATE - Triangulate a Polygon
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      POLYGON_TRIANGULATE <br> Triangulate a Polygon
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>POLYGON_TRIANGULATE</b>
+      is a C++ library which
+      triangulates a possibly nonconvex polygon in 2D,
+      and which can use gnuplot to display the external edges and 
+      internal diagonals of the triangulation.
+    </p>
+
+    <p>
+      The polygon is defined by an input file which gives the coordinates
+      of the vertices of the polygon, in counterclockwise order.
+    </p>
+
+    <p>
+      No consecutive pair of vertices should be equal; when describing a
+      polygon, sometimes the first and last vertices are equal.  For this
+      program, that is not the case.  To describe a square, your input
+      file should contain four pairs of coordinates, for instance.
+    </p>
+
+    <p>
+      The vertices should be listed in counterclockwise order.  If you list
+      them in clockwise order, then the function will refuse to operate
+      on the data.
+    </p>
+
+    <p>
+      It is possible to create a polygon that has zero area.  The function
+      will refuse to process such an object.
+    </p>
+
+    <p>
+      The polygon does not need to be convex.  However, you should be careful
+      not to specify a polygon which crosses itself, since this means the
+      interior of the polygon is not well defined, and hence a triangulation
+      is not well defined.  As a simple example of such a problem, consider
+      the four vertices of a square in counterclockwise order: V1, V2, V3, V4,
+      and list them instead as V1, V3, V2, V4.  This shape cannot be 
+      triangulated in the usual sense.  However, the function may not
+      realize this, in which case it will return what it thinks is a
+      reasonable triangulation of the (unreasonable) data.
+    </p>
+
+    <p>
+      The output of the program is a list of the N-3 triples of nodes that 
+      form the triangles of the triangulation.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>POLYGON_TRIANGULATE</b> is available in
+      <a href = "../../c_src/polygon_triangulate/polygon_triangulate.html">a C version</a> and
+      <a href = "../../cpp_src/polygon_triangulate/polygon_triangulate.html">a C++ version</a> and
+      <a href = "../../f77_src/polygon_triangulate/polygon_triangulate.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/polygon_triangulate/polygon_triangulate.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/polygon_triangulate/polygon_triangulate.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/polygon_integrals/polygon_integrals.html">
+      POLYGON_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of a polygon in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygon_monte_carlo/polygon_monte_carlo.html">
+      POLYGON_MONTE_CARLO</a>,
+      a C++ library which
+      applies a Monte Carlo method to estimate the integral of a function
+      over the interior of a polygon in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygon_properties/polygon_properties.html">
+      POLYGON_PROPERTIES</a>,
+      a C++ library which
+      computes properties of an arbitrary polygon in the plane, defined
+      by a sequence of vertices, including interior angles, area, centroid,
+      containment of a point, convexity, diameter, distance to a point, 
+      inradius, lattice area, nearest point in set, outradius, uniform sampling.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Based on a C function by Joseph ORourke;
+      This C++ version by John Burkardt.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          Joseph ORourke,<br>
+          Computational Geometry in C,<br>
+          Second Edition,<br>
+          Cambridge, 1998,<br>
+          ISBN: 0521649765,<br>
+          LC: QA448.D38.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "polygon_triangulate.cpp">polygon_triangulate.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "polygon_triangulate.hpp">polygon_triangulate.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "polygon_triangulate.sh">polygon_triangulate.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "polygon_triangulate_prb.cpp">polygon_triangulate_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "polygon_triangulate_prb.sh">polygon_triangulate_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "polygon_triangulate_prb_output.txt">polygon_triangulate_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+    
+    <p>
+      <b>COMB</b> is an example of a "comb" polygon of 10 vertices
+      <ul>
+        <li>
+          <a href = "comb_nodes.txt">comb_nodes.txt</a>,
+          the vertex coordinates.
+        </li>
+        <li>
+          <a href = "comb_elements.txt">comb_elements.txt</a>,
+          triples of vertex indices that make up the triangulation.
+        </li>
+        <li>
+          <a href = "comb_edges.txt">comb_edges.txt</a>,
+          pairs of vertex coordinates that form external edges.
+        </li>
+        <li>
+          <a href = "comb_diagonals.txt">comb_diagonals.txt</a>,
+          pairs of vertex coordinates that form internal diagonals.
+        </li>
+        <li>
+          <a href = "comb.png">comb.png</a>,
+          a PNG image of the triangulated polygon.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>HAND</b> outlines a hand using 59 vertices.
+      <ul>
+        <li>
+          <a href = "hand_nodes.txt">hand_nodes.txt</a>,
+          the vertex coordinates.
+        </li>
+        <li>
+          <a href = "hand_elements.txt">hand_elements.txt</a>,
+          triples of vertex indices that make up the triangulation.
+        </li>
+        <li>
+          <a href = "hand_edges.txt">hand_edges.txt</a>,
+          pairs of vertex coordinates that form external edges.
+        </li>
+        <li>
+          <a href = "hand_diagonals.txt">hand_diagonals.txt</a>,
+          pairs of vertex coordinates that form internal diagonals.
+        </li>
+        <li>
+          <a href = "hand.png">hand.png</a>,
+          a PNG image of the triangulated polygon.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>I18</b> is an example of a complicated nonconvex polygon, using 18 vertices.
+      <ul>
+        <li>
+          <a href = "i18_nodes.txt">i18_nodes.txt</a>,
+          the vertex coordinates.
+        </li>
+        <li>
+          <a href = "i18_elements.txt">i18_elements.txt</a>,
+          triples of vertex indices that make up the triangulation.
+        </li>
+        <li>
+          <a href = "i18_edges.txt">i18_edges.txt</a>,
+          pairs of vertex coordinates that form external edges.
+        </li>
+        <li>
+          <a href = "i18_diagonals.txt">i18_diagonals.txt</a>,
+          pairs of vertex coordinates that form internal diagonals.
+        </li>
+        <li>
+          <a href = "i18.png">i18.png</a>,
+          a PNG image of the triangulated polygon.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>BETWEEN</b> is TRUE if vertex C is between vertices A and B.
+        </li>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>CH_EQI</b> is a case insensitive comparison of two characters for equality.
+        </li>
+        <li>
+          <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
+        </li>
+        <li>
+          <b>COLLINEAR</b> returns a measure of collinearity for three points.
+        </li>
+        <li>
+          <b>DIAGONAL:</b> VERTEX(IM1) to VERTEX(IP1) is a proper internal diagonal.
+        </li>
+        <li>
+          <b>DIAGONALIE</b> is true if VERTEX(IM1):VERTEX(IP1) is a proper diagonal.
+        </li>
+        <li>
+          <b>FILE_COLUMN_COUNT</b> counts the number of columns in the first line of a file.
+        </li>
+        <li>
+          <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
+        </li>
+        <li>
+          <b>I4MAT_PRINT</b> prints an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_PRINT_SOME</b> prints some of an I4MAT.
+        </li>
+        <li>
+          <b>I4MAT_WRITE</b> writes an I4MAT file.
+        </li>
+        <li>
+          <b>IN_CONE</b> is TRUE if the diagonal VERTEX(IM1):VERTEX(IP1) is strictly internal.
+        </li>
+        <li>
+          <b>INTERSECT</b> is true if lines VA:VB and VC:VD intersect.
+        </li>
+        <li>
+          <b>INTERSECT_PROP</b> is TRUE if lines VA:VB and VC:VD have a proper intersection.
+        </li>
+        <li>
+          <b>L4_XOR</b> returns the exclusive OR of two L4's.
+        </li>
+        <li>
+          <b>POLYGON_TRIANGULATE</b> determines a triangulation of a polygon.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>S_TO_R8</b> reads an R8 from a string.
+        </li>
+        <li>
+          <b>S_TO_R8VEC</b> reads an R8VEC from a string.
+        </li>
+        <li>
+          <b>S_WORD_COUNT</b> counts the number of "words" in a string.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRIANGLE_AREA</b> computes the signed area of a triangle.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 06 May 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

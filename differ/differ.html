@@ -1,0 +1,219 @@
+<html>
+
+  <head>
+    <title>
+      DIFFER - Finite Difference Approximations to Derivatives
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      DIFFER <br> Finite Difference Approximations to Derivatives
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>DIFFER</b>
+      is a C++ library which
+      determines the finite difference coefficients necessary in order to
+      combine function values at known locations to compute an approximation
+      of given accuracy to a derivative of a given order.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this
+      web page are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>DIFFER</b> is available in
+      <a href = "../../c_src/differ/differ.html">a C version</a> and
+      <a href = "../../cpp_src/differ/differ.html">a C++ version</a> and
+      <a href = "../../f77_src/differ/differ.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/differ/differ.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/differ/differ.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/divdif/divdif.html">
+      DIVDIF</a>,
+      a C++ library which
+      uses divided differences to compute the polynomial interpolant 
+      to a given set of data.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Ake Bjorck, Victor Pereyra,<br>
+          Solution of Vandermonde Systems of Equations,<br>
+          Mathematics of Computation,<br>
+          Volume 24, Number 112, October 1970, pages 893-903.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "differ.cpp">differ.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "differ.hpp">differ.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "differ.sh">differ.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "differ_prb.cpp">differ_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "differ_prb.sh">differ_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "differ_prb_output.txt">differ_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>DIFFER_BACKWARD</b> computes backward difference coefficients.
+        </li>
+        <li>
+          <b>DIFFER_CENTRAL</b> computes central difference coefficients.
+        </li>
+        <li>
+          <b>DIFFER_FORWARD</b> computes forward difference coefficients.
+        </li>
+        <li>
+          <b>DIFFER_INVERSE</b> returns the inverse of the DIFFER matrix.
+        </li>
+        <li>
+          <b>DIFFER_MATRIX</b> computes the stencil matrix from the stencil vector.
+        </li>
+        <li>
+          <b>DIFFER_SOLVE</b> solves for finite difference coefficients.
+        </li>
+        <li>
+          <b>DIFFER_STENCIL</b> computes finite difference coefficients.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the minimum of two I4's.
+        </li>
+        <li>
+          <b>I4_TO_STRING</b> converts an I4 to a C++ string.
+        </li>
+        <li>
+          <b>INVERSE_ERROR</b> determines the error in an inverse matrix.
+        </li>
+        <li>
+          <b>R8_ABS</b> returns the absolute value of an R8.
+        </li>
+        <li>
+          <b>R8_FACTORIAL</b> computes the factorial of N.
+        </li>
+        <li>
+          <b>R8MAT_FS_NEW</b> factors and solves a system with one right hand side.
+        </li>
+        <li>
+          <b>R8MAT_MM_NEW</b> multiplies two matrices.
+        </li>
+        <li>
+          <b>R8MAT_MV_NEW</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8MAT_NORM_FRO</b> returns the Frobenius norm of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_SUB_NEW</b> computes C = A - B.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01_NEW</b> returns a new unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC2_PRINT</b> prints an R8VEC2.
+        </li>
+        <li>
+          <b>R8VM_SL</b> solves a R8VM system.
+        </li>
+        <li>
+          <b>R8VM_SL_NEW</b> solves a R8VM system.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 03 November 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

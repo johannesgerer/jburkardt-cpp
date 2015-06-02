@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g mandelbrot.cpp >& compiler.txt
+g++ -c mandelbrot.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling mandelbrot.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ mandelbrot.o
 if [ $? -ne 0 ]; then

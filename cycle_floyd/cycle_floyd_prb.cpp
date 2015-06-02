@@ -64,7 +64,6 @@ int main ( )
   cout << "\n";
   cout << "CYCLE_FLOYD_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -156,6 +155,10 @@ int f1 ( int i )
 //
 //  Parameters:
 //
+//    Input, int I, the argument of the function.
+//
+//    Output, int F1, the value of the function.
+//
 {
   static int f_table[9] = { 6, 6, 0, 1, 4, 3, 3, 4, 0 };
   int value;
@@ -241,6 +244,10 @@ int f2 ( int i )
 //
 //  Parameters:
 //
+//    Input, int I, the argument of the function.
+//
+//    Output, int F2, the value of the function.
+//
 {
   int value;
 
@@ -323,6 +330,10 @@ int f3 ( int i )
 //
 //  Parameters:
 //
+//    Input, int I, the argument of the function.
+//
+//    Output, int F3, the value of the function.
+//
 {
   int value;
 
@@ -401,6 +412,10 @@ int f4 ( int i )
 //
 //  Parameters:
 //
+//    Input, int I, the argument of the function.
+//
+//    Output, int F4, the value of the function.
+//
 {
   int value;
 
@@ -473,7 +488,7 @@ int f5 ( int i )
 //
 //  Purpose:
 //
-//    F5 is the iteration function for example 4.
+//    F5 is the iteration function for example 5.
 //
 //  Licensing:
 //
@@ -488,6 +503,10 @@ int f5 ( int i )
 //    John Burkardt
 //
 //  Parameters:
+//
+//    Input, int I, the argument of the function.
+//
+//    Output, int F5, the value of the function.
 //
 {
   int value;

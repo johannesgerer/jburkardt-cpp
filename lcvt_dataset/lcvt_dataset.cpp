@@ -25,7 +25,7 @@ void lcvt_write ( int dim_num, int n, int seed_start, int sample_function_init,
   double cvt_energy, int latin_it, double latin_energy, double cell_generator[],
   char *file_out_name );
 int prime ( int n );
-double r8_epsilon ( void );
+double r8_epsilon ( );
 double r8_uniform_01 ( int *seed );
 void r8mat_latinize ( int m, int n, double table[] );
 double *r8table_data_read ( char *input_filename, int m, int n );
@@ -36,8 +36,7 @@ bool s_eqi ( char *s1, char *s2 );
 int s_len_trim ( char* s );
 double s_to_r8 ( char *s, int *lchar, bool *error );
 bool s_to_r8vec ( char *s, int n, double rvec[] );
-void timestamp ( void );
-char *timestring ( void );
+void timestamp ( );
 void tuple_next_fast ( int m, int n, int rank, int x[] );
 
 //****************************************************************************80
@@ -1684,13 +1683,13 @@ int prime ( int n )
 }
 //****************************************************************************80
 
-double r8_epsilon ( void )
+double r8_epsilon ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the roundoff unit for R8 arithmetic.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
@@ -1700,9 +1699,13 @@ double r8_epsilon ( void )
 //    but
 //      1 = ( 1 + R / 2 )
 //
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -1710,19 +1713,12 @@ double r8_epsilon ( void )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision point round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -2739,50 +2735,6 @@ void timestamp ( void )
   cout << time_buffer << "\n";
 
   return;
-# undef TIME_SIZE
-}
-//****************************************************************************80
-
-char *timestring ( void )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TIMESTRING returns the current YMDHMS date as a string.
-//
-//  Example:
-//
-//    31 May 2001 09:45:54 AM
-//
-//  Modified:
-//
-//    24 September 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Output, char *TIMESTRING, a string containing the current YMDHMS date.
-//
-{
-# define TIME_SIZE 40
-
-  const struct tm *tm;
-  size_t len;
-  time_t now;
-  char *s;
-
-  now = time ( NULL );
-  tm = localtime ( &now );
-
-  s = new char[TIME_SIZE];
-
-  len = strftime ( s, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
-
-  return s;
 # undef TIME_SIZE
 }
 //****************************************************************************80

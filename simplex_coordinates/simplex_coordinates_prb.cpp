@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SIMPLEX_COORDINATES_PRB tests SIMPLEX_COORDINATES.
+//    MAIN is the main program for SIMPLEX_COORDINATED_PRB.
+//
+//  Discussion:
+//
+//    SIMPLEX_COORDINATES_PRB tests the SIMPLEX_COORDINATES library.
 //
 //  Licensing:
 //
@@ -56,7 +60,6 @@ int main ( )
   cout << "SIMPLEX_COORDINATES_PRB\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
-
   timestamp ( );
 
   return 0;

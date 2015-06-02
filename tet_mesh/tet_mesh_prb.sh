@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include tet_mesh_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include tet_mesh_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling tet_mesh_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ tet_mesh_prb.o /$HOME/libcpp/$ARCH/tet_mesh.o -lm
 if [ $? -ne 0 ]; then

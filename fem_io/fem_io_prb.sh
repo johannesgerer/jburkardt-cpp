@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include fem_io_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include fem_io_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling fem_io_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ fem_io_prb.o /$HOME/libcpp/$ARCH/fem_io.o -lm
 if [ $? -ne 0 ]; then

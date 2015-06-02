@@ -181,6 +181,40 @@ double *dif2 ( int m, int n )
 double *jacobi1 ( int n, double a[], double b[], double x[] )
 
 //****************************************************************************80
+//
+//  Purpose:
+//
+//    JACOBI1 carries out one step of the Jacobi iteration.
+//
+//  Discussion:
+//
+//    The linear system A*x=b is to be solved.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int N, the order of the matrix.
+//
+//    Input, double A[N,N], the matrix.
+//
+//    Input, double B[N], the right hand side.
+//
+//    Input, double X[N], the current solution estimate.
+//
+//    Output, double JACOBI1[N], the solution estimate updated by
+//    one step of the Jacobi iteration.
+//
 {
   int i;
   int j;
@@ -205,13 +239,13 @@ double *jacobi1 ( int n, double a[], double b[], double x[] )
 }
 //****************************************************************************80
 
-double *r8mat_mv ( int m, int n, double a[], double x[] )
+double *r8mat_mv_new ( int m, int n, double a[], double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8MAT_MV multiplies a matrix times a vector.
+//    R8MAT_MV_NEW multiplies a matrix times a vector.
 //
 //  Discussion:
 //
@@ -240,7 +274,7 @@ double *r8mat_mv ( int m, int n, double a[], double x[] )
 //
 //    Input, double X[N], the vector to be multiplied by A.
 //
-//    Output, double R8MAT_MV[M], the product A*X.
+//    Output, double R8MAT_MV_NEW[M], the product A*X.
 //
 {
   int i;

@@ -52,7 +52,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    LINPACK_D_PRB tests the double precision real LINPACK routines.
+//    MAIN is the main program for LINPACK_D_PRB.
+//
+//  Discussion:
+//
+//    LINPACK_D_PRB tests the LINPACK_D library.
 //
 //  Licensing:
 //
@@ -68,7 +72,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "LINPACK_D_PRB\n";
   cout << "  C++ version\n";
@@ -114,7 +117,6 @@ int main ( )
   cout << "\n";
   cout << "LINPACK_D_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -17,7 +17,6 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   double bj[] );
 void imtqlx ( int n, double d[], double e[], double z[] );
 void parchk ( int kind, int m, double alpha, double beta );
-double r8_abs ( double x );
 double r8_epsilon ( );
 double r8_huge ( );
 double r8_sign ( double x );
@@ -488,7 +487,7 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
 
   temp2 = 0.5;
 
-  if ( 500.0 * temp < r8_abs ( pow ( gamma ( temp2 ), 2 ) - pi ) )
+  if ( 500.0 * temp < fabs ( pow ( tgamma ( temp2 ), 2 ) - pi ) )
   {
     cout << "\n";
     cout << "CLASS_MATRIX - Fatal error!\n";
@@ -532,8 +531,8 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   else if ( kind == 3 )
   {
     ab = alpha * 2.0;
-    zemu = pow ( 2.0, ab + 1.0 ) * pow ( gamma ( alpha + 1.0 ), 2 )
-      / gamma ( ab + 2.0 );
+    zemu = pow ( 2.0, ab + 1.0 ) * pow ( tgamma ( alpha + 1.0 ), 2 )
+      / tgamma ( ab + 2.0 );
 
     for ( i = 0; i < m; i++ )
     {
@@ -550,8 +549,8 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   {
     ab = alpha + beta;
     abi = 2.0 + ab;
-    zemu = pow ( 2.0, ab + 1.0 ) * gamma ( alpha + 1.0 ) 
-      * gamma ( beta + 1.0 ) / gamma ( abi );
+    zemu = pow ( 2.0, ab + 1.0 ) * tgamma ( alpha + 1.0 ) 
+      * tgamma ( beta + 1.0 ) / tgamma ( abi );
     aj[0] = ( beta - alpha ) / abi;
     bj[0] = sqrt ( 4.0 * ( 1.0 + alpha ) * ( 1.0 + beta ) 
       / ( ( abi + 1.0 ) * abi * abi ) );
@@ -568,7 +567,7 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   }
   else if ( kind == 5 )
   {
-    zemu = gamma ( alpha + 1.0 );
+    zemu = tgamma ( alpha + 1.0 );
 
     for ( i = 1; i <= m; i++ )
     {
@@ -578,7 +577,7 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   }
   else if ( kind == 6 )
   {
-    zemu = gamma ( ( alpha + 1.0 ) / 2.0 );
+    zemu = tgamma ( ( alpha + 1.0 ) / 2.0 );
 
     for ( i = 0; i < m; i++ )
     {
@@ -610,8 +609,8 @@ double class_matrix ( int kind, int m, double alpha, double beta, double aj[],
   else if ( kind == 8 )
   {
     ab = alpha + beta;
-    zemu = gamma ( alpha + 1.0 ) * gamma ( - ( ab + 1.0 ) ) 
-      / gamma ( - beta );
+    zemu = tgamma ( alpha + 1.0 ) * tgamma ( - ( ab + 1.0 ) ) 
+      / tgamma ( - beta );
     apone = alpha + 1.0;
     aba = ab * apone;
     aj[0] = - apone / ( ab + 2.0 );
@@ -741,7 +740,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
           break;
         }
 
-        if ( r8_abs ( e[m-1] ) <= prec * ( r8_abs ( d[m-1] ) + r8_abs ( d[m] ) ) )
+        if ( fabs ( e[m-1] ) <= prec * ( fabs ( d[m-1] ) + fabs ( d[m] ) ) )
         {
           break;
         }
@@ -761,7 +760,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
       j = j + 1;
       g = ( d[l] - p ) / ( 2.0 * e[l-1] );
       r =  sqrt ( g * g + 1.0 );
-      g = d[m-1] - p + e[l-1] / ( g + r8_abs ( r ) * r8_sign ( g ) );
+      g = d[m-1] - p + e[l-1] / ( g + fabs ( r ) * r8_sign ( g ) );
       s = 1.0;
       c = 1.0;
       p = 0.0;
@@ -773,7 +772,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
         f = s * e[i-1];
         b = c * e[i-1];
 
-        if ( r8_abs ( g ) <= r8_abs ( f ) )
+        if ( fabs ( g ) <= fabs ( f ) )
         {
           c = g / f;
           r =  sqrt ( c * c + 1.0 );
@@ -929,47 +928,6 @@ void parchk ( int kind, int m, double alpha, double beta )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    19 February 2008
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double r8_epsilon ( )
 
 //****************************************************************************80
@@ -980,19 +938,19 @@ double r8_epsilon ( )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    19 February 2008
+//    01 September 2012
 //
 //  Author:
 //
@@ -1003,16 +961,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }
@@ -1319,7 +1268,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = 0.0;
     be = 0.0;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1333,7 +1282,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = -0.5;
     be = -0.5;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1347,7 +1296,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = alpha;
     be = alpha;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1362,7 +1311,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
     al = alpha;
     be = beta;
 
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1404,7 +1353,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = alpha;
     be = 0.0;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";
@@ -1432,7 +1381,7 @@ void scqf ( int nt, double t[], int mlt[], double wts[], int nwts, int ndx[],
   {
     al = 0.5;
     be = 0.5;
-    if ( r8_abs ( b - a ) <= temp )
+    if ( fabs ( b - a ) <= temp )
     {
       cout << "\n";
       cout << "SCQF - Fatal error!\n";

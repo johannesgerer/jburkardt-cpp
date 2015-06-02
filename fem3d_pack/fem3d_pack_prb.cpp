@@ -18,7 +18,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    FEM3D_PACK_PRB calls the various FEM3D_PACK tests.
+//    MAIN is the main program for FEM3D_PACK_PRB.
+//
+//  Discussion:
+//
+//    FEM3D_PACK_PRB tests the FEM3D_PACK library.
 //
 //  Licensing:
 //
@@ -34,8 +38,8 @@ int main ( )
 //
 {
   int i;
-  timestamp ( );
 
+  timestamp ( );
   cout << "\n";
   cout << "FEM3D_PACK_PRB:\n";
   cout << "  C++ version\n";
@@ -53,7 +57,6 @@ int main ( )
   cout << "\n";
   cout << "FEM3D_PACK_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

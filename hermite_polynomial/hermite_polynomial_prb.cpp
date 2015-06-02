@@ -1,6 +1,7 @@
 # include <cstdlib>
 # include <cmath>
 # include <iostream>
+# include <sstream>
 # include <iomanip>
 # include <ctime>
 # include <cstring>
@@ -25,6 +26,7 @@ void hermite_polynomial_test12 ( int p, double b );
 void hermite_polynomial_test13 ( int p, int e );
 void hermite_polynomial_test14 ( );
 void hermite_polynomial_test15 ( );
+string i4_to_string ( int i4 );
 
 //****************************************************************************80
 
@@ -33,6 +35,10 @@ int main ( )
 //****************************************************************************80
 //
 //  Purpose:
+//
+//    MAIN is the main program for HERMITE_POLYNOMIAL_PRB.
+//
+//  Discussion:
 //
 //    HERMITE_POLYNOMIAL_PRB tests the HERMITE_POLYNOMIAL library.
 //
@@ -124,7 +130,6 @@ int main ( )
   cout << "\n";
   cout << "HERMITE_POLYNOMIAL_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -138,7 +143,7 @@ void hermite_polynomial_test01 ( )
 //
 //  Purpose:
 //
-//    HERMITE_POLYNOMIAL_TEST01 tests H_POLYNOMIAL.
+//    HERMITE_POLYNOMIAL_TEST01 tests H_POLYNOMIAL_VALUE.
 //
 //  Licensing:
 //
@@ -166,7 +171,7 @@ void hermite_polynomial_test01 ( )
   cout << "HERMITE_POLYNOMIAL_TEST01:\n";
   cout << "  H_POLYNOMIAL_VALUES stores values of\n";
   cout << "  the physicist's Hermite polynomials.\n";
-  cout << "  H_POLYNOMIAL evaluates the polynomial.\n";
+  cout << "  H_POLYNOMIAL_VALUE evaluates the polynomial.\n";
   cout << "\n";
   cout << "                        Tabulated                 Computed\n";
   cout << "     N        X           H(N,X)                    H(N,X)                     Error\n";
@@ -184,7 +189,7 @@ void hermite_polynomial_test01 ( )
     }
 
     x_vec[0] = x;
-    fx2_vec = h_polynomial ( 1, n, x_vec );
+    fx2_vec = h_polynomial_value ( 1, n, x_vec );
     fx2 = fx2_vec[n];
     delete [] fx2_vec;
 
@@ -206,7 +211,7 @@ void hermite_polynomial_test02 ( )
 //
 //  Purpose:
 //
-//    HERMITE_POLYNOMIAL_TEST02 tests HE_POLYNOMIAL.
+//    HERMITE_POLYNOMIAL_TEST02 tests HE_POLYNOMIAL_VALUE.
 //
 //  Licensing:
 //
@@ -234,7 +239,7 @@ void hermite_polynomial_test02 ( )
   cout << "HERMITE_POLYNOMIAL_TEST02:\n";
   cout << "  HE_POLYNOMIAL_VALUES stores values of\n";
   cout << "  the probabilist's Hermite polynomials.\n";
-  cout << "  HE_POLYNOMIAL evaluates the polynomial.\n";
+  cout << "  HE_POLYNOMIAL_VALUE evaluates the polynomial.\n";
   cout << "\n";
   cout << "                        Tabulated                 Computed\n";
   cout << "     N        X          He(N,X)                   He(N,X)                     Error\n";
@@ -252,7 +257,7 @@ void hermite_polynomial_test02 ( )
     }
 
     x_vec[0] = x;
-    fx2_vec = he_polynomial ( 1, n, x_vec );
+    fx2_vec = he_polynomial_value ( 1, n, x_vec );
     fx2 = fx2_vec[n];
     delete [] fx2_vec;
 
@@ -274,7 +279,7 @@ void hermite_polynomial_test03 ( )
 //
 //  Purpose:
 //
-//    HERMITE_POLYNOMIAL_TEST03 tests HE_POLYNOMIAL.
+//    HERMITE_POLYNOMIAL_TEST03 tests HF_FUNCTION_VALUE.
 //
 //  Licensing:
 //
@@ -302,7 +307,7 @@ void hermite_polynomial_test03 ( )
   cout << "HERMITE_POLYNOMIAL_TEST03:\n";
   cout << "  HF_FUNCTION_VALUES stores values of\n";
   cout << "  the Hermite function Hf(n,x).\n";
-  cout << "  HF_FUNCTION evaluates the function.\n";
+  cout << "  HF_FUNCTION_VALUE evaluates the function.\n";
   cout << "\n";
   cout << "                        Tabulated                 Computed\n";
   cout << "     N        X          Hf(N,X)                   Hf(N,X)                   Error\n";
@@ -320,7 +325,7 @@ void hermite_polynomial_test03 ( )
     }
 
     x_vec[0] = x;
-    fx2_vec = hf_function ( 1, n, x_vec );
+    fx2_vec = hf_function_value ( 1, n, x_vec );
     fx2 = fx2_vec[n];
     delete [] fx2_vec;
 
@@ -350,7 +355,7 @@ void hermite_polynomial_test04 ( )
 //
 //  Modified:
 //
-//    23 February 2012
+//    19 October 2014
 //
 //  Author:
 //
@@ -360,7 +365,6 @@ void hermite_polynomial_test04 ( )
   int degree;
   double *hz;
   string title;
-  char title_char[80];
   double *z;
 
   cout << "\n";
@@ -371,13 +375,11 @@ void hermite_polynomial_test04 ( )
   for ( degree = 1; degree <= 5; degree++ )
   {
     z = h_polynomial_zeros ( degree );
-    sprintf ( title_char, "  Computed zeros for H(%d,z):", degree );
-    title = string ( title_char );
+    title = "  Computed zeros for H(" + i4_to_string ( degree ) + ",z):";
     r8vec_print ( degree, z, title );
 
-    hz = h_polynomial ( degree, degree, z );
-    sprintf ( title_char, "  Evaluate H(%d,z):", degree );
-    title = string ( title_char );
+    hz = h_polynomial_value ( degree, degree, z );
+    title = "  Evaluate H(" + i4_to_string ( degree ) + ",z):";
     r8vec_print ( degree, hz+degree*degree, title );
 
     delete [] hz;
@@ -411,7 +413,6 @@ void hermite_polynomial_test05 ( )
   int degree;
   double *hz;
   string title;
-  char title_char[80];
   double *z;
 
   cout << "\n";
@@ -422,13 +423,11 @@ void hermite_polynomial_test05 ( )
   for ( degree = 1; degree <= 5; degree++ )
   {
     z = he_polynomial_zeros ( degree );
-    sprintf ( title_char, "  Computed zeros for He(%d,z):", degree );
-    title = string ( title_char );
+    title = "  Computed zeros for He(" + i4_to_string ( degree ) + ",z):";
     r8vec_print ( degree, z, title );
 
-    hz = he_polynomial ( degree, degree, z );
-    sprintf ( title_char, "  Evaluate He(%d,z):", degree );
-    title = string ( title_char );
+    hz = he_polynomial_value ( degree, degree, z );
+    title = "  Evaluate He(" + i4_to_string ( degree ) + ",z):";
     r8vec_print ( degree, hz+degree*degree, title );
 
     delete [] hz;
@@ -1038,5 +1037,45 @@ void hermite_polynomial_test15 ( )
   delete [] c;
 
   return;
+}
+//****************************************************************************80
+
+string i4_to_string ( int i4 )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_TO_STRING converts an I4 to a C++ string.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    16 January 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int I4, an integer.
+//
+//    Input, string FORMAT, the format string.
+//
+//    Output, string I4_TO_STRING, the string.
+//
+{
+  ostringstream fred;
+  string value;
+
+  fred << i4;
+
+  value = fred.str ( );
+
+  return value;
 }
 

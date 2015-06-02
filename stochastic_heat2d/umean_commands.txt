@@ -1,0 +1,17 @@
+# umean_commands.txt
+#
+# Usage:
+#  gnuplot < umean_commands.txt
+#
+set term png
+set output 'umean.png'
+set xlabel '<---OMEGA1--->'
+set ylabel '<---OMEGA2--->'
+set zlabel '<---U_MEAN(OMEGA1,OMEGA2)--->'
+set title 'Solution Mean as Function of Omega1, Omega2'
+set contour
+set timestamp
+set cntrparam levels 10
+set view 75, 75
+unset key
+splot 'umean_data.txt'

@@ -21,9 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    FILE_NAME_SEQUENCE demonstrates ways of generating a sequence of filenames.
+//    MAIN is the main program for FILE_NAME_SEQUENCE_PRB.
 //
 //  Discussion:
+//
+//    FILE_NAME_SEQUENCE_PRB tests the FILE_NAME_SEQUENCE library.
 //
 //    There are situations such as animations or parallel processing in which
 //    it is necessary to generate a sequence of file names which include
@@ -61,7 +63,7 @@ int main ( )
   cout << "\n";
   cout << "FILE_NAME_SEQUENCE_PRB:\n";
   cout << "  C++ version\n";
-  cout << "  Demonstrate ways of generating a numeric sequence of file names.\n";
+  cout << "  Test the FILE_NAME_SEQUENCE library.\n";
 
   test02 ( "fred", ".txt", 0, 12 );
   test03 ( "frid", ".txt", 99, 105 );
@@ -72,7 +74,6 @@ int main ( )
   cout << "\n";
   cout << "FILE_NAME_SEQUENCE_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -178,7 +179,7 @@ void test04 ( string filename, int filename_num )
 //
 //  Purpose:
 //
-//    TEST04 uses FILE_NAME_INC.
+//    TEST04 uses FILENAME_INC.
 //
 //  Licensing:
 //
@@ -197,7 +198,7 @@ void test04 ( string filename, int filename_num )
 
   cout << "\n";
   cout << "TEST04:\n";
-  cout << "  FILENAME(I+1) = FILE_NAME_INC ( FILENAME(I) )\n";
+  cout << "  FILENAME(I+1) = FILENAME_INC ( FILENAME(I) )\n";
   cout << "  First FILENAME = \"" << filename << "\"\n";
   cout << "  Number of filenames = " << filename_num << "\n";
   cout << "  Numbers may include leading zeros.\n";
@@ -207,7 +208,7 @@ void test04 ( string filename, int filename_num )
   {
     cout << "  " << setw(4) << i
          << "  \"" << filename << "\".\n";
-    file_name_inc ( &filename );
+    filename_inc ( &filename );
   }
 
   return;

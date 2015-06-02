@@ -1,7 +1,7 @@
 # include <cstdlib>
 # include <iostream>
 # include <iomanip>
-# include <cmath>>
+# include <cmath>
 
 using namespace std;
 
@@ -26,7 +26,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN is the main program for MULTIGRID_POISSON_1D.
+//    MAIN is the main program for MULTIGRID_POISSON_1D_PRB.
+//
+//  Discussion:
+//
+//    MULTIGRID_POISSON_1D_PRB tests the MULTIGRID_POISSON_1D library.
 //
 //  Licensing:
 //
@@ -42,11 +46,10 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "MULTIGRID_POISSON_1D:\n";
   cout << "  C++ version\n";
-  cout << "  Test the MULTIGRID_POISSON_1D multigrid library.\n";
+  cout << "  Test the MULTIGRID_POISSON_1D library.\n";
 
   test01_mono ( );
   test01_multi ( );
@@ -58,7 +61,6 @@ int main ( )
   cout << "\n";
   cout << "MULTIGRID_POISSON_1D:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -87,18 +89,28 @@ void test01_mono ( )
 //    John Burkardt
 //
 {
+  double a;
+  double b;
   double difmax;
   int i;
   int it_num;
   int k;
   int n;
   double *u;
-  double x;
+  double ua;
+  double ub;
+  double *x;
 
   cout << "\n";
   cout << "TEST01_MONO\n";
   cout << "  MONOGRID_POISSON_1D solves a 1D Poisson BVP\n";
   cout << "  using the Gauss-Seidel method.\n";
+
+  a = 0.0;
+  b = 1.0;
+  ua = 0.0;
+  ub = 0.0;
+
   cout << "\n";
   cout << "  -u''(x) = 1, for 0 < x < 1\n";
   cout << "  u(0) = u(1) = 0.\n";
@@ -109,24 +121,24 @@ void test01_mono ( )
     n = i4_power ( 2, k );
 
     u = new double[n+1];
+    x = r8vec_linspace_new ( n + 1, a, b );
 
     cout << "\n";
     cout << "  Mesh index K = " << k << "\n";
     cout << "  Number of intervals N=2^K = " << n << "\n";
     cout << "  Number of nodes = 2^K+1 =   " << n + 1 << "\n";
 
-    monogrid_poisson_1d ( n, force1, exact1, it_num, u );
+    monogrid_poisson_1d ( n, a, b, ua, ub, force1, exact1, it_num, u );
 
     cout << "\n";
     cout << "     I        X(I)      U(I)         U Exact(X(I))\n";
     cout << "\n";
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
       cout << "  " << setw(4) << i
-           << "  " << setw(10) << x
+           << "  " << setw(10) << x[i]
            << "  " << setw(14) << u[i]
-           << "  " << setw(14) << exact1 ( x ) << "\n";
+           << "  " << setw(14) << exact1 ( x[i] ) << "\n";
     }
 
     cout << "\n";
@@ -134,13 +146,13 @@ void test01_mono ( )
     difmax = 0.0;
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
-      difmax = r8_max ( difmax, r8_abs ( u[i] - exact1 ( x ) ) );
+      difmax = r8_max ( difmax, fabs ( u[i] - exact1 ( x[i] ) ) );
     } 
     cout << "  Maximum error = " << difmax << "\n";
     cout << "  Number of iterations = " << it_num << "\n";
 
     delete [] u;
+    delete [] x;
   }
   return;
 }
@@ -160,25 +172,35 @@ void test01_multi ( )
 //
 //  Modified:
 //
-//    07 December 2011
+//    26 July 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
+  double a;
+  double b;
   double difmax;
   int i;
   int it_num;
   int k;
   int n;
   double *u;
-  double x;
+  double ua;
+  double ub;
+  double *x;
 
   cout << "\n";
   cout << "TEST01_MULTI\n";
   cout << "  MULTIGRID_POISSON_1D solves a 1D Poisson BVP\n";
   cout << "  using the multigrid method.\n";
+
+  a = 0.0;
+  b = 1.0;
+  ua = 0.0;
+  ub = 0.0;
+
   cout << "\n";
   cout << "  -u''(x) = 1, for 0 < x < 1\n";
   cout << "  u(0) = u(1) = 0.\n";
@@ -189,24 +211,24 @@ void test01_multi ( )
     n = i4_power ( 2, k );
 
     u = new double[n+1];
+    x = r8vec_linspace_new ( n + 1, a, b );
 
     cout << "\n";
     cout << "  Mesh index K = " << k << "\n";
     cout << "  Number of intervals N=2^K = " << n << "\n";
     cout << "  Number of nodes = 2^K+1 =   " << n + 1 << "\n";
 
-    multigrid_poisson_1d ( n, force1, exact1, it_num, u );
+    multigrid_poisson_1d ( n, a, b, ua, ub, force1, exact1, it_num, u );
 
     cout << "\n";
     cout << "     I        X(I)      U(I)         U Exact(X(I))\n";
     cout << "\n";
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
       cout << "  " << setw(4) << i
-           << "  " << setw(10) << x
+           << "  " << setw(10) << x[i]
            << "  " << setw(14) << u[i]
-           << "  " << setw(14) << exact1 ( x ) << "\n";
+           << "  " << setw(14) << exact1 ( x[i] ) << "\n";
     }
 
     cout << "\n";
@@ -214,13 +236,13 @@ void test01_multi ( )
     difmax = 0.0;
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
-      difmax = r8_max ( difmax, r8_abs ( u[i] - exact1 ( x ) ) );
+      difmax = r8_max ( difmax, fabs ( u[i] - exact1 ( x[i] ) ) );
     } 
     cout << "  Maximum error = " << difmax << "\n";
     cout << "  Number of iterations = " << it_num << "\n";
 
     delete [] u;
+    delete [] x;
   }
   return;
 }
@@ -326,25 +348,35 @@ void test02_mono ( )
 //
 //  Modified:
 //
-//    07 December 2011
+//    26 July 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
+  double a;
+  double b;
   double difmax;
   int i;
   int it_num;
   int k;
   int n;
   double *u;
-  double x;
+  double ua;
+  double ub;
+  double *x;
 
   cout << "\n";
   cout << "TEST02_MONO\n";
   cout << "  MONOGRID_POISSON_1D solves a 1D Poisson BVP\n";
   cout << "  using the Gauss-Seidel method.\n";
+
+  a = 0.0;
+  b = 1.0;
+  ua = 0.0;
+  ub = 0.0;
+
   cout << "\n";
   cout << "  -u''(x) = - x * (x+3) * exp(x), for 0 < x < 1\n";
   cout << "  u(0) = u(1) = 0.\n";
@@ -355,24 +387,24 @@ void test02_mono ( )
     n = i4_power ( 2, k );
 
     u = new double[n+1];
+    x = r8vec_linspace_new ( n + 1, a, b );
 
     cout << "\n";
     cout << "  Mesh index K = " << k << "\n";
     cout << "  Number of intervals N=2^K = " << n << "\n";
     cout << "  Number of nodes = 2^K+1 =   " << n + 1 << "\n";
 
-    monogrid_poisson_1d ( n, force2, exact2, it_num, u );
+    monogrid_poisson_1d ( n, a, b, ua, ub, force2, exact2, it_num, u );
 
     cout << "\n";
     cout << "     I        X(I)      U(I)         U Exact(X(I))\n";
     cout << "\n";
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
       cout << "  " << setw(4) << i
-           << "  " << setw(10) << x
+           << "  " << setw(10) << x[i]
            << "  " << setw(14) << u[i]
-           << "  " << setw(14) << exact2 ( x ) << "\n";
+           << "  " << setw(14) << exact2 ( x[i] ) << "\n";
     }
 
     cout << "\n";
@@ -380,13 +412,13 @@ void test02_mono ( )
     difmax = 0.0;
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
-      difmax = r8_max ( difmax, r8_abs ( u[i] - exact2 ( x ) ) );
+      difmax = r8_max ( difmax, fabs ( u[i] - exact2 ( x[i] ) ) );
     } 
     cout << "  Maximum error = " << difmax << "\n";
     cout << "  Number of iterations = " << it_num << "\n";
 
     delete [] u;
+    delete [] x;
   }
   return;
 }
@@ -406,25 +438,35 @@ void test02_multi ( )
 //
 //  Modified:
 //
-//    07 December 2011
+//    26 July 2014
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
+  double a;
+  double b;
   double difmax;
   int i;
   int it_num;
   int k;
   int n;
   double *u;
-  double x;
+  double ua;
+  double ub;
+  double *x;
 
   cout << "\n";
   cout << "TEST02_MULTI\n";
   cout << "  MULTIGRID_POISSON_1D solves a 1D Poisson BVP\n";
   cout << "  using the multigrid method.\n";
+
+  a = 0.0;
+  b = 1.0;
+  ua = 0.0;
+  ub = 0.0;
+
   cout << "\n";
   cout << "  -u''(x) = - x * (x+3) * exp(x), for 0 < x < 1\n";
   cout << "  u(0) = u(1) = 0.\n";
@@ -435,24 +477,24 @@ void test02_multi ( )
     n = i4_power ( 2, k );
 
     u = new double[n+1];
+    x = r8vec_linspace_new ( n + 1, a, b );
 
     cout << "\n";
     cout << "  Mesh index K = " << k << "\n";
     cout << "  Number of intervals N=2^K = " << n << "\n";
     cout << "  Number of nodes = 2^K+1 =   " << n + 1 << "\n";
 
-    multigrid_poisson_1d ( n, force2, exact2, it_num, u );
+    multigrid_poisson_1d ( n, a, b, ua, ub, force2, exact2, it_num, u );
 
     cout << "\n";
     cout << "     I        X(I)      U(I)         U Exact(X(I))\n";
     cout << "\n";
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
       cout << "  " << setw(4) << i
-           << "  " << setw(10) << x
+           << "  " << setw(10) << x[i]
            << "  " << setw(14) << u[i]
-           << "  " << setw(14) << exact2 ( x ) << "\n";
+           << "  " << setw(14) << exact2 ( x[i] ) << "\n";
     }
 
     cout << "\n";
@@ -460,13 +502,13 @@ void test02_multi ( )
     difmax = 0.0;
     for ( i = 0; i < n + 1; i++ )
     {
-      x = ( double ) ( i ) / ( double ) ( n );
-      difmax = r8_max ( difmax, r8_abs ( u[i] - exact2 ( x ) ) );
+      difmax = r8_max ( difmax, fabs ( u[i] - exact2 ( x[i] ) ) );
     } 
     cout << "  Maximum error = " << difmax << "\n";
     cout << "  Number of iterations = " << it_num << "\n";
 
     delete [] u;
+    delete [] x;
   }
   return;
 }

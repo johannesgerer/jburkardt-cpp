@@ -23,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA076_PRB calls the ASA076 routines.
+//    ASA076_PRB tests the ASA076 library.
 //
 //  Licensing:
 //
@@ -39,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA076_PRB:\n";
   cout << "  C++ version\n";
@@ -53,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "ASA076_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -116,7 +114,7 @@ void test01 ( )
          << "  " << setprecision(4) << setw(12) << a
          << "  " << setprecision(16) << setw(24) << t1
          << "  " << setprecision(16) << setw(24) << t2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( t1 - t2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( t1 - t2 ) << "\n";
   }
 
   return;
@@ -179,7 +177,7 @@ void test02 ( )
          << "  " << setprecision(4) << setw(12) << a
          << "  " << setprecision(16) << setw(24) << t1
          << "  " << setprecision(16) << setw(24) << t2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( t1 - t2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( t1 - t2 ) << "\n";
   }
 
   return;

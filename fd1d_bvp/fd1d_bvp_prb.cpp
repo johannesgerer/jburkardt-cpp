@@ -44,7 +44,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    FD1D_BVP_PRB tests the routines in FD1D_BVP.
+//    FD1D_BVP_PRB tests the FD1D_BVP library.
 //
 //  Licensing:
 //
@@ -61,8 +61,9 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "FD1D_BVP_TEST\n";
+  cout << "FD1D_BVP_PRB\n";
   cout << "  C++ version\n";
+  cout << "  Test the FD1D_BVP library.\n";
 
   fd1d_bvp_test01 ( );
   fd1d_bvp_test02 ( );
@@ -73,9 +74,8 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "FD1D_BVP_TEST\n";
+  cout << "FD1D_BVP_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

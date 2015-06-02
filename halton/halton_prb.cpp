@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#include "halton.hpp"
+# include "halton.hpp"
 
 int main ( );
 void test01 ( );
@@ -35,7 +35,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    HALTON_PRB calls the HALTON tests.
+//    MAIN is the main program for HALTON_PRB.
+//
+//  Discussion:
+//
+//    HALTON_PRB tests the HALTON library.
 //
 //  Licensing:
 //
@@ -51,7 +55,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "HALTON_PRB:\n";
   cout << "  C++ version\n";
@@ -80,7 +83,6 @@ int main ( )
   cout << "\n";
   cout << "HALTON_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

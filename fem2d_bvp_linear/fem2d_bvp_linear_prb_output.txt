@@ -1,0 +1,37 @@
+20 June 2014 03:21:42 PM
+
+FEM2D_BVP_LINEAR_PRB
+  C++ version
+  Test the FEM2D_BVP_LINEAR library.
+
+TEST01
+  Solve - del ( A del U ) + C U = F 
+  on the unit square with zero boundary conditions.
+  A1(X,Y) = 1.0
+  C1(X,Y) = 0.0
+  F1(X,Y) = 2*X*(1-X)+2*Y*(1-Y)
+  U1(X,Y) = X * ( 1 - X ) * Y * ( 1 - Y )
+
+  Number of X grid values NX = 3
+  Number of Y grid values NY = 3
+
+     I     J    X         Y         U         Uexact    Error
+
+     0     0         0         0               0               0               0
+     1     0       0.5         0               0               0               0
+     2     0         1         0               0               0               0
+     0     1         0       0.5               0               0               0
+     1     1       0.5       0.5        0.078125          0.0625        0.015625
+     2     1         1       0.5               0               0               0
+     0     2         0         1               0               0               0
+     1     2       0.5         1               0               0               0
+     2     2         1         1               0               0               0
+
+  l1 norm of error  = 0.015625
+  L2 norm of error  = 0.00968806
+  Seminorm of error = 0.0771115
+
+FEM2D_BVP_LINEAR_PRB
+  Normal end of execution.
+
+20 June 2014 03:21:42 PM

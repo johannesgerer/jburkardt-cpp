@@ -1,0 +1,334 @@
+<html>
+
+  <head>
+    <title>
+      WAVE_MPI - Parallel Solution of the 1D Wave Equation using MPI
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      WAVE_MPI <br> Parallel Solution of the 1D Wave Equation using MPI
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>WAVE_MPI</b> 
+      is a C++ program which
+      solves the 1D wave equation in parallel, using MPI.
+    </p>
+
+    <p>
+      This program solves the 1D wave equation of the form:
+      <pre>
+        Utt = c^2 Uxx
+      </pre>
+      over the spatial interval [X1,X2] and time interval [T1,T2],
+      with initial conditions:
+      <pre>
+        U(X,T1)  = U_T1(X),
+        Ut(X,T1) = UT_T1(X),
+      </pre>
+      and boundary conditions of Dirichlet type:
+      <pre>
+        U(X1,T) = U_X1(T),<br>
+        U(X2,T) = U_X2(T).
+      </pre>
+      The value <b>C</b> represents the propagation speed of waves.
+    </p>
+
+    <p>
+      The program uses the finite difference method, and marches
+      forward in time, solving for all the values of U at the next
+      time step by using the values known at the previous two time steps.
+    </p>
+
+    <p>
+      Central differences may be used to approximate both the time
+      and space derivatives in the original differential equation.
+    </p>
+
+    <p>
+      Thus, assuming we have available the approximated values of U
+      at the current and previous times, we may write a discretized
+      version of the wave equation as follows:
+      <pre>
+        Uxx(X,T) = ( U(X+dX,T   ) - 2 U(X,T) + U(X-dX,T,  ) ) / dX^2
+        Utt(X,T) = ( U(X,   T+dT) - 2 U(X,T) + U(X,   T-dt) ) / dT^2
+      </pre>
+      If we multiply the first term by C^2 and solve for the single
+      unknown value U(X,T+dt), we have:
+      <pre>
+        U(X,T+dT) =        (     C^2 * dT^2 / dX^2 ) * U(X+dX,T)
+                    +  2 * ( 1 - C^2 * dT^2 / dX^2 ) * U(X,   T)
+                    +      (     C^2 * dT^2 / dX^2 ) * U(X-dX,T)
+                    -                                  U(X,   T-dT)
+      </pre>
+      (Equation to advance from time T to time T+dT, except for FIRST step!)
+    </p>
+
+    <p>
+      However, on the very first step, we only have the values of U
+      for the initial time, but not for the previous time step.
+      In that case, we use the initial condition information for dUdT
+      which can be approximated by a central difference that involves
+      U(X,T+dT) and U(X,T-dT):
+      <pre>
+        dU/dT(X,T) = ( U(X,T+dT) - U(X,T-dT) ) / ( 2 * dT )
+      </pre>
+      and so we can estimate U(X,T-dT) as
+      <pre>
+        U(X,T-dT) = U(X,T+dT) - 2 * dT * dU/dT(X,T)
+      </pre>
+      If we replace the "missing" value of U(X,T-dT) by the known values
+      on the right hand side, we now have U(X,T+dT) on both sides of the
+      equation, so we have to rearrange to get the formula we use
+      for just the first time step:
+      <pre>
+        U(X,T+dT) =   1/2 * (     C^2 * dT^2 / dX^2 ) * U(X+dX,T)
+                    +       ( 1 - C^2 * dT^2 / dX^2 ) * U(X,   T)
+                    + 1/2 * (     C^2 * dT^2 / dX^2 ) * U(X-dX,T)
+                    +  dT *                         dU/dT(X,   T   )
+      </pre>
+      (Equation to advance from time T to time T+dT for FIRST step.)
+    </p>
+
+    <p>
+      It should be clear now that the quantity ALPHA = C * dT / dX will affect
+      the stability of the calculation.  If it is greater than 1, then
+      the middle coefficient (1-C^2 dT^2 / dX^2) is negative, and the
+      sum of the magnitudes of the three coefficients becomes unbounded.
+    </p>
+
+    <p>
+      We wish to use MPI in order to accelerate this computation.  We use the
+      method of domain decomposition - that is, we assume we have P MPI processes,
+      we divide the original interval into P subintervals, and we expect
+      each process to update the data associated with its subinterval.
+    </p>
+
+    <p>
+      However, to compute the estimated solution U(X,T+dT) at the next time
+      step requires information about U(X-dX,T) and U(X+dX,T).  When process
+      ID tries to make these estimates, it will need one value from process
+      ID-1, and one from process ID+1, before it can make all the updates.
+      MPI allows the processes to communicate this information using messages.
+    </p>
+
+    <p>
+      At the end of the complete calculation, we wish to print a table of the
+      solution at the final time.  To do this in an organized fashion, we want
+      each process to send its final result to the master process (with ID = 0).
+      Once all the data has been collected, the master process prints it.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>WAVE_MPI</b> is available in
+      <a href = "../../c_src/wave_mpi/wave_mpi.html">a C version</a> and
+      <a href = "../../cpp_src/wave_mpi/wave_mpi.html">a C++ version</a> and
+      <a href = "../../f77_src/wave_mpi/wave_mpi.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/wave_mpi/wave_mpi.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/communicator_mpi/communicator_mpi.html">
+      COMMUNICATOR_MPI</a>,
+      a C++ program which
+      creates new communicators involving a subset of initial
+      set of MPI processes in the default communicator MPI_COMM_WORLD.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/heat_mpi/heat_mpi.html">
+      HEAT_MPI</a>,
+      a C++ program which 
+      solves the 1D Time Dependent Heat Equation using MPI.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hello_mpi/hello_mpi.html">
+      HELLO_MPI</a>,
+      a C++ program which 
+      prints out "Hello, world!" using the MPI parallel programming environment. 
+    </p>
+
+    <p>
+      <a href = "../../examples/moab/moab.html">
+      MOAB</a>,
+      examples which
+      illustrate the use of the MOAB job scheduler for a computer cluster.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mpi/mpi.html">
+      MPI</a>,
+      C++ programs which
+      illustrate the use of the MPI application program interface
+      for carrying out parallel computations in a distributed memory environment.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mpi_stubs/mpi_stubs.html">
+      MPI_STUBS</a>,
+      a C++ library which
+      contains "stub" MPI routines, allowing a user to compile, load, and possibly 
+      run an MPI program on a serial machine.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/multitask_mpi/multitask_mpi.html">
+      MULTITASK_MPI</a>,
+      a C++ program which
+      demonstrates how to "multitask", that is, to execute several unrelated
+      and distinct tasks simultaneously, using MPI for parallel execution.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/prime_mpi/prime_mpi.html">
+      PRIME_MPI</a>,
+      a C++ program which
+      counts the number of primes between 1 and N, using MPI for parallel execution.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quad_mpi/quad_mpi.html">
+      QUAD_MPI</a>,
+      a C++ program which
+      approximates an integral using a quadrature rule, and carries out the
+      computation in parallel using MPI.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/random_mpi/random_mpi.html">
+      RANDOM_MPI</a>, 
+      a C++ program which
+      demonstrates one way to generate the same sequence of random numbers
+      for both sequential execution and parallel execution under MPI.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ring_mpi/ring_mpi.html">
+      RING_MPI</a>,
+      a C++ program which
+      uses the MPI parallel programming environment, and measures the time
+      necessary to copy a set of data around a ring of processes.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/satisfy_mpi/satisfy_mpi.html">
+      SATISFY_MPI</a>,
+      a C++ program which 
+      demonstrates, for a particular circuit, an exhaustive search
+      for solutions of the circuit satisfiability problem, using MPI to
+      carry out the calculation in parallel.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/search_mpi/search_mpi.html">
+      SEARCH_MPI</a>,
+      a C++ program which
+      searches integers between A and B for a value J such that F(J) = C,
+      using MPI.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Geoffrey Fox, Mark Johnson, Gregory Lyzenga, Steve Otto, John Salmon, 
+          David Walker,<br>
+          Solving problems on concurrent Processors,<br>
+          Volume 1: General Techniques and Regular Problems, <br>
+          Prentice Hall, 1988,<br>
+          ISBN: 0-13-8230226,<br>
+          LC: QA76.5.F627.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "wave_mpi.cpp">wave_mpi.cpp</a>, the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>WAVE_FSU</b> compiles and runs the program on the FSU HPC cluster.
+      <ul>
+        <li>
+          <a href = "wave_fsu.sh">wave_fsu.sh</a>,
+          the MOAB script.
+        </li>
+        <li>
+          <a href = "wave_fsu_output.txt">wave_fsu_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>WAVE_LOCAL</b> compiles and runs the program on a local machine
+      with multiple processors.
+      <ul>
+        <li>
+          <a href = "wave_local.sh">wave_local.sh</a>,
+          the BASH script.
+        </li>
+        <li>
+          <a href = "wave_local_output.txt">wave_local_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 17 November 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

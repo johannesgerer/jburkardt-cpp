@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    TEST_INTERP_1D_TEST tests the TEST_INTERP_1D library.
+//    MAIN is the main program for TEST_INTERP_1D_PRB.
+//
+//  Discussion:
+//
+//    TEST_INTERP_1D_PRB tests the TEST_INTERP_1D library.
 //
 //  Licensing:
 //
@@ -40,9 +44,8 @@ int main ( )
   int nd;
 
   timestamp ( );
-
   cout << "\n";
-  cout << "TEST_INTERP_1D_TEST\n";
+  cout << "TEST_INTERP_1D_PRB\n";
   cout << "  C++ version\n";
   cout << "  Test the TEST_INTERP_1D library.\n";
   cout << "  The R8LIB library is needed.\n";
@@ -55,9 +58,8 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "TEST_INTERP_1D_TEST\n";
+  cout << "TEST_INTERP_1D_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

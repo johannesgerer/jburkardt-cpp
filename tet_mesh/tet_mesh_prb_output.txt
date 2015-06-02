@@ -1,8 +1,8 @@
-20 August 2009 08:22:03 AM
+05 October 2014 01:05:13 PM
 
 TET_MESH_PRB
   C++ version
-  Test the routines in the TET_MESH library.
+  Test the TET_MESH library.
 
 TEST001
   R8MAT_SOLVE solves linear systems.
@@ -45,9 +45,9 @@ TEST002
 TEST003
   For an order 10 tet mesh,
   TETRAHEDRON_ORDER10_TO_ORDER4
-    makes a linear (order 4) tet mesh by using
-    the existing nodes, and replacing each
-    quadratic tetrahedron by 8 linear tetrahedrons.
+  makes a linear (order 4) tet mesh by using
+  the existing nodes, and replacing each
+  quadratic tetrahedron by 8 linear tetrahedrons.
 
   First 5 quadratic tetrahedrons:
 
@@ -281,4 +281,4 @@ TEST007
 TET_MESH_PRB
   Normal end of execution.
 
-20 August 2009 08:22:03 AM
+05 October 2014 01:05:13 PM

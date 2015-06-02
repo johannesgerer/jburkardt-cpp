@@ -1,0 +1,344 @@
+18 October 2013 01:40:12 PM
+
+ZIGGURAT_INLINE_PRB
+  C++ version:
+  Test the ZIGGURAT_INLINE library.
+
+TEST01
+  KISS_VALUE is an inline generator of pseudorandom uniformly
+  distributed uint32_t's.
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1    3759395650
+       2    4012434030
+       3    2816977735
+       4    3289620212
+       5    2792572631
+       6    2947203765
+       7    2847676023
+       8    1943886813
+       9    3917199762
+      10     209495054
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   987654321
+  jcong_value = 198765432
+  w_value =     219876543
+  z_value =     321987654
+
+       1    2231370234
+       2    3645454796
+       3    3416463908
+       4    3582054646
+       5    3090593156
+       6       9197232
+       7    1418533256
+       8    3817517439
+       9    3781716482
+      10    1883533388
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1    3759395650
+       2    4012434030
+       3    2816977735
+       4    3289620212
+       5    2792572631
+       6    2947203765
+       7    2847676023
+       8    1943886813
+       9    3917199762
+      10     209495054
+
+TEST02
+  R4_UNI_VALUE is an inline generator of pseudorandom uniformly
+  distributed floats between 0 and 1.
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1        0.375303
+       2        0.434218
+       3        0.155879
+       4        0.265924
+       5        0.150197
+       6        0.186199
+       7        0.163026
+       8        0.952596
+       9        0.412044
+      10        0.548777
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   987654321
+  jcong_value = 198765432
+  w_value =     219876543
+  z_value =     321987654
+
+       1       0.0195315
+       2        0.348774
+       3        0.295458
+       4        0.334012
+       5        0.219585
+       6        0.502141
+       7        0.830278
+       8        0.388835
+       9          0.3805
+      10        0.938544
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1        0.375303
+       2        0.434218
+       3        0.155879
+       4        0.265924
+       5        0.150197
+       6        0.186199
+       7        0.163026
+       8        0.952596
+       9        0.412044
+      10        0.548777
+
+TEST03
+  R4_NOR_VALUE is an inline generator of pseudorandom normally
+  distributed floats.
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1        -0.38915
+       2       -0.307543
+       3        -1.12157
+       4        -1.18443
+       5        -1.30733
+       6       -0.869239
+       7        -1.79028
+       8         1.78332
+       9       -0.151013
+      10       0.0757587
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   987654321
+  jcong_value = 198765432
+  w_value =     219876543
+  z_value =     321987654
+
+       1        -2.71285
+       2       -0.514423
+       3       -0.470846
+       4        -0.86678
+       5       -0.267762
+       6      0.00564341
+       7        0.412424
+       8       -0.765397
+       9      -0.0867267
+      10         1.49178
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1        -0.38915
+       2       -0.307543
+       3        -1.12157
+       4        -1.18443
+       5        -1.30733
+       6       -0.869239
+       7        -1.79028
+       8         1.78332
+       9       -0.151013
+      10       0.0757587
+
+TEST04
+  R4_EXP_VALUE is an inline generator of pseudorandom exponentially
+  distributed floats.
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1        0.850169
+       2         1.35837
+       3        0.672071
+       4         3.70167
+       5           2.137
+       6         1.69347
+       7         1.03437
+       8         1.58085
+       9         1.73954
+      10       0.0173841
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   987654321
+  jcong_value = 198765432
+  w_value =     219876543
+  z_value =     321987654
+
+       1         2.94388
+       2         2.52198
+       3        0.510887
+       4         4.21534
+       5         1.23836
+       6      0.00508875
+       7        0.585461
+       8         1.47357
+       9         3.00416
+      10       0.0136666
+
+  Call ZIGSET with these seeds:
+
+  jsr_value =   123456789
+  jcong_value = 234567891
+  w_value =     345678912
+  z_value =     456789123
+
+       1        0.850169
+       2         1.35837
+       3        0.672071
+       4         3.70167
+       5           2.137
+       6         1.69347
+       7         1.03437
+       8         1.58085
+       9         1.73954
+      10       0.0173841
+
+TEST05
+  Measure the time it takes KISS_VALUE to generate
+  1000000 uint32_t values.
+
+  0.01 seconds.
+
+TEST06
+  Measure the time it takes R4_UNI_VALUE to generate
+  1000000 uniformly random float values.
+
+  0.02 seconds.
+
+TEST07
+  Measure the time it takes R8_NOR_VALUE to generate
+  1000000 normal random float values.
+
+  0.03 seconds.
+
+TEST08
+  Measure the time it takes R4_EXP_VALUE to generate
+  1000000 exponential random float values.
+
+  0.02 seconds.
+
+TEST09
+  CONG_SEEDED is a generator of pseudorandom uniformly
+  distributed unsigned 32 bit integers.
+
+    Input Seed   Output Seed  Output Value
+
+     234567891     754257534     754257534
+     754257534    2156517229    2156517229
+    2156517229    3318866384    3318866384
+    3318866384    4083956247    4083956247
+    4083956247    2798093810    2798093810
+    2798093810     899179345     899179345
+     899179345     192314212     192314212
+     192314212    2912663963    2912663963
+    2912663963    2815317670    2815317670
+    2815317670     828024693     828024693
+
+TEST10
+  KISS_SEEDED is a generator of pseudorandom uniformly
+  distributed unsigned 32 bit integers.
+
+              JCONG           JSR             W             Z         Value
+
+  In      234567891     123456789     345678912     456789123
+  Out     754257534    2714967881     756869274     118418677    3759395650
+  In      754257534    2714967881     756869274     118418677
+  Out    2156517229    2238813396    1071839548    2242578315    4012434030
+  In     2156517229    2238813396    1071839548    2242578315
+  Out    3318866384    1250077441    1148488354      71421358    2816977735
+  In     3318866384    1250077441    1148488354      71421358
+  Out    4083956247    3820100336     638837524    1946566815    3289620212
+  In     4083956247    3820100336     638837524    1946566815
+  Out    2798093810    3177519686    1046385747     611607869    2792572631
+  In     2798093810    3177519686    1046385747     611607869
+  Out     899179345    3684138832     683493966     958134905    2947203765
+  In      899179345    3684138832     683493966     958134905
+  Out     192314212    3151087790     342406429    2370503868    2847676023
+  In      192314212    3151087790     342406429    2370503868
+  Out    2912663963    3662508108     834575224      44842599    1943886813
+  In     2912663963    3662508108     834575224      44842599
+  Out    2815317670    4242376622     716412734     590580459    3917199762
+  In     2815317670    4242376622     716412734     590580459
+  Out     828024693    3374601978     696934931    1314737558     209495054
+
+TEST11
+  MWC_SEEDED is a generator of pseudorandom uniformly
+  distributed unsigned 32 bit integers.
+
+       Input W       Input Z      Output W      Output Z  Output Value
+
+     345678912     456789123     756869274     118418677     437381274
+     756869274     118418677    1071839548    2242578315    1198389564
+    1071839548    2242578315    1148488354      71421358     304253602
+    1148488354      71421358     638837524    1946566815    1722999572
+     638837524    1946566815    1046385747     611607869    2744882259
+    1046385747     611607869     683493966     958134905     590760526
+     683493966     958134905     342406429    2370503868     421836061
+     342406429    2370503868     834575224      44842599    1881512824
+     834575224      44842599     716412734     590580459    3047069502
+     716412734     590580459     696934931    1314737558    1998610963
+
+TEST12
+  SHR3_SEEDED is a generator of pseudorandom uniformly
+  distributed unsigned 32 bit integers.
+
+    Input Seed   Output Seed  Output Value
+
+     123456789    2714967881    2838424670
+    2838424670    3758610316    2302067690
+    2302067690    2017378991      24479385
+      24479385    2239313674    2263793059
+    2263793059    2047104206      15929969
+      15929969     891119311     907049280
+     907049280     506781276    1413830556
+    1413830556     677621799    2091452355
+    2091452355    3598218379    1394703438
+    1394703438    3921199450    1020935592
+
+ZIGGURAT_INLINE_PRB
+  Normal end of execution.
+
+18 October 2013 01:40:12 PM

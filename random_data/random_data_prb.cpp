@@ -35,6 +35,7 @@ void test205 ( );
 void test21 ( );
 void test22 ( );
 void test23 ( );
+void test235 ( );
 void test24 ( );
 void test245 ( );
 void test25 ( );
@@ -52,7 +53,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    RANDOM_DATA_PRB calls the RANDOM_DATA tests.
+//    MAIN is the main program for RANDOM_DATA_PRB.
+//
+//  Discussion:
+//
+//    RANDOM_DATA_PRB tests the RANDOM_DATA library.
 //
 //  Licensing:
 //
@@ -60,7 +65,7 @@ int main ( )
 //
 //  Modified:
 //
-//    24 August 2010
+//    20 April 2013
 //
 //  Author:
 //
@@ -102,6 +107,7 @@ int main ( )
   test21 ( );
   test22 ( );
   test23 ( );
+  test235 ( );
   test24 ( );
   test245 ( );
   test25 ( );
@@ -116,7 +122,6 @@ int main ( )
   cout << "\n";
   cout << "RANDOM_DATA_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -130,7 +135,7 @@ void test005 ( )
 //
 //  Purpose:
 //
-//    TEST005 tests BROWNIAN
+//    TEST005 tests BAD_IN_SIMPLEX01.
 //
 //  Licensing:
 //
@@ -175,7 +180,7 @@ void test005 ( )
     cout << "  Number of points N =         " << n      << "\n";
     cout << "  Initial random number SEED = " << seed   << "\n";
 
-    x = bad_in_simplex01 ( dim_num, n, &seed );
+    x = bad_in_simplex01 ( dim_num, n, seed );
 
     r8mat_write ( output_filename, dim_num, n, x );
 
@@ -225,7 +230,7 @@ void test01 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = brownian ( DIM_NUM, N, &seed );
+  x = brownian ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -250,7 +255,7 @@ void test02 ( )
 //
 //  Purpose:
 //
-//    TEST02 tests D_NORMAL_01
+//    TEST02 tests R8_NORMAL_01
 //
 //  Licensing:
 //
@@ -272,7 +277,7 @@ void test02 ( )
 
   cout << "\n";
   cout << "TEST02:\n";
-  cout << "  D_NORMAL_01 generates a single normal \n";
+  cout << "  R8_NORMAL_01 generates a single normal \n";
   cout << "  pseudorandom value.\n";
   cout << "\n";
   cout << "     Seed          Seed       D_NORMAL_01\n";
@@ -282,7 +287,7 @@ void test02 ( )
   for ( i = 1; i <= 10; i++ )
   {
     seed_in = seed;
-    x = r8_normal_01 ( &seed );
+    x = r8_normal_01 ( seed );
 
     cout                        << "  "
          << setw(12) << seed_in << "  "
@@ -322,7 +327,7 @@ void test03 ( )
 
   cout << "\n";
   cout << "TEST03:\n";
-  cout << "  D_UNIFORM_01 generates a single uniform \n";
+  cout << "  R8_UNIFORM_01 generates a single uniform \n";
   cout << "  pseudorandom value.\n";
   cout << "\n";
   cout << "     Seed          Seed       D_UNIFORM_01\n";
@@ -332,7 +337,7 @@ void test03 ( )
   for ( i = 1; i <= 10; i++ )
   {
     seed_in = seed;
-    x = r8_uniform_01 ( &seed );
+    x = r8_uniform_01 ( seed );
 
     cout                        << "  "
          << setw(12) << seed_in << "  "
@@ -382,7 +387,7 @@ void test04 ( )
   cout << "  CENTER option =              " << center << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = grid_in_cube01 ( DIM_NUM, N, center, &seed );
+  x = grid_in_cube01 ( DIM_NUM, N, center, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -436,7 +441,7 @@ void test05 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = halton_in_circle01_accept ( DIM_NUM, N, &seed );
+  x = halton_in_circle01_accept ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -490,7 +495,7 @@ void test06 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = halton_in_circle01_map ( DIM_NUM, N, &seed );
+  x = halton_in_circle01_map ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -544,7 +549,7 @@ void test07 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = halton_in_cube01 ( DIM_NUM, N, &seed );
+  x = halton_in_cube01 ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -598,7 +603,7 @@ void test08 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = hammersley_in_cube01 ( DIM_NUM, N, &seed );
+  x = hammersley_in_cube01 ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -671,7 +676,7 @@ void test09 ( )
     }
   }
 
-  info = dpofa ( r, DIM_NUM, DIM_NUM );
+  info = r8po_fa ( r, DIM_NUM, DIM_NUM );
 
   if ( info != 0 )
   {
@@ -683,7 +688,7 @@ void test09 ( )
 
   r8mat_print ( DIM_NUM, DIM_NUM, r, "  Cholesky factor R:" );
 
-  x = normal ( DIM_NUM, N, r, mu, &seed );
+  x = normal ( DIM_NUM, N, r, mu, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -739,7 +744,7 @@ void test10 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = normal_circular ( DIM_NUM, N, &seed );
+  x = normal_circular ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -796,7 +801,7 @@ void test11 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = normal_simple ( DIM_NUM, N, &seed );
+  x = normal_simple ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -859,7 +864,7 @@ void test115 ( )
   cout << "  Outer radius is R2 =         " << r2     << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_annulus ( pc, r1, r2, N, &seed );
+  x = uniform_in_annulus ( pc, r1, r2, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -919,7 +924,7 @@ void test12 ( )
   cout << "  Outer radius is R2 =         " << r2     << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_annulus_accept ( pc, r1, r2, N, &seed );
+  x = uniform_in_annulus_accept ( pc, r1, r2, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -983,7 +988,7 @@ void test125 ( )
   cout << "  THETA2 =                     " << theta2 << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_annulus_sector ( pc, r1, r2, theta1, theta2, N, &seed );
+  x = uniform_in_annulus_sector ( pc, r1, r2, theta1, theta2, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1037,7 +1042,7 @@ void test13 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_circle01_map ( N, &seed );
+  x = uniform_in_circle01_map ( N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1091,7 +1096,7 @@ void test14 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_cube01 ( DIM_NUM, N, &seed );
+  x = uniform_in_cube01 ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1153,7 +1158,7 @@ void test15 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_ellipsoid_map ( DIM_NUM, N, a, r, &seed );
+  x = uniform_in_ellipsoid_map ( DIM_NUM, N, a, r, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1255,7 +1260,7 @@ void test16 ( )
   cout << "  V3 = " << v3[0] << ", " << v3[1] << "\n";
   cout << "  V4 = " << v4[0] << ", " << v4[1] << "\n";
 
-  x = uniform_in_parallelogram_map ( v1, v2, v3, N, &seed );
+  x = uniform_in_parallelogram_map ( v1, v2, v3, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1325,7 +1330,7 @@ void test17 ( )
 
   r8mat_print ( DIM_NUM, NV, v, "  Polygonal vertices:" );
 
-  x = uniform_in_polygon_map ( NV, v, N, &seed );
+  x = uniform_in_polygon_map ( NV, v, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1391,7 +1396,7 @@ void test18 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_sector_map ( r1, r2, t1, t2, N, &seed );
+  x = uniform_in_sector_map ( r1, r2, t1, t2, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1445,7 +1450,7 @@ void test19 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_simplex01_map ( DIM_NUM, N, &seed );
+  x = uniform_in_simplex01_map ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1499,7 +1504,7 @@ void test20 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_sphere01_map ( DIM_NUM, N, &seed );
+  x = uniform_in_sphere01_map ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1560,7 +1565,7 @@ void test205 ( )
 
   r8mat_print ( 3, 4, v, "  Tetrahedron vertices:" );
 
-  x = uniform_in_tetrahedron ( v, N, &seed );
+  x = uniform_in_tetrahedron ( v, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1622,7 +1627,7 @@ void test21 ( )
   cout << "  V2 = " << v2[0] << ", " << v2[1] << "\n";
   cout << "  V3 = " << v3[0] << ", " << v3[1] << "\n";
 
-  x = uniform_in_triangle_map1 ( v1, v2, v3, N, &seed );
+  x = uniform_in_triangle_map1 ( v1, v2, v3, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1684,7 +1689,7 @@ void test22 ( )
   cout << "  V2 = " << v2[0] << ", " << v2[1] << "\n";
   cout << "  V3 = " << v3[0] << ", " << v3[1] << "\n";
 
-  x = uniform_in_triangle_map2 ( v1, v2, v3, N, &seed );
+  x = uniform_in_triangle_map2 ( v1, v2, v3, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1738,7 +1743,7 @@ void test23 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_in_triangle01_map ( N, &seed );
+  x = uniform_in_triangle01_map ( N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1751,6 +1756,60 @@ void test23 ( )
 
   return;
 # undef DIM_NUM
+# undef N
+}
+//****************************************************************************80
+
+void test235 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST235 tests UNIFORM_ON_CUBE01.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    20 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+# define M 2
+# define N 200
+
+  string output_filename = "uniform_on_cube01.txt";
+  int seed = 123456789;
+  double *x;
+
+  cout << "\n";
+  cout << "TEST235\n";
+  cout << "  UNIFORM_ON_CUBE01 samples N uniform points on\n";
+  cout << "  the surface of the unit M-dimensional cube.\n";
+  cout << "\n";
+  cout << "  Spatial dimension M =        " << M      << "\n";
+  cout << "  Number of points N =         " << N      << "\n";
+  cout << "  Initial random number SEED = " << seed   << "\n";
+
+  x = uniform_on_cube01 ( M, N, seed );
+
+  cout << "  Final random number SEED =   " << seed   << "\n";
+
+  r8mat_write ( output_filename, M, N, x );
+
+  delete [] x;
+
+  cout << "\n";
+  cout << "  Data written to file \"" << output_filename << "\".\n";
+
+  return;
+# undef M
 # undef N
 }
 //****************************************************************************80
@@ -1794,7 +1853,7 @@ void test24 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_on_ellipsoid_map ( DIM_NUM, N, a, r, &seed );
+  x = uniform_on_ellipsoid_map ( DIM_NUM, N, a, r, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1850,7 +1909,7 @@ void test245 ( )
   cout << "  Phong exponent M =           " << m      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_on_hemisphere01_phong ( N, m, &seed );
+  x = uniform_on_hemisphere01_phong ( N, m, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1904,7 +1963,7 @@ void test25 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_on_simplex01_map ( DIM_NUM, N, &seed );
+  x = uniform_on_simplex01_map ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -1958,7 +2017,7 @@ void test26 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_on_sphere01_map ( DIM_NUM, N, &seed );
+  x = uniform_on_sphere01_map ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -2026,7 +2085,7 @@ void test264 ( )
   cout << "  Longitudinal angle THETA2 =  " << theta2  << "\n";
   cout << "  Initial random number SEED = " << seed    << "\n";
 
-  tp = uniform_on_sphere01_patch_tp ( N, phi1, phi2, theta1, theta2, &seed );
+  tp = uniform_on_sphere01_patch_tp ( N, phi1, phi2, theta1, theta2, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -2094,7 +2153,7 @@ void test265 ( )
   cout << "  Longitudinal angle THETA2 =  " << theta2  << "\n";
   cout << "  Initial random number SEED = " << seed    << "\n";
 
-  x = uniform_on_sphere01_patch_xyz ( N, phi1, phi2, theta1, theta2, &seed );
+  x = uniform_on_sphere01_patch_xyz ( N, phi1, phi2, theta1, theta2, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 
@@ -2154,9 +2213,9 @@ void test267 ( )
 
   if ( true )
   {
-    v1 = uniform_on_sphere01_map ( 3, 1, &seed );
-    v2 = uniform_on_sphere01_map ( 3, 1, &seed );
-    v3 = uniform_on_sphere01_map ( 3, 1, &seed );
+    v1 = uniform_on_sphere01_map ( 3, 1, seed );
+    v2 = uniform_on_sphere01_map ( 3, 1, seed );
+    v3 = uniform_on_sphere01_map ( 3, 1, seed );
   }
   else
   {
@@ -2175,7 +2234,7 @@ void test267 ( )
   cout << "  V2: (" << v2[0] << ", " << v2[1] << ", " << v2[2] << ")\n";
   cout << "  V3: (" << v3[0] << ", " << v3[1] << ", " << v3[2] << ")\n";
 
-  x = uniform_on_sphere01_triangle_xyz ( N, v1, v2, v3, &seed );
+  x = uniform_on_sphere01_triangle_xyz ( N, v1, v2, v3, seed );
 
   cout << "\n";
   cout << "  Final random number SEED =   " << seed   << "\n";
@@ -2233,7 +2292,7 @@ void test27 ( )
   cout << "  Number of points N =         " << N      << "\n";
   cout << "  Initial random number SEED = " << seed   << "\n";
 
-  x = uniform_walk ( DIM_NUM, N, &seed );
+  x = uniform_walk ( DIM_NUM, N, seed );
 
   cout << "  Final random number SEED =   " << seed   << "\n";
 

@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    TOMS462_PRB tests BIVNOR.
+//    MAIN is the main program for TOMS462_PRB.
+//
+//  Discussion:
+//
+//    TOMS462_PRB tests the TOMS462 library.
 //
 //  Licensing:
 //
@@ -35,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TOMS462_PRB\n";
   cout << "  C++ version\n";
@@ -49,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "TOMS462_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

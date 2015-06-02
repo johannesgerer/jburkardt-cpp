@@ -4,16 +4,18 @@
 # include <iostream>
 # include <iomanip>
 # include <fstream>
+# include <sstream>
+# include <cstring>
 
 using namespace std;
 
-# include "ihs.H"
+# include "ihs.hpp"
 
-int main ( void );
+int main ( );
 
 //****************************************************************************80
 
-int main ( void )
+int main ( )
 
 //****************************************************************************80
 //
@@ -31,16 +33,16 @@ int main ( void )
 //
 //    The program requests input values from the user:
 //
-//    * DIM_NUM, the spatial dimension,
+//    * M, the spatial dimension,
 //    * N, the number of points to generate,
 //    * D, the duplication factor,
 //    * SEED, a seed for the random number generator.
 //
 //    The program generates the data, writes it to the file
 //
-//      ihs_DIM_NUM_N.txt
+//      ihs_M_N_D_SEED.txt
 //
-//    where "DIM_NUM" and "N" are the numeric values specified by the user,
+//    where "M" and "N" are the numeric values specified by the user,
 //    and then asks the user for more input.   To indicate that no further
 //    computations are desired, it is enough to input a nonsensical
 //    value, such as -1.
@@ -59,13 +61,15 @@ int main ( void )
 //
 {
   int d;
-  int dim_num;
-  char file_out_name[80];
+  int i;
+  int *i4_ihs;
+  int j;
+  int m;
   int n;
+  ostringstream output_filename;
   int seed;
   int seed_init;
-  int *r;
-  char *string;
+  double *r8_ihs;
 //
 //  Print introduction and options.
 //
@@ -74,9 +78,6 @@ int main ( void )
   cout << "\n";
   cout << "IHS_DATASET\n";
   cout << "  C++ version\n";
-  cout << "\n";
-  cout << "  Compiled on " << __DATE__ << " at " << __TIME__ << ".\n";
-  cout << "\n";
   cout << "  Generate an IHS dataset.\n";
   cout << "\n";
   cout << "  This program is meant to be used interactively.\n";
@@ -85,16 +86,16 @@ int main ( void )
   cout << "\n";
   cout << "  The program requests input values from the user:\n";
   cout << "\n";
-  cout << "  * DIM_NUM, the spatial dimension,\n";
+  cout << "  * M, the spatial dimension,\n";
   cout << "  * N, the number of points to generate,\n";
   cout << "  * D, the duplication factor,\n";
   cout << "  * SEED, a seed for the random number generator.\n";
   cout << "\n";
   cout << "  The program generates the data, writes it to the file\n";
   cout << "\n";
-  cout << "    ihs_DIM_NUM_N.txt\n";
+  cout << "    ihs_M_N_D_SEED.txt\n";
   cout << "\n";
-  cout << "  where \"DIM_NUM\" and \"N\" are the numeric values specified\n";
+  cout << "  where \"M\" and \"N\" are the numeric values specified\n";
   cout << "  by the user, and then asks the user for more input.\n";
   cout << "\n";
   cout << "  To indicate that no further computations are\n";
@@ -108,11 +109,11 @@ int main ( void )
     cout << "*  Ready to generate a new dataset:\n";
     cout << " *\n";
     cout << "  *\n";
-    cout << "  Enter DIM_NUM, the spatial dimension:\n";
+    cout << "  Enter M, the spatial dimension:\n";
     cout << "  (2 is a small typical value).\n";
     cout << "  (0 or any negative value terminates execution).\n";
 
-    cin >> dim_num;
+    cin >> m;
 
     if ( cin.rdstate ( ) )
     {
@@ -120,18 +121,18 @@ int main ( void )
   
       cout << "\n";
       cout << "IHS_DATASET - Fatal error!\n";
-      cout << "  An I/O error occurred while trying to read DIM_NUM.\n";
+      cout << "  An I/O error occurred while trying to read M.\n";
       cout << "  Abnormal end of execution.\n";
       break;
     }
 
-    cout << "  User input DIM_NUM = " << dim_num << "\n";
+    cout << "  User input M = " << m << "\n";
 
-    if ( dim_num < 1 )
+    if ( m < 1 )
     {
       cout << "\n";
-      cout << "CVT_DATASET\n";
-      cout << "  The input value of DIM_NUM = " << dim_num << "\n";
+      cout << "IHS_DATASET\n";
+      cout << "  The input value of M = " << m << "\n";
       cout << "  is interpreted as a request for termination.\n";
       cout << "  Normal end of execution.\n";
       break;
@@ -149,7 +150,7 @@ int main ( void )
       cin.clear ( );
   
       cout << "\n";
-      cout << "CVT_DATASET - Fatal error!\n";
+      cout << "IHS_DATASET - Fatal error!\n";
       cout << "  An I/O error occurred while trying to read N.\n";
       cout << "  Abnormal end of execution.\n";
       break;
@@ -160,7 +161,7 @@ int main ( void )
     if ( n < 1 )
     {
       cout << "\n";
-      cout << "CVT_DATASET\n";
+      cout << "IHS_DATASET\n";
       cout << "  The input value of N = " << n << "\n";
       cout << "  is interpreted as a request for termination.\n";
       cout << "  Normal end of execution.\n";
@@ -181,7 +182,7 @@ int main ( void )
       cin.clear ( );
   
       cout << "\n";
-      cout << "CVT_DATASET - Fatal error!\n";
+      cout << "IHS_DATASET - Fatal error!\n";
       cout << "  An I/O error occurred while trying to read D.\n";
       cout << "  Abnormal end of execution.\n";
       break;
@@ -192,7 +193,7 @@ int main ( void )
     if ( d < 1 )
     {
       cout << "\n";
-      cout << "CVT_DATASET\n";
+      cout << "IHS_DATASET\n";
       cout << "  The input value of D = " << d << "\n";
       cout << "  is interpreted as a request for termination.\n";
       cout << "  Normal end of execution.\n";
@@ -212,7 +213,7 @@ int main ( void )
       cin.clear ( );
   
       cout << "\n";
-      cout << "CVT_DATASET - Fatal error!\n";
+      cout << "IHS_DATASET - Fatal error!\n";
       cout << "  An I/O error occurred while trying to read SEED.\n";
       cout << "  Abnormal end of execution.\n";
       break;
@@ -223,7 +224,7 @@ int main ( void )
     if ( seed < 0 )
     {
       cout << "\n";
-      cout << "CVT_DATASET\n";
+      cout << "IHS_DATASET\n";
       cout << "  The input value of SEED = " << seed << "\n";
       cout << "  is interpreted as a request for termination.\n";
       cout << "  Normal end of execution.\n";
@@ -237,24 +238,47 @@ int main ( void )
       cout << "  The actual value of SEED will be = " << seed << "\n";
     }
 //
-//  Initialize the data.
+//  Compute the integer data.
 //
-    r = new int[dim_num*n];
-
     seed_init = seed;
+    i4_ihs = ihs ( m, n, d, seed );
+//
+//  Convert from integer to real.
+//
+    r8_ihs = new double[m*n];
+    for ( j = 0; j < n; j++ )
+    {
+      for ( i = 0; i < m; i++ )
+      {
+        r8_ihs[i+j*m] = ( double ) ( 2 * i4_ihs[i+j*m] - 1 ) 
+          / ( double ) ( 2 * n );
+      }
+    }
+//
+//  Write the data to a file.
+//
+    output_filename << "ihs_" 
+                    << m << "_" 
+                    << n << "_"
+                    << d << "_"
+                    << seed_init << ".txt";
 
-    ihs ( dim_num, n, d, &seed, r );
-
-    sprintf ( file_out_name, "ihs_%d_%d.txt", dim_num, n );
-
-    ihs_write ( dim_num, n, d, seed_init, seed, r, file_out_name );
-
-    delete [] r;
+    r8mat_write ( output_filename.str(), m, n, r8_ihs );
 
     cout << "\n";
-    cout << "  The data was written to the file \"" << file_out_name << "\"\n";
-  }
+    cout << "  The data was written to the file \"" 
+         << output_filename.str() << "\"\n";
+//
+//  Clean up.
+//
+    delete [] i4_ihs;
+    delete [] r8_ihs;
 
+    output_filename.str ( "" );
+  }
+//
+//  Terminate.
+//
   cout << "\n";
   timestamp ( );
 

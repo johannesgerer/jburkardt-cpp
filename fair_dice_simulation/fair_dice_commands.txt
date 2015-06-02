@@ -1,0 +1,16 @@
+# fair_dice_commands.txt
+#
+# Usage:
+#  gnuplot < fair_dice_commands.txt
+#
+set term png
+set output 'fair_dice.png'
+set xlabel 'Score'
+set ylabel 'Frequency'
+set title 'Score frequency for a pair of fair dice'
+set grid
+set style fill solid
+set yrange [0:*]
+set timestamp
+plot 'fair_dice_data.txt' using 1:2:(0.90):xtic(3) with boxes
+quit

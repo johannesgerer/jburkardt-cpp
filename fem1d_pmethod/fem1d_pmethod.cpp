@@ -56,7 +56,7 @@ int main ( void )
 //
 //    Sample problem #1:
 //
-//      U=1-x**4,        P=1, Q=1, F=1.0+12.0*x**2-x**4
+//      U=1-x^4,        P=1, Q=1, F=1.0+12.0*x^2-x^4
 //
 //    Sample problem #2:
 //
@@ -78,42 +78,37 @@ int main ( void )
 //    Original FORTRAN77 version by Max Gunzburger, Teresa Hodge.
 //    C++ version by John Burkardt.
 //
-//  Parameters:
+//  Local Parameters:
 //
-//    double A(0:NP), the squares of the norms of the 
+//    Local, double A[NP+1], the squares of the norms of the 
 //    basis functions.
 //
-//    double ALPHA(NP).
-//    ALPHA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
+//    Local, double ALPHA[NP], BETA[NP], the basis function 
+//    recurrence coefficients.
 //
-//    double BETA(NP).
-//    BETA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
-//
-//    double F(0:NP).
+//    Local, double F[NP+1].
 //    F contains the basis function coefficients that form the
 //    representation of the solution U.  That is,
 //      U(X)  =  SUM (I=0 to NP) F(I) * BASIS(I)(X)
 //    where "BASIS(I)(X)" means the I-th basis function
 //    evaluated at the point X.
 //
-//    int NP.
+//    Local, int NP.
 //    The highest degree polynomial to use.
 //
-//    int NPRINT.
+//    Local, int NPRINT.
 //    The number of points at which the computed solution
 //    should be printed out at the end of the computation.
 //
-//    int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    Local, int PROBLEM, indicates the problem being solved.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
-//    int QUAD_NUM, the order of the quadrature rule.
+//    Local, int QUAD_NUM, the order of the quadrature rule.
 //
-//    double QUAD_W(QUAD_NUM), the quadrature weights.
+//    Local, double QUAD_W[QUAD_NUM], the quadrature weights.
 //
-//    double QUAD_X(QUAD_NUM), the quadrature abscissas.
+//    Local, double QUAD_X[QUAD_NUM], the quadrature abscissas.
 //
 {
 # define NP 2
@@ -129,7 +124,6 @@ int main ( void )
   double quad_x[QUAD_NUM];
 
   timestamp ( );
-
   cout << "\n";
   cout << "FEM1D_PMETHOD\n";
   cout << "  C++ version\n";
@@ -152,10 +146,10 @@ int main ( void )
   {
     cout << "\n";
     cout << "  Problem #1:\n";
-    cout << "  U=1-x**4,\n";
+    cout << "  U=1-x^4,\n";
     cout << "  P=1,\n";
     cout << "  Q=1,\n";
-    cout << "  F=1 + 12 * x**2 - x**4\n";
+    cout << "  F=1 + 12 * x^2 - x^4\n";
   }
   else if ( problem == 2 )
   {
@@ -192,11 +186,12 @@ int main ( void )
 //  Compare the computed and exact solutions.
 //
   exact ( alpha, beta, f, NP, nprint, problem, QUAD_NUM, quad_w, quad_x );
-
+//
+//  Terminate.
+//
   cout << "\n";
-  cout << "PMETHOD\n";
+  cout << "FEM1D_PMETHOD\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -242,19 +237,14 @@ void alpbet ( double a[], double alpha[], double beta[], int np, int problem,
 //    Output, double A(0:NP), the squares of the norms of the 
 //    basis functions.
 //
-//    Output, double ALPHA(NP).
-//    ALPHA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
-//
-//    Output, double BETA(NP).
-//    BETA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
+//    Output, double ALPHA(NP), BETA(NP), the basis function 
+//    recurrence coefficients.
 //
 //    Input, int NP.
 //    The highest degree polynomial to use.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Input, int QUAD_NUM, the order of the quadrature rule.
@@ -313,43 +303,65 @@ void alpbet ( double a[], double alpha[], double beta[], int np, int problem,
     for ( iq = 0; iq < quad_num; iq++ )
     {
       x = quad_x[iq];
-      q = 1.0;
+//
+//  Three term recurrence for Q.
+//
       qm1 = 0.0;
-      qx = 0.0;
-      qm1x = 0.0;
-
+      q = 1.0;
       for ( k = 0; k <= i-1; k++ )
       {
         qm2 = qm1;
         qm1 = q;
+        q = ( x - alpha[k] ) * qm1 - beta[k] * qm2;
+      }
+//
+//  Three term recurrence for Q'.
+//
+      qm1x = 0.0;
+      qx = 0.0;
+      for ( k = 0; k <= i-1; k++ )
         qm2x = qm1x;
         qm1x = qx;
-        q = ( x - alpha[k] ) * qm1 - beta[k] * qm2;
         qx = qm1 + ( x - alpha[k] ) * qm1x - beta[k] * qm2x;
       }
 
       t = 1.0 - x * x;
-
+//
+//  The basis function PHI = ( 1 - x^2 ) * q.
+//
+//     s = pp * ( phi(i) )' * ( phi(i) )' + qq * phi(i) * phi(i)
+//
       s = pp ( x, problem ) * pow ( t * qx - 2.0 * x * q, 2 )
         + qq ( x, problem ) * t * t * q * q;
-
+//
+//     u = pp * ( x * phi(i) )' * phi(i)' + qq * x * phi(i) * phi(i)
+//
       u = pp ( x, problem ) 
         * ( x * t * qx + ( 1.0 - 3.0 * x * x ) * q ) 
         * ( t * qx - 2.0 * x * q ) + x * qq ( x, problem ) 
         * t * t * q * q;
-
+//
+//     v = pp * ( x * phi(i) )' * phi(i-1) + qq * x * phi(i) * phi(i-1)
+//
       v = pp ( x, problem ) 
         * ( x * t * qx + ( 1.0 - 3.0 * x * x ) * q ) 
         * ( t * qm1x - 2.0 * x * qm1 ) 
         + x * qq ( x, problem ) * t * t * q * qm1;
-
+//
+//  SS(i) = <   phi(i), phi(i)   > = integral ( S )
+//  SU(i) = < x phi(i), phi(i)   > = integral ( U )
+//  SV(i) = < x phi(i), phi(i-1) > = integral ( V )
+//
       ss = ss + s * quad_w[iq];
       su = su + u * quad_w[iq];
       sv = sv + v * quad_w[iq];
     }
 
     a[i] = ss;
-
+//
+//  ALPHA(i) = SU(i) / SS(i)
+//  BETA(i)  = SV(i) / SS(i-1)
+//
     if ( i < np )
     {
       alpha[i] = su / ss;
@@ -385,13 +397,8 @@ void exact ( double alpha[], double beta[], double f[], int np, int nprint,
 //
 //  Parameters:
 //
-//    Input, double ALPHA(NP).
-//    ALPHA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
-//
-//    Input, double BETA(NP).
-//    BETA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
+//    Input, double ALPHA(NP), BETA(NP), the basis function 
+//    recurrence coefficients.
 //
 //    Input, double F(0:NP).
 //    F contains the basis function coefficients that form the
@@ -408,7 +415,7 @@ void exact ( double alpha[], double beta[], double f[], int np, int nprint,
 //    should be printed out at the end of the computation.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Input, int QUAD_NUM, the order of the quadrature rule.
@@ -434,7 +441,7 @@ void exact ( double alpha[], double beta[], double f[], int np, int nprint,
   double xr;
 
   cout << "\n";
-  cout << "Comparison of computed and exact solutions:\n";
+  cout << "  Comparison of computed and exact solutions:\n";
   cout << "\n";
   cout << "    X        U computed    U exact     Difference\n";
   cout << "\n";
@@ -484,7 +491,7 @@ void exact ( double alpha[], double beta[], double f[], int np, int nprint,
   big_l2 = sqrt ( big_l2 );
 
   cout << "\n";
-  cout << "Big L2 error = " << big_l2 << "\n";
+  cout << "  Big L2 error = " << big_l2 << "\n";
 
   return;
 }
@@ -516,7 +523,7 @@ double ff ( double x, int problem )
 //    Input, double X, the evaluation point.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Output, double FF, the value of F(X).
@@ -570,19 +577,14 @@ void ortho ( double a[], double alpha[], double beta[], int np, int problem,
 //    Input, double A(0:NP), the squares of the norms of the 
 //    basis functions.
 //
-//    Input, double ALPHA(NP).
-//    ALPHA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
-//
-//    Input, double BETA(NP).
-//    BETA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
+//    Input, double ALPHA(NP), BETA(NP), the basis function 
+//    recurrence coefficients.
 //
 //    Input, int NP.
 //    The highest degree polynomial to use.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Input, int QUAD_NUM, the order of the quadrature rule.
@@ -642,7 +644,7 @@ void ortho ( double a[], double alpha[], double beta[], int np, int problem,
 //  Print out the results of the test.
 //
   cout << "\n";
-  cout << "Basis function orthogonality test:\n";
+  cout << "  Basis function orthogonality test:\n";
   cout << "\n";
   cout << "   i   j     b(i,j)/a(i)\n";
   cout << "\n";
@@ -686,13 +688,8 @@ void out ( double alpha[], double beta[], double f[], int np, int nprint )
 //
 //  Parameters:
 //
-//    Input, double ALPHA(NP).
-//    ALPHA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
-//
-//    Input, double BETA(NP).
-//    BETA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
+//    Input, double ALPHA(NP), BETA(NP), the basis function 
+//    recurrence coefficients.
 //
 //    Input, double F(0:NP).
 //    F contains the basis function coefficients that form the
@@ -717,9 +714,9 @@ void out ( double alpha[], double beta[], double f[], int np, int nprint )
   double x;
 
   cout << "\n";
-  cout << "Representation of solution:\n";
+  cout << "  Representation of solution:\n";
   cout << "\n";
-  cout << "Basis function coefficients:\n";
+  cout << "  Basis function coefficients:\n";
   cout << "\n";
   for ( i = 0; i <= np; i++ )
   {
@@ -774,13 +771,8 @@ void phi ( double alpha[], double beta[], int i, int np, double *phii,
 //
 //  Parameters:
 //
-//    Input, double ALPHA(NP).
-//    ALPHA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
-//
-//    Input, double BETA(NP).
-//    BETA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
+//    Input, double ALPHA(NP), BETA(NP), the basis function 
+//    recurrence coefficients.
 //
 //    Input, int I, the index of the basis function.
 //
@@ -852,7 +844,7 @@ double pp ( double x, int problem )
 //    Input, double X, the evaluation point.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Output, double PP, the value of P(X).
@@ -911,29 +903,29 @@ void quad ( int quad_num, double quad_w[], double quad_x[] )
 //
 //  Quadrature points on [-1,1]
 //
-  quad_x[1-1] = -0.973906528517172;
-  quad_x[2-1] = -0.865063366688985;
-  quad_x[3-1] = -0.679409568299024;
-  quad_x[4-1] = -0.433395394129247;
-  quad_x[5-1] = -0.148874338981631;
-  quad_x[6-1] =  0.148874338981631;
-  quad_x[7-1] =  0.433395394129247;
-  quad_x[8-1] =  0.679409568299024;
-  quad_x[9-1] =  0.865063366688985;
-  quad_x[10-1] = 0.973906528517172;
+  quad_x[0] = -0.973906528517172;
+  quad_x[1] = -0.865063366688985;
+  quad_x[2] = -0.679409568299024;
+  quad_x[3] = -0.433395394129247;
+  quad_x[4] = -0.148874338981631;
+  quad_x[5] =  0.148874338981631;
+  quad_x[6] =  0.433395394129247;
+  quad_x[7] =  0.679409568299024;
+  quad_x[8] =  0.865063366688985;
+  quad_x[9] = 0.973906528517172;
 //
 //  Weight factors
 //
-  quad_w[1-1] =  0.066671344308688;
-  quad_w[2-1] =  0.149451349150581;
-  quad_w[3-1] =  0.219086362515982;
-  quad_w[4-1] =  0.269266719309996;
-  quad_w[5-1] =  0.295524224714753;
-  quad_w[6-1] =  0.295524224714753;
-  quad_w[7-1] =  0.269266719309996;
-  quad_w[8-1] =  0.219086362515982;
-  quad_w[9-1] =  0.149451349150581;
-  quad_w[10-1] = 0.066671344308688;
+  quad_w[0] =  0.066671344308688;
+  quad_w[1] =  0.149451349150581;
+  quad_w[2] =  0.219086362515982;
+  quad_w[3] =  0.269266719309996;
+  quad_w[4] =  0.295524224714753;
+  quad_w[5] =  0.295524224714753;
+  quad_w[6] =  0.269266719309996;
+  quad_w[7] =  0.219086362515982;
+  quad_w[8] =  0.149451349150581;
+  quad_w[9] = 0.066671344308688;
 
   return;
 }
@@ -965,7 +957,7 @@ double qq ( double x, int problem )
 //    Input, double X, the evaluation point.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Output, double QQ, the value of Q(X).
@@ -1018,13 +1010,8 @@ void sol ( double a[], double alpha[], double beta[], double f[], int np,
 //    Input, double A(0:NP), the squares of the norms of the 
 //    basis functions.
 //
-//    Input, double ALPHA(NP).
-//    ALPHA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
-//
-//    Input, double BETA(NP).
-//    BETA(I) contains one of the coefficients of a recurrence
-//    relationship that defines the basis functions.
+//    Input, double ALPHA(NP), BETA(NP), the basis function 
+//    recurrence coefficients.
 //
 //    Output, double F(0:NP).
 //    F contains the basis function coefficients that form the
@@ -1037,7 +1024,7 @@ void sol ( double a[], double alpha[], double beta[], double f[], int np,
 //    The highest degree polynomial to use.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Input, int QUAD_NUM, the order of the quadrature rule.
@@ -1079,7 +1066,7 @@ void sol ( double a[], double alpha[], double beta[], double f[], int np,
 }
 //****************************************************************************80
 
-void timestamp ( void )
+void timestamp ( )
 
 //****************************************************************************80
 //
@@ -1153,7 +1140,7 @@ double uex ( double x, int problem )
 //    Input, double X, the evaluation point.
 //
 //    Input, int PROBLEM, indicates the problem being solved.
-//    1, U=1-x**4, P=1, Q=1, F=1.0+12.0*x**2-x**4.
+//    1, U=1-x^4, P=1, Q=1, F=1.0+12.0*x^2-x^4.
 //    2, U=cos(0.5*pi*x), P=1, Q=0, F=0.25*pi*pi*cos(0.5*pi*x).
 //
 //    Output, double UEX, the exact value of U(X).

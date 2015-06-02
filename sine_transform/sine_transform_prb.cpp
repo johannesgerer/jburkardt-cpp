@@ -25,7 +25,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    SINE_TRANSFORM_TEST tests SINE_TRANSFORM.
+//    MAIN is the main program for SINE_TRANSFORM_PRB.
+//
+//  Discussion:
+//
+//    SINE_TRANSFORM_PRB tests SINE_TRANSFORM.
 //
 //  Licensing:
 //
@@ -42,7 +46,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "SINE_TRANSFORM_TEST\n";
+  cout << "SINE_TRANSFORM_PRB\n";
   cout << "  C++ version.\n";
   cout << "  Test the SINE_TRANSFORM library.\n";
 
@@ -54,7 +58,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "SINE_TRANSFORM_TEST\n";
+  cout << "SINE_TRANSFORM_PRB\n";
   cout << "  Normal end of execution.\n";
 
   cout << "\n";

@@ -81,7 +81,10 @@
 
     <p>
       <b>LEGENDRE_RULE</b> is available in
+      <a href = "../../c_src/legendre_rule/legendre_rule.html">a C version</a> and
+
       <a href = "../../cpp_src/legendre_rule/legendre_rule.html">a C++ version</a> and
+      <a href = "../../f77_src/legendre_rule/legendre_rule.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/legendre_rule/legendre_rule.html">a FORTRAN90 version</a> and
       <a href = "../../m_src/legendre_rule/legendre_rule.html">a MATLAB version</a>.
     </p>
@@ -153,7 +156,6 @@
       checks the polynomial exactness of a Gauss-Legendre quadrature rule.
     </p>
 
-
     <p>
       <a href = "../../cpp_src/jacobi_rule/jacobi_rule.html">
       JACOBI_RULE</a>,
@@ -186,7 +188,34 @@
       <a href = "../../cpp_src/legendre_rule_fast/legendre_rule_fast.html">
       LEGENDRE_RULE_FAST</a>,
       a C++ program which
-      uses a fast (order N) algorithm to compute a Gauss-Legendre quadrature rule of given order.
+      uses a fast (order N) algorithm to compute a Gauss-Legendre quadrature 
+      rule of given order.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/line_felippa_rule/line_felippa_rule.html">
+      LINE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a line segment in 1D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/line_ncc_rule/line_ncc_rule.html">
+      LINE_NCC_RULE</a>,
+      a C++ library which
+      computes a Newton Cotes Closed (NCC) quadrature rule for the line,
+      that is, for an interval of the form [A,B], using equally spaced points
+      which include the endpoints.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/line_nco_rule/line_nco_rule.html">
+      LINE_NCO_RULE</a>,
+      a C++ library which
+      computes a Newton Cotes Open (NCO) quadrature rule,
+      using equally spaced points,
+      over the interior of a line segment in 1D.
     </p>
 
     <p>
@@ -227,10 +256,12 @@
     </p>
 
     <p>
-      <a href = "../../cpp_src/test_int/test_int.html">
-      TEST_INT</a>,
-      a C++ library which
-      defines test integrands for 1D quadrature rules.
+      <a href = "../../cpp_src/truncated_normal_rule/truncated_normal_rule.html">
+      TRUNCATED_NORMAL_RULE</a>,
+      a C++ program which 
+      computes a quadrature rule for a normal probability density function (PDF),
+      also called a Gaussian distribution, that has been
+      truncated to [A,+oo), (-oo,B] or [A,B].
     </p>
 
     <h3 align = "center">

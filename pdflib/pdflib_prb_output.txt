@@ -1,0 +1,118 @@
+06 August 2013 01:26:47 PM
+
+PDFLIB_PRB
+  C++ version
+  Test the PDFLIB library.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+TEST01
+  R8MAT_POFAC computes the Cholesky factor R of a
+  positive definite matrix A, so that A = R' * R.
+
+  Start with random R1;
+  Compute A = R1' * R1.
+  Call R8MAT_POFAC and see if you recover R2 = R1.
+
+  R1:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:     0.323711      0.324392       0.28873      0.566211      0.895177  
+    1:            0      0.493388      0.353007       0.82072      0.336599  
+    2:            0             0      0.153961      0.325495      0.285023  
+    3:            0             0             0       0.34008      0.503381  
+    4:            0             0             0             0      0.773531  
+
+  A:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:     0.104789      0.105009     0.0934649      0.183289      0.289778  
+    1:     0.105009      0.348662      0.267831      0.588607      0.456462  
+    2:    0.0934649      0.267831      0.231683      0.503315      0.421168  
+    3:     0.183289      0.588607      0.503315       1.21578       1.04708  
+    4:     0.289778      0.456462      0.421168       1.04708       1.84762  
+
+  Frobenius difference between R1 and R2 = 1.22502e-15
+
+TEST02
+  R8VEC_MULTINORMAL_PDF evaluates the PDF for the
+  multinormal distribution.
+
+  The covariance matrix is C.
+  The definition uses the inverse of C;
+  R8VEC_MULTINORMAL_PDF uses the Cholesky factor.
+  Verify that the algorithms are equivalent.
+
+  R1:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:    0.0211569     0.0370131     0.0860775      0.208128      0.395446  
+    1:            0      0.290597      0.747587     0.0797663       0.76442  
+    2:            0             0      0.359446      0.147932      0.645941  
+    3:            0             0             0      0.708155      0.473061  
+    4:            0             0             0             0      0.859549  
+
+  C:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:  0.000447614   0.000783082    0.00182113    0.00440334    0.00836641  
+    1:  0.000783082     0.0858166      0.220433     0.0308833      0.236775  
+    2:   0.00182113      0.220433      0.695497      0.130721       0.83769  
+    3:   0.00440334     0.0308833      0.130721      0.573048      0.573835  
+    4:   0.00836641      0.236775       0.83769      0.573835       2.12057  
+
+  R2:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:    0.0211569     0.0370131     0.0860775      0.208128      0.395446  
+    1:            0      0.290597      0.747587     0.0797663       0.76442  
+    2:            0             0      0.359446      0.147932      0.645941  
+    3:            0             0             0      0.708155      0.473061  
+    4:            0             0             0             0      0.859549  
+
+  Determinant of C = 1.80947e-06
+
+  PDF1 = 7.48736
+  PDF2 = 7.48709
+
+TEST03
+  R8_CHI_SAMPLE ( DF ) samples the Chi distribution with
+  DF degrees of freedom.
+
+  INITIALIZE initializes the random number generator.
+  It only needs to be called once before using the package.
+
+INITIALIZE - Note:
+  The RNGLIB package has been initialized.
+
+  Current generator index = 1
+
+   I       DF       R8_CHI_SAMPLE ( DF )
+
+   0         3.10629         4.66215
+   1         5.26012         7.20377
+   2         2.96542         7.98763
+   3         3.68364         2.67281
+   4         3.85438          2.0668
+   5         2.73145         2.56831
+   6         1.72521        0.431697
+   7         2.42439         1.56641
+   8         5.84687         9.92267
+   9         1.76515        0.415013
+  10         1.12206          1.5714
+
+PDFLIB_PRB
+  Normal end of execution.
+
+06 August 2013 01:26:47 PM

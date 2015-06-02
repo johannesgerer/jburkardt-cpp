@@ -82,7 +82,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN tests the SANDIA_RULES library.
+//    MAIN is the main program for SANDIA_RULES_PRB..
+//
+//  Discussion:
+//
+//    SANDIA_RULES_PRB tests the SANDIA_RULES library.
 //
 //  Licensing:
 //
@@ -100,7 +104,6 @@ int main ( )
   int r;
 
   webbur::timestamp ( );
-
   std::cout << "\n";
   std::cout << "SANDIA_RULES_PRB\n";
   std::cout << "  C++ version\n";
@@ -193,7 +196,6 @@ int main ( )
   std::cout << "\n";
   std::cout << "SANDIA_RULES_PRB\n";
   std::cout << "  Normal end of execution.\n";
-
   std::cout << "\n";
   webbur::timestamp ( );
 

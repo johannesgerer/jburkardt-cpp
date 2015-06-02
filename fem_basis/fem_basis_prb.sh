@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include fem_basis_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include fem_basis_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling fem_basis_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ fem_basis_prb.o /$HOME/libcpp/$ARCH/fem_basis.o -lm
 if [ $? -ne 0 ]; then

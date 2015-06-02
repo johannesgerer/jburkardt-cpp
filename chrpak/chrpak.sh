@@ -2,12 +2,11 @@
 #
 cp chrpak.hpp /$HOME/include
 #
-g++ -c -g -I /$HOME/include chrpak.cpp >& compiler.txt
+g++ -c -I /$HOME/include chrpak.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling chrpak.cpp"
   exit
 fi
-rm compiler.txt
 #
 mv chrpak.o ~/libcpp/$ARCH/chrpak.o
 #

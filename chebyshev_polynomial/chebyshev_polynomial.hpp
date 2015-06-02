@@ -14,8 +14,6 @@ string i4_to_string ( int i4, string format );
 int i4_uniform ( int a, int b, int &seed );
 void imtqlx ( int n, double d[], double e[], double z[] );
 int r4_nint ( float x );
-double r8_abs ( double x );
-double r8_add ( double x, double y );
 double r8_choose ( int n, int k );
 double r8_epsilon ( );
 double r8_max ( double x, double y );

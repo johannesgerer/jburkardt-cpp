@@ -12,17 +12,14 @@ int main ( int argc, char *argv[] );
 char ch_cap ( char ch );
 bool ch_eqi ( char ch1, char ch2 );
 int ch_to_digit ( char ch );
-double *dtable_data_read ( string input_filename, int m, int n );
-void dtable_header_read ( string input_filename, int *m, int *n );
-void dtable_write0 ( string output_filename, int m, int n, double table[] );
 double *fem1d_approximate ( int sample_node_num, int sample_value_dim, 
   double sample_node_x[], double sample_value[], int fem_node_num, 
   double fem_node_x[], int fem_element_order, int fem_element_num, 
   int fem_value_dim, int fem_value_num );
 int file_column_count ( string input_filename );
 int file_row_count ( string input_filename );
-int *itable_data_read ( string input_filename, int m, int n );
-void itable_header_read ( string input_filename, int *m, int *n );
+int *i4mat_data_read ( string input_filename, int m, int n );
+void i4mat_header_read ( string input_filename, int *m, int *n );
 double piecewise_linear_product_quad ( double a, double b, int f_num, 
   double f_x[], double f_v[], int g_num, double g_x[], double g_v[] );
 double r8_abs ( double x );
@@ -30,14 +27,17 @@ double r8_epsilon ( );
 double r8_min ( double x, double y );
 int r83_np_fa ( int n, double a[] );
 double *r83_np_sl ( int n, double a_lu[], double b[], int job );
+double *r8mat_data_read ( string input_filename, int m, int n );
+void r8mat_header_read ( string input_filename, int *m, int *n );
+void r8mat_write ( string output_filename, int m, int n, double table[] );
 double *r8mat_zero_new ( int m, int n );
 void r8vec_bracket3 ( int n, double t[], double tval, int *left );
-int s_len_trim ( char *s );
-int s_to_i4 ( char *s, int *last, bool *error );
-bool s_to_i4vec ( char *s, int n, int ivec[] );
-double s_to_r8 ( char *s, int *lchar, bool *error );
-bool s_to_r8vec ( char *s, int n, double rvec[] );
-int s_word_count ( char *s );
+int s_len_trim ( string s );
+int s_to_i4 ( string s, int *last, bool *error );
+bool s_to_i4vec ( string s, int n, int ivec[] );
+double s_to_r8 ( string s, int *lchar, bool *error );
+bool s_to_r8vec ( string s, int n, double rvec[] );
+int s_word_count ( string s );
 void timestamp ( );
 
 //****************************************************************************80
@@ -158,10 +158,10 @@ int main ( int argc, char *argv[] )
 //
 //  Read the SAMPLE data.
 //
-  dtable_header_read ( sample_node_filename, &sample_node_dim, 
+  r8mat_header_read ( sample_node_filename, &sample_node_dim, 
     &sample_node_num );
 
-  sample_node_x = dtable_data_read ( sample_node_filename, sample_node_dim, 
+  sample_node_x = r8mat_data_read ( sample_node_filename, sample_node_dim, 
     sample_node_num );
 
   cout << "\n";
@@ -176,11 +176,11 @@ int main ( int argc, char *argv[] )
     exit ( 1 );
   }
 
-  dtable_header_read ( sample_value_filename, &sample_value_dim,
+  r8mat_header_read ( sample_value_filename, &sample_value_dim,
     &sample_value_num );
 
   cout << "  The SAMPLE value dimension is    " << sample_value_dim << "\n";
-  cout << "  the SAMLE value number is        " << sample_value_num << "\n";
+  cout << "  the SAMPLE value number is        " << sample_value_num << "\n";
 
   if ( sample_value_num != sample_node_num )
   {
@@ -189,12 +189,12 @@ int main ( int argc, char *argv[] )
     cout << "  Number of sample values and nodes differ.\n";
     exit ( 1 );
   }
-  sample_value = dtable_data_read ( sample_value_filename, sample_value_dim, 
+  sample_value = r8mat_data_read ( sample_value_filename, sample_value_dim, 
     sample_value_num );
 //
 //  Read the FEM data.
 //
-  dtable_header_read ( fem_node_filename, &fem_node_dim, &fem_node_num );
+  r8mat_header_read ( fem_node_filename, &fem_node_dim, &fem_node_num );
 
   cout << "\n";
   cout << "  The FEM node dimension is        " << fem_node_dim << "\n";
@@ -208,14 +208,14 @@ int main ( int argc, char *argv[] )
     exit ( 1 );
   }
 
-  fem_node_x = dtable_data_read ( fem_node_filename, fem_node_dim, fem_node_num );
+  fem_node_x = r8mat_data_read ( fem_node_filename, fem_node_dim, fem_node_num );
 
-  itable_header_read ( fem_element_filename, &fem_element_order, &fem_element_num );
+  i4mat_header_read ( fem_element_filename, &fem_element_order, &fem_element_num );
 
   cout << "  The FEM element order is         " << fem_element_order << "\n";
   cout << "  The FEM element number is        " << fem_element_num << "\n";
 
-  fem_element_node = itable_data_read ( fem_element_filename, fem_element_order, 
+  fem_element_node = i4mat_data_read ( fem_element_filename, fem_element_order, 
     fem_element_num );
 //
 //  Compute the FEM values.
@@ -229,11 +229,19 @@ int main ( int argc, char *argv[] )
 //
 //  Write the FEM values.
 //
-  dtable_write0 ( fem_value_filename, fem_value_dim, fem_value_num, 
+  r8mat_write ( fem_value_filename, fem_value_dim, fem_value_num, 
     fem_value );
 
   cout << "\n";
   cout << "  Projected FEM values written to \"" << fem_value_filename << "\"\n";
+//
+//  Free memory.
+//
+  delete [] fem_element_node;
+  delete [] fem_node_x;
+  delete [] fem_value;
+  delete [] sample_node_x;
+  delete [] sample_value;
 //
 //  Terminate.
 //
@@ -243,12 +251,6 @@ int main ( int argc, char *argv[] )
 
   cout << "\n";
   timestamp ( );
-
-  delete [] fem_element_node;
-  delete [] fem_node_x;
-  delete [] fem_value;
-  delete [] sample_node_x;
-  delete [] sample_value;
 
   return 0;
 }
@@ -390,231 +392,6 @@ int ch_to_digit ( char ch )
   }
 
   return digit;
-}
-//****************************************************************************80
-
-double *dtable_data_read ( string input_filename, int m, int n )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_DATA_READ reads the data from a DTABLE file.
-//
-//  Discussion:
-//
-//    The file is assumed to contain one record per line.
-//
-//    Records beginning with the '#' character are comments, and are ignored.
-//    Blank lines are also ignored.
-//
-//    Each line that is not ignored is assumed to contain exactly (or at least)
-//    M real numbers, representing the coordinates of a point.
-//
-//    There are assumed to be exactly (or at least) N such records.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Input, int M, the number of spatial dimensions.
-//
-//    Input, int N, the number of points.  The program
-//    will stop reading data once N values have been read.
-//
-//    Output, double DTABLE_DATA_READ[M*N], the table data.
-//
-{
-  bool error;
-  ifstream input;
-  int i;
-  int j;
-  char line[255];
-  double *table;
-  double *x;
-
-  input.open ( input_filename.c_str ( ) );
-
-  if ( !input )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_DATA_READ - Fatal error!\n";
-    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return NULL;
-  }
-
-  table = new double[m*n];
-
-  x = new double[m];
-
-  j = 0;
-
-  while ( j < n )
-  {
-    input.getline ( line, sizeof ( line ) );
-
-    if ( input.eof ( ) )
-    {
-      break;
-    }
-
-    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
-    {
-      continue;
-    }
-
-    error = s_to_r8vec ( line, m, x );
-
-    if ( error )
-    {
-      continue;
-    }
-
-    for ( i = 0; i < m; i++ )
-    {
-      table[i+j*m] = x[i];
-    }
-    j = j + 1;
-
-  }
-
-  input.close ( );
-
-  delete [] x;
-
-  return table;
-}
-//****************************************************************************80
- 
-void dtable_header_read ( string input_filename, int *m, int *n )
- 
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_HEADER_READ reads the header from a DTABLE file.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 February 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string INPUT_FILENAME, the name of the input file.
-//
-//    Output, int *M, the number of spatial dimensions.
-//
-//    Output, int *N, the number of points.
-//
-{
-  *m = file_column_count ( input_filename );
-
-  if ( *m <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
-  }
-
-  *n = file_row_count ( input_filename );
-
-  if ( *n <= 0 )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_HEADER_READ - Fatal error!\n";
-    cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void dtable_write0 ( string output_filename, int m, int n, double table[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    DTABLE_WRITE0 writes a DTABLE file with no header.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    01 June 2009
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, string OUTPUT_FILENAME, the output filename.
-//
-//    Input, int M, the spatial dimension.
-//
-//    Input, int N, the number of points.
-//
-//    Input, double TABLE[M*N], the table data.
-//
-{
-  int i;
-  int j;
-  ofstream output;
-//
-//  Open the file.
-//
-  output.open ( output_filename.c_str ( ) );
-
-  if ( !output )
-  {
-    cerr << "\n";
-    cerr << "DTABLE_WRITE0 - Fatal error!\n";
-    cerr << "  Could not open the output file.\n";
-    return;
-  }
-//
-//  Write the data.
-//
-  for ( j = 0; j < n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      output << setw(10) << table[i+j*m] << "  ";
-    }
-    output << "\n";
-  }
-//
-//  Close the file.
-//
-  output.close ( );
-
-  return;
 }
 //****************************************************************************80
 
@@ -1025,19 +802,21 @@ int file_row_count ( string input_filename )
 }
 //****************************************************************************80
 
-int *itable_data_read ( string input_filename, int m, int n )
+int *i4mat_data_read ( string input_filename, int m, int n )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    ITABLE_DATA_READ reads data from an ITABLE file.
+//    I4MAT_DATA_READ reads data from an I4MAT file.
 //
 //  Discussion:
 //
+//    An I4MAT is an array of I4's.
+//
 //    The file is assumed to contain one record per line.
 //
-//    Records beginning with the '#' character are comments, and are ignored.
+//    Records beginning with '#' are comments, and are ignored.
 //    Blank lines are also ignored.
 //
 //    Each line that is not ignored is assumed to contain exactly (or at least)
@@ -1047,7 +826,7 @@ int *itable_data_read ( string input_filename, int m, int n )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -1066,14 +845,14 @@ int *itable_data_read ( string input_filename, int m, int n )
 //    Input, int N, the number of points.  The program
 //    will stop reading data once N values have been read.
 //
-//    Output, int ITABLE_DATA_READ[M*N], the table data.
+//    Output, int I4MAT_DATA_READ[M*N], the data.
 //
 {
   bool error;
   ifstream input;
   int i;
   int j;
-  char line[255];
+  string line;
   int *table;
   int *x;
 
@@ -1082,9 +861,9 @@ int *itable_data_read ( string input_filename, int m, int n )
   if ( !input )
   {
     cerr << "\n";
-    cerr << "ITABLE_DATA_READ - Fatal error!\n";
+    cerr << "I4MAT_DATA_READ - Fatal error!\n";
     cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
-    return NULL;
+    exit ( 1 );
   }
 
   table = new int[m*n];
@@ -1095,7 +874,7 @@ int *itable_data_read ( string input_filename, int m, int n )
 
   while ( j < n )
   {
-    input.getline ( line, sizeof ( line ) );
+    getline ( input, line );
 
     if ( input.eof ( ) )
     {
@@ -1129,18 +908,22 @@ int *itable_data_read ( string input_filename, int m, int n )
   return table;
 }
 //****************************************************************************80
- 
-void itable_header_read ( string input_filename, int *m, int *n )
- 
+
+void i4mat_header_read ( string input_filename, int *m, int *n )
+
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    ITABLE_HEADER_READ reads the header from an ITABLE file.
+//    I4MAT_HEADER_READ reads the header from an I4MAT file.
+//
+//  Discussion:
+//
+//    An I4MAT is an array of I4's.
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -1160,26 +943,25 @@ void itable_header_read ( string input_filename, int *m, int *n )
 //
 {
   *m = file_column_count ( input_filename );
- 
+
   if ( *m <= 0 )
   {
     cerr << "\n";
-    cerr << "ITABLE_HEADER_READ - Fatal error!\n";
+    cerr << "I4MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_COLUMN_COUNT failed.\n";
-    *n = -1;
-    return;
+    exit ( 1 );
   }
- 
+
   *n = file_row_count ( input_filename );
- 
+
   if ( *n <= 0 )
   {
     cerr << "\n";
-    cerr << "ITABLE_HEADER_READ - Fatal error!\n";
+    cerr << "I4MAT_HEADER_READ - Fatal error!\n";
     cerr << "  FILE_ROW_COUNT failed.\n";
-    return;
+    exit ( 1 );
   }
- 
+
   return;
 }
 //****************************************************************************80
@@ -1421,19 +1203,19 @@ double r8_epsilon ( )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -1444,16 +1226,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }
@@ -1698,6 +1471,240 @@ double *r83_np_sl ( int n, double a_lu[], double b[], int job )
 }
 //****************************************************************************80
 
+double *r8mat_data_read ( string input_filename, int m, int n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_DATA_READ reads the data from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//    The file is assumed to contain one record per line.
+//
+//    Records beginning with '#' are comments, and are ignored.
+//    Blank lines are also ignored.
+//
+//    Each line that is not ignored is assumed to contain exactly (or at least)
+//    M real numbers, representing the coordinates of a point.
+//
+//    There are assumed to be exactly (or at least) N such records.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Input, int M, the number of spatial dimensions.
+//
+//    Input, int N, the number of points.  The program
+//    will stop reading data once N values have been read.
+//
+//    Output, double R8MAT_DATA_READ[M*N], the data.
+//
+{
+  bool error;
+  ifstream input;
+  int i;
+  int j;
+  string line;
+  double *table;
+  double *x;
+
+  input.open ( input_filename.c_str ( ) );
+
+  if ( !input )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_DATA_READ - Fatal error!\n";
+    cerr << "  Could not open the input file: \"" << input_filename << "\"\n";
+    exit ( 1 );
+  }
+
+  table = new double[m*n];
+
+  x = new double[m];
+
+  j = 0;
+
+  while ( j < n )
+  {
+    getline ( input, line );
+
+    if ( input.eof ( ) )
+    {
+      break;
+    }
+
+    if ( line[0] == '#' || s_len_trim ( line ) == 0 )
+    {
+      continue;
+    }
+
+    error = s_to_r8vec ( line, m, x );
+
+    if ( error )
+    {
+      continue;
+    }
+
+    for ( i = 0; i < m; i++ )
+    {
+      table[i+j*m] = x[i];
+    }
+    j = j + 1;
+
+  }
+
+  input.close ( );
+
+  delete [] x;
+
+  return table;
+}
+//****************************************************************************80
+
+void r8mat_header_read ( string input_filename, int *m, int *n )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_HEADER_READ reads the header from an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    23 February 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string INPUT_FILENAME, the name of the input file.
+//
+//    Output, int *M, the number of spatial dimensions.
+//
+//    Output, int *N, the number of points.
+//
+{
+  *m = file_column_count ( input_filename );
+
+  if ( *m <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_COLUMN_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  *n = file_row_count ( input_filename );
+
+  if ( *n <= 0 )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_HEADER_READ - Fatal error!\n";
+    cerr << "  FILE_ROW_COUNT failed.\n";
+    exit ( 1 );
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void r8mat_write ( string output_filename, int m, int n, double table[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8MAT_WRITE writes an R8MAT file.
+//
+//  Discussion:
+//
+//    An R8MAT is an array of R8's.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    29 June 2009
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, string OUTPUT_FILENAME, the output filename.
+//
+//    Input, int M, the spatial dimension.
+//
+//    Input, int N, the number of points.
+//
+//    Input, double TABLE[M*N], the data.
+//
+{
+  int i;
+  int j;
+  ofstream output;
+//
+//  Open the file.
+//
+  output.open ( output_filename.c_str ( ) );
+
+  if ( !output )
+  {
+    cerr << "\n";
+    cerr << "R8MAT_WRITE - Fatal error!\n";
+    cerr << "  Could not open the output file.\n";
+    exit ( 1 );
+  }
+//
+//  Write the data.
+//
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      output << "  " << setw(24) << setprecision(16) << table[i+j*m];
+    }
+    output << "\n";
+  }
+//
+//  Close the file.
+//
+  output.close ( );
+
+  return;
+}
+//****************************************************************************80
+
 double *r8mat_zero_new ( int m, int n )
 
 //****************************************************************************80
@@ -1939,7 +1946,7 @@ void r8vec_bracket3 ( int n, double t[], double tval, int *left )
 }
 //****************************************************************************80
 
-int s_len_trim ( char *s )
+int s_len_trim ( string s )
 
 //****************************************************************************80
 //
@@ -1949,11 +1956,11 @@ int s_len_trim ( char *s )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    26 April 2003
+//    05 July 2009
 //
 //  Author:
 //
@@ -1961,33 +1968,30 @@ int s_len_trim ( char *s )
 //
 //  Parameters:
 //
-//    Input, char *S, a pointer to a string.
+//    Input, string S, a string.
 //
 //    Output, int S_LEN_TRIM, the length of the string to the last nonblank.
 //    If S_LEN_TRIM is 0, then the string is entirely blank.
 //
 {
   int n;
-  char *t;
 
-  n = strlen ( s );
-  t = s + strlen ( s ) - 1;
+  n = s.length ( );
 
-  while ( 0 < n ) 
+  while ( 0 < n )
   {
-    if ( *t != ' ' )
+    if ( s[n-1] != ' ' )
     {
       return n;
     }
-    t--;
-    n--;
+    n = n - 1;
   }
 
   return n;
 }
 //****************************************************************************80
 
-int s_to_i4 ( char *s, int *last, bool *error )
+int s_to_i4 ( string s, int *last, bool *error )
 
 //****************************************************************************80
 //
@@ -1997,11 +2001,11 @@ int s_to_i4 ( char *s, int *last, bool *error )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    13 June 2003
+//    05 July 2009
 //
 //  Author:
 //
@@ -2009,7 +2013,7 @@ int s_to_i4 ( char *s, int *last, bool *error )
 //
 //  Parameters:
 //
-//    Input, char *S, a string to be examined.
+//    Input, string S, a string to be examined.
 //
 //    Output, int *LAST, the last character of S used to make IVAL.
 //
@@ -2031,7 +2035,7 @@ int s_to_i4 ( char *s, int *last, bool *error )
   i = 0;
   ival = 0;
 
-  while ( *s ) 
+  for ( ; ; )
   {
     c = s[i];
     i = i + 1;
@@ -2119,7 +2123,7 @@ int s_to_i4 ( char *s, int *last, bool *error )
 }
 //****************************************************************************80
 
-bool s_to_i4vec ( char *s, int n, int ivec[] )
+bool s_to_i4vec ( string s, int n, int ivec[] )
 
 //****************************************************************************80
 //
@@ -2129,11 +2133,11 @@ bool s_to_i4vec ( char *s, int n, int ivec[] )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    08 September 2003
+//    05 July 2009
 //
 //  Author:
 //
@@ -2141,7 +2145,7 @@ bool s_to_i4vec ( char *s, int n, int ivec[] )
 //
 //  Parameters:
 //
-//    Input, char *S, the string to be read.
+//    Input, string S, the string to be read.
 //
 //    Input, int N, the number of values expected.
 //
@@ -2150,32 +2154,33 @@ bool s_to_i4vec ( char *s, int n, int ivec[] )
 //    Output, bool S_TO_I4VEC, is TRUE if an error occurred.
 //
 {
+  int begin;
   bool error;
   int i;
   int lchar;
-  double x;
+  int length;
 
-  error = false;
+  begin = 0;
+  length = s.length ( );
+  error = 0;
 
   for ( i = 0; i < n; i++ )
   {
-    ivec[i] = s_to_i4 ( s, &lchar, &error );
+    ivec[i] = s_to_i4 ( s.substr(begin,length), &lchar, &error );
 
     if ( error )
     {
-      cerr << "\n";
-      cerr << "S_TO_I4VEC - Fatal error!\n";
-      cerr << "  S_TO_I4 returned error while reading item " << i << "\n";
       return error;
     }
-    s = s + lchar;
+    begin = begin + lchar;
+    length = length - lchar;
   }
 
   return error;
 }
 //****************************************************************************80
 
-double s_to_r8 ( char *s, int *lchar, bool *error )
+double s_to_r8 ( string s, int *lchar, bool *error )
 
 //****************************************************************************80
 //
@@ -2224,15 +2229,15 @@ double s_to_r8 ( char *s, int *lchar, bool *error )
 //    '17d2'            1700.0
 //    '-14e-2'         -0.14
 //    'e2'              100.0
-//    '-12.73e-9.23'   -12.73 * 10.0**(-9.23)
+//    '-12.73e-9.23'   -12.73 * 10.0^(-9.23)
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    07 August 2003
+//    05 July 2009
 //
 //  Author:
 //
@@ -2240,7 +2245,7 @@ double s_to_r8 ( char *s, int *lchar, bool *error )
 //
 //  Parameters:
 //
-//    Input, char *S, the string containing the
+//    Input, string S, the string containing the
 //    data to be read.  Reading will begin at position 1 and
 //    terminate at the end of the string, or when no more
 //    characters can be read to form a legal real.  Blanks,
@@ -2493,7 +2498,7 @@ double s_to_r8 ( char *s, int *lchar, bool *error )
 }
 //****************************************************************************80
 
-bool s_to_r8vec ( char *s, int n, double rvec[] )
+bool s_to_r8vec ( string s, int n, double rvec[] )
 
 //****************************************************************************80
 //
@@ -2503,11 +2508,11 @@ bool s_to_r8vec ( char *s, int n, double rvec[] )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    19 February 2001
+//    05 July 2009
 //
 //  Author:
 //
@@ -2515,7 +2520,7 @@ bool s_to_r8vec ( char *s, int n, double rvec[] )
 //
 //  Parameters:
 //
-//    Input, char *S, the string to be read.
+//    Input, string S, the string to be read.
 //
 //    Input, int N, the number of values expected.
 //
@@ -2524,29 +2529,33 @@ bool s_to_r8vec ( char *s, int n, double rvec[] )
 //    Output, bool S_TO_R8VEC, is true if an error occurred.
 //
 {
+  int begin;
   bool error;
   int i;
   int lchar;
-  double x;
+  int length;
+
+  begin = 0;
+  length = s.length ( );
+  error = 0;
 
   for ( i = 0; i < n; i++ )
   {
-    rvec[i] = s_to_r8 ( s, &lchar, &error );
+    rvec[i] = s_to_r8 ( s.substr(begin,length), &lchar, &error );
 
     if ( error )
     {
       return error;
     }
-
-    s = s + lchar;
-
+    begin = begin + lchar;
+    length = length - lchar;
   }
 
   return error;
 }
 //****************************************************************************80
 
-int s_word_count ( char *s )
+int s_word_count ( string s )
 
 //****************************************************************************80
 //
@@ -2556,11 +2565,11 @@ int s_word_count ( char *s )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    08 February 2005
+//    05 July 2009
 //
 //  Author:
 //
@@ -2568,33 +2577,36 @@ int s_word_count ( char *s )
 //
 //  Parameters:
 //
-//    Input, char *S, the string to be examined.
+//    Input, string S, the string to be examined.
 //
 //    Output, int S_WORD_COUNT, the number of "words" in the string.
 //    Words are presumed to be separated by one or more blanks.
 //
 {
   bool blank;
+  int char_count;
   int i;
-  int word_num;
+  int word_count;
 
-  word_num = 0;
+  word_count = 0;
   blank = true;
 
-  while ( *s ) 
+  char_count = s.length ( );
+
+  for ( i = 0; i < char_count; i++ )
   {
-    if ( *s == ' ' )
+    if ( isspace ( s[i] ) )
     {
       blank = true;
     }
     else if ( blank )
     {
-      word_num = word_num + 1;
+      word_count = word_count + 1;
       blank = false;
     }
-    *s++;
   }
-  return word_num;
+
+  return word_count;
 }
 //****************************************************************************80
 
@@ -2608,15 +2620,15 @@ void timestamp ( )
 //
 //  Example:
 //
-//    May 31 2001 09:45:54 AM
+//    31 May 2001 09:45:54 AM
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    02 October 2003
+//    08 July 2009
 //
 //  Author:
 //
@@ -2630,16 +2642,16 @@ void timestamp ( )
 # define TIME_SIZE 40
 
   static char time_buffer[TIME_SIZE];
-  const struct tm *tm;
+  const struct std::tm *tm_ptr;
   size_t len;
-  time_t now;
+  std::time_t now;
 
-  now = time ( NULL );
-  tm = localtime ( &now );
+  now = std::time ( NULL );
+  tm_ptr = std::localtime ( &now );
 
-  len = strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
+  len = std::strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm_ptr );
 
-  cout << time_buffer << "\n";
+  std::cout << time_buffer << "\n";
 
   return;
 # undef TIME_SIZE

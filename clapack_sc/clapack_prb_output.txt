@@ -1,0 +1,218 @@
+15 January 2015 11:27:11 AM
+
+CLAPACK_PRB
+  C++ version
+  Test the CLAPACK library.
+  CLAPACK is a C translation of the FORTRAN77 BLAS and LAPACK libraries.
+
+DGESV_TEST
+  Demonstrate the use of DGESV to solve a linear system
+  using double precision real arithmetic.
+
+  Coefficient matrix A:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:            1            -1             2            -1  
+    1:            2            -2             3            -3  
+    2:            1             1             1             0  
+    3:            1            -1             4             3  
+
+  Right hand side B:
+
+         0:             -8
+         1:            -20
+         2:             -2
+         3:              4
+
+  Return value of error flag INFO = 0
+
+  Computed solution X:
+
+
+         0:             -7
+         1:              3
+         2:              2
+         3:              2
+
+DGESVD_TEST
+  Demonstrate the use of DGESVD to compute the
+  singular value decomposition A = U * S * V',
+  using double precision real arithmetic.
+
+  Coefficient matrix A:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:           16             2             3            13  
+    1:            5            11            10             8  
+    2:            9             7             6            12  
+    3:            4            14            15             1  
+
+  Error flag INFO = 0
+
+  Singular values:
+
+
+         0:             34
+         1:        17.8885
+         2:        4.47214
+         3:    4.17281e-16
+
+DGETRF_TEST
+  Demonstrate the use of:
+  DGETRF to factor a general matrix A,
+  DGETRS to solve A*x=b after A has been factored,
+  using double precision real arithmetic.
+
+  Coefficient matrix A:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:            1            -1             2            -1  
+    1:            2            -2             3            -3  
+    2:            1             1             1             0  
+    3:            1            -1             4             3  
+
+  Return value of DGETRF error flag INFO = 0
+
+  Right hand side B:
+
+
+         0:             -8
+         1:            -20
+         2:             -2
+         3:              4
+
+  Return value of DGETRS error flag INFO = 0
+
+  Computed solution X:
+
+
+         0:             -7
+         1:              3
+         2:              2
+         3:              2
+
+DGETRI_TEST
+  For a double precision real matrix (D)
+  in general storage mode (GE):
+
+  DGETRF factors a general matrix;
+  DGETRI computes the inverse.
+
+  The matrix A:
+
+  Col:          0             1             2       
+  Row
+
+    0:            1             2             3  
+    1:            4             5             6  
+    2:            7             8             0  
+
+  The inverse matrix:
+
+  Col:          0             1             2       
+  Row
+
+    0:     -1.77778      0.888889     -0.111111  
+    1:      1.55556     -0.777778      0.222222  
+    2:    -0.111111      0.222222     -0.111111  
+
+DSYEV_TEST
+  For a double precision real matrix (D)
+  in symmetric storage mode (SY):
+
+  For a symmetric matrix in general storage,
+  DSYEV computes eigenvalues and eigenvectors;
+
+  The matrix A:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:            0       2.44949             0             0             0  
+    1:      2.44949             0       3.16228             0             0  
+    2:            0       3.16228             0        3.4641             0  
+    3:            0             0        3.4641             0        3.4641  
+    4:            0             0             0        3.4641             0  
+    5:            0             0             0             0       3.16228  
+    6:            0             0             0             0             0  
+
+  Col:          5             6       
+  Row
+
+    0:            0             0  
+    1:            0             0  
+    2:            0             0  
+    3:            0             0  
+    4:      3.16228             0  
+    5:            0       2.44949  
+    6:      2.44949             0  
+
+  The eigenvalues:
+
+         0:             -6
+         1:             -4
+         2:             -2
+         3:   -6.70723e-16
+         4:              2
+         5:              4
+         6:              6
+
+  The eigenvector matrix:
+
+  Col:          0             1             2             3             4       
+  Row
+
+    0:       -0.125      0.306186      0.484123     -0.559017     -0.484123  
+    1:     0.306186          -0.5     -0.395285  -3.15775e-16     -0.395285  
+    2:    -0.484123      0.395285        -0.125      0.433013         0.125  
+    3:     0.559017   3.36779e-16      0.433013  -8.62557e-17      0.433013  
+    4:    -0.484123     -0.395285        -0.125     -0.433013         0.125  
+    5:     0.306186           0.5     -0.395285   1.57289e-16     -0.395285  
+    6:       -0.125     -0.306186      0.484123      0.559017     -0.484123  
+
+  Col:          5             6       
+  Row
+
+    0:    -0.306186         0.125  
+    1:         -0.5      0.306186  
+    2:    -0.395285      0.484123  
+    3:  1.04083e-17      0.559017  
+    4:     0.395285      0.484123  
+    5:          0.5      0.306186  
+    6:     0.306186         0.125  
+
+ZGESV_TEST
+  Demonstrate the use of ZGESV to solve a linear system
+  using double precision complex arithmetic.
+
+  Coefficient matrix A:
+
+     -0.707107 +      0.587785 i
+     -0.707107 +      0.951057 i
+
+  -1.83697e-16 +      0.587785 i
+  -1.83697e-16 +      0.951057 i
+
+
+  Right hand side B:
+
+             1 +             1 i
+             2 +             3 i
+
+  Return value of error flag INFO = 0
+
+  Computed solution X:
+
+      -4.55583 +       12.9104 i
+       5.97005 +       -10.082 i
+
+CLAPACK_PRB:
+  Normal end of execution.
+
+15 January 2015 11:27:11 AM

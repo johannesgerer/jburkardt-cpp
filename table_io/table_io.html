@@ -21,11 +21,10 @@
     </p>
 
     <p>
-      A <a href = "../../data/table/table.html">
-      TABLE file</a> is a simple format for storing a double-indexed
-      array of data.  We regard this is a situation involving <b>N</b>
-      points in <b>M</b> dimensions, with <b>M</b> relatively small
-      (often just 2 or 3, but possibly 10 or 20) while <b>N</b> can
+      A TABLE file is a simple format for storing a double-indexed
+      array of data.  We regard this is a situation involving N
+      points in M dimensions, with M relatively small
+      (often just 2 or 3, but possibly 10 or 20) while N can
       be "enormous" (10, 100, 1,000 or 10,000).
     </p>
 
@@ -40,7 +39,7 @@
     </p>
 
     <p>
-      <b>TABLE_IO</b> supplies routines by which a TABLE file can
+      TABLE_IO supplies routines by which a TABLE file can
       easily be written or read.  A typical write operation simply
       calls routine <b>R8MAT_WRITE</b>.  A typical read operation
       will probably first want to call <b>R8MAT_HEADER_READ</b>
@@ -69,7 +68,8 @@
       <a href = "../../cpp_src/table_io/table_io.html">a C++ version</a> and
       <a href = "../../f77_src/table_io/table_io.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/table_io/table_io.html">a FORTRAN90 version</a> and
-      <a href = "../../m_src/table_io/table_io.html">a MATLAB version</a>.
+      <a href = "../../m_src/table_io/table_io.html">a MATLAB version</a> and
+      <a href = "../../py_src/table_io/table_io.html">a Python version</a> and
     </p>
 
     <h3 align = "center">
@@ -226,7 +226,7 @@
           <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
         </li>
         <li>
-          <b>I4MAT_INDICATOR</b> sets up an "indicator" I4MAT.
+          <b>I4MAT_INDICATOR_NEW</b> sets up an "indicator" I4MAT.
         </li>
         <li>
           <b>I4MAT_PRINT</b> prints an I4MAT, with an optional title.
@@ -241,13 +241,22 @@
           <b>I4MAT_WRITE</b> writes an I4MAT file with no header.
         </li>
         <li>
-          <b>LVEC_DATA_READ</b> reads data from an LVEC file.
+          <b>I4VEC_DATA_READ</b> reads data from an I4VEC file.
         </li>
         <li>
-          <b>LVEC_HEADER_READ</b> reads the header from an LVEC file.
+          <b>I4VEC_DATA_READ_NEW</b> reads data from an I4VEC file.
         </li>
         <li>
-          <b>LVEC_WRITE</b> writes an LVEC to a file.
+          <b>I4VEC_WRITE</b> writes an I4VEC to a file.
+        </li>
+        <li>
+          <b>L4VEC_DATA_READ_NEW</b> reads data from an L4VEC file.
+        </li>
+        <li>
+          <b>L4VEC_HEADER_READ</b> reads the header from an L4VEC file.
+        </li>
+        <li>
+          <b>L4VEC_WRITE</b> writes an L4VEC to a file.
         </li>
         <li>
           <b>R4MAT_DATA_READ</b> reads the data from an R4MAT file.
@@ -256,7 +265,7 @@
           <b>R4MAT_HEADER_READ</b> reads the header from an R4MAT file.
         </li>
         <li>
-          <b>R4MAT_INDICATOR</b> sets up an "indicator" R4MAT.
+          <b>R4MAT_INDICATOR_NEW</b> sets up an "indicator" R4MAT.
         </li>
         <li>
           <b>R4MAT_PRINT</b> prints an R4MAT, with an optional title.
@@ -292,7 +301,7 @@
           <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
         </li>
         <li>
-          <b>R8MAT_INDICATOR</b> sets up an "indicator" R8MAT.
+          <b>R8MAT_INDICATOR_NEW</b> sets up an "indicator" R8MAT.
         </li>
         <li>
           <b>R8MAT_PRINT</b> prints an R8MAT, with an optional title.
@@ -316,6 +325,21 @@
           <b>R8MAT_WRITE</b> writes an R8MAT file.
         </li>
         <li>
+          <b>R8VEC_DATA_READ</b> reads the data from an R8VEC file.
+        </li>
+        <li>
+          <b>R8VEC_DATA_READ_NEW</b> reads the data from an R8VEC file.
+        </li>
+        <li>
+          <b>R8VEC_HEADER_READ</b> reads the header from an R8VEC file.
+        </li>
+        <li>
+          <b>R8VEC_WRITE</b> writes an R8VEC file.
+        </li>
+        <li>
+          <b>R8VEC2_WRITE</b> writes an R8VEC2 file.
+        </li>
+        <li>
           <b>S_LEN_TRIM</b> returns the length of a string to the last nonblank.
         </li>
         <li>
@@ -325,7 +349,7 @@
           <b>S_TO_I4VEC</b> reads an I4VEC from a string.
         </li>
         <li>
-          <b>S_TO_L</b> reads an L from a string.
+          <b>S_TO_L4</b> reads an L4 from a string.
         </li>
         <li>
           <b>S_TO_R4</b> reads an R4 from a string.
@@ -356,7 +380,7 @@
     <hr>
 
     <i>
-      Last revised on 27 April 2011.
+      Last revised on 17 July 2014.
     </i>
 
     <!-- John Burkardt -->

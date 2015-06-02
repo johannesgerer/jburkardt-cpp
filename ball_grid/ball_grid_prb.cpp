@@ -17,7 +17,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    BALL_GRID_TEST tests BALL_GRID.
+//    MAIN is the main program for BALL_GRID_PRB.
+//
+//  Discussion:
+//
+//    BALL_GRID_PRB tests the BALL_GRID library.
 //
 //  Licensing:
 //
@@ -34,7 +38,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "BALL_GRID_TEST:\n";
+  cout << "BALL_GRID_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the BALL_GRID library.\n";
 
@@ -43,7 +47,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "BALL_GRID_TEST:\n";
+  cout << "BALL_GRID_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

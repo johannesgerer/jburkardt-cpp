@@ -1,0 +1,17 @@
+# quad_commands.txt
+#
+# Usage:
+#  gnuplot < quad_commands.txt
+#
+set term png
+set output 'quad.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title 'quad'
+set grid
+set key off
+set size ratio -1
+set style data lines
+plot 'quad_grid.txt' using 1:2 with points lt 3 pt 3,\
+     'quad_vertex.txt' using 1:2 lw 3 linecolor rgb 'black'
+quit

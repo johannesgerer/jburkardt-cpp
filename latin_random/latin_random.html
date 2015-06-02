@@ -37,16 +37,6 @@
       an <b>M</b> dimensional quasirandom pointset.
     </p>
 
-    <p>
-      Here is an image of a Latin random grid with spatial
-      dimension <b>M</b> = 2
-      and number of points <b>N</b> = 10.
-    </p>
-
-    <img src = "../../datasets/latin_random/latin_random_02_00010.png"
-         height = "440"
-         width = "340">
-
     <h3 align = "center">
       Licensing:
     </h3>
@@ -63,9 +53,12 @@
 
     <p>
       <b>LATIN_RANDOM</b> is available in
+      <a href = "../../c_src/latin_random/latin_random.html">a C version</a> and
       <a href = "../../cpp_src/latin_random/latin_random.html">a C++ version</a> and
+      <a href = "../../f77_src/latin_random/latin_random.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/latin_random/latin_random.html">a FORTRAN90 version</a> and
-      <a href = "../../m_src/latin_random/latin_random.html">a MATLAB version.</a>
+      <a href = "../../m_src/latin_random/latin_random.html">a MATLAB version</a> and
+      <a href = "../../py_src/latin_random/latin_random.html">a Python version.</a>
     </p>
 
     <h3 align = "center">
@@ -293,31 +286,28 @@
           <b>GET_SEED</b> returns a random seed for the random number generator.
         </li>
         <li>
-          <b>I4_MAX</b> returns the maximum of two integers.
+          <b>I4_UNIFORM_AB</b> returns a scaled pseudorandom I4 between A and B.
         </li>
         <li>
-          <b>I4_MIN</b> returns the smaller of two integers.
+          <b>I4VEC_PRINT</b> prints an I4VEC.
         </li>
         <li>
-          <b>I4_SWAP</b> switches two integer values.
+          <b>LATIN_RANDOM_NEW</b> returns points in a Latin Random square.
         </li>
         <li>
-          <b>I4_UNIFORM</b> returns a scaled pseudorandom I4.
+          <b>PERM_UNIFORM_NEW</b> selects a random permutation of N objects.
         </li>
         <li>
-          <b>LATIN_RANDOM</b> returns points in a Latin Random square.
+          <b>R8MAT_TRANSPOSE_PRINT</b> prints an R8MAT, transposed.
         </li>
         <li>
-          <b>PERM_RANDOM</b> selects a random permutation of N objects.
+          <b>R8MAT_TRANSPOSE_PRINT_SOME</b> prints some of an R8MAT, transposed.
         </li>
         <li>
-          <b>R4_ABS</b> returns the absolute value of an R4.
+          <b>R8MAT_UNIFORM_01_NEW</b> returns a unit pseudorandom R8MAT.
         </li>
         <li>
-          <b>R4_NINT</b> returns the nearest integer to an R4.
-        </li>
-        <li>
-          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+          <b>R8MAT_WRITE</b> writes an R8MAT file.
         </li>
         <li>
           <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
@@ -333,7 +323,7 @@
     <hr>
 
     <i>
-      Last revised on 01 December 2006.
+      Last revised on 12 November 2014.
     </i>
 
     <!-- John Burkardt -->

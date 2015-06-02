@@ -31,13 +31,12 @@ double glomin ( double a, double b, double c, double m, double e, double t,
 //
 //  Modified:
 //
-//    06 May 2012
+//    17 July 2011
 //
 //  Author:
 //
 //    Original FORTRAN77 version by Richard Brent.
 //    C++ version by John Burkardt.
-//    Modifications by John Denker.
 //
 //  Reference:
 //
@@ -335,7 +334,6 @@ double local_min ( double a, double b, double t, func_base& f,
 //
 //    Original FORTRAN77 version by Richard Brent.
 //    C++ version by John Burkardt.
-//    Modifications by John Denker.
 //
 //  Reference:
 //
@@ -525,7 +523,7 @@ double local_min ( double a, double b, double t, func_base& f,
         w = u;
         fw = fu;
       }
-      else if ( fu <= fv || v == x || v== w )
+      else if ( fu <= fv || v == x || v == w )
       {
         v = u;
         fv = fu;
@@ -879,12 +877,12 @@ double r8_epsilon ( )
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the R8 round off unit.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
 //    but
 //      1 = ( 1 + R / 2 )
@@ -895,7 +893,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    08 May 2006
+//    01 September 2012
 //
 //  Author:
 //
@@ -903,19 +901,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -1030,22 +1021,20 @@ void timestamp ( )
 //    None
 //
 {
-# define TIME_SIZE 40
+  const int TIME_SIZE(40);
 
   static char time_buffer[TIME_SIZE];
   const struct tm *tm;
-  size_t len;
   time_t now;
 
   now = time ( NULL );
   tm = localtime ( &now );
 
-  len = strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
+  strftime ( time_buffer, TIME_SIZE, "%d %B %Y %I:%M:%S %p", tm );
 
   cout << time_buffer << "\n";
 
   return;
-# undef TIME_SIZE
 }
 //****************************************************************************80
 
@@ -1067,19 +1056,21 @@ double zero ( double a, double b, double t, func_base& f )
 //    The location of the zero is determined to within an accuracy
 //    of 6 * MACHEPS * r8_abs ( C ) + 2 * T.
 //
+//    Thanks to Thomas Secretin for pointing out a transcription error in the
+//    setting of the value of P, 11 February 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    06 May 2012
+//    11 February 2013
 //
 //  Author:
 //
 //    Original FORTRAN77 version by Richard Brent.
 //    C++ version by John Burkardt.
-//    Modifications by John Denker.
 //
 //  Reference:
 //
@@ -1171,7 +1162,7 @@ double zero ( double a, double b, double t, func_base& f )
       {
         q = fa / fc;
         r = fb / fc;
-        p = s * ( 2.0 * m * a * ( q - r ) - ( sb - sa ) * ( r - 1.0 ) );
+        p = s * ( 2.0 * m * q * ( q - r ) - ( sb - sa ) * ( r - 1.0 ) );
         q = ( q - 1.0 ) * ( r - 1.0 ) * ( s - 1.0 );
       }
 
@@ -1250,13 +1241,16 @@ void zero_rc ( double a, double b, double t, double &arg, int &status,
 //    The routine is a revised version of the Brent zero finder
 //    algorithm, using reverse communication.
 //
+//    Thanks to Thomas Secretin for pointing out a transcription error in the
+//    setting of the value of P, 11 February 2013.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    17 July 2011
+//    11 February 2013
 //
 //  Author:
 //
@@ -1405,7 +1399,7 @@ void zero_rc ( double a, double b, double t, double &arg, int &status,
     {
       q = fa / fc;
       r = fb / fc;
-      p = s * ( 2.0 * m * a * ( q - r ) - ( sb - sa ) * ( r - 1.0 ) );
+      p = s * ( 2.0 * m * q * ( q - r ) - ( sb - sa ) * ( r - 1.0 ) );
       q = ( q - 1.0 ) * ( r - 1.0 ) * ( s - 1.0 );
     }
 
@@ -1509,6 +1503,7 @@ double monicPoly::operator()(double x){
     rslt *= x;
     rslt += coeff[ii];
   }
+  return rslt;
 }
 
 // Similarly, evaluate a general polynomial (not necessarily monic):
@@ -1518,6 +1513,7 @@ double Poly::operator()(double x){
     rslt *= x;
     rslt += coeff[ii];
   }
+  return rslt;
 }
 
 } // end namespace brent

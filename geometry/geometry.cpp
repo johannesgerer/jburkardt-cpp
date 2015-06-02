@@ -2,7 +2,7 @@
 # include <iostream>
 # include <iomanip>
 # include <fstream>
-# include <cmath>7
+# include <cmath>
 # include <ctime>
 # include <cstring>
 
@@ -431,18 +431,16 @@ double *angle_half_2d ( double p1[2], double p2[2], double p3[2] )
 //    The vector P4 - P2 will have unit norm.
 //
 {
-# define DIM_NUM 2
-
   int i;
   double norm;
   double *p4;
 
-  p4 = new double[DIM_NUM];
+  p4 = new double[2];
 
   norm = sqrt ( ( p1[0] - p2[0] ) * ( p1[0] - p2[0] )
               + ( p1[1] - p2[1] ) * ( p1[1] - p2[1] ) );
 
-  for ( i = 0; i < DIM_NUM; i++ )
+  for ( i = 0; i < 2; i++ )
   {
     p4[i] = ( p1[i] - p2[i] ) / norm;
   }
@@ -450,25 +448,24 @@ double *angle_half_2d ( double p1[2], double p2[2], double p3[2] )
   norm = sqrt ( ( p3[0] - p2[0] ) * ( p3[0] - p2[0] )
               + ( p3[1] - p2[1] ) * ( p3[1] - p2[1] ) );
 
-  for ( i = 0; i < DIM_NUM; i++ )
+  for ( i = 0; i < 2; i++ )
   {
     p4[i] = p4[i] + ( p3[i] - p2[i] ) / norm;
   }
 
-  for ( i = 0; i < DIM_NUM; i++ )
+  for ( i = 0; i < 2; i++ )
   {
     p4[i] = 0.5 * p4[i];
   }
 
-  norm = r8vec_norm ( DIM_NUM, p4 );
+  norm = r8vec_norm ( 2, p4 );
 
-  for ( i = 0; i < DIM_NUM; i++ )
+  for ( i = 0; i < 2; i++ )
   {
     p4[i] = p2[i] + p4[i] / norm;
   }
 
   return p4;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
@@ -508,15 +505,13 @@ double angle_rad_2d ( double p1[2], double p2[2], double p3[2] )
 //    Input, double P1[2], P2[2], P3[2], define the rays
 //    P1 - P2 and P3 - P2 which define the angle.
 //
-//    Output, double ANGLE_RAD_3D, the angle between the two rays,
-//    in radians.  This value will always be between 0 and 2*PI.  If either ray has
-//    zero length, then the angle is returned as zero.
+//    Output, double ANGLE_RAD_2D, the angle between the two rays,
+//    in radians.  This value will always be between 0 and 2*PI.  If either 
+//    ray has zero length, then the angle is returned as zero.
 //
 {
-# define DIM_NUM 2
-
-  double p[DIM_NUM];
-  double pi = 3.141592653589793;
+  double p[2];
+  const double r8_pi = 3.141592653589793;
   double value;
 
   p[0] = ( p3[0] - p2[0] ) * ( p1[0] - p2[0] )
@@ -536,11 +531,10 @@ double angle_rad_2d ( double p1[2], double p2[2], double p3[2] )
 
   if ( value < 0.0 )
   {
-    value = value + 2.0 * pi;
+    value = value + 2.0 * r8_pi;
   }
 
   return value;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
@@ -919,7 +913,7 @@ double annulus_area_2d ( double r1, double r2 )
 //    A circular annulus with center (XC,YC), inner radius R1 and
 //    outer radius R2, is the set of points (X,Y) so that
 //
-//      R1**2 <= (X-XC)**2 + (Y-YC)**2 <= R2**2
+//      R1^2 <= (X-XC)^2 + (Y-YC)^2 <= R2^2
 //
 //  Licensing:
 //
@@ -964,7 +958,7 @@ double annulus_sector_area_2d ( double r1, double r2, double theta1,
 //    outer radius R2, and angles THETA1, THETA2, is the set of points
 //    P so that
 //
-//      R1**2 <= (P(1)-PC(1))**2 + (P(2)-PC(2))**2 <= R2**2
+//      R1^2 <= (P(1)-PC(1))^2 + (P(2)-PC(2))^2 <= R2^2
 //
 //    and
 //
@@ -1014,7 +1008,7 @@ double *annulus_sector_centroid_2d ( double pc[2], double r1, double r2,
 //    outer radius R2, and angles THETA1, THETA2, is the set of points
 //    P so that
 //
-//      R1**2 <= (P(1)-PC(1))**2 + (P(2)-PC(2))**2 <= R2**2
+//      R1^2 <= (P(1)-PC(1))^2 + (P(2)-PC(2))^2 <= R2^2
 //
 //    and
 //
@@ -2682,7 +2676,7 @@ double circle_imp_point_dist_2d ( double r, double pc[2], double p[2]  )
 {
   double value;
 
-  value = sqrt ( r8_abs ( pow ( p[0] - pc[0], 2 ) + pow ( p[1] - pc[1], 2 )
+  value = sqrt ( fabs ( pow ( p[0] - pc[0], 2 ) + pow ( p[1] - pc[1], 2 )
     - r * r ) );
 
   return value;
@@ -2736,7 +2730,7 @@ double circle_imp_point_dist_signed_2d ( double r, double pc[2], double p[2] )
 
   t = pow ( p[0] - pc[0], 2 ) + pow ( p[1] - pc[1], 2 ) - r * r;
 
-  value = r8_sign ( t ) * sqrt ( r8_abs ( t ) );
+  value = r8_sign ( t ) * sqrt ( fabs ( t ) );
 
   return value;
 }
@@ -2812,7 +2806,7 @@ double circle_imp_point_near_2d ( double r, double pc[2], double p[2],
   }
   r2 = sqrt ( r2 );
 
-  dist = r8_abs (  r2 - r );
+  dist = fabs (  r2 - r );
 
   for ( i = 0; i < DIM_NUM; i++ )
   {
@@ -2894,9 +2888,9 @@ double *circle_imp_points_3d ( double r, double pc[3], double nc[3], int n )
 //
 //    Points P on an implicit circle in 3D satisfy the equations:
 //
-//      ( P(1) - PC(1) )**2
-//    + ( P(2) - PC(2) )**2
-//    + ( P(3) - PC(3) )**2 = R**2
+//      ( P(1) - PC(1) )^2
+//    + ( P(2) - PC(2) )^2
+//    + ( P(3) - PC(3) )^2 = R^2
 //
 //    and
 //
@@ -3111,9 +3105,9 @@ void circle_imp_print_3d ( double r, double pc[3], double nc[3], string title )
 //
 //    Points P on an implicit circle in 3D satisfy the equations:
 //
-//      ( P(1) - PC(1) )**2
-//    + ( P(2) - PC(2) )**2
-//    + ( P(3) - PC(3) )**2 = R**2
+//      ( P(1) - PC(1) )^2
+//    + ( P(2) - PC(2) )^2
+//    + ( P(3) - PC(3) )^2 = R^2
 //
 //    and
 //
@@ -3245,7 +3239,7 @@ double *circle_llr2imp_2d ( double p1[], double p2[], double q1[], double q2[],
 //
 //    The implicit form of a circle in 2D is:
 //
-//      ( P(1) - PC(1) )**2 + ( P(2) - PC(2) )**2 = R**2
+//      ( P(1) - PC(1) )^2 + ( P(2) - PC(2) )^2 = R^2
 //
 //    Let S be the scaled distance of a point on L1 from P1 to P2,
 //    and let N1 be a unit normal vector to L1.  Then a point P that is
@@ -3507,7 +3501,7 @@ void circle_pppr2imp_3d ( double p1[], double p2[], double p3[], double r,
 //
 //    The implicit form of a circle in 3D is:
 //
-//      ( P(1) - PC(1) )**2 + ( P(2) - PC(2) )**2 + ( P(3) - PC(3) )**2 = R**2
+//      ( P(1) - PC(1) )^2 + ( P(2) - PC(2) )^2 + ( P(3) - PC(3) )^2 = R^2
 //      and the dot product of P - PC with NORMAL is 0.
 //
 //    There may be zero, one, or two circles that satisfy the
@@ -4178,14 +4172,14 @@ void circles_imp_int_2d ( double r1, double pc1[2], double r2, double pc2[2],
 //
 //  Take care of the case in which the circles have the same center.
 //
-  t1 = ( r8_abs ( pc1[0] - pc2[0] ) + r8_abs ( pc1[1] - pc2[1] ) ) / 2.0;
-  t2 = ( r8_abs ( pc1[0] ) + r8_abs ( pc2[0] )
-       + r8_abs ( pc1[1] ) + r8_abs ( pc2[1] ) + 1.0 ) / 5.0;
+  t1 = ( fabs ( pc1[0] - pc2[0] ) + fabs ( pc1[1] - pc2[1] ) ) / 2.0;
+  t2 = ( fabs ( pc1[0] ) + fabs ( pc2[0] )
+       + fabs ( pc1[1] ) + fabs ( pc2[1] ) + 1.0 ) / 5.0;
 
   if ( t1 <= tol * t2 )
   {
-    t1 = r8_abs ( r1 - r2 );
-    t2 = ( r8_abs ( r1 ) + r8_abs ( r2 ) + 1.0 ) / 3.0;
+    t1 = fabs ( r1 - r2 );
+    t2 = ( fabs ( r1 ) + fabs ( r2 ) + 1.0 ) / 3.0;
 
     if ( t1 <= tol * t2 )
     {
@@ -4449,88 +4443,6 @@ void conv3d ( char axis, double theta, int n, double cor3[], double cor2[] )
 }
 //****************************************************************************80
 
-double cos_deg ( double angle )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    COS_DEG returns the cosine of an angle given in degrees.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    22 May 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double ANGLE, the angle, in degrees.
-//
-//    Output, double COS_DEG, the cosine of the angle.
-//
-{
-# define DEGREES_TO_RADIANS ( 3.141592653589793 / 180.0 )
-
-  double angle_rad;
-  double value;
-
-  angle_rad = DEGREES_TO_RADIANS * angle;
-
-  value = cos ( angle_rad );
-
-  return value;
-# undef DEGREES_TO_RADIANS
-}
-//****************************************************************************80
-
-double cot_deg ( double angle )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    COT_DEG returns the cotangent of an angle given in degrees.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    22 May 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double ANGLE, the angle, in degrees.
-//
-//    Output, double COT_DEG, the cotangent of the angle.
-//
-{
-# define DEGREES_TO_RADIANS ( 3.141592653589793 / 180.0 )
-
-  double angle_rad;
-  double value;
-
-  angle_rad = DEGREES_TO_RADIANS * angle;
-
-  value = cos ( angle_rad ) / sin ( angle_rad );
-
-  return value;
-# undef DEGREES_TO_RADIANS
-}
-//****************************************************************************80
-
 double cot_rad ( double angle )
 
 //****************************************************************************80
@@ -4563,47 +4475,6 @@ double cot_rad ( double angle )
   value = cos ( angle ) / sin ( angle );
 
   return value;
-}
-//****************************************************************************80
-
-double csc_deg ( double angle )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    CSC_DEG returns the cosecant of an angle given in degrees.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    22 May 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double ANGLE, the angle, in degrees.
-//
-//    Output, double CSC_DEG, the cosecant of the angle.
-//
-{
-# define DEGREES_TO_RADIANS ( 3.141592653589793 / 180.0 )
-
-  double angle_rad;
-  double value;
-
-  angle_rad = DEGREES_TO_RADIANS * angle;
-
-  value = 1.0 / sin ( angle_rad );
-
-  return value;
-# undef DEGREES_TO_RADIANS
 }
 //****************************************************************************80
 
@@ -4827,7 +4698,7 @@ double cylinder_point_dist_3d ( double p1[3], double p2[3], double r,
     p_length = r8vec_norm ( DIM_NUM, v1 );
     off_axis_component = sqrt ( pow ( p_length, 2 ) - pow ( p_dot_axis, 2 ) );
 
-    distance = r8_abs ( off_axis_component - r );
+    distance = fabs ( off_axis_component - r );
 
     if ( off_axis_component < r )
     {
@@ -5204,7 +5075,7 @@ double *cylinder_point_near_3d ( double p1[3], double p2[3], double r,
     }
     else
     {
-      distance = r8_abs ( off_axis_component - r );
+      distance = fabs ( off_axis_component - r );
 
       for ( i = 0; i < DIM_NUM; i++ )
       {
@@ -5585,7 +5456,7 @@ int dge_fa ( int n, double a[], int pivot[] )
     l = k;
     for ( i = k+1; i <= n; i++ )
     {
-      if ( r8_abs ( a[l-1+(k-1)*n] ) < r8_abs ( a[i-1+(k-1)*n] ) )
+      if ( fabs ( a[l-1+(k-1)*n] ) < fabs ( a[i-1+(k-1)*n] ) )
       {
         l = i;
       }
@@ -6062,7 +5933,7 @@ double disk_point_dist_3d ( double pc[3], double r, double axis[3],
 //
 //    A disk in 3D satisfies the equations:
 //
-//      ( P(1) - PC(1) )**2 + ( P(2) - PC(2) )**2 + ( P(3) - PC(3) <= R**2
+//      ( P(1) - PC(1) )^2 + ( P(2) - PC(2) )^2 + ( P(3) - PC(3) <= R^2
 //
 //    and
 //
@@ -6149,7 +6020,7 @@ double disk_point_dist_3d ( double pc[3], double r, double axis[3],
 //
   if ( off_axis_component <= r )
   {
-    dist = r8_abs ( axial_component );
+    dist = fabs ( axial_component );
     return dist;
   }
 //
@@ -6600,7 +6471,7 @@ void dual_size_3d ( int point_num, int edge_num, int face_num,
 //  But then all we have to do is count how many times each item shows up
 //  in the FACE_POINT array.
 //
-  face_order2 = new int[*face_num2];
+  face_order2 = new int[(*face_num2)];
 
   for ( i = 0; i < *face_num2; i++ )
   {
@@ -6612,6 +6483,7 @@ void dual_size_3d ( int point_num, int edge_num, int face_num,
     for ( i = 0; i < face_order[face]; i++ )
     {
       face2 = face_point[i+face*face_order_max];
+      if ( face2 == 0 ) cout << "WHOA!\n";
       face_order2[face2-1] = face_order2[face2-1] + 1;
     }
   }
@@ -6756,7 +6628,7 @@ double *ellipse_point_near_2d ( double r1, double r2, double p[2] )
 //    axes aligned with the coordinate axes.  Any point P on the ellipse
 //    satisfies
 //
-//      (  P(1) / R1 )**2 + ( P(2) / R2 )**2 == 1
+//      (  P(1) / R1 )^2 + ( P(2) / R2 )^2 == 1
 //
 //    The nearest point PN on the ellipse has the property that the
 //    line from PN to P is normal to the ellipse.  Points on the ellipse
@@ -6814,8 +6686,8 @@ double *ellipse_point_near_2d ( double r1, double r2, double p[2] )
   double x;
   double y;
 
-  x = r8_abs ( p[0] );
-  y = r8_abs ( p[1] );
+  x = fabs ( p[0] );
+  y = fabs ( p[1] );
 
   if ( y == 0.0 && r1 * r1 - r2 * r2 <= r1 * x )
   {
@@ -6829,12 +6701,12 @@ double *ellipse_point_near_2d ( double r1, double r2, double p[2] )
   {
     if ( y == 0.0 )
     {
-      y = sqrt ( r8_epsilon ( ) ) * r8_abs ( r2 );
+      y = sqrt ( r8_epsilon ( ) ) * fabs ( r2 );
     }
 
     if ( x == 0.0 )
     {
-      x = sqrt ( r8_epsilon ( ) ) * r8_abs ( r1 );
+      x = sqrt ( r8_epsilon ( ) ) * fabs ( r1 );
     }
 //
 //  Initial parameter T:
@@ -6848,10 +6720,10 @@ double *ellipse_point_near_2d ( double r1, double r2, double p[2] )
       ct = cos ( t );
       st = sin ( t );
 
-      f = ( x - r8_abs ( r1 ) * ct ) * r8_abs ( r1 ) * st
-        - ( y - r8_abs ( r2 ) * st ) * r8_abs ( r2 ) * ct;
+      f = ( x - fabs ( r1 ) * ct ) * fabs ( r1 ) * st
+        - ( y - fabs ( r2 ) * st ) * fabs ( r2 ) * ct;
 
-      if ( r8_abs ( f ) <= 100.0 * r8_epsilon ( ) )
+      if ( fabs ( f ) <= 100.0 * r8_epsilon ( ) )
       {
         break;
       }
@@ -6869,8 +6741,8 @@ double *ellipse_point_near_2d ( double r1, double r2, double p[2] )
       iteration = iteration + 1;
 
       fp = r1 * r1 * st * st + r2 * r2 * ct * ct
-         + ( x - r8_abs ( r1 ) * ct ) * r8_abs ( r1 ) * ct
-         + ( y - r8_abs ( r2 ) * st ) * r8_abs ( r2 ) * st;
+         + ( x - fabs ( r1 ) * ct ) * fabs ( r1 ) * ct
+         + ( y - fabs ( r2 ) * st ) * fabs ( r2 ) * st;
 
       t = t - f / fp;
     }
@@ -6880,8 +6752,8 @@ double *ellipse_point_near_2d ( double r1, double r2, double p[2] )
 //
   pn = new double[DIM_NUM];
 
-  pn[0] = r8_abs ( r1 ) * cos ( t );
-  pn[1] = r8_abs ( r2 ) * sin ( t );
+  pn[0] = fabs ( r1 ) * cos ( t );
+  pn[1] = fabs ( r2 ) * sin ( t );
 //
 //  Take care of case where the point was in another quadrant.
 //
@@ -7862,8 +7734,8 @@ void hexagon_shape_2d ( double angle, double p[2] )
 //
   if ( 0.0 <= angle && angle <= 60.0 )
   {
-    p[0] = sqrt ( 3.0 ) / ( tan_deg ( angle ) + sqrt ( 3.0 ) );
-    p[1] = tan_deg ( angle ) * p[0];
+    p[0] = sqrt ( 3.0 ) / ( r8_tand ( angle ) + sqrt ( 3.0 ) );
+    p[1] = r8_tand ( angle ) * p[0];
   }
 //
 //  y = sqrt(3) / 2
@@ -7871,23 +7743,23 @@ void hexagon_shape_2d ( double angle, double p[2] )
   else if ( angle <= 120.0 )
   {
     p[1] = sqrt ( 3.0 ) / 2.0;
-    p[0] = cot_deg ( angle ) * p[1];
+    p[0] = r8_cotd ( angle ) * p[1];
   }
 //
 //  y = sqrt(3) * x + sqrt(3)
 //
   else if ( angle <= 180.0 )
   {
-    p[0] = sqrt ( 3.0 ) / ( tan_deg ( angle ) - sqrt ( 3.0 ) );
-    p[1] = tan_deg ( angle ) * p[0];
+    p[0] = sqrt ( 3.0 ) / ( r8_tand ( angle ) - sqrt ( 3.0 ) );
+    p[1] = r8_tand ( angle ) * p[0];
   }
 //
 //  y = - sqrt(3) * x - sqrt(3)
 //
   else if ( angle <= 240.0 )
   {
-    p[0] = - sqrt ( 3.0 ) / ( tan_deg ( angle ) + sqrt ( 3.0 ) );
-    p[1] = tan_deg ( angle ) * p[0];
+    p[0] = - sqrt ( 3.0 ) / ( r8_tand ( angle ) + sqrt ( 3.0 ) );
+    p[1] = r8_tand ( angle ) * p[0];
   }
 //
 //  y = - sqrt(3) / 2
@@ -7895,15 +7767,15 @@ void hexagon_shape_2d ( double angle, double p[2] )
   else if ( angle <= 300.0 )
   {
     p[1] = - sqrt ( 3.0 ) / 2.0;
-    p[0] = cot_deg ( angle ) * p[1];
+    p[0] = r8_cotd ( angle ) * p[1];
   }
 //
 //  y = sqrt(3) * x - sqrt(3)
 //
   else if ( angle <= 360.0 )
   {
-    p[0] = - sqrt ( 3.0 ) / ( tan_deg ( angle ) - sqrt ( 3.0 ) );
-    p[1] = tan_deg ( angle ) * p[0];
+    p[0] = - sqrt ( 3.0 ) / ( r8_tand ( angle ) - sqrt ( 3.0 ) );
+    p[1] = r8_tand ( angle ) * p[0];
   }
 
   return;
@@ -10813,21 +10685,28 @@ void icos_shape ( int point_num, int edge_num, int face_num,
   i4vec_copy ( face_num,                  face_order_save,  face_order );
   i4vec_copy ( face_order_max * face_num, face_point_save,  face_point );
 //
-//  Rebase at 0.
+//  Really, the indices in EDGE_POINT and FACE_POINT should be 
+//  decremented by 1, so that they can be conveniently used as
+//  C++ indices.  However, I have to do this to ALL the shape
+//  functions, and then warn DUAL_SIZE_3D that it has been done...
+//  So for now, maybe DON'T do this.
 //
-  for ( j = 0; j < edge_num; j++ )
+  if ( 0 )
   {
-    for ( i = 0; i < 2; i++ )
+    for ( j = 0; j < edge_num; j++ )
     {
-      edge_point[i+j*2] = edge_point[i+j*2] - 1;
+      for ( i = 0; i < 2; i++ )
+      {
+        edge_point[i+j*2] = edge_point[i+j*2] - 1;
+      }
     }
-  }
 
-  for ( j = 0; j < face_num; j++ )
-  {
-    for ( i = 0; i < face_order_max; i++ )
+    for ( j = 0; j < face_num; j++ )
     {
-      face_point[i+j*face_order_max] = face_point[i+j*face_order_max] - 1;
+      for ( i = 0; i < face_order_max; i++ )
+      {
+        face_point[i+j*face_order_max] = face_point[i+j*face_order_max] - 1;
+      }
     }
   }
   return;
@@ -11049,7 +10928,7 @@ double *line_exp_perp_2d ( double p1[2], double p2[2], double p3[2],
 //
 //  (P3-P1) dot (P2-P1) = Norm(P3-P1) * Norm(P2-P1) * Cos(Theta).
 //
-//  (P3-P1) dot (P2-P1) / Norm(P3-P1)**2 = normalized coordinate T
+//  (P3-P1) dot (P2-P1) / Norm(P3-P1)^2 = normalized coordinate T
 //  of the projection of (P3-P1) onto (P2-P1).
 //
   t = ( ( p1[0] - p3[0] ) * ( p1[0] - p2[0] )
@@ -11116,7 +10995,7 @@ double line_exp_point_dist_2d ( double p1[2], double p2[2], double p[2] )
 //
 //  (P-P1) dot (P2-P1) = Norm(P-P1) * Norm(P2-P1) * Cos(Theta).
 //
-//  (P-P1) dot (P2-P1) / Norm(P-P1)**2 = normalized coordinate T
+//  (P-P1) dot (P2-P1) / Norm(P-P1)^2 = normalized coordinate T
 //  of the projection of (P-P1) onto (P2-P1).
 //
   else
@@ -11195,7 +11074,7 @@ double line_exp_point_dist_3d ( double p1[3], double p2[3], double p[3] )
 //
 //  (P-P1) dot (P2-P1) = Norm(P-P1) * Norm(P2-P1) * Cos(Theta).
 //
-//  (P-P1) dot (P2-P1) / Norm(P-P1)**2 = normalized coordinate T
+//  (P-P1) dot (P2-P1) / Norm(P-P1)^2 = normalized coordinate T
 //  of the projection of (P-P1) onto (P2-P1).
 //
   else
@@ -11354,7 +11233,7 @@ void line_exp_point_near_2d ( double p1[2], double p2[2], double p[2],
 //
 //  (P-P1) dot (P2-P1) = Norm(P-P1) * Norm(P2-P1) * Cos(Theta).
 //
-//  (P-P1) dot (P2-P1) / Norm(P-P1)**2 = normalized coordinate T
+//  (P-P1) dot (P2-P1) / Norm(P-P1)^2 = normalized coordinate T
 //  of the projection of (P-P1) onto (P2-P1).
 //
   *t = ( ( p1[0] - p[0] ) * ( p1[0] - p2[0] )
@@ -11434,7 +11313,7 @@ void line_exp_point_near_3d ( double p1[3], double p2[3], double p[3],
 //
 //  (P-P1) dot (P2-P1) = Norm(P-P1) * Norm(P2-P1) * Cos(Theta).
 //
-//  (P-P1) dot (P2-P1) / Norm(P-P1)**2 = normalized coordinate T
+//  (P-P1) dot (P2-P1) / Norm(P-P1)^2 = normalized coordinate T
 //  of the projection of (P-P1) onto (P2-P1).
 //
   *t = ( ( p1[0] - p[0] ) * ( p1[0] - p2[0] )
@@ -11754,7 +11633,7 @@ double line_imp_point_dist_2d ( double a, double b, double c, double p[2] )
     exit ( 1 );
   }
 
-  return ( r8_abs ( a * p[0] + b * p[1] + c ) / sqrt ( a * a + b * b ) );
+  return ( fabs ( a * p[0] + b * p[1] + c ) / sqrt ( a * a + b * b ) );
 
 }
 //****************************************************************************80
@@ -11873,7 +11752,7 @@ void line_imp2exp_2d ( double a, double b, double c, double p1[2],
   p1[0] = - a * c / normsq;
   p1[1] = - b * c / normsq;
 
-  if ( r8_abs ( b ) < r8_abs ( a ) )
+  if ( fabs ( b ) < fabs ( a ) )
   {
     p2[0] = - ( a - b / a ) * c / normsq;
     p2[1] = - ( b + 1.0 ) * c / normsq;
@@ -11980,7 +11859,7 @@ double line_par_point_dist_2d ( double f, double g, double x0, double y0,
 //      X = X0 + F * T
 //      Y = Y0 + G * T
 //
-//    For normalization, we choose F*F+G*G = 1 and 0 <= F.
+//    For normalization, we may choose F*F+G*G = 1 and 0 <= F.
 //
 //  Licensing:
 //
@@ -12041,7 +11920,7 @@ double line_par_point_dist_3d ( double f, double g, double h, double x0,
 //      Y = Y0 + G * T
 //      Z = Z0 + H * T
 //
-//    For normalization, we choose F*F+G*G+H*H = 1 and 0 <= F.
+//    For normalization, we may choose F*F+G*G+H*H = 1 and 0 <= F.
 //
 //  Licensing:
 //
@@ -12068,7 +11947,8 @@ double line_par_point_dist_3d ( double f, double g, double h, double x0,
 //    Input, double P[3], the point whose distance from the line is
 //    to be measured.
 //
-//    Output, double LINE_PAR_POINT_DIST_3D, the distance from the point to the line.
+//    Output, double LINE_PAR_POINT_DIST_3D, the distance from the point
+//    to the line.
 //
 {
   double dx;
@@ -12089,6 +11969,129 @@ double line_par_point_dist_3d ( double f, double g, double h, double x0,
     / ( f * f + g * g + h * h );
 
   return value;
+}
+//****************************************************************************80
+
+double *line_par_point_near_2d ( double f, double g, double x0, double y0,
+  double p[2] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LINE_PAR_POINT_NEAR_2D: nearest point on parametric line to point in 2D.
+//
+//  Discussion:
+//
+//    The parametric form of a line in 2D is:
+//
+//      X = X0 + F * T
+//      Y = Y0 + G * T
+//
+//    For normalization, we may choose F*F+G*G = 1 and 0 <= F.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Adrian Bowyer, John Woodwark,
+//    A Programmer's Geometry,
+//    Butterworths, 1983.
+//
+//  Parameters:
+//
+//    Input, double F, G, X0, Y0, the parametric line parameters.
+//
+//    Input, double P[2], the point whose distance from the line is
+//    to be measured.
+//
+//    Output, double LINE_PAR_POINT_DIST_2D[2], the nearest point.
+//
+{
+  double t;
+  double *pn;
+
+  t = ( f * ( p[0] - x0 ) + g * ( p[1] - y0 ) ) / ( f * f + g * g );
+
+  pn = new double[2];
+
+  pn[0] = x0 + t * f;
+  pn[1] = y0 + t * g;
+
+  return pn;
+}
+//****************************************************************************80
+
+double *line_par_point_near_3d ( double f, double g, double h, double x0,
+  double y0, double z0, double p[3] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LINE_PAR_POINT_DIST_3D: distance ( parametric line, point ) in 3D.
+//
+//  Discussion:
+//
+//    The parametric form of a line in 3D is:
+//
+//      X = X0 + F * T
+//      Y = Y0 + G * T
+//      Z = Z0 + H * T
+//
+//    For normalization, we may choose F*F+G*G+H*H = 1 and 0 <= F.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Adrian Bowyer, John Woodwark,
+//    A Programmer's Geometry,
+//    Butterworths, 1983.
+//
+//  Parameters:
+//
+//    Input, double F, G, H, X0, Y0, Z0, the parametric line parameters.
+//
+//    Input, double P[3], the point whose distance from the line is
+//    to be measured.
+//
+//    Output, double LINE_PAR_POINT_NEAR_3D[3], the nearest point.
+//
+{
+  double *pn;
+  double t;
+
+  t = ( f * ( p[0] - x0 ) + g * ( p[1] - y0 ) + h * ( p[2] - z0 ) ) 
+    / ( f * f + g * g + h * h );
+
+  pn = new double[3];
+
+  pn[0] = x0 + t * f;
+  pn[1] = y0 + t * g;
+  pn[2] = z0 + t * h;
+
+  return pn;
 }
 //****************************************************************************80
 
@@ -12149,6 +12152,66 @@ void line_par2exp_2d ( double f, double g, double x0, double y0,
 
   return;
 # undef DIM_NUM
+}
+//****************************************************************************80
+
+void line_par2exp_3d ( double f, double g, double h, double x0, double y0,
+  double z0, double p1[3], double p2[3] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LINE_PAR2EXP_2D converts a parametric line to explicit form in 3D.
+//
+//  Discussion:
+//
+//    The parametric form of a line in 3D is:
+//
+//      X = X0 + F * T
+//      Y = Y0 + G * T
+//      Z = Z0 + H * T
+//
+//    For normalization, we choose F*F+G*G+H*H = 1 and 0 <= F.
+//
+//    The explicit form of a line in 3D is:
+//
+//      the line through the points P1 and P2.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    13 April 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Adrian Bowyer, John Woodwark,
+//    A Programmer's Geometry,
+//    Butterworths, 1983.
+//
+//  Parameters:
+//
+//    Input, double F, G, H, X0, Y0, Z0, the parametric line parameters.
+//
+//    Output, double P1[3], P2[3], two points on the line.
+//
+{
+  p1[0] = x0;
+  p1[1] = y0;
+  p1[2] = z0;
+
+  p2[0] = p1[0] + f;
+  p2[1] = p1[1] + g;
+  p2[2] = p1[2] + h;
+
+  return;
 }
 //****************************************************************************80
 
@@ -12440,7 +12503,7 @@ double lines_exp_dist_3d ( double p1[3], double p2[3], double q1[3],
   }
   else
   {
-    top = r8_abs (  a1[0] * ( a2[1] * a3[2] - a2[2] * a3[1] )
+    top = fabs (  a1[0] * ( a2[1] * a3[2] - a2[2] * a3[1] )
                   - a1[1] * ( a2[0] * a3[2] - a2[2] * a3[0] )
                   + a1[2] * ( a2[0] * a3[1] - a2[1] * a3[0] ) );
 
@@ -12570,7 +12633,7 @@ double lines_exp_dist_3d_2 ( double p1[3], double p2[3], double q1[3],
   if ( det == 0.0 )
   {
     sn = 0.0;
-    if ( r8_abs ( b ) < r8_abs ( c ) )
+    if ( fabs ( b ) < fabs ( c ) )
     {
       tn = e / c;
     }
@@ -12943,7 +13006,7 @@ void lines_exp_near_3d ( double p1[3], double p2[3], double q1[3],
   if ( det == 0.0 )
   {
     sn = 0.0;
-    if ( r8_abs ( b ) < r8_abs ( c ) )
+    if ( fabs ( b ) < fabs ( c ) )
     {
       tn = e / c;
     }
@@ -13061,7 +13124,7 @@ bool lines_exp_parallel_3d ( double p1[3], double p2[3], double q1[3],
 //
 //    We can rephrase this as requiring:
 //
-//      ( (P2-P1)dot(Q2-Q1) )**2 = (P2-P1)dot(P2-P1) * (Q2-Q1)dot(Q2-Q1)
+//      ( (P2-P1)dot(Q2-Q1) )^2 = (P2-P1)dot(P2-P1) * (Q2-Q1)dot(Q2-Q1)
 //
 //    which avoids division and square roots.
 //
@@ -13257,7 +13320,7 @@ double lines_imp_dist_2d ( double a1, double b1, double c1, double a2,
 //
 //  Determine the distance between the parallel lines.
 //
-  value = r8_abs ( c2 / sqrt ( a2 * a2 + b2 * b2 )
+  value = fabs ( c2 / sqrt ( a2 * a2 + b2 * b2 )
                  - c1 / sqrt ( a1 * a1 + b1 * b1 ) );
 
   return value;
@@ -13565,7 +13628,7 @@ double lines_par_dist_3d ( double f1, double g1, double h1, double x01,
 {
   double value;
 
-  value = r8_abs ( ( x02 - x01 ) * ( g1 * h2 - g2 * h1 )
+  value = fabs ( ( x02 - x01 ) * ( g1 * h2 - g2 * h1 )
              + ( y02 - y01 ) * ( h1 * f2 - h2 * f1 )
              + ( z02 - z01 ) * ( f1 * g2 - f2 * g1 ) )  /
              ( ( f1 * g2 - f2 * g1 ) * ( f1 * g2 - f2 * g1 )
@@ -13871,7 +13934,7 @@ void minabs ( double x1, double y1, double x2, double y2, double x3, double y3,
 //
   else
   {
-    slope = r8_max ( r8_abs ( slope12 ), slope23 );
+    slope = r8_max ( fabs ( slope12 ), slope23 );
     *xmin = 0.5 * ( x1 + x3 + ( y1 - y3 ) / slope );
     *ymin = y1 - slope * ( (*xmin) - x1 );
   }
@@ -13887,7 +13950,7 @@ bool minquad ( double x1, double y1, double x2, double y2, double x3, double y3,
 //
 //  Purpose:
 //
-//    MINQUAD finds a local minimum of F(X) = A * X**2 + B * X + C.
+//    MINQUAD finds a local minimum of F(X) = A * X^2 + B * X + C.
 //
 //  Discussion:
 //
@@ -14610,7 +14673,7 @@ bool parallelogram_contains_point_3d ( double p1[3], double p2[3], double p3[3],
            + pow ( p2[1] - p[1], 2 )
            + pow ( p2[2] - p[2], 2 ) );
 
-  if ( TOL * ( 1.0 + v ) < r8_abs ( dot ) )
+  if ( TOL * ( 1.0 + v ) < fabs ( dot ) )
   {
     return false;
   }
@@ -16161,7 +16224,7 @@ bool plane_imp_line_par_int_3d ( double a, double b, double c, double d,
 //
 //  The line and the plane may be parallel.
 //
-  if ( r8_abs ( denom ) < TOL * norm1 * norm2 )
+  if ( fabs ( denom ) < TOL * norm1 * norm2 )
   {
     if ( a * x0 + b * y0 + c * z0 + d == 0.0 )
     {
@@ -16237,7 +16300,7 @@ double plane_imp_point_dist_3d ( double a, double b, double c, double d,
   double dist;
 
   dist =
-    r8_abs ( a * p[0] + b * p[1] + c * p[2] + d ) /
+    fabs ( a * p[0] + b * p[1] + c * p[2] + d ) /
     sqrt ( a * a + b * b + c * c );
 
   return dist;
@@ -16451,7 +16514,7 @@ void plane_imp_segment_near_3d ( double p1[3], double p2[3], double a, double b,
   if ( r8vec_eq ( DIM_NUM, p1, p2 ) )
   {
     t1 = an * p1[0] + bn * p1[1] + cn * p1[2] + dn;
-    *dist = r8_abs ( t1 );
+    *dist = fabs ( t1 );
     r8vec_copy ( DIM_NUM, p1, pnl );
 
     pnp[0] = p1[0] - an * t1;
@@ -16472,8 +16535,8 @@ void plane_imp_segment_near_3d ( double p1[3], double p2[3], double a, double b,
   idiocy = t1 * t2;
   if ( 0.0 < idiocy )
   {
-    t1 = r8_abs ( t1 );
-    t2 = r8_abs ( t2 );
+    t1 = fabs ( t1 );
+    t2 = fabs ( t2 );
 
     if ( t1 < t2 )
     {
@@ -18273,8 +18336,8 @@ int points_centroid_2d ( int n, double p[] )
 //
 //    Given a discrete set of points S, the discrete centroid z is defined by
 //
-//                           Sum ( x in S ) ( x - z )**2
-//        = min ( y in S ) { Sum ( x in S ) ( x - y )**2
+//                           Sum ( x in S ) ( x - z )^2
+//        = min ( y in S ) { Sum ( x in S ) ( x - y )^2
 //
 //    In other words, the discrete centroid is a point in the set whose distance
 //    to the other points is minimized.  The discrete centroid of a point set
@@ -18413,7 +18476,7 @@ double points_colin_2d ( double p1[2], double p2[2], double p3[2] )
 
     area2 = 0.25 * sqrt ( 3.0 ) * side * side;
 
-    colin = r8_abs ( area_triangle ) / area2;
+    colin = fabs ( area_triangle ) / area2;
   }
 
   return colin;
@@ -18504,7 +18567,7 @@ double points_colin_3d ( double p1[3], double p2[3], double p3[3] )
 
     area2 = 0.25 * sqrt ( 3.0 ) * side * side;
 
-    colin = r8_abs ( area_triangle ) / area2;
+    colin = fabs ( area_triangle ) / area2;
   }
 
   return colin;
@@ -19772,12 +19835,10 @@ double polygon_area_2d_2 ( int n, double v[] )
 //    Output, double POLYGON_AREA_2D_2, the area of the polygon.
 //
 {
-# define DIM_NUM 2
-
   double area;
   double area_triangle;
   int i;
-  double t[DIM_NUM*3];
+  double t[2*3];
 
   area = 0.0;
 
@@ -19796,7 +19857,6 @@ double polygon_area_2d_2 ( int n, double v[] )
   }
 
   return area;
-# undef DIM_NUM
 }
 //****************************************************************************80
 
@@ -20009,9 +20069,9 @@ double *polygon_centroid_2d ( int n, double v[] )
 //      Integral ( Polygon boundary ) ( M dx + N dy ) =
 //      Integral ( Polygon interior ) ( dN/dx - dM/dy ) dx dy.
 //
-//    Using M = 0 and N = x**2/2, we get:
+//    Using M = 0 and N = x^2/2, we get:
 //
-//      CX = 0.5 * Integral ( Polygon boundary ) x**2 dy,
+//      CX = 0.5 * Integral ( Polygon boundary ) x^2 dy,
 //
 //    which becomes
 //
@@ -20770,7 +20830,7 @@ int polygon_is_convex ( int n, double v[] )
 
     exterior_total = exterior_total + angle;
 
-    if ( 360.0 + TOL < radians_to_degrees ( r8_abs ( exterior_total ) ) )
+    if ( 360.0 + TOL < radians_to_degrees ( fabs ( exterior_total ) ) )
     {
       return NOT_CONVEX;
     }
@@ -21249,7 +21309,7 @@ double polygon_x_2d ( int n, double v[] )
 //  Discussion:
 //
 //    INTEGRAL = (1/6) * SUM ( I = 1 to N )
-//      ( X[I]**2 + X[I] * X[I-1] + X[I-1]**2 ) * ( Y[I] - Y[I-1] )
+//      ( X[I]^2 + X[I] * X[I-1] + X[I-1]^2 ) * ( Y[I] - Y[I-1] )
 //
 //    where X[N] and Y[N] should be replaced by X[0] and Y[0].
 //
@@ -21331,7 +21391,7 @@ double polygon_y_2d ( int n, double v[] )
 //  Discussion:
 //
 //    INTEGRAL = (1/6) * SUM ( I = 1 to N )
-//      - ( Y[I]**2 + Y[I] * Y[I-1] + Y[I-1]**2 ) * ( X[I] - X[I-1] )
+//      - ( Y[I]^2 + Y[I] * Y[I-1] + Y[I-1]^2 ) * ( X[I] - X[I-1] )
 //
 //    where X[N] and Y[N] should be replaced by X[0] and Y[0].
 //
@@ -21413,7 +21473,7 @@ double polygon_xx_2d ( int n, double v[] )
 //  Discussion:
 //
 //    INTEGRAL = (1/12) * SUM ( I = 1 to N )
-//      ( X[I]**3 + X[I]**2 * X[I-1] + X[I] * X[I-1]**2 + X[I-1]**3 )
+//      ( X[I]^3 + X[I]^2 * X[I-1] + X[I] * X[I-1]^2 + X[I-1]^3 )
 //      * ( Y[I] - Y[I-1] )
 //
 //    where X[N] and Y[N] should be replaced by X[0] and Y[0].
@@ -21498,9 +21558,9 @@ double polygon_xy_2d ( int n, double v[] )
 //
 //    INTEGRAL = (1/24) * SUM (I=1 to N)
 //      ( Y[I] *
-//        ( 3 * X[I]**2 + 2 * X[I] * X[I-1] + X[I-1]**2 )
+//        ( 3 * X[I]^2 + 2 * X[I] * X[I-1] + X[I-1]^2 )
 //      + Y[I-1] *
-//        ( X[I]**2 + 2 * X[I] * X[I-1] + 3 * X[I-1]**2 )
+//        ( X[I]^2 + 2 * X[I] * X[I-1] + 3 * X[I-1]^2 )
 //      ) * ( Y[I] - Y[I-1] )
 //
 //    where X[N] and Y[N] should be replaced by X[0] and Y[0].
@@ -21587,7 +21647,7 @@ double polygon_yy_2d ( int n, double v[] )
 //  Discussion:
 //
 //    INTEGRAL = (1/12) * SUM ( I = 1 to N )
-//      - ( Y[I]**3 + Y[I]**2 * Y[I-1] + Y[I] * Y[I-1]**2 + Y[I-1]**3 )
+//      - ( Y[I]^3 + Y[I]^2 * Y[I-1] + Y[I] * Y[I-1]^2 + Y[I-1]^3 )
 //      * ( X[I] - X[I-1] )
 //
 //    where X[N] and Y[N] should be replaced by X[0] and Y[0].
@@ -22470,7 +22530,7 @@ double polyline_length_nd ( int dim_num, int n, double p[] )
 //    The letter "V" is a polyline of order 3.
 //    The letter "N" is a polyline of order 4, and so on.
 //
-//    DIST(I+1,I) = sqrt ( sum ( 1 <= J <= DIM_NUM ) ( X(I+1) - X(I) )**2 )
+//    DIST(I+1,I) = sqrt ( sum ( 1 <= J <= DIM_NUM ) ( X(I+1) - X(I) )^2 )
 //
 //    LENGTH = sum ( 1 <= I <= NPOINT-1 ) DIST(I+1,I)
 //
@@ -23580,7 +23640,7 @@ double *quat_inv ( double q[] )
 //
 //    The inverse of Q is
 //
-//      inverse ( Q ) = conjugate ( Q ) / ( norm ( Q ) )**2.
+//      inverse ( Q ) = conjugate ( Q ) / ( norm ( Q ) )^2.
 //
 //  Licensing:
 //
@@ -23816,47 +23876,6 @@ int r4_nint ( float x )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double r8_acos ( double c )
 
 //****************************************************************************80
@@ -23963,18 +23982,135 @@ double r8_asin ( double s )
 }
 //****************************************************************************80
 
+double r8_cosd ( double degrees )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_COSD returns the cosine of an angle given in degrees.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double DEGREES, the angle in degrees.
+//
+//    Output, double R8_COSD, the cosine of the angle.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double radians;
+  double value;
+
+  radians = r8_pi * ( degrees / 180.0 );
+
+  value = cos ( radians );
+
+  return value;
+}
+//****************************************************************************80
+
+double r8_cotd ( double degrees )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_COTD returns the cotangent of an angle given in degrees.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double DEGREES, the angle in degrees.
+//
+//    Output, double R8_COTD, the cotangent of the angle.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double radians;
+  double value;
+
+  radians = r8_pi * ( degrees / 180.0 );
+
+  value = cos ( radians ) / sin ( radians );
+
+  return value;
+}
+//****************************************************************************80
+
+double r8_cscd ( double degrees )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_CSCD returns the cosecant of an angle given in degrees.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double DEGREES, the angle in degrees.
+//
+//    Output, double R8_CSCD, the cosecant of the angle.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double radians;
+  double value;
+
+  radians = r8_pi * ( degrees / 180.0 );
+
+  value = 1.0 / sin ( radians );
+
+  return value;
+}
+//****************************************************************************80
+
 double r8_epsilon ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the R8 round off unit.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
 //    but
 //      1 = ( 1 + R / 2 )
@@ -23985,7 +24121,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -23993,19 +24129,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -24194,7 +24323,7 @@ double r8_modp ( double x, double y )
 
   if ( value < 0.0 )
   {
-    value = value + r8_abs ( y );
+    value = value + fabs ( y );
   }
 
   return value;
@@ -24252,7 +24381,7 @@ int r8_nint ( double x )
     s = + 1;
   }
 
-  return ( s * ( int ) ( r8_abs ( x ) + 0.5 ) );
+  return ( s * ( int ) ( fabs ( x ) + 0.5 ) );
 }
 //****************************************************************************80
 
@@ -24372,6 +24501,45 @@ double r8_pi ( )
 }
 //****************************************************************************80
 
+double r8_secd ( double degrees )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_SECD returns the secant of an angle given in degrees.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double DEGREES, the angle in degrees.
+//
+//    Output, double R8_SECD, the secant of the angle.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double radians;
+  double value;
+
+  radians = r8_pi * ( degrees / 180.0 );
+
+  value = 1.0 / cos ( radians );
+
+  return value;
+}
+//****************************************************************************80
+
 double r8_sign ( double x )
 
 //****************************************************************************80
@@ -24461,6 +24629,45 @@ bool r8_sign_opposite_strict ( double r1, double r2 )
 }
 //****************************************************************************80
 
+double r8_sind ( double degrees )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_SIND returns the sine of an angle given in degrees.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double DEGREES, the angle in degrees.
+//
+//    Output, double R8_SIND, the sine of the angle.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double radians;
+  double value;
+
+  radians = r8_pi * ( degrees / 180.0 );
+
+  value = sin ( radians );
+
+  return value;
+}
+//****************************************************************************80
+
 void r8_swap ( double *x, double *y )
 
 //****************************************************************************80
@@ -24494,6 +24701,45 @@ void r8_swap ( double *x, double *y )
   *y = z;
 
   return;
+}
+//****************************************************************************80
+
+double r8_tand ( double degrees )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_TAND returns the tangent of an angle given in degrees.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 July 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double DEGREES, the angle in degrees.
+//
+//    Output, double R8_TAND, the tangent of the angle.
+//
+{
+  const double r8_pi = 3.141592653589793;
+  double radians;
+  double value;
+
+  radians = r8_pi * ( degrees / 180.0 );
+
+  value = sin ( radians ) / cos ( radians );
+
+  return value;
 }
 //****************************************************************************80
 
@@ -24552,8 +24798,8 @@ double r8_uniform_01 ( int &seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      R8_uniform_01 = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      R8_uniform_01 = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -25858,7 +26104,7 @@ int r8mat_solve ( int n, int rhs_num, double a[] )
 
     for ( i = j; i < n; i++ )
     {
-      if ( r8_abs ( apivot ) < r8_abs ( a[i+j*n] ) )
+      if ( fabs ( apivot ) < fabs ( a[i+j*n] ) )
       {
         apivot = a[i+j*n];
         ipivot = i;
@@ -26521,9 +26767,9 @@ double *r8vec_any_normal ( int dim_num, double v1[] )
 
   for ( i = 0; i < dim_num; i++ )
   {
-    if ( r8_abs ( vk ) < r8_abs ( v1[i] ) || k == -1 )
+    if ( fabs ( vk ) < fabs ( v1[i] ) || k == -1 )
     {
-      if ( r8_abs ( vj ) < r8_abs ( v1[i] ) || j == -1 )
+      if ( fabs ( vj ) < fabs ( v1[i] ) || j == -1 )
       {
         k = j;
         vk = vj;
@@ -28563,7 +28809,7 @@ void radians_to_dms ( double radians, int *degrees, int *minutes, int *seconds )
   double angle;
   double pi = 3.141592653589793;
 
-  angle = 180.0 * r8_abs ( radians ) / pi;
+  angle = 180.0 * fabs ( radians ) / pi;
 
   *degrees = ( int ) angle;
   angle = ( angle - ( ( double ) *degrees ) ) * 60.0;
@@ -29456,47 +29702,6 @@ int s_len_trim ( string s )
   }
 
   return n;
-}
-//****************************************************************************80
-
-double sec_deg ( double angle )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    SEC_DEG returns the secant of an angle given in degrees.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    22 May 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double ANGLE, the angle, in degrees.
-//
-//    Output, double SEC_DEG, the secant of the angle.
-//
-{
-# define DEGREES_TO_RADIANS ( 3.141592653589793 / 180.0 )
-
-  double angle_rad;
-  double value;
-
-  angle_rad = DEGREES_TO_RADIANS * angle;
-
-  value = 1.0 / cos ( angle_rad );
-
-  return value;
-# undef DEGREES_TO_RADIANS
 }
 //****************************************************************************80
 
@@ -30550,7 +30755,7 @@ double segments_dist_3d ( double p1[3], double p2[3], double q1[3],
   if ( det == 0.0 )
   {
     sn = 0.0;
-    if ( r8_abs ( b ) < r8_abs ( c ) )
+    if ( fabs ( b ) < fabs ( c ) )
     {
       tn = e / c;
     }
@@ -31758,7 +31963,7 @@ double simplex_volume_nd ( int dim_num, double a[] )
   {
     det = dge_det ( dim_num, b, pivot );
 
-    volume = r8_abs ( det );
+    volume = fabs ( det );
     for ( i = 1; i <= dim_num; i++ )
     {
       volume = volume / ( ( double ) i );
@@ -31769,47 +31974,6 @@ double simplex_volume_nd ( int dim_num, double a[] )
   delete [] pivot;
 
   return volume;
-}
-//****************************************************************************80
-
-double sin_deg ( double angle )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    SIN_DEG returns the sine of an angle given in degrees.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    22 May 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double ANGLE, the angle, in degrees.
-//
-//    Output, double SIN_DEG, the sine of the angle.
-//
-{
-# define DEGREES_TO_RADIANS ( 3.141592653589793 / 180.0 )
-
-  double angle_rad;
-  double value;
-
-  angle_rad = DEGREES_TO_RADIANS * angle;
-
-  value = sin ( angle_rad );
-
-  return value;
-# undef DEGREES_TO_RADIANS
 }
 //****************************************************************************80
 
@@ -33968,14 +34132,14 @@ int sphere_imp_line_project_3d ( double r, double pc[3], int n, double p[],
 //  If the angle is at least THETAMIN, (or it's the last point),
 //  then we will draw a line segment.
 //
-        if ( thetamin < r8_abs ( ang3d ) || i == n )
+        if ( thetamin < fabs ( ang3d ) || i == n )
         {
 //
 //  Now we check to see if the line segment is too long.
 //
-          if ( thetamax < r8_abs ( ang3d ) )
+          if ( thetamax < fabs ( ang3d ) )
           {
-            nfill = ( int ) ( r8_abs ( ang3d ) / thetamax );
+            nfill = ( int ) ( fabs ( ang3d ) / thetamax );
 
             for ( j = 1; j < nfill; j++ )
             {
@@ -34306,7 +34470,11 @@ double sphere_imp_volume_nd ( int dim_num, double r )
 //    Output, double SPHERE_IMP_VOLUME_ND, the volume of the sphere.
 //
 {
-  return ( pow ( r, dim_num ) * sphere_unit_volume_nd ( dim_num ) );
+  double value;
+
+  value = pow ( r, dim_num ) * sphere_unit_volume_nd ( dim_num );
+
+  return value;
 }
 //****************************************************************************80
 
@@ -34358,7 +34526,7 @@ double sphere_imp_zone_area_3d ( double r, double h1, double h2 )
   double h;
   double pi = 3.141592653589793;
 
-  h = r8_abs ( h1 - h2 );
+  h = fabs ( h1 - h2 );
 
   if ( h <= 0.0 )
   {
@@ -34636,117 +34804,8 @@ double sphere_triangle_angles_to_area ( double r, double a, double b, double c )
 }
 //****************************************************************************80
 
-double sphere_triangle_contains_point ( double v1[3], double v2[3], double v3[3],
-  double p[3] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    SPHERE_TRIANGLE_CONTAINS_POINT determines if a spherical triangle contains a point.
-//
-//  Discussion:
-//
-//    A sphere centered at 0 in 3D satisfies the equation:
-//
-//      X*X + Y*Y + Z*Z = R*R
-//
-//    A spherical triangle is specified by three points on the surface
-//    of the sphere.  The inside of the triangle is defined by the fact
-//    that the three points are listed in counterclockwise order.
-//    Here "counterclockwise" is with reference to an observer standing
-//    outside the sphere.
-//
-//    If P is a point on the sphere, we say that the spherical triangle
-//    "contains" P if P is in the interior of the spherical triangle.
-//    We do not actually require that P be a point on the sphere.  Instead,
-//    we consider the ray defined from the origin through P, which intersects
-//    the sphere.  It is essentially this point of intersection we are
-//    considering.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    26 July 2002
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double V1[3], V2[3], V3[3], the vertices of the triangle.
-//
-//    Input, double P[3], a point on the sphere, or the point on
-//    the sphere determined by the ray from the origin through P.  P must
-//    not be zero.
-//
-//    Output, double CONTAINS, is positive if the spherical triangle
-//    contains P, zero if P is exactly on the boundary of the triangle, and
-//    negative if P is outside the triangle.
-//
-{
-  double contains;
-  int dim;
-  int dim_num = 3;
-  double p_direction[3];
-  double p_norm;
-  double normal_direction[3];
-  double normal_norm;
-//
-//  Determine the normal vector to (V1,V2,V3), which is (V2-V1)x(V3-V13).
-//
-  normal_direction[0] = ( v2[1] - v1[1] ) * ( v3[2] - v1[2] )
-                      - ( v2[2] - v1[2] ) * ( v3[1] - v1[1] );
-
-  normal_direction[1] = ( v2[2] - v1[2] ) * ( v3[0] - v1[0] )
-                      - ( v2[0] - v1[0] ) * ( v3[2] - v1[2] );
-
-  normal_direction[2] = ( v2[0] - v1[0] ) * ( v3[1] - v1[1] )
-                      - ( v2[1] - v1[1] ) * ( v3[0] - v1[0] );
-
-  normal_norm = r8vec_norm ( dim_num, normal_direction );
-
-  if ( normal_norm == 0.0 )
-  {
-    contains = - r8_huge ( );
-    return contains;
-  }
-
-  for ( dim = 0; dim < dim_num; dim++ )
-  {
-    normal_direction[dim] = normal_direction[dim] / normal_norm;
-  }
-//
-//  Determine the length of P.
-//
-  p_norm = r8vec_norm ( dim_num, p );
-
-  if ( p_norm == 0.0 )
-  {
-    contains = - r8_huge ( );
-    return contains;
-  }
-
-  for ( dim = 0; dim < dim_num; dim++ )
-  {
-    p_direction[dim] = p_direction[dim] / p_norm;
-  }
-//
-//  CONTAINS is the dot product of the normal vector to (V1,V2,V3)
-//  against the unit direction vector defined by P.
-//
-  contains = r8vec_dot_product ( dim_num, normal_direction, p_direction );
-
-  return contains;
-}
-//****************************************************************************80
-
-void sphere_triangle_sides_to_angles ( double r, double as, double bs, double cs,
-  double *a, double *b, double *c )
+void sphere_triangle_sides_to_angles ( double r, double as, double bs, 
+  double cs, double &a, double &b, double &c )
 
 //****************************************************************************80
 //
@@ -34773,7 +34832,7 @@ void sphere_triangle_sides_to_angles ( double r, double as, double bs, double cs
 //    Input, double AS, BS, CS, the (geodesic) length of the sides of the
 //    triangle.
 //
-//    Output, double *A, *B, *C, the spherical angles of the triangle.
+//    Output, double &A, &B, &C, the spherical angles of the triangle.
 //    Angle A is opposite the side of length AS, and so on.
 //
 {
@@ -34793,24 +34852,24 @@ void sphere_triangle_sides_to_angles ( double r, double as, double bs, double cs
   tan_a2 = sqrt ( ( sin ( ssu - bsu ) * sin ( ssu - csu ) ) /
                   ( sin ( ssu ) * sin ( ssu - asu )     ) );
 
-  *a = 2.0 * atan ( tan_a2 );
+  a = 2.0 * atan ( tan_a2 );
 
   tan_b2 = sqrt ( ( sin ( ssu - asu ) * sin ( ssu - csu ) ) /
                   ( sin ( ssu ) * sin ( ssu - bsu )     ) );
 
-  *b = 2.0 * atan ( tan_b2 );
+  b = 2.0 * atan ( tan_b2 );
 
   tan_c2 = sqrt ( ( sin ( ssu - asu ) * sin ( ssu - bsu ) ) /
                   ( sin ( ssu ) * sin ( ssu - csu )     ) );
 
-  *c = 2.0 * atan ( tan_c2 );
+  c = 2.0 * atan ( tan_c2 );
 
   return;
 }
 //****************************************************************************80
 
 void sphere_triangle_vertices_to_angles ( double r, double v1[3], double v2[3],
-  double v3[3], double *a, double *b, double *c )
+  double v3[3], double &a, double &b, double &c )
 
 //****************************************************************************80
 //
@@ -34845,7 +34904,7 @@ void sphere_triangle_vertices_to_angles ( double r, double v1[3], double v2[3],
 //
 //    Input, double V1[3], V2[3], V3[3], the vertices of the triangle.
 //
-//    Output, double *A, *B, *C, the angles of the spherical triangle.
+//    Output, double &A, &B, &C, the angles of the spherical triangle.
 {
   double as;
   double bs;
@@ -34853,7 +34912,7 @@ void sphere_triangle_vertices_to_angles ( double r, double v1[3], double v2[3],
 //
 //  Compute the lengths of the sides of the spherical triangle.
 //
-  sphere_triangle_vertices_to_sides ( r, v1, v2, v3, &as, &bs, &cs );
+  sphere_triangle_vertices_to_sides ( r, v1, v2, v3, as, bs, cs );
 //
 //  Get the spherical angles.
 //
@@ -34920,11 +34979,11 @@ double sphere_triangle_vertices_to_area ( double r, double v1[3], double v2[3],
 //
 //  Compute the lengths of the sides of the spherical triangle.
 //
-  sphere_triangle_vertices_to_sides ( r, v1, v2, v3, &as, &bs, &cs );
+  sphere_triangle_vertices_to_sides ( r, v1, v2, v3, as, bs, cs );
 //
 //  Get the spherical angles.
 //
-  sphere_triangle_sides_to_angles ( r, as, bs, cs, &a, &b, &c );
+  sphere_triangle_sides_to_angles ( r, as, bs, cs, a, b, c );
 //
 //  Get the area
 //
@@ -35099,7 +35158,7 @@ int sphere_triangle_vertices_to_orientation ( double a[], double b[], double c[]
 //****************************************************************************80
 
 void sphere_triangle_vertices_to_sides ( double r, double v1[3], double v2[3],
-  double v3[3], double *as, double *bs, double *cs )
+  double v3[3], double &as, double &bs, double &cs )
 
 //****************************************************************************80
 //
@@ -35132,13 +35191,13 @@ void sphere_triangle_vertices_to_sides ( double r, double v1[3], double v2[3],
 //    Input, double V1[3], V2[3], V3[3], the vertices of the spherical
 //    triangle.
 //
-//    Output, double *AS, *BS, *CS, the (geodesic) length of the sides of the
+//    Output, double &AS, &BS, &CS, the (geodesic) length of the sides of the
 //    triangle.
 //
 {
-  *as = r * r8_acos ( r8vec_dot_product ( 3, v2, v3 ) / ( r * r ) );
-  *bs = r * r8_acos ( r8vec_dot_product ( 3, v3, v1 ) / ( r * r ) );
-  *cs = r * r8_acos ( r8vec_dot_product ( 3, v1, v2 ) / ( r * r ) );
+  as = r * r8_acos ( r8vec_dot_product ( 3, v2, v3 ) / ( r * r ) );
+  bs = r * r8_acos ( r8vec_dot_product ( 3, v3, v1 ) / ( r * r ) );
+  cs = r * r8_acos ( r8vec_dot_product ( 3, v1, v2 ) / ( r * r ) );
 
   return;
 }
@@ -35221,7 +35280,7 @@ double sphere_unit_area_nd ( int dim_num )
 }
 //****************************************************************************80
 
-void sphere_unit_area_values ( int *n_data, int *dim_num, double *area )
+void sphere_unit_area_values ( int &n_data, int &n, double &area )
 
 //****************************************************************************80
 //
@@ -35231,25 +35290,29 @@ void sphere_unit_area_values ( int *n_data, int *dim_num, double *area )
 //
 //  Discussion:
 //
-//    The unit sphere in ND satisfies the equation:
+//    The formula for the surface area of the unit sphere in N dimensions is:
 //
-//      Sum ( 1 <= I <= DIM_NUM ) X(I) * X(I) = 1
+//      Sphere_Unit_Area ( N ) = 2 * PI^(N/2) / Gamma ( N / 2 )
 //
-//    DIM_NUM   Area
+//    Some values of the function include:
 //
-//     2    2        * PI
-//     3  ( 4 /    ) * PI
-//     4  ( 2 /   1) * PI^2
-//     5  ( 8 /   3) * PI^2
-//     6  ( 1 /   1) * PI^3
-//     7  (16 /  15) * PI^3
-//     8  ( 1 /   3) * PI^4
-//     9  (32 / 105) * PI^4
-//    10  ( 1 /  12) * PI^5
+//       N   Area
 //
-//    For the unit sphere, Area(DIM_NUM) = DIM_NUM * Volume(DIM_NUM)
+//       2    2        * PI
+//       3  ( 4 /    ) * PI
+//       4  ( 2 /   1) * PI^2
+//       5  ( 8 /   3) * PI^2
+//       6  ( 1 /   1) * PI^3
+//       7  (16 /  15) * PI^3
+//       8  ( 1 /   3) * PI^4
+//       9  (32 / 105) * PI^4
+//      10  ( 1 /  12) * PI^5
 //
-//    Sphere_Unit_Area ( DIM_NUM ) = 2 * PI^(DIM_NUM/2) / Gamma ( DIM_NUM / 2 )
+//    For the unit sphere, Area(N) = N * Volume(N)
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      2 * Pi^(n/2) / Gamma[n/2]
 //
 //  Licensing:
 //
@@ -35257,60 +35320,102 @@ void sphere_unit_area_values ( int *n_data, int *dim_num, double *area )
 //
 //  Modified:
 //
-//    05 September 2003
+//    20 August 2004
 //
 //  Author:
 //
 //    John Burkardt
 //
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
 //  Parameters:
 //
-//    Input/output, int *N_DATA.
+//    Input/output, int &N_DATA.
 //    On input, if N_DATA is 0, the first test data is returned, and
 //    N_DATA is set to the index of the test data.  On each subsequent
 //    call, N_DATA is incremented and that test data is returned.  When
 //    there is no more test data, N_DATA is set to 0.
 //
-//    Output, int *DIM_NUM, the spatial dimension.
+//    Output, int &N, the spatial dimension.
 //
-//    Output, double *AREA, the area of the unit sphere in that dimension.
+//    Output, double &AREA, the area of the unit sphere
+//    in that dimension.
 //
 {
-# define NMAX 9
+# define N_MAX 20
 
-  double area_vec[NMAX] = {
-     6.28318530717959, 12.5663706143592,
-    19.7392088021787,  26.3189450695716,
-    31.0062766802998,  33.0733617923198,
-    32.4696970113341,  29.6865801246484,
-    25.5016403987734 };
-  int dim_num_vec[NMAX] = {
-     2,  3,
-     4,  5,
-     6,  7,
-     8,  9,
-    10 };
+  static double area_vec[N_MAX] = {
+     0.2000000000000000E+01,
+     0.6283185307179586E+01,
+     0.1256637061435917E+02,
+     0.1973920880217872E+02,
+     0.2631894506957162E+02,
+     0.3100627668029982E+02,
+     0.3307336179231981E+02,
+     0.3246969701133415E+02,
+     0.2968658012464836E+02,
+     0.2550164039877345E+02,
+     0.2072514267328890E+02,
+     0.1602315322625507E+02,
+     0.1183817381218268E+02,
+     0.8389703410491089E+01,
+     0.5721649212349567E+01,
+     0.3765290085742291E+01,
+     0.2396678817591364E+01,
+     0.1478625959000308E+01,
+     0.8858104195716824E+00,
+     0.5161378278002812E+00 };
 
-  if ( *n_data < 0 )
+  static int n_vec[N_MAX] = {
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20 };
+
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  if ( NMAX <= *n_data )
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *dim_num = 0;
-    *area = 0.0;
+    n_data = 0;
+    n = 0;
+    area = 0.0;
   }
   else
   {
-    *dim_num = dim_num_vec[*n_data];
-    *area = area_vec[*n_data];
-    *n_data = *n_data + 1;
+    n = n_vec[n_data-1];
+    area = area_vec[n_data-1];
   }
 
   return;
-# undef NMAX
+# undef N_MAX
 }
 //****************************************************************************80
 
@@ -35773,7 +35878,7 @@ double sphere_unit_volume_nd ( int dim_num )
 }
 //****************************************************************************80
 
-void sphere_unit_volume_values ( int *n_data, int *dim_num, double *volume )
+void sphere_unit_volume_values ( int &n_data, int &n, double &volume )
 
 //****************************************************************************80
 //
@@ -35783,24 +35888,33 @@ void sphere_unit_volume_values ( int *n_data, int *dim_num, double *volume )
 //
 //  Discussion:
 //
-//    The unit sphere in ND satisfies the equation:
+//    The formula for the volume of the unit sphere in N dimensions is
 //
-//      Sum ( 1 <= I <= DIM_NUM ) X(I) * X(I) = 1
+//      Volume(N) = 2 * PI^(N/2) / ( N * Gamma ( N / 2 ) )
 //
-//     DIM_NUM  Volume
+//    This function satisfies the relationships:
 //
-//     1    1
-//     2    1        * PI
-//     3  ( 4 /   3) * PI
-//     4  ( 1 /   2) * PI^2
-//     5  ( 8 /  15) * PI^2
-//     6  ( 1 /   6) * PI^3
-//     7  (16 / 105) * PI^3
-//     8  ( 1 /  24) * PI^4
-//     9  (32 / 945) * PI^4
-//    10  ( 1 / 120) * PI^5
+//      Volume(N) = 2 * PI * Volume(N-2) / N
+//      Volume(N) = Area(N) / N
 //
-//    For the unit sphere, Volume(DIM_NUM) = 2 * PI * Volume(DIM_NUM-2) / DIM_NUM
+//    Some values of the function include:
+//
+//       N  Volume
+//
+//       1    1
+//       2    1        * PI
+//       3  ( 4 /   3) * PI
+//       4  ( 1 /   2) * PI^2
+//       5  ( 8 /  15) * PI^2
+//       6  ( 1 /   6) * PI^3
+//       7  (16 / 105) * PI^3
+//       8  ( 1 /  24) * PI^4
+//       9  (32 / 945) * PI^4
+//      10  ( 1 / 120) * PI^5
+//
+//    In Mathematica, the function can be evaluated by:
+//
+//      2 * Pi^(n/2) / ( n * Gamma[n/2] )
 //
 //  Licensing:
 //
@@ -35808,56 +35922,88 @@ void sphere_unit_volume_values ( int *n_data, int *dim_num, double *volume )
 //
 //  Modified:
 //
-//    05 September 2003
+//    21 August 2004
 //
 //  Author:
 //
 //    John Burkardt
 //
+//  Reference:
+//
+//    Stephen Wolfram,
+//    The Mathematica Book,
+//    Fourth Edition,
+//    Cambridge University Press, 1999,
+//    ISBN: 0-521-64314-7,
+//    LC: QA76.95.W65.
+//
 //  Parameters:
 //
-//    Input/output, int *N_DATA.
+//    Input/output, int &N_DATA.
 //    On input, if N_DATA is 0, the first test data is returned, and
 //    N_DATA is set to the index of the test data.  On each subsequent
 //    call, N_DATA is incremented and that test data is returned.  When
 //    there is no more test data, N_DATA is set to 0.
 //
-//    Output, int *DIM_NUM, the spatial dimension.
+//    Output, int &N, the spatial dimension.
 //
-//    Output, double *VOLUME, the volume of the unit sphere in that dimension.
+//    Output, double &VOLUME, the volume of the unit
+//    sphere in that dimension.
 //
 {
-# define N_MAX 10
+# define N_MAX 20
 
-  int dim_num_vec[N_MAX] = {
-    1,  2,
-    3,  4,
-    5,  6,
-    7,  8,
-    9, 10 };
-  double volume_vec[N_MAX] = {
-    2.00000000000000, 3.14159265358979,
-    4.18879020478639, 4.93480220054468,
-    5.26378901391432, 5.16771278004997,
-    4.72476597033140, 4.05871212641677,
-    3.29850890273871, 2.55016403987735 };
+  static int n_vec[N_MAX] = {
+     1,  2,
+     3,  4,
+     5,  6,
+     7,  8,
+     9, 10,
+    11, 12,
+    13, 14,
+    15, 16,
+    17, 18,
+    19, 20 };
 
-  if ( *n_data < 0 )
+  static double volume_vec[N_MAX] = {
+     0.2000000000000000E+01,
+     0.3141592653589793E+01,
+     0.4188790204786391E+01,
+     0.4934802200544679E+01,
+     0.5263789013914325E+01,
+     0.5167712780049970E+01,
+     0.4724765970331401E+01,
+     0.4058712126416768E+01,
+     0.3298508902738707E+01,
+     0.2550164039877345E+01,
+     0.1884103879389900E+01,
+     0.1335262768854589E+01,
+     0.9106287547832831E+00,
+     0.5992645293207921E+00,
+     0.3814432808233045E+00,
+     0.2353306303588932E+00,
+     0.1409811069171390E+00,
+     0.8214588661112823E-01,
+     0.4662160103008855E-01,
+     0.2580689139001406E-01  };
+
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  if ( N_MAX <= *n_data )
+  n_data = n_data + 1;
+
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *dim_num = 0;
-    *volume = 0.0;
+    n_data = 0;
+    n = 0;
+    volume = 0.0;
   }
   else
   {
-    *dim_num = dim_num_vec[*n_data];
-    *volume = volume_vec[*n_data];
-    *n_data = *n_data + 1;
+    n = n_vec[n_data-1];
+    volume = volume_vec[n_data-1];
   }
 
   return;
@@ -36061,7 +36207,7 @@ double sphere01_polygon_area ( int n, double lat[], double lon[] )
       t = tan ( s / 2.0 ) * tan ( ( s - a ) / 2.0 )
         * tan ( ( s - b ) / 2.0 ) * tan ( ( s - c ) / 2.0 );
 
-      excess = r8_abs ( 4.0 * atan ( sqrt ( r8_abs ( t ) ) ) );
+      excess = fabs ( 4.0 * atan ( sqrt ( fabs ( t ) ) ) );
 
       if ( lam1 < lam2 )
       {
@@ -36084,7 +36230,7 @@ double sphere01_polygon_area ( int n, double lat[], double lon[] )
   {
     area = 4.0 * pi + area;
   }
-//area = r8_abs ( area );
+//area = fabs ( area );
 
   return area;
 }
@@ -36224,16 +36370,16 @@ double sphere01_triangle_angles_to_area ( double a, double b, double c )
 //
 {
   double area;
-  double pi = 3.141592653589793;
+  double r8_pi = 3.141592653589793;
 
-  area = a + b + c - pi;
+  area = a + b + c - r8_pi;
 
   return area;
 }
 //****************************************************************************80
 
 void sphere01_triangle_sides_to_angles ( double as, double bs, double cs,
-  double *a, double *b, double *c )
+  double &a, double &b, double &c )
 
 //****************************************************************************80
 //
@@ -36258,7 +36404,7 @@ void sphere01_triangle_sides_to_angles ( double as, double bs, double cs,
 //    Input, double AS, BS, CS, the (geodesic) length of the sides of the
 //    triangle.
 //
-//    Output, double *A, *B, *C, the spherical angles of the triangle.
+//    Output, double &A, &B, &C, the spherical angles of the triangle.
 //    Angle A is opposite the side of length AS, and so on.
 //
 {
@@ -36278,24 +36424,24 @@ void sphere01_triangle_sides_to_angles ( double as, double bs, double cs,
   tan_a2 = sqrt ( ( sin ( ssu - bsu ) * sin ( ssu - csu ) ) /
                   ( sin ( ssu ) * sin ( ssu - asu )     ) );
 
-  *a = 2.0 * atan ( tan_a2 );
+  a = 2.0 * atan ( tan_a2 );
 
   tan_b2 = sqrt ( ( sin ( ssu - asu ) * sin ( ssu - csu ) ) /
                   ( sin ( ssu ) * sin ( ssu - bsu )     ) );
 
-  *b = 2.0 * atan ( tan_b2 );
+  b = 2.0 * atan ( tan_b2 );
 
   tan_c2 = sqrt ( ( sin ( ssu - asu ) * sin ( ssu - bsu ) ) /
                   ( sin ( ssu ) * sin ( ssu - csu )     ) );
 
-  *c = 2.0 * atan ( tan_c2 );
+  c = 2.0 * atan ( tan_c2 );
 
   return;
 }
 //****************************************************************************80
 
 void sphere01_triangle_vertices_to_angles ( double v1[3], double v2[3],
-  double v3[3], double *a, double *b, double *c )
+  double v3[3], double &a, double &b, double &c )
 
 //****************************************************************************80
 //
@@ -36328,7 +36474,7 @@ void sphere01_triangle_vertices_to_angles ( double v1[3], double v2[3],
 //
 //    Input, double V1[3], V2[3], V3[3], the vertices of the triangle.
 //
-//    Output, double *A, *B, *C, the angles of the spherical triangle.
+//    Output, double &A, &B, &C, the angles of the spherical triangle.
 {
   double as;
   double bs;
@@ -36336,7 +36482,7 @@ void sphere01_triangle_vertices_to_angles ( double v1[3], double v2[3],
 //
 //  Compute the lengths of the sides of the spherical triangle.
 //
-  sphere01_triangle_vertices_to_sides ( v1, v2, v3, &as, &bs, &cs );
+  sphere01_triangle_vertices_to_sides ( v1, v2, v3, as, bs, cs );
 //
 //  Get the spherical angles.
 //
@@ -36346,7 +36492,8 @@ void sphere01_triangle_vertices_to_angles ( double v1[3], double v2[3],
 }
 //****************************************************************************80
 
-double sphere01_triangle_vertices_to_area ( double v1[3], double v2[3], double v3[3] )
+double sphere01_triangle_vertices_to_area ( double v1[3], double v2[3], 
+  double v3[3] )
 
 //****************************************************************************80
 //
@@ -36400,11 +36547,11 @@ double sphere01_triangle_vertices_to_area ( double v1[3], double v2[3], double v
 //
 //  Compute the lengths of the sides of the spherical triangle.
 //
-  sphere01_triangle_vertices_to_sides ( v1, v2, v3, &as, &bs, &cs );
+  sphere01_triangle_vertices_to_sides ( v1, v2, v3, as, bs, cs );
 //
 //  Get the spherical angles.
 //
-  sphere01_triangle_sides_to_angles ( as, bs, cs, &a, &b, &c );
+  sphere01_triangle_sides_to_angles ( as, bs, cs, a, b, c );
 //
 //  Get the area
 //
@@ -36414,7 +36561,8 @@ double sphere01_triangle_vertices_to_area ( double v1[3], double v2[3], double v
 }
 //****************************************************************************80
 
-double *sphere01_triangle_vertices_to_centroid ( double v1[3], double v2[3], double v3[3] )
+double *sphere01_triangle_vertices_to_centroid ( double v1[3], double v2[3], 
+  double v3[3] )
 
 //****************************************************************************80
 //
@@ -36466,8 +36614,8 @@ double *sphere01_triangle_vertices_to_centroid ( double v1[3], double v2[3], dou
 //
 //    Input, double V1[3], V2[3], V3[3], the vertices of the triangle.
 //
-//    Output, double SPHERE01_TRIANGLE_VERTICES_TO_CENTROID[3], the coordinates of the "spherical centroid"
-//    of the spherical triangle.
+//    Output, double SPHERE01_TRIANGLE_VERTICES_TO_CENTROID[3], the coordinates
+//    of the "spherical centroid" of the spherical triangle.
 //
 {
 # define DIM_NUM 3
@@ -36495,8 +36643,8 @@ double *sphere01_triangle_vertices_to_centroid ( double v1[3], double v2[3], dou
 }
 //****************************************************************************80
 
-void sphere01_triangle_vertices_to_midpoints ( double v1[3], double v2[3], double v3[3],
-  double m1[3], double m2[3], double m3[3] )
+void sphere01_triangle_vertices_to_midpoints ( double v1[3], double v2[3], 
+  double v3[3], double m1[3], double m2[3], double m3[3] )
 
 //****************************************************************************80
 //
@@ -36566,7 +36714,7 @@ void sphere01_triangle_vertices_to_midpoints ( double v1[3], double v2[3], doubl
 //****************************************************************************80
 
 void sphere01_triangle_vertices_to_sides ( double v1[3], double v2[3],
-  double v3[3], double *as, double *bs, double *cs )
+  double v3[3], double &as, double &bs, double &cs )
 
 //****************************************************************************80
 //
@@ -36597,13 +36745,13 @@ void sphere01_triangle_vertices_to_sides ( double v1[3], double v2[3],
 //    Input, double V1[3], V2[3], V3[3], the vertices of the spherical
 //    triangle.
 //
-//    Output, double *AS, *BS, *CS, the (geodesic) length of the sides of the
+//    Output, double &AS, &BS, &CS, the (geodesic) length of the sides of the
 //    triangle.
 //
 {
-  *as = r8_acos ( r8vec_dot_product ( 3, v2, v3 ) );
-  *bs = r8_acos ( r8vec_dot_product ( 3, v3, v1 ) );
-  *cs = r8_acos ( r8vec_dot_product ( 3, v1, v2 ) );
+  as = r8_acos ( r8vec_dot_product ( 3, v2, v3 ) );
+  bs = r8_acos ( r8vec_dot_product ( 3, v3, v1 ) );
+  cs = r8_acos ( r8vec_dot_product ( 3, v1, v2 ) );
 
   return;
 }
@@ -36965,9 +37113,9 @@ void super_ellipse_points_2d ( double pc[2], double r1, double r2,
   {
     theta = ( 2.0 * pi * ( double ) ( i ) ) / ( double ) ( n );
 
-    act = r8_abs ( cos ( theta ) );
+    act = fabs ( cos ( theta ) );
     sct = r8_sign ( cos ( theta ) );
-    ast = r8_abs ( sin ( theta ) );
+    ast = fabs ( sin ( theta ) );
     sst = r8_sign ( sin ( theta ) );
 
     p[0+i*2] = pc[0] + r1 * cos ( psi ) * sct * pow ( act, expo )
@@ -36979,47 +37127,6 @@ void super_ellipse_points_2d ( double pc[2], double r1, double r2,
   }
 
   return;
-}
-//****************************************************************************80
-
-double tan_deg ( double angle )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TAN_DEG returns the tangent of an angle given in degrees.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    22 May 2005
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double ANGLE, the angle, in degrees.
-//
-//    Output, double TAN_DEG, the tangent of the angle.
-//
-{
-# define DEGREES_TO_RADIANS ( 3.141592653589793 / 180.0 )
-
-  double angle_rad;
-  double value;
-
-  angle_rad = DEGREES_TO_RADIANS * angle;
-
-  value = sin ( angle_rad ) / cos ( angle_rad );
-
-  return value;
-# undef DEGREES_TO_RADIANS
 }
 //****************************************************************************80
 
@@ -37792,7 +37899,7 @@ void tetrahedron_insphere_3d ( double tetra[3*4], double *r, double pc[3] )
     b[3+j*4] = 1.0;
   }
 
-  gamma = r8_abs ( r8mat_det_4d ( b ) );
+  gamma = fabs ( r8mat_det_4d ( b ) );
 
   *r = gamma / ( l234 + l134 + l124 + l123 );
 
@@ -38293,7 +38400,7 @@ double tetrahedron_quality3_3d ( double tetra[3*4] )
 //
 //  Compute the volume.
 //
-  volume = r8_abs (
+  volume = fabs (
       ab[0] * ( ac[1] * ad[2] - ac[2] * ad[1] )
     + ab[1] * ( ac[2] * ad[0] - ac[0] * ad[2] )
     + ab[2] * ( ac[0] * ad[1] - ac[1] * ad[0] ) ) / 6.0;
@@ -38400,7 +38507,7 @@ double tetrahedron_quality4_3d ( double tetra[3*4] )
 //
 //  Compute the volume.
 //
-  volume = r8_abs (
+  volume = fabs (
       ab[0] * ( ac[1] * ad[2] - ac[2] * ad[1] )
     + ab[1] * ( ac[2] * ad[0] - ac[0] * ad[2] )
     + ab[2] * ( ac[0] * ad[1] - ac[1] * ad[0] ) ) / 6.0;
@@ -39056,7 +39163,7 @@ double tetrahedron_volume_3d ( double tetra[3*4] )
     a[i+j*4] = 1.0;
   }
 
-  volume = r8_abs ( r8mat_det_4d ( a ) ) / 6.0;
+  volume = fabs ( r8mat_det_4d ( a ) ) / 6.0;
 
   return volume;
 }
@@ -40715,7 +40822,7 @@ double *triangle_area_vector_3d ( double t[3*3] )
 //    Therefore, the area of the triangle is half of the norm of the
 //    area vector:
 //
-//      area = 0.5 * sqrt ( sum ( area_vector(1:3)**2 ) )
+//      area = 0.5 * sqrt ( sum ( area_vector(1:3)^2 ) )
 //
 //    The reason for looking at the area vector rather than the area
 //    is that this makes it possible to compute the area of a flat
@@ -41803,7 +41910,7 @@ void triangle_contains_line_par_3d ( double t[], double p0[], double pd[],
 //  If DENOM is zero, or very small, the line and the plane may be
 //  parallel or almost so.
 //
-  if ( r8_abs ( denom ) < tol * norm1 * norm2 )
+  if ( fabs ( denom ) < tol * norm1 * norm2 )
   {
 //  The line may actually lie in the plane.  We're not going
 //  to try to address this possibility.

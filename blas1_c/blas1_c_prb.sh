@@ -7,7 +7,7 @@ if [ $? -ne 0 ]; then
 fi
 rm compiler.txt
 #
-g++ blas1_c_prb.o /$HOME/libcpp/$ARCH/blas1_c.o -lm
+g++ blas1_c_prb.o $HOME/libcpp/$ARCH/blas0.o $HOME/libcpp/$ARCH/blas1_c.o -lm
 if [ $? -ne 0 ]; then
   echo "Errors linking and loading blas1_c_prb.o."
   exit

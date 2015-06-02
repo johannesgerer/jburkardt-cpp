@@ -1,0 +1,18 @@
+# fxy1_commands.txt
+#
+# Usage:
+#  gnuplot < fxy1_commands.txt
+#
+set term png
+set output 'fxy1.png'
+set view 120, 77
+set hidden3d
+set timestamp
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set zlabel '<--- Z --->'
+set title '2D test function #1 with discontinuity along circle'
+set grid
+set style data lines
+splot 'fxy1_data.txt' with lines
+quit

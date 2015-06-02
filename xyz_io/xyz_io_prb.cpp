@@ -23,7 +23,11 @@ int main ( int argc, char *argv[] )
 //
 //  Purpose:
 //
-//    XYZ_IO_PRB calls the XYZ_IO test routines.
+//    MAIN is the main program for XYZ_IO_PRB.
+//
+//  Discussion:
+//
+//    XYZ_IO_PRB tests the XYZ_IO library.
 //
 //  Licensing:
 //
@@ -56,7 +60,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "XYZ_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -1,0 +1,12 @@
+set term png
+set grid
+set style data lines
+set size ratio 0.121583
+set timestamp
+unset key
+set output 'cambered.png'
+set xlabel '<---X--->'
+set ylabel '<---Y--->'
+set title 'NACA Cambered Airfoil'
+plot 'cambered_data.txt' using 1:2 with lines lw 3
+quit

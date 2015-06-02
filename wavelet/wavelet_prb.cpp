@@ -47,7 +47,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "WAVELET_PRB\n";
   cout << "  C++ version\n";
@@ -70,7 +69,6 @@ int main ( )
   cout << "\n";
   cout << "WAVELET_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

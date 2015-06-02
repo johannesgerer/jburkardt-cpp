@@ -9,6 +9,7 @@ using namespace std;
 
 int main ( );
 void test01 ( );
+void test02 ( );
 
 //****************************************************************************80
 
@@ -22,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA109_PRB calls the ASA109 routines.
+//    ASA109_PRB tests the ASA109 library.
 //
 //  Licensing:
 //
@@ -30,7 +31,7 @@ int main ( )
 //
 //  Modified:
 //
-//    09 February 2008
+//    25 September 2014
 //
 //  Author:
 //
@@ -38,20 +39,19 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA109_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the ASA109 library.\n";
 
   test01 ( );
+  test02 ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "ASA109_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -73,7 +73,7 @@ void test01 ( )
 //
 //  Modified:
 //
-//    09 February 2008
+//    28 April 2013
 //
 //  Author:
 //
@@ -104,26 +104,93 @@ void test01 ( )
 
   for ( ; ; )
   {
-    beta_inc_values ( &n_data, &a, &b, &x, &fx );
+    beta_inc_values ( n_data, a, b, x, fx );
 
     if ( n_data == 0 )
     {
       break;
     }
 
-    beta_log = alngam ( a, &ifault )
-             + alngam ( b, &ifault )
-             - alngam ( a + b, &ifault );
+    beta_log = lgamma ( a )
+             + lgamma ( b )
+             - lgamma ( a + b );
 
-    x2 = xinbta ( a, b, beta_log, fx, &ifault );
+    x2 = xinbta ( a, b, beta_log, fx, ifault );
 
     cout << "  " << setprecision(4) << setw(10) << a
          << "  " << setprecision(4) << setw(10) << b
          << "  " << setprecision(4) << setw(10) << fx
          << "  " << setprecision(16) << setw(24) << x
          << "  " << setprecision(16) << setw(24) << x2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( x - x2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( x - x2 ) << "\n";
   }
 
+  return;
+}
+//****************************************************************************80
+
+void test02 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST02 tests BETA_INC_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    25 September 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double beta_log;
+  double fx;
+  double fx2;
+  int ifault;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "TEST02:\n";
+  cout << "  BETA_INC_VALUES stores values of\n";
+  cout << "  the incomplete Beta function.\n";
+  cout << "\n";
+  cout << "      A            B            X            BETA_INC(A,B)(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    beta_inc_values ( n_data, a, b, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    beta_log = lgamma ( a )
+             + lgamma ( b )
+             - lgamma ( a + b );
+
+    ifault = 0;
+    fx2 = betain ( x, a, b, beta_log, ifault );
+
+    cout << "  " << setprecision(4) << setw(10) << a
+         << "  " << setprecision(4) << setw(10) << b
+         << "  " << setprecision(4) << setw(10) << x
+         << "  " << setprecision(16) << setw(24) << fx
+         << "  " << setprecision(16) << setw(24) << fx2
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
+  }
   return;
 }

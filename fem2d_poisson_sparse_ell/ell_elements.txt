@@ -1,10 +1,3 @@
-#  ell_tri3_65.rcm.txt
-#  created by TABLE_IO.F90
-#  at April  5 2005  12:10:08.524 PM
-#
-#  Spatial dimension M =   3
-#  Number of points N =     96
-#
          1         3         2
          6         5         3
          4         2         5

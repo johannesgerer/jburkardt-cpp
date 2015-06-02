@@ -171,6 +171,22 @@
       solves the circuit satisfy problem using the OpenMP parallel programming system.
     </p>
 
+    <p>
+      <a href = "../../cpp_src/search_mpi/search_mpi.html">
+      SEARCH_MPI</a>,
+      a C++ program which
+      searches integers between A and B for a value J such that F(J) = C,
+      using MPI for parallel execution.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wave_mpi/wave_mpi.html">
+      WAVE_MPI</a>,
+      a C++ program which
+      uses finite differences and MPI to estimate a solution to the
+      wave equation.
+    </p>
+
     <h3 align = "center">
       Reference:
     </h3>
@@ -202,6 +218,21 @@
     <h3 align = "center">
       Examples and Tests:
     </h3>
+
+    <p>
+      <b>SATISFY_LOCAL</b> compiles and runs the program on the local machine,
+      which presumably has a version of MPI installed.
+      <ul>
+        <li>
+          <a href = "satisfy_local.sh">satisfy_local.sh</a>,
+          the BASH script.
+        </li>
+        <li>
+          <a href = "satisfy_local_output.txt">satisfy_local_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
 
     <p>
       <b>SATISFY_FSU</b> compiles and runs the program on the FSU HPC cluster.
@@ -239,7 +270,7 @@
     <hr>
 
     <i>
-      Last revised on 04 May 2008.
+      Last revised on 14 October 2013.
     </i>
 
     <!-- John Burkardt -->

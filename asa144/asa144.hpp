@@ -7,4 +7,4 @@ void i4vec_print ( int n, int a[], char *title );
 double r8_uniform_01 ( int *seed );
 void rcont ( int nrow, int ncol, int nrowt[], int ncolt[], int nsubt[], 
   int matrix[], bool *key, int *ifault );
-void timestamp ( void );
+void timestamp ( );

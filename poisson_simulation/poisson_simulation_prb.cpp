@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    POISSON_SIMULATION_TEST tests POISSON_SIMULATION.
+//    MAIN is the main program for POISSON_SIMULATION_PRB.
+//
+//  Discussion:
+//
+//    POISSON_SIMULATION_PRB tests the POISSON_SIMULATION library.
 //
 //  Licensing:
 //
@@ -51,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "POISSON_SIMULATION_TEST\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

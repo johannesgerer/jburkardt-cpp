@@ -1,0 +1,41 @@
+14 May 2015 01:36:25 PM
+
+SPHERE_FIBONACCI_GRID_PRB
+  C++ version
+  Test the SPHERE_FIBONACCI_GRID library.
+
+SPHERE_FIBONACCI_GRID_POINTS_TEST
+  SPHERE_FIBONACCI_GRID_POINTS computes points on a sphere
+  that lie on a Fibonacci spiral.
+
+  Number of points NG = 1000
+
+  Part of the grid array:
+
+  Row:       0             1             2       
+  Col
+
+    0:    -0.0225281    -0.0386198        -0.999
+    1:    -0.0700116     0.0330058        -0.997
+    2:     0.0345279     0.0937167        -0.995
+    3:      0.113977    -0.0309876        -0.993
+    4:    -0.0236915     -0.131749        -0.991
+    5:     -0.147312     0.0133511        -0.989
+    6:    0.00045756       0.16072        -0.987
+    7:      0.171936     0.0145963        -0.985
+    8:     0.0314659     -0.180889        -0.983
+    9:     -0.187499    -0.0498316        -0.981
+
+SPHERE_FIBONACCI_GRID_DISPLAY_TEST
+  SPHERE_FIBONACCI_GRID_DISPLAY displays points
+  on a sphere that lie on a Fibonacci spiral.
+
+  Number of points NG = 1000
+
+  Created data file 'sphere_fibonacci_grid_n1000_data.txt'
+  Created command file 'sphere_fibonacci_grid_n1000_commands.txt%s'
+
+SPHERE_FIBONACCI_GRID_PRB
+  Normal end of execution.
+
+14 May 2015 01:36:25 PM

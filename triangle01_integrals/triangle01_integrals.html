@@ -1,0 +1,334 @@
+<html>
+
+  <head>
+    <title>
+      TRIANGLE01_INTEGRALS - Integrals Inside the Unit Triangle in 2D
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TRIANGLE01_INTEGRALS <br> Integrals Inside the Unit Triangle in 2D
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TRIANGLE01_INTEGRALS</b>
+      is a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit triangle in 2D.
+    </p>
+
+    <p>
+      The interior of the unit triangle in 2D is defined by
+      <pre>
+        0 <= x
+        0 <= y
+             x + y <= 1
+      </pre>
+    </p>
+
+    <p>
+      The integrands are all of the form
+      <pre>
+        f(x,y) = x^e1 * y^e2
+      </pre>
+      where the exponents are nonnegative integers.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TRIANGLE01_INTEGRALS</b> is available in
+      <a href = "../../c_src/triangle01_integrals/triangle01_integrals.html">a C version</a> and
+      <a href = "../../cpp_src/triangle01_integrals/triangle01_integrals.html">a C++ version</a> and
+      <a href = "../../f77_src/triangle01_integrals/triangle01_integrals.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/triangle01_integrals/triangle01_integrals.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/triangle01_integrals/triangle01_integrals.html">a MATLAB version</a> and
+      <a href = "../../py_src/triangle01_integrals/triangle01_integrals.html">a Python version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/ball_integrals/ball_integrals.html">
+      BALL_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit ball in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/circle_integrals/circle_integrals.html">
+      CIRCLE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the surface of the unit circle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cube_integrals/cube_integrals.html">
+      CUBE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit cube in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/disk_integrals/disk_integrals.html">
+      DISK_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit disk in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hyperball_integrals/hyperball_integrals.html">
+      HYPERBALL_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit hyperball in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hypercube_integrals/hypercube_integrals.html">
+      HYPERCUBE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit hypercube in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hypersphere_integrals/hypersphere_integrals.html">
+      HYPERSPHERE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the surface of the unit hypersphere in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/line_integrals/line_integrals.html">
+      LINE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the length of the unit line in 1D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/polygon_integrals/polygon_integrals.html">
+      POLYGON_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of a polygon in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pyramid_integrals/pyramid_integrals.html">
+      PYRAMID_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit pyramid in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/simplex_integrals/simplex_integrals.html">
+      SIMPLEX_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit simplex in M dimensions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sphere_integrals/sphere_integrals.html">
+      SPHERE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the surface of the unit sphere in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/square_integrals/square_integrals.html">
+      SQUARE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit square in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/tetrahedron_integrals/tetrahedron_integrals.html">
+      TETRAHEDRON_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit tetrahedron in 3D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_dunavant_rule/triangle_dunavant_rule.html">
+      TRIANGLE_DUNAVANT_RULE</a>,
+      a C++ library which 
+      sets up a Dunavant quadrature rule 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_fekete_rule/triangle_fekete_rule.html">
+      TRIANGLE_FEKETE_RULE</a>,
+      a C++ library which
+      defines Fekete rules for interpolation or quadrature 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_felippa_rule/triangle_felippa_rule.html">
+      TRIANGLE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns Felippa's quadratures rules for approximating integrals
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_lyness_rule/triangle_lyness_rule.html">
+      TRIANGLE_LYNESS_RULE</a>,
+      a C++ library which
+      returns Lyness-Jespersen quadrature rules 
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_monte_carlo/triangle_monte_carlo.html">
+      TRIANGLE_MONTE_CARLO</a>,
+      a C++ library which
+      uses the Monte Carlo method to estimate the integral of a function
+      over the interior of the unit triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_symq_rule/triangle_symq_rule.html">
+      TRIANGLE_SYMQ_RULE</a>,
+      a C++ library which
+      returns efficient symmetric quadrature rules, 
+      with exactness up to total degree 50,
+      over the interior of an arbitrary triangle in 2D,
+      by Hong Xiao and Zydrunas Gimbutas.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/triangle_wandzura_rule/triangle_wandzura_rule.html">
+      TRIANGLE_WANDZURA_RULE</a>, 
+      a C++ library which 
+      sets up a quadrature rule of exactness 5, 10, 15, 20, 25 or 30
+      over the interior of a triangle in 2D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wedge_integrals/wedge_integrals.html">
+      WEDGE_INTEGRALS</a>,
+      a C++ library which
+      returns the exact value of the integral of any monomial
+      over the interior of the unit wedge in 3D.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangle01_integrals.cpp">triangle01_integrals.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "triangle01_integrals.hpp">triangle01_integrals.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "triangle01_integrals.sh">triangle01_integrals.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "triangle01_integrals_prb.cpp">triangle01_integrals_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "triangle01_integrals_prb.sh">triangle01_integrals_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "triangle01_integrals_prb_output.txt">triangle01_integrals_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>I4VEC_UNIFORM_AB</b> returns a scaled pseudorandom I4VEC.
+        </li>
+        <li>
+          <b>MONOMIAL_VALUE</b> evaluates a monomial.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>TRIANGLE01_AREA</b> computes the area of the unit triangle in 2D.
+        </li>
+        <li>
+          <b>TRIANGLE01_MONOMIAL_INTEGRAL:</b> monomial integrals in the unit triangle in 2D.
+        </li>
+        <li>
+          <b>TRIANGLE01_SAMPLE</b> samples points uniformly from the unit triangle in 2D.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 14 January 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

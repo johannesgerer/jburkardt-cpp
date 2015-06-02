@@ -24,7 +24,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    BARYCENTRIC_INTERP_1D_TEST tests BARYCENTRIC_INTERP_1D.
+//    MAIN is the main program for BARYCENTRIC_INTERP_1D_PRB.
+//
+//  Discussion:
+//
+//    BARYCENTRIC_INTERP_1D_PRB tests the BARYCENTRIC_INTERP_1D library.
 //
 //  Licensing:
 //

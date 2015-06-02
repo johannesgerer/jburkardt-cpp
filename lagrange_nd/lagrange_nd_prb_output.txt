@@ -1,0 +1,1150 @@
+28 October 2014 03:45:50 PM
+
+LAGRANGE_ND_PRB
+  C++ version
+  Test the LAGRANGE_ND library.
+
+TEST01
+  MONO_BETWEEN_ENUM can enumerate the number of monomials
+  in D variables, of total degree between N1 and N2.
+
+  Using spatial dimension D = 3
+
+   N2:     0     1     2     3     4     5     6     7     8
+  N1 +------------------------------------------------------
+   0 |     1     4    10    20    35    56    84   120   165
+   1 |     0     3     9    19    34    55    83   119   164
+   2 |     0     0     6    16    31    52    80   116   161
+   3 |     0     0     0    10    25    46    74   110   155
+   4 |     0     0     0     0    15    36    64   100   145
+   5 |     0     0     0     0     0    21    49    85   130
+   6 |     0     0     0     0     0     0    28    64   109
+   7 |     0     0     0     0     0     0     0    36    81
+   8 |     0     0     0     0     0     0     0     0    45
+
+TEST02
+  MONO_TOTAL_ENUM can enumerate the number of monomials
+  in D variables, of total degree N.
+
+    N:   0   1   2   3   4   5   6   7   8
+   D +------------------------------------------------------
+   1 |     1     1     1     1     1     1     1     1     1
+   2 |     1     2     3     4     5     6     7     8     9
+   3 |     1     3     6    10    15    21    28    36    45
+   4 |     1     4    10    20    35    56    84   120   165
+   5 |     1     5    15    35    70   126   210   330   495
+   6 |     1     6    21    56   126   252   462   792  1287
+   7 |     1     7    28    84   210   462   924  1716  3003
+   8 |     1     8    36   120   330   792  1716  3432  6435
+
+TEST03
+  MONO_UPTO_ENUM can enumerate the number of monomials
+  in D variables, of total degree 0 up to N.
+
+    N:     0     1     2     3     4     5     6     7     8
+   D +------------------------------------------------------
+   1 |     1     2     3     4     5     6     7     8     9
+   2 |     1     3     6    10    15    21    28    36    45
+   3 |     1     4    10    20    35    56    84   120   165
+   4 |     1     5    15    35    70   126   210   330   495
+   5 |     1     6    21    56   126   252   462   792  1287
+   6 |     1     7    28    84   210   462   924  1716  3003
+   7 |     1     8    36   120   330   792  1716  3432  6435
+   8 |     1     9    45   165   495  1287  3003  6435 12870
+
+TEST04
+  MONO_BETWEEN_NEXT_GRLEX can list the monomials
+  in D variables, of total degree N between N1 and N2,
+  one at a time.
+
+  We start the process with (0,0,...,0,N1).
+  The process ends with (N2,0,...,0,0)
+
+  Let D =  3
+      N1 = 2
+      N2 = 3
+
+   1:  0  0  2
+   2:  0  1  1
+   3:  0  2  0
+   4:  1  0  1
+   5:  1  1  0
+   6:  2  0  0
+   7:  0  0  3
+   8:  0  1  2
+   9:  0  2  1
+  10:  0  3  0
+  11:  1  0  2
+  12:  1  1  1
+  13:  1  2  0
+  14:  2  0  1
+  15:  2  1  0
+  16:  3  0  0
+
+TEST05
+  LAGRANGE_COMPLETE determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points exactly coincides with
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  As a special demonstration, this code runs in 1D
+
+  Spatial dimension D = 1
+  Maximum degree N = 4
+  Number of monomials R = 5
+  Number of data points ND = 5
+
+  Data points XD:
+
+  Row:       0       
+  Col
+
+    0:             0
+    1:             1
+    2:             2
+    3:             3
+    4:             4
+
+  Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0)
+    - 2.08333 * x^(1)
+    + 1.45833 * x^(2)
+    - 0.416667 * x^(3)
+    + 0.0416667 * x^(4).
+  P(1)(x) =
+    + 4 * x^(1)
+    - 4.33333 * x^(2)
+    + 1.5 * x^(3)
+    - 0.166667 * x^(4).
+  P(2)(x) =
+    - 3 * x^(1)
+    + 4.75 * x^(2)
+    - 2 * x^(3)
+    + 0.25 * x^(4).
+  P(3)(x) =
+    + 1.33333 * x^(1)
+    - 2.33333 * x^(2)
+    + 1.16667 * x^(3)
+    - 0.166667 * x^(4).
+  P(4)(x) =
+    - 0.25 * x^(1)
+    + 0.458333 * x^(2)
+    - 0.25 * x^(3)
+    + 0.0416667 * x^(4).
+
+  Frobenius norm of Lagrange matrix error = 8.25619e-15
+
+TEST06
+  LAGRANGE_COMPLETE determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points exactly coincides with
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  The data points are the grid nodes of a triangle.
+
+  Spatial dimension D = 2
+  Maximum degree N = 2
+  Number of monomials R = 6
+  Number of data points ND = 6
+
+  Data points XD:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:             1             0
+    2:             2             0
+    3:             0             1
+    4:             1             1
+    5:             0             2
+
+  Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0,0)
+    - 1.5 * x^(0,1)
+    - 1.5 * x^(1,0)
+    + 0.5 * x^(0,2)
+    + 1 * x^(1,1)
+    + 0.5 * x^(2,0).
+  P(1)(x) =
+    + 2 * x^(1,0)
+    - 1 * x^(1,1)
+    - 1 * x^(2,0).
+  P(2)(x) =
+    - 0.5 * x^(1,0)
+    + 0.5 * x^(2,0).
+  P(3)(x) =
+    + 2 * x^(0,1)
+    - 1 * x^(0,2)
+    - 1 * x^(1,1).
+  P(4)(x) =
+    + 1 * x^(1,1).
+  P(5)(x) =
+    - 0.5 * x^(0,1)
+    + 0.5 * x^(0,2).
+
+  Frobenius norm of Lagrange matrix error = 0
+
+TEST07
+  LAGRANGE_COMPLETE determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points exactly coincides with
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  The data points are the grid nodes of a tetrahedron.
+
+  Spatial dimension D = 3
+  Maximum degree N = 2
+  Number of monomials R = 10
+  Number of data points ND = 10
+
+  Data points XD:
+
+  Row:       0             1             2       
+  Col
+
+    0:             0             0             0
+    1:             1             0             0
+    2:             2             0             0
+    3:             0             1             0
+    4:             1             1             0
+    5:             0             2             0
+    6:             0             0             1
+    7:             1             0             1
+    8:             0             1             1
+    9:             0             0             2
+
+  Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0,0,0)
+    - 1.5 * x^(0,0,1)
+    - 1.5 * x^(0,1,0)
+    - 1.5 * x^(1,0,0)
+    + 0.5 * x^(0,0,2)
+    + 1 * x^(0,1,1)
+    + 0.5 * x^(0,2,0)
+    + 1 * x^(1,0,1)
+    + 1 * x^(1,1,0)
+    + 0.5 * x^(2,0,0).
+  P(1)(x) =
+    + 2 * x^(1,0,0)
+    - 1 * x^(1,0,1)
+    - 1 * x^(1,1,0)
+    - 1 * x^(2,0,0).
+  P(2)(x) =
+    - 0.5 * x^(1,0,0)
+    + 0.5 * x^(2,0,0).
+  P(3)(x) =
+    + 2 * x^(0,1,0)
+    - 1 * x^(0,1,1)
+    - 1 * x^(0,2,0)
+    - 1 * x^(1,1,0).
+  P(4)(x) =
+    + 1 * x^(1,1,0).
+  P(5)(x) =
+    - 0.5 * x^(0,1,0)
+    + 0.5 * x^(0,2,0).
+  P(6)(x) =
+    + 2 * x^(0,0,1)
+    - 1 * x^(0,0,2)
+    - 1 * x^(0,1,1)
+    - 1 * x^(1,0,1).
+  P(7)(x) =
+    + 1 * x^(1,0,1).
+  P(8)(x) =
+    + 1 * x^(0,1,1).
+  P(9)(x) =
+    - 0.5 * x^(0,0,1)
+    + 0.5 * x^(0,0,2).
+
+  Frobenius norm of Lagrange matrix error = 0
+
+TEST08
+  LAGRANGE_PARTIAL determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points is less than or equal to
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  For this example, the data points are the same as those
+  used by the level 1 Clenshaw Curtis sparse grid in 2D.
+
+  Spatial dimension D = 2
+  Maximum degree N = 2
+  Number of monomials R = 6
+  Number of data points ND = 5
+
+  Data points XD:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:            -1             0
+    2:             1             0
+    3:             0            -1
+    4:             0             1
+
+  Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0,0)
+    - 1 * x^(0,2)
+    - 1 * x^(2,0).
+  P(1)(x) =
+    - 0.5 * x^(1,0)
+    + 0.5 * x^(2,0).
+  P(2)(x) =
+    + 0.5 * x^(1,0)
+    + 0.5 * x^(2,0).
+  P(3)(x) =
+    - 0.5 * x^(0,1)
+    + 0.5 * x^(0,2).
+  P(4)(x) =
+    + 0.5 * x^(0,1)
+    + 0.5 * x^(0,2).
+
+  Frobenius norm of Lagrange matrix error = 0
+
+TEST09
+  LAGRANGE_PARTIAL determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points is less than or equal to
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  For this example, the data points are the same as those
+  used by the level 2 Clenshaw Curtis sparse grid in 3D.
+
+  Spatial dimension D = 3
+  Maximum degree N = 4
+  Number of monomials R = 35
+  Number of data points ND = 25
+
+  Data points XD:
+
+  Row:       0             1             2       
+  Col
+
+    0:             0             0             0
+    1:            -1             0             0
+    2:             1             0             0
+    3:             0            -1             0
+    4:             0             1             0
+    5:             0             0            -1
+    6:             0             0             1
+    7:     -0.707107             0             0
+    8:      0.707107             0             0
+    9:            -1            -1             0
+   10:             1            -1             0
+   11:            -1             1             0
+   12:             1             1             0
+   13:             0     -0.707107             0
+   14:             0      0.707107             0
+   15:            -1             0            -1
+   16:             1             0            -1
+   17:            -1             0             1
+   18:             1             0             1
+   19:             0            -1            -1
+   20:             0             1            -1
+   21:             0            -1             1
+   22:             0             1             1
+   23:             0             0     -0.707107
+   24:             0             0      0.707107
+
+  Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0,0,0)
+    - 3 * x^(0,0,2)
+    - 3 * x^(0,2,0)
+    - 3 * x^(2,0,0)
+    + 2 * x^(0,0,4)
+    + 1 * x^(0,2,2)
+    + 2 * x^(0,4,0)
+    + 1 * x^(2,0,2)
+    + 1 * x^(2,2,0)
+    + 2 * x^(4,0,0).
+  P(1)(x) =
+    + 0.5 * x^(1,0,0)
+    - 0.5 * x^(2,0,0)
+    + 0.5 * x^(1,0,2)
+    + 0.5 * x^(1,2,0)
+    - 1 * x^(3,0,0)
+    - 0.5 * x^(2,0,2)
+    - 0.5 * x^(2,2,0)
+    + 1 * x^(4,0,0).
+  P(2)(x) =
+    - 0.5 * x^(1,0,0)
+    - 0.5 * x^(2,0,0)
+    - 0.5 * x^(1,0,2)
+    - 0.5 * x^(1,2,0)
+    + 1 * x^(3,0,0)
+    - 0.5 * x^(2,0,2)
+    - 0.5 * x^(2,2,0)
+    + 1 * x^(4,0,0).
+  P(3)(x) =
+    + 0.5 * x^(0,1,0)
+    - 0.5 * x^(0,2,0)
+    + 0.5 * x^(0,1,2)
+    - 1 * x^(0,3,0)
+    + 0.5 * x^(2,1,0)
+    - 0.5 * x^(0,2,2)
+    + 1 * x^(0,4,0)
+    - 0.5 * x^(2,2,0).
+  P(4)(x) =
+    - 0.5 * x^(0,1,0)
+    - 0.5 * x^(0,2,0)
+    - 0.5 * x^(0,1,2)
+    + 1 * x^(0,3,0)
+    - 0.5 * x^(2,1,0)
+    - 0.5 * x^(0,2,2)
+    + 1 * x^(0,4,0)
+    - 0.5 * x^(2,2,0).
+  P(5)(x) =
+    + 0.5 * x^(0,0,1)
+    - 0.5 * x^(0,0,2)
+    - 1 * x^(0,0,3)
+    + 0.5 * x^(0,2,1)
+    + 0.5 * x^(2,0,1)
+    + 1 * x^(0,0,4)
+    - 0.5 * x^(0,2,2)
+    - 0.5 * x^(2,0,2).
+  P(6)(x) =
+    - 0.5 * x^(0,0,1)
+    - 0.5 * x^(0,0,2)
+    + 1 * x^(0,0,3)
+    - 0.5 * x^(0,2,1)
+    - 0.5 * x^(2,0,1)
+    + 1 * x^(0,0,4)
+    - 0.5 * x^(0,2,2)
+    - 0.5 * x^(2,0,2).
+  P(7)(x) =
+    - 1.41421 * x^(1,0,0)
+    + 2 * x^(2,0,0)
+    + 1.41421 * x^(3,0,0)
+    - 2 * x^(4,0,0).
+  P(8)(x) =
+    + 1.41421 * x^(1,0,0)
+    + 2 * x^(2,0,0)
+    - 1.41421 * x^(3,0,0)
+    - 2 * x^(4,0,0).
+  P(9)(x) =
+    + 0.25 * x^(1,1,0)
+    - 0.25 * x^(1,2,0)
+    - 0.25 * x^(2,1,0)
+    + 0.25 * x^(2,2,0).
+  P(10)(x) =
+    - 0.25 * x^(1,1,0)
+    + 0.25 * x^(1,2,0)
+    - 0.25 * x^(2,1,0)
+    + 0.25 * x^(2,2,0).
+  P(11)(x) =
+    - 0.25 * x^(1,1,0)
+    - 0.25 * x^(1,2,0)
+    + 0.25 * x^(2,1,0)
+    + 0.25 * x^(2,2,0).
+  P(12)(x) =
+    + 0.25 * x^(1,1,0)
+    + 0.25 * x^(1,2,0)
+    + 0.25 * x^(2,1,0)
+    + 0.25 * x^(2,2,0).
+  P(13)(x) =
+    - 1.41421 * x^(0,1,0)
+    + 2 * x^(0,2,0)
+    + 1.41421 * x^(0,3,0)
+    - 2 * x^(0,4,0).
+  P(14)(x) =
+    + 1.41421 * x^(0,1,0)
+    + 2 * x^(0,2,0)
+    - 1.41421 * x^(0,3,0)
+    - 2 * x^(0,4,0).
+  P(15)(x) =
+    + 0.25 * x^(1,0,1)
+    - 0.25 * x^(1,0,2)
+    - 0.25 * x^(2,0,1)
+    + 0.25 * x^(2,0,2).
+  P(16)(x) =
+    - 0.25 * x^(1,0,1)
+    + 0.25 * x^(1,0,2)
+    - 0.25 * x^(2,0,1)
+    + 0.25 * x^(2,0,2).
+  P(17)(x) =
+    - 0.25 * x^(1,0,1)
+    - 0.25 * x^(1,0,2)
+    + 0.25 * x^(2,0,1)
+    + 0.25 * x^(2,0,2).
+  P(18)(x) =
+    + 0.25 * x^(1,0,1)
+    + 0.25 * x^(1,0,2)
+    + 0.25 * x^(2,0,1)
+    + 0.25 * x^(2,0,2).
+  P(19)(x) =
+    + 0.25 * x^(0,1,1)
+    - 0.25 * x^(0,1,2)
+    - 0.25 * x^(0,2,1)
+    + 0.25 * x^(0,2,2).
+  P(20)(x) =
+    - 0.25 * x^(0,1,1)
+    + 0.25 * x^(0,1,2)
+    - 0.25 * x^(0,2,1)
+    + 0.25 * x^(0,2,2).
+  P(21)(x) =
+    - 0.25 * x^(0,1,1)
+    - 0.25 * x^(0,1,2)
+    + 0.25 * x^(0,2,1)
+    + 0.25 * x^(0,2,2).
+  P(22)(x) =
+    + 0.25 * x^(0,1,1)
+    + 0.25 * x^(0,1,2)
+    + 0.25 * x^(0,2,1)
+    + 0.25 * x^(0,2,2).
+  P(23)(x) =
+    - 1.41421 * x^(0,0,1)
+    + 2 * x^(0,0,2)
+    + 1.41421 * x^(0,0,3)
+    - 2 * x^(0,0,4).
+  P(24)(x) =
+    + 1.41421 * x^(0,0,1)
+    + 2 * x^(0,0,2)
+    - 1.41421 * x^(0,0,3)
+    - 2 * x^(0,0,4).
+
+  Frobenius norm of Lagrange matrix error = 9.85225e-16
+
+TEST10
+  LAGRANGE_PARTIAL2 determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points is less than or equal to
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  For this example, the data points are the same as those
+  used by the level 2 Clenshaw Curtis sparse grid in 2D.
+
+  Spatial dimension D = 2
+  Maximum degree N = 4
+  Number of monomials R = 15
+  Number of data points ND = 13
+
+  Data points XD:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:            -1             0
+    2:             1             0
+    3:             0            -1
+    4:             0             1
+    5:            -1             1
+    6:             1             1
+    7:            -1            -1
+    8:             1            -1
+    9:          -0.5             0
+   10:             0          -0.5
+   11:             0           0.5
+   12:           0.5             0
+
+  Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0,0)
+    - 5 * x^(0,2)
+    - 5 * x^(2,0)
+    + 4 * x^(0,4)
+    + 1 * x^(2,2)
+    + 4 * x^(4,0).
+  P(1)(x) =
+    + 0.166667 * x^(1,0)
+    - 0.166667 * x^(2,0)
+    + 0.5 * x^(1,2)
+    - 0.666667 * x^(3,0)
+    - 0.5 * x^(2,2)
+    + 0.666667 * x^(4,0).
+  P(2)(x) =
+    - 0.166667 * x^(1,0)
+    - 0.166667 * x^(2,0)
+    - 0.5 * x^(1,2)
+    + 0.666667 * x^(3,0)
+    - 0.5 * x^(2,2)
+    + 0.666667 * x^(4,0).
+  P(3)(x) =
+    + 0.166667 * x^(0,1)
+    - 0.166667 * x^(0,2)
+    - 0.666667 * x^(0,3)
+    + 0.5 * x^(2,1)
+    + 0.666667 * x^(0,4)
+    - 0.5 * x^(2,2).
+  P(4)(x) =
+    - 0.166667 * x^(0,1)
+    - 0.166667 * x^(0,2)
+    + 0.666667 * x^(0,3)
+    - 0.5 * x^(2,1)
+    + 0.666667 * x^(0,4)
+    - 0.5 * x^(2,2).
+  P(5)(x) =
+    - 0.25 * x^(1,2)
+    + 0.25 * x^(2,1)
+    + 0.25 * x^(2,2)
+    - 0.25 * x^(3,1).
+  P(6)(x) =
+    + 0.25 * x^(1,2)
+    + 0.25 * x^(2,1)
+    + 0.25 * x^(2,2)
+    + 0.25 * x^(3,1).
+  P(7)(x) =
+    - 0.25 * x^(1,2)
+    - 0.25 * x^(2,1)
+    + 0.25 * x^(2,2)
+    + 0.25 * x^(3,1).
+  P(8)(x) =
+    + 0.25 * x^(1,2)
+    - 0.25 * x^(2,1)
+    + 0.25 * x^(2,2)
+    - 0.25 * x^(3,1).
+  P(9)(x) =
+    - 1.33333 * x^(1,0)
+    + 2.66667 * x^(2,0)
+    + 1.33333 * x^(3,0)
+    - 2.66667 * x^(4,0).
+  P(10)(x) =
+    - 1.33333 * x^(0,1)
+    + 2.66667 * x^(0,2)
+    + 1.33333 * x^(0,3)
+    - 2.66667 * x^(0,4).
+  P(11)(x) =
+    + 1.33333 * x^(0,1)
+    + 2.66667 * x^(0,2)
+    - 1.33333 * x^(0,3)
+    - 2.66667 * x^(0,4).
+  P(12)(x) =
+    + 1.33333 * x^(1,0)
+    + 2.66667 * x^(2,0)
+    - 1.33333 * x^(3,0)
+    - 2.66667 * x^(4,0).
+
+  Frobenius norm of Lagrange matrix error = 1.60917e-15
+
+  Maximum absolute interpolant error on 11x11 grid = 0.0278102
+
+LAGRANGE_ND_TEST11
+  LAGRANGE_PARTIAL3 determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points is less than or equal to
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  If LAGRANGE_PARTIAL3 determines that the problem is not
+  well-posed for the given value of N, it increases N
+  until a suitable value is found.
+
+  For this example, the data points are the same as those
+  used by the level 2 Clenshaw Curtis sparse grid in 2D.
+
+  Spatial dimension D = 2
+  Maximum degree N = 10
+  Number of data points ND = 65
+  Monomial/Legendre option OPTION = 0
+
+  Data points XD:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:            -1             0
+    2:             1             0
+    3:             0            -1
+    4:             0             1
+    5:     -0.707107             0
+    6:      0.707107             0
+    7:            -1            -1
+    8:             1            -1
+    9:            -1             1
+   10:             1             1
+   11:             0     -0.707107
+   12:             0      0.707107
+   13:      -0.92388             0
+   14:     -0.382683             0
+   15:      0.382683             0
+   16:       0.92388             0
+   17:     -0.707107            -1
+   18:      0.707107            -1
+   19:     -0.707107             1
+   20:      0.707107             1
+   21:            -1     -0.707107
+   22:             1     -0.707107
+   23:            -1      0.707107
+   24:             1      0.707107
+   25:             0      -0.92388
+   26:             0     -0.382683
+   27:             0      0.382683
+   28:             0       0.92388
+   29:     -0.980785             0
+   30:      -0.83147             0
+   31:      -0.55557             0
+   32:      -0.19509             0
+   33:       0.19509             0
+   34:       0.55557             0
+   35:       0.83147             0
+   36:      0.980785             0
+   37:      -0.92388            -1
+   38:     -0.382683            -1
+   39:      0.382683            -1
+   40:       0.92388            -1
+   41:      -0.92388             1
+   42:     -0.382683             1
+   43:      0.382683             1
+   44:       0.92388             1
+   45:     -0.707107     -0.707107
+   46:      0.707107     -0.707107
+   47:     -0.707107      0.707107
+   48:      0.707107      0.707107
+   49:            -1      -0.92388
+   50:             1      -0.92388
+   51:            -1     -0.382683
+   52:             1     -0.382683
+   53:            -1      0.382683
+   54:             1      0.382683
+   55:            -1       0.92388
+   56:             1       0.92388
+   57:             0     -0.980785
+   58:             0      -0.83147
+   59:             0      -0.55557
+   60:             0      -0.19509
+   61:             0       0.19509
+   62:             0       0.55557
+   63:             0       0.83147
+   64:             0      0.980785
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 0
+LAGRANGE_PARTIAL3 - Increase N to 11
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 0
+LAGRANGE_PARTIAL3 - Increase N to 12
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 0
+LAGRANGE_PARTIAL3 - Increase N to 13
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 0
+LAGRANGE_PARTIAL3 - Increase N to 14
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 0
+LAGRANGE_PARTIAL3 - Increase N to 15
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 0
+LAGRANGE_PARTIAL3 - Increase N to 16
+
+  LAGRANGE_PARTIAL3 increased N to 16
+  Number of monomials R = 153
+
+  (First 2) Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0,0)
+    - 43 * x^(0,2)
+    - 43 * x^(2,0)
+    + 2.46693e-08 * x^(2,1)
+    + 546 * x^(0,4)
+    + 12.343 * x^(2,2)
+    + 546 * x^(4,0)
+    - 3144 * x^(0,6)
+    + 6.22291e-08 * x^(1,5)
+    - 21.0701 * x^(2,4)
+    - 3.45972e-08 * x^(3,3)
+    - 3144 * x^(6,0)
+    + 2.37178e-08 * x^(0,7)
+    - 1.25088e-07 * x^(2,5)
+    + 1.46874e-07 * x^(3,4)
+    - 6.46363e-08 * x^(5,2)
+    + 2.37178e-08 * x^(7,0)
+    + 9680 * x^(0,8)
+    + 9680 * x^(8,0)
+    - 6.25987e-08 * x^(0,9)
+    - 1.76285e-07 * x^(1,8)
+    + 6.43093e-08 * x^(8,1)
+    - 6.25987e-08 * x^(9,0)
+    - 17024 * x^(0,10)
+    + 18.2468 * x^(2,8)
+    + 3.10832 * x^(8,2)
+    - 17024 * x^(10,0)
+    + 8.76862e-08 * x^(0,11)
+    + 2.9739e-08 * x^(7,4)
+    + 8.76862e-08 * x^(11,0)
+    + 17152 * x^(0,12)
+    + 3.45972e-08 * x^(3,9)
+    - 3.17107e-08 * x^(5,7)
+    + 17152 * x^(12,0)
+    - 6.20712e-08 * x^(0,13)
+    - 6.20712e-08 * x^(13,0)
+    - 9216 * x^(0,14)
+    - 18.9231 * x^(4,10)
+    - 9216 * x^(14,0)
+    + 1.74587e-08 * x^(0,15)
+    + 1.6232e-07 * x^(1,14)
+    + 9.84089e-08 * x^(2,13)
+    - 1.22511e-07 * x^(3,12)
+    + 1.52441e-08 * x^(4,11)
+    - 1.20473e-07 * x^(8,7)
+    + 1.7518e-07 * x^(12,3)
+    - 1.13963e-07 * x^(14,1)
+    + 1.74587e-08 * x^(15,0)
+    + 2048 * x^(0,16)
+    - 5.21245e-08 * x^(1,15)
+    + 0.0297548 * x^(2,14)
+    + 12.8917 * x^(8,8)
+    - 5.62637 * x^(14,2)
+    + 2048 * x^(16,0).
+  P(1)(x) =
+    + 0.5 * x^(1,0)
+    - 0.5 * x^(2,0)
+    + 0.223272 * x^(1,2)
+    - 21 * x^(3,0)
+    - 3.73481 * x^(2,2)
+    + 21 * x^(4,0)
+    + 252 * x^(5,0)
+    + 9.40743 * x^(2,4)
+    - 252 * x^(6,0)
+    - 5.45774 * x^(3,4)
+    + 2.46007 * x^(5,2)
+    - 1320 * x^(7,0)
+    + 1320 * x^(8,0)
+    + 5.87185 * x^(1,8)
+    + 3520 * x^(9,0)
+    - 8.56352 * x^(2,8)
+    + 0.654945 * x^(8,2)
+    - 3520 * x^(10,0)
+    - 3.56806 * x^(7,4)
+    - 4992 * x^(11,0)
+    + 4992 * x^(12,0)
+    + 3584 * x^(13,0)
+    - 0.476923 * x^(4,10)
+    - 3584 * x^(14,0)
+    - 6.07075 * x^(1,14)
+    + 5.0074 * x^(3,12)
+    + 2.03394 * x^(13,2)
+    - 1024 * x^(15,0)
+    + 2.95574 * x^(2,14)
+    + 0.945055 * x^(8,8)
+    - 1.68791 * x^(14,2)
+    + 1024 * x^(16,0).
+
+  Frobenius norm of Lagrange matrix error = 1.02235e-07
+
+  Maximum absolute interpolant error on 11x11 grid = 0.000968612
+
+LAGRANGE_ND_TEST11
+  LAGRANGE_PARTIAL3 determines
+  the Lagrange interpolating polynomials L(x)
+  for ND points in D dimensions, assuming that
+  the number of points is less than or equal to
+  R = Pi(D,N), the number of monomials of degree N or less
+
+  If LAGRANGE_PARTIAL3 determines that the problem is not
+  well-posed for the given value of N, it increases N
+  until a suitable value is found.
+
+  For this example, the data points are the same as those
+  used by the level 2 Clenshaw Curtis sparse grid in 2D.
+
+  Spatial dimension D = 2
+  Maximum degree N = 10
+  Number of data points ND = 65
+  Monomial/Legendre option OPTION = 1
+
+  Data points XD:
+
+  Row:       0             1       
+  Col
+
+    0:             0             0
+    1:            -1             0
+    2:             1             0
+    3:             0            -1
+    4:             0             1
+    5:     -0.707107             0
+    6:      0.707107             0
+    7:            -1            -1
+    8:             1            -1
+    9:            -1             1
+   10:             1             1
+   11:             0     -0.707107
+   12:             0      0.707107
+   13:      -0.92388             0
+   14:     -0.382683             0
+   15:      0.382683             0
+   16:       0.92388             0
+   17:     -0.707107            -1
+   18:      0.707107            -1
+   19:     -0.707107             1
+   20:      0.707107             1
+   21:            -1     -0.707107
+   22:             1     -0.707107
+   23:            -1      0.707107
+   24:             1      0.707107
+   25:             0      -0.92388
+   26:             0     -0.382683
+   27:             0      0.382683
+   28:             0       0.92388
+   29:     -0.980785             0
+   30:      -0.83147             0
+   31:      -0.55557             0
+   32:      -0.19509             0
+   33:       0.19509             0
+   34:       0.55557             0
+   35:       0.83147             0
+   36:      0.980785             0
+   37:      -0.92388            -1
+   38:     -0.382683            -1
+   39:      0.382683            -1
+   40:       0.92388            -1
+   41:      -0.92388             1
+   42:     -0.382683             1
+   43:      0.382683             1
+   44:       0.92388             1
+   45:     -0.707107     -0.707107
+   46:      0.707107     -0.707107
+   47:     -0.707107      0.707107
+   48:      0.707107      0.707107
+   49:            -1      -0.92388
+   50:             1      -0.92388
+   51:            -1     -0.382683
+   52:             1     -0.382683
+   53:            -1      0.382683
+   54:             1      0.382683
+   55:            -1       0.92388
+   56:             1       0.92388
+   57:             0     -0.980785
+   58:             0      -0.83147
+   59:             0      -0.55557
+   60:             0      -0.19509
+   61:             0       0.19509
+   62:             0       0.55557
+   63:             0       0.83147
+   64:             0      0.980785
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 2.44214e-13
+LAGRANGE_PARTIAL3 - Increase N to 11
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = -8.34239e-13
+LAGRANGE_PARTIAL3 - Increase N to 12
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = -1.63597e-12
+LAGRANGE_PARTIAL3 - Increase N to 13
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 1.47745e-11
+LAGRANGE_PARTIAL3 - Increase N to 14
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 6.402e-12
+LAGRANGE_PARTIAL3 - Increase N to 15
+LAGRANGE_PARTIAL4 - Unacceptable VALUE_MAX = 9.37079e-08
+LAGRANGE_PARTIAL3 - Increase N to 16
+
+  LAGRANGE_PARTIAL3 increased N to 16
+  Number of monomials R = 153
+
+  (First 2) Lagrange polynomials for XD data points:
+
+  P(0)(x) =
+    + 1 * x^(0,0)
+    + 1.40532e-07 * x^(0,1)
+    - 43 * x^(0,2)
+    - 1.33731e-07 * x^(1,1)
+    - 43 * x^(2,0)
+    - 5.61124e-06 * x^(0,3)
+    + 6.7111e-07 * x^(1,2)
+    + 6.24766e-07 * x^(2,1)
+    + 546 * x^(0,4)
+    + 1.21012e-06 * x^(1,3)
+    + 25 * x^(2,2)
+    + 2.32308e-06 * x^(3,1)
+    + 546 * x^(4,0)
+    + 6.0352e-05 * x^(0,5)
+    - 3.84178e-06 * x^(1,4)
+    - 3.0119e-06 * x^(2,3)
+    - 2.77013e-06 * x^(3,2)
+    - 3.45555e-06 * x^(4,1)
+    - 3144 * x^(0,6)
+    - 5.41076e-06 * x^(1,5)
+    - 38 * x^(2,4)
+    - 6.22912e-06 * x^(3,3)
+    - 38 * x^(4,2)
+    - 1.47015e-05 * x^(5,1)
+    - 3144 * x^(6,0)
+    - 0.000286279 * x^(0,7)
+    + 6.52812e-06 * x^(1,6)
+    - 1.3851e-05 * x^(2,5)
+    + 1.77626e-05 * x^(3,4)
+    + 1.8942e-05 * x^(4,3)
+    + 1.39424e-06 * x^(5,2)
+    + 5.6331e-06 * x^(6,1)
+    + 9680 * x^(0,8)
+    + 1.12602e-05 * x^(1,7)
+    + 40 * x^(2,6)
+    + 1.49504e-05 * x^(3,5)
+    + 4 * x^(4,4)
+    + 2.24194e-05 * x^(5,3)
+    + 40 * x^(6,2)
+    + 4.51051e-05 * x^(7,1)
+    + 9680 * x^(8,0)
+    + 0.000697341 * x^(0,9)
+    - 3.38289e-06 * x^(1,8)
+    + 0.000106844 * x^(2,7)
+    - 3.03949e-05 * x^(3,6)
+    - 3.45835e-05 * x^(4,5)
+    - 1.59863e-05 * x^(5,4)
+    - 2.53894e-05 * x^(6,3)
+    + 2.03063e-06 * x^(7,2)
+    - 2.90047e-06 * x^(8,1)
+    - 3.3624e-08 * x^(9,0)
+    - 17024 * x^(0,10)
+    - 1.27124e-05 * x^(1,9)
+    - 16 * x^(2,8)
+    - 1.56597e-05 * x^(3,7)
+    - 1.59038e-05 * x^(5,5)
+    - 6.68873e-05 * x^(7,3)
+    - 16 * x^(8,2)
+    - 7.25799e-05 * x^(9,1)
+    - 17024 * x^(10,0)
+    - 0.000910139 * x^(0,11)
+    - 0.000229889 * x^(2,9)
+    + 1.57687e-05 * x^(3,8)
+    + 3.25691e-05 * x^(4,7)
+    + 2.73554e-05 * x^(5,6)
+    + 2.28504e-05 * x^(6,5)
+    + 1.36014e-05 * x^(8,3)
+    - 9.64549e-07 * x^(9,2)
+    + 4.68517e-08 * x^(11,0)
+    + 17152 * x^(0,12)
+    + 8.4815e-06 * x^(1,11)
+    - 5.18552e-06 * x^(3,9)
+    + 2.29546e-05 * x^(5,7)
+    + 0.000117053 * x^(9,3)
+    + 5.87392e-05 * x^(11,1)
+    + 17152 * x^(12,0)
+    + 0.000605283 * x^(0,13)
+    + 0.000205535 * x^(2,11)
+    - 1.53799e-05 * x^(4,9)
+    - 1.41918e-05 * x^(5,8)
+    - 1.22414e-05 * x^(8,5)
+    - 3.2971e-08 * x^(13,0)
+    - 9216 * x^(0,14)
+    - 2.71843e-06 * x^(1,13)
+    + 1.44102e-05 * x^(3,11)
+    - 1.08397e-05 * x^(5,9)
+    - 9.78987e-05 * x^(11,3)
+    - 1.88267e-05 * x^(13,1)
+    - 9216 * x^(14,0)
+    - 0.000161108 * x^(0,15)
+    - 6.58765e-05 * x^(2,13)
+    + 2048 * x^(0,16)
+    - 4.61866e-06 * x^(3,13)
+    + 3.13778e-05 * x^(13,3)
+    + 2048 * x^(16,0).
+  P(1)(x) =
+    - 3.19908e-07 * x^(0,1)
+    + 0.5 * x^(1,0)
+    + 1.88853e-07 * x^(0,2)
+    + 1.65714e-07 * x^(1,1)
+    - 0.5 * x^(2,0)
+    + 1.24251e-05 * x^(0,3)
+    + 9.87912 * x^(1,2)
+    + 4.39567e-07 * x^(2,1)
+    - 21 * x^(3,0)
+    - 7.65958e-06 * x^(0,4)
+    - 1.79046e-06 * x^(1,3)
+    - 2.5 * x^(2,2)
+    - 2.94954e-06 * x^(3,1)
+    + 21 * x^(4,0)
+    - 0.000133065 * x^(0,5)
+    - 31.5714 * x^(1,4)
+    - 8.78176e-06 * x^(2,3)
+    - 50.0989 * x^(3,2)
+    - 1.15306e-06 * x^(4,1)
+    + 252 * x^(5,0)
+    + 8.53116e-05 * x^(0,6)
+    + 6.68977e-06 * x^(1,5)
+    + 15 * x^(2,4)
+    + 1.17277e-05 * x^(3,3)
+    - 7 * x^(4,2)
+    + 1.83562e-05 * x^(5,1)
+    - 252 * x^(6,0)
+    + 0.000628616 * x^(0,7)
+    + 37.5 * x^(1,6)
+    + 8.14876e-05 * x^(2,5)
+    + 145.714 * x^(3,4)
+    + 3.97708e-06 * x^(4,3)
+    + 69.1044 * x^(5,2)
+    + 2.10205e-06 * x^(6,1)
+    - 1320 * x^(7,0)
+    - 0.000416899 * x^(0,8)
+    - 8.2964e-06 * x^(1,7)
+    - 20 * x^(2,6)
+    - 3.86763e-05 * x^(3,5)
+    + 2 * x^(4,4)
+    - 3.18627e-05 * x^(5,3)
+    + 12 * x^(6,2)
+    - 5.78103e-05 * x^(7,1)
+    + 1320 * x^(8,0)
+    - 0.00152515 * x^(0,9)
+    - 15 * x^(1,8)
+    - 0.000321061 * x^(2,7)
+    - 175 * x^(3,6)
+    + 3.03726e-06 * x^(4,5)
+    - 131.143 * x^(5,4)
+    - 9.85878e-06 * x^(6,3)
+    - 44.3077 * x^(7,2)
+    - 1.14302e-06 * x^(8,1)
+    + 3520 * x^(9,0)
+    + 0.00104147 * x^(0,10)
+    + 9.48579e-07 * x^(1,9)
+    + 8 * x^(2,8)
+    + 6.57051e-05 * x^(3,7)
+    + 3.08125e-05 * x^(5,5)
+    + 8.81903e-05 * x^(7,3)
+    - 8 * x^(8,2)
+    + 9.49119e-05 * x^(9,1)
+    - 3520 * x^(10,0)
+    + 0.0019825 * x^(0,11)
+    + 0.000586572 * x^(2,9)
+    + 70 * x^(3,8)
+    - 1.23073e-05 * x^(4,7)
+    + 157.5 * x^(5,6)
+    + 8.8729e-06 * x^(6,5)
+    + 5.28149e-06 * x^(8,3)
+    + 20.9231 * x^(9,2)
+    - 4992 * x^(11,0)
+    - 0.00138929 * x^(0,12)
+    + 3.40742e-06 * x^(1,11)
+    - 5.15603e-05 * x^(3,9)
+    - 4.46722e-05 * x^(5,7)
+    - 0.000154333 * x^(9,3)
+    - 7.74471e-05 * x^(11,1)
+    + 4992 * x^(12,0)
+    - 0.00131288 * x^(0,13)
+    - 0.000498221 * x^(2,11)
+    + 5.80297e-06 * x^(4,9)
+    - 63 * x^(5,8)
+    - 4.75334e-06 * x^(8,5)
+    + 3584 * x^(13,0)
+    + 0.000941841 * x^(0,14)
+    - 1.09765e-06 * x^(1,13)
+    + 2.35196e-05 * x^(3,11)
+    + 2.10952e-05 * x^(5,9)
+    + 0.000129079 * x^(11,3)
+    + 2.48228e-05 * x^(13,1)
+    - 3584 * x^(14,0)
+    + 0.000347905 * x^(0,15)
+    + 0.000159691 * x^(2,13)
+    - 1024 * x^(15,0)
+    - 0.000255001 * x^(0,16)
+    - 7.53832e-06 * x^(3,13)
+    - 4.13713e-05 * x^(13,3)
+    + 1024 * x^(16,0).
+
+  Frobenius norm of Lagrange matrix error = 2.09551e-06
+
+  Maximum absolute interpolant error on 11x11 grid = 0.0427211
+
+LAGRANGE_ND_PRB
+  Normal end of execution.
+
+28 October 2014 03:45:51 PM

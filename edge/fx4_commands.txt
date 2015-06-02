@@ -1,0 +1,14 @@
+# fx4_commands.txt
+#
+# Usage:
+#  gnuplot < fx4_commands.txt
+#
+set term png
+set output 'fx4.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title '1D Test Function #4'
+set grid
+set style data lines
+plot 'fx4_data.txt' using 1:2 with points lt 3 pt 4 linecolor rgb 'blue'
+quit

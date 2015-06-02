@@ -21,7 +21,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    CYCLIC_REDUCTION_PRB calls the CYCLIC_REDUCTION tests.
+//    MAIN is the main program for CYCLIC_REDUCTION_PRB.
+//
+//  Discussion:
+//
+//    CYCLIC_REDUCTION_PRB tests the CYCLIC_REDUCTION library.
 //
 //  Licensing:
 //
@@ -50,7 +54,6 @@ int main ( )
   cout << "\n";
   cout << "CYCLIC_REDUCTION_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

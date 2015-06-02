@@ -25,7 +25,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    OWENS_PRB calls the OWENS routines.
+//    OWENS_PRB tests the OWENS library.
 //
 //  Licensing:
 //
@@ -41,7 +41,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "OWENS_PRB:\n";
   cout << "  C++ version\n";
@@ -57,7 +56,6 @@ int main ( )
   cout << "\n";
   cout << "OWENS_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

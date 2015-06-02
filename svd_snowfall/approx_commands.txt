@@ -1,0 +1,64 @@
+# approx_commands.txt
+#
+# Usage:
+#  gnuplot < approx_commands.txt
+#
+set term png
+set output 'approx0.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title '2012 Snowfall'
+set grid
+set style data lines
+plot 'approx_data.txt' using 1:2 lw 3 linecolor rgb 'blue'
+set output 'approx1.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Rank 1 Approx to 2012 Snowfall'
+set grid
+set style data lines
+plot 'approx_data.txt' using 1:2 lw 3 linecolor rgb 'blue',\
+     'approx_data.txt' using 1:3 lw 3 linecolor rgb 'red'
+set output 'approx2.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Rank 2 Approx to 2012 Snowfall'
+set grid
+set style data lines
+plot 'approx_data.txt' using 1:2 lw 3 linecolor rgb 'blue',\
+     'approx_data.txt' using 1:3 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:4 lw 3 linecolor rgb 'red'
+set output 'approx3.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Rank 3 Approx to 2012 Snowfall'
+set grid
+set style data lines
+plot 'approx_data.txt' using 1:2 lw 3 linecolor rgb 'blue',\
+     'approx_data.txt' using 1:3 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:4 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:5 lw 3 linecolor rgb 'red'
+set output 'approx4.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Rank 4 Approx to 2012 Snowfall'
+set grid
+set style data lines
+plot 'approx_data.txt' using 1:2 lw 3 linecolor rgb 'blue',\
+     'approx_data.txt' using 1:3 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:4 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:5 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:6 lw 3 linecolor rgb 'red'
+set output 'approx5.png'
+set xlabel 'Month'
+set ylabel 'Snowfall'
+set title 'Rank 5 Approx to 2012 Snowfall'
+set grid
+set style data lines
+plot 'approx_data.txt' using 1:2 lw 3 linecolor rgb 'blue',\
+     'approx_data.txt' using 1:3 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:4 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:5 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:6 lw 3 linecolor rgb 'gray',\
+     'approx_data.txt' using 1:7 lw 3 linecolor rgb 'red'
+quit

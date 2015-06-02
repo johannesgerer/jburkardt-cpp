@@ -1,0 +1,18 @@
+# fxy2_commands.txt
+#
+# Usage:
+#  gnuplot < fxy2_commands.txt
+#
+set term png
+set output 'fxy2.png'
+set view 30, 75
+set hidden3d
+set timestamp
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set zlabel '<--- Z --->'
+set title '2D test function #2, the Shepp Logan phantom'
+set grid
+set style data lines
+splot 'fxy2_data.txt' with lines
+quit

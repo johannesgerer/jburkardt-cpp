@@ -98,6 +98,7 @@
 
     <p>
       <b>FEM1D_PROJECT</b> is available in
+      <a href = "../../c_src/fem1d_project/fem1d_project.html">a C version</a> and
       <a href = "../../cpp_src/fem1d_project/fem1d_project.html">a C++ version</a> and
       <a href = "../../f77_src/fem1d_project/fem1d_project.html">a FORTRAN77 version</a> and
       <a href = "../../f_src/fem1d_project/fem1d_project.html">a FORTRAN90 version</a> and
@@ -300,24 +301,6 @@
           <b>CH_TO_DIGIT</b> returns the integer value of a base 10 digit.
         </li>
         <li>
-          <b>DTABLE_CLOSE_WRITE</b> closes a file to which a DTABLE was to be written.
-        </li>
-        <li>
-          <b>DTABLE_DATA_READ</b> reads the data from a DTABLE file.
-        </li>
-        <li>
-          <b>DTABLE_DATA_WRITE</b> writes data to a DTABLE file.
-        </li>
-        <li>
-          <b>DTABLE_HEADER_READ</b> reads the header from a DTABLE file.
-        </li>
-        <li>
-          <b>DTABLE_HEADER_WRITE</b> writes the header of a DTABLE file.
-        </li>
-        <li>
-          <b>DTABLE_WRITE</b> writes information to a DTABLE file.
-        </li>
-        <li>
           <b>FEM1D_APPROXIMATE</b> approximates data at sample points with an FEM function.
         </li>
         <li>
@@ -327,13 +310,13 @@
           <b>FILE_ROW_COUNT</b> counts the number of row records in a file.
         </li>
         <li>
-          <b>ITABLE_DATA_READ</b> reads data from an ITABLE file.
+          <b>I4MAT_DATA_READ</b> reads data from an I4MAT file.
         </li>
         <li>
-          <b>ITABLE_HEADER_READ</b> reads the header from an ITABLE file.
+          <b>I4MAT_HEADER_READ</b> reads the header from an I4MAT file.
         </li>
         <li>
-          <b>PIECEWISE_LINEAR_PRODUCT_INTEGRAL:</b> piecewise linear product integral.
+          <b>PIECEWISE_LINEAR_PRODUCT_QUAD:</b> piecewise linear product integral.
         </li>
         <li>
           <b>R8_ABS</b> returns the absolute value of an R8.
@@ -349,6 +332,15 @@
         </li>
         <li>
           <b>R83_NP_SL</b> solves a R83 system factored by R83_NP_FA.
+        </li>
+        <li>
+          <b>R8MAT_DATA_READ</b> reads the data from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_HEADER_READ</b> reads the header from an R8MAT file.
+        </li>
+        <li>
+          <b>R8MAT_WRITE</b> writes an R8MAT file.
         </li>
         <li>
           <b>R8MAT_ZERO_NEW</b> returns a new zeroed R8MAT.
@@ -377,9 +369,6 @@
         <li>
           <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
         </li>
-        <li>
-          <b>TIMESTRING</b> returns the current YMDHMS date as a string.
-        </li>
       </ul>
     </p>
 
@@ -391,7 +380,7 @@
     <hr>
 
     <i>
-      Last revised on 02 May 2009.
+      Last revised on 05 July 2013.
     </i>
 
     <!-- John Burkardt -->

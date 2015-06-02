@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    CHEBYSHEV_INTERP_1D_TEST tests CHEBYSHEV_INTERP_1D.
+//    MAIN is the main program for CHEBYSHEV_INTERP_1D_PRB.
+//
+//  Discussion:
+//
+//    CHEBYSHEV_INTERP_1D_PRB tests the CHEBYSHEV_INTERP_1D library.
 //
 //  Licensing:
 //
@@ -40,7 +44,7 @@ int main ( )
 
   timestamp ( );
   cout << "\n";
-  cout << "CHEBYSHEV_INTERP_1D_TEST:\n";
+  cout << "CHEBYSHEV_INTERP_1D_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the CHEBYSHEV_INTERP_1D library.\n";
   cout << "  The QR_SOLVE and R8LIB libraries are needed.\n";
@@ -55,7 +59,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "CHEBYSHEV_INTERP_1D_TEST:\n";
+  cout << "CHEBYSHEV_INTERP_1D_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

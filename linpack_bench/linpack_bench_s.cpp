@@ -15,7 +15,7 @@ void sgesl ( float a[], int lda, int n, int ipvt[], float b[], int job );
 void sscal ( int n, float sa, float x[], int incx );
 int isamax ( int n, float dx[], int incx );
 float r4_abs ( float x );
-float r4_epsilon ( void );
+float r4_epsilon ( );
 float r4_max ( float x, float y );
 float r4_random ( int iseed[4] );
 float *r4mat_gen ( int lda, int n );
@@ -23,7 +23,7 @@ void timestamp ( void );
 
 //****************************************************************************80
 
-int main ( void )
+int main ( )
 
 //****************************************************************************80
 //

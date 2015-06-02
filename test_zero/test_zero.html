@@ -102,6 +102,9 @@
         <li>
           f(x) = (x-1)^7, written term by term.
         </li>
+        <li>
+          f(x) = cos(100*x)-4*erf(30*x-10), the jumping cosine.
+        </li>
       </ol>
     </p>
 
@@ -133,6 +136,15 @@
     </h3>
 
     <p>
+      <a href = "../../cpp_src/bisection_rc/bisection_rc.html">
+      BISECTION_RC</a>,
+      a C++ library which
+      seeks a solution to the equation F(X)=0 using bisection
+      within a user-supplied change of sign interval [A,B].
+      The procedure is written using reverse communication.
+    </p>
+
+    <p>
       <a href = "../../cpp_src/brent/brent.html">
       BRENT</a>,
       a C++ library which
@@ -149,24 +161,12 @@
     </p>
 
     <p>
-      <a href = "../../f_src/nms/nms.html">
-      NMS</a>,
-      a FORTRAN90 library which
-      includes the zero finder <b>FZERO</b>.
-    </p>
-
-    <p>
-      <a href = "../../f_src/slatec/slatec.html">
-      SLATEC</a>,
-      a FORTRAN90 library which
-      includes the zero finder <b>FZERO</b>.
-    </p>
-
-    <p>
-      <a href = "../../f_src/zoomin/zoomin.html">
-      ZOOMIN</a>,
-      a FORTRAN90 library which
-      includes various zero finder routines.
+      <a href = "../../cpp_src/zero_rc/zero_rc.html">
+      ZERO_RC</a>,
+      a C++ library which
+      seeks solutions of a scalar nonlinear equation f(x) = 0, 
+      or a system of nonlinear equations,
+      using reverse communication.
     </p>
 
     <h3 align = "center">
@@ -326,6 +326,10 @@
         <li>
           <a href = "p18_fx.png">p18_fx.png</a>, 
           an image of P18_FX(X) over [0.988,1.012].
+        </li>
+        <li>
+          <a href = "p19_fx.png">p19_fx.png</a>, 
+          an image of P19_FX(X) over [0.0,1.0].
         </li>
       </ul>
     </p>
@@ -884,7 +888,7 @@
     <hr>
 
     <i>
-      Last revised on 14 May 2011.
+      Last revised on 16 January 2013.
     </i>
 
     <!-- John Burkardt -->

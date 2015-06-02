@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include van_der_corput_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include van_der_corput_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling van_der_corput_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ van_der_corput_prb.o /$HOME/libcpp/$ARCH/van_der_corput.o -lm
 if [ $? -ne 0 ]; then

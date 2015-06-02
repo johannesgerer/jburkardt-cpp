@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    TIMESTAMP_PRB demonstrates the use of TIMESTAMP.
+//    MAIN is the main program for TIMESTAMP_PRB.
+//
+//  Discussion:
+//
+//    TIMESTAMP_PRB tests the TIMESTAMP library.
 //
 //  Licensing:
 //
@@ -35,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TIMESTAMP_PRB\n";
   cout << "  C++ version\n";
@@ -50,7 +53,6 @@ int main ( )
   cout << "\n";
   cout << "TIMESTAMP_PRB\n";
   cout << "  Normal end of execution.\n";
- 
   cout << "\n";
   timestamp ( );
 

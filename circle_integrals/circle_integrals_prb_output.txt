@@ -1,0 +1,43 @@
+12 January 2014 02:46:19 PM
+
+CIRCLE_INTEGRALS_PRB
+  C++ version
+  Test the CIRCLE_INTEGRALS library.
+
+TEST01
+  Use CIRCLE01_SAMPLE to compare exact and
+  estimated integrals along the circumference
+  of the unit circle in 2D.
+
+  Number of sample points used is 4192
+
+  If any exponent is odd, the integral is zero.
+  We restrict this test to randomly chosen even exponents.
+
+  Ex  Ey     MC-Estimate           Exact      Error
+
+  10   6      0.00885865      0.00862864  0.000230005
+   0   6         1.93723          1.9635   0.0262634
+  10   6      0.00885865      0.00862864  0.000230005
+   6  10      0.00875684      0.00862864  0.000128199
+   6   6       0.0314478       0.0306796  0.000768165
+   6   4       0.0752784       0.0736311  0.00164735
+   2   6        0.241458        0.245437  0.00397932
+   8   2        0.173087        0.171806  0.00128129
+   2   4        0.391162        0.392699  0.00153732
+   8   8      0.00691615      0.00671117  0.000204981
+   6   4       0.0752784       0.0736311  0.00164735
+   4   8       0.0429779       0.0429515  2.64793e-05
+   8   8      0.00691615      0.00671117  0.000204981
+  10   0         1.55681         1.54625   0.0105535
+   0  10         1.52874         1.54625   0.0175101
+   4   8       0.0429779       0.0429515  2.64793e-05
+   2   2        0.789231        0.785398  0.00383332
+   8   2        0.173087        0.171806  0.00128129
+   2   6        0.241458        0.245437  0.00397932
+   2   8        0.167032        0.171806  0.00477396
+
+CIRCLE_INTEGRALS_PRB
+  Normal end of execution.
+
+12 January 2014 02:46:19 PM

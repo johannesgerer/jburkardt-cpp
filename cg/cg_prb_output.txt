@@ -1,0 +1,59 @@
+09 July 2014 08:16:30 PM
+
+CG_PRB
+  C++ version
+  Test the CG library.
+
+TEST01
+  Test R83_CG, applying CG to a full storage matrix.
+
+  Number of variables N = 10
+  Norm of residual ||Ax-b|| = 1.48427e-13
+  Norm of error ||x1-x2|| = 1.55171e-13
+
+TEST02
+  Test R83_CG, applying CG to an R83 matrix.
+
+  Number of variables N = 10
+  Norm of residual ||Ax-b|| = 1.14439e-15
+  Norm of error ||x1-x2|| = 6.02047e-16
+
+TEST023
+  Test R83S_CG, applying CG to an R83S matrix.
+
+  Number of variables N = 10
+  Norm of residual ||Ax-b|| = 8.47455e-16
+  Norm of error ||x1-x2|| = 4.1616e-16
+
+TEST025
+  Test R83T_CG, applying CG to an R83T matrix.
+
+  Number of variables N = 10
+  Norm of residual ||Ax-b|| = 8.47455e-16
+  Norm of error ||x1-x2|| = 4.1616e-16
+
+TEST03
+  Test R8PBU_CG, applying CG to an R8PBU matrix.
+
+  Number of variables N = 10
+  Norm of residual ||Ax-b|| = 8.47455e-16
+  Norm of error ||x1-x2|| = 4.1616e-16
+
+TEST04
+  Test R8SD_CG, applying CG to an R8SD matrix.
+
+  Number of variables N = 10
+  Norm of residual ||Ax-b|| = 1.11733e-15
+  Norm of error ||x1-x2|| = 7.21945e-16
+
+TEST05
+  Test R8SP_CG, applying CG to an R8SP matrix.
+
+  Number of variables N = 10
+  Norm of residual ||Ax-b|| = 8.47455e-16
+  Norm of error ||x1-x2|| = 4.1616e-16
+ 
+CG_PRB
+  Normal end of execution.
+ 
+09 July 2014 08:16:30 PM

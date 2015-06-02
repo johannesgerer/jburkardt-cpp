@@ -1,0 +1,41 @@
+07 August 2013 02:12:51 PM
+
+STOCHASTIC_DIFFUSION_PRB
+  C++ version
+  Test the STOCHASTIC_DIFFUSION library.
+
+BNT_CONTOUR
+  Display contour or surface plots of the stochastic
+  diffusivity function defined by DIFFUSIVITY_2D_BNT.
+
+  The first plot uses uniform random values for OMEGA.
+  The second uses Gaussian (normal) random values.
+
+  Created graphics data file 'bnt_data.txt'.
+  Created graphics command file 'bnt_commands.txt'
+
+ELMAN_CONTOUR
+  Display contour or surface plots of the stochastic
+  diffusivity function defined by DIFFUSIVITY_2D_ELMAN.
+
+  Created graphics data file 'elman_data.txt'
+  Created graphics command file 'elman_commands.txt'
+
+NTW_CONTOUR
+  Display contour or surface plots of the stochastic
+  diffusivity function defined by DIFFUSIVITY_2D_NTW.
+
+  Created graphics data file 'ntw_data.txt'
+  Created graphics command file 'ntw_commands.txt'.
+
+XK_CONTOUR
+  Plot the stochastic diffusivity function
+  defined by DIFFUSIVITY_1D_XK.
+
+  Created graphics data file 'xk_data.txt'
+  Created graphics command file 'xk_commands.txt'
+
+STOCHASTIC_DIFFUSION_PRB
+  Normal end of execution.
+
+07 August 2013 02:12:52 PM

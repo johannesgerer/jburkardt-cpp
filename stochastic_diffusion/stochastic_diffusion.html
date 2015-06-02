@@ -1,0 +1,342 @@
+<html>
+
+  <head>
+    <title>
+      STOCHASTIC_DIFFUSION - Stochastic Diffusivity
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      STOCHASTIC_DIFFUSION <br> Stochastic Diffusivity
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>STOCHASTIC_DIFFUSION</b> 
+      is a C++ library which 
+      implement several versions of a stochastic diffusivity coefficient,
+      using GNUPLOT to create graphic images of sample realizations of
+      the diffusivity field.
+    </p>
+
+    <p>
+      The 1D diffusion equation has the form
+      <pre>
+        - d/dx ( DC(X) d/dx U(X) ) = F(X).
+      </pre>
+      where DC(X) is a function called the <i>diffusivity</i> and F(X) is
+      called the <i>source term</i> or <i>forcing term</i>.
+    </p>
+
+    <p>
+      In the 1D stochastic version of the problem, the diffusivity function
+      includes the influence of stochastic parameters:
+      <pre>
+        - d/dx ( DC(X;OMEGA) d/dx U(X;OMEGA) ) = F(X).
+      </pre>
+    </p>
+
+    <p>
+      The 2D diffusion equation has the form
+      <pre>
+        - Del ( DC(X,Y) Del U(X,Y) ) = F(X,Y).
+      </pre>
+    </p>
+
+    <p>
+      In the 2D stochastic version of the problem, the diffusivity function
+      includes the influence of stochastic parameters:
+      <pre>
+        - Del ( DC(X,Y;OMEGA) Del U(X,Y;OMEGA) ) = F(X,Y).
+      </pre>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>STOCHASTIC_DIFFUSION</b> is available in
+      <a href = "../../c_src/stochastic_diffusion/stochastic_diffusion.html">a C version</a> and
+      <a href = "../../cpp_src/stochastic_diffusion/stochastic_diffusion.html">a C++ version</a> and
+      <a href = "../../f77_src/stochastic_diffusion/stochastic_diffusion.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/stochastic_diffusion/stochastic_diffusion.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/stochastic_diffusion/stochastic_diffusion.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/black_scholes/black_scholes.html">
+      BLACK_SCHOLES</a>, 
+      a C++ library which
+      implements some simple approaches to 
+      the Black-Scholes option valuation theory;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/correlation/correlation.html">
+      CORRELATION</a>,
+      a C++ library which
+      contains examples of statistical correlation functions.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which 
+      illustrate how a program can write 
+      data and command files so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/ornstein_uhlenbeck/ornstein_uhlenbeck.html">
+      ORNSTEIN_UHLENBECK</a>,
+      a C++ library which 
+      approximates solutions of the Ornstein-Uhlenbeck 
+      stochastic differential equation (SDE) using the Euler method and
+      the Euler-Maruyama method.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pce_ode_hermite/pce_ode_hermite.html">
+      PCE_ODE_HERMITE</a>,
+      a C++ program which
+      sets up a simple scalar ODE for exponential decay with an uncertain
+      decay rate, using a polynomial chaos expansion in terms of Hermite polynomials.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sde/sde.html">
+      SDE</a>, 
+      a C++ library which
+      illustrates the properties of stochastic differential equations, and
+      common algorithms for their analysis, 
+      by Desmond Higham;
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Ivo Babuska, Fabio Nobile, Raul Tempone,<br>
+          A Stochastic Collocation Method for Elliptic Partial Differential Equations 
+          with Random Input Data,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 45, Number 3, 2007, pages 1005-1034.
+        </li>
+        <li>
+          Howard Elman, Darran Furnaval,<br>
+          Solving the stochastic steady-state diffusion problem using multigrid,<br>
+          IMA Journal on Numerical Analysis,<br>
+          Volume 27, Number 4, 2007, pages 675-688.
+        </li>
+        <li>
+          Roger Ghanem, Pol Spanos,<br>
+          Stochastic Finite Elements: A Spectral Approach,<br>
+          Revised Edition,<br>
+          Dover, 2003,<br>
+          ISBN: 0486428184,<br>
+          LC: TA347.F5.G56.
+        </li>
+        <li>
+          Xiang Ma, Nicholas Zabaras,<br>
+          An adaptive hierarchical sparse grid collocation algorithm for the solution
+          of stochastic differential equations,<br>
+          Journal of Computational Physics,<br>
+          Volume 228, pages 3084-3113, 2009.
+        </li>
+        <li>
+          Fabio Nobile, Raul Tempone, Clayton Webster,<br>
+          A Sparse Grid Stochastic Collocation Method for Partial Differential
+          Equations with Random Input Data,<br>
+          SIAM Journal on Numerical Analysis,<br>
+          Volume 46, Number 5, 2008, pages 2309-2345.
+        </li>
+        <li>
+          Dongbin Xiu, George Karniadakis,<br>
+          Modeling uncertainty in steady state diffusion problems via
+          generalized polynomial chaos,<br>
+          Computer Methods in Applied Mechanics and Engineering,<br>
+          Volume 191, 2002, pages 4927-4948.
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "stochastic_diffusion.cpp">stochastic_diffusion.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "stochastic_diffusion.hpp">stochastic_diffusion.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "stochastic_diffusion.sh">stochastic_diffusion.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "stochastic_diffusion_prb.cpp">stochastic_diffusion_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "stochastic_diffusion_prb.sh">stochastic_diffusion_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "stochastic_diffusion_prb_output.txt">stochastic_diffusion_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The test program makes a set of command and data files that can be used
+      by GNUPLOT to create graphic images.
+      <ul>
+        <li>
+          <a href = "bnt_data.txt">bnt_data.txt</a>,
+          the graphics data file.
+        </li>
+        <li>
+          <a href = "bnt_commands.txt">bnt_commands.txt</a>,
+          the GNUPLOT command file.
+        </li>
+        <li>
+          <a href = "bnt_contour.png">bnt_contour.png</a>,
+          a plot of the diffusivity as a function of X and Y.
+        </li>
+        <li>
+          <a href = "elman_data.txt">elman_data.txt</a>,
+          the graphics data file.
+        </li>
+        <li>
+          <a href = "elman_commands.txt">elman_commands.txt</a>,
+          the GNUPLOT command file.
+        </li>
+        <li>
+          <a href = "elman_contour.png">elman_contour.png</a>,
+          a plot of the diffusivity as a function of X and Y.
+        </li>
+        <li>
+          <a href = "ntw_data.txt">ntw_data.txt</a>,
+          the graphics data file.
+        </li>
+        <li>
+          <a href = "ntw_commands.txt">ntw_commands.txt</a>,
+          the GNUPLOT command file.
+        </li>
+        <li>
+          <a href = "ntw_contour.png">ntw_contour.png</a>,
+          a plot of the diffusivity as a function of X and Y.
+        </li>
+        <li>
+          <a href = "xk_data.txt">xk_data.txt</a>,
+          the graphics data file.
+        </li>
+        <li>
+          <a href = "xk_commands.txt">xk_commands.txt</a>,
+          the GNUPLOT command file.
+        </li>
+        <li>
+          <a href = "xk_contour.png">xk_contour.png</a>,
+          a plot of the diffusivity as a function of X.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>DIFFUSIVITY_1D_XK</b> evaluates a 1D stochastic diffusivity function.
+        </li>
+        <li>
+          <b>DIFFUSIVITY_2D_BNT</b> evaluates a 2D stochastic diffusivity function.
+        </li>
+        <li>
+          <b>DIFFUSIVITY_2D_ELMAN</b> evaluates a 2D stochastic diffusivity function.
+        </li>
+        <li>
+          <b>DIFFUSIVITY_2D_NTW</b> evaluates a 2D stochastic diffusivity function.
+        </li>
+        <li>
+          <b>R8_EPSILON</b> returns the R8 roundoff unit.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>R8MAT_MAX</b> returns the maximum entry of an R8MAT.
+        </li>
+        <li>
+          <b>R8VEC_LINSPACE</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
+          <b>R8VEC_MAX</b> returns the maximum value in an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_MESH_2D</b> creates a 2D mesh from X and Y vectors.
+        </li>
+        <li>
+          <b>R8VEC_NORMAL_01</b> returns a unit pseudonormal R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>THETA_SOLVE</b> solves a pair of transcendental equations.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last modified on 07 August 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>
+ 

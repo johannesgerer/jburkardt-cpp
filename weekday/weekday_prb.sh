@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c -g -I/$HOME/include weekday_prb.cpp >& compiler.txt
+g++ -c -I/$HOME/include weekday_prb.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling weekday_prb.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ weekday_prb.o /$HOME/libcpp/$ARCH/weekday.o -lm
 if [ $? -ne 0 ]; then

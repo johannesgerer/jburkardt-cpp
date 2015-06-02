@@ -28,7 +28,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    CITIES_PRB tests routines from the CITIES library.
+//    CITIES_PRB tests the CITIES library.
 //
 //  Licensing:
 //
@@ -46,7 +46,6 @@ int main ( )
   string filename;
 
   timestamp ( );
-
   cout << "\n";
   cout << "CITIES_PRB\n";
   cout << "  C++ version\n";
@@ -68,7 +67,6 @@ int main ( )
   cout << "\n";
   cout << "CITIES_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

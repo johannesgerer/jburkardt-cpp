@@ -1,0 +1,467 @@
+<html>
+
+  <head>
+    <title>
+      RANLIB - General Random Number Generators (RNG's)
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      RANLIB <br> General Random Number Generators (RNG's)
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>RANLIB</b>
+      is a C++ library which
+      produces random samples from  Probability Density Functions (PDF's), 
+      including Beta, Chi-square Exponential, F, Gamma, Multivariate normal,
+      Noncentral chi-square, Noncentral F, Univariate normal, random permutations,
+      Real uniform, Binomial, Negative Binomial, Multinomial, Poisson
+      and Integer uniform,
+      by Barry Brown and James Lovato.
+    </p>
+
+    <p>
+      <b>RANLIB</b> relies on streams of uniform random numbers generated
+      by a lower level package called <b>RNGLIB</b>.  A copy of <b>RNGLIB</b>
+      must be available in order for <b>RANLIB</b> to executed.
+      The <b>RNGLIB</b> routines provide 32 virtual random number generators.
+      Each generator can provide 1,048,576 blocks of numbers, and each block
+      is of length 1,073,741,824.  Any generator can be set to the beginning
+      or end of the current block or to its starting value.  Packaging is
+      provided so that if these capabilities are not needed, a single
+      generator with period 2.3 X 10^18 is seen.
+    </p>
+
+    <p>
+      The routines, and the probability density functions they sample, include:
+      <ul>
+        <li>
+          <b>GENBET</b>, Beta distribution;
+        </li>
+        <li>
+          <b>GENCHI</b>, Chi-Square distribution;
+        </li>
+        <li>
+          <b>GENEXP</b>, Exponential distribution;
+        </li>
+        <li>
+          <b>GENF</b>, F distribution;
+        </li>
+        <li>
+          <b>GENGAM</b>, Gamma distribution;
+        </li>
+        <li>
+          <b>GENMN</b>, multivariate normal distribution;
+        </li>
+        <li>
+          <b>GENMUL</b>, multinomial distribution;
+        </li>
+        <li>
+          <b>GENNCH</b>, noncentral Chi-Square distribution;
+        </li>
+        <li>
+          <b>GENNF</b>, noncentral F distribution;
+        </li>
+        <li>
+          <b>GENNOR</b>, normal distribution;
+        </li>
+        <li>
+          <b>GENUNF</b>, uniform distribution on [0,1];
+        </li>
+        <li>
+          <b>IGNBIN</b>, binomial distribution;
+        </li>
+        <li>
+          <b>IGNLGI</b>, uniform distribution on integers between 1 and 2147483562;
+        </li>
+        <li>
+          <b>IGNNBN</b>, negative binomial distribution.
+        </li>
+        <li>
+          <b>IGNPOI</b>, Poisson distribution.
+        </li>
+        <li>
+          <b>IGNUIN</b>, uniform distribution on integers in a given range.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>RANLIB</b> is available in
+      <a href = "../../c_src/ranlib/ranlib.html">a C version</a> and
+      <a href = "../../cpp_src/ranlib/ranlib.html">a C++ version</a> and
+      <a href = "../../f77_src/ranlib/ranlib.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/ranlib/ranlib.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/ranlib/ranlib.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/asa183/asa183.html">
+      ASA183</a>,
+      a C++ library which
+      implements a random number generator (RNG),
+      by Wichman and Hill.
+      This is a C++ version of Applied Statistics Algorithm 183.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/faure/faure.html">
+      FAURE</a>,
+      a C++ library which
+      computes elements of a Faure quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/halton/halton.html">
+      HALTON</a>,
+      a C++ library which
+      computes elements of a Halton quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/hammersley/hammersley.html">
+      HAMMERSLEY</a>,
+      a C++ library which
+      computes elements of a Hammersley quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/niederreiter2/niederreiter2.html">
+      NIEDERREITER2</a>,
+      a C++ library which
+      computes elements of a Niederreiter quasirandom sequence with base 2.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/normal/normal.html">
+      NORMAL</a>,
+      a C++ library which
+      computes elements of a
+      sequence of pseudorandom normally distributed values.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/prob/prob.html">
+      PROB</a>,
+      a C++ library which
+      evaluates, samples and inverts a number of Probability Density Functions (PDF's).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rand48/rand48.html">
+      RAND48</a>,
+      a C++ program which
+      demonstrates the use of the rand48 family of random number generators (RNG's)
+      available in the C/C++ standard library.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/randlc/randlc.html">
+      RANDLC</a>,
+      a C++ library which
+      implements a random number generator (RNG)
+      used by the NAS Benchmark programs.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/rnglib/rnglib.html">
+      RNGLIB</a>,
+      a C++ library which
+      implements a random number generator (RNG) with splitting facilities,
+      allowing multiple independent streams to be computed,
+      by L'Ecuyer and Cote.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sobol/sobol.html">
+      SOBOL</a>,
+      a C++ library which
+      computes elements of a Sobol quasirandom sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/uniform/uniform.html">
+      UNIFORM</a>,
+      a C++ library which
+      computes elements of a pseudorandom uniform sequence.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/van_der_corput/van_der_corput.html">
+      VAN_DER_CORPUT</a>,
+      a C++ library which
+      computes elements of a van der Corput quasirandom sequence.
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Original FORTRAN77 version by Barry Brown, James Lovato.
+      C++ version by John Burkardt.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Joachim Ahrens, Ulrich Dieter,<br>
+          Computer Methods for Sampling From the
+          Exponential and Normal Distributions,<br>
+          Communications of the ACM,<br>
+          Volume 15, Number 10, October 1972, pages 873-882.
+        </li>
+        <li>
+          Joachim Ahrens, Ulrich Dieter,<br>
+          Generating Gamma Variates by a Modified Rejection Technique,<br>
+          Communications of the ACM,<br>
+          Volume 25, Number 1, January 1982, pages 47-54.
+        </li>
+        <li>
+          Joachim Ahrens, Ulrich Dieter,<br>
+          Computer Generation of Poisson Deviates
+          From Modified Normal Distributions,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 8, Number 2, June 1982, pages 163-179.
+        </li>
+        <li>
+          Joachim Ahrens, Ulrich Dieter,<br>
+          Computer Methods for Sampling from Gamma, Beta, Poisson and
+          Binomial Distributions,<br>
+          Computing,<br>
+          Volume 12, Number 3, September 1974, pages 223-246.
+        </li>
+        <li>
+          Joachim Ahrens, Ulrich Dieter,<br>
+          Extensions of Forsythe's Method for Random
+          Sampling from the Normal Distribution,<br>
+          Mathematics of Computation,<br>
+          Volume 27, Number 124, October 1973, page 927-937.
+        </li>
+        <li>
+          Russell Cheng,<br>
+          Generating Beta Variates with Nonintegral Shape Parameters,<br>
+          Communications of the ACM,<br>
+          Volume 21, Number 4, April 1978, pages 317-322.
+        </li>
+        <li>
+          Luc Devroye,<br>
+          Non-Uniform Random Variate Generation,<br>
+          Springer, 1986,<br>
+          ISBN: 0387963057,<br>
+          LC: QA274.D48.
+        </li>
+        <li>
+          Voratas Kachitvichyanukul, Bruce Schmeiser,<br>
+          Binomial Random Variate Generation,<br>
+          Communications of the ACM,<br>
+          Volume 31, Number 2, February 1988, page 216-222.
+        </li>
+        <li>
+          Pierre LEcuyer, Serge Cote,<br>
+          Implementing a Random Number Package with Splitting Facilities,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 17, Number 1, March 1991, pages 98-111.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ranlib.cpp">ranlib.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "ranlib.hpp">ranlib.hpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "ranlib.sh">ranlib.sh</a>,
+          commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ranlib_prb.cpp">ranlib_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "ranlib_prb.sh">ranlib_prb.sh</a>,
+          commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "ranlib_prb_output.txt">ranlib_prb_output.txt</a>,
+          the output from a run of the sample program.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>CH_CAP</b> capitalizes a single character.
+        </li>
+        <li>
+          <b>COVAR</b> computes the covariance of two vectors.
+        </li>
+        <li>
+          <b>GENBET</b> generates a beta random deviate.
+        </li>
+        <li>
+          <b>GENCHI</b> generates a Chi-Square random deviate.
+        </li>
+        <li>
+          <b>GENEXP</b> generates an exponential random deviate.
+        </li>
+        <li>
+          <b>GENF</b> generates an F random deviate.
+        </li>
+        <li>
+          <b>GENGAM</b> generates a Gamma random deviate.
+        </li>
+        <li>
+          <b>GENMN</b> generates a multivariate normal deviate.
+        </li>
+        <li>
+          <b>GENMUL</b> generates a multinomial random deviate.
+        </li>
+        <li>
+          <b>GENNCH</b> generates a noncentral Chi-Square random deviate.
+        </li>
+        <li>
+          <b>GENNF</b> generates a noncentral F random deviate.
+        </li>
+        <li>
+          <b>GENNOR</b> generates a normal random deviate.
+        </li>
+        <li>
+          <b>GENPRM</b> generates and applies a random permutation to an array.
+        </li>
+        <li>
+          <b>GENUNF</b> generates a uniform random deviate.
+        </li>
+        <li>
+          <b>I4_MAX</b> returns the maximum of two I4's.
+        </li>
+        <li>
+          <b>I4_MIN</b> returns the smaller of two I4's.
+        </li>
+        <li>
+          <b>IGNBIN</b> generates a binomial random deviate.
+        </li>
+        <li>
+          <b>IGNNBN</b> generates a negative binomial random deviate.
+        </li>
+        <li>
+          <b>IGNPOI</b> generates a Poisson random deviate.
+        </li>
+        <li>
+          <b>IGNUIN</b> generates a random integer in a given range.
+        </li>
+        <li>
+          <b>LENNOB</b> counts the length of a string, ignoring trailing blanks.
+        </li>
+        <li>
+          <b>PHRTST</b> converts a phrase to a pair of random number generator seeds.
+        </li>
+        <li>
+          <b>PRCOMP</b> prints covariance information.
+        </li>
+        <li>
+          <b>R4_MAX</b> returns the maximum of two R4's.
+        </li>
+        <li>
+          <b>R4_MIN</b> returns the minimum of two R4's.
+        </li>
+        <li>
+          <b>S_EQI</b> reports whether two strings are equal, ignoring case.
+        </li>
+        <li>
+          <b>SDOT</b> forms the dot product of two vectors.
+        </li>
+        <li>
+          <b>SETCOV</b> sets a covariance matrix from variance and common correlation.
+        </li>
+        <li>
+          <b>SETGMN</b> sets data for the generation of multivariate normal deviates.
+        </li>
+        <li>
+          <b>SEXPO</b> evaluates the standard exponential distribution.
+        </li>
+        <li>
+          <b>SGAMMA</b> returns a deviate from the standard Gamma distribution.
+        </li>
+        <li>
+          <b>SNORM</b> returns a deviate from the standard normal distribution.
+        </li>
+        <li>
+          <b>SPOFA</b> factors a real symmetric positive definite matrix.
+        </li>
+        <li>
+          <b>STATS</b> computes statistics for a given array.
+        </li>
+        <li>
+          <b>TRSTAT</b> returns the mean and variance for distributions.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 03 April 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

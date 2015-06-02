@@ -1,0 +1,14 @@
+# fx6_commands.txt
+#
+# Usage:
+#  gnuplot < fx6_commands.txt
+#
+set term png
+set output 'fx6.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title '1D Test Function #6'
+set grid
+set style data lines
+plot 'fx6_data.txt' using 1:2 with points lt 3 pt 4 linecolor rgb 'blue'
+quit

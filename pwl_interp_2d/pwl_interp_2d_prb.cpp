@@ -19,23 +19,27 @@ void test01 ( int prob, int n );
 int main ( )
 
 //****************************************************************************80
-/*
-  Purpose:
-
-    PWL_INTERP_2D_TEST tests PWL_INTERP_2D.
-
-  Licensing:
-
-    This code is distributed under the GNU LGPL license.
-
-  Modified:
-
-    15 October 2012
-
-  Author:
-
-    John Burkardt
-*/
+//
+//  Purpose:
+//
+//    MAIN is the main program for PWL_INTERP_2D_PRB.
+//
+//  Discussion:
+//
+//    PWL_INTERP_2D_TEST tests the PWL_INTERP_2D library.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 October 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
 {
   int i;
   int n;
@@ -80,29 +84,29 @@ int main ( )
 void test01 ( int prob, int n )
 
 //****************************************************************************80
-/*
-  Purpose:
-
-    PWL_INTERP_2D_TEST01 tests PWL_INTERP_2D.
-
-  Licensing:
-
-    This code is distributed under the GNU LGPL license.
-
-  Modified:
-
-    15 October 2012
-
-  Author:
-
-    John Burkardt
-
-  Parameters:
-
-    Input, int PROB, the problem number.
-
-    Input, int N, the grid size in each dimension.
-*/
+//
+//  Purpose:
+//
+//    PWL_INTERP_2D_TEST01 tests PWL_INTERP_2D.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    15 October 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int PROB, the problem number.
+//
+//    Input, int N, the grid size in each dimension.
+//
 {
   double app_error;
   int i;

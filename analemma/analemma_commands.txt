@@ -1,0 +1,21 @@
+set term png
+set grid
+set style data lines
+unset key
+set output "eot.png"
+set xlabel '<---Normalized Date--->'
+set ylabel '<---Minutes Early/Late--->'
+set title 'The equation of time'
+plot 'analemma_data.txt' using 1:2 with lines
+set output "declination.png"
+set xlabel '<---Normalized Date--->'
+set ylabel '<---Degrees North/South--->'
+set title 'Declination'
+plot 'analemma_data.txt' using 1:3 with lines
+set output "analemma.png"
+set xlabel '<---Minutes Early/Late--->'
+set ylabel '<---Degrees North/South--->'
+set title 'The analemma'
+plot 'analemma_data.txt' using 2:3 with lines
+quit
+

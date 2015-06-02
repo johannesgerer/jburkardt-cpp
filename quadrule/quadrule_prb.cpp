@@ -1,7 +1,7 @@
+# include <cmath>
 # include <cstdlib>
 # include <iostream>
 # include <iomanip>
-# include <cmath>
 # include <cstring>
 
 using namespace std;
@@ -9,27 +9,31 @@ using namespace std;
 # include "quadrule.hpp"
 
 int main ( );
-void test01 ( );
+void bashforth_set_test ( );
 void test02 ( );
 void test03 ( );
 void test04 ( );
-void test05 ( );
+void chebyshev1_compute_test ( );
 void test06 ( );
-void test07 ( );
-void test0725 ( );
-void test075 ( );
-void test076 ( );
-void test078 ( );
-void test079 ( int order, double alpha );
+void test065 ( int n );
+void chebyshev3_compute_test ( );
+void clenshaw_curtis_compute_test ( );
+void clenshaw_curtis_set_test ( );
+void fejer1_compute_test ( );
+void fejer1_set_test ( );
+void fejer2_compute_test ( );
+void fejer2_set_test ( );
+void gegenbauer_compute_test ( int order, double alpha );
 void test08 ( );
 void test085 ( );
 void test087 ( );
+void test089 ( );
 void test09 ( );
 void test095 ( );
 void test096 ( );
 void test10 ( );
 void test105 ( );
-void test108 ( int order );
+void test108 ( int n );
 void test11 ( );
 void test12 ( );
 void test13 ( );
@@ -56,10 +60,10 @@ void test31 ( );
 void test32 ( );
 void test33 ( );
 void test34 ( );
-void test345 ( );
-void test35 ( );
-void test36 ( );
-void test37 ( );
+void lobatto_compute_test ( );
+void lobatto_set_test ( );
+void moulton_set_test ( );
+void ncc_set_test ( );
 void test38 ( );
 void test39 ( );
 void test40 ( );
@@ -87,7 +91,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    QUADRULE_PRB calls a set of tests for the QUADRULE library.
+//    QUADRULE_PRB tests the QUADRULE library.
 //
 //  Licensing:
 //
@@ -95,7 +99,7 @@ int main ( )
 //
 //  Modified:
 //
-//    02 May 2011
+//    17 April 2015
 //
 //  Author:
 //
@@ -113,37 +117,42 @@ int main ( )
   cout << "  C++ version\n";
   cout << "  Test the QUADRULE library.\n";
 
-  test01 ( );
+  bashforth_set_test ( );
   test02 ( );
   test03 ( );
   test04 ( );
-  test05 ( );
+  chebyshev1_compute_test ( );
   test06 ( );
-  test07 ( );
-  test0725 ( );
-  test075 ( );
-  test076 ( );
-  test078 ( );
+  n = 10;
+  test065 ( n );
+  chebyshev3_compute_test ( );
+  clenshaw_curtis_compute_test ( );
+  clenshaw_curtis_set_test ( );
+  fejer1_compute_test ( );
+  fejer1_set_test ( );
+  fejer2_compute_test ( );
+  fejer2_set_test ( );
 
-  order = 5;
+  n = 5;
   alpha = 0.5;
-  test079 ( order, alpha );
+  gegenbauer_compute_test ( n, alpha );
 
-  order = 10;
+  n = 10;
   alpha = - 0.5;
-  test079 ( order, alpha );
+  gegenbauer_compute_test ( n, alpha );
 
   test08 ( );
   test085 ( );
   test087 ( );
+  test089 ( );
   test09 ( );
   test095 ( );
   test096 ( );
 
   test10 ( );
   test105 ( );
-  order = 10;
-  test108 ( order );
+  n = 10;
+  test108 ( n );
   test11 ( );
   test12 ( );
   test13 ( );
@@ -151,17 +160,17 @@ int main ( )
   test15 ( );
   test16 ( );
 
-  order = 11;
+  n = 11;
   alpha = 0.0;
-  test165 ( order, alpha );
+  test165 ( n, alpha );
 
-  order = 11;
+  n = 11;
   alpha = 0.5;
-  test165 ( order, alpha );
+  test165 ( n, alpha );
 
-  order = 11;
+  n = 11;
   alpha = 2.0;
-  test165 ( order, alpha );
+  test165 ( n, alpha );
 
   test17 ( );
 //
@@ -196,10 +205,10 @@ int main ( )
   test32 ( );
   test33 ( );
   test34 ( );
-  test345 ( );
-  test35 ( );
-  test36 ( );
-  test37 ( );
+  lobatto_compute_test ( );
+  lobatto_set_test ( );
+  moulton_set_test ( );
+  ncc_set_test ( );
   test38 ( );
   test39 ( );
 
@@ -215,7 +224,6 @@ int main ( )
   cout << "\n";
   cout << "QUADRULE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
  
@@ -223,13 +231,13 @@ int main ( )
 }
 //****************************************************************************80
 
-void test01 ( )
+void bashforth_set_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST01 tests BASHFORTH_SET and SUMMER.
+//    BASHFORTH_SET_TEST tests BASHFORTH_SET.
 //
 //  Licensing:
 //
@@ -244,70 +252,36 @@ void test01 ( )
 //    John Burkardt
 //
 {
-  int function_num;
   int i;
-  int ihi;
-  int ilo;
   int n;
-  int n_max = 10;
-  double *result;
   double *w;
   double *x;
 
-  function_set ( "COUNT", &function_num );
-
-  result = new double[function_num];
-
   cout << "\n";
-  cout << "TEST01\n";
+  cout << "BASHFORTH_SET_TEST\n";
   cout << "  BASHFORTH_SET sets up an Adams-Bashforth rule;\n";
-  cout << "  SUMMER carries it out.\n";
   cout << "\n";
-  cout << "  The integration interval is [0,1].\n";
-  cout << "  Quadrature order will vary.\n";
-  cout << "  Integrand will vary.\n";
+  cout << "  Index             X                   W\n";
   cout << "\n";
 
-  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  for ( n = 1; n <= 10; n++ )
   {
-    ihi = i4_min ( ilo + 4, function_num - 1 );
+    w = new double[n];
+    x = new double[n];
+
+    bashforth_set ( n, x, w );
 
     cout << "\n";
-    cout << "  Order  ";
-    for ( i = ilo; i <= ihi; i++ )
+
+    for ( i = 0; i < n; i++ )
     {
-      cout << setw(10) << function_name ( i ) << "    ";
+      cout << "  " << setw(2) << i 
+           << "  " << setw(24) << x[i]
+           << "  " << setw(24) << w[i] << "\n";
     }
-    cout << "\n";
-    cout << "\n";
-
-    for ( n = 1; n <= n_max; n++ )
-    {
-      x = new double[n];
-      w = new double[n];
-
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        function_set ( "SET", &i );
-
-        bashforth_set ( n, x, w );
- 
-        result[i] = summer ( function_value, n, x, w );
- 
-      }
-      cout << "  " << setw(2) << n << "  ";
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        cout << "  " << setw(12) << setprecision(8) << result[i];
-      }
-      cout << "\n";
-
-      delete [] x;
-      delete [] w;
-    }
+    delete [] w;
+    delete [] x;
   }
-
-  delete [] result;
  
   return;
 }
@@ -499,7 +473,7 @@ void test04 ( )
 //
 //  Purpose:
 //
-//    TEST04 tests CHEB_SET and SUM_SUB.
+//    TEST04 tests CHEBYSHEV_SET and SUM_SUB.
 //
 //  Licensing:
 //
@@ -520,14 +494,14 @@ void test04 ( )
   int i;
   int ihi;
   int ilo;
+  int n;
+  int n_max = 9;
   int nsub;
-  int order;
-  int order_max = 9;
   double *result;
-  double *weight;
+  double *w;
+  double *x;
   double xhi;
   double xlo;
-  double *xtab;
 
   function_set ( "COUNT", &function_num );
 
@@ -543,7 +517,7 @@ void test04 ( )
 
   cout << "\n";
   cout << "TEST04\n";
-  cout << "  CHEB_SET sets up a Chebyshev rule;\n";
+  cout << "  CHEBYSHEV_SET sets up a Chebyshev rule;\n";
   cout << "  SUM_SUB carries it out.\n";
   cout << "\n";
   cout << "  The integration interval is [" << a << "," << b << "].\n";
@@ -565,34 +539,34 @@ void test04 ( )
     cout << "\n";
     cout << "\n";
 
-    for ( order = 1; order <= order_max; order++ )
+    for ( n = 1; n <= n_max; n++ )
     {
-      if ( order == 8 )
+      if ( n == 8 )
       {
         continue;
       }
 
-      xtab = new double[order];
-      weight = new double[order];
+      x = new double[n];
+      w = new double[n];
 
       for ( i = ilo; i <= ihi; i++ )
       {
         function_set ( "SET", &i );
 
-        cheb_set ( order, xtab, weight );
+        chebyshev_set ( n, x, w );
  
-        result[i] = sum_sub ( function_value, a, b, nsub, order, 
-          xlo, xhi, xtab, weight ); 
+        result[i] = sum_sub ( function_value, a, b, nsub, n, 
+          xlo, xhi, x, w ); 
       }
-      cout << setw(2) << order << "  ";
+      cout << setw(2) << n << "  ";
       for ( i = ilo; i <= ihi; i++ )
       {
         cout << "  " << setw(12) << setprecision(8) << result[i];
       }
       cout << "\n";
 
-      delete [] xtab;
-      delete [] weight;
+      delete [] x;
+      delete [] w;
     }
   }
 
@@ -602,13 +576,13 @@ void test04 ( )
 }
 //****************************************************************************80
 
-void test05 ( )
+void chebyshev1_compute_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST05 tests CHEBYSHEV1_COMPUTE and SUMMER.
+//    CHEBYSHEV1_COMPUTE_TEST tests CHEBYSHEV1_COMPUTE
 //
 //  Licensing:
 //
@@ -616,85 +590,46 @@ void test05 ( )
 //
 //  Modified:
 //
-//    04 March 2008
+//    15 April 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  double a;
-  double b;
-  int function_num;
   int i;
-  int ihi;
-  int ilo;
-  int nsub;
-  int order;
-  int order_max = 6;
-  double *result;
-  double *weight;
-  double *xtab;
-
-  function_set ( "COUNT", &function_num );
-
-  result = new double[function_num];
-
-  a = -1.0;
-  b =  1.0;
-  nsub = 1;
+  int n;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST05\n";
-  cout << "  CHEBYSHEV1_COMPUTE sets up a Gauss-Chebyshev type 1 rule,\n";
-  cout << "  SUMMER carries it out.\n";
+  cout << "CHEBYSHEV1_COMPUTE_TEST\n";
+  cout << "  CHEBYSHEV1_COMPUTE computes\n";
+  cout << "  a Chebyshev Type 1 quadrature rule over [-1,1]\n";
+  cout << "  of given order.\n";
+
   cout << "\n";
-  cout << "  The integration interval is [" << a << "," << b << "].\n";
-  cout << "  The number of subintervals is " << nsub << "\n";
-  cout << "  Quadrature order will vary.\n";
-  cout << "  Integrand will vary.\n";
-  cout << "  The weight function is 1 / sqrt ( 1 - X**2 )\n";
+  cout << "  Index             X                   W\n";
   cout << "\n";
 
-  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  for ( n = 1; n <= 10; n++ )
   {
-    ihi = i4_min ( ilo + 4, function_num - 1 );
+    w = new double[n];
+    x = new double[n];
+
+    chebyshev1_compute ( n, x, w );
 
     cout << "\n";
-    cout << "Order  ";
-    for ( i = ilo; i <= ihi; i++ )
+
+    for ( i = 0; i < n; i++ )
     {
-      cout << setw(10) << function_name ( i ) << "    ";
+      cout << "  " << setw(2) << i 
+           << "  " << setw(24) << x[i]
+           << "  " << setw(24) << w[i] << "\n";
     }
-    cout << "\n";
-    cout << "\n";
-
-    for ( order = 1; order <= order_max; order++ )
-    {
-      xtab = new double[order];
-      weight = new double[order];
-
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        function_set ( "SET", &i );
-
-        chebyshev1_compute ( order, xtab, weight );
- 
-        result[i] = summer ( function_value, order, xtab, weight ); 
-      }
-      cout << setw(2) << order << "  ";
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        cout << "  " << setw(12) << setprecision(6) << result[i];
-      }
-      cout << "\n";
-
-      delete [] xtab;
-      delete [] weight;
-    }
+    delete [] w;
+    delete [] x;
   }
-
-  delete [] result;
 
   return;
 }
@@ -706,7 +641,7 @@ void test06 ( )
 //
 //  Purpose:
 //
-//    TEST06 tests CHEBYSHEV2_COMPUTE and SUMMER.
+//    TEST06 tests CHEBYSHEV2_COMPUTE.
 //
 //  Licensing:
 //
@@ -727,6 +662,7 @@ void test06 ( )
   int i;
   int ihi;
   int ilo;
+  int j;
   int nsub;
   int order;
   int order_max = 4;
@@ -745,7 +681,6 @@ void test06 ( )
   cout << "\n";
   cout << "TEST06\n";
   cout << "  CHEBYSHEV2_COMPUTE sets up a Gauss-Chebyshev type 2 rule,\n";
-  cout << "  SUMMER carries it out.\n";
   cout << "\n";
   cout << "  The integration interval is [" << a << "," << b << "].\n";
   cout << "  The number of subintervals is " << nsub << "\n";
@@ -783,7 +718,11 @@ void test06 ( )
 
         chebyshev2_compute ( order, xtab, weight );
  
-        result[i] = summer ( function_value, order, xtab, weight ); 
+        result[i] = 0.0;
+        for ( j = 0; j < order; j++ )
+        {
+          result[i] = result[i] + weight[j] * function_value ( xtab[j] );
+        }  
       }
       cout << setw(2) << order << "  ";
       for ( i = ilo; i <= ihi; i++ )
@@ -803,13 +742,13 @@ void test06 ( )
 }
 //****************************************************************************80
 
-void test07 ( )
+void test065 ( int n )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST07 tests CHEBYSHEV3_COMPUTE and SUMMER.
+//    TEST065 uses CHEBSHEV2_COMPUTE to integral over the semicircle.
 //
 //  Licensing:
 //
@@ -817,97 +756,412 @@ void test07 ( )
 //
 //  Modified:
 //
-//    04 March 2008
+//    08 January 2013
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  double a;
-  double b;
-  int function_num;
+  double error;
+  double exact;
+  double *f;
   int i;
-  int ihi;
-  int ilo;
-  int nsub;
-  int order;
-  int order_max = 6;
-  double *result;
-  double *weight;
-  double *xtab;
-
-  function_set ( "COUNT", &function_num );
-
-  result = new double[function_num];
-
-  a = -1.0;
-  b =  1.0;
-  nsub = 1;
+  double q;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST07\n";
-  cout << "  CHEBYSHEV3_COMPUTE sets up a Gauss-Chebyshev type 3 rule,\n";
-  cout << "  SUMMER carries it out.\n";
+  cout << "TEST065\n";
+  cout << "  Approximate the integral of f(x,y) over the semicircle\n";
+  cout << "    -1 <= x <= 1, y = sqrt ( 1 - x^2 )\n";
+  cout << "  using N Chebyshev points.\n";
+  cout << "  If p(x,y) involves any term of odd degree in y,\n";
+  cout << "  the estimate will only be approximate.\n";
   cout << "\n";
-  cout << "  The integration interval is [" << a << "," << b << "].\n";
-  cout << "  The number of subintervals is " << nsub << "\n";
-  cout << "  Quadrature order will vary.\n";
-  cout << "  Integrand will vary.\n";
-  cout << "  The weight function is 1 / sqrt ( 1 - X**2 )\n";
+  cout << "  Polynomial    N    Integral        Estimate       Error\n";
   cout << "\n";
 
-  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  f = new double[n];
+  x = new double[n];
+  w = new double[n];
+
+  chebyshev2_compute ( n, x, w );
+//
+//  f(x,y) = 1
+//
+  exact = 1.5707963267948966192;
+  for ( i = 0; i < n; i++ )
   {
-    ihi = i4_min ( ilo + 4, function_num - 1 );
-
-    cout << "\n";
-    cout << "Order  ";
-    for ( i = ilo; i <= ihi; i++ )
-    {
-      cout << setw(10) << function_name ( i ) << "    ";
-    }
-    cout << "\n";
-    cout << "\n";
-
-    for ( order = 1; order <= order_max; order++ )
-    {
-      xtab = new double[order];
-      weight = new double[order];
-
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        function_set ( "SET", &i );
-
-        chebyshev3_compute ( order, xtab, weight );
- 
-        result[i] = summer ( function_value, order, xtab, weight ); 
-      }
-      cout << setw(2) << order << "  ";
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        cout << "  " << setw(12) << setprecision(6) << result[i];
-      }
-      cout << "\n";
-
-      delete [] xtab;
-      delete [] weight;
-    }
+    f[i] = 1.0;
   }
+  q = r8vec_dot_product ( n, w, f );
+  error = r8_abs ( q - exact );
+  cout << "  1            "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x
+//
+  exact = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = x[i];
+  }
+  q = r8vec_dot_product ( n, w, f );
+  error = r8_abs ( q - exact );
+  cout << "  x            "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = y = sqrt ( 1 - x^2 )
+//
+  exact = 0.66666666666666666667;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = sqrt ( 1.0 - pow ( x[i], 2 ) );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 2.0;
+  error = r8_abs ( q - exact );
+  cout << "     y         "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^2
+//
+  exact = 0.39269908169872415481;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 2 );
+  }
+  q = r8vec_dot_product ( n, w, f );
+  error = r8_abs ( q - exact );
+  cout << "  x^2          "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = xy = x * sqrt ( 1 - x^2 )
+//
+  exact = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = x[i] * sqrt ( 1.0 - pow ( x[i], 2 ) );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 2.0;
+  error = r8_abs ( q - exact );
+  cout << "  x  y         "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = y^2 -> ( 1 - x^2 )
+//
+  exact = 0.39269908169872415481;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = 1.0 - pow ( x[i], 2 );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 3.0;
+  error = r8_abs ( q - exact );
+  cout << "     y^2       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^3
+//
+  exact = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 3 );
+  }
+  q = r8vec_dot_product ( n, w, f );
+  error = r8_abs ( q - exact );
+  cout << "  x^3          "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^2 y = x^2 sqrt ( 1 - x^2 )
+//
+  exact = 0.13333333333333333333;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 2 ) * sqrt ( 1.0 - pow ( x[i], 2 ) );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 2.0;
+  error = r8_abs ( q - exact );
+  cout << "  x^2y         "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x y^2 = x * ( 1 - x^2 )
+//
+  exact = 0.0;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = x[i] * ( 1.0 - pow ( x[i], 2 ) );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 3.0;
+  error = r8_abs ( q - exact );
+  cout << "  x  y^2       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = y^3
+//
+  exact = 0.26666666666666666667;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( 1.0 - pow ( x[i], 2 ), 1.5 );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 4.0;
+  error = r8_abs ( q - exact );
+  cout << "     y^3       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^4
+//
+  exact = 0.19634954084936207740;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 4 );
+  }
+  q = r8vec_dot_product ( n, w, f );
+  error = r8_abs ( q - exact );
+  cout << "  x^4          "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^2y^2 -> x^2( 1 - x^2 )
+//
+  exact = 0.065449846949787359135;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 2 ) * ( 1.0 - pow ( x[i], 2 ) );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 3.0;
+  error = r8_abs ( q - exact );
+  cout << "  x^2y^2       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = y^4 -> ( 1 - x^2 )^2
+//
+  exact = 0.19634954084936207740;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( 1.0 - pow ( x[i], 2 ), 2 );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 5.0;
+  error = r8_abs ( q - exact );
+  cout << "     y^4       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^4y = x^4 sqrt ( 1 - x^2 )
+//
+  exact = 0.057142857142857142857;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 4 ) * sqrt ( 1.0 - pow ( x[i], 2 ) );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 2.0;
+  error = r8_abs ( q - exact );
+  cout << "  x^4y         "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  x^2y^3 = x^2 ( 1 - x^2 )^(3/2)
+//
+  exact = 0.038095238095238095238;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 2 ) * pow ( 1.0 - pow ( x[i], 2 ), 1.5 );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 4.0;
+  error = r8_abs ( q - exact );
+  cout << "  x^2y^3       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = y^5
+//
+  exact = 0.15238095238095238095;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( 1.0 - pow ( x[i], 2 ), 2.5 );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 6.0;
+  error = r8_abs ( q - exact );
+  cout << "     y^5       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^6
+//
+  exact = 0.12271846303085129838;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 6 );
+  }
+  q = r8vec_dot_product ( n, w, f );
+  error = r8_abs ( q - exact );
+  cout << "  x^6          "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^4y^2 -> x^4( 1 - x^2 )
+//
+  exact = 0.024543692606170259675;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 4 ) * ( 1.0 - pow ( x[i], 2 ) );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 3.0;
+  error = r8_abs ( q - exact );
+  cout << "  x^4y^2       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = x^2y^4 -> x^2( 1 - x^2 )^2
+//
+  exact = 0.024543692606170259675;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( x[i], 2 ) * pow ( 1.0 - pow ( x[i], 2 ), 2 );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 5.0;
+  error = r8_abs ( q - exact );
+  cout << "  x^2y^4       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
+//
+//  f(x,y) = y^6 -> ( 1 - x^2 )^3
+//
+  exact = 0.12271846303085129838;
+  for ( i = 0; i < n; i++ )
+  {
+    f[i] = pow ( 1.0 - pow ( x[i], 2 ), 3 );
+  }
+  q = r8vec_dot_product ( n, w, f ) / 7.0;
+  error = r8_abs ( q - exact );
+  cout << "     y^6       "
+       << "  " << setw(2) << n
+       << "  " << setw(14) << exact
+       << "  " << setw(14) << q
+       << "  " << setw(14) << error << "\n";
 
-  delete [] result;
+  delete [] f;
+  delete [] w;
+  delete [] x;
 
   return;
 }
 //****************************************************************************80
 
-void test0725 ( )
+void chebyshev3_compute_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0725 tests CLENSHAW_CURTIS_COMPUTE
+//    CHEBYSHEV3_COMPUTE_TEST tests CHEBYSHEV3_COMPUTE
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    17 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "CHEBYSHEV3_COMPUTE_TEST\n";
+  cout << "  CHEBYSHEV3_COMPUTE computes\n";
+  cout << "  a Chebyshev Type 3 quadrature rule over [-1,1]\n";
+  cout << "  of given order.\n";
+
+  cout << "\n";
+  cout << "  Index             X                   W\n";
+  cout << "\n";
+
+  for ( n = 1; n <= 10; n++ )
+  {
+    w = new double[n];
+    x = new double[n];
+
+    chebyshev3_compute ( n, x, w );
+
+    cout << "\n";
+
+    for ( i = 0; i < n; i++ )
+    {
+      cout << "  " << setw(2) << i 
+           << "  " << setw(24) << x[i]
+           << "  " << setw(24) << w[i] << "\n";
+    }
+    delete [] w;
+    delete [] x;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void clenshaw_curtis_compute_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CLENSHAW_CURTIS_COMPUTE_TEST tests CLENSHAW_CURTIS_COMPUTE
 //
 //  Licensing:
 //
@@ -929,13 +1183,13 @@ void test0725 ( )
   double *x;
 
   cout << "\n";
-  cout << "TEST0725\n";
+  cout << "CLENSHAW_CURTIS_COMPUTE_TEST\n";
   cout << "  CLENSHAW_CURTIS_COMPUTE computes\n";
   cout << "  a Clenshaw-Curtis quadrature rule over [-1,1]\n";
   cout << "  of given order.\n";
 
   cout << "\n";
-  cout << "    Order  W             X\n";
+  cout << "  Index             X                   W\n";
   cout << "\n";
 
   for ( order = 1; order <= order_max; order++ )
@@ -946,9 +1200,132 @@ void test0725 ( )
     clenshaw_curtis_compute ( order, x, w );
 
     cout << "\n";
-    cout << "  " << setw(8) << order << "\n";
 
     for ( i = 0; i < order; i++ )
+    {
+      cout << "  " << setw(2) << i 
+           << "  " << setw(24) << x[i]
+           << "  " << setw(24) << w[i] << "\n";
+    }
+    delete [] w;
+    delete [] x;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void clenshaw_curtis_set_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CLENSHAW_CURTIS_SET_TEST tests CLENSHAW_CURTIS_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    03 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double e;
+  double exact;
+  int i;
+  int n;
+  double q;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "CLENSHAW_CURTIS_SET_TEST\n";
+  cout << "  CLENSHAW_CURTIS_SET sets up a Clenshaw-Curtis rule;\n";
+  cout << "\n";
+  cout << "  Estimate the integral of sqrt(abs(x)) over [-1,+1].\n";
+  cout << "\n";
+  cout << "   N           Estimate             Error\n";
+  cout << "\n";
+
+  exact = 4.0 / 3.0;
+
+  for ( n = 1; n <= 10; n++ )
+  {
+    x = new double[n];
+    w = new double[n];
+
+    clenshaw_curtis_set ( n, x, w );
+
+    q = 0.0;
+    for ( i = 0; i < n; i++ )
+    {
+      q = q + w[i] * sqrt ( fabs ( x[i] ) );
+    }
+
+    e = fabs ( q - exact );
+
+    cout << "  " << setw(2) << n
+         << "  " << setw(24) << q
+         << "  " << setw(14) << e << "\n";
+
+    delete [] w;
+    delete [] x;
+  }
+  return;
+}
+//****************************************************************************80
+
+void fejer1_compute_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    FEJER1_COMPUTE_TEST tests FEJER1_COMPUTE.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    15 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n;
+  int n_max = 10;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "FEJER1_COMPUTE_TEST\n";
+  cout << "  FEJER1_COMPUTE computes a Fejer type 1 quadrature rule;\n";
+  cout << "\n";
+  cout << "     Order        W               X\n";
+  cout << "\n";
+
+  for ( n = 1; n <= n_max; n++ )
+  {
+    w = new double[n];
+    x = new double[n];
+
+    fejer1_compute ( n, x, w );
+
+    cout << "\n";
+    cout << "  " << setw(8) << n << "\n";
+
+    for ( i = 0; i < n; i++ )
     {
       cout << "          "
            << "  " << setw(14) << w[i]
@@ -962,13 +1339,13 @@ void test0725 ( )
 }
 //****************************************************************************80
 
-void test075 ( )
+void fejer1_set_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST075 tests CLENSHAW_CURTIS_SET and SUMMER.
+//    FEJER1_SET_TEST tests FEJER1_SET.
 //
 //  Licensing:
 //
@@ -976,97 +1353,7 @@ void test075 ( )
 //
 //  Modified:
 //
-//    04 May 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int function_num;
-  int i;
-  int ihi;
-  int ilo;
-  int order;
-  int order_max = 16;
-  double *result;
-  double *weight;
-  double *xtab;
-
-  function_set ( "COUNT", &function_num );
-
-  result = new double[function_num];
-
-  cout << "\n";
-  cout << "TEST075\n";
-  cout << "  CLENSHAW_CURTIS_SET sets up a Clenshaw-Curtis rule;\n";
-  cout << "  SUMMER carries it out.\n";
-  cout << "\n";
-  cout << "  The integration interval is [-1,1].\n";
-  cout << "  Quadrature order will vary.\n";
-  cout << "  Integrand will vary.\n";
-  cout << "\n";
-
-  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
-  {
-    ihi = i4_min ( ilo + 4, function_num - 1 );
-
-    cout << "\n";
-    cout << "Order  ";
-    for ( i = ilo; i <= ihi; i++ )
-    {
-      cout << setw(10) << function_name ( i ) << "    ";
-    }
-    cout << "\n";
-    cout << "\n";
-
-    for ( order = 1; order <= order_max; order++ )
-    {
-      xtab = new double[order];
-      weight = new double[order];
-
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        function_set ( "SET", &i );
-
-        clenshaw_curtis_set ( order, xtab, weight );
- 
-        result[i] = summer ( function_value, order, xtab, weight );
- 
-      }
-      cout << setw(2) << order << "  ";
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        cout << "  " << setw(12) << setprecision(8) << result[i];
-      }
-      cout << "\n";
-
-      delete [] xtab;
-      delete [] weight;
-    }
-  }
-
-  delete [] result;
- 
-  return;
-}
-//****************************************************************************80
-
-void test076 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST076 compares FEJER1_COMPUTE and FEJER1_SET.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    05 March 2007
+//    15 April 2015
 //
 //  Author:
 //
@@ -1074,66 +1361,49 @@ void test076 ( )
 //
 {
   int i;
-  int order;
-  int order_max = 10;
-  double *w1;
-  double *w2;
-  double *x1;
-  double *x2;
+  int n;
+  int n_max = 10;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST076\n";
-  cout << "  FEJER1_COMPUTE computes a Fejer type 1 quadrature rule;\n";
+  cout << "FEJER1_SET_TEST\n";
   cout << "  FEJER1_SET sets a Fejer type 1 quadrature rule;\n";
   cout << "\n";
-  cout << "  Compare:\n";
-  cout << "    (W1,X1) from FEJER1_SET,\n";
-  cout << "    (W2,X2) from FEJER1_COMPUTE.\n";
-  cout << "\n";
-  cout << 
-    "     Order        W1              W2              X1             X2\n";
+  cout << "     Order        W               X\n";
   cout << "\n";
 
-  for ( order = 1; order <= order_max; order++ )
+  for ( n = 1; n <= n_max; n++ )
   {
-    w1 = new double[order];
-    x1 = new double[order];
+    w = new double[n];
+    x = new double[n];
 
-    fejer1_set ( order, x1, w1 );
-
-    w2 = new double[order];
-    x2 = new double[order];
-
-    fejer1_compute ( order, x2, w2 );
+    fejer1_set ( n, x, w );
 
     cout << "\n";
-    cout << "  " << setw(8) << order << "\n";
+    cout << "  " << setw(8) << n << "\n";
 
-    for ( i = 0; i < order; i++ )
+    for ( i = 0; i < n; i++ )
     {
       cout << "          "
-           << "  " << setw(14) << w1[i]
-           << "  " << setw(14) << w2[i]
-           << "  " << setw(14) << x1[i]
-           << "  " << setw(14) << x2[i] << "\n";
+           << "  " << setw(14) << w[i]
+           << "  " << setw(14) << x[i] << "\n";
     }
-    delete [] w1;
-    delete [] w2;
-    delete [] x1;
-    delete [] x2;
+    delete [] w;
+    delete [] x;
   }
 
   return;
 }
 //****************************************************************************80
 
-void test078 ( )
+void fejer2_compute_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST078 compares FEJER2_COMPUTE and FEJER2_SET.
+//    FEJER2_COMPUTE_TEST tests FEJER2_COMPUTE.
 //
 //  Licensing:
 //
@@ -1141,65 +1411,115 @@ void test078 ( )
 //
 //  Modified:
 //
-//    05 March 2007
+//    15 April 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-# define ORDER_MAX 10
-
   int i;
-  int order;
-  double w1[ORDER_MAX];
-  double w2[ORDER_MAX];
-  double x1[ORDER_MAX];
-  double x2[ORDER_MAX];
+  int n;
+  int n_max = 10;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST078\n";
+  cout << "FEJER2_COMPUTE_TEST\n";
   cout << "  FEJER2_COMPUTE computes a Fejer type 2 quadrature rule;\n";
-  cout << "  FEJER2_SET sets a Fejer type 2 quadrature rule;\n";
   cout << "\n";
-  cout << "  Compare:\n";
-  cout << "    (W1,X1) from FEJER2_SET,\n";
-  cout << "    (W2,X2) from FEJER2_COMPUTE.\n";
-  cout << "\n";
-  cout << 
-    "     Order        W1              W2              X1             X2\n";
+  cout << "     Order        W               X\n";
   cout << "\n";
 
-  for ( order = 1; order <= ORDER_MAX; order++ )
+  for ( n = 1; n <= n_max; n++ )
   {
-    fejer2_set ( order, x1, w1 );
-    fejer2_compute ( order, x2, w2 );
+    w = new double[n];
+    x = new double[n];
+
+    fejer2_compute ( n, x, w );
 
     cout << "\n";
-    cout << "  " << setw(8) << order << "\n";
+    cout << "  " << setw(8) << n << "\n";
 
-    for ( i = 0; i < order; i++ )
+    for ( i = 0; i < n; i++ )
     {
       cout << "          "
-           << "  " << setw(14) << w1[i]
-           << "  " << setw(14) << w2[i]
-           << "  " << setw(14) << x1[i]
-           << "  " << setw(14) << x2[i] << "\n";
+           << "  " << setw(14) << w[i]
+           << "  " << setw(14) << x[i] << "\n";
     }
+    delete [] w;
+    delete [] x;
   }
 
   return;
-# undef ORDER_MAX
 }
 //****************************************************************************80
 
-void test079 ( int order, double alpha )
+void fejer2_set_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST079 tests GEGENBAUER_COMPUTE.
+//    FEJER2_SET_TEST tests FEJER2_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    15 April 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int i;
+  int n;
+  int n_max = 10;
+  double *w;
+  double *x;
+
+  cout << "\n";
+  cout << "FEJER2_SET_TEST\n";
+  cout << "  FEJER2_SET sets a Fejer type 2 quadrature rule;\n";
+  cout << "\n";
+  cout << "     Order        W               X\n";
+  cout << "\n";
+
+  for ( n = 1; n <= n_max; n++ )
+  {
+    w = new double[n];
+    x = new double[n];
+
+    fejer2_set ( n, x, w );
+
+    cout << "\n";
+    cout << "  " << setw(8) << n << "\n";
+
+    for ( i = 0; i < n; i++ )
+    {
+      cout << "          "
+           << "  " << setw(14) << w[i]
+           << "  " << setw(14) << x[i] << "\n";
+    }
+    delete [] w;
+    delete [] x;
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void gegenbauer_compute_test ( int order, double alpha )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    GEGENBAUER_COMPUTE_TEST tests GEGENBAUER_COMPUTE.
 //
 //  Licensing:
 //
@@ -1225,7 +1545,7 @@ void test079 ( int order, double alpha )
   double *x;
 
   cout << "\n";
-  cout << "TEST079\n";
+  cout << "GEGENBAUER_COMPUTE_TEST\n";
   cout << "  GEGENBAUER_COMPUTE computes a Gauss-Gegenbauer rule;\n";
   cout << "\n";
   cout << "  The printed output of this routine can be inserted into\n";
@@ -1253,12 +1573,13 @@ void test079 ( int order, double alpha )
     cout << "    w[" << setw(2) << i
          << "] = " << setw(24) << setprecision(16) << w[i] << ";\n";
   }
-
+//
+//  Free memory.
+//
   delete [] w;
   delete [] x;
 
   return;
-# undef ORDER
 }
 //****************************************************************************80
 
@@ -1268,7 +1589,7 @@ void test08 ( )
 //
 //  Purpose:
 //
-//    TEST08 tests HERMITE_EK_COMPUTE and SUMMER.
+//    TEST08 tests HERMITE_EK_COMPUTE.
 //
 //  Licensing:
 //
@@ -1287,6 +1608,7 @@ void test08 ( )
   int i;
   int ihi;
   int ilo;
+  int j;
   int order;
   int order_max = 20;
   double *result;
@@ -1300,7 +1622,6 @@ void test08 ( )
   cout << "\n";
   cout << "TEST08\n";
   cout << "  HERMITE_EK_COMPUTE computes a Gauss-Hermite rule;\n";
-  cout << "  SUMMER carries it out.\n";
   cout << "\n";
   cout << "  The integration interval is ( -oo, +oo ).\n";
   cout << "  The weight function is exp ( - x * x )\n";
@@ -1330,7 +1651,11 @@ void test08 ( )
 
         hermite_ek_compute ( order, xtab, weight );
  
-        result[i] = summer ( function_value, order, xtab, weight ); 
+        result[i] = 0.0;
+        for ( j = 0; j < order; j++ )
+        {
+          result[i] = result[i] + weight[j] * function_value ( xtab[j] );
+        } 
       }
       cout << setw(2) << order << "  ";
       for ( i = ilo; i <= ihi; i++ )
@@ -1501,13 +1826,104 @@ void test087 ( )
 }
 //****************************************************************************80
 
+void test089 ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TEST089 tests HERMITE_PROBABILIST_SET.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    07 June 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int function_num;
+  int i;
+  int ihi;
+  int ilo;
+  int j;
+  int order;
+  int order_max = 10;
+  double *result;
+  double *weight;
+  double *xtab;
+
+  function_set ( "COUNT", &function_num );
+
+  result = new double[function_num];
+
+  cout << "\n";
+  cout << "TEST089\n";
+  cout << "  HERMITE_PROBABILIST_SET sets up a Hermite probabilist rule;\n";
+  cout << "\n";
+  cout << "  The integration interval is ( -oo, +oo ).\n";
+  cout << "  The weight function is exp ( - x * x / 2 ) / sqrt ( 2 * pi ).\n";
+  cout << "\n";
+
+  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  {
+    ihi = i4_min ( ilo + 4, function_num - 1 );
+
+    cout << "\n";
+    cout << "Order  ";
+    for ( i = ilo; i <= ihi; i++ )
+    {
+      cout << setw(10) << function_name ( i ) << "    ";
+    }
+    cout << "\n";
+    cout << "\n";
+
+    for ( order = 1; order <= order_max; order++ )
+    {
+      xtab = new double[order];
+      weight = new double[order];
+
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        function_set ( "SET", &i );
+
+        hermite_probabilist_set ( order, xtab, weight );
+ 
+        result[i] = 0.0;
+        for ( j = 0; j < order; j++ )
+        {
+          result[i] = result[i] + weight[j] * function_value ( xtab[j] );
+        }
+      }
+      cout << setw(2) << order << "  ";
+      for ( i = ilo; i <= ihi; i++ )
+      {
+        cout << "  " << setw(12) << setprecision(8) << result[i];
+      }
+      cout << "\n";
+
+      delete [] xtab;
+      delete [] weight;
+    }
+  }
+  delete [] result;
+
+  return;
+}
+//****************************************************************************80
+
 void test09 ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST09 tests HERMITE_SET and SUMMER.
+//    TEST09 tests HERMITE_SET.
 //
 //  Licensing:
 //
@@ -1526,6 +1942,7 @@ void test09 ( )
   int i;
   int ihi;
   int ilo;
+  int j;
   int order;
   int order_max = 20;
   double *result;
@@ -1539,7 +1956,6 @@ void test09 ( )
   cout << "\n";
   cout << "TEST09\n";
   cout << "  HERMITE_SET sets up a Gauss-Hermite rule;\n";
-  cout << "  SUMMER carries it out.\n";
   cout << "\n";
   cout << "  The integration interval is ( -oo, +oo ).\n";
   cout << "  The weight function is exp ( - x * x )\n";
@@ -1569,7 +1985,11 @@ void test09 ( )
 
         hermite_set ( order, xtab, weight );
  
-        result[i] = summer ( function_value, order, xtab, weight ); 
+        result[i] = 0.0;
+        for ( j = 0; j < order; j++ )
+        {
+          result[i] = result[i] + weight[j] * function_value ( xtab[j] );
+        }
       }
       cout << setw(2) << order << "  ";
       for ( i = ilo; i <= ihi; i++ )
@@ -1594,7 +2014,7 @@ void test095 ( )
 //
 //  Purpose:
 //
-//    TEST095 tests HERMITE_GK16_SET and SUMMER.
+//    TEST095 tests HERMITE_GK16_SET.
 //
 //  Licensing:
 //
@@ -3565,7 +3985,7 @@ void test24 ( )
 //
 //  Purpose:
 //
-//    TEST24 tests LEGENDRE_SET_SQRTX_01 and SUMMER.
+//    TEST24 tests LEGENDRE_SET_SQRTX_01.
 //
 //  Licensing:
 //
@@ -3587,6 +4007,7 @@ void test24 ( )
   int iexp;
   int ihi;
   int ilo;
+  int j;
   int order;
   int order_max = 20;
   double *result;
@@ -3603,8 +4024,7 @@ void test24 ( )
   cout << "\n";
   cout << "TEST24\n";
   cout << "  LEGENDRE_SET_SQRTX_01 sets up a Gauss-Legendre rule\n";
-  cout << "    over [0,1] with weight function SQRT(X);\n";
-  cout << "  SUMMER carries it out.\n";
+  cout << "  over [0,1] with weight function SQRT(X);\n";
   cout << "\n";
   cout << "  The integration interval is [" << a << "," << b << "].\n";
   cout << "  Quadrature order will vary.\n";
@@ -3637,7 +4057,11 @@ void test24 ( )
 
         legendre_set_sqrtx_01 ( order, xtab, weight );
  
-        result[i] = summer ( function_value, order, xtab, weight ); 
+        result[i] = 0.0;
+        for ( j = 0; j < order; j++ )
+        {
+          result[i] = result[i] + weight[j] * function_value ( xtab[j] );
+        }
       }
       cout << setw(2) << order << "  ";
       for ( i = ilo; i <= ihi; i++ )
@@ -3663,7 +4087,7 @@ void test25 ( )
 //
 //  Purpose:
 //
-//    TEST25 tests LEGENDRE_SET_SQRTX2_01 and SUMMER.
+//    TEST25 tests LEGENDRE_SET_SQRTX2_01.
 //
 //  Licensing:
 //
@@ -3685,6 +4109,7 @@ void test25 ( )
   int iexp;
   int ihi;
   int ilo;
+  int j;
   int order;
   int order_max = 20;
   double *result;
@@ -3701,8 +4126,7 @@ void test25 ( )
   cout << "\n";
   cout << "TEST25\n";
   cout << "  LEGENDRE_SET_SQRTX2_01 sets up a Gauss-Legendre rule\n";
-  cout << "    over [0,1] with weight function 1/SQRT(X);\n";
-  cout << "  SUMMER carries it out.\n";
+  cout << "  over [0,1] with weight function 1/SQRT(X);\n";
   cout << "\n";
   cout << "  The integration interval is [" << a << "," << b << "].\n";
   cout << "  Quadrature order will vary.\n";
@@ -3735,7 +4159,11 @@ void test25 ( )
 
         legendre_set_sqrtx2_01 ( order, xtab, weight );
  
-        result[i] = summer ( function_value, order, xtab, weight ); 
+        result[i] = 0.0;
+        for ( j = 0; j < order; j++ )
+        {
+          result[i] = result[i] + weight[j] * function_value ( xtab[j] );
+        }
       }
       cout << setw(2) << order << "  ";
       for ( i = ilo; i <= ihi; i++ )
@@ -4714,13 +5142,13 @@ void test34 ( )
 }
 //****************************************************************************80
 
-void test345 ( )
+void lobatto_compute_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST345 tests LOBATTO_COMPUTE and LOBATTO_SET.
+//    LOBATTO_COMPUTE_TEST tests LOBATTO_COMPUTE.
 //
 //  Licensing:
 //
@@ -4728,7 +5156,7 @@ void test345 ( )
 //
 //  Modified:
 //
-//    04 February 2007
+//    23 April 2015
 //
 //  Author:
 //
@@ -4737,53 +5165,43 @@ void test345 ( )
 {
   int i;
   int n;
-  double *w1;
-  double *w2;
-  double *x1;
-  double *x2;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST345\n";
+  cout << "LOBATTO_COMPUTE_TEST\n";
   cout << "  LOBATTO_COMPUTE computes a Lobatto rule;\n";
-  cout << "  LOBATTO_SET sets a rule from a table.\n";
   cout << "\n";
-  cout << "         I      X1            X2            W1            W2\n";
+  cout << "         I      X             W\n";
 
   for ( n = 4; n <= 12; n = n + 3 )
   {
-    w1 = new double[n];
-    w2 = new double[n];
-    x1 = new double[n];
-    x2 = new double[n];
+    w = new double[n];
+    x = new double[n];
 
-    lobatto_compute ( n, x1, w1 );
-    lobatto_set ( n, x2, w2 );
+    lobatto_compute ( n, x, w );
 
     cout << "\n";
     for ( i = 0; i < n; i++ )
     {
-      cout << "  " << setw(8)  << i+1
-           << "  " << setw(12) << x1[i]
-           << "  " << setw(12) << x2[i]
-           << "  " << setw(12) << w1[i]
-           << "  " << setw(12) << w2[i] << "\n";
+      cout << "  " << setw(8)  << i
+           << "  " << setw(12) << x[i]
+           << "  " << setw(12) << w[i] << "\n";
     }
-    delete [] w1;
-    delete [] w2;
-    delete [] x1;
-    delete [] x2;
+    delete [] w;
+    delete [] x;
   }
   return;
 }
 //****************************************************************************80
 
-void test35 ( )
+void lobatto_set_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST35 tests LOBATTO_SET and SUM_SUB.
+//    LOBATTO_SET_TEST tests LOBATTO_SET.
 //
 //  Licensing:
 //
@@ -4791,108 +5209,52 @@ void test35 ( )
 //
 //  Modified:
 //
-//    06 May 2006
+//    23 April 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  double a;
-  double b;
-  int function_num;
   int i;
-  int ihi;
-  int ilo;
-  int nsub;
-  int order;
-  int order_max = 15;
-  double *result;
-  double *weight;
-  double xhi;
-  double xlo;
-  double *xtab;
-
-  function_set ( "COUNT", &function_num );
-
-  result = new double[function_num];
-
-  a = -1.0;
-  b =  1.0;
-
-  nsub = 1;
-
-  xlo = -1.0;
-  xhi =  1.0;
+  int n;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST35\n";
-  cout << "  LOBATTO_SET sets up a Lobatto rule;\n";
-  cout << "  SUM_SUB carries it out.\n";
+  cout << "LOBATTO_SET_TEST\n";
+  cout << "  LOBATTO_SET sets a Lobatto rule;\n";
   cout << "\n";
-  cout << "  The integration interval is [" << a << "," << b << "].\n";
-  cout << "  The number of subintervals is " << nsub << "\n";
-  cout << "  Quadrature order will vary.\n";
-  cout << "  Integrand will vary.\n";
-  cout << "\n";
+  cout << "         I      X             W\n";
 
-  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  for ( n = 4; n <= 12; n = n + 3 )
   {
-    ihi = i4_min ( ilo + 4, function_num - 1 );
+    w = new double[n];
+    x = new double[n];
+
+    lobatto_set ( n, x, w );
 
     cout << "\n";
-    cout << "Order  ";
-    for ( i = ilo; i <= ihi; i++ )
+    for ( i = 0; i < n; i++ )
     {
-      cout << setw(10) << function_name ( i ) << "    ";
+      cout << "  " << setw(8)  << i
+           << "  " << setw(12) << x[i]
+           << "  " << setw(12) << w[i] << "\n";
     }
-    cout << "\n";
-    cout << "\n";
-
-    for ( order = 1; order <= order_max; order++ )
-    {
-      if ( order == 1 )
-      {
-        continue;
-      }
-
-      xtab = new double[order];
-      weight = new double[order];
-
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        function_set ( "SET", &i );
-
-        lobatto_set ( order, xtab, weight );
- 
-        result[i] = sum_sub ( function_value, a, b, nsub, order, 
-          xlo, xhi, xtab, weight ); 
-      }
-      cout << setw(2) << order << "  ";
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        cout << "  " << setw(12) << setprecision(8) << result[i];
-      }
-      cout << "\n";
-
-      delete [] xtab;
-      delete [] weight;
-    }
+    delete [] w;
+    delete [] x;
   }
-
-  delete [] result;
- 
   return;
 }
 //****************************************************************************80
 
-void test36 ( )
+void moulton_set_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST36 tests MOULTON_SET and SUMMER.
+//    MOULTON_SET_TEST tests MOULTON_SET.
 //
 //  Licensing:
 //
@@ -4900,89 +5262,55 @@ void test36 ( )
 //
 //  Modified:
 //
-//    05 May 2006
+//    18 April 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  int function_num;
   int i;
-  int ihi;
-  int ilo;
-  int order;
-  int order_max = 10;
-  double *result;
-  double *weight;
-  double *xtab;
-
-  function_set ( "COUNT", &function_num );
-
-  result = new double[function_num];
+  int n;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST36\n";
+  cout << "MOULTON_SET_TEST\n";
   cout << "  MOULTON_SET sets up an Adams-Moulton rule;\n";
-  cout << "  SUMMER carries it out.\n";
   cout << "\n";
-  cout << "  The integration interval is [0,1].\n";
-  cout << "  Quadrature order will vary.\n";
-  cout << "  Integrand will vary.\n";
+  cout << "  Index             X                   W\n";
   cout << "\n";
 
-  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  for ( n = 1; n <= 10; n++ )
   {
-    ihi = i4_min ( ilo + 4, function_num - 1 );
+    w = new double[n];
+    x = new double[n];
+
+    moulton_set ( n, x, w );
 
     cout << "\n";
-    cout << "Order  ";
-    for ( i = ilo; i <= ihi; i++ )
+
+    for ( i = 0; i < n; i++ )
     {
-      cout << setw(10) << function_name ( i ) << "    ";
+      cout << "  " << setw(2) << i 
+           << "  " << setw(24) << x[i]
+           << "  " << setw(24) << w[i] << "\n";
     }
-    cout << "\n";
-    cout << "\n";
-
-    for ( order = 1; order <= order_max; order++ )
-    {
-      xtab = new double[order];
-      weight = new double[order];
-
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        function_set ( "SET", &i );
-
-        moulton_set ( order, xtab, weight );
- 
-        result[i] = summer ( function_value, order, xtab, weight );
- 
-      }
-      cout << setw(2) << order << "  ";
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        cout << "  " << setw(12) << setprecision(8) << result[i];
-      }
-      cout << "\n";
-
-      delete [] xtab;
-      delete [] weight;
-    }
+    delete [] w;
+    delete [] x;
   }
-
-  delete [] result;
  
   return;
 }
 //****************************************************************************80
 
-void test37 ( )
+void ncc_set_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST37 tests NCC_SET and SUM_SUB.
+//    NCC_SET_TEST tests NCC_SET.
 //
 //  Licensing:
 //
@@ -4990,91 +5318,43 @@ void test37 ( )
 //
 //  Modified:
 //
-//    08 May 2007
+//    24 April 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  double a;
-  double b;
-  int function_num;
   int i;
-  int ihi;
-  int ilo;
-  int nsub;
-  int order;
-  int order_max = 21;
-  double *result;
-  double *weight;
-  double xhi;
-  double xlo;
-  double *xtab;
-
-  function_set ( "COUNT", &function_num );
-
-  result = new double[function_num];
-
-  a =  0.0;
-  b =  1.0;
-
-  nsub = 1;
-
-  xlo = -1.0;
-  xhi =  1.0;
+  int n;
+  double *w;
+  double *x;
 
   cout << "\n";
-  cout << "TEST37\n";
-  cout << "  NCC_SET computes a closed Newton-Cotes rule;\n";
-  cout << "  SUM_SUB carries it out.\n";
+  cout << "NCC_SET_TEST\n";
+  cout << "  NCC_SET sets up a Newton-Cotes Closed rule;\n";
   cout << "\n";
-  cout << "  The integration interval is [" << a << "," << b << "].\n";
-  cout << "  The number of subintervals is " << nsub << "\n";
-  cout << "  Quadrature order will vary.\n";
-  cout << "  Integrand will vary.\n";
+  cout << "  Index             X                   W\n";
   cout << "\n";
 
-  for ( ilo = 0; ilo < function_num; ilo = ilo + 5 )
+  for ( n = 1; n <= 10; n++ )
   {
-    ihi = i4_min ( ilo + 4, function_num - 1 );
+    w = new double[n];
+    x = new double[n];
+
+    ncc_set ( n, x, w );
 
     cout << "\n";
-    cout << "Order  ";
-    for ( i = ilo; i <= ihi; i++ )
+
+    for ( i = 0; i < n; i++ )
     {
-      cout << setw(10) << function_name ( i ) << "    ";
+      cout << "  " << setw(2) << i 
+           << "  " << setw(24) << x[i]
+           << "  " << setw(24) << w[i] << "\n";
     }
-    cout << "\n";
-    cout << "\n";
-
-    for ( order = 1; order <= order_max; order++ )
-    {
-      xtab = new double[order];
-      weight = new double[order];
-
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        function_set ( "SET", &i );
-
-        ncc_set ( order, xtab, weight );
- 
-        result[i] = sum_sub ( function_value, a, b, nsub, order, 
-          xlo, xhi, xtab, weight ); 
-      }
-      cout << setw(2) << order << "  ";
-      for ( i = ilo; i <= ihi; i++ )
-      {
-        cout << "  " << setw(12) << setprecision(8) << result[i];
-      }
-      cout << "\n";
-
-      delete [] xtab;
-      delete [] weight;
-    }
+    delete [] w;
+    delete [] x;
   }
-
-  delete [] result;
  
   return;
 }

@@ -19,6 +19,10 @@ int main ( )
 //
 //    MAIN is the main program for PRIME_SERIAL_PRB.
 //
+//  Discussion:
+//
+//    PRIME_SERIAL_PRB tests the PRIME_SERIAL library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license.
@@ -37,7 +41,6 @@ int main ( )
   int n_lo;
 
   timestamp ( );
-
   cout << "\n";
   cout << "PRIME_SERIAL_PRB\n";
   cout << "  C++ version\n";
@@ -60,7 +63,6 @@ int main ( )
   cout << "\n";
   cout << "PRIME_SERIAL_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

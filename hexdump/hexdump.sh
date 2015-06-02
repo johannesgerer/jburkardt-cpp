@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c hexdump.cpp >& compiler.txt
+g++ -c hexdump.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling hexdump.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ hexdump.o
 if [ $? -ne 0 ]; then

@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    ASA241_PRB tests ASA241.
+//    MAIN is the main program for ASA241_PRB.
+//
+//  Discussion:
+//
+//    ASA241_PRB tests the ASA241 library.
 //
 //  Licensing:
 //
@@ -35,9 +39,7 @@ int main ( )
 //    John Burkardt
 //
 {
-  cout << "\n";
   timestamp ( );
-
   cout << "\n";
   cout << "ASA241_PRB:\n";
   cout << "  C++ version\n";
@@ -49,7 +51,6 @@ int main ( )
   cout << "\n";
   cout << "ASA241_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -114,7 +115,7 @@ void test01 ( )
     cout << "  " << setprecision(16) << setw(24) << fx  
          << "  " << setprecision(16) << setw(24) << x 
          << "  " << setprecision(16) << setw(24) << x2 
-         << "  " << setprecision(16) << r4_abs ( x - x2 ) << "\n";
+         << "  " << setprecision(16) << fabs ( x - x2 ) << "\n";
   }
 
   return;
@@ -177,7 +178,7 @@ void test02 ( )
     cout << "  " << setprecision(16) << setw(24) << fx  
          << "  " << setprecision(16) << setw(24) << x 
          << "  " << setprecision(16) << setw(24) << x2 
-         << "  " << setprecision(16) << r8_abs ( x - x2 ) << "\n";
+         << "  " << setprecision(16) << fabs ( x - x2 ) << "\n";
   }
 
   return;

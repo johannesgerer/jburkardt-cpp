@@ -29,7 +29,7 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    12 November 2010
+//    07 July 2014
 //
 //  Author:
 //
@@ -95,7 +95,9 @@ int main ( int argc, char *argv[] )
   }
 
   handle ( file_in_name, file_out_name );
-
+//
+//  Terminate.
+//
   if ( VERBOSE )
   {
     cout << "\n";
@@ -223,7 +225,7 @@ void handle ( string file_in_name, string file_out_name )
     return;
   }
 
-  file_out << "// File recommented by recomment.C\n";
+  file_out << "// File recommented by recomment.cpp\n";
   file_out << "// on " << __DATE__ << " at " << __TIME__ << ".\n";
   file_out << "//\n";
 //
@@ -337,9 +339,15 @@ void handle ( string file_in_name, string file_out_name )
         c1 = '/';
         line_length = 2;
       }
+//
+//    if ( 0 < line_length )
+//  CHANGED TO
+//    if ( 2 < line_length )
+//  07 July 2014
+//
       else if ( c1 == '*' && c2 == '/' )
       {
-        if ( 0 < line_length )
+        if ( 2 < line_length )
         {
           file_out.put ( '\n' );
         }

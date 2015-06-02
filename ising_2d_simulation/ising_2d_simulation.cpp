@@ -1,5 +1,6 @@
 # include <cstdlib>
 # include <iostream>
+# include <fstream>
 # include <iomanip>
 # include <cmath>
 # include <ctime>
@@ -16,10 +17,12 @@ void ising_2d_agree ( int m, int n, int c1[], int c5[] );
 int *ising_2d_initialize ( int m, int n, double thresh, int *seed );
 void ising_2d_stats ( int step, int m, int n, int c1[] );
 void neighbor_2d_stats ( int step, int m, int n, int c1[], int c5[] );
+void plot_file ( int m, int n, int c1[], string title, string plot_filename,
+  string png_filename );
 void r8mat_uniform_01 ( int m, int n, int *seed, double r[] );
 void timestamp ( );
 void transition ( int m, int n, int iterations, double prob[], 
-  double thresh, int *seed );
+  double thresh, int *seed, int c1[] );
 
 //****************************************************************************80
 
@@ -31,27 +34,39 @@ int main ( int argc, char *argv[] )
 //
 //    MAIN is the main program for ISING_2D_SIMULATION.
 //
+//  Usage:
+//
+//    ising_2d_simulation  m  n  iterations  thresh  seed
+//
+//    * M, N, the number of rows and columns.
+//    * ITERATIONS, the number of iterations.
+//    * THRESH, the threshhold.
+//    * SEED, a seed for the random number generator.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 
 //
 //  Modified:
 //
-//    23 November 2011
+//    30 June 2013
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
+  int *c1;
   int i;
   int iterations;
   int m;
   int n;
+  string plot_filename = "ising_2d_final.txt";
+  string png_filename = "ising_2d_final.png";
   double prob[5] = { 0.98, 0.85, 0.50, 0.15, 0.02 };
   int seed;
-  int step;
   double thresh;
+  string title = "Final Configuration";
 
   timestamp ( );
   cout << "\n";
@@ -115,13 +130,30 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   for ( i = 0; i < 5; i++ )
   {
-    cout << setw[10] <<  prob[i];
+    cout << setw(10) << prob[i];
   }
   cout << "\n";
 //
+//  Initialize the system.
+//
+  c1 = ising_2d_initialize ( m, n, thresh, &seed );
+//
+//  Write the initial state to a gnuplot file.
+//
+  plot_file ( m, n, c1, "Initial Configuration", "ising_2d_initial.txt", 
+    "ising_2d_initial.png" );
+//
 //  Do the simulation.
 //
-  transition ( m, n, iterations, prob, thresh, &seed );
+  transition ( m, n, iterations, prob, thresh, &seed, c1 );
+//
+//  Write the final state to a gnuplot file.
+//
+  plot_file ( m, n, c1, title, plot_filename, png_filename );
+//
+//  Free memory.
+//
+  free ( c1 );
 //
 //  Terminate.
 //
@@ -599,7 +631,6 @@ void neighbor_2d_stats ( int step, int m, int n, int c1[], int c5[] )
 {
   int i;
   int j;
-  int k;
   int stats[11];
 
   if ( step == 0 )
@@ -632,6 +663,97 @@ void neighbor_2d_stats ( int step, int m, int n, int c1[], int c5[] )
   }
   cout << "\n";
       
+  return;
+}
+//****************************************************************************80
+
+void plot_file ( int m, int n, int c1[], string title, string plot_filename,
+  string png_filename )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    PLOT_FILE writes the current configuration to a GNUPLOT plot file.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    30 June 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int M, N, the number of rows and columns.
+//
+//    Input, int C1[M*N], the current state of the system.
+//
+//    Input, string TITLE, a title for the plot.
+//
+//    Input, string PLOT_FILENAME, a name for the GNUPLOT
+//    command file to be created.
+//
+//    Input, string PNG_FILENAME, the name of the PNG graphics
+//    file to be created.
+//
+{
+  int i;
+  int j;
+  ofstream plot_unit;
+  double ratio;
+  int x1;
+  int x2;
+  int y1;
+  int y2;
+
+  plot_unit.open ( plot_filename.c_str ( ) );
+
+  ratio = ( double ) ( n ) / ( double ) ( m );
+
+  plot_unit << "set term png\n";
+  plot_unit << "set output \"" << png_filename << "\"\n";
+  plot_unit << "set xrange [ 0 : " << m << " ]\n";
+  plot_unit << "set yrange [ 0 : " << n << " ]\n";
+  plot_unit << "set nokey\n";
+  plot_unit << "set title \"" << title << "\"\n";
+  plot_unit << "unset tics\n";
+
+  plot_unit << "set size ratio " << ratio << "\n";
+  for ( j = 0; j < n; j++ )
+  {
+    y1 = j;
+    y2 = j + 1;
+    for ( i = 0; i < m; i++ )
+    {
+      x1 = m - i - 1;
+      x2 = m - i;
+      if ( c1[i+j*m] < 0 )
+      {
+        plot_unit << "set object rectangle from " << x1 << "," << y1 << " to " 
+          << x2 << "," << y2 << " fc rgb 'blue'\n";
+      }
+      else
+      {
+        plot_unit << "set object rectangle from " << x1 << "," << y1 << " to " 
+          << x2 << "," << y2 << " fc rgb 'red'\n";
+      }
+    }
+  }
+
+  plot_unit << "plot 1\n";
+  plot_unit << "quit\n";
+
+  plot_unit.close ( );
+
+  cout << "\n";
+  cout << "  Created the gnuplot graphics file \"" << plot_filename << "\"\n";
+
   return;
 }
 //****************************************************************************80
@@ -790,7 +912,7 @@ void timestamp ( )
 //****************************************************************************80
 
 void transition ( int m, int n, int iterations, double prob[], 
-  double thresh, int *seed )
+  double thresh, int *seed, int c1[] )
 
 //****************************************************************************80
 //
@@ -804,7 +926,7 @@ void transition ( int m, int n, int iterations, double prob[],
 //
 //  Modified:
 //
-//    23 November 2011
+//    30 June 2013
 //
 //  Author:
 //
@@ -825,8 +947,8 @@ void transition ( int m, int n, int iterations, double prob[],
 //    Input/output, int *SEED, a seed for the random number 
 //    generator.
 //
+//    Input/output, int C1[M*N], the current state.
 {
-  int *c1;
   int *c5;
   int i;
   int j;
@@ -836,8 +958,6 @@ void transition ( int m, int n, int iterations, double prob[],
   c5 = new int[m*n];
 
   r = new double[m*n];
-
-  c1 = ising_2d_initialize ( m, n, thresh, seed );
 
   step = 0;
   ising_2d_stats ( step, m, n, c1 );
@@ -870,7 +990,6 @@ void transition ( int m, int n, int iterations, double prob[],
     }
     ising_2d_stats ( step, m, n, c1 );
   }
-  delete [] c1;
   delete [] c5;
   delete [] r;
 

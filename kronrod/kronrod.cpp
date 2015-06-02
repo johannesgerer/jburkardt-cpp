@@ -145,7 +145,7 @@ void abwe1 ( int n, int m, double eps, double coef2, bool even, double b[],
       break;
     }
 
-    if ( r8_abs ( delta ) <= eps )
+    if ( fabs ( delta ) <= eps )
     {
       ka = 1;
     }
@@ -197,7 +197,7 @@ void abwe2 ( int n, int m, double eps, double coef2, bool even, double b[],
 //
 //  Modified:
 //
-//    03 August 2010
+//    30 April 2013
 //
 //  Author:
 //
@@ -267,6 +267,23 @@ void abwe2 ( int n, int m, double eps, double coef2, bool even, double b[],
     p1 = *x;
     pd0 = 0.0;
     pd1 = 1.0;
+//
+//  When N is 1, we need to initialize P2 and PD2 to avoid problems with DELTA.
+//
+    if ( n <= 1 )
+    {
+      if ( r8_epsilon ( ) < fabs ( *x ) )
+      {
+        p2 = ( 3.0 * ( *x ) * ( *x ) - 1.0 ) / 2.0;
+        pd2 = 3.0 * ( *x );
+      }
+      else
+      {
+        p2 = 3.0 * ( *x );
+        pd2 = 3.0;
+      }
+    }
+
     ai = 0.0;
     for ( k = 2; k <= n; k++ )
     {
@@ -290,7 +307,7 @@ void abwe2 ( int n, int m, double eps, double coef2, bool even, double b[],
       break;
     }
 
-    if ( r8_abs ( delta ) <= eps )
+    if ( fabs ( delta ) <= eps )
     {
       ka = 1;
     }
@@ -400,7 +417,7 @@ void kronrod ( int n, double eps, double x[], double w1[], double w2[] )
 //
 //  Modified:
 //
-//    03 August 2010
+//    02 September 2014
 //
 //  Author:
 //
@@ -498,7 +515,8 @@ void kronrod ( int n, double eps, double x[], double w1[], double w2[] )
 //
 //  Coefficient needed for weights.
 //
-//  COEF2 = 2^(2*n+1) * n// * n// / (2n+1)//
+//  COEF2 = 2^(2*n+1) * n! * n! / (2n+1)! 
+//        = 2 * 4^n * n! / product( (n+1)*...*(2*n+1))
 //
   coef2 = 2.0 / ( double ) ( 2 * n + 1 );
   for ( i = 1; i <= n; i++ )
@@ -556,24 +574,31 @@ void kronrod ( int n, double eps, double x[], double w1[], double w2[] )
 
   return;
 }
-
 //****************************************************************************80
 
-double r8_abs ( double x )
+double r8_epsilon ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_ABS returns the absolute value of an R8.
+//    R8_EPSILON returns the R8 roundoff unit.
+//
+//  Discussion:
+//
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
+//      1 < 1 + R
+//    but
+//      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    14 November 2006
+//    01 September 2012
 //
 //  Author:
 //
@@ -581,21 +606,11 @@ double r8_abs ( double x )
 //
 //  Parameters:
 //
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
+  static double value = 2.220446049250313E-016;
 
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = - x;
-  }
   return value;
 }
 //****************************************************************************80

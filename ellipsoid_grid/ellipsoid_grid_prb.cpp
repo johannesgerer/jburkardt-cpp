@@ -19,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    ELLIPSOID_GRID_TEST tests ELLIPSOID_GRID.
+//    MAIN is the main program for ELLIPSOID_GRID_PRB.
+//
+//  Discussion:
+//
+//    ELLIPSOID_GRID_PRB tests the ELLIPSOID_GRID library.
 //
 //  Licensing:
 //
@@ -36,7 +40,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "ELLIPSOID_GRID_TEST:\n";
+  cout << "ELLIPSOID_GRID_PRB:\n";
   cout << "  C++ version\n";
   cout << "  Test the ELLIPSOID_GRID library.\n";
 
@@ -45,7 +49,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "ELLIPSOID_GRID_TEST:\n";
+  cout << "ELLIPSOID_GRID_PRB:\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

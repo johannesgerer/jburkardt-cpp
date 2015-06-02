@@ -6,9 +6,7 @@
 
 using namespace std;
 
-# include "sparse_grid_cc.H"
-
-using namespace webbur;
+# include "sparse_grid_cc.hpp"
 
 int main ( );
 
@@ -32,7 +30,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPARSE_GRID_CC_PRB tests the SPARSE_GRID_CC routines.
+//    SPARSE_GRID_CC_PRB tests the SPARSE_GRID_CC library.
 //
 //  Licensing:
 //
@@ -40,7 +38,7 @@ int main ( )
 //
 //  Modified:
 //
-//    22 December 2009
+//    12 March 2013
 //
 //  Author:
 //
@@ -62,7 +60,7 @@ int main ( )
   int level_max_max;
   int level_max_min;
 
-  webbur::timestamp ( );
+  timestamp ( );
   cout << "\n";
   cout << "SPARSE_GRID_CC_PRB\n";
   cout << "  C++ version\n";
@@ -77,7 +75,7 @@ int main ( )
   test01 ( dim_min, dim_max, level_max_min, level_max_max );
 
   cout << "\n";
-  webbur::timestamp ( );
+  timestamp ( );
 
   dim_min = 6;
   dim_max = 10;
@@ -86,7 +84,7 @@ int main ( )
   test01 ( dim_min, dim_max, level_max_min, level_max_max );
 
   cout << "\n";
-  webbur::timestamp ( );
+  timestamp ( );
 
   dim_min = 100;
   dim_max = 100;
@@ -95,7 +93,7 @@ int main ( )
   test01 ( dim_min, dim_max, level_max_min, level_max_max );
 
   cout << "\n";
-  webbur::timestamp ( );
+  timestamp ( );
 //
 //  Count number of points in sparse rule from DIM_MIN to DIM_MAX, LEVEL_MAX_MAX.
 //
@@ -106,7 +104,7 @@ int main ( )
   test015 ( dim_min, dim_max, level_max_min, level_max_max );
 
   cout << "\n";
-  webbur::timestamp ( );
+  timestamp ( );
 
   dim_min = 6;
   dim_max = 10;
@@ -115,7 +113,7 @@ int main ( )
   test015 ( dim_min, dim_max, level_max_min, level_max_max );
 
   cout << "\n";
-  webbur::timestamp ( );
+  timestamp ( );
 
   dim_min = 100;
   dim_max = 100;
@@ -124,7 +122,7 @@ int main ( )
   test015 ( dim_min, dim_max, level_max_min, level_max_max );
 
   cout << "\n";
-  webbur::timestamp ( );
+  timestamp ( );
 //
 //  Compute abstract grid indices of sparse grid points as selected from product grid
 //  for DIMENSION, LEVEL_MAX.
@@ -175,7 +173,6 @@ int main ( )
   cout << "\n";
   cout << "SPARSE_GRID_CC_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
   
@@ -241,7 +238,7 @@ void test01 ( int dim_min, int dim_max, int level_max_min, int level_max_max )
     cout << "    " << setw(4) << level_max;
     for ( dim_num = dim_min; dim_num <= dim_max; dim_num++ )
     {
-      point_num = webbur::sparse_grid_cfn_size ( dim_num, level_max );
+      point_num = sparse_grid_cfn_size ( dim_num, level_max );
       cout << "  " << setw(8) << point_num;
     }
     cout << "\n";
@@ -309,7 +306,7 @@ void test015 ( int dim_min, int dim_max, int level_max_min, int level_max_max )
     cout << "    " << setw(4) << level_max;
     for ( dim_num = dim_min; dim_num <= dim_max; dim_num++ )
     {
-      point_num = webbur::sparse_grid_ccs_size ( dim_num, level_max );
+      point_num = sparse_grid_ccs_size ( dim_num, level_max );
       cout << "  " << setw(8) << point_num;
     }
     cout << "\n";
@@ -371,14 +368,14 @@ void test02 ( int dim_num, int level_max )
   cout << "  LEVEL_MAX = " << level_max << "\n";
   cout << "  Spatial dimension DIM_NUM = " << dim_num << "\n";
 
-  point_num = webbur::sparse_grid_cfn_size ( dim_num, level_max );
+  point_num = sparse_grid_cfn_size ( dim_num, level_max );
 
   cout << "\n";
   cout << "  Number of unique points in the grid = " << point_num << "\n";
 //
 //  Compute the orders and points.
 //
-  grid_index = webbur::sparse_grid_cc_index ( dim_num, level_max, point_num );
+  grid_index = sparse_grid_cc_index ( dim_num, level_max, point_num );
 //
 //  Now we're done.  Print the merged grid data.
 //
@@ -443,7 +440,7 @@ void test03 ( int dim_num, int level_max )
 //
 //  Determine the number of points.
 //
-  point_num = webbur::sparse_grid_cfn_size ( dim_num, level_max );
+  point_num = sparse_grid_cfn_size ( dim_num, level_max );
 
   cout << "\n";
   cout << "  Number of unique points in the grid = " << point_num << "\n";
@@ -455,7 +452,7 @@ void test03 ( int dim_num, int level_max )
 //
 //  Compute the weights and points.
 //
-  webbur::sparse_grid_cc ( dim_num, level_max, point_num, grid_weight, grid_point );
+  sparse_grid_cc ( dim_num, level_max, point_num, grid_weight, grid_point );
 //
 //  Print them out.
 //
@@ -540,7 +537,7 @@ void test04 ( int dim_num, int level_max )
 //
 //  Determine the number of points.
 //
-  point_num = webbur::sparse_grid_cfn_size ( dim_num, level_max );
+  point_num = sparse_grid_cfn_size ( dim_num, level_max );
 
   cout << "\n";
   cout << "  Number of unique points in the grid = " << point_num << "\n";
@@ -552,7 +549,7 @@ void test04 ( int dim_num, int level_max )
 //
 //  Compute the weights and points.
 //
-  webbur::sparse_grid_cc ( dim_num, level_max, point_num, grid_weight, grid_point );
+  sparse_grid_cc ( dim_num, level_max, point_num, grid_weight, grid_point );
 //
 //  Sum the weights.
 //
@@ -649,7 +646,7 @@ void test05 ( int dim_num, int level_max, int degree_max )
 //
 //  Determine the number of points in the rule.
 //
-  point_num = webbur::sparse_grid_cfn_size ( dim_num, level_max );
+  point_num = sparse_grid_cfn_size ( dim_num, level_max );
 
   cout << "\n";
   cout << "  Number of unique points in the grid = " << point_num << "\n";
@@ -661,7 +658,7 @@ void test05 ( int dim_num, int level_max, int degree_max )
 //
 //  Compute the weights and points.
 //
-  webbur::sparse_grid_cc ( dim_num, level_max, point_num, grid_weight, 
+  sparse_grid_cc ( dim_num, level_max, point_num, grid_weight, 
   grid_point );
 //
 //  Rescale the weights, and translate the abscissas.
@@ -697,9 +694,9 @@ void test05 ( int dim_num, int level_max, int degree_max )
 
     for ( ; ; )
     {
-      webbur::comp_next ( degree, dim_num, expon, &more, &h, &t );
+      comp_next ( degree, dim_num, expon, &more, &h, &t );
 
-      quad_error = webbur::monomial_quadrature ( dim_num, expon, point_num, 
+      quad_error = monomial_quadrature ( dim_num, expon, point_num, 
         grid_weight, grid_point );
 
       cout << "  " << setw(12) << quad_error
@@ -776,7 +773,7 @@ void test06 ( int dim_num, int level_max )
 //
 //  Determine the number of points.
 //
-  point_num = webbur::sparse_grid_cfn_size ( dim_num, level_max );
+  point_num = sparse_grid_cfn_size ( dim_num, level_max );
 //
 //  Allocate space for the weights and points.
 //
@@ -792,7 +789,7 @@ void test06 ( int dim_num, int level_max )
     r[dim+1*dim_num] = +1.0;
   }
 
-  webbur::sparse_grid_cc ( dim_num, level_max, point_num, w, x );
+  sparse_grid_cc ( dim_num, level_max, point_num, w, x );
 //
 //  Write the data out.
 //
@@ -803,9 +800,9 @@ void test06 ( int dim_num, int level_max )
   x_filename = "cc_d" + i4_to_string ( dim_num, "%d" ) + "_level" 
     + i4_to_string ( level_max, "%d" ) + "_x.txt";
 
-  webbur::r8mat_write ( r_filename, dim_num, 2,         r );
-  webbur::r8mat_write ( w_filename, 1,       point_num, w );
-  webbur::r8mat_write ( x_filename, dim_num, point_num, x );
+  r8mat_write ( r_filename, dim_num, 2,         r );
+  r8mat_write ( w_filename, 1,       point_num, w );
+  r8mat_write ( x_filename, dim_num, point_num, x );
 
   cout << "\n";
   cout << "  R data written to \"" << r_filename << "\".\n";

@@ -1,0 +1,36 @@
+28 September 2014 09:35:37 AM
+
+BIG_INTS_REAL:
+  C++ version
+  Examine the transfer of integer values into and out of real variables.
+
+TEST01
+  Compute the largest possible integers.
+  Try to store them as real values.
+  Then copy them back.
+
+  'Huge' integers and huge reals:
+
+  i4 = INT_MAX   = 2147483647
+  i8 = LLONG_MAX = 9223372036854775807
+  r4 = FLT_MAX   = 3.40282e+38
+  r8 = DBL_MAX   = 1.79769e+308
+
+  Convert huge integers to real values:
+
+  r4i4 = ( float ) ( i4 )  = 2.14748e+09
+  r4i8 = ( float ) ( i8 )  = 9.22337e+18
+  r8i4 = ( double ) ( i4 ) = 2.14748e+09
+  r8i8 = ( double ) ( i8 ) = 9.22337e+18
+
+  Convert real values of integers back to integers:
+
+  i4r4i4 = ( int ) ( r4i4 )           = -2147483648
+  i4r8i4 = ( int ) ( r8i4 )           = 2147483647
+  i8r4i8 = ( long long int ) ( r4i8 ) = -9223372036854775808
+  i8r8i8 = ( long long int ) ( r8i8 ) = -9223372036854775808
+
+BIG_INTS_REAL:
+  Normal end of execution.
+
+28 September 2014 09:35:37 AM

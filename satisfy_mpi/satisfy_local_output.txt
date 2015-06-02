@@ -1,0 +1,48 @@
+
+  Processor 1 iterates from 2097152 <= I < 4194304
+
+
+  Processor 2 iterates from 4194304 <= I < 6291456
+
+
+14 October 2013 02:01:43 PM
+
+SATISFY_MPI
+  C++/MPI version
+  We have a logical function of N logical arguments.
+  We do an exhaustive search of all 2^N possibilities,
+  seeking those inputs that make the function TRUE.
+
+  The number of logical variables is N = 23
+  The number of input vectors to check is 8388608
+
+   # Processor       Index    ---------Input Values------------------------
+
+  Processor 0 iterates from 0 <= I < 2097152
+
+
+  Processor 3 iterates from 6291456 <= I < 8388608
+
+   1         1     3656933 0 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 0 0 1 0 1
+   2         1     3656941 0 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 0 1 1 0 1
+   3         1     3656957 0 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 1 1 1 0 1
+   4         1     3661029 0 1 1 0 1 1 1 1 1 0 1 1 1 0 0 1 1 1 0 0 1 0 1
+   5         1     3661037 0 1 1 0 1 1 1 1 1 0 1 1 1 0 0 1 1 1 0 1 1 0 1
+   6         1     3661053 0 1 1 0 1 1 1 1 1 0 1 1 1 0 0 1 1 1 1 1 1 0 1
+   7         1     3665125 0 1 1 0 1 1 1 1 1 1 0 1 1 0 0 1 1 1 0 0 1 0 1
+   1         2     5754104 1 0 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 1 1 0 0 0
+   2         2     5754109 1 0 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 1 1 1 0 1
+   3         2     5758200 1 0 1 0 1 1 1 1 1 0 1 1 1 0 0 1 1 1 1 1 0 0 0
+   4         2     5758205 1 0 1 0 1 1 1 1 1 0 1 1 1 0 0 1 1 1 1 1 1 0 1
+   1         3     7851229 1 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 0 1 1 1 0 1
+   2         3     7851261 1 1 1 0 1 1 1 1 1 0 0 1 1 0 0 1 1 1 1 1 1 0 1
+   3         3     7855325 1 1 1 0 1 1 1 1 1 0 1 1 1 0 0 1 1 0 1 1 1 0 1
+   4         3     7855357 1 1 1 0 1 1 1 1 1 0 1 1 1 0 0 1 1 1 1 1 1 0 1
+
+  Number of solutions found was 15
+  Elapsed wall clock time (seconds) 0.77865
+
+SATISFY_MPI
+  Normal end of execution.
+
+14 October 2013 02:01:43 PM

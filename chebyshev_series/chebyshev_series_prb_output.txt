@@ -1,0 +1,80 @@
+03 February 2014 10:11:59 AM
+
+CHEBYSHEV_SERIES_PRB:
+  C++ version
+  Test the CHEBYSHEV_SERIES libary.
+
+TEST01:
+  ECHEBSER3 computes a Chebyshev series approximation
+  and the first three derivatives.
+
+  Errors of a Chebyshev series for exp(x)
+
+    x        err(y)       err(y')       err(y")      err(y"')
+
+   -1   1.11022e-16   1.11022e-16  -1.66533e-16  -4.10783e-15
+ -0.9   5.55112e-17             0   2.22045e-16   5.55112e-17
+ -0.8  -5.55112e-17   5.55112e-17             0             0
+ -0.7   5.55112e-17  -1.11022e-16   5.55112e-17   1.66533e-16
+ -0.6   1.11022e-16   1.11022e-16             0  -1.11022e-16
+ -0.5   2.22045e-16   1.11022e-16  -1.11022e-16             0
+ -0.4             0             0  -1.11022e-16   2.22045e-16
+ -0.3   1.11022e-16  -1.11022e-16   1.11022e-16             0
+ -0.2             0   1.11022e-16             0   3.33067e-16
+ -0.1             0             0             0   1.11022e-16
+    0   2.22045e-16             0             0             0
+  0.1             0             0  -2.22045e-16             0
+  0.2   2.22045e-16             0  -4.44089e-16             0
+  0.3  -2.22045e-16  -4.44089e-16             0   2.22045e-16
+  0.4   2.22045e-16   2.22045e-16   4.44089e-16             0
+  0.5   2.22045e-16   2.22045e-16   4.44089e-16  -4.44089e-16
+  0.6   2.22045e-16  -2.22045e-16   2.22045e-16             0
+  0.7             0  -4.44089e-16  -4.44089e-16  -8.88178e-16
+  0.8  -4.44089e-16  -4.44089e-16  -4.44089e-16             0
+  0.9             0             0             0             0
+    1   4.44089e-16             0             0  -7.99361e-15
+
+TEST02:
+  EVENCHEBSER2 computes an even Chebyshev series
+  and its first two derivatives.
+
+  Errors of an even Chebyshev series for cos(pi*x/2):
+
+    x        err(y)       err(y')       err(y")
+
+    0             0             0  -4.44089e-16
+  0.1  -1.11022e-16  -2.77556e-17             0
+  0.2             0  -5.55112e-17             0
+  0.3             0  -2.22045e-16  -4.44089e-16
+  0.4  -1.11022e-16             0             0
+  0.5             0             0             0
+  0.6             0  -2.22045e-16  -6.66134e-16
+  0.7   5.55112e-17  -2.22045e-16  -4.44089e-16
+  0.8  -1.66533e-16  -2.22045e-16   3.33067e-16
+  0.9  -5.55112e-17             0             0
+    1  -5.77609e-17  -2.22045e-16    1.5108e-16
+
+TEST03:
+  ODDCHEBSER2 computes an odd Chebyshev series approximation.
+  and its first two derivatives.
+
+  Errors of an odd Chebyshev series y(x) approximating sinh(x):
+
+    x        err(y)       err(y')       err(y")
+
+    0             0             0             0
+  0.1   2.77556e-17   4.44089e-16   1.38778e-17
+  0.2             0             0             0
+  0.3             0             0             0
+  0.4   1.11022e-16             0             0
+  0.5             0   2.22045e-16             0
+  0.6   2.22045e-16   4.44089e-16   2.22045e-16
+  0.7   2.22045e-16   2.22045e-16   2.22045e-16
+  0.8   1.11022e-16   2.22045e-16   1.11022e-16
+  0.9             0  -2.22045e-16   2.22045e-16
+    1   4.44089e-16   4.44089e-16  -2.22045e-16
+
+CHEBYSHEV_SERIES_PRB:
+  Normal end of execution.
+
+03 February 2014 10:11:59 AM

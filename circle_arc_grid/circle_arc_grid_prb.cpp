@@ -23,7 +23,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    CIRCLE_ARC_GRID_PRB tests CIRCLE_ARC_GRID.
+//    CIRCLE_ARC_GRID_PRB tests the CIRCLE_ARC_GRID library.
 //
 //  Licensing:
 //
@@ -42,7 +42,7 @@ int main ( )
   cout << "\n";
   cout << "CIRCLE_ARC_GRID_PRB\n";
   cout << "  C++ version\n";
-  cout << "  Test CIRCLE_ARC_GRID.\n";
+  cout << "  Test the CIRCLE_ARC_GRID library.\n";
 
   test01 ( );
 //

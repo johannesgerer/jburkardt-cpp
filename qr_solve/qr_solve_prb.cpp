@@ -43,7 +43,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "QR_SOLVE_PRB\n";
   cout << "  C++ version\n";
@@ -61,7 +60,6 @@ int main ( )
   cout << "\n";
   cout << "QR_SOLVE_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

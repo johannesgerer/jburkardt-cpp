@@ -20,6 +20,7 @@ double r8_uniform_01 ( int *seed );
 void r8mat_transpose_print ( int m, int n, double a[], string title );
 void r8mat_transpose_print_some ( int m, int n, double a[], int ilo, int jlo, 
   int ihi, int jhi, string title );
+void r8mat_write ( string output_filename, int m, int n, double table[] );
 void r8vec_copy ( int n, double a1[], double a2[] );
 double r8vec_diff_norm ( int n, double a[], double b[] );
 double r8vec_dot_product ( int n, double a1[], double a2[] );
@@ -28,6 +29,7 @@ double r8vec_norm ( int n, double a[] );
 void r8vec_polarize ( int n, double a[], double p[], double a_normal[], 
   double a_parallel[] );
 void r8vec_print ( int n, double a[], string title );
+double *sphere_cubed_ijk_to_xyz_old ( int n, int i, int j, int k );
 void sphere_cubed_ijk_to_xyz ( int n, int i, int j, int k, double xyz[3] );
 int sphere_cubed_line_num ( int n );
 double *sphere_cubed_lines ( int n, int line_num );

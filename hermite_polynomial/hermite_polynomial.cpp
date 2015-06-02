@@ -17,7 +17,15 @@ double h_integral ( int n )
 //
 //  Purpose:
 //
-//    H_INTEGRAL evaluates a monomial integral for physicist's Hermite H(n,x).
+//    H_INTEGRAL evaluates the integral of H(i,x).
+//
+//  Discussion:
+//
+//    H(i,x) is the physicist's Hermite polynomial of degree I.
+//
+//    The integral computed is:
+//
+//      integral ( -oo < x < +oo ) H(i,x) exp(-x^2) dx
 //
 //  Licensing:
 //
@@ -39,7 +47,7 @@ double h_integral ( int n )
 //    Output, double H_INTEGRAL, the value of the integral.
 //
 {
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double value;
 
   if ( ( n % 2 ) == 1 )
@@ -48,118 +56,10 @@ double h_integral ( int n )
   }
   else
   {
-    value = r8_factorial2 ( n - 1 ) * sqrt ( pi ) / pow ( 2.0, n / 2 );
+    value = r8_factorial2 ( n - 1 ) * sqrt ( r8_pi ) / pow ( 2.0, n / 2 );
   }
 
   return value;
-}
-//****************************************************************************80
-
-double *h_polynomial ( int m, int n, double x[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    H_POLYNOMIAL evaluates the physicist's Hermite polynomial H(n,x).
-//
-//  Differential equation:
-//
-//    Y'' - 2 X Y' + 2 N Y = 0
-//
-//  First terms:
-//
-//      1
-//      2 X
-//      4 X^2     -  2
-//      8 X^3     - 12 X
-//     16 X^4     - 48 X^2     + 12
-//     32 X^5    - 160 X^3    + 120 X
-//     64 X^6    - 480 X^4    + 720 X^2    - 120
-//    128 X^7   - 1344 X^5   + 3360 X^3   - 1680 X
-//    256 X^8   - 3584 X^6  + 13440 X^4  - 13440 X^2   + 1680
-//    512 X^9   - 9216 X^7  + 48384 X^5  - 80640 X^3  + 30240 X
-//   1024 X^10 - 23040 X^8 + 161280 X^6 - 403200 X^4 + 302400 X^2 - 30240
-//
-//  Recursion:
-//
-//    H(0,X) = 1,
-//    H(1,X) = 2*X,
-//    H(N,X) = 2*X * H(N-1,X) - 2*(N-1) * H(N-2,X)
-//
-//  Norm:
-//
-//    Integral ( -oo < X < +oo ) exp ( - X^2 ) * H(N,X)^2 dX
-//    = sqrt ( PI ) * 2^N * N!
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    12 May 2003
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//  Parameters:
-//
-//    Input, int M, the number of evaluation points.
-//
-//    Input, int N, the highest order polynomial to compute.
-//    Note that polynomials 0 through N will be computed.
-//
-//    Input, double X[M], the evaluation points.
-//
-//    Output, double H_POLYNOMIAL[M*(N+1)], the values of the first N+1 Hermite
-//    polynomials at the evaluation points.
-//
-{
-  int i;
-  int j;
-  double *p;
-
-  if ( n < 0 )
-  {
-    return NULL;
-  }
-
-  p = new double[m*(n+1)];
-
-  for ( i = 0; i < m; i++ )
-  {
-    p[i+0*m] = 1.0;
-  }
-
-  if ( n == 0 )
-  {
-    return p;
-  }
-
-  for ( i = 0; i < m; i++ )
-  {
-    p[i+1*m] = 2.0 * x[i];
-  }
-
-  for ( j = 2; j <= n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      p[i+j*m] = 2.0 * x[i] * p[i+(j-1)*m]
-        - 2.0 * ( double ) ( j - 1 ) * p[i+(j-2)*m];
-    }
-  }
-  return p;
 }
 //****************************************************************************80
 
@@ -169,7 +69,11 @@ double *h_polynomial_coefficients ( int n )
 //
 //  Purpose:
 //
-//    H_POLYNOMIAL_COEFFICIENTS: coeffs of physicist's Hermite polynomial H(n,x).
+//    H_POLYNOMIAL_COEFFICIENTS: coefficients of H(i,x).
+//
+//  Discussion:
+//
+//    H(i,x) is the physicist's Hermite polynomial of degree I.
 //
 //  First terms:
 //
@@ -260,15 +164,129 @@ double *h_polynomial_coefficients ( int n )
 }
 //****************************************************************************80
 
+double *h_polynomial_value ( int m, int n, double x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    H_POLYNOMIAL_VALUE evaluates H(i,x).
+//
+//  Discussion:
+//
+//    H(i,x) is the physicist's Hermite polynomial of degree I.
+//
+//  Differential equation:
+//
+//    Y'' - 2 X Y' + 2 N Y = 0
+//
+//  First terms:
+//
+//      1
+//      2 X
+//      4 X^2     -  2
+//      8 X^3     - 12 X
+//     16 X^4     - 48 X^2     + 12
+//     32 X^5    - 160 X^3    + 120 X
+//     64 X^6    - 480 X^4    + 720 X^2    - 120
+//    128 X^7   - 1344 X^5   + 3360 X^3   - 1680 X
+//    256 X^8   - 3584 X^6  + 13440 X^4  - 13440 X^2   + 1680
+//    512 X^9   - 9216 X^7  + 48384 X^5  - 80640 X^3  + 30240 X
+//   1024 X^10 - 23040 X^8 + 161280 X^6 - 403200 X^4 + 302400 X^2 - 30240
+//
+//  Recursion:
+//
+//    H(0,X) = 1,
+//    H(1,X) = 2*X,
+//    H(N,X) = 2*X * H(N-1,X) - 2*(N-1) * H(N-2,X)
+//
+//  Norm:
+//
+//    Integral ( -oo < X < +oo ) exp ( - X^2 ) * H(N,X)^2 dX
+//    = sqrt ( PI ) * 2^N * N!
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 May 2003
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//  Parameters:
+//
+//    Input, int M, the number of evaluation points.
+//
+//    Input, int N, the highest order polynomial to compute.
+//    Note that polynomials 0 through N will be computed.
+//
+//    Input, double X[M], the evaluation points.
+//
+//    Output, double H_POLYNOMIAL_VALUE[M*(N+1)], the values of the first 
+//    N+1 Hermite polynomials at the evaluation points.
+//
+{
+  int i;
+  int j;
+  double *p;
+
+  if ( n < 0 )
+  {
+    return NULL;
+  }
+
+  p = new double[m*(n+1)];
+
+  for ( i = 0; i < m; i++ )
+  {
+    p[i+0*m] = 1.0;
+  }
+
+  if ( n == 0 )
+  {
+    return p;
+  }
+
+  for ( i = 0; i < m; i++ )
+  {
+    p[i+1*m] = 2.0 * x[i];
+  }
+
+  for ( j = 2; j <= n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      p[i+j*m] = 2.0 * x[i] * p[i+(j-1)*m]
+        - 2.0 * ( double ) ( j - 1 ) * p[i+(j-2)*m];
+    }
+  }
+  return p;
+}
+//****************************************************************************80
+
 void h_polynomial_values ( int &n_data, int &n, double &x, double &fx )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    H_POLYNOMIAL_VALUES: values of the physicist's Hermite polynomial H(n,x).
+//    H_POLYNOMIAL_VALUES: tabulated values of H(i,x).
 //
 //  Discussion:
+//
+//    H(i,x) is the physicist's Hermite polynomial of degree I.
 //
 //    In Mathematica, the function can be evaluated by:
 //
@@ -426,7 +444,11 @@ double *h_polynomial_zeros ( int nt )
 //
 //  Purpose:
 //
-//    H_POLYNOMIAL_ZEROS: zeros of the physicist's Hermite polynomial H(n,x).
+//    H_POLYNOMIAL_ZEROS: zeros of H(i,x).
+//
+//  Discussion:
+//
+//    H(i,x) is the physicist's Hermite polynomial of degree I.
 //
 //  Licensing:
 //
@@ -449,7 +471,7 @@ double *h_polynomial_zeros ( int nt )
 {
   double *bj;
   int i;
-  double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.141592653589793;
   double *wts;
   double *z;
 
@@ -472,7 +494,7 @@ double *h_polynomial_zeros ( int nt )
   {
     wts[i] = 0.0;
   }
-  wts[0] = sqrt ( sqrt ( pi ) );
+  wts[0] = sqrt ( sqrt ( r8_pi ) );
 
   imtqlx ( nt, z, bj, wts );
 
@@ -486,7 +508,11 @@ void h_quadrature_rule ( int nt, double t[], double wts[] )
 //
 //  Purpose:
 //
-//    H_QUADRATURE_RULE: quadrature for physicist's Hermite polynomial H(n,x).
+//    H_QUADRATURE_RULE: quadrature for H(i,x).
+//
+//  Discussion:
+//
+//    H(i,x) is the physicist's Hermite polynomial of degree I.
 //
 //  Licensing:
 //
@@ -510,7 +536,7 @@ void h_quadrature_rule ( int nt, double t[], double wts[] )
 {
   double *bj;
   int i;
-  double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.141592653589793;
 
   for ( i = 0; i < nt; i++ )
   {
@@ -529,7 +555,7 @@ void h_quadrature_rule ( int nt, double t[], double wts[] )
     wts[i] = 0.0;
   }
 
-  wts[0] = sqrt ( sqrt ( pi ) );
+  wts[0] = sqrt ( sqrt ( r8_pi ) );
 
   imtqlx ( nt, t, bj, wts );
 
@@ -550,6 +576,8 @@ double he_double_product_integral ( int i, int j )
 //    HE_DOUBLE_PRODUCT_INTEGRAL: integral of He(i,x)*He(j,x)*e^(-x^2/2).
 //
 //  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
 //
 //    VALUE = integral ( -oo < x < +oo ) He(i,x)*He(j,x) exp(-x^2/2) dx
 //
@@ -600,7 +628,11 @@ double he_integral ( int n )
 //
 //  Purpose:
 //
-//    HE_INTEGRAL evaluates a monomial probabilist's Hermite integral for He(n,x).
+//    HE_INTEGRAL evaluates the integral of He(i,x).
+//
+//  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
 //
 //  Licensing:
 //
@@ -622,7 +654,7 @@ double he_integral ( int n )
 //    Output, double HE_INTEGRAL, the value of the integral.
 //
 {
-  double pi = 3.141592653589793;
+  const double r8_pi = 3.141592653589793;
   double value;
 
   if ( ( n % 2 ) == 1 )
@@ -631,123 +663,10 @@ double he_integral ( int n )
   }
   else
   {
-    value = r8_factorial2 ( n - 1 ) * sqrt ( 2.0 * pi );
+    value = r8_factorial2 ( n - 1 ) * sqrt ( 2.0 * r8_pi );
   }
 
   return value;
-}
-//****************************************************************************80
-
-double *he_polynomial ( int m, int n, double x[] )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    HE_POLYNOMIAL evaluates the probabilist's Hermite polynomial He(n,x).
-//
-//  Differential equation:
-//
-//    ( exp ( - 0.5 * x^2 ) * He(n,x)' )' + n * exp ( - 0.5 * x^2 ) * He(n,x) = 0
-//
-//  First terms:
-//
-//   1
-//   X
-//   X^2  -  1
-//   X^3  -  3 X
-//   X^4  -  6 X^2 +   3
-//   X^5  - 10 X^3 +  15 X
-//   X^6  - 15 X^4 +  45 X^2 -   15
-//   X^7  - 21 X^5 + 105 X^3 -  105 X
-//   X^8  - 28 X^6 + 210 X^4 -  420 X^2 +  105
-//   X^9  - 36 X^7 + 378 X^5 - 1260 X^3 +  945 X
-//   X^10 - 45 X^8 + 630 X^6 - 3150 X^4 + 4725 X^2 - 945
-//
-//  Recursion:
-//
-//    He(0,X) = 1,
-//    He(1,X) = X,
-//    He(N,X) = X * He(N-1,X) - (N-1) * He(N-2,X)
-//
-//  Orthogonality:
-//
-//    Integral ( -oo < X < +oo ) exp ( - 0.5 * X^2 ) * He(M,X) He(N,X) dX 
-//    = sqrt ( 2 * pi ) * N// * delta ( N, M )
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    26 February 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Reference:
-//
-//    Milton Abramowitz, Irene Stegun,
-//    Handbook of Mathematical Functions,
-//    National Bureau of Standards, 1964,
-//    ISBN: 0-486-61272-4,
-//    LC: QA47.A34.
-//
-//    Frank Olver, Daniel Lozier, Ronald Boisvert, Charles Clark,
-//    NIST Handbook of Mathematical Functions,
-//    Cambridge University Press, 2010,
-//    ISBN: 978-0521192255,
-//    LC: QA331.N57.
-//
-//  Parameters:
-//
-//    Input, int M, the number of evaluation points.
-//
-//    Input, int N, the highest order polynomial to compute.
-//    Note that polynomials 0 through N will be computed.
-//
-//    Input, double X[M], the evaluation points.
-//
-//    Output, double HE_POLYNOMIAL[M*(N+1)], the values of the probabilist's 
-//    Hermite polynomials of index 0 through N.
-//
-{
-  int i;
-  int j;
-  double *p;
-
-  if ( n < 0 )
-  {
-    return NULL;
-  }
-
-  p = new double[m*(n+1)];
-
-  for ( i = 0; i < m; i++ )
-  {
-    p[i+0*m] = 1.0;
-  }
-
-  if ( n == 0 )
-  {
-    return p;
-  }
-
-  for ( i = 0; i < m; i++ )
-  {
-    p[i+1*m] = x[i];
-  }
-
-  for ( j = 2; j <= n; j++ )
-  {
-    for ( i = 0; i < m; i++ )
-    {
-      p[i+j*m] = x[i] * p[i+(j-1)*m] - ( double ) ( j - 1 ) * p[i+(j-2)*m];
-    }
-  }
-  return p;
 }
 //****************************************************************************80
 
@@ -757,7 +676,11 @@ double *he_polynomial_coefficients ( int n )
 //
 //  Purpose:
 //
-//    HE_POLYNOMIAL_COEFFICIENTS: coeffs of probabilist's Hermite polynomial He(n,x).
+//    HE_POLYNOMIAL_COEFFICIENTS: coefficients of He(i,x).
+//
+//  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
 //
 //  First terms:
 //
@@ -847,15 +770,134 @@ double *he_polynomial_coefficients ( int n )
 }
 //****************************************************************************80
 
+double *he_polynomial_value ( int m, int n, double x[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    HE_POLYNOMIAL_VALUE evaluates He(i,x).
+//
+//  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
+//
+//  Differential equation:
+//
+//    ( exp ( - 0.5 * x^2 ) * He(n,x)' )' + n * exp ( - 0.5 * x^2 ) * He(n,x) = 0
+//
+//  First terms:
+//
+//   1
+//   X
+//   X^2  -  1
+//   X^3  -  3 X
+//   X^4  -  6 X^2 +   3
+//   X^5  - 10 X^3 +  15 X
+//   X^6  - 15 X^4 +  45 X^2 -   15
+//   X^7  - 21 X^5 + 105 X^3 -  105 X
+//   X^8  - 28 X^6 + 210 X^4 -  420 X^2 +  105
+//   X^9  - 36 X^7 + 378 X^5 - 1260 X^3 +  945 X
+//   X^10 - 45 X^8 + 630 X^6 - 3150 X^4 + 4725 X^2 - 945
+//
+//  Recursion:
+//
+//    He(0,X) = 1,
+//    He(1,X) = X,
+//    He(N,X) = X * He(N-1,X) - (N-1) * He(N-2,X)
+//
+//  Orthogonality:
+//
+//    Integral ( -oo < X < +oo ) exp ( - 0.5 * X^2 ) * He(M,X) He(N,X) dX 
+//    = sqrt ( 2 * pi ) * N// * delta ( N, M )
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    26 February 2012
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Reference:
+//
+//    Milton Abramowitz, Irene Stegun,
+//    Handbook of Mathematical Functions,
+//    National Bureau of Standards, 1964,
+//    ISBN: 0-486-61272-4,
+//    LC: QA47.A34.
+//
+//    Frank Olver, Daniel Lozier, Ronald Boisvert, Charles Clark,
+//    NIST Handbook of Mathematical Functions,
+//    Cambridge University Press, 2010,
+//    ISBN: 978-0521192255,
+//    LC: QA331.N57.
+//
+//  Parameters:
+//
+//    Input, int M, the number of evaluation points.
+//
+//    Input, int N, the highest order polynomial to compute.
+//    Note that polynomials 0 through N will be computed.
+//
+//    Input, double X[M], the evaluation points.
+//
+//    Output, double HE_POLYNOMIAL_VALUE[M*(N+1)], the values of the
+//    probabilist's Hermite polynomials of index 0 through N.
+//
+{
+  int i;
+  int j;
+  double *p;
+
+  if ( n < 0 )
+  {
+    return NULL;
+  }
+
+  p = new double[m*(n+1)];
+
+  for ( i = 0; i < m; i++ )
+  {
+    p[i+0*m] = 1.0;
+  }
+
+  if ( n == 0 )
+  {
+    return p;
+  }
+
+  for ( i = 0; i < m; i++ )
+  {
+    p[i+1*m] = x[i];
+  }
+
+  for ( j = 2; j <= n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      p[i+j*m] = x[i] * p[i+(j-1)*m] - ( double ) ( j - 1 ) * p[i+(j-2)*m];
+    }
+  }
+  return p;
+}
+//****************************************************************************80
+
 void he_polynomial_values ( int &n_data, int &n, double &x, double &fx )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    HE_POLYNOMIAL_VALUES: values of the probabilist's Hermite polynomial He(n,x).
+//    HE_POLYNOMIAL_VALUES: tabulated values of He(i,x).
 //
 //  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
 //
 //    In Mathematica, the function can be evaluated by:
 //
@@ -1009,7 +1051,11 @@ double *he_polynomial_zeros ( int nt )
 //
 //  Purpose:
 //
-//    HE_POLYNOMIAL_ZEROS: zeros of the probabilist's Hermite polynomial He(n,x).
+//    HE_POLYNOMIAL_ZEROS: zeros of He(i,x).
+//
+//  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
 //
 //  Licensing:
 //
@@ -1027,12 +1073,12 @@ double *he_polynomial_zeros ( int nt )
 //
 //    Input, int NT, the degree of the polynomial.
 //
-//    Output, double Z[NT], the zeros of the polynomial.
+//    Output, double HE_POLYNOMIAL_ZEROS[NT], the zeros of the polynomial.
 //
 {
   double *bj;
   int i;
-  double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.141592653589793;
   double *wts;
   double *z;
 
@@ -1057,7 +1103,7 @@ double *he_polynomial_zeros ( int nt )
     wts[i] = 0.0;
   }
 
-  wts[0] = sqrt ( sqrt ( pi ) );
+  wts[0] = sqrt ( sqrt ( r8_pi ) );
 
   imtqlx ( nt, z, bj, wts );
 
@@ -1079,7 +1125,11 @@ void he_quadrature_rule ( int nt, double t[], double wts[] )
 //
 //  Purpose:
 //
-//    HE_QUADRATURE_RULE: quadrature for probabilist's Hermite polynomial He(n,x).
+//    HE_QUADRATURE_RULE: quadrature for He(i,x).
+//
+//  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
 //
 //  Licensing:
 //
@@ -1103,7 +1153,7 @@ void he_quadrature_rule ( int nt, double t[], double wts[] )
 {
   double *bj;
   int i;
-  double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.141592653589793;
 
   for ( i = 0; i < nt; i++ )
   {
@@ -1121,7 +1171,7 @@ void he_quadrature_rule ( int nt, double t[], double wts[] )
   {
     wts[i] = 0.0;
   }
-  wts[0] = sqrt ( sqrt ( pi ) );
+  wts[0] = sqrt ( sqrt ( r8_pi ) );
 
   imtqlx ( nt, t, bj, wts );
 
@@ -1148,6 +1198,8 @@ double he_triple_product_integral ( int i, int j, int k )
 //    HE_TRIPLE_PRODUCT_INTEGRAL: integral of He(i,x)*He(j,x)*He(k,x)*e^(-x^2/2).
 //
 //  Discussion:
+//
+//    He(i,x) represents the probabilist's Hermite polynomial.
 //
 //    VALUE = integral ( -oo < x < +oo ) He(i,x)*He(j,x)*He(k,x) exp(-x^2/2) dx
 //
@@ -1208,12 +1260,12 @@ double *hen_exponential_product ( int p, double b )
 //
 //  Purpose:
 //
-//    HEN_EXPONENTIAL_PRODUCT: probabilist Hermite exponential product, Hen(n,x).
+//    HEN_EXPONENTIAL_PRODUCT: exponential product exp(b*x)*Hen(i,x)*Hen(j,x).
 //
 //  Discussion:
 //
-//    Let Hen(I,X) represent the normalized probabilist's Hermite polynomial 
-//    of degree I.  
+//    Hen(i,x) is the normalized probabilist's Hermite polynomial of degree I.
+//
 //
 //    For polynomial chaos applications, it is of interest to know the
 //    value of the integrals of products of exp(B*X) with every possible pair
@@ -1282,7 +1334,7 @@ double *hen_exponential_product ( int p, double b )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = hen_polynomial ( 1, p, x_table+k );
+    h_table = hen_polynomial_value ( 1, p, x_table+k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -1304,15 +1356,17 @@ double *hen_exponential_product ( int p, double b )
 }
 //****************************************************************************80
 
-double *hen_polynomial ( int m, int n, double x[] )
+double *hen_polynomial_value ( int m, int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    HEN_POLYNOMIAL: evaluate normalized probabilist's Hermite poly Hen(n,x).
+//    HEN_POLYNOMIAL_VALUE: evaluates Hen(i,x).
 //
 //  Discussion:
+//
+//    Hen(i,x) is the normalized probabilist's Hermite polynomial of degree I.
 //
 //    These polynomials satisfy the orthonormality condition:
 //
@@ -1354,15 +1408,15 @@ double *hen_polynomial ( int m, int n, double x[] )
 //
 //    Input, double X[M], the evaluation points.
 //
-//    Output, double HE_POLYNOMIAL[M*(N+1)], the values of the polynomials of
-//    index 0 through N.
+//    Output, double HEN_POLYNOMIAL_VALUE[M*(N+1)], the values of the 
+//    polynomials of index 0 through N.
 //
 {
   double fact;
   int i;
   int j;
   double *p;
-  double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.141592653589793;
 
   if ( n < 0 )
   {
@@ -1401,7 +1455,7 @@ double *hen_polynomial ( int m, int n, double x[] )
   {
     for ( i = 0; i < m; i++ )
     {
-      p[i+j*m] = p[i+j*m] / sqrt ( fact * sqrt ( 2.0 * pi ) );
+      p[i+j*m] = p[i+j*m] / sqrt ( fact * sqrt ( 2.0 * r8_pi ) );
     }
     fact = fact * ( double ) ( j + 1 );
   }
@@ -1415,12 +1469,11 @@ double *hen_power_product ( int p, int e )
 //
 //  Purpose:
 //
-//    HEN_POWER_PRODUCT: power products, normalized probabilist's Hermite Hen(n,x).
+//    HEN_POWER_PRODUCT: power products, x^e*Hen(i,x)*Hen(j,x).
 //
 //  Discussion:
 //
-//    Let Hen(I,X) represent the normalized probabilist's Hermite  polynomial 
-//    of degree I.  
+//    Hen(i,x) is the normalized probabilist's Hermite polynomial of degree I.
 //
 //    For polynomial chaos applications, it is of interest to know the
 //    value of the integrals of products of X with every possible pair
@@ -1453,7 +1506,7 @@ double *hen_power_product ( int p, int e )
 //    Input, int E, the exponent of X in the integrand.
 //    0 <= E.
 //
-//    Output, double TABLE[(P+1)*(P+1)], the table of integrals.  
+//    Output, double HEN_POWER_PRODUCT[(P+1)*(P+1)], the table of integrals.  
 //    TABLE(I,J) represents the weighted integral of 
 //    X^E * Hen(I,X) * Hen(J,X).
 //
@@ -1487,7 +1540,7 @@ double *hen_power_product ( int p, int e )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = hen_polynomial ( 1, p, x_table+k );
+    h_table = hen_polynomial_value ( 1, p, x_table+k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -1497,7 +1550,8 @@ double *hen_power_product ( int p, int e )
       {
         for ( i = 0; i <= p; i++ )
         {
-          table[i+j*(p+1)] = table[i+j*(p+1)] + w_table[k] * h_table[i] * h_table[j];
+          table[i+j*(p+1)] = table[i+j*(p+1)] 
+            + w_table[k] * h_table[i] * h_table[j];
         }
       }
     }
@@ -1528,11 +1582,11 @@ double *hf_exponential_product ( int p, double b )
 //
 //  Purpose:
 //
-//    HF_EXPONENTIAL_PRODUCT: exponential products, Hermite function Hf(n,x).
+//    HF_EXPONENTIAL_PRODUCT: exponential products, exp(b*x)*Hf(i,x)*Hf(j,x).
 //
 //  Discussion:
 //
-//    Let Hf(I,X) represent the Hermite function of "degree" I.  
+//    Hf(i,x) represents the Hermite function of "degree" I.   
 //
 //    For polynomial chaos applications, it is of interest to know the
 //    value of the integrals of products of exp(B*X) with every possible pair
@@ -1566,8 +1620,9 @@ double *hf_exponential_product ( int p, double b )
 //
 //    Input, double B, the coefficient of X in the exponential factor.
 //
-//    Output, double TABLE[(P+1)*(P+1)], the table of integrals.  
-//    TABLE(I,J) represents the integral of exp(B*X) * Hf(I,X) * Hf(J,X).
+//    Output, double HF_EXPONENTIAL_PRODUCT[(P+1)*(P+1)], the table of
+//    integrals.  TABLE(I,J) represents the integral of 
+//    exp(B*X) * Hf(I,X) * Hf(J,X).
 //
 {
   double *h_table;
@@ -1599,7 +1654,7 @@ double *hf_exponential_product ( int p, double b )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = hf_function ( 1, p, x_table+k );
+    h_table = hf_function_value ( 1, p, x_table+k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -1621,15 +1676,17 @@ double *hf_exponential_product ( int p, double b )
 }
 //****************************************************************************80
 
-double *hf_function ( int m, int n, double x[] )
+double *hf_function_value ( int m, int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    HF_FUNCTION evaluates the Hermite function Hf(n,x).
+//    HF_FUNCTION_VALUE evaluates Hf(i,x).
 //
 //  Discussion:
+//
+//    Hf(i,x) represents the Hermite function of "degree" I.   
 //
 //    The Hermite function of degree n is related to the physicist's
 //    Hermite polynomial H(n,x):
@@ -1676,20 +1733,20 @@ double *hf_function ( int m, int n, double x[] )
 //    Input, double X[M], the point at which the polynomials are 
 //    to be evaluated.
 //
-//    Output, double F[M*(N+1)], the values of the Hermite functions 
-//    of index 0 through N at the evaluation points.
+//    Output, double HF_FUNCTION_VALUE[M*(N+1)], the values of the Hermite
+//    functions of index 0 through N at the evaluation points.
 //
 {
   double *f;
   int i;
   int j;
-  double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.141592653589793;
 
   f = new double[m*(n+1)];
 
   for ( i = 0; i < m; i++ )
   {
-    f[i+0*m] = exp ( - 0.5 * x[i] * x[i] ) / sqrt ( sqrt ( pi ) );
+    f[i+0*m] = exp ( - 0.5 * x[i] * x[i] ) / sqrt ( sqrt ( r8_pi ) );
   }
   if ( n == 0 )
   {
@@ -1699,7 +1756,7 @@ double *hf_function ( int m, int n, double x[] )
   for ( i = 0; i < m; i++ )
   {
     f[i+1*m] = 2.0 * exp ( - 0.5 * x[i] * x[i] ) * x[i] 
-      / sqrt ( 2.0 * sqrt ( pi ) );
+      / sqrt ( 2.0 * sqrt ( r8_pi ) );
   }
 
   for ( j = 2; j <= n; j++ )
@@ -1722,9 +1779,11 @@ void hf_function_values ( int &n_data, int &n, double &x, double &fx )
 //
 //  Purpose:
 //
-//    HF_FUNCTION_VALUES: values of the Hermite function Hf(n,x).
+//    HF_FUNCTION_VALUES: tabulated values of Hf(i,x).
 //
 //  Discussion:
+//
+//    Hf(i,x) represents the Hermite function of "degree" I.   
 //
 //    In Mathematica, the function can be evaluated by:
 //
@@ -1840,11 +1899,11 @@ double *hf_power_product ( int p, int e )
 //
 //  Purpose:
 //
-//    HF_POWER_PRODUCT: power products for Hermite function Hf(n,x).
+//    HF_POWER_PRODUCT: power products x^e*Hf(i,x)*Hf(j,x).
 //
 //  Discussion:
 //
-//    Let Hf(I,X) represent the Hermite function of "degree" I.  
+//    Hf(i,x) represents the Hermite function of "degree" I.   
 //
 //    For polynomial chaos applications, it is of interest to know the
 //    value of the integrals of products of X with every possible pair
@@ -1876,7 +1935,7 @@ double *hf_power_product ( int p, int e )
 //    Input, int E, the exponent of X in the integrand.
 //    0 <= E.
 //
-//    Output, double TABLE[(P+1)*(P+1)], the table of integrals.  
+//    Output, double HF_POWER_PRODUCT[(P+1)*(P+1)], the table of integrals.  
 //    TABLE(I,J) represents the integral of X^E * Hf(I,X) * Hf(J,X).
 //
 {
@@ -1909,7 +1968,7 @@ double *hf_power_product ( int p, int e )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = hf_function ( 1, p, x_table+k );
+    h_table = hf_function_value ( 1, p, x_table+k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -1919,7 +1978,8 @@ double *hf_power_product ( int p, int e )
       {
         for ( i = 0; i <= p; i++ )
         {
-          table[i+j*(p+1)] = table[i+j*(p+1)] + w_table[k] * h_table[i] * h_table[j];
+          table[i+j*(p+1)] = table[i+j*(p+1)] 
+            + w_table[k] * h_table[i] * h_table[j];
         }
       }
     }
@@ -1950,7 +2010,11 @@ void hf_quadrature_rule ( int nt, double t[], double wts[] )
 //
 //  Purpose:
 //
-//    HF_QUADRATURE_RULE: quadrature for Hermite function Hf(n,x).
+//    HF_QUADRATURE_RULE: quadrature for Hf(i,x).
+//
+//  Discussion:
+//
+//    Hf(i,x) represents the Hermite function of "degree" I.   
 //
 //  Licensing:
 //
@@ -1974,7 +2038,7 @@ void hf_quadrature_rule ( int nt, double t[], double wts[] )
 {
   double *bj;
   int i;
-  double pi = 3.14159265358979323846264338327950;
+  const double r8_pi = 3.141592653589793;
 
   for ( i = 0; i < nt; i++ )
   {
@@ -1993,7 +2057,7 @@ void hf_quadrature_rule ( int nt, double t[], double wts[] )
     wts[i] = 0.0;
   }
 
-  wts[0] = sqrt ( sqrt ( pi ) );
+  wts[0] = sqrt ( sqrt ( r8_pi ) );
 
   imtqlx ( nt, t, bj, wts );
 
@@ -2011,12 +2075,11 @@ double *hn_exponential_product ( int p, double b )
 //
 //  Purpose:
 //
-//    HN_EXPONENTIAL_PRODUCT: exponential products for Hn(n,x).
+//    HN_EXPONENTIAL_PRODUCT: exponential products exp(b*x)*Hn(i,x)*Hn(j,x).
 //
 //  Discussion:
 //
-//    Let Hn(I,X) represent the normalized physicist's Hermite polynomial 
-//    of degree I.  
+//    Hn(i,x) is the normalized physicist's Hermite polynomial of degree I.  
 //
 //    For polynomial chaos applications, it is of interest to know the
 //    value of the integrals of products of exp(B*X) with every possible pair
@@ -2085,7 +2148,7 @@ double *hn_exponential_product ( int p, double b )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = hn_polynomial ( 1, p, x_table+k );
+    h_table = hn_polynomial_value ( 1, p, x_table+k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -2107,15 +2170,17 @@ double *hn_exponential_product ( int p, double b )
 }
 //****************************************************************************80
 
-double *hn_polynomial ( int m, int n, double x[] )
+double *hn_polynomial_value ( int m, int n, double x[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    HN_POLYNOMIAL evaluates normalized physicist's Hermite polynomials Hn(n,x).
+//    HN_POLYNOMIAL_VALUE evaluates Hn(i,x).
 //
 //  Discussion:
+//
+//    Hn(i,x) is the normalized physicist's Hermite polynomial of degree I.  
 //
 //    These polynomials satisfy the orthonormality condition:
 //
@@ -2151,16 +2216,16 @@ double *hn_polynomial ( int m, int n, double x[] )
 //
 //    Input, double X[M], the evaluation points.
 //
-//    Output, double HN_POLYNOMIAL[M*(N+1)], the values of the first N+1 Hermite
-//    polynomials at the evaluation points.
+//    Output, double HN_POLYNOMIAL_VALUE[M*(N+1)], the values of the first 
+//    N+1 Hermite polynomials at the evaluation points.
 //
 {
   double fact;
   int i;
   int j;
   double *p;
-  double pi = 3.14159265358979323846264338327950;
-  double two;
+  const double r8_pi = 3.141592653589793;
+  double two_power;
 
   if ( n < 0 )
   {
@@ -2196,15 +2261,15 @@ double *hn_polynomial ( int m, int n, double x[] )
 //  Normalize.
 //
   fact = 1.0;
-  two = 1.0;
+  two_power = 1.0;
   for ( j = 0; j <= n; j++ )
   {
     for ( i = 0; i < m; i++ )
     {
-      p[i+j*m] = p[i+j*m] / sqrt ( fact * two * sqrt ( pi ) );
+      p[i+j*m] = p[i+j*m] / sqrt ( fact * two_power * sqrt ( r8_pi ) );
     }
     fact = fact * ( double ) ( j + 1 );
-    two = two * 2.0;
+    two_power = two_power * 2.0;
   }
   return p;
 }
@@ -2216,12 +2281,11 @@ double *hn_power_product ( int p, int e )
 //
 //  Purpose:
 //
-//    HN_POWER_PRODUCT: power products for normalized physicist's Hermite Hn(n,x).
+//    HN_POWER_PRODUCT: power products x^e*Hn(i,x)*Hn(j,x).
 //
 //  Discussion:
 //
-//    Let Hn(I,X) represent the normalized physicist's Hermite  polynomial 
-//    of degree I.  
+//    Hn(i,x) is the normalized physicist's Hermite polynomial of degree I.  
 //
 //    For polynomial chaos applications, it is of interest to know the
 //    value of the integrals of products of X with every possible pair
@@ -2287,7 +2351,7 @@ double *hn_power_product ( int p, int e )
   for ( k = 0; k < order; k++ )
   {
     x = x_table[k];
-    h_table = hn_polynomial ( 1, p, x_table+k );
+    h_table = hn_polynomial_value ( 1, p, x_table+k );
 //
 //  The following formula is an outer product in H_TABLE.
 //
@@ -2297,7 +2361,8 @@ double *hn_power_product ( int p, int e )
       {
         for ( i = 0; i <= p; i++ )
         {
-          table[i+j*(p+1)] = table[i+j*(p+1)] + w_table[k] * h_table[i] * h_table[j];
+          table[i+j*(p+1)] = table[i+j*(p+1)] 
+            + w_table[k] * h_table[i] * h_table[j];
         }
       }
     }
@@ -2422,8 +2487,8 @@ void imtqlx ( int n, double d[], double e[], double z[] )
 //
 //    It has been modified to produce the product Q' * Z, where Z is an input 
 //    vector and Q is the orthogonal matrix diagonalizing the input matrix.  
-//    The changes consist (essentialy) of applying the orthogonal transformations
-//    directly to Z as they are generated.
+//    The changes consist (essentialy) of applying the orthogonal 
+//    transformations directly to Z as they are generated.
 //
 //  Licensing:
 //
@@ -2505,7 +2570,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
           break;
         }
 
-        if ( r8_abs ( e[m-1] ) <= prec * ( r8_abs ( d[m-1] ) + r8_abs ( d[m] ) ) )
+        if ( fabs ( e[m-1] ) <= prec * ( fabs ( d[m-1] ) + fabs ( d[m] ) ) )
         {
           break;
         }
@@ -2525,7 +2590,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
       j = j + 1;
       g = ( d[l] - p ) / ( 2.0 * e[l-1] );
       r =  sqrt ( g * g + 1.0 );
-      g = d[m-1] - p + e[l-1] / ( g + r8_abs ( r ) * r8_sign ( g ) );
+      g = d[m-1] - p + e[l-1] / ( g + fabs ( r ) * r8_sign ( g ) );
       s = 1.0;
       c = 1.0;
       p = 0.0;
@@ -2537,7 +2602,7 @@ void imtqlx ( int n, double d[], double e[], double z[] )
         f = s * e[i-1];
         b = c * e[i-1];
 
-        if ( r8_abs ( g ) <= r8_abs ( f ) )
+        if ( fabs ( g ) <= fabs ( f ) )
         {
           c = g / f;
           r =  sqrt ( c * c + 1.0 );
@@ -2598,82 +2663,6 @@ void imtqlx ( int n, double d[], double e[], double z[] )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = + x;
-  }
-  else
-  {
-    value = - x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_add ( double x, double y )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ADD adds two R8's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 August 2010
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, Y, the numbers to be added.
-//
-//    Output, double R8_ADD, the sum of X and Y.
-//
-{
-  double value;
-
-  value = x + y;
-
-  return value;
-}
-//****************************************************************************80
-
 double r8_epsilon ( )
 
 //****************************************************************************80
@@ -2696,7 +2685,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    11 August 2010
+//    01 September 2012
 //
 //  Author:
 //
@@ -2707,23 +2696,8 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double one;
-  double temp;
-  double test;
-  double value;
+  const double value = 2.220446049250313E-016;
 
-  one = ( double ) ( 1 );
-
-  value = one;
-  temp = value / 2.0;
-  test = r8_add ( one, temp );
-
-  while ( one < test )
-  {
-    value = temp;
-    temp = value / 2.0;
-    test = r8_add ( one, temp );
-  }
   return value;
 }
 //****************************************************************************80

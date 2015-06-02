@@ -1,5 +1,6 @@
 # include <cstdlib>
 # include <iostream>
+# include <iomanip>
 # include <cmath>
 
 using namespace std;
@@ -18,7 +19,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    JACOBI_TEST tests JACOBI.
+//    MAIN is the main program for JACOBI_PRB.
+//
+//  Discussion:
+//
+//    JACOBI_PRB tests the JACOBI library.
 //
 //  Licensing:
 //
@@ -35,7 +40,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "JACOBI_TEST\n";
+  cout << "JACOBI_PRB\n";
   cout << "  C++ version.\n";
   cout << "  Test the JACOBI library.\n";
 
@@ -44,11 +49,11 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "JACOBI_TEST\n";
+  cout << "JACOBI_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
+
   return 0;
 }
 //****************************************************************************80
@@ -115,7 +120,7 @@ void jacobi_test01 ( )
     x_exact[i] = exp ( t ) * ( t - 1 ) * t;
 //   x_exact[i] = ( double ) ( i + 1 );
   }
-  b = r8mat_mv ( n, n, a, x_exact );
+  b = r8mat_mv_new ( n, n, a, x_exact );
 //
 //  Set the initial estimate for the solution.
 //

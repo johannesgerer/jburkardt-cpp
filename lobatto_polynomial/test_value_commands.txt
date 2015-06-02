@@ -1,0 +1,22 @@
+# test_value_commands.txt
+#
+# Usage:
+#  gnuplot < test_value_commands.txt
+#
+unset key
+set term png
+set timestamp
+set output 'test_value.png'
+set xlabel 'x'
+set ylabel 'L(n,x)'
+set title 'Lobatto values'
+set grid
+set style data lines
+plot 'test_value_data.txt' using 1:2, \
+     'test_value_data.txt' using 1:3, \
+     'test_value_data.txt' using 1:4, \
+     'test_value_data.txt' using 1:5, \
+     'test_value_data.txt' using 1:6, \
+     'test_value_data.txt' using 1:7, \
+     'test_value_data.txt' using 1:8
+quit

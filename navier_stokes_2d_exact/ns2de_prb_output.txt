@@ -1,0 +1,324 @@
+06 March 2015 04:42:35 PM
+
+NS2DE_PRB
+  C++ version
+  Test the NS2DE library.
+
+UVP_TAYLOR_TEST
+  Taylor Vortex Flow:
+  Estimate the range of velocity and pressure
+  at the initial time T = 0, using a region that is
+  the square centered at (1.5,1.5) with 'radius' 1.0,
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  U:       -0.997425        0.992956
+  V:       -0.998769        0.998312
+  P:       -0.498148        0.498566
+
+UVP_TAYLOR_TEST2
+  Taylor Vortex Flow:
+  Estimate the range of velocity and pressure
+  on the boundary
+  at the initial time T = 0, using a region that is
+  the square centered at (1.5,1.5) with 'radius' 1.0,
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  U:       -0.999874        0.999874
+  V:       -0.999874        0.999874
+  P:     0.000125864             0.5
+
+RHS_TAYLOR_TEST
+  Taylor Vortex Flow:
+  Sample the Navier-Stokes right hand sides
+  at the initial time T = 0, using a region that is
+  the square centered at (1.5,1.5) with 'radius' 1.0,
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  F:               0               0
+  G:               0               0
+  H:               0               0
+
+RESID_TAYLOR_TEST
+  Taylor Vortex Flow:
+  Sample the Navier-Stokes residuals
+  at the initial time T = 0, using a region that is
+  the square centered at (1.5,1.5) with 'radius' 1.0,
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  Ur:               0     3.55271e-15
+  Vr:               0     3.55271e-15
+  Pr:               0               0
+
+GNUPLOT_TAYLOR_TEST:
+  Taylor Vortex Flow:
+  Generate a Taylor vortex velocity field on a regular grid.
+  Store in GNUPLOT data and command files.
+
+  Data written to 'taylor_data.txt'
+  Commands written to 'taylor_commands.txt'
+
+PARAMETER_TAYLOR_TEST
+  Taylor Vortex Flow:
+  Monitor solution norms over time for various
+  values of NU, RHO.
+
+  RHO affects the pressure scaling.
+
+     RHO         NU           T     ||U||       ||V||       ||P||
+
+           1           1         0   0.0157149   0.0159926  0.00790504
+           1           1       0.2  0.000303239  0.000308597  2.94342e-06
+           1           1       0.4  5.85139e-06  5.95478e-06  1.09597e-09
+           1           1       0.6  1.1291e-07  1.14905e-07  4.08083e-13
+           1           1       0.8  2.17875e-09  2.21725e-09  1.51949e-16
+           1           1         1  4.20418e-11  4.27847e-11  5.65777e-20
+
+        0.01           1         0   0.0157149   0.0159926  7.90504e-05
+        0.01           1       0.2  0.000303239  0.000308597  2.94342e-08
+        0.01           1       0.4  5.85139e-06  5.95478e-06  1.09597e-11
+        0.01           1       0.6  1.1291e-07  1.14905e-07  4.08083e-15
+        0.01           1       0.8  2.17875e-09  2.21725e-09  1.51949e-18
+        0.01           1         1  4.20418e-11  4.27847e-11  5.65777e-22
+
+      0.0001           1         0   0.0157149   0.0159926  7.90504e-07
+      0.0001           1       0.2  0.000303239  0.000308597  2.94342e-10
+      0.0001           1       0.4  5.85139e-06  5.95478e-06  1.09597e-13
+      0.0001           1       0.6  1.1291e-07  1.14905e-07  4.08083e-17
+      0.0001           1       0.8  2.17875e-09  2.21725e-09  1.51949e-20
+      0.0001           1         1  4.20418e-11  4.27847e-11  5.65777e-24
+
+
+  NU affects the time scaling.
+
+     RHO         NU           T     ||U||       ||V||       ||P||
+
+           1           1         0   0.0157149   0.0159926  0.00790504
+           1           1       0.2  0.000303239  0.000308597  2.94342e-06
+           1           1       0.4  5.85139e-06  5.95478e-06  1.09597e-09
+           1           1       0.6  1.1291e-07  1.14905e-07  4.08083e-13
+           1           1       0.8  2.17875e-09  2.21725e-09  1.51949e-16
+           1           1         1  4.20418e-11  4.27847e-11  5.65777e-20
+
+           1         0.1         0   0.0157149   0.0159926  0.00790504
+           1         0.1       0.2   0.0105891   0.0107762  0.00358921
+           1         0.1       0.4  0.00713519  0.00726127  0.00162965
+           1         0.1       0.6  0.00480787  0.00489283  0.000739926
+           1         0.1       0.8  0.00323967  0.00329691  0.000335957
+           1         0.1         1  0.00218297  0.00222154  0.000152538
+
+           1        0.01         0   0.0157149   0.0159926  0.00790504
+           1        0.01       0.2   0.0151065   0.0153735  0.00730489
+           1        0.01       0.4   0.0145218   0.0147784   0.0067503
+           1        0.01       0.6   0.0139597   0.0142063  0.00623781
+           1        0.01       0.8   0.0134193   0.0136564  0.00576424
+           1        0.01         1   0.0128998   0.0131278  0.00532662
+
+           1       0.001         0   0.0157149   0.0159926  0.00790504
+           1       0.001       0.2   0.0156529   0.0159295  0.00784287
+           1       0.001       0.4   0.0155913   0.0158668  0.00778119
+           1       0.001       0.6   0.0155298   0.0158043  0.00771999
+           1       0.001       0.8   0.0154687    0.015742  0.00765928
+           1       0.001         1   0.0154077     0.01568  0.00759904
+
+
+UVP_SPIRAL_TEST
+  Spiral Flow:
+  Estimate the range of velocity and pressure
+  at the initial time T = 0, over the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  U:      -0.0119441       0.0119905
+  V:      -0.0120032        0.011991
+  P:      0.00296933         0.99743
+
+UVP_SPIRAL_TEST2
+  Spiral Flow:
+  Estimate the range of velocity and pressure
+  on the boundary
+  at the initial time T = 0, over the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  U:               0               0
+  V:              -0              -0
+  P:               0               1
+
+RHS_SPIRAL_TEST
+  Spiral Flow:
+  Sample the Navier-Stokes right hand sides
+  at the initial time T = 0, using the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  F:       -0.761154        0.763694
+  G:         0.23586         1.76464
+  H:               0               0
+
+RESID_SPIRAL_TEST
+  Spiral Flow:
+  Sample the Navier-Stokes residuals
+  at the initial time T = 0, on the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  Ur:               0               0
+  Vr:               0               0
+  Pr:               0               0
+
+GNUPLOT_SPIRAL_TEST:
+  Spiral Flow:
+  Generate a velocity field on a regular grid.
+  Store in GNUPLOT data and command files.
+
+  Data written to 'spiral_data.txt'
+  Commands written to 'spiral_commands.txt'
+
+PARAMETER_SPIRAL_TEST
+  Spiral Flow:
+  Monitor solution norms over time for various
+  values of NU, RHO.
+
+  RHO affects the pressure scaling.
+
+     RHO         NU           T     ||U||       ||V||       ||P||
+
+           1           1         0  0.000176721  0.000171249   0.0179831
+           1           1       0.2  0.000212065  0.000205499   0.0179831
+           1           1       0.4  0.00024741  0.000239749   0.0179831
+           1           1       0.6  0.000282754  0.000273998   0.0179831
+           1           1       0.8  0.000318098  0.000308248   0.0179831
+           1           1         1  0.000353442  0.000342498   0.0179831
+
+        0.01           1         0  0.000176721  0.000171249  0.000179831
+        0.01           1       0.2  0.000212065  0.000205499  0.000179831
+        0.01           1       0.4  0.00024741  0.000239749  0.000179831
+        0.01           1       0.6  0.000282754  0.000273998  0.000179831
+        0.01           1       0.8  0.000318098  0.000308248  0.000179831
+        0.01           1         1  0.000353442  0.000342498  0.000179831
+
+      0.0001           1         0  0.000176721  0.000171249  1.79831e-06
+      0.0001           1       0.2  0.000212065  0.000205499  1.79831e-06
+      0.0001           1       0.4  0.00024741  0.000239749  1.79831e-06
+      0.0001           1       0.6  0.000282754  0.000273998  1.79831e-06
+      0.0001           1       0.8  0.000318098  0.000308248  1.79831e-06
+      0.0001           1         1  0.000353442  0.000342498  1.79831e-06
+
+
+  NU affects the time scaling.
+
+     RHO         NU           T     ||U||       ||V||       ||P||
+
+           1           1         0  0.000176721  0.000171249   0.0179831
+           1           1       0.2  0.000212065  0.000205499   0.0179831
+           1           1       0.4  0.00024741  0.000239749   0.0179831
+           1           1       0.6  0.000282754  0.000273998   0.0179831
+           1           1       0.8  0.000318098  0.000308248   0.0179831
+           1           1         1  0.000353442  0.000342498   0.0179831
+
+           1         0.1         0  0.000176721  0.000171249   0.0179831
+           1         0.1       0.2  0.000180256  0.000174674   0.0179831
+           1         0.1       0.4  0.00018379  0.000178099   0.0179831
+           1         0.1       0.6  0.000187324  0.000181524   0.0179831
+           1         0.1       0.8  0.000190859  0.000184949   0.0179831
+           1         0.1         1  0.000194393  0.000188374   0.0179831
+
+           1        0.01         0  0.000176721  0.000171249   0.0179831
+           1        0.01       0.2  0.000177075  0.000171592   0.0179831
+           1        0.01       0.4  0.000177428  0.000171934   0.0179831
+           1        0.01       0.6  0.000177781  0.000172277   0.0179831
+           1        0.01       0.8  0.000178135  0.000172619   0.0179831
+           1        0.01         1  0.000178488  0.000172962   0.0179831
+
+           1       0.001         0  0.000176721  0.000171249   0.0179831
+           1       0.001       0.2  0.000176756  0.000171283   0.0179831
+           1       0.001       0.4  0.000176792  0.000171318   0.0179831
+           1       0.001       0.6  0.000176827  0.000171352   0.0179831
+           1       0.001       0.8  0.000176862  0.000171386   0.0179831
+           1       0.001         1  0.000176898  0.00017142   0.0179831
+
+
+UVP_LUCAS_TEST
+  Lucas Bystricky Flow:
+  Estimate the range of velocity and pressure
+  at the initial time T = 0, over the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  U:       -0.318305        0.318303
+  V:       -0.991674    -0.000268753
+  P:              -0              -0
+
+UVP_LUCAS_TEST2
+  Lucas Bystricky Flow:
+  Estimate the range of velocity and pressure
+  on the boundary
+  at the initial time T = 0, over the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  U:        -0.31831         0.31831
+  V:       -0.999874              -0
+  P:              -0              -0
+
+RHS_LUCAS_TEST
+  Lucas Bystricky Flow:
+  Sample the Navier-Stokes right hand sides
+  at the initial time T = 0, using the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  F:         -3.1575         3.15751
+  G:        -8.79482        0.935149
+  H:               0               0
+
+RESID_LUCAS_TEST
+  Lucas Bystricky Flow:
+  Sample the Navier-Stokes residuals
+  at the initial time T = 0, on the unit square.
+  Kinematic viscosity NU = 1
+  Fluid density RHO = 1
+
+           Minimum       Maximum
+
+  Ur:               0               0
+  Vr:               0     1.77636e-15
+  Pr:               0               0
+
+GNUPLOT_LUCAS_TEST:
+  Lucas Bystricky Flow:
+  Generate a velocity field on a regular grid.
+  Store in GNUPLOT data and command files.
+
+  Data written to 'lucas_data.txt'
+  Commands written to 'lucas_commands.txt'
+
+NS2DE_TEST
+  Normal end of execution.
+06 March 2015 04:42:35 PM

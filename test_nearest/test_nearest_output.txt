@@ -1,0 +1,64 @@
+27 December 2012 12:00:41 PM
+
+TEST_NEAREST:
+  C++ version
+  Consider various nearest neighbor algorithms.
+
+  M = 2, NR = 1000000,  NS = 10
+  #1 time: 0.32,  size = 10,  i[0] = 798726
+
+  M = 2, NR = 100000,  NS = 100
+  #1 time: 0.31,  size = 100,  i[0] = 87961
+
+  M = 2, NR = 10000,  NS = 1000
+  #1 time: 0.31,  size = 1000,  i[0] = 1238
+
+  M = 2, NR = 1000,  NS = 10000
+  #1 time: 0.31,  size = 10000,  i[0] = 248
+
+  M = 2, NR = 100,  NS = 100000
+  #1 time: 0.33,  size = 100000,  i[0] = 34
+
+  M = 2, NR = 10,  NS = 1000000
+  #1 time: 0.41,  size = 1000000,  i[0] = 6
+
+  M = 4, NR = 1000000,  NS = 10
+  #1 time: 0.58,  size = 10,  i[0] = 504510
+
+  M = 4, NR = 100000,  NS = 100
+  #1 time: 0.58,  size = 100,  i[0] = 24241
+
+  M = 4, NR = 10000,  NS = 1000
+  #1 time: 0.58,  size = 1000,  i[0] = 6046
+
+  M = 4, NR = 1000,  NS = 10000
+  #1 time: 0.58,  size = 10000,  i[0] = 659
+
+  M = 4, NR = 100,  NS = 100000
+  #1 time: 0.6,  size = 100000,  i[0] = 64
+
+  M = 4, NR = 10,  NS = 1000000
+  #1 time: 0.7,  size = 1000000,  i[0] = 6
+
+  M = 8, NR = 1000000,  NS = 10
+  #1 time: 1.13,  size = 10,  i[0] = 165330
+
+  M = 8, NR = 100000,  NS = 100
+  #1 time: 1.12,  size = 100,  i[0] = 6061
+
+  M = 8, NR = 10000,  NS = 1000
+  #1 time: 1.11,  size = 1000,  i[0] = 5161
+
+  M = 8, NR = 1000,  NS = 10000
+  #1 time: 1.11,  size = 10000,  i[0] = 740
+
+  M = 8, NR = 100,  NS = 100000
+  #1 time: 1.13,  size = 100000,  i[0] = 10
+
+  M = 8, NR = 10,  NS = 1000000
+  #1 time: 1.24,  size = 1000000,  i[0] = 3
+
+TEST_NEAREST
+  Normal end of execution.
+
+27 December 2012 12:00:54 PM

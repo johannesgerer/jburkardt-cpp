@@ -41,7 +41,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    COMPASS_SEARCH_TEST tests COMPASS_SEARCH.
+//    MAIN is the main program for COMPASS_SEARCH_PRB.
+//
+//  Discussion:
+//
+//    COMPASS_SEARCH_PRB tests the COMPASS_SEARCH library.
 //
 //  Licensing:
 //
@@ -58,7 +62,7 @@ int main ( )
 {
   timestamp ( );
   cout << "\n";
-  cout << "COMPASS_SEARCH_TEST\n";
+  cout << "COMPASS_SEARCH_PRB\n";
   cout << "  C++ version.\n";
   cout << "  Test the COMPASS_SEARCH library.\n";
 
@@ -77,7 +81,7 @@ int main ( )
 //  Terminate.
 //
   cout << "\n";
-  cout << "COMPASS_SEARCH_TEST\n";
+  cout << "COMPASS_SEARCH_PRB\n";
   cout << "  Normal end of execution.\n";
   cout << "\n";
   timestamp ( );

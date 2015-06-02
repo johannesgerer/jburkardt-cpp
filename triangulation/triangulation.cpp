@@ -2610,6 +2610,105 @@ void lvec_print ( int n, bool a[], string title )
 }
 //****************************************************************************80
 
+void mesh_base_one ( int node_num, int element_order, int element_num,
+  int element_node[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    MESH_BASE_ONE ensures that the element definition is 1-based.
+//
+//  Discussion:
+//
+//    The ELEMENT_NODE array contains nodes indices that form elements.
+//    The convention for node indexing might start at 0 or at 1.
+//
+//    If this function detects 0-based indexing, it converts to 1-based.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    18 October 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int ELEMENT_ORDER, the order of the elements.
+//
+//    Input, int ELEMENT_NUM, the number of elements.
+//
+//    Input/output, int ELEMENT_NODE[ELEMENT_ORDER*ELEMENT_NUM], the element
+//    definitions.
+//
+{
+  int element;
+  const int i4_huge = 2147483647;
+  int node;
+  int node_max;
+  int node_min;
+  int order;
+
+  node_min = + i4_huge;
+  node_max = - i4_huge;
+  for ( element = 0; element < element_num; element++ )
+  {
+    for ( order = 0; order < element_order; order++ )
+    {
+      node = element_node[order+element*element_order];
+      if ( node < node_min )
+      {
+        node_min = node;
+      }
+      if ( node_max < node )
+      {
+        node_max = node;
+      }
+    }
+  }
+  if ( node_min == 0 && node_max == node_num - 1 )
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ONE:\n";
+    cout << "  The element indexing appears to be 0-based!\n";
+    cout << "  This will be converted to 1-based.\n";
+    for ( element = 0; element < element_num; element++ )
+    {
+      for ( order = 0; order < element_order; order++ )
+      {
+        element_node[order+element*element_order] =
+          element_node[order+element*element_order] + 1;
+      }
+    }
+  }
+  else if ( node_min == 1 && node_max == node_num )
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ONE:\n";
+    cout << "  The element indexing appears to be 1-based!\n";
+    cout << "  No conversion is necessary.\n";
+  }
+  else
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ONE - Warning!\n";
+    cout << "  The element indexing is not of a recognized type.\n";
+    cout << "  NODE_MIN = " << node_min << "\n";
+    cout << "  NODE_MAX = " << node_max << "\n";
+    cout << "  NODE_NUM = " << node_num << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
 void mesh_base_zero ( int node_num, int element_order, int element_num,
   int element_node[] )
 
@@ -2635,7 +2734,7 @@ void mesh_base_zero ( int node_num, int element_order, int element_num,
 //
 //  Modified:
 //
-//    02 October 2009
+//    18 October 2014
 //
 //  Author:
 //
@@ -2654,24 +2753,38 @@ void mesh_base_zero ( int node_num, int element_order, int element_num,
 //
 {
   int element;
+  const int i4_huge = 2147483647;
   int node;
   int node_max;
   int node_min;
   int order;
 
-  node_min = node_num + 1;
-  node_max = -1;
+  node_min = + i4_huge;
+  node_max = - i4_huge;
   for ( element = 0; element < element_num; element++ )
   {
     for ( order = 0; order < element_order; order++ )
     {
       node = element_node[order+element*element_order];
-      node_min = i4_min ( node_min, node );
-      node_max = i4_max ( node_max, node );
+      if ( node < node_min )
+      {
+        node_min = node;
+      }
+      if ( node_max < node )
+      {
+        node_max = node;
+      }
     }
   }
 
-  if ( node_min == 1 && node_max == node_num )
+  if ( node_min == 0 && node_max == node_num - 1 )
+  {
+    cout << "\n";
+    cout << "MESH_BASE_ZERO:\n";
+    cout << "  The element indexing appears to be 0-based!\n";
+    cout << "  No conversion is necessary.\n";
+  }
+  else if ( node_min == 1 && node_max == node_num )
   {
     cout << "\n";
     cout << "MESH_BASE_ZERO:\n";
@@ -2685,13 +2798,6 @@ void mesh_base_zero ( int node_num, int element_order, int element_num,
           element_node[order+element*element_order] - 1;
       }
     }
-  }
-  else if ( node_min == 0 && node_max == node_num - 1 )
-  {
-    cout << "\n";
-    cout << "MESH_BASE_ZERO:\n";
-    cout << "  The element indexing appears to be 0-based!\n";
-    cout << "  No conversion is necessary.\n";
   }
   else
   {
@@ -4737,12 +4843,12 @@ double r8_epsilon ( )
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the roundoff unit for R8 arithmetic.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the property
-//    that, to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
 //    but
 //      1 = ( 1 + R / 2 )
@@ -4753,7 +4859,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -4761,19 +4867,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the double precision round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -8101,7 +8200,7 @@ int *triangulation_neighbor_elements ( int triangle_order, int triangle_num,
 //
 //  Purpose:
 //
-//    TRIANGULATION_ORDER3_NEIGHBOR_ELEMENTS determines element neighbors.
+//    TRIANGULATION_NEIGHBOR_ELEMENTS determines element neighbors.
 //
 //  Discussion:
 //
@@ -8184,7 +8283,7 @@ int *triangulation_neighbor_elements ( int triangle_order, int triangle_num,
 //    Input, int TRIANGLE_NODE[TRIANGLE_ORDER*TRIANGLE_NUM], the nodes that
 //    make up each triangle.
 //
-//    Output, int TRIANGLE_ORDER3_NEIGHBOR_TRIANGLES[3*TRIANGLE_NUM],
+//    Output, int TRIANGLE_NEIGHBOR_TRIANGLES[3*TRIANGLE_NUM],
 //    the three triangles
 //    that are direct neighbors of a given triangle.  TRIANGLE_NEIGHBOR(1,I)
 //    is the index of the triangle which touches side 1, defined by nodes 2
@@ -9083,6 +9182,77 @@ void triangulation_order3_adj_set2 ( int node_num, int triangle_num,
 }
 //****************************************************************************80
 
+int *triangulation_order3_adjacency ( int node_num, int element_num, 
+  int element_node[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TRIANGULATION_ORDER3_ADJACENCY computes the full adjacency matrix
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    01 March 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes in the
+//    triangulation.
+//
+//    Input, int ELEMENT_NUM, the number of triangles in
+//    the triangulation.
+//
+//    Input, int ELEMENT_NODE[3*ELEMENT_NUM],
+//    the nodes making up each triangle.
+//
+//    Output, int TRIANGULATION_ORDER3_ADJACENCY[NODE_NUM*NODE_NUM], the adjacency
+//    matrix.  ADJ(I,J) is 1 if nodes I and J are adjacent, that is,
+//    they are immediate neighbors on an edge of the triangulation.
+//
+{
+  int *adj;
+  int element;
+  int i;
+  int j;
+  int k;
+
+  adj = new int[node_num*node_num];
+
+  for ( j = 0; j < node_num; j++ )
+  {
+    for ( i = 0; i < node_num; i++ )
+    {
+      adj[i+j*node_num] = 0;
+    }
+  }
+
+  for ( element = 0; element < element_num; element++ )
+  {
+    i = element_node[0+element*3];
+    j = element_node[1+element*3];
+    k = element_node[2+element*3];
+
+    adj[i+j*node_num] = 1;
+    adj[i+k*node_num] = 1;
+    adj[j+i*node_num] = 1;
+    adj[j+k*node_num] = 1;
+    adj[k+i*node_num] = 1;
+    adj[k+j*node_num] = 1;
+  }
+
+  return adj;
+}
+//****************************************************************************80
+
 int triangulation_order3_boundary_edge_count ( int triangle_num,
   int triangle_node[] )
 
@@ -9294,7 +9464,7 @@ bool *triangulation_order3_boundary_node ( int node_num, int triangle_num,
 //
 //  Modified:
 //
-//    12 June 2005
+//    25 January 2013
 //
 //  Author:
 //
@@ -9401,6 +9571,8 @@ bool *triangulation_order3_boundary_node ( int node_num, int triangle_num,
     }
 
   }
+
+  delete [] edge;
 
   return node_boundary;
 }
@@ -12906,7 +13078,7 @@ bool *triangulation_order6_boundary_node ( int node_num, int triangle_num,
 //
 //  Modified:
 //
-//    14 June 2005
+//    25 January 2013
 //
 //  Author:
 //
@@ -13018,6 +13190,8 @@ bool *triangulation_order6_boundary_node ( int node_num, int triangle_num,
     }
 
   }
+
+  delete [] edge;
 
   return node_boundary;
 }

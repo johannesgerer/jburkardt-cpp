@@ -1,0 +1,255 @@
+<html>
+
+  <head>
+    <title>
+      QUADRATURE_LEAST_SQUARES - Least Squares Quadrature Rules
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      QUADRATURE_LEAST_SQUARES <br> Least Squares Quadrature Rules
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>QUADRATURE_LEAST_SQUARES</b>
+      is a C++ library which
+      computes weights for "sub-interpolatory" quadrature rules.
+    </p>
+
+    <p>
+      A large class of quadrature rules may be computed by specifying
+      a set of N abscissas, or sample points, X(1:N), determining the
+      Lagrange interpolation basis functions L(1:N), and then setting
+      a weight vector W by
+      <pre>
+        W(i) = I(L(i))
+      </pre>
+      after which, the integral of any function f(x) is estimated by
+      <pre>
+        I(f) \approx Q(f) = sum ( 1 <= i <= N ) W(i) * f(X(i))
+      </pre>
+    </p>
+
+    <p>
+      We call this an interpolatory rule because the function f(x)
+      has first been interpolated by 
+      <pre>
+        f(x) \approx sum ( 1 <= i <= N ) L(i) * f(X(i))
+      </pre>
+      after which, we apply the integration operator:
+      <pre>
+        I(f) \approx I(sum ( 1 <= i <= N )   L(i)  * f(X(i)))
+             =         sum ( 1 <= i <= N ) I(L(i)) * f(X(i))
+             =         sum ( 1 <= i <= N )   W(i)  * f(X(i)).
+      </pre>
+    </p>
+
+    <p>
+      For badly chosen sets of X, or high values of N, or unruly functions f(x),
+      interpolation may be a bad way to approximate the function.  An 
+      alternative is to seek a polynomial interpolant of degree D &lt; N-1,
+      and then integrate that.  We might call this a "sub-interpolatory" rule.
+    </p>
+
+    <p>
+      As it turns out, a natural way to seek such a rule is to write out
+      the N by D+1 Vandermonde matrix and use a least squares solver.
+      Even though the N by N Vandermonde matrix is ill-conditioned for 
+      Gauss elimination, a least squares approach can produce usable solutions
+      from the N by D+1 matrix.
+    </p>
+
+    <p>
+      The outline of this procedure was devised by Professor Mac Hyman
+      of Tulane University.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>QUADRATURE_LEAST_SQUARES</b> is available in
+      <a href = "../../c_src/quadrature_least_squares/quadrature_least_squares.html">a C version</a> and
+      <a href = "../../cpp_src/quadrature_least_squares/quadrature_least_squares.html">a C++ version</a> and
+      <a href = "../../f77_src/quadrature_least_squares/quadrature_least_squares.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/quadrature_least_squares/quadrature_least_squares.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/quadrature_least_squares/quadrature_least_squares.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/clenshaw_curtis_rule/clenshaw_curtis_rule.html">
+      CLENSHAW_CURTIS_RULE</a>,
+      a C++ library which
+      defines a multiple dimension Clenshaw Curtis quadrature rule.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/qr_solve/qr_solve.html">
+      QR_SOLVE</a>,
+      a C++ library which
+      computes the least squares solution of a rectangular linear system A*x=b.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadmom/quadmom.html">
+      QUADMOM</a>,
+      a C++ library which
+      computes a Gaussian quadrature rule for a weight function rho(x)
+      based on the Golub-Welsch procedure that only requires knowledge
+      of the moments of rho(x).
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrature_golub_welsch/quadrature_golub_welsch.html">
+      QUADRATURE_GOLUB_WELSCH</a>,
+      a C++ library which
+      computes the points and weights of a Gaussian quadrature rule using the 
+      Golub-Welsch procedure, assuming that the points have been specified.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrature_weights_vandermonde/quadrature_weights_vandermonde.html">
+      QUADRATURE_WEIGHTS_VANDERMONDE</a>,
+      a C++ library which
+      computes the weights of a quadrature rule using the Vandermonde
+      matrix, assuming that the points have been specified.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule/quadrule.html">
+      QUADRULE</a>,
+      a C++ library which
+      defines quadrature rules for approximating an integral over a 1D domain.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/quadrule_fast/quadrule_fast.html">
+      QUADRULE_FAST</a>,
+      a C++ library which
+      defines efficient versions of a few 1D quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_int/test_int.html">
+      TEST_INT</a>,
+      a C++ library which
+      defines test integrands for 1D quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/truncated_normal_rule/truncated_normal_rule.html">
+      TRUNCATED_NORMAL_RULE</a>,
+      a C++ program which 
+      computes a quadrature rule for a normal probability density function (PDF),
+      also called a Gaussian distribution, that has been
+      truncated to [A,+oo), (-oo,B] or [A,B].
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/vandermonde/vandermonde.html">
+      VANDERMONDE</a>,
+      a C++ library which carries out certain operations associated
+      with the Vandermonde matrix.
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "qls.cpp">qls.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "qls.hpp">qls.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "qls.sh">qls.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "qls_prb.cpp">qls_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "qls_prb.sh">qls_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "qls_prb_output.txt">qls_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>NCC_SET</b> sets abscissas and weights for Newton-Cotes closed quadrature.
+        </li>
+        <li>
+          <b>R8MAT_MV</b> multiplies a matrix times a vector.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_AB</b> returns a scaled pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>WEIGHTS_LS</b> computes weights for a least squares quadrature rule.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 15 April 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA063_PRB calls the ASA063 routines.
+//    ASA063_PRB tests the ASA063 library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA063_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "ASA063_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -104,25 +102,25 @@ void test01 ( )
 
   for ( ; ; )
   {
-    beta_inc_values ( &n_data, &a, &b, &x, &fx );
+    beta_inc_values ( n_data, a, b, x, fx );
 
     if ( n_data == 0 )
     {
       break;
     }
 
-    beta_log = alogam ( a, &ifault )
-             + alogam ( b, &ifault )
-             - alogam ( a + b, &ifault );
+    beta_log = lgamma ( a )
+             + lgamma ( b )
+             - lgamma ( a + b );
 
-    fx2 = betain ( x, a, b, beta_log, &ifault );
+    fx2 = betain ( x, a, b, beta_log, ifault );
 
     cout << "  " << setprecision(4) << setw(10) << a
          << "  " << setprecision(4) << setw(10) << b
          << "  " << setprecision(4) << setw(10) << x
          << "  " << setprecision(16) << setw(24) << fx
          << "  " << setprecision(16) << setw(24) << fx2
-         << "  " << setprecision(4) << setw(10) << r8_abs ( fx - fx2 ) << "\n";
+         << "  " << setprecision(4) << setw(10) << fabs ( fx - fx2 ) << "\n";
   }
 
   return;

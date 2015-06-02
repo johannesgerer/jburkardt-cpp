@@ -21,7 +21,11 @@ int main ( int argc, char *argv[] )
 //
 //  Purpose:
 //
-//    PPMA_IO_PRB calls the PPMA_IO test routines.
+//    MAIN is the main program for PPMA_IO_PRB.
+//
+//  Discussion:
+//
+//    PPMA_IO_PRB tests the PPMA_IO library.
 //
 //  Licensing:
 //
@@ -51,7 +55,7 @@ int main ( int argc, char *argv[] )
     cout << "\n";
     cout << "PPMA_IO_PRB - Fatal error!\n";
     cout << "  TEST01 terminated with an error.\n";
-    return 1;
+    exit ( 1 );
   }
 
   error = test02 ( );
@@ -61,7 +65,7 @@ int main ( int argc, char *argv[] )
     cout << "\n";
     cout << "PPMA_IO_PRB - Fatal error!\n";
     cout << "  TEST02 terminated with an error.\n";
-    return 1;
+    exit ( 1 );
   }
 //
 //  Terminate.
@@ -69,7 +73,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "PPMA_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

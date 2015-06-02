@@ -1,0 +1,182 @@
+17 May 2015 07:31:12 PM
+
+SPHERE_LLQ_GRID_TEST
+  C++ version
+  Test the SPHERE_LLQ_GRID library.
+
+SPHERE_LLQ_GRID_POINT_COUNT_TEST
+  SPHERE_LLQ_GRID_POINT_COUNT counts the points used for a
+  grid based on quadrilaterals defined by latitude and longitude
+  lines on a sphere in 3D.
+
+     LAT_NUM    LONG_NUM   POINT_NUM
+
+        19         2        40
+        19         4        78
+        19         8       154
+        19        16       306
+
+SPHERE_LLQ_GRID_POINTS_TEST
+  SPHERE_LLQ_POINTS produces latitude/longitude
+  points on a sphere in 3D.
+
+  Radius = 10
+
+  Center:
+
+         0:              0
+         1:              0
+         2:              0
+
+  Number of latitudes is  3
+  Number of longitudes is 4
+
+  The number of grid points is 14
+
+         0               0               0              10
+
+
+         1         7.07107               0         7.07107
+
+         2     4.32978e-16         7.07107         7.07107
+
+         3        -7.07107     8.65956e-16         7.07107
+
+         4    -1.29893e-15        -7.07107         7.07107
+
+
+         5              10               0     6.12323e-16
+
+         6     6.12323e-16              10     6.12323e-16
+
+         7             -10     1.22465e-15     6.12323e-16
+
+         8    -1.83697e-15             -10     6.12323e-16
+
+
+         9         7.07107               0        -7.07107
+
+        10     4.32978e-16         7.07107        -7.07107
+
+        11        -7.07107     8.65956e-16        -7.07107
+
+        12    -1.29893e-15        -7.07107        -7.07107
+
+
+        13     1.22465e-15               0             -10
+
+
+SPHERE_LLQ_GRID_LINE_COUNT_TEST
+  SPHERE_LLQ_GRID_LINE_COUNT counts the lines used for a
+  grid based on quadrilaterals defined by latitude and longitude
+  lines on a sphere in 3D.
+
+     LAT_NUM    LONG_NUM   LINE_NUM
+
+         1         2         6
+         1         4        12
+         1         8        24
+         1        16        48
+
+         3         2        14
+         3         4        28
+         3         8        56
+         3        16       112
+
+         5         2        22
+         5         4        44
+         5         8        88
+         5        16       176
+
+         7         2        30
+         7         4        60
+         7         8       120
+         7        16       240
+
+         9         2        38
+         9         4        76
+         9         8       152
+         9        16       304
+
+        11         2        46
+        11         4        92
+        11         8       184
+        11        16       368
+
+        13         2        54
+        13         4       108
+        13         8       216
+        13        16       432
+
+        15         2        62
+        15         4       124
+        15         8       248
+        15        16       496
+
+        17         2        70
+        17         4       140
+        17         8       280
+        17        16       560
+
+SPHERE_LLQ_GRID_LINES_TEST
+  SPHERE_LLQ_GRID_LINES computes grid lines
+  on a sphere in 3D.
+
+  Number of latitudes is  3
+  Number of longitudes is 4
+
+  Number of line segments is 28
+
+  Grid line vertices:
+
+  Row:      0       1  
+  Col
+
+    0:     0       1  
+    1:     1       5  
+    2:     5       9  
+    3:     9      13  
+    4:     0       2  
+    5:     2       6  
+    6:     6      10  
+    7:    10      13  
+    8:     0       3  
+    9:     3       7  
+   10:     7      11  
+   11:    11      13  
+   12:     0       4  
+   13:     4       8  
+   14:     8      12  
+   15:    12      13  
+   16:     1       2  
+   17:     2       3  
+   18:     3       4  
+   19:     4       1  
+   20:     5       6  
+   21:     6       7  
+   22:     7       8  
+   23:     8       5  
+   24:     9      10  
+   25:    10      11  
+   26:    11      12  
+   27:    12       9  
+
+SPHERE_LLQ_GRID_DISPLAY_TEST
+  SPHERE_LLQ_GRID_DISPLAY displays an LLQ grid on a sphere.
+
+  Number of latitudes is  10
+  Number of longitudes is 12
+
+  The number of grid points is 122
+
+  Number of line segments is 252
+
+  Created node file 'sphere_llq_grid_nodes.txt'
+
+  Created line file 'sphere_llq_grid_lines.txt'
+  Created command file 'sphere_llq_grid_commands.txt'
+
+SPHERE_LLQ_GRID_TEST
+  Normal end of execution.
+
+17 May 2015 07:31:12 PM

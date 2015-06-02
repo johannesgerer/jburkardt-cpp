@@ -1,0 +1,67 @@
+Location:
+
+  http://people.sc.fsu.edu/~jburkardt/cpp_src/clapack_sc/clapack_sc.txt
+
+Using CLAPACK to solve Linear Algebra Problems in C or C++
+(as installed at FSU Department of Scientific Computing)
+----------------------------------------------------------
+
+*) the C data types must be chosen to match Fortran conventions
+
+  Fortran wants             C uses
+
+  double precision complex  doublecomplex
+  double precision          double
+  real                      float
+  complex                   complex
+  integer                   long int
+  character                 char
+
+*) In Fortran, an M by N array ("matrix") is stored by columns, and is 
+essentially a vector.  LAPACK also allows each column to have a length LDA that 
+may be greater than M.  Your life will be easier if you use LDA = M generally.  
+
+  Declare:  double precision A(4,3)    double A[4*3];
+
+  Init:     data A /                   double A = {
+           & 11, 21, 31, 41,           11, 21, 31, 41,
+           & 12, 22, 32, 42,           12, 22, 32, 42,
+           & 13, 23, 33, 43 /          13, 23, 33, 43 };
+
+  A(I,J):  A(I,J) = 10 * I + J         A[I+J*LDA] = 10 * I + J
+                                       A[I+J*M]   = 10 + I + J (if LDA = M )
+ 
+*) If the official name of a LAPACK function is "DGESV", your C program must 
+call it using lower case letters, and a final underscore:
+
+  call dgesv ( arg1, arg2, ... )       dgesv_ ( arg1, arg2, ... );
+
+*) All scalar arguments must be passed by reference (with an AMPERSAND
+preceding their names).  Vectors and matrices are passed in the usual way.
+
+  FORTRAN: call dgesv (   n,  nrhs, a,  lda, ipiv, b,  ldb,  info )
+  C:            dgesv_ ( &n, &nrhs, a, &lda, ipiv, b, &ldb, &info ):
+
+  Note in particular that you CANNOT PASS CONSTANT VALUES AS ARGUMENTS:
+
+  Won't work!:  dgesv_ (  5,    1,  a, &lda, ipiv, b, &ldb, &info );
+
+*) Your program must have the CLAPACK include statement:
+
+  # include "clapack.h"
+
+*) To compile (but not load) your calling program:
+
+  gcc -c -I/usr/common/clapack myprog.c 
+  g++ -c -I/usr/common/clapack myprog.cpp
+
+*) To load your compiled program:
+
+  gcc myprog.o -L/usr/common/clapack -lclapack -lm
+  g++ myprog.o -L/usr/common/clapack -lclapack -lm
+
+*) To run your loaded program:
+
+  ./a.out
+
+See also: http://people.sc.fsu.edu/~jburkardt/cpp_src/clapack_sc/clapack_sc.html

@@ -22,7 +22,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    ASA103_PRB calls the ASA103 routines.
+//    ASA103_PRB tests the ASA103 library.
 //
 //  Licensing:
 //
@@ -38,7 +38,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "ASA103_PRB:\n";
   cout << "  C++ version\n";
@@ -51,7 +50,6 @@ int main ( )
   cout << "\n";
   cout << "ASA103_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

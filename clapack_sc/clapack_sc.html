@@ -1,0 +1,411 @@
+<html>
+
+  <head>
+    <title>
+      CLAPACK_SC - C Translation of BLAS and LAPACK (FSU SC Installation)
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      CLAPACK_SC <br> C Translation of BLAS and LAPACK <br> (FSU SC Installation)
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>CLAPACK_SC</b>
+      is a C++ program which
+      illustrates the use of CLAPACK,
+      a C translation of the FORTRAN77 BLAS and LAPACK linear algebra libraries,
+      <b>as installed at the FSU Department of Scientific Computing</b>.
+    </p>
+
+    <p>
+      Get a copy of the <a href = "clapack_sc.txt">one page instruction sheet</a>.
+    </p>
+
+    <p>
+      By translating the LAPACK library into C, several important linear algebra
+      operations were made available in efficient, reliable versions, including:
+      <ul>
+        <li>
+          solution of linear systems A*x=b;
+        </li>
+        <li>
+          the QR factorization of a (possibly rectangular) matrix, A = Q*R,
+          as a product of an orthogonal matrix Q and upper triangular matrix R.
+        </li>
+        <li>
+          the SVD factorization of a (possibly rectangular) matrix, A = U*S*V',
+          as a product of an orthogonal matrix U, a diagonal matrix S, and
+          an orthogonal matrix V.
+        </li>
+        <li>
+          the computation of the condition number, determinant, or inverse
+          of a square matrix A.
+        </li>
+        <li>
+          the eigenvalue decomposition of a square matrix A, A*X=X*LAMBDA,
+          where the columns of X are eigenvectors, and LAMBDA is a diagonal
+          matrix of eigenvalues.
+        </li>
+        <li>
+          the Cholesky decomposition of a symmetric positive definite matrix
+          A = L * L' = R' * R, where L is a lower triangular matrix, and R
+          an upper triangular matrix.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The translation was done using the automatic F2C translator.  As a 
+      consequence, the resulting C source code is at best unpleasant to read.
+      Moreover, the user's C code must be written and processed in a particular
+      way.
+    </p>
+
+    <p>
+      First, the user code must have the necessary "include" statements.
+      This means adding the statement:
+      <pre>
+        # include "clapack.h"
+      </pre>
+      (Normally, three include statements are needed, but the FSU SC version
+      has simplified this interface.)
+    </p>
+
+    <p>
+      Secondly, all variables that will be passed to a CLAPACK function
+      must be declared using types that can be handled by the FORTRAN
+      package.  In general, this only affects integer variables; as a rule
+      this means that if PIV is an integer scalar, vector or array that will
+      be passed to CLAPACK, its type must be either "integer" (a type defined
+      by f2c.h), or else as "long int" (a standard C type).  Declaring such
+      a variable as "int" will not work!
+    </p>
+
+    <p>
+      Each user accessible routine in the FORTRAN version of LAPACK 
+      has a corresponding CLAPACK version.  However, to access the CLAPACK 
+      version, the user must specify the name of the routine in lower case
+      letters only, and must append an underscore to the name.  Thus,
+      to access a LAPACK routine such as DGETRF(), the user's C code must
+      look something like this:
+      <pre>
+        dgetrf_ ( <i>list of arguments</i> )
+      </pre>
+    </p>
+
+    <p>
+      Because all FORTRAN subroutine arguments can be modified during the
+      execution of the subroutine, the CLAPACK interface requires that
+      every argument in the argument list must be modifiable.  In cases
+      where a vector or array is being passed, this happens automatically.
+      However, when passing a scalar variable, such as "N", the size of 
+      the linear system, or "LDA", the leading dimension of array A,
+      or "INFO", an error return flag, it is necessary to prefix the name
+      with an ampersand.  Thus, a call to DGESV() might look like:
+      <pre>
+        dgesv_ ( &n, &nrhs, a, &lda, ipiv, b, &ldb, &info );
+      </pre>
+      because <b>n</b>, <b>nrhs</b>, <b>lda</b>, <b>ldb</b> and <b>info</b> 
+      are scalar variables.
+    </p>
+
+    <p>
+      The vector and matrix arguments to the CLAPACK routine don't require 
+      the ampersand.  Moreover, vectors (singly indexed lists of numbers)
+      essentially work the same in C and FORTRAN, so it's not difficult
+      to correctly set up vector arguments for CLAPACK.  However, matrices
+      (doubly indexed sets of data) are handled differently, and the user's
+      C code must either set up the data in a FORTRAN way immediately, or
+      else set it up in a way natural to C and then convert the data to make
+      a FORTRAN copy.
+    </p>
+
+    <p>
+      Let's assume that we have an M by N set of data, and to be concrete,
+      let's consider an example where M = 3 and N = 2.  In C, it would be
+      natural to declare this data as follows:
+      <pre>
+        double a[3][2] = {
+          { 11, 12 },
+          { 21, 22 },
+          { 31, 32 } };
+      </pre>
+      In this case, the (I,J) entry (using 0-based indexing) 
+      can be retrieved as <b>a[i][j]</b>.
+    </p>
+
+    <p>
+      However, FORTRAN essentially stores a matrix as a vector, in which
+      the data is stored on column at a time.  Thus, if we wished to pass
+      the example data to CLAPACK as an array, we might instead use the following
+      declaration:
+      <pre>
+        double b[3*2] = {
+          11, 21, 31,
+          12, 22, 32 };
+      </pre>
+      In this case, the (I,J) entry (using 0-based indexing) can be retrieved 
+      as <b>b[i+j*3]</b> where the number 3 is the "leading dimension" of the 
+      array, that is, the length of one column.
+    </p>
+
+    <p>
+      But suppose we need to build the array using the double indexed version,
+      although we know we have to pass a single indexed copy to CLAPACK?
+      Then we can start with the following declarations:
+       <pre>
+        double a[3][2];
+        double b[3*2];
+      </pre>
+      and calculate the entries of <b>a</b> using double indexing, and then
+      copy the information into <b>b</b> using code like the following:
+      <pre>
+        for ( j = 0; j < 2; j++ )
+        {
+          for ( i = 0; i < 3; i++ )
+          {
+            b[i+j*3] = a[i][j];
+          }
+        }
+      </pre>
+      after which, the vector <b>b</b> will contain a copy of the data that
+      is in <b>a</b>, suitable for use by CLAPACK.
+    </p>
+
+    <p>
+      Both LAPACK and CLAPACK allow you to store M by N data inside arrays
+      of larger size.  In that case, the actual first dimension of the 
+      double dimensioned array is called the "leading dimension", and its
+      value must be available whenever entries of the smaller array must 
+      be located inside the bigger array.  I will assume for now that you
+      always make your arrays exactly big enough to hold the data you are
+      interested in.  Typically, this will mean that the variables LDA and
+      LDB are equal to N.
+    </p>
+
+    <p>
+      Once you think you've got your user code all set up, you need to compile
+      and load your program.  Compilation requires access to a copy of the
+      CLAPACK include file, and that depends on how CLAPACK was installed on
+      your system.  For our local system, the include file is stored in
+      /usr/common/clapack, so the compile statement might be
+      <pre>
+        g++ -I/usr/common/clapack myprog.cpp
+      </pre>
+    </p>
+
+    <p>
+      The load procedure requires access to the CLAPACK library.  For
+      our local system, the library is stored as libclapack.a in 
+      /usr/local/common, and so the load statement is:
+      <pre>
+        g++ myprog.o -L/usr/common/clapack -lclapack -lm
+      </pre>
+      which should create an executable program.
+    </p>
+
+    <p>
+      The source code for the CLAPACK library is available from
+      <a href = "http://www.netlib.org/clapack">
+                 http://www.netlib.org/clapack </a>.
+      Actually setting up the library for use can be surprisingly
+      awkward and failure-prone.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <p>
+      This refers to the EXAMPLES presented here.  The CLAPACK library itself
+      is licensed under a different arrangement.
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      The examples for <b>CLAPACK</b> are available in
+      <a href = "../../c_src/clapack/clapack.html">a C version</a> and
+      <a href = "../../cpp_src/clapack/clapack.html">a C++ version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/blas1_c/blas1_c.html">
+      BLAS1_C</a>,
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for vector-vector operations,
+      using single precision complex arithmetic,
+      by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/blas1_d/blas1_d.html">
+      BLAS1_D</a>,
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for vector-vector operations,
+      using double precision real arithmetic,
+      by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/blas1_s/blas1_s.html">
+      BLAS1_S</a>,
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for vector-vector operations,
+      using single precision real arithmetic,
+      by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/blas1_z/blas1_z.html">
+      BLAS1_Z</a>,
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for vector-vector operations,
+      using double precision complex arithmetic,
+      by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/clapack/clapack.html">
+      CLAPACK</a>,
+      C++ programs which
+      illustrate the use of the CLAPACK library, 
+      a C translation of the FORTRAN77 BLAS and LAPACK 
+      linear algebra libraries, including single and double precision, 
+      real and complex arithmetic.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linpack_d/linpack_d.html">
+      LINPACK_D</a>,
+      a C++ library which
+      solves linear systems using double precision real arithmetic;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linpack_s/linpack_s.html">
+      LINPACK_S</a>,
+      a C++ library which
+      solves linear systems using single precision real arithmetic;
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Edward Anderson, Zhaojun Bai, Christian Bischof, Susan Blackford, 
+          James Demmel, Jack Dongarra, Jeremy DuCroz, Anne Greenbaum, 
+          Sven Hammarling, Alan McKenney, Danny Sorensen,<br>
+          LAPACK User's Guide,<br>
+          Third Edition,<br>
+          SIAM, 1999,<br>
+          ISBN: 0898714478,<br>
+          LC: QA76.73.F25L36
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>CLAPACK_PRB</b> is a complicated example that uses
+      vectors to store the matrix information.
+      <ul>
+        <li>
+          <a href = "clapack_prb.cpp">clapack_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "clapack_prb.sh">clapack_prb.sh</a>, 
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "clapack_prb_output.txt">clapack_prb_output.txt</a>, 
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CLAPACK_PRB2</b> is a simplified example that stores the matrix
+      as a double-indexed array, typical for C programs, but then shows
+      how to convert it to the form that CLAPACK needs.
+      <ul>
+        <li>
+          <a href = "clapack_prb2.cpp">clapack_prb2.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "clapack_prb2.sh">clapack_prb2.sh</a>, 
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "clapack_prb2_output.txt">clapack_prb2_output.txt</a>, 
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>CLAPACK_PRB3</b> shows how to use DGBTRF and DGBTRS to factor
+      a banded matrix and solve a related linear system.  The banded
+      matrix is stored as a double-indexed array of bands, but then
+      the program converts the matrix data to the form that CLAPACK needs.
+      <ul>
+        <li>
+          <a href = "clapack_prb3.cpp">clapack_prb3.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "clapack_prb3.sh">clapack_prb3.sh</a>, 
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "clapack_prb3_output.txt">clapack_prb3_output.txt</a>, 
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 09 January 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

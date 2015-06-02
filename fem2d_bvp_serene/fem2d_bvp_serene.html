@@ -1,0 +1,218 @@
+<html>
+
+  <head>
+    <title>
+      FEM2D_BVP_SERENE - Finite Element Method, 2D, Boundary Value Problem, Serendipity Elements
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      FEM2D_BVP_SERENE <br> Finite Element Method, 2D, Boundary Value Problem, Serendipity Elements
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>FEM2D_BVP_SERENE</b>
+      is a C++ program which
+      applies the finite element method, with serendipity elements,
+      to a 2D boundary value problem over a rectangle.
+    </p>
+
+    <p>
+      The boundary value problem (BVP) that is to be solved has the form:
+      <pre>
+        - d/dx ( a(x,y) * du/dx ) - d/dy ( a(x,y) * du/dy ) + c(x,y) * u(x,y) = f(x,y)
+      </pre>
+      This equation holds in the interior of some rectangle R.
+      The functions a(x,y), c(x,y), and f(x,y) are given.
+    </p>
+
+    <p>
+      Zero boundary conditions are imposed on the boundary of R.
+    </p>
+
+    <p>
+      The MATLAB "gallery()" command can produce a copy of the Wathen matrix,
+      which arises as a weighted sum of elementary mass matrices associated
+      with a grid of serendipity elements.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>FEM2D_BVP_SERENE</b> is available in
+      <a href = "../../c_src/fem2d_bvp_serene/fem2d_bvp_serene.html">a C version</a> and
+      <a href = "../../cpp_src/fem2d_bvp_serene/fem2d_bvp_serene.html">a C++ version</a> and
+      <a href = "../../f77_src/fem2d_bvp_serene/fem2d_bvp_serene.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/fem2d_bvp_serene/fem2d_bvp_serene.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/fem2d_bvp_serene/fem2d_bvp_serene.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_bvp_linear/fem2d_bvp_linear.html">
+      FEM2D_BVP_LINEAR</a>,
+      a C++ program which
+      applies the finite element method (FEM), with piecewise linear
+      elements, to a 2D boundary value problem (BVP) over a rectangle,
+      and compares the computed and exact solutions 
+      with the L2 and seminorm errors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/fem2d_bvp_quadratic/fem2d_bvp_quadratic.html">
+      FEM2D_BVP_QUADRATIC</a>,
+      a C++ program which
+      applies the finite element method (FEM), with piecewise quadratic
+      elements, to a 2D boundary value problem (BVP) over a rectangle,
+      and compares the computed and exact solutions 
+      with the L2 and seminorm errors.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wathen/wathen.html">
+      WATHEN</a>,
+      a C++ library which
+      compares storage schemes (full, banded, sparse triplet, sparse) and 
+      solution strategies (A\x, Linpack, conjugate gradient (CG)) 
+      for linear systems involving the Wathen matrix, 
+      which can arise when solving a problem using the 
+      finite element method (FEM).
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fem2d_bvp_serene.cpp">fem2d_bvp_serene.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "fem2d_bvp_serene.hpp">fem2d_bvp_serene.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "fem2d_bvp_serene.sh">fem2d_bvp_serene.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "fem2d_bvp_serene_prb.cpp">fem2d_bvp_serene_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "fem2d_bvp_serene_prb.sh">fem2d_bvp_serene_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "fem2d_bvp_serene_prb_output.txt">fem2d_bvp_serene_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>BASIS_SERENE</b> evaluates the serendipity basis functions.
+        </li>
+        <li>
+          <b>BASIS_DX_SERENE</b> differentiates the serendipity basis functions.
+        </li>
+        <li>
+          <b>BASIS_DY_SERENE</b> differentiates the serendipity basis functions.
+        </li>
+        <li>
+          <b>FEM2D_BVP_SERENE</b> solves boundary value problem on a rectangle.
+        </li>
+        <li>
+          <b>FEM2D_BVP_SERENE_NODE_NUM</b> counts the number of nodes.
+        </li>
+        <li>
+          <b>FEM2D_H1S_ERROR_SERENE:</b> seminorm error of a finite element solution.
+        </li>
+        <li>
+          <b>FEM2D_L1_ERROR_SERENE:</b> l1 error norm of a finite element solution.
+        </li>
+        <li>
+          <b>FEM2D_L2_ERROR_SERENE:</b> L2 error norm of a finite element solution.
+        </li>
+        <li>
+          <b>NOT1</b> evaluates a factor for serendipity basis functions.
+        </li>
+        <li>
+          <b>NOT1D</b> differentiates a factor for serendipity basis functions.
+        </li>
+        <li>
+          <b>NOT2</b> evaluates a factor for serendipity basis functions.
+        </li>
+        <li>
+          <b>NOT2DX</b> evaluates a factor for serendipity basis functions.
+        </li>
+        <li>
+          <b>NOT2DY</b> evaluates a factor for serendipity basis functions.
+        </li>
+        <li>
+          <b>R8MAT_PRINT</b> prints an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_PRINT_SOME</b> prints some of an R8MAT.
+        </li>
+        <li>
+          <b>R8MAT_SOLVE2</b> computes the solution of an N by N linear system.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 07 July 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

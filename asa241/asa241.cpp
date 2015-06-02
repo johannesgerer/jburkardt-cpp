@@ -125,47 +125,6 @@ void normal_01_cdf_values ( int *n_data, double *x, double *fx )
 }
 //****************************************************************************80
 
-float r4_abs ( float x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R4_ABS returns the absolute value of an R4.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    01 December 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, float X, the quantity whose absolute value is desired.
-//
-//    Output, float R4_ABS, the absolute value of X.
-//
-{
-  float value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 float r4_huge ( )
 
 //****************************************************************************80
@@ -277,7 +236,7 @@ float r4_normal_01_cdf_inverse ( float p )
 
   q = p - 0.5;
 
-  if ( r4_abs ( q ) <= split1 )
+  if ( fabs ( q ) <= split1 )
   {
     r = const1 - q * q;
     value = q * r4poly_value ( 4, a, r ) / r4poly_value ( 4, b, r );
@@ -376,47 +335,6 @@ float r4poly_value ( int n, float a[], float x )
     value = value * x + a[i];
   }
 
-  return value;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = - x;
-  }
   return value;
 }
 //****************************************************************************80
@@ -557,7 +475,7 @@ double r8_normal_01_cdf_inverse ( double p )
 
   q = p - 0.5;
 
-  if ( r8_abs ( q ) <= split1 )
+  if ( fabs ( q ) <= split1 )
   {
     r = const1 - q * q;
     value = q * r8poly_value ( 8, a, r ) / r8poly_value ( 8, b, r );

@@ -148,7 +148,7 @@ int main ( int argc, char *argv[] )
 //    Files created include:
 //
 //    * "prefix"_u0000.txt, the initial value of the solution;
-//    * "prefix"_u0001.txt and so on, the computed value of the solution at later times;
+//    * "prefix"_u0001.txt and so on, the computed solution at later times;
 //    * "prefix"_times.txt, the value of time at each step, from the initial to
 //      final times.
 //
@@ -266,7 +266,7 @@ int main ( int argc, char *argv[] )
 //
 //  Get the filename prefix.
 //
-  if ( 1 <= argc )
+  if ( 1 < argc )
   {
     prefix = argv[1];
   }
@@ -404,10 +404,6 @@ int main ( int argc, char *argv[] )
 //
 //  Time looping.
 //
-  cout << "\n";
-  cout << "Time  L2 Error H1 Error\n";
-  cout << "\n";
-
   for ( time_step = 1; time_step <= time_step_num; time_step++ )
   {
     time_old = time;
@@ -421,17 +417,17 @@ int main ( int argc, char *argv[] )
 //
 //  Assemble the finite element coefficient matrix A and the right-hand side F.
 //
-  assemble_heat ( node_num, node_xy, node_condition, element_order,
-    element_num, element_node, quad_num, ib, time, a, f );
+    assemble_heat ( node_num, node_xy, node_condition, element_order,
+      element_num, element_node, quad_num, ib, time, a, f );
 
-  if ( debug )
-  {
-    dgb_print_some ( node_num, node_num, ib, ib, a, 1, 1, 10, 10,
-      "  Initial block of Finite Element matrix A:" );
+    if ( debug )
+    {
+      dgb_print_some ( node_num, node_num, ib, ib, a, 1, 1, 10, 10,
+        "  Initial block of Finite Element matrix A:" );
 
-    r8vec_print_some ( node_num, f, 1, 10,
-      "  Part of right hand side vector:" );
-  }
+      r8vec_print_some ( node_num, f, 1, 10,
+        "  Part of right hand side vector:" );
+    }
 //
 //  Adjust the linear system for the dU/dT term, which we are treating
 //  using the backward Euler formula.
@@ -451,42 +447,42 @@ int main ( int argc, char *argv[] )
 //
 //  Adjust the linear system to account for Dirichlet boundary conditions.
 //
-  assemble_boundary ( node_num, node_xy, node_condition, ib, time, a, f );
+    assemble_boundary ( node_num, node_xy, node_condition, ib, time, a, f );
 
-  if ( debug )
-  {
-    dgb_print_some ( node_num, node_num, ib, ib, a, 1, 1, 10, 10,
-      "  Finite Element matrix A after boundary condition adjustment:" );
+    if ( debug )
+    {
+      dgb_print_some ( node_num, node_num, ib, ib, a, 1, 1, 10, 10,
+        "  Finite Element matrix A after boundary condition adjustment:" );
 
-    r8vec_print_some ( node_num, f, 1, 10,
-      "  Part of right hand side vector:" );
-  }
+      r8vec_print_some ( node_num, f, 1, 10,
+        "  Part of right hand side vector:" );
+    }
 //
 //  Solve the linear system using a banded solver.
 //
-  ierr = dgb_fa ( node_num, ib, ib, a, pivot );
+    ierr = dgb_fa ( node_num, ib, ib, a, pivot );
 
-  if ( ierr != 0 )
-  {
-    cout << "\n";
-    cout << "FEM2D_HEAT - Fatal error!\n";
-    cout << "  DGB_FA returned the error condition IERR = " << ierr << ".\n";
-    cout << "\n";
-    cout << "  The linear system was not factored, and the\n";
-    cout << "  algorithm cannot proceed.\n";
-    exit ( 1 );
-  }
+    if ( ierr != 0 )
+    {
+      cout << "\n";
+      cout << "FEM2D_HEAT - Fatal error!\n";
+      cout << "  DGB_FA returned the error condition IERR = " << ierr << ".\n";
+      cout << "\n";
+      cout << "  The linear system was not factored, and the\n";
+      cout << "  algorithm cannot proceed.\n";
+      exit ( 1 );
+    }
 
-  job = 0;
+    job = 0;
 
-  delete [] u;
+    delete [] u;
 
-  u = dgb_sl ( node_num, ib, ib, a, pivot, f, job );
+    u = dgb_sl ( node_num, ib, ib, a, pivot, f, job );
 
-  if ( debug )
-  {
-    r8vec_print_some ( node_num, u, 1, 10, "  Part of the solution vector:" );
-  }
+    if ( debug )
+    {
+      r8vec_print_some ( node_num, u, 1, 10, "  Part of the solution vector:" );
+    }
 //
 //  Increment the file name, and write the new solution.
 //
@@ -4863,7 +4859,7 @@ bool *triangulation_order6_boundary_node ( int node_num, int triangle_num,
 //
 //  Modified:
 //
-//    14 June 2005
+//    25 January 2013
 //
 //  Author:
 //
@@ -4975,6 +4971,8 @@ bool *triangulation_order6_boundary_node ( int node_num, int triangle_num,
     }
 
   }
+
+  delete [] edge;
 
   return node_boundary;
 }

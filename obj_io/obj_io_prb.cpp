@@ -21,7 +21,11 @@ int main ( int argc, char *argv[] )
 //
 //  Purpose:
 //
-//    OBJ_IO_PRB calls the OBJ_IO test routines.
+//    MAIN is the main program for OBJ_IO_PRB.
+//
+//  Discussion:
+//
+//    OBJ_IO_PRB tests the OBJ_IO library.
 //
 //  Licensing:
 //
@@ -61,7 +65,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "OBJ_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

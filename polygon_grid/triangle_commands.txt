@@ -1,0 +1,17 @@
+# triangle_commands.txt
+#
+# Usage:
+#  gnuplot < triangle_commands.txt
+#
+set term png
+set output 'triangle.png'
+set xlabel '<--- X --->'
+set ylabel '<--- Y --->'
+set title 'triangle'
+set grid
+set key off
+set size ratio -1
+set style data lines
+plot 'triangle_grid.txt' using 1:2 with points lt 3 pt 3,\
+     'triangle_vertex.txt' using 1:2 lw 3 linecolor rgb 'black'
+quit

@@ -8,12 +8,11 @@ using namespace std;
 
 int main ( int argc, char *argv[] );
 void compute ( int np, int nd, double pos[], double vel[], 
-  double mass, double f[], double *pot, double *kin );
+  double mass, double f[], double &pot, double &kin );
 double cpu_time ( );
 double dist ( int nd, double r1[], double r2[], double dr[] );
-void initialize ( int np, int nd, double box[], int *seed, double pos[], 
-  double vel[], double acc[] );
-double r8_uniform_01 ( int *seed );
+void initialize ( int np, int nd, double pos[], double vel[], double acc[] );
+void r8mat_uniform_ab ( int m, int n, double a, double b, int &seed, double r[] );
 void timestamp ( );
 void update ( int np, int nd, double pos[], double vel[], double f[], 
   double acc[], double mass, double dt );
@@ -36,13 +35,18 @@ int main ( int argc, char *argv[] )
 //
 //    The particles interact with a central pair potential.
 //
+//    This program is based on a FORTRAN90 program by Bill Magro.
+//
 //  Usage:
 //
-//    md nd np step_num
+//    md nd np step_num dt
+//
 //    where
+//
 //    * nd is the spatial dimension (2 or 3);
 //    * np is the number of particles (500, for instance);
 //    * step_num is the number of time steps (500, for instance).
+//    * dt is the time step (0.1 for instance)
 //
 //  Licensing:
 //
@@ -50,38 +54,26 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    05 November 2010
+//    27 December 2014
 //
 //  Author:
 //
-//    Original FORTRAN90 version by Bill Magro.
-//    C++ version by John Burkardt.
-//
-//  Parameters:
-//
-//    None
+//    John Burkardt.
 //
 {
   double *acc;
-  double *box;
   double ctime;
-  double ctime1;
-  double ctime2;
-  double dt = 0.0001;
+  double dt;
   double e0;
-  double *ee;
   double *force;
   int i;
   int id;
-  double *ke;
   double kinetic;
   double mass = 1.0;
   int nd;
   int np;
-  double *pe;
   double *pos;
   double potential;
-  int seed = 123456789;
   int step;
   int step_num;
   int step_print;
@@ -108,7 +100,7 @@ int main ( int argc, char *argv[] )
     cin >> nd;
   }
 //
-//  Get the number of points.
+//  Get the number of particles.
 //
   if ( 2 < argc )
   {
@@ -117,7 +109,7 @@ int main ( int argc, char *argv[] )
   else
   {
     cout << "\n";
-    cout << "  Enter NP, the number of points (500, for instance).\n";
+    cout << "  Enter NP, the number of particles (500, for instance).\n";
     cin >> np;
   }
 //
@@ -130,8 +122,21 @@ int main ( int argc, char *argv[] )
   else
   {
     cout << "\n";
-    cout << "  Enter ND, the number of time steps (500 or 1000, for instance).\n";
+    cout << "  Enter STEP_NUM, the number of time steps (500 or 1000, for instance).\n";
     cin >> step_num;
+  }
+//
+//  Get the time step.
+//
+  if ( 4 < argc )
+  {
+    dt = atof ( argv[4] );
+  }
+  else
+  {
+    cout << "\n";
+    cout << "  Enter DT, the time step size (0.1, for instance).\n";
+    cin >> dt;
   }
 //
 //  Report.
@@ -142,39 +147,12 @@ int main ( int argc, char *argv[] )
   cout << "  STEP_NUM, the number of time steps, is " << step_num << "\n";
   cout << "  DT, the size of each time step, is " << dt << "\n";
 //
-//  Allocate space.
+//  Allocate memory.
 //
   acc = new double[nd*np];
-  box = new double[nd];
-  ee = new double[step_num];
   force = new double[nd*np];
-  ke = new double[step_num];
-  pe = new double[step_num];
   pos = new double[nd*np];
   vel = new double[nd*np];
-//
-//  Set the dimensions of the box.
-//
-  for ( i = 0; i < nd; i++ )
-  {
-    box[i] = 10.0;
-  }
-
-  cout << "\n";
-  cout << "  Initializing positions, velocities, and accelerations.\n" << flush;
-//
-//  Set initial positions, velocities, and accelerations.
-//
-  initialize ( np, nd, box, &seed, pos, vel, acc );
-//
-//  Compute the forces and energies.
-//
-  cout << "\n";
-  cout << "  Computing initial forces and energies.\n" << flush;
-
-  compute ( np, nd, pos, vel, mass, force, &potential, &kinetic );
-
-  e0 = potential + kinetic;
 //
 //  This is the main time stepping loop:
 //    Compute forces and energies,
@@ -194,19 +172,25 @@ int main ( int argc, char *argv[] )
   step_print_index = 0;
   step_print_num = 10;
   
-  step = 0;
-  cout << "  " << setw(8) << step
-       << "  " << setw(14) << potential
-       << "  " << setw(14) << kinetic
-       << "  " << setw(14) << ( potential + kinetic - e0 ) / e0 << "\n";
-  step_print_index = step_print_index + 1;
-  step_print = ( step_print_index * step_num ) / step_print_num;
+  ctime = cpu_time ( );
 
-  ctime1 = cpu_time ( );
-
-  for ( step = 1; step <= step_num; step++ )
+  for ( step = 0; step <= step_num; step++ )
   {
-    compute ( np, nd, pos, vel, mass, force, &potential, &kinetic );
+    if ( step == 0 )
+    {
+      initialize ( np, nd, pos, vel, acc );
+    }
+    else
+    {
+      update ( np, nd, pos, vel, force, acc, mass, dt );
+    }
+
+    compute ( np, nd, pos, vel, mass, force, potential, kinetic );
+
+    if ( step == 0 )
+    {
+      e0 = potential + kinetic;
+    }
 
     if ( step == step_print )
     {
@@ -217,25 +201,27 @@ int main ( int argc, char *argv[] )
       step_print_index = step_print_index + 1;
       step_print = ( step_print_index * step_num ) / step_print_num;
     }
-    update ( np, nd, pos, vel, force, acc, mass, dt );
+
   }
-
-  ctime2 = cpu_time ( );
-  ctime = ctime2 - ctime1;
+//
+//  Report timing.
+//
+  ctime = cpu_time ( ) - ctime;
   cout << "\n";
-  cout << "  Elapsed cpu time for main computation:\n";
-  cout << "  " << ctime << " seconds.\n";
-
+  cout << "  Elapsed cpu time " << ctime << " seconds.\n";
+//
+//  Free memory.
+//
   delete [] acc;
-  delete [] box;
   delete [] force;
   delete [] pos;
   delete [] vel;
-
+//
+//  Terminate.
+//
   cout << "\n";
   cout << "MD\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -243,8 +229,8 @@ int main ( int argc, char *argv[] )
 }
 //****************************************************************************80
 
-void compute ( int np, int nd, double pos[], double vel[], 
-  double mass, double f[], double *pot, double *kin )
+void compute ( int np, int nd, double pos[], double vel[], double mass, 
+  double f[], double &pot, double &kin )
 
 //****************************************************************************80
 //
@@ -276,8 +262,7 @@ void compute ( int np, int nd, double pos[], double vel[],
 //
 //  Author:
 //
-//    Original FORTRAN90 version by Bill Magro.
-//    C++ version by John Burkardt.
+//    John Burkardt.
 //
 //  Parameters:
 //
@@ -293,9 +278,9 @@ void compute ( int np, int nd, double pos[], double vel[],
 //
 //    Output, double F[ND*NP], the forces.
 //
-//    Output, double *POT, the total potential energy.
+//    Output, double &POT, the total potential energy.
 //
-//    Output, double *KIN, the total kinetic energy.
+//    Output, double &KIN, the total kinetic energy.
 //
 {
   double d;
@@ -303,13 +288,11 @@ void compute ( int np, int nd, double pos[], double vel[],
   int i;
   int j;
   int k;
-  double ke;
-  double pe;
   double PI2 = 3.141592653589793 / 2.0;
   double rij[3];
 
-  pe = 0.0;
-  ke = 0.0;
+  pot = 0.0;
+  kin = 0.0;
 
   for ( k = 0; k < np; k++ )
   {
@@ -338,7 +321,7 @@ void compute ( int np, int nd, double pos[], double vel[],
           d2 = PI2;
         }
 
-        pe = pe + 0.5 * pow ( sin ( d2 ), 2 );
+        pot = pot + 0.5 * pow ( sin ( d2 ), 2 );
 
         for ( i = 0; i < nd; i++ )
         {
@@ -351,15 +334,12 @@ void compute ( int np, int nd, double pos[], double vel[],
 //
     for ( i = 0; i < nd; i++ )
     {
-      ke = ke + vel[i+k*nd] * vel[i+k*nd];
+      kin = kin + vel[i+k*nd] * vel[i+k*nd];
     }
   }
 
-  ke = ke * 0.5 * mass;
+  kin = kin * 0.5 * mass;
   
-  *pot = pe;
-  *kin = ke;
-
   return;
 }
 //****************************************************************************80
@@ -415,14 +395,13 @@ double dist ( int nd, double r1[], double r2[], double dr[] )
 //
 //  Author:
 //
-//    Original FORTRAN90 version by Bill Magro.
-//    C++ version by John Burkardt.
+//    John Burkardt.
 //
 //  Parameters:
 //
 //    Input, int ND, the number of spatial dimensions.
 //
-//    Input, double R1[ND], R2[ND], the positions of the particles.
+//    Input, double R1[ND], R2[ND], the positions.
 //
 //    Output, double DR[ND], the displacement vector.
 //
@@ -444,8 +423,7 @@ double dist ( int nd, double r1[], double r2[], double dr[] )
 }
 //****************************************************************************80
 
-void initialize ( int np, int nd, double box[], int *seed, double pos[], 
-  double vel[], double acc[] )
+void initialize ( int np, int nd, double pos[], double vel[], double acc[] )
 
 //****************************************************************************80
 //
@@ -459,12 +437,11 @@ void initialize ( int np, int nd, double box[], int *seed, double pos[],
 //
 //  Modified:
 //
-//    20 July 2008
+//    26 December 2014
 //
 //  Author:
 //
-//    Original FORTRAN90 version by Bill Magro.
-//    C++ version by John Burkardt.
+//    John Burkardt
 //
 //  Parameters:
 //
@@ -472,29 +449,38 @@ void initialize ( int np, int nd, double box[], int *seed, double pos[],
 //
 //    Input, int ND, the number of spatial dimensions.
 //
-//    Input, double BOX[ND], specifies the maximum position
-//    of particles in each dimension.
+//    Output, double POS[ND*NP], the positions.
 //
-//    Input, int *SEED, a seed for the random number generator.
+//    Output, double VEL[ND*NP], the velocities.
 //
-//    Output, double POS[ND*NP], the position of each particle.
-//
-//    Output, double VEL[ND*NP], the velocity of each particle.
-//
-//    Output, double ACC[ND*NP], the acceleration of each particle.
+//    Output, double ACC[ND*NP], the accelerations.
 //
 {
   int i;
   int j;
+  int seed;
 //
-//  Give the particles random positions within the box.
+//  Set the positions.
+//
+  seed = 123456789;
+  r8mat_uniform_ab ( nd, np, 0.0, 10.0, seed, pos );
+//
+//  Set the velocities.
 //
   for ( j = 0; j < np; j++ )
   {
     for ( i = 0; i < nd; i++ )
     {
-      pos[i+j*nd] = box[i] * r8_uniform_01 ( seed );
       vel[i+j*nd] = 0.0;
+    }
+  }
+//
+//  Set the accelerations.
+//
+  for ( j = 0; j < np; j++ )
+  {
+    for ( i = 0; i < nd; i++ )
+    {
       acc[i+j*nd] = 0.0;
     }
   }
@@ -502,20 +488,22 @@ void initialize ( int np, int nd, double box[], int *seed, double pos[],
 }
 //****************************************************************************80
 
-double r8_uniform_01 ( int *seed )
+void r8mat_uniform_ab ( int m, int n, double a, double b, int &seed, double r[] )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    R8_UNIFORM_01 is a unit pseudorandom R8.
+//    R8MAT_UNIFORM_AB returns a scaled pseudorandom R8MAT.
 //
 //  Discussion:
 //
+//    An R8MAT is an array of R8's.
+//
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = ( 16807 * seed ) mod ( 2^31 - 1 )
+//      u = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -526,7 +514,7 @@ double r8_uniform_01 ( int *seed )
 //
 //  Modified:
 //
-//    11 August 2004
+//    09 April 2012
 //
 //  Author:
 //
@@ -536,38 +524,75 @@ double r8_uniform_01 ( int *seed )
 //
 //    Paul Bratley, Bennett Fox, Linus Schrage,
 //    A Guide to Simulation,
-//    Springer Verlag, pages 201-202, 1983.
+//    Second Edition,
+//    Springer, 1987,
+//    ISBN: 0387964673,
+//    LC: QA76.9.C65.B73.
 //
 //    Bennett Fox,
 //    Algorithm 647:
 //    Implementation and Relative Efficiency of Quasirandom
 //    Sequence Generators,
 //    ACM Transactions on Mathematical Software,
-//    Volume 12, Number 4, pages 362-376, 1986.
+//    Volume 12, Number 4, December 1986, pages 362-376.
+//
+//    Pierre L'Ecuyer,
+//    Random Number Generation,
+//    in Handbook of Simulation,
+//    edited by Jerry Banks,
+//    Wiley, 1998,
+//    ISBN: 0471134031,
+//    LC: T57.62.H37.
+//
+//    Peter Lewis, Allen Goodman, James Miller,
+//    A Pseudo-Random Number Generator for the System/360,
+//    IBM Systems Journal,
+//    Volume 8, Number 2, 1969, pages 136-143.
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input, int M, N, the number of rows and columns.
 //
-//    Output, double R8_UNIFORM_01, a new pseudorandom variate, strictly between
-//    0 and 1.
+//    Input, double A, B, the limits of the pseudorandom values.
+//
+//    Input/output, int &SEED, the "seed" value.  Normally, this
+//    value should not be 0.  On output, SEED has 
+//    been updated.
+//
+//    Output, double R[M*N], a matrix of pseudorandom values.
 //
 {
+  int i;
+  const int i4_huge = 2147483647;
+  int j;
   int k;
-  double r;
 
-  k = *seed / 127773;
-
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
-
-  if ( *seed < 0 )
+  if ( seed == 0 )
   {
-    *seed = *seed + 2147483647;
+    cerr << "\n";
+    cerr << "R8MAT_UNIFORM_AB - Fatal error!\n";
+    cerr << "  Input value of SEED = 0.\n";
+    exit ( 1 );
   }
 
-  r = ( double ) ( *seed ) * 4.656612875E-10;
+  for ( j = 0; j < n; j++ )
+  {
+    for ( i = 0; i < m; i++ )
+    {
+      k = seed / 127773;
 
-  return r;
+      seed = 16807 * ( seed - k * 127773 ) - k * 2836;
+
+      if ( seed < 0 )
+      {
+        seed = seed + i4_huge;
+      }
+
+      r[i+j*m] = a + ( b - a ) * ( double ) ( seed ) * 4.656612875E-10;
+    }
+  }
+
+  return;
 }
 //****************************************************************************80
 
@@ -648,8 +673,7 @@ void update ( int np, int nd, double pos[], double vel[], double f[],
 //
 //  Author:
 //
-//    Original FORTRAN90 version by Bill Magro.
-//    C++ version by John Burkardt.
+//    John Burkardt
 //
 //  Parameters:
 //
@@ -657,13 +681,13 @@ void update ( int np, int nd, double pos[], double vel[], double f[],
 //
 //    Input, int ND, the number of spatial dimensions.
 //
-//    Input/output, double POS[ND*NP], the position of each particle.
+//    Input/output, double POS[ND*NP], the positions.
 //
-//    Input/output, double VEL[ND*NP], the velocity of each particle.
+//    Input/output, double VEL[ND*NP], the velocities.
 //
-//    Input, double F[ND*NP], the force on each particle.
+//    Input, double F[ND*NP], the forces.
 //
-//    Input/output, double ACC[ND*NP], the acceleration of each particle.
+//    Input/output, double ACC[ND*NP], the accelerations.
 //
 //    Input, double MASS, the mass of each particle.
 //

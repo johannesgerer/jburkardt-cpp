@@ -21,14 +21,14 @@
     <p>
       <b>BLAS1_Z</b> 
       is a C++ library which 
-      implements the Level 1 <b>BLAS</b>, or 
+      implements the Level 1 BLAS, or 
       Basic Linear Algebra Subprograms, using double precision complex arithmetic.
     </p>
 
     <p>
-      The <b>BLAS</b> are a small core library of linear algebra utilities, 
+      The BLAS are a small core library of linear algebra utilities, 
       which can be highly optimized for various architectures.  Software
-      that relies on the <b>BLAS</b> is thus highly portable, and will typically
+      that relies on the BLAS is thus highly portable, and will typically
       run very efficiently.
     </p>
 
@@ -66,6 +66,14 @@
     </h3>
 
     <p>
+      <a href = "../../cpp_src/blas0/blas0.html">
+      BLAS0</a>,
+      a C++ library which
+      contains auxilliary functions for the Basic Linear Algebra Subprograms 
+      (BLAS).
+    </p>
+
+    <p>
       <a href = "../../cpp_src/blas1_c/blas1_c.html">
       BLAS1_C</a>,
       a C++ library which
@@ -90,19 +98,19 @@
     </p>
 
     <p>
-      <a href = "../../f77_src/blas2/blas2.html">
+      <a href = "../../cpp_src/blas2/blas2.html">
       BLAS2</a>,
-      a FORTRAN77 library which
-      contains basic linear algebra routines for matrix-vector operations,
-      using single or precision real or complex arithmetic.
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for matrix-vector operations;
     </p>
 
     <p>
-      <a href = "../../f77_src/blas3/blas3.html">
-      BLAS3</a>, 
-      a FORTRAN77 library which
-      contains basic linear algebra routines for matrix-matrix operations,
-      using single or precision real or complex arithmetic.
+      <a href = "../../cpp_src/blas3/blas3.html">
+      BLAS3</a>,
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for matrix-matrix operations;
     </p>
 
     <p>
@@ -118,13 +126,6 @@
       GSL</a>, 
       C++ programs which 
       illustrate the use of the Gnu Scientific Library;
-    </p>
-
-    <p>
-      <a href = "../../f77_src/lapack_examples/lapack_examples.html">
-      LAPACK_EXAMPLES</a>,
-      a FORTRAN77 program which
-      demonstrates the use of the LAPACK linear algebra library.
     </p>
 
     <p>
@@ -233,34 +234,7 @@
           <b>DZNRM2</b> returns the euclidean norm of a complex &lt;double&gt; vector.
         </li>
         <li>
-          <b>I4_MAX</b> returns the maximum of two ints.
-        </li>
-        <li>
-          <b>I4_MIN</b> returns the smaller of two ints.
-        </li>
-        <li>
           <b>IZAMAX</b> indexes the complex &lt;double&gt; vector element of maximum absolute value.
-        </li>
-        <li>
-          <b>LSAME</b> returns TRUE if CA is the same letter as CB regardless of case.
-        </li>
-        <li>
-          <b>R8_ABS</b> returns the absolute value of a double.
-        </li>
-        <li>
-          <b>R8_MAX</b> returns the maximum of two doubles.
-        </li>
-        <li>
-          <b>R8_SIGN</b> returns the sign of a double.
-        </li>
-        <li>
-          <b>XERBLA</b> is an error handler for the LAPACK routines.
-        </li>
-        <li>
-          <b>ZABS1</b> returns the L1 norm of a complex &lt;double&gt;.
-        </li>
-        <li>
-          <b>ZABS2</b> returns the L2 norm of a complex &lt;double&gt;.
         </li>
         <li>
           <b>ZAXPY</b> adds a multiple of one complex &lt;double&gt; vector to another.
@@ -281,19 +255,10 @@
           <b>ZDSCAL</b> scales a complex &lt;double&gt; vector by a double.
         </li>
         <li>
-          <b>ZMACH</b> computes machine parameters for complex &lt;double&gt; arithmetic.
-        </li>
-        <li>
           <b>ZROTG</b> determines a complex &lt;double&gt; Givens rotation.
         </li>
         <li>
           <b>ZSCAL</b> scales a complex &lt;double&gt; vector by a complex &lt;double&gt;.
-        </li>
-        <li>
-          <b>ZSIGN1</b> is a complex &lt;double&gt; transfer-of-sign function.
-        </li>
-        <li>
-          <b>ZSIGN2</b> is a complex &lt;double&gt; transfer-of-sign function.
         </li>
         <li>
           <b>ZSWAP</b> interchanges two complex &lt;double&gt; vectors.

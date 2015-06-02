@@ -1,0 +1,14 @@
+# xk_commands.txt
+#
+# Usage:
+#  gnuplot < xk_commands.txt
+#
+set term png
+set output 'xk_contour.png'
+set xlabel '<---X--->'
+set ylabel '<---DC(X)--->'
+set yrange [0.0:23.9932]
+set title 'XK Stochastic diffusivity function'
+set grid
+set style data lines
+plot 'xk_data.txt' using 1:2 lw 3 linecolor rgb 'red'

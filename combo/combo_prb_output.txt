@@ -1,4 +1,4 @@
-19 December 2011 09:56:29 AM
+09 December 2013 01:51:09 PM
 
 COMBO_PRB
   C++ version
@@ -102,7 +102,7 @@ TEST03
         10        115975        115975
 
 TEST04
-  BINOMIAL computes binomial coefficients.
+  I4_CHOOSE computes binomial coefficients.
     -1    -1             0
     -1     0             0
     -1     1             0
@@ -630,7 +630,7 @@ TEST21
 
     I P(I)  P(I,0) P(I,1) P(I,2) P(I,3) P(I,4) P(I,5)
 
-   0     1     1     0     0     0     0     0
+   0     1     1     0     1     3     2     0
    1     1     0     1     0     0     0     0
    2     2     0     1     1     0     0     0
    3     3     0     1     1     1     0     0
@@ -1426,4 +1426,4 @@ TEST42
 COMBO_PRB
   Normal end of execution.
 
-19 December 2011 09:56:29 AM
+09 December 2013 01:51:09 PM

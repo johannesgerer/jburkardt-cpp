@@ -35,7 +35,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    NINTLIB_PRB runs the NINTLIB tests.
+//    NINTLIB_PRB tests the NINTLIB library.
 //
 //  Licensing:
 //
@@ -59,7 +59,6 @@ int main ( )
   int test;
 
   timestamp ( );
-
   cout << "\n";
   cout << "NINTLIB_PRB\n";
   cout << "  C++ version\n";
@@ -134,7 +133,6 @@ int main ( )
   cout << "\n";
   cout << "NINTLIB_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

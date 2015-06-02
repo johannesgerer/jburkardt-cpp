@@ -20,7 +20,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    WALSH_PRB calls the WALSH test routines.
+//    MAIN is the main program for WALSH_PRB.
+//
+//  Discussion:
+//
+//    WALSH_PRB tests the WALSH library.
 //
 //  Licensing:
 //
@@ -36,7 +40,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "WALSH_PRB\n";
   cout << "  C++ version\n";
@@ -52,7 +55,6 @@ int main ( )
   cout << "\n";
   cout << "WALSH_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

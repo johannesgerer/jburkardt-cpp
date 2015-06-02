@@ -1,9 +1,8 @@
-12 January 2010 11:10:45 PM
+12 March 2013 03:27:43 PM
 
 SPARSE_GRID_CC_PRB
   C++ version
-
-  Test the routines in the SPARSE_GRID_CC library.
+  Test the SPARSE_GRID_CC library.
 
 TEST01
   SPARSE_GRID_CFN_SIZE returns the number of distinct
@@ -28,7 +27,7 @@ TEST01
        9       513      3329     13953     46721    135073
       10      1025      7169     32001    113409    345665
 
-12 January 2010 11:10:45 PM
+12 March 2013 03:27:43 PM
 
 TEST01
   SPARSE_GRID_CFN_SIZE returns the number of distinct
@@ -53,7 +52,7 @@ TEST01
        9    350657    836769   1863937   3918273   7836545
       10    943553   2362881   5515265  12133761  25370753
 
-12 January 2010 11:10:46 PM
+12 March 2013 03:27:43 PM
 
 TEST01
   SPARSE_GRID_CFN_SIZE returns the number of distinct
@@ -72,7 +71,7 @@ TEST01
        3   1353801
        4  68074001
 
-12 January 2010 11:10:53 PM
+12 March 2013 03:27:45 PM
 
 TEST01
   SPARSE_GRID_CCS_SIZE returns the number of distinct
@@ -97,7 +96,7 @@ TEST01
        9        33       257      1953      9857     38593
       10        33       385      2721     15361     67425
 
-12 January 2010 11:10:53 PM
+12 March 2013 03:27:45 PM
 
 TEST01
   SPARSE_GRID_CCS_SIZE returns the number of distinct
@@ -122,7 +121,7 @@ TEST01
        9    126401    361665    930049   2192865   4810625
       10    244289    765089   2136577   5436321  12803073
 
-12 January 2010 11:10:53 PM
+12 March 2013 03:27:45 PM
 
 TEST01
   SPARSE_GRID_CCS_SIZE returns the number of distinct
@@ -141,7 +140,7 @@ TEST01
        3   1353801
        4  68073201
 
-12 January 2010 11:11:01 PM
+12 March 2013 03:27:48 PM
 
 TEST02:
   SPARSE_GRID_CC_INDEX returns all grid indexes
@@ -1475,4 +1474,4 @@ TEST06:
 SPARSE_GRID_CC_PRB
   Normal end of execution.
 
-12 January 2010 11:11:01 PM
+12 March 2013 03:27:48 PM

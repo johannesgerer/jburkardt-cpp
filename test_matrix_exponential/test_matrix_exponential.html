@@ -40,7 +40,7 @@
     </p>
 
     <p>
-      <b>TEST_MATRIX_EXPONENTIAL</b> needs the R8LIB library.
+      <b>TEST_MATRIX_EXPONENTIAL</b> needs the C8LIB and R8LIB libraries.
     </p>
 
     <h3 align = "center">
@@ -193,19 +193,34 @@
     <p>
       <ul>
         <li>
-          <b>MEXP_A</b> returns the matrix for a given test.
+          <b>C8MAT_EXP_A</b> returns the matrix for a given complex test.
         </li>
         <li>
-          <b>MEXP_EXPA</b> returns the "exact" exponential matrix for a given test.
+          <b>C8MAT_EXP_EXPA</b> returns the "exact" exponential matrix for a given complex test.
         </li>
         <li>
-          <b>MEXP_N</b> returns the matrix order for a given test.
+          <b>C8MAT_EXP_N</b> returns the matrix order for a given complex test.
         </li>
         <li>
-          <b>MEXP_STORY</b> prints explanatory text for each problem.
+          <b>C8MAT_EXP_STORY</b> prints explanatory text for each complex problem.
         </li>
         <li>
-          <b>MEXP_TEST_NUM</b> returns the number of matrix exponential tests.
+          <b>C8MAT_EXP_TEST_NUM</b> returns the number of complex tests.
+        </li>
+        <li>
+          <b>R8MAT_EXP_A</b> returns the matrix for a given real test.
+        </li>
+        <li>
+          <b>R8MAT_EXP_EXPA</b> returns the "exact" exponential matrix for a given real test.
+        </li>
+        <li>
+          <b>R8MAT_EXP_N</b> returns the matrix order for a given real test.
+        </li>
+        <li>
+          <b>R8MAT_EXP_STORY</b> prints explanatory text for each real problem.
+        </li>
+        <li>
+          <b>R8MAT_EXP_TEST_NUM</b> returns the number of real tests.
         </li>
       </ul>
     </p>
@@ -218,7 +233,7 @@
     <hr>
 
     <i>
-      Last modified on 17 October 2012.
+      Last modified on 05 March 2013.
     </i>
 
     <!-- John Burkardt -->

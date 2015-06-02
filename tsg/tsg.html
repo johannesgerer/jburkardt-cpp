@@ -1,0 +1,246 @@
+<html>
+
+  <head>
+    <title>
+      TSG - TASMANIAN Sparse Grid Library
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      TSG <br> TASMANIAN Sparse Grid Library
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>TSG</b> 
+      includes C++ programs which
+      demonstrate the use of the TasmanianSparseGrid (TSG) package,
+      which implements routines for working with sparse grids,
+      to efficiently estimate integrals or compute interpolants of
+      scalar functions of multidimensional arguments.
+    </p>
+
+    <p>
+      TSG can create three kinds of rules:
+      <ul>
+        <li>
+          Global grids, for globally smooth functions;
+        </li>
+        <li>
+          Local polynomial grids, a piecewise polynomial approach 
+          for non-smooth functions
+        </li>
+        <li>
+          Wavelet grids, also for non-smooth functions, but this option
+          can sometimes achieve better accuracy with fewer points.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      TSG is a family of algorithms for constructing multidimensional
+      quadrature and interpolation rules from tensor products of 1-dimensional
+      versions of such rules.
+    </p>
+
+    <p>
+      TSG includes a large variety of 1-dimensional rules, which are generally
+      defined, by default, over the interval [-1,+1].  In that case, the 
+      multidimensional quadrature and interpolation rules will be defined over
+      the hypercube [-1,+1]^d, but a simple linear transformation can be
+      carried out by TSG to redefine the linearly redefine the region. 
+    </p>
+
+    <p>
+      The one-dimensional rules that can be used include:
+      <ul>
+        <li>
+          Chebyshev;
+        </li>
+        <li>
+          Clenshaw Curtis;
+        </li>
+        <li>
+          Fejer Type 2;
+        </li>
+        <li>
+          Gauss Chebyshev Type 1;
+        </li>
+        <li>
+          Gauss Chebyshev Type 2;
+        </li>
+        <li>
+          Gauss Gegenbauer;
+        </li>
+        <li>
+          Gauss Hermite;
+        </li>
+        <li>
+          Gauss Jacobi;
+        </li>
+        <li>
+          Gauss Laguerre;
+        </li>
+        <li>
+          Gauss Legendre;
+        </li>
+        <li>
+          Local polynomial;
+        </li>
+        <li>
+          Local polynomial zero;
+        </li>
+        <li>
+          Local wavelet.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      The TasmanianSparseGrid library is available for download from
+      <a href = "http://tasmanian.ornl.gov/">
+                 http://tasmanian.ornl.gov/ </a>.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page 
+      are distributed under
+      <a href = "../../txt/gnu_gpl.txt">the GNU GPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>TSG</b> is available in
+      <a href = "../../cpp_src/tsg/tsg.html">a C++ version</a> and
+      <a href = "../../f_src/tsg/tsg.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/tsg/tsg.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/sgmg/sgmg.html">
+      SGMG</a>,
+      a C++ library which
+      creates a sparse grid dataset based on a mixed set of 1D factor rules,
+      and experiments with the use of a linear growth rate 
+      for the quadrature rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sgmga/sgmga.html">
+      SGMGA</a>,
+      a C++ library which
+      creates sparse grids based on a mixture of 1D quadrature rules,
+      allowing anisotropic weights for each dimension.
+    </p>
+
+    <p>
+      <a href = "../../c_src/smolpack/smolpack.html">
+      SMOLPACK</a>,
+      a C library which
+      estimates the integral of a function
+      over a M-dimensional hypercube using a sparse grid,
+      by Knut Petras;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_grid_cc/sparse_grid_cc.html">
+      SPARSE_GRID_CC</a>,
+      a C++ library which
+      creates sparse grids based on Clenshaw-Curtis rules.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_grid_hw/sparse_grid_hw.html">
+      SPARSE_GRID_HW</a>,
+      a C++ library which
+      creates sparse grids based on Gauss-Legendre, Gauss-Hermite,
+      Gauss-Patterson, or a nested variation of Gauss-Hermite rules,
+      by Florian Heiss and Viktor Winschel.
+    </p>
+
+    <p>
+      <a href = "../../m_src/spinterp/spinterp.html">
+      SPINTERP</a>,
+      a MATLAB library which
+      carries out piecewise multilinear hierarchical sparse grid interpolation;
+      an earlier version of this software is ACM TOMS Algorithm 847,
+      by Andreas Klimke;
+    </p>
+
+    <h3 align = "center">
+      Author:
+    </h3>
+
+    <p>
+      Miroslav Stoyanov, Oak Ridge National Laboratory, mkstoyanov@gmail.com.
+    </p>
+
+    <h3 align = "center">
+      References:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Miro Stoyanov,<br>
+          User Manual: TASMANIAN Sparse Grids,<br>
+          ORNL Report, <br>
+          Oak Ridge National Laboratory, August 2013.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <b>TSG_PRB</b> is a version of the example calling program provided
+      with the TasmanianSparseGrids software library.
+      <ul>
+        <li>
+          <a href = "tsg_prb.cpp">tsg_prb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "tsg_prb.sh">tsg_prb.sh</a>, 
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "tsg_prb_output.txt">tsg_prb_output.txt</a>, 
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 16 November 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

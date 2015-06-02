@@ -24,7 +24,7 @@ double digama ( double x, int *ifault )
 //
 //  Modified:
 //
-//    18 January 2008
+//    03 June 2013
 //
 //  Author:
 //
@@ -51,15 +51,10 @@ double digama ( double x, int *ifault )
 //    Output, double DIGAMA, the value of the digamma function at X.
 //
 {
-  double c = 8.5;
-  double d1 = -0.5772156649;
+  double euler_mascheroni = 0.57721566490153286060;
   double r;
-  double s = 0.00001;
-  double s3 = 0.08333333333;
-  double s4 = 0.0083333333333;
-  double s5 = 0.003968253968;
   double value;
-  double y;
+  double x2;
 //
 //  Check the input.
 //
@@ -73,31 +68,34 @@ double digama ( double x, int *ifault )
 //  Initialize.
 //
   *ifault = 0;
-  y = x;
+  x2 = x;
   value = 0.0;
 //
-//  Use approximation if argument <= S.
+//  Use approximation for small argument.
 //
-  if ( y <= s )
+  if ( x2 <= 0.00001 )
   {
-    value = d1 - 1.0 / y;
+    value = - euler_mascheroni - 1.0 / x2;
     return value;
   }
 //
-//  Reduce to DIGAMA(X + N) where (X + N) >= C.
+//  Reduce to DIGAMA(X + N).
 //
-  while ( y < c )
+  while ( x2 < 8.5 )
   {
-    value = value - 1.0 / y;
-    y = y + 1.0;
+    value = value - 1.0 / x2;
+    x2 = x2 + 1.0;
   }
 //
-//  Use Stirling's (actually de Moivre's) expansion if argument > C.
+//  Use Stirling's (actually de Moivre's) expansion.
 //
-  r = 1.0 / y;
-  value = value + log ( y ) - 0.5 * r;
+  r = 1.0 / x2;
+  value = value + log ( x2 ) - 0.5 * r;
   r = r * r;
-  value = value - r * ( s3 - r * ( s4 - r * s5 ) );
+  value = value 
+    - r * ( 1.0 / 12.0
+    - r * ( 1.0 / 120.0 
+    - r *   1.0 / 252.0 ) );
 
   return value;
 }

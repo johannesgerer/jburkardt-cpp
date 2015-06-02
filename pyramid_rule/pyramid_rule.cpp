@@ -3,7 +3,7 @@
 # include <iostream>
 # include <cmath>
 # include <ctime>
-# include <string>
+# include <cstring>
 # include <fstream>
 
 using namespace std;
@@ -17,7 +17,6 @@ void jacobi_root ( double *x, int order, double alpha, double beta,
   double *dp2, double *p1, double b[], double c[] );
 void legendre_compute ( int order, double x[], double w[] );
 void pyramid_handle ( int legendre_order, int jacobi_order, string filename );
-double r8_abs ( double x );
 double r8_epsilon ( );
 double r8_gamma ( double x );
 void r8mat_write ( string output_filename, int m, int n, double table[] );
@@ -129,6 +128,8 @@ int main ( int argc, char *argv[] )
   }
   else
   {
+    cout << "\n";
+    cout << "  Enter FILENAME, the root name of the quadrature files.\n";
     cin >> filename;
   }
 
@@ -317,7 +318,7 @@ void jacobi_compute ( int order, double alpha, double beta, double x[],
         ( 1.0 + 0.12 * alpha ) / ( double ) ( order );
 
       r3 = 1.0 + 0.012 * beta * 
-        ( 1.0 + 0.25 * r8_abs ( alpha ) ) / ( double ) ( order );
+        ( 1.0 + 0.25 * fabs ( alpha ) ) / ( double ) ( order );
 
       x0 = x0 - r1 * r2 * r3 * ( 1.0 - x0 );
     }
@@ -527,7 +528,7 @@ void jacobi_root ( double *x, int order, double alpha, double beta,
     d = p2 / ( *dp2 );
     *x = *x - d;
 
-    if ( r8_abs ( d ) <= eps * ( r8_abs ( *x ) + 1.0 ) )
+    if ( fabs ( d ) <= eps * ( fabs ( *x ) + 1.0 ) )
     {
       return;
     }
@@ -853,47 +854,6 @@ void pyramid_handle ( int legendre_order, int jacobi_order, string filename )
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    18 February 2008
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double r8_epsilon ( )
 
 //****************************************************************************80
@@ -904,19 +864,19 @@ double r8_epsilon ( )
 //
 //  Discussion:
 //
-//    The roundoff unit is a number R which is a power of 2 with the 
+//    The roundoff unit is a number R which is a power of 2 with the
 //    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
-//    but 
+//    but
 //      1 = ( 1 + R / 2 )
 //
 //  Licensing:
 //
-//    This code is distributed under the GNU LGPL license. 
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
-//    18 February 2008
+//    01 September 2012
 //
 //  Author:
 //
@@ -927,16 +887,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }

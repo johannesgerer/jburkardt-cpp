@@ -1,0 +1,284 @@
+<html>
+
+  <head>
+    <title>
+      ORNSTEIN_UHLENBECK - Approximate Solution of a Stochastic Differential Equation
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      ORNSTEIN_UHLENBECK <br> Approximate Solution of a Stochastic Differential Equation
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>ORNSTEIN_UHLENBECK</b> 
+      is a C++ library which 
+      approximates solutions of the Ornstein-Uhlenbeck 
+      stochastic differential equation (SDE) using the Euler method
+      and the Euler-Maruyama method, 
+      and creating graphics files for processing by gnuplot.
+    </p>
+
+    <p>
+      The Ornstein-Uhlenbeck stochastic differential equation has the form:
+      <pre>
+        dx(t) = theta * ( mu - x(t) ) dt + sigma dW,   
+        x(0) = x0.
+      </pre>
+      where 
+      <ul>
+        <li>
+          <b>theta</b> is a nonnegative decay rate;
+        </li>
+        <li>
+          <b>mu</b> is a mean value for x;
+        </li>
+        <li>
+          <b>sigma</b> measures the strength of the stochastic perturbation.
+        </li>
+      </ul>
+      and the equation is to be integrated over the interval [0,<b>tmax</b>].
+    </p>
+
+    <p>
+      The starting value <b>x0</b> represents a deviation from the mean value
+      <b>mu</b>.
+      The decay rate <b>theta</b> determines how fast <b>x(t)</b> will move
+      back towards its mean value.  The coefficient <b>sigma</b> determines
+      the relative magnitude of stochastic perturbations.  
+    </p>
+
+    <p>
+      In general, the solution starts at <b>x0</b> and over time moves towards
+      the value <b>mu</b>, but experiences random "wobbles" whose size is
+      determined by <b>sigma</b>.  Increasing <b>theta</b> makes the solution
+      move towards the mean faster.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files described and made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>ORNSTEIN_UHLENBECK</b> is available in
+      <a href = "../../c_src/ornstein_uhlenbeck/ornstein_uhlenbeck.html">a C version</a> and
+      <a href = "../../cpp_src/ornstein_uhlenbeck/ornstein_uhlenbeck.html">a C++ version</a> and
+      <a href = "../../f77_src/ornstein_uhlenbeck/ornstein_uhlenbeck.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/ornstein_uhlenbeck/ornstein_uhlenbeck.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/ornstein_uhlenbeck/ornstein_uhlenbeck.html">a MATLAB version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/black_scholes/black_scholes.html">
+      BLACK_SCHOLES</a>,
+      a C++ library which
+      implements some simple approaches to
+      the Black-Scholes option valuation theory,
+      by Desmond Higham.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/brownian_motion_simulation/brownian_motion_simulation.html">
+      BROWNIAN_MOTION_SIMULATION</a>,
+      a C++ program which
+      simulates Brownian motion in an M-dimensional region.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/colored_noise/colored_noise.html">
+      COLORED_NOISE</a>,
+      a C++ library which
+      generates samples of noise obeying a 1/f^alpha power law.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/gnuplot/gnuplot.html">
+      GNUPLOT</a>,
+      C++ programs which
+      illustrate how a program can write data and command files
+      so that gnuplot can create plots of the program results.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/pink_noise/pink_noise.html">
+      PINK_NOISE</a>,
+      a C++ library which
+      computes a "pink noise" signal obeying a 1/f power law.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sde/sde.html">
+      SDE</a>,
+      a C++ library which
+      illustrates the properties of stochastic differential equations (SDE's), and
+      common algorithms for their analysis, including the Euler method,
+      the Euler-Maruyama method, and the Milstein method,
+      by Desmond Higham;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/stochastic_rk/stochastic_rk.html">
+      STOCHASTIC_RK</a>,
+      a C++ library which
+      applies a Runge Kutta (RK) scheme to a stochastic differential equation.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Desmond Higham,<br>
+          An Algorithmic Introduction to Numerical Simulation of
+          Stochastic Differential Equations,<br>
+          SIAM Review,<br>
+          Volume 43, Number 3, September 2001, pages 525-546.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ou.cpp">ou.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "ou.hpp">ou.hpp</a>, the include file.
+        </li>
+        <li>
+          <a href = "ou.sh">ou.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "ou_prb.cpp">ou_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "ou_prb.sh">ou_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "ou_prb_output.txt">ou_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>OU_EULER</b> is data created by the OU_EULER routine:
+      <ul>
+        <li>
+          <a href = "ou_euler_data.txt">ou_euler_data.txt</a>,
+          solution data.
+        </li>
+        <li>
+          <a href = "ou_euler_commands.txt">ou_euler_commands.txt</a>,
+          gnuplot commands to plot the data
+        </li>
+        <li>
+          <a href = "ou_euler.png">ou_euler.png</a>,
+          a PNG image of the data.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>OU_EULER_MARUYAMA</b> is data created by the OU_EULER_MARUYAMA routine:
+      <ul>
+        <li>
+          <a href = "ou_euler_maruyama_data.txt">ou_euler_maruyama_data.txt</a>,
+          solution data.
+        </li>
+        <li>
+          <a href = "ou_euler_maruyama_commands.txt">ou_euler_maruyama_commands.txt</a>,
+          gnuplot commands to plot the data
+        </li>
+        <li>
+          <a href = "ou_euler_maruyama.png">ou_euler_maruyama.png</a>,
+          a PNG image of the data.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>OU_EULER</b> applies the Euler method to the Ornstein-Uhlenbeck SDE.
+        </li>
+        <li>
+          <b>OU_EULER_MARUYAMA</b> applies Euler-Maruyama to the Ornstein-Uhlenbeck SDE.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>R8VEC_LINSPACE</b> creates a vector of linearly spaced values.
+        </li>
+        <li>
+          <b>R8VEC_NORMAL_01</b> returns a unit pseudonormal R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 21 January 2013.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>
+

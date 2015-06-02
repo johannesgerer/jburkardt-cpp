@@ -1,0 +1,1133 @@
+06 November 2014 07:39:06 PM
+
+LPP_PRB:
+  C++ version
+  Test the LEGENDRE_PRODUCT_POLYNOMIAL library.
+
+I4_CHOOSE_TEST
+  I4_CHOOSE evaluates C(N,K).
+
+       N       K     CNK
+
+       0       0       1
+
+       1       0       1
+       1       1       1
+
+       2       0       1
+       2       1       2
+       2       2       1
+
+       3       0       1
+       3       1       3
+       3       2       3
+       3       3       1
+
+       4       0       1
+       4       1       4
+       4       2       6
+       4       3       4
+       4       4       1
+
+I4_UNIFORM_AB_TEST
+  I4_UNIFORM_AB computes pseudorandom values
+  in an interval [A,B].
+
+  The lower endpoint A = -100
+  The upper endpoint B = 200
+  The initial seed is 123456789
+
+         1       -35
+         2       187
+         3       149
+         4        69
+         5        25
+         6       -81
+         7       -23
+         8       -67
+         9       -87
+        10        90
+        11       -82
+        12        35
+        13        20
+        14       127
+        15       139
+        16      -100
+        17       170
+        18         5
+        19       -72
+        20       -96
+
+I4VEC_PERMUTE_TEST
+  I4VEC_PERMUTE reorders an integer vector
+  according to a given permutation.
+  Using initial random number seed = 0
+
+  A, before rearrangement:
+
+         0:        2
+         1:       12
+         2:       10
+         3:        7
+         4:        5
+         5:        0
+         6:        3
+         7:        1
+         8:        0
+         9:        8
+        10:        0
+        11:        5
+
+  Permutation vector P:
+
+         0:        4
+         1:        9
+         2:        1
+         3:        3
+         4:       11
+         5:        7
+         6:        6
+         7:        5
+         8:        0
+         9:        8
+        10:       10
+        11:        2
+
+  A, after rearrangement:
+
+         0:        5
+         1:        8
+         2:       12
+         3:        7
+         4:        5
+         5:        1
+         6:        3
+         7:        0
+         8:        2
+         9:        0
+        10:        0
+        11:       10
+
+I4VEC_PRINT_TEST
+  I4VEC_PRINT prints an I4VEC
+
+  Here is the I4VEC:
+
+         0:       91
+         1:       92
+         2:       93
+         3:       94
+
+I4VEC_SORT_HEAP_INDEX_A_TEST
+  I4VEC_SORT_HEAP_INDEX_A creates an ascending
+  sort index for an I4VEC.
+
+  Unsorted array:
+
+         0:       13
+         1:       58
+         2:       50
+         3:       34
+         4:       25
+         5:        4
+         6:       15
+         7:        6
+         8:        2
+         9:       38
+        10:        3
+        11:       27
+        12:       24
+        13:       46
+        14:       48
+        15:        0
+        16:       54
+        17:       21
+        18:        5
+        19:        0
+
+  Sort vector INDX:
+
+         0:       15
+         1:       19
+         2:        8
+         3:       10
+         4:        5
+         5:       18
+         6:        7
+         7:        0
+         8:        6
+         9:       17
+        10:       12
+        11:        4
+        12:       11
+        13:        3
+        14:        9
+        15:       13
+        16:       14
+        17:        2
+        18:       16
+        19:        1
+
+       I   INDX(I)  A(INDX(I))
+
+         0        15         0
+         1        19         0
+         2         8         2
+         3        10         3
+         4         5         4
+         5        18         5
+         6         7         6
+         7         0        13
+         8         6        15
+         9        17        21
+        10        12        24
+        11         4        25
+        12        11        27
+        13         3        34
+        14         9        38
+        15        13        46
+        16        14        48
+        17         2        50
+        18        16        54
+        19         1        58
+
+I4VEC_SUM_TEST
+  I4VEC_SUM sums the entries of an I4VEC.
+
+  The vector:
+
+         0:        2
+         1:       10
+         2:        9
+         3:        6
+         4:        4
+
+  The vector entries sum to 31
+
+I4VEC_UNIFORM_AB_NEW_TEST
+  I4VEC_UNIFORM_AB_NEW computes pseudorandom values
+  in an interval [A,B].
+
+  The lower endpoint A = -100
+  The upper endpoint B = 200
+  The initial seed is 123456789
+
+
+  The random vector:
+
+         0:      -35
+         1:      187
+         2:      149
+         3:       69
+         4:       25
+         5:      -81
+         6:      -23
+         7:      -67
+         8:      -87
+         9:       90
+        10:      -82
+        11:       35
+        12:       20
+        13:      127
+        14:      139
+        15:     -100
+        16:      170
+        17:        5
+        18:      -72
+        19:      -96
+
+R8VEC_PERMUTE_TEST
+  R8VEC_PERMUTE permutes an R8VEC in place.
+
+  Original Array X[]:
+
+         0             1
+         1             2
+         2             3
+         3             4
+         4             5
+
+  Permutation Vector P[]:
+
+         0:        1
+         1:        3
+         2:        4
+         3:        0
+         4:        2
+
+  Permuted array X[P[]]:
+
+         0             2
+         1             4
+         2             5
+         3             1
+         4             3
+
+TEST1335
+  R8VEC_PRINT prints an R8VEC.
+
+  The R8VEC:
+
+         0       123.456
+         1         5e-06
+         2        -1e+06
+         3       3.14159
+
+R8VEC_UNIFORM_AB_NEW_TEST
+  R8VEC_UNIFORM returns a random R8VEC
+  with entries in a given range [ A, B ]
+
+  For this problem:
+  A = 10
+  B = 20
+
+
+  Input SEED = 123456789
+
+
+  Random R8VEC:
+
+         0       12.1842
+         1       19.5632
+         2       18.2951
+         3        15.617
+         4       14.1531
+         5       10.6612
+         6       12.5758
+         7       11.0996
+         8       10.4383
+         9       16.3397
+
+  Input SEED = 1361431000
+
+
+  Random R8VEC:
+
+         0       10.6173
+         1       14.4954
+         2       14.0131
+         3       17.5467
+         4       17.9729
+         5       10.0184
+         6        18.975
+         7       13.5075
+         8       10.9454
+         9       10.1362
+
+  Input SEED = 29242052
+
+
+  Random R8VEC:
+
+         0        18.591
+         1       18.4085
+         2        11.231
+         3       10.0751
+         4        12.603
+         5       19.1248
+         6       11.1366
+         7       13.5163
+         8       18.2289
+         9       12.6713
+
+R8MAT_PRINT_TEST
+  R8MAT_PRINT prints an R8MAT.
+
+  The R8MAT:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:           11            12            13            14  
+    1:           21            22            23            24  
+    2:           31            32            33            34  
+    3:           41            42            43            44  
+    4:           51            52            53            54  
+    5:           61            62            63            64  
+
+R8MAT_PRINT_SOME_TEST
+  R8MAT_PRINT_SOME prints some of an R8MAT.
+
+  The R8MAT, rows 2:4, cols 1:2:
+
+  Col:          0             1       
+  Row
+
+    1:           21            22  
+    2:           31            32  
+    3:           41            42  
+
+R8MAT_UNIFORM_AB_NEW_TEST
+  R8MAT_UNIFORM_AB_NEW returns a random R8MAT in [A,B].
+
+
+  The random R8MAT:
+
+  Col:          0             1             2             3       
+  Row
+
+    0:      3.74735       2.52895       2.49382       2.01471  
+    1:      9.65054       4.06062       5.59631       9.18003  
+    2:      8.63607       2.87965       5.21045       4.80602  
+    3:      6.49356       2.35063       8.03739       2.75636  
+    4:      5.32246       7.07173        8.3783       2.10894  
+
+PERM_UNIFORM_TEST
+  PERM_UNIFORM randomly selects a permutation.
+
+     2   9   8   6   3   5   7   4   0   1
+     6   1   5   2   8   4   0   9   3   7
+     0   1   8   2   4   5   7   9   3   6
+     3   8   4   7   0   9   2   5   6   1
+     1   7   5   4   0   6   8   2   3   9
+
+COMP_ENUM_TEST
+  COMP_ENUM counts compositions;
+
+       1       1       1       1       1       1       1       1       1       1
+       1       2       3       4       5       6       7       8       9      10
+       1       3       6      10      15      21      28      36      45      55
+       1       4      10      20      35      56      84     120     165     220
+       1       5      15      35      70     126     210     330     495     715
+       1       6      21      56     126     252     462     792    1287    2002
+       1       7      28      84     210     462     924    1716    3003    5005
+       1       8      36     120     330     792    1716    3432    6435   11440
+       1       9      45     165     495    1287    3003    6435   12870   24310
+       1      10      55     220     715    2002    5005   11440   24310   48620
+       1      11      66     286    1001    3003    8008   19448   43758   92378
+
+COMP_NEXT_GRLEX_TEST
+  A COMP is a composition of an integer N into K parts.
+  Each part is nonnegative.  The order matters.
+  COMP_NEXT_GRLEX determines the next COMP in
+  graded lexicographic (grlex) order.
+
+  Rank:     NC       COMP
+  ----:     --   ------------
+     1:      0 =  0 +  0 +  0
+  ----:     --   ------------
+     2:      1 =  0 +  0 +  1
+     3:      1 =  0 +  1 +  0
+     4:      1 =  1 +  0 +  0
+  ----:     --   ------------
+     5:      2 =  0 +  0 +  2
+     6:      2 =  0 +  1 +  1
+     7:      2 =  0 +  2 +  0
+     8:      2 =  1 +  0 +  1
+     9:      2 =  1 +  1 +  0
+    10:      2 =  2 +  0 +  0
+  ----:     --   ------------
+    11:      3 =  0 +  0 +  3
+    12:      3 =  0 +  1 +  2
+    13:      3 =  0 +  2 +  1
+    14:      3 =  0 +  3 +  0
+    15:      3 =  1 +  0 +  2
+    16:      3 =  1 +  1 +  1
+    17:      3 =  1 +  2 +  0
+    18:      3 =  2 +  0 +  1
+    19:      3 =  2 +  1 +  0
+    20:      3 =  3 +  0 +  0
+  ----:     --   ------------
+    21:      4 =  0 +  0 +  4
+    22:      4 =  0 +  1 +  3
+    23:      4 =  0 +  2 +  2
+    24:      4 =  0 +  3 +  1
+    25:      4 =  0 +  4 +  0
+    26:      4 =  1 +  0 +  3
+    27:      4 =  1 +  1 +  2
+    28:      4 =  1 +  2 +  1
+    29:      4 =  1 +  3 +  0
+    30:      4 =  2 +  0 +  2
+    31:      4 =  2 +  1 +  1
+    32:      4 =  2 +  2 +  0
+    33:      4 =  3 +  0 +  1
+    34:      4 =  3 +  1 +  0
+    35:      4 =  4 +  0 +  0
+  ----:     --   ------------
+    36:      5 =  0 +  0 +  5
+    37:      5 =  0 +  1 +  4
+    38:      5 =  0 +  2 +  3
+    39:      5 =  0 +  3 +  2
+    40:      5 =  0 +  4 +  1
+    41:      5 =  0 +  5 +  0
+    42:      5 =  1 +  0 +  4
+    43:      5 =  1 +  1 +  3
+    44:      5 =  1 +  2 +  2
+    45:      5 =  1 +  3 +  1
+    46:      5 =  1 +  4 +  0
+    47:      5 =  2 +  0 +  3
+    48:      5 =  2 +  1 +  2
+    49:      5 =  2 +  2 +  1
+    50:      5 =  2 +  3 +  0
+    51:      5 =  3 +  0 +  2
+    52:      5 =  3 +  1 +  1
+    53:      5 =  3 +  2 +  0
+    54:      5 =  4 +  0 +  1
+    55:      5 =  4 +  1 +  0
+    56:      5 =  5 +  0 +  0
+  ----:     --   ------------
+    57:      6 =  0 +  0 +  6
+    58:      6 =  0 +  1 +  5
+    59:      6 =  0 +  2 +  4
+    60:      6 =  0 +  3 +  3
+    61:      6 =  0 +  4 +  2
+    62:      6 =  0 +  5 +  1
+    63:      6 =  0 +  6 +  0
+    64:      6 =  1 +  0 +  5
+    65:      6 =  1 +  1 +  4
+    66:      6 =  1 +  2 +  3
+    67:      6 =  1 +  3 +  2
+    68:      6 =  1 +  4 +  1
+    69:      6 =  1 +  5 +  0
+    70:      6 =  2 +  0 +  4
+    71:      6 =  2 +  1 +  3
+
+COMP_RANDOM_GRLEX_TEST
+  A COMP is a composition of an integer N into K parts.
+  Each part is nonnegative.  The order matters.
+  COMP_RANDOM_GRLEX selects a random COMP in
+  graded lexicographic (grlex) order between indices RANK1 and RANK2.
+
+    28:      4 =  1 +  2 +  1
+    59:      6 =  0 +  2 +  4
+    54:      5 =  4 +  0 +  1
+    43:      5 =  1 +  1 +  3
+    37:      5 =  0 +  1 +  4
+
+COMP_RANK_GRLEX_TEST
+  A COMP is a composition of an integer N into K parts.
+  Each part is nonnegative.  The order matters.
+  COMP_RANK_GRLEX determines the rank of a COMP
+  from its parts.
+
+        Actual  Inferred
+  Test    Rank      Rank
+
+     1      28        28
+     2      59        59
+     3      54        54
+     4      43        43
+     5      37        37
+
+COMP_UNRANK_GRLEX_TEST
+  A COMP is a composition of an integer N into K parts.
+  Each part is nonnegative.  The order matters.
+  COMP_UNRANK_GRLEX determines the parts
+  of a COMP from its rank.
+
+  Rank: ->  NC       COMP
+  ----:     --   ------------
+     1:      0 =  0 +  0 +  0
+  ----:     --   ------------
+     2:      1 =  0 +  0 +  1
+     3:      1 =  0 +  1 +  0
+     4:      1 =  1 +  0 +  0
+  ----:     --   ------------
+     5:      2 =  0 +  0 +  2
+     6:      2 =  0 +  1 +  1
+     7:      2 =  0 +  2 +  0
+     8:      2 =  1 +  0 +  1
+     9:      2 =  1 +  1 +  0
+    10:      2 =  2 +  0 +  0
+  ----:     --   ------------
+    11:      3 =  0 +  0 +  3
+    12:      3 =  0 +  1 +  2
+    13:      3 =  0 +  2 +  1
+    14:      3 =  0 +  3 +  0
+    15:      3 =  1 +  0 +  2
+    16:      3 =  1 +  1 +  1
+    17:      3 =  1 +  2 +  0
+    18:      3 =  2 +  0 +  1
+    19:      3 =  2 +  1 +  0
+    20:      3 =  3 +  0 +  0
+  ----:     --   ------------
+    21:      4 =  0 +  0 +  4
+    22:      4 =  0 +  1 +  3
+    23:      4 =  0 +  2 +  2
+    24:      4 =  0 +  3 +  1
+    25:      4 =  0 +  4 +  0
+    26:      4 =  1 +  0 +  3
+    27:      4 =  1 +  1 +  2
+    28:      4 =  1 +  2 +  1
+    29:      4 =  1 +  3 +  0
+    30:      4 =  2 +  0 +  2
+    31:      4 =  2 +  1 +  1
+    32:      4 =  2 +  2 +  0
+    33:      4 =  3 +  0 +  1
+    34:      4 =  3 +  1 +  0
+    35:      4 =  4 +  0 +  0
+  ----:     --   ------------
+    36:      5 =  0 +  0 +  5
+    37:      5 =  0 +  1 +  4
+    38:      5 =  0 +  2 +  3
+    39:      5 =  0 +  3 +  2
+    40:      5 =  0 +  4 +  1
+    41:      5 =  0 +  5 +  0
+    42:      5 =  1 +  0 +  4
+    43:      5 =  1 +  1 +  3
+    44:      5 =  1 +  2 +  2
+    45:      5 =  1 +  3 +  1
+    46:      5 =  1 +  4 +  0
+    47:      5 =  2 +  0 +  3
+    48:      5 =  2 +  1 +  2
+    49:      5 =  2 +  2 +  1
+    50:      5 =  2 +  3 +  0
+    51:      5 =  3 +  0 +  2
+    52:      5 =  3 +  1 +  1
+    53:      5 =  3 +  2 +  0
+    54:      5 =  4 +  0 +  1
+    55:      5 =  4 +  1 +  0
+    56:      5 =  5 +  0 +  0
+  ----:     --   ------------
+    57:      6 =  0 +  0 +  6
+    58:      6 =  0 +  1 +  5
+    59:      6 =  0 +  2 +  4
+    60:      6 =  0 +  3 +  3
+    61:      6 =  0 +  4 +  2
+    62:      6 =  0 +  5 +  1
+    63:      6 =  0 +  6 +  0
+    64:      6 =  1 +  0 +  5
+    65:      6 =  1 +  1 +  4
+    66:      6 =  1 +  2 +  3
+    67:      6 =  1 +  3 +  2
+    68:      6 =  1 +  4 +  1
+    69:      6 =  1 +  5 +  0
+    70:      6 =  2 +  0 +  4
+    71:      6 =  2 +  1 +  3
+
+MONO_NEXT_GRLEX_TEST
+  MONO_NEXT_GRLEX computes the next monomial
+  in M variables, in grlex order.
+
+  Let M =  4
+
+   0 3 3 2
+   0 3 4 1
+   0 3 5 0
+   0 4 0 4
+   0 4 1 3
+   0 4 2 2
+
+   1 0 1 0
+   1 1 0 0
+   2 0 0 0
+   0 0 0 3
+   0 0 1 2
+   0 0 2 1
+
+   0 2 0 1
+   0 2 1 0
+   0 3 0 0
+   1 0 0 2
+   1 0 1 1
+   1 0 2 0
+
+   1 3 3 0
+   1 4 0 2
+   1 4 1 1
+   1 4 2 0
+   1 5 0 1
+   1 5 1 0
+
+   3 1 0 0
+   4 0 0 0
+   0 0 0 5
+   0 0 1 4
+   0 0 2 3
+   0 0 3 2
+
+   3 3 0 0
+   4 0 0 2
+   4 0 1 1
+   4 0 2 0
+   4 1 0 1
+   4 1 1 0
+
+   1 3 0 1
+   1 3 1 0
+   1 4 0 0
+   2 0 0 3
+   2 0 1 2
+   2 0 2 1
+
+   3 1 2 2
+   3 1 3 1
+   3 1 4 0
+   3 2 0 3
+   3 2 1 2
+   3 2 2 1
+
+   3 1 3 2
+   3 1 4 1
+   3 1 5 0
+   3 2 0 4
+   3 2 1 3
+   3 2 2 2
+
+   0 3 1 0
+   0 4 0 0
+   1 0 0 3
+   1 0 1 2
+   1 0 2 1
+   1 0 3 0
+
+MONO_PRINT_TEST
+  MONO_PRINT can print out a monomial.
+
+  Monomial [5]:x^(5).
+  Monomial [5]:x^(-5).
+  Monomial [2,1,0,3]:x^(2,1,0,3).
+  Monomial [17,-3,199]:x^(17,-3,199).
+
+MONO_RANK_GRLEX_TEST
+  MONO_RANK_GRLEX returns the rank of a monomial in the sequence
+  of all monomials in M dimensions, in grlex order.
+
+  Print a monomial sequence with ranks assigned.
+
+  Let M = 3
+      N = 4
+
+    1     0 0 0
+    2     0 0 1
+    3     0 1 0
+    4     1 0 0
+    5     0 0 2
+    6     0 1 1
+    7     0 2 0
+    8     1 0 1
+    9     1 1 0
+   10     2 0 0
+   11     0 0 3
+   12     0 1 2
+   13     0 2 1
+   14     0 3 0
+   15     1 0 2
+   16     1 1 1
+   17     1 2 0
+   18     2 0 1
+   19     2 1 0
+   20     3 0 0
+   21     0 0 4
+   22     0 1 3
+   23     0 2 2
+   24     0 3 1
+   25     0 4 0
+   26     1 0 3
+   27     1 1 2
+   28     1 2 1
+   29     1 3 0
+   30     2 0 2
+   31     2 1 1
+   32     2 2 0
+   33     3 0 1
+   34     3 1 0
+   35     4 0 0
+
+  Now, given a monomial, retrieve its rank in the sequence:
+
+    1     0 0 0
+    4     1 0 0
+    2     0 0 1
+    7     0 2 0
+   15     1 0 2
+   24     0 3 1
+   77     3 2 1
+  158     5 2 1
+
+MONO_UNRANK_GRLEX_TEST
+  MONO_UNRANK_GRLEX is given a rank, and returns the corresponding
+  monomial in the sequence of all monomials in M dimensions
+  in grlex order.
+
+  For reference, print a monomial sequence with ranks.
+
+  Let M = 3
+      N = 4
+
+    1     0 0 0
+    2     0 0 1
+    3     0 1 0
+    4     1 0 0
+    5     0 0 2
+    6     0 1 1
+    7     0 2 0
+    8     1 0 1
+    9     1 1 0
+   10     2 0 0
+   11     0 0 3
+   12     0 1 2
+   13     0 2 1
+   14     0 3 0
+   15     1 0 2
+   16     1 1 1
+   17     1 2 0
+   18     2 0 1
+   19     2 1 0
+   20     3 0 0
+   21     0 0 4
+   22     0 1 3
+   23     0 2 2
+   24     0 3 1
+   25     0 4 0
+   26     1 0 3
+   27     1 1 2
+   28     1 2 1
+   29     1 3 0
+   30     2 0 2
+   31     2 1 1
+   32     2 2 0
+   33     3 0 1
+   34     3 1 0
+   35     4 0 0
+
+  Now choose random ranks between 1 and 35
+
+    8     1 0 1
+   34     3 1 0
+   30     2 0 2
+   20     3 0 0
+   15     1 0 2
+
+MONO_UPTO_ENUM_TEST
+  MONO_UPTO_ENUM can enumerate the number of monomials
+  in M variables, of total degree 0 up to N.
+
+    N:
+     0     1     2     3     4     5     6     7     8
+   m +------------------------------------------------------
+   1  |     1     2     3     4     5     6     7     8     9
+   2  |     1     3     6    10    15    21    28    36    45
+   3  |     1     4    10    20    35    56    84   120   165
+   4  |     1     5    15    35    70   126   210   330   495
+   5  |     1     6    21    56   126   252   462   792  1287
+   6  |     1     7    28    84   210   462   924  1716  3003
+   7  |     1     8    36   120   330   792  1716  3432  6435
+   8  |     1     9    45   165   495  1287  3003  6435 12870
+
+MONO_UPTO_NEXT_GRLEX_TEST
+  MONO_UPTO_NEXT_GRLEX can list the monomials
+  in M variables, of total degree up to N,
+  in grlex order, one at a time.
+
+  We start the process with (0,0,...,0,0).
+  The process ends with (N,0,...,0,0)
+
+  Let M = 3
+      N = 4
+
+   1     0 0 0
+   2     0 0 1
+   3     0 1 0
+   4     1 0 0
+   5     0 0 2
+   6     0 1 1
+   7     0 2 0
+   8     1 0 1
+   9     1 1 0
+  10     2 0 0
+  11     0 0 3
+  12     0 1 2
+  13     0 2 1
+  14     0 3 0
+  15     1 0 2
+  16     1 1 1
+  17     1 2 0
+  18     2 0 1
+  19     2 1 0
+  20     3 0 0
+  21     0 0 4
+  22     0 1 3
+  23     0 2 2
+  24     0 3 1
+  25     0 4 0
+  26     1 0 3
+  27     1 1 2
+  28     1 2 1
+  29     1 3 0
+  30     2 0 2
+  31     2 1 1
+  32     2 2 0
+  33     3 0 1
+  34     3 1 0
+  35     4 0 0
+
+MONO_UPTO_RANDOM_TEST
+  MONO_UPTO_RANDOM selects at random a monomial
+  in M dimensions of total degree no greater than N.
+
+  Let M = 3
+      N = 4
+
+    8     1 0 1
+   34     3 1 0
+   30     2 0 2
+   20     3 0 0
+   15     1 0 2
+
+POLYNOMIAL_COMPRESS_TEST
+  POLYNOMIAL_COMPRESS compresses a polynomial.
+
+  Uncompressed P(X) = 
+    + 7 * x^(0,0,0)
+    - 5 * x^(0,0,1)
+    + 5 * x^(0,0,1)
+    + 9 * x^(1,0,0)
+    + 11 * x^(0,0,2)
+    + 3 * x^(0,0,2)
+    + 6 * x^(0,0,2)
+    + 0 * x^(0,1,2)
+    - 13 * x^(3,0,1)
+    + 1e-20 * x^(4,0,0).
+
+  Compressed P(X) = 
+    + 7 * x^(0,0,0)
+    + 0 * x^(0,0,1)
+    + 9 * x^(1,0,0)
+    + 20 * x^(0,0,2)
+    - 13 * x^(3,0,1).
+
+POLYNOMIAL_PRINT_TEST
+  POLYNOMIAL_PRINT prints a polynomial.
+
+  P1(X) =
+    + 7 * x^(0,0,0)
+    - 5 * x^(0,0,1)
+    + 9 * x^(1,0,0)
+    + 11 * x^(0,0,2)
+    + 0 * x^(0,1,2)
+    - 13 * x^(3,0,1).
+
+POLYNOMIAL_SORT_TEST
+  POLYNOMIAL_SORT sorts a polynomial by exponent index.
+
+  Unsorted polynomial:
+    + 0 * x^(0,1,2)
+    + 9 * x^(1,0,0)
+    - 5 * x^(0,0,1)
+    - 13 * x^(3,0,1)
+    + 7 * x^(0,0,0)
+    + 11 * x^(0,0,2).
+
+  Sorted polynomial:
+    + 7 * x^(0,0,0)
+    - 5 * x^(0,0,1)
+    + 9 * x^(1,0,0)
+    + 11 * x^(0,0,2)
+    + 0 * x^(0,1,2)
+    - 13 * x^(3,0,1).
+
+POLYNOMIAL_VALUE_TEST
+  POLYNOMIAL_VALUE evaluates a polynomial.
+
+  P(X) =
+    + 7 * x^(0,0,0)
+    - 5 * x^(0,0,1)
+    + 9 * x^(1,0,0)
+    + 11 * x^(0,0,2)
+    + 0 * x^(0,1,2)
+    - 13 * x^(3,0,1).
+
+  P(1,2,3) = 61
+  P(-2,4,1) = 99
+
+LP_COEFFICIENTS_TEST
+  LP_COEFFICIENTS: coefficients of Legendre polynomial P(n,x).
+
+  P(0,x) = 
+    + 1 * x^(0).
+  P(1,x) = 
+    + 1 * x^(1).
+  P(2,x) = 
+    - 0.5 * x^(0)
+    + 1.5 * x^(2).
+  P(3,x) = 
+    - 1.5 * x^(1)
+    + 2.5 * x^(3).
+  P(4,x) = 
+    + 0.375 * x^(0)
+    - 3.75 * x^(2)
+    + 4.375 * x^(4).
+  P(5,x) = 
+    + 1.875 * x^(1)
+    - 8.75 * x^(3)
+    + 7.875 * x^(5).
+  P(6,x) = 
+    - 0.3125 * x^(0)
+    + 6.5625 * x^(2)
+    - 19.6875 * x^(4)
+    + 14.4375 * x^(6).
+  P(7,x) = 
+    - 2.1875 * x^(1)
+    + 19.6875 * x^(3)
+    - 43.3125 * x^(5)
+    + 26.8125 * x^(7).
+  P(8,x) = 
+    + 0.273438 * x^(0)
+    - 9.84375 * x^(2)
+    + 54.1406 * x^(4)
+    - 93.8438 * x^(6)
+    + 50.2734 * x^(8).
+  P(9,x) = 
+    + 2.46094 * x^(1)
+    - 36.0938 * x^(3)
+    + 140.766 * x^(5)
+    - 201.094 * x^(7)
+    + 94.9609 * x^(9).
+  P(10,x) = 
+    - 0.246094 * x^(0)
+    + 13.5352 * x^(2)
+    - 117.305 * x^(4)
+    + 351.914 * x^(6)
+    - 427.324 * x^(8)
+    + 180.426 * x^(10).
+
+LP_VALUE_TEST:
+  LP_VALUE evaluates a Legendre polynomial.
+
+                        Tabulated                 Computed
+     O        X           L(O,X)                    L(O,X)                   Error
+
+     0          0.25                         1                         1         0
+     1          0.25                      0.25                      0.25         0
+     2          0.25                  -0.40625                  -0.40625         0
+     3          0.25                 -0.335938                 -0.335938         0
+     4          0.25                  0.157715                  0.157715         0
+     5          0.25                  0.339722                  0.339722         0
+     6          0.25                 0.0242767                 0.0242767         0
+     7          0.25                 -0.279919                 -0.279919         0
+     8          0.25                 -0.152454                 -0.152454  -2.77556e-17
+     9          0.25                  0.176824                  0.176824         0
+    10          0.25                    0.2212                    0.2212  2.77556e-17
+     3             0                         0                        -0         0
+     3           0.1                   -0.1475                   -0.1475         0
+     3           0.2                     -0.28                     -0.28         0
+     3           0.3                   -0.3825                   -0.3825         0
+     3           0.4                     -0.44                     -0.44  -5.55112e-17
+     3           0.5                   -0.4375                   -0.4375         0
+     3           0.6                     -0.36                     -0.36  5.55112e-17
+     3           0.7                   -0.1925                   -0.1925  1.11022e-16
+     3           0.8                      0.08                      0.08  -2.22045e-16
+     3           0.9                    0.4725                    0.4725  -1.11022e-16
+     3             1                         1                         1         0
+
+LP_VALUES_TEST:
+  LP_VALUES stores values of
+  the Legendre polynomial P(o,x).
+
+                        Tabulated
+     O        X           L(O,X)
+
+     0          0.25                         1
+     1          0.25                      0.25
+     2          0.25                  -0.40625
+     3          0.25                 -0.335938
+     4          0.25                  0.157715
+     5          0.25                  0.339722
+     6          0.25                 0.0242767
+     7          0.25                 -0.279919
+     8          0.25                 -0.152454
+     9          0.25                  0.176824
+    10          0.25                    0.2212
+     3             0                         0
+     3           0.1                   -0.1475
+     3           0.2                     -0.28
+     3           0.3                   -0.3825
+     3           0.4                     -0.44
+     3           0.5                   -0.4375
+     3           0.6                     -0.36
+     3           0.7                   -0.1925
+     3           0.8                      0.08
+     3           0.9                    0.4725
+     3             1                         1
+
+LPP_TO_POLYNOMIAL_TEST:
+  LPP_TO_POLYNOMIAL is given a Legendre product polynomial
+  and determines its polynomial representation.
+
+  Using spatial dimension M = 2
+
+  LPP #1 = L(0,X)*L(0,Y) = 
+
+    + 1 * x^(0,0).
+
+  LPP #2 = L(0,X)*L(1,Y) = 
+
+    + 1 * x^(0,1).
+
+  LPP #3 = L(1,X)*L(0,Y) = 
+
+    + 1 * x^(1,0).
+
+  LPP #4 = L(0,X)*L(2,Y) = 
+
+    - 0.5 * x^(0,0)
+    + 1.5 * x^(0,2).
+
+  LPP #5 = L(1,X)*L(1,Y) = 
+
+    + 1 * x^(1,1).
+
+  LPP #6 = L(2,X)*L(0,Y) = 
+
+    - 0.5 * x^(0,0)
+    + 1.5 * x^(2,0).
+
+  LPP #7 = L(0,X)*L(3,Y) = 
+
+    - 1.5 * x^(0,1)
+    + 2.5 * x^(0,3).
+
+  LPP #8 = L(1,X)*L(2,Y) = 
+
+    - 0.5 * x^(1,0)
+    + 1.5 * x^(1,2).
+
+  LPP #9 = L(2,X)*L(1,Y) = 
+
+    - 0.5 * x^(0,1)
+    + 1.5 * x^(2,1).
+
+  LPP #10 = L(3,X)*L(0,Y) = 
+
+    - 1.5 * x^(1,0)
+    + 2.5 * x^(3,0).
+
+  LPP #11 = L(0,X)*L(4,Y) = 
+
+    + 0.375 * x^(0,0)
+    - 3.75 * x^(0,2)
+    + 4.375 * x^(0,4).
+
+LPP_VALUE_TEST:
+  LPP_VALUE evaluates a Legendre product polynomial.
+
+  Evaluate at X =   -0.563163  0.912635  0.659018
+
+  Rank  I1  I2  I3:  L(I1,X1)*L(I2,X2)*L(I3,X3)    P(X1,X2,X3)
+
+     1   0   0   0               1               1
+     2   0   0   1        0.659018        0.659018
+     3   0   1   0        0.912635        0.912635
+     4   1   0   0       -0.563163       -0.563163
+     5   0   0   2        0.151458        0.151458
+     6   0   1   1        0.601443        0.601443
+     7   0   2   0        0.749354        0.749354
+     8   1   0   1       -0.371135       -0.371135
+     9   1   1   0       -0.513963       -0.513963
+    10   2   0   0      -0.0242705      -0.0242705
+    11   0   0   3        -0.27299        -0.27299
+    12   0   1   2        0.138226        0.138226
+    13   0   2   1        0.493838        0.493838
+    14   0   3   0        0.531388        0.531388
+    15   1   0   2      -0.0852956      -0.0852956
+    16   1   1   1       -0.338711       -0.338711
+    17   1   2   0       -0.422009       -0.422009
+    18   2   0   1      -0.0159947      -0.0159947
+    19   2   1   0      -0.0221501      -0.0221501
+    20   3   0   0        0.398223        0.398223
+
+LPP_PRB:
+  Normal end of execution.
+
+06 November 2014 07:39:06 PM

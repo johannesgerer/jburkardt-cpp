@@ -2,12 +2,11 @@
 #
 cp asa121.hpp /$HOME/include
 #
-g++ -c -g -I /$HOME/include asa121.cpp >& compiler.txt
+g++ -c -I /$HOME/include asa121.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling asa121.cpp"
   exit
 fi
-rm compiler.txt
 #
 mv asa121.o ~/libcpp/$ARCH/asa121.o
 #

@@ -3,6 +3,7 @@
 # include <iomanip>
 # include <cmath>
 # include <complex>
+# include <cstring>
 
 using namespace std;
 
@@ -10,241 +11,277 @@ using namespace std;
 
 int main ( );
 
-void test001 ( );
-void test002 ( );
-void test003 ( );
-void test0035 ( );
-void test004 ( );
-void test005 ( );
-void test006 ( );
-void test007 ( );
-void test008 ( );
-void test009 ( );
-void test0093 ( );
-void test0095 ( );
+void abram0_values_test ( );
+void abram1_values_test ( );
+void abram2_values_test ( );
+void agm_values_test ( );
+void airy_ai_values_test ( );
+void airy_ai_int_values_test ( );
+void airy_ai_prime_values_test ( );
+void airy_bi_values_test ( );
+void airy_bi_int_values_test ( );
+void airy_bi_prime_values_test ( );
+void airy_cai_values_test ( );
+void airy_cbi_values_test ( );
+void airy_gi_values_test ( );
+void airy_hi_values_test ( );
+void arccos_values_test ( );
+void arccosh_values_test ( );
+void arcsin_values_test ( );
+void arcsinh_values_test ( );
+void arctan_values_test ( );
+void arctan_int_values_test ( );
+void arctanh_values_test ( );
 
-void test010 ( );
-void test011 ( );
-void test0114 ( );
-void test01145 ( );
-void test0115 ( );
-void test01155 ( );
-void test0116 ( );
-void test012 ( );
-void test0123 ( );
-void test0127 ( );
-void test0128 ( );
-void test013 ( );
-void test0134 ( );
-void test0135 ( );
-void test014 ( );
-void test015 ( );
-void test016 ( );
-void test017 ( );
-void test018 ( );
-void test0185 ( );
-void test019 ( );
-void test0195 ( );
+void bei0_values_test ( );
+void bei1_values_test ( );
+void bell_values_test ( );
+void ber0_values_test ( );
+void ber1_values_test ( );
+void bernoulli_number_values_test ( );
+void bernoulli_poly_values_test ( );
+void bernstein_poly_01_values_test ( );
+void bessel_i0_values_test ( );
+void bessel_i0_int_values_test ( );
+void bessel_i0_spherical_values_test ( );
+void bessel_i1_values_test ( );
+void bessel_i1_spherical_values_test ( );
+void bessel_in_values_test ( );
+void bessel_ix_values_test ( );
+void bessel_j0_values_test ( );
+void bessel_j0_int_values_test ( );
+void bessel_j0_spherical_values_test ( );
+void bessel_j1_values_test ( );
+void bessel_j1_spherical_values_test ( );
+void bessel_jn_values_test ( );
+void bessel_jx_values_test ( );
+void bessel_k0_values_test ( );
+void bessel_k0_int_values_test ( );
+void bessel_k1_values_test ( );
+void bessel_kn_values_test ( );
+void bessel_kx_values_test ( );
+void bessel_y0_values_test ( );
+void bessel_y0_int_values_test ( );
+void bessel_y0_spherical_values_test ( );
+void bessel_y1_values_test ( );
+void bessel_y1_spherical_values_test ( );
+void bessel_yn_values_test ( );
+void bessel_yx_values_test ( );
+void beta_cdf_values_test ( );
+void beta_inc_values_test ( );
+void beta_log_values_test ( );
+void beta_noncentral_cdf_values_test ( );
+void beta_values_test ( );
+void binomial_values_test ( );
+void binomial_cdf_values_test ( );
+void bivariate_normal_cdf_values_test ( );
 
-void test020 ( );
-void test0205 ( );
-void test021 ( );
-void test022 ( );
-void test023 ( );
-void test024 ( );
-void test025 ( );
-void test026 ( );
-void test0265 ( );
-void test027 ( );
-void test028 ( );
-void test029 ( );
+void catalan_values_test ( );
+void cauchy_cdf_values_test ( );
+void cbrt_values_test ( );
+void cheby_t_poly_values_test ( );
+void cheby_u_poly_values_test ( );
+void cheby_v_poly_values_test ( );
+void cheby_w_poly_values_test ( );
+void chi_values_test ( );
+void chi_square_cdf_values_test ( );
+void chi_square_noncentral_cdf_values_test ( );
+void ci_values_test ( );
+void cin_values_test ( );
+void cinh_values_test ( );
+void clausen_values_test ( );
+void clebsch_gordan_values_test ( );
+void collatz_count_values_test ( );
+void cos_values_test ( );
+void cos_degree_values_test ( );
+void cos_power_int_values_test ( );
+void cosh_values_test ( );
+void cot_values_test ( );
+void cp_values_test ( );
 
-void test030 ( );
-void test0305 ( );
-void test031 ( );
-void test032 ( );
-void test033 ( );
-void test034 ( );
-void test035 ( );
-void test036 ( );
-void test0365 ( );
-void test037 ( );
-void test038 ( );
-void test039 ( );
-void test0395 ( );
+void dawson_values_test ( );
+void debye1_values_test ( );
+void debye2_values_test ( );
+void debye3_values_test ( );
+void debye4_values_test ( );
+void dedekind_sum_values_test ( );
+void dielectric_values_test ( );
+void dilogarithm_values_test ( );
 
-void test040 ( );
-void test041 ( );
-void test042 ( );
-void test0425 ( );
-void test043 ( );
-void test044 ( );
-void test0445 ( );
-void test045 ( );
-void test046 ( );
-void test0465 ( );
-void test047 ( );
-void test048 ( );
-void test049 ( );
+void e1_values_test ( );
+void ei_values_test ( );
+void elliptic_ea_values_test ( );
+void elliptic_em_values_test ( );
+void elliptic_ka_values_test ( );
+void elliptic_km_values_test ( );
+void erf_values_test ( );
+void erfc_values_test ( );
+void euler_number_values_test ( );
+void euler_poly_values_test ( );
+void exp_values_test ( );
+void exp3_int_values_test ( );
+void exponential_cdf_values_test ( );
+void extreme_values_cdf_values_test ( );
 
-void test050 ( );
-void test051 ( );
-void test05125 ( );
-void test0515 ( );
-void test0517 ( );
-void test0519 ( );
-void test052 ( );
-void test053 ( );
-void test054 ( );
-void test055 ( );
-void test056 ( );
-void test057 ( );
-void test0575 ( );
-void test058 ( );
-void test059 ( );
+void f_cdf_values_test ( );
+void f_noncentral_cdf_values_test ( );
+void fresnel_cos_values_test ( );
+void fresnel_sin_values_test ( );
+void frobenius_number_data_values_test ( );
+void frobenius_number_order_values_test ( );
+void frobenius_number_order2_values_test ( );
 
-void test060 ( );
-void test061 ( );
-void test062 ( );
-void test063 ( );
-void test064 ( );
-void test065 ( );
-void test066 ( );
-void test0665 ( );
-void test067 ( );
-void test068 ( );
-void test0685 ( );
-void test069 ( );
+void gamma_values_test ( );
+void gamma_cdf_values_test ( );
+void gamma_inc_values_test ( );
+void gamma_inc_p_values_test ( );
+void gamma_inc_q_values_test ( );
+void gamma_inc_tricomi_values_test ( );
+void gamma_log_values_test ( );
+void gegenbauer_poly_values_test ( );
+void geometric_cdf_values_test ( );
+void goodwin_values_test ( );
+void gud_values_test ( );
 
-void test070 ( );
-void test071 ( );
-void test072 ( );
-void test073 ( );
-void test074 ( );
-void test075 ( );
-void test0755 ( );
-void test0756 ( );
-void test076 ( );
-void test077 ( );
-void test078 ( );
-void test079 ( );
+void hermite_function_values_test ( );
+void hermite_poly_phys_values_test ( );
+void hermite_poly_prob_values_test ( );
+void hyper_1f1_values_test ( );
+void hyper_2f1_values_test ( );
+void hypergeometric_cdf_values_test ( );
+void hypergeometric_pdf_values_test ( );
+void hypergeometric_u_values_test ( );
 
-void test080 ( );
-void test081 ( );
-void test082 ( );
-void test083 ( );
-void test0835 ( );
-void test084 ( );
-void test0843 ( );
-void test0845 ( );
-void test085 ( );
-void test0855 ( );
-void test086 ( );
-void test087 ( );
-void test088 ( );
-void test089 ( );
+void i0ml0_values_test ( );
+void i1ml1_values_test ( );
+void i4_factorial_values_test ( );
+void i4_factorial2_values_test ( );
+void i4_fall_values_test ( );
+void i4_rise_values_test ( );
+void int_values_test ( );
 
-void test090 ( );
-void test091 ( );
-void test092 ( );
-void test093 ( );
-void test094 ( );
-void test0945 ( );
-void test095 ( );
-void test096 ( );
-void test097 ( );
-void test0972 ( );
-void test0973 ( );
-void test0974 ( );
-void test0975 ( );
-void test098 ( );
-void test099 ( );
-void test0995 ( );
+void jacobi_cn_values_test ( );
+void jacobi_dn_values_test ( );
+void jacobi_poly_values_test ( );
+void jacobi_sn_values_test ( );
+void jed_ce_values_test ( );
+void jed_mjd_values_test ( );
+void jed_rd_values_test ( );
+void jed_weekday_values_test ( );
 
-void test100 ( );
-void test101 ( );
-void test1015 ( );
-void test1016 ( );
-void test102 ( );
-void test103 ( );
-void test1035 ( );
-void test1037 ( );
-void test104 ( );
-void test105 ( );
-void test106 ( );
-void test107 ( );
-void test108 ( );
-void test10875 ( );
-void test109 ( );
+void kei0_values_test ( );
+void kei1_values_test ( );
+void ker0_values_test ( );
+void ker1_values_test ( );
 
-void test110 ( );
-void test1105 ( );
-void test111 ( );
-void test112 ( );
-void test113 ( );
-void test1135 ( );
-void test114 ( );
-void test115 ( );
-void test116 ( );
-void test117 ( );
-void test118 ( );
-void test1185 ( );
-void test119 ( );
+void laguerre_associated_values_test ( );
+void laguerre_general_values_test ( );
+void laguerre_polynomial_values_test ( );
+void lambert_w_values_test ( );
+void laplace_cdf_values_test ( );
+void legendre_associated_values_test ( );
+void legendre_associated_normalized_values_test ( );
+void legendre_associated_normalized_sphere_values_test ( );
+void legendre_poly_values_test ( );
+void legendre_function_q_values_test ( );
+void lerch_values_test ( );
+void lobachevsky_values_test ( );
+void lobatto_polynomial_values_test ( );
+void lobatto_polynomial_derivatives_test ( );
+void log_values_test ( );
+void log_normal_cdf_values_test ( );
+void log_series_cdf_values_test ( );
+void log10_values_test ( );
+void logarithmic_integral_values_test ( );
+void logistic_cdf_values_test ( );
 
-void test120 ( );
-void test121 ( );
-void test122 ( );
-void test123 ( );
-void test124 ( );
-void test125 ( );
-void test1255 ( );
-void test126 ( );
-void test127 ( );
-void test1275 ( );
-void test128 ( );
-void test1283 ( );
-void test1285 ( );
-void test129 ( );
+void mertens_values_test ( );
+void moebius_values_test ( );
 
-void test131 ( );
-void test132 ( );
-void test1325 ( );
-void test130 ( );
-void test133 ( );
-void test134 ( );
-void test135 ( );
-void test136 ( );
-void test137 ( );
-void test138 ( );
-void test139 ( );
+void negative_binomial_cdf_values_test ( );
+void nine_j_values_test ( );
+void normal_cdf_values_test ( );
+void normal_01_cdf_values_test ( );
 
-void test140 ( );
-void test141 ( );
-void test1415 ( );
-void test142 ( );
-void test143 ( );
-void test144 ( );
-void test1445 ( );
-void test1447 ( );
-void test145 ( );
-void test146 ( );
-void test1465 ( );
-void test147 ( );
-void test148 ( );
-void test149 ( );
+void omega_values_test ( );
+void owen_values_test ( );
 
-void test150 ( );
-void test151 ( );
-void test152 ( );
-void test153 ( );
-void test154 ( );
-void test1545 ( );
-void test155 ( );
-void test156 ( );
-void test157 ( );
-void test1575 ( );
-void test158 ( );
-void test159 ( );
+void partition_count_values_test ( );
+void partition_distinct_count_values_test ( );
+void phi_values_test ( );
+void pi_values_test ( );
+void poisson_cdf_values_test ( );
+void polylogarithm_values_test ( );
+void prandtl_values_test ( );
+void prime_values_test ( );
+void psat_values_test ( );
+void psi_values_test ( );
+
+void r8_factorial_values_test ( );
+void r8_factorial_log_values_test ( );
+void r8_factorial2_values_test ( );
+void r8_fall_values_test ( );
+void r8_rise_values_test ( );
+void rayleigh_cdf_values_test ( );
+
+void secvir_values_test ( );
+void shi_values_test ( );
+void si_values_test ( );
+void sigma_values_test ( );
+void sin_values_test ( );
+void sin_degree_values_test ( );
+void sin_power_int_values_test ( );
+void sinh_values_test ( );
+void six_j_values_test ( );
+void sound_values_test ( );
+void sphere_unit_area_values_test ( );
+void sphere_unit_volume_values_test ( );
+void spherical_harmonic_values_test ( );
+void sqrt_values_test ( );
+void stirling1_values_test ( );
+void stirling2_values_test ( );
+void stromgen_values_test ( );
+void struve_h0_values_test ( );
+void struve_h1_values_test ( );
+void struve_l0_values_test ( );
+void struve_l1_values_test ( );
+void student_cdf_values_test ( );
+void student_noncentral_cdf_values_test ( );
+void subfactorial_values_test ( );
+void surten_values_test ( );
+void synch1_values_test ( );
+void synch2_values_test ( );
+
+void tan_values_test ( );
+void tanh_values_test ( );
+void tau_values_test ( );
+void thercon_values_test ( );
+void three_j_values_test ( );
+void tran02_values_test ( );
+void tran03_values_test ( );
+void tran04_values_test ( );
+void tran05_values_test ( );
+void tran06_values_test ( );
+void tran07_values_test ( );
+void tran08_values_test ( );
+void tran09_values_test ( );
+void trigamma_values_test ( );
+void truncated_normal_ab_cdf_test ( );
+void truncated_normal_ab_pdf_test ( );
+void truncated_normal_a_cdf_test ( );
+void truncated_normal_a_pdf_test ( );
+void truncated_normal_b_cdf_test ( );
+void truncated_normal_b_pdf_test ( );
+void tsat_values_test ( );
+
+void van_der_corput_values_test ( );
+void viscosity_values_test ( );
+void von_mises_cdf_values_test ( );
+
+void weekday_values_test ( );
+void weibull_cdf_values_test ( );
+
+void zeta_values_test ( );
 
 //****************************************************************************80
 
@@ -258,7 +295,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    TEST_VALUES_PRB calls the TEST_VALUE routines.
+//    TEST_VALUES_PRB tests the TEST_VALUE library.
 //
 //  Licensing:
 //
@@ -266,7 +303,7 @@ int main ( )
 //
 //  Modified:
 //
-//    13 February 2012
+//    27 January 2015
 //
 //  Author:
 //
@@ -274,254 +311,288 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TEST_VALUES_PRB:\n";
   cout << "  C++ version,\n";
   cout << "  Test the TEST_VALUES library.\n";
 
-  test001 ( );
-  test002 ( );
-  test003 ( );
-  test0035 ( );
-  test004 ( );
-  test005 ( );
-  test006 ( );
-  test007 ( );
-  test008 ( );
-  test009 ( );
-  test0093 ( );
-  test0095 ( );
+  abram0_values_test ( );
+  abram1_values_test ( );
+  abram2_values_test ( );
+  agm_values_test ( );
+  airy_ai_values_test ( );
+  airy_ai_int_values_test ( );
+  airy_ai_prime_values_test ( );
+  airy_bi_values_test ( );
+  airy_bi_int_values_test ( );
+  airy_bi_prime_values_test ( );
+  airy_cai_values_test ( );
+  airy_cbi_values_test ( );
+  airy_gi_values_test ( );
+  airy_hi_values_test ( );
+  arccos_values_test ( );
+  arccosh_values_test ( );
+  arcsin_values_test ( );
+  arcsinh_values_test ( );
+  arctan_values_test ( );
+  arctan_int_values_test ( );
+  arctanh_values_test ( );
 
-  test010 ( );
-  test011 ( );
-  test0114 ( );
-  test01145 ( );
-  test0115 ( );
-  test01155 ( );
-  test0116 ( );
-  test012 ( );
-  test0123 ( );
-  test0127 ( );
-  test0128 ( );
-  test013 ( );
-  test0134 ( );
-  test0135 ( );
-  test014 ( );
-  test015 ( );
-  test016 ( );
-  test017 ( );
-  test018 ( );
-  test0185 ( );
-  test019 ( );
-  test0195 ( );
+  bei0_values_test ( );
+  bei1_values_test ( );
+  bell_values_test ( );
+  ber0_values_test ( );
+  ber1_values_test ( );
+  bernoulli_number_values_test ( );
+  bernoulli_poly_values_test ( );
+  bernstein_poly_01_values_test ( );
+  bessel_i0_values_test ( );
+  bessel_i0_int_values_test ( );
+  bessel_i0_spherical_values_test ( );
+  bessel_i1_values_test ( );
+  bessel_i1_spherical_values_test ( );
+  bessel_in_values_test ( );
+  bessel_ix_values_test ( );
+  bessel_j0_values_test ( );
+  bessel_j0_int_values_test ( );
+  bessel_j0_spherical_values_test ( );
+  bessel_j1_values_test ( );
+  bessel_j1_spherical_values_test ( );
+  bessel_jn_values_test ( );
+  bessel_jx_values_test ( );
+  bessel_k0_values_test ( );
+  bessel_k0_int_values_test ( );
+  bessel_k1_values_test ( );
+  bessel_kn_values_test ( );
+  bessel_kx_values_test ( );
+  bessel_y0_values_test ( );
+  bessel_y0_int_values_test ( );
+  bessel_y0_spherical_values_test ( );
+  bessel_y1_values_test ( );
+  bessel_y1_spherical_values_test ( );
+  bessel_yn_values_test ( );
+  bessel_yx_values_test ( );
+  beta_cdf_values_test ( );
+  beta_inc_values_test ( );
+  beta_log_values_test ( );
+  beta_noncentral_cdf_values_test ( );
+  beta_values_test ( );
+  binomial_values_test ( );
+  binomial_cdf_values_test ( );
+  bivariate_normal_cdf_values_test ( );
 
-  test020 ( );
-  test0205 ( );
-  test021 ( );
-  test022 ( );
-  test023 ( );
-  test024 ( );
-  test025 ( );
-  test026 ( );
-  test0265 ( );
-  test027 ( );
-  test028 ( );
-  test029 ( );
+  catalan_values_test ( );
+  cauchy_cdf_values_test ( );
+  cbrt_values_test ( );
+  cheby_t_poly_values_test ( );
+  cheby_u_poly_values_test ( );
+  cheby_v_poly_values_test ( );
+  cheby_w_poly_values_test ( );
+  chi_values_test ( );
+  chi_square_cdf_values_test ( );
+  chi_square_noncentral_cdf_values_test ( );
+  ci_values_test ( );
+  cin_values_test ( );
+  cinh_values_test ( );
+  clausen_values_test ( );
+  clebsch_gordan_values_test ( );
+  collatz_count_values_test ( );
+  cos_values_test ( );
+  cos_degree_values_test ( );
+  cos_power_int_values_test ( );
+  cosh_values_test ( );
+  cot_values_test ( );
+  cp_values_test ( );
 
-  test030 ( );
-  test0305 ( );
-  test031 ( );
-  test032 ( );
-  test033 ( );
-  test034 ( );
-  test035 ( );
-  test036 ( );
-  test0365 ( );
-  test037 ( );
-  test038 ( );
-  test039 ( );
-  test0395 ( );
+  dawson_values_test ( );
+  debye1_values_test ( );
+  debye2_values_test ( );
+  debye3_values_test ( );
+  debye4_values_test ( );
+  dedekind_sum_values_test ( );
+  dielectric_values_test ( );
+  dilogarithm_values_test ( );
 
-  test040 ( );
-  test041 ( );
-  test042 ( );
-  test0425 ( );
-  test043 ( );
-  test044 ( );
-  test0445 ( );
-  test045 ( );
-  test046 ( );
-  test0465 ( );
-  test047 ( );
-  test048 ( );
-  test049 ( );
+  e1_values_test ( );
+  ei_values_test ( );
+  elliptic_ea_values_test ( );
+  elliptic_em_values_test ( );
+  elliptic_ka_values_test ( );
+  elliptic_km_values_test ( );
+  erf_values_test ( );
+  erfc_values_test ( );
+  euler_number_values_test ( );
+  euler_poly_values_test ( );
+  exp_values_test ( );
+  exp3_int_values_test ( );
+  exponential_cdf_values_test ( );
+  extreme_values_cdf_values_test ( );
 
-  test050 ( );
-  test051 ( );
-  test05125 ( );
-  test0515 ( );
-  test0517 ( );
-  test0519 ( );
-  test052 ( );
-  test053 ( );
-  test054 ( );
-  test055 ( );
-  test056 ( );
-  test057 ( );
-  test0575 ( );
-  test058 ( );
-  test059 ( );
+  f_cdf_values_test ( );
+  f_noncentral_cdf_values_test ( );
+  fresnel_cos_values_test ( );
+  fresnel_sin_values_test ( );
+  frobenius_number_data_values_test ( );
+  frobenius_number_order_values_test ( );
+  frobenius_number_order2_values_test ( );
 
-  test060 ( );
-  test061 ( );
-  test062 ( );
-  test063 ( );
-  test064 ( );
-  test065 ( );
-  test066 ( );
-  test0665 ( );
-  test067 ( );
-  test068 ( );
-  test0685 ( );
-  test069 ( );
+  gamma_values_test ( );
+  gamma_cdf_values_test ( );
+  gamma_inc_values_test ( );
+  gamma_inc_p_values_test ( );
+  gamma_inc_q_values_test ( );
+  gamma_inc_tricomi_values_test ( );
+  gamma_log_values_test ( );
+  gegenbauer_poly_values_test ( );
+  geometric_cdf_values_test ( );
+  goodwin_values_test ( );
+  gud_values_test ( );
 
-  test070 ( );
-  test071 ( );
-  test072 ( );
-  test073 ( );
-  test074 ( );
-  test075 ( );
-  test0755 ( );
-  test0756 ( );
-  test076 ( );
-  test077 ( );
-  test078 ( );
-  test079 ( );
+  hermite_function_values_test ( );
+  hermite_poly_phys_values_test ( );
+  hermite_poly_prob_values_test ( );
+  hyper_1f1_values_test ( );
+  hyper_2f1_values_test ( );
+  hypergeometric_cdf_values_test ( );
+  hypergeometric_pdf_values_test ( );
+  hypergeometric_u_values_test ( );
 
-  test080 ( );
-  test081 ( );
-  test082 ( );
-  test083 ( );
-  test0835 ( );
-  test084 ( );
-  test0843 ( );
-  test0845 ( );
-  test085 ( );
-  test0855 ( );
-  test086 ( );
-  test087 ( );
-  test088 ( );
-  test089 ( );
+  i0ml0_values_test ( );
+  i1ml1_values_test ( );
+  i4_factorial_values_test ( );
+  i4_factorial2_values_test ( );
+  i4_fall_values_test ( );
+  i4_rise_values_test ( );
+  int_values_test ( );
 
-  test090 ( );
-  test091 ( );
-  test092 ( );
-  test093 ( );
-  test094 ( );
-  test0945 ( );
-  test095 ( );
-  test096 ( );
-  test097 ( );
-  test0972 ( );
-  test0973 ( );
-  test0974 ( );
-  test0975 ( );
-  test098 ( );
-  test099 ( );
-  test0995 ( );
+  jacobi_cn_values_test ( );
+  jacobi_dn_values_test ( );
+  jacobi_poly_values_test ( );
+  jacobi_sn_values_test ( );
+  jed_ce_values_test ( );
+  jed_mjd_values_test ( );
+  jed_rd_values_test ( );
+  jed_weekday_values_test ( );
 
-  test100 ( );
-  test101 ( );
-  test1015 ( );
-  test1016 ( );
-  test102 ( );
-  test103 ( );
-  test1035 ( );
-  test104 ( );
-  test1037 ( );
-  test105 ( );
-  test106 ( );
-  test107 ( );
-  test108 ( );
-  test10875 ( );
-  test109 ( );
+  kei0_values_test ( );
+  kei1_values_test ( );
+  ker0_values_test ( );
+  ker1_values_test ( );
 
-  test110 ( );
-  test1105 ( );
-  test111 ( );
-  test112 ( );
-  test113 ( );
-  test1135 ( );
-  test114 ( );
-  test115 ( );
-  test116 ( );
-  test117 ( );
-  test118 ( );
-  test1185 ( );
-  test119 ( );
+  laguerre_associated_values_test ( );
+  laguerre_general_values_test ( );
+  laguerre_polynomial_values_test ( );
+  lambert_w_values_test ( );
+  laplace_cdf_values_test ( );
+  legendre_associated_values_test ( );
+  legendre_associated_normalized_values_test ( );
+  legendre_associated_normalized_sphere_values_test ( );
+  legendre_poly_values_test ( );
+  legendre_function_q_values_test ( );
+  lerch_values_test ( );
+  lobachevsky_values_test ( );
+  lobatto_polynomial_values_test ( );
+  lobatto_polynomial_derivatives_test ( );
+  log_values_test ( );
+  log_normal_cdf_values_test ( );
+  log_series_cdf_values_test ( );
+  log10_values_test ( );
+  logarithmic_integral_values_test ( );
+  logistic_cdf_values_test ( );
 
-  test120 ( );
-  test121 ( );
-  test122 ( );
-  test123 ( );
-  test124 ( );
-  test125 ( );
-  test1255 ( );
-  test126 ( );
-  test127 ( );
-  test1275 ( );
-  test128 ( );
-  test1283 ( );
-  test1285 ( );
-  test129 ( );
+  mertens_values_test ( );
+  moebius_values_test ( );
 
-  test131 ( );
-  test132 ( );
-  test1325 ( );
-  test130 ( );
-  test133 ( );
-  test134 ( );
-  test135 ( );
-  test136 ( );
-  test137 ( );
-  test138 ( );
-  test139 ( );
+  negative_binomial_cdf_values_test ( );
+  nine_j_values_test ( );
+  normal_cdf_values_test ( );
+  normal_01_cdf_values_test ( );
 
-  test140 ( );
-  test141 ( );
-  test1415 ( );
-  test142 ( );
-  test143 ( );
-  test144 ( );
-  test1445 ( );
-  test1447 ( );
-  test145 ( );
-  test146 ( );
-  test1465 ( );
-  test147 ( );
-  test148 ( );
-  test149 ( );
+  omega_values_test ( );
+  owen_values_test ( );
 
-  test150 ( );
-  test151 ( );
-  test152 ( );
-  test153 ( );
-  test154 ( );
-  test1545 ( );
-  test155 ( );
-  test156 ( );
-  test157 ( );
-  test1575 ( );
-  test158 ( );
-  test159 ( );
+  partition_count_values_test ( );
+  partition_distinct_count_values_test ( );
+  phi_values_test ( );
+  pi_values_test ( );
+  poisson_cdf_values_test ( );
+  polylogarithm_values_test ( );
+  prandtl_values_test ( );
+  prime_values_test ( );
+  psat_values_test ( );
+  psi_values_test ( );
+
+  r8_factorial_values_test ( );
+  r8_factorial_log_values_test ( );
+  r8_factorial2_values_test ( );
+  r8_fall_values_test ( );
+  r8_rise_values_test ( );
+  rayleigh_cdf_values_test ( );
+
+  secvir_values_test ( );
+  shi_values_test ( );
+  si_values_test ( );
+  sigma_values_test ( );
+  sin_values_test ( );
+  sin_degree_values_test ( );
+  sin_power_int_values_test ( );
+  sinh_values_test ( );
+  six_j_values_test ( );
+  sound_values_test ( );
+  sphere_unit_area_values_test ( );
+  sphere_unit_volume_values_test ( );
+  spherical_harmonic_values_test ( );
+  sqrt_values_test ( );
+  stirling1_values_test ( );
+  stirling2_values_test ( );
+  stromgen_values_test ( );
+  struve_h0_values_test ( );
+  struve_h1_values_test ( );
+  struve_l0_values_test ( );
+  struve_l1_values_test ( );
+  student_cdf_values_test ( );
+  student_noncentral_cdf_values_test ( );
+  subfactorial_values_test ( );
+  surten_values_test ( );
+  synch1_values_test ( );
+  synch2_values_test ( );
+
+  tan_values_test ( );
+  tanh_values_test ( );
+  tau_values_test ( );
+  thercon_values_test ( );
+  three_j_values_test ( );
+  tran02_values_test ( );
+  tran03_values_test ( );
+  tran04_values_test ( );
+  tran05_values_test ( );
+  tran06_values_test ( );
+  tran07_values_test ( );
+  tran08_values_test ( );
+  tran09_values_test ( );
+  trigamma_values_test ( );
+  truncated_normal_ab_cdf_test ( );
+  truncated_normal_ab_pdf_test ( );
+  truncated_normal_a_cdf_test ( );
+  truncated_normal_a_pdf_test ( );
+  truncated_normal_b_cdf_test ( );
+  truncated_normal_b_pdf_test ( );
+  tsat_values_test ( );
+
+  van_der_corput_values_test ( );
+  viscosity_values_test ( );
+  von_mises_cdf_values_test ( );
+
+  weekday_values_test ( );
+  weibull_cdf_values_test ( );
+
+  zeta_values_test ( );
 //
 //  Terminate.
 //
   cout << "\n";
   cout << "TEST_VALUES_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -529,13 +600,13 @@ int main ( )
 }
 //****************************************************************************80
 
-void test001 ( )
+void abram0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST001 tests ABRAM0_VALUES.
+//    ABRAM0_VALUES_TEST tests ABRAM0_VALUES.
 //
 //  Licensing:
 //
@@ -555,7 +626,7 @@ void test001 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST001:\n";
+  cout << "ABRAM0_VALUES_TEST:\n";
   cout << "  ABRAM0_VALUES stores values of \n";
   cout << "  the Abramowitz function of order 0.\n";
   cout << "\n";
@@ -580,13 +651,13 @@ void test001 ( )
 }
 //****************************************************************************80
 
-void test002 ( )
+void abram1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST002 tests ABRAM1_VALUES.
+//    ABRAM1_VALUES_TEST tests ABRAM1_VALUES.
 //
 //  Licensing:
 //
@@ -606,7 +677,7 @@ void test002 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST002:\n";
+  cout << "ABRAM1_VALUES_TEST:\n";
   cout << "  ABRAM1_VALUES stores values of \n";
   cout << "  the Abramowitz function of order 1.\n";
   cout << "\n";
@@ -631,13 +702,13 @@ void test002 ( )
 }
 //****************************************************************************80
 
-void test003 ( )
+void abram2_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST003 tests ABRAM2_VALUES.
+//    ABRAM2_VALUES_TEST tests ABRAM2_VALUES.
 //
 //  Licensing:
 //
@@ -657,7 +728,7 @@ void test003 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST003:\n";
+  cout << "ABRAM2_VALUES_TEST:\n";
   cout << "  ABRAM2_VALUES stores values of \n";
   cout << "  the Abramowitz function of order 2.\n";
   cout << "\n";
@@ -682,13 +753,13 @@ void test003 ( )
 }
 //****************************************************************************80
 
-void test0035 ( )
+void agm_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0035 tests AGM_VALUES.
+//    AGM_VALUES_TEST tests AGM_VALUES.
 //
 //  Licensing:
 //
@@ -709,7 +780,7 @@ void test0035 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0035:\n";
+  cout << "AGM_VALUES_TEST:\n";
   cout << "  AGM_VALUES stores values of \n";
   cout << "  the arithmetic geometric mean function.\n";
   cout << "\n";
@@ -735,13 +806,13 @@ void test0035 ( )
 }
 //****************************************************************************80
 
-void test004 ( )
+void airy_ai_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST004 tests AIRY_AI_VALUES.
+//    AIRY_AI_VALUES_TEST tests AIRY_AI_VALUES.
 //
 //  Licensing:
 //
@@ -761,7 +832,7 @@ void test004 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST004:\n";
+  cout << "AIRY_AI_VALUES_TEST:\n";
   cout << "  AIRY_AI_VALUES stores values of \n";
   cout << "  the Airy functions Ai(X).\n";
   cout << "\n";
@@ -786,13 +857,13 @@ void test004 ( )
 }
 //****************************************************************************80
 
-void test005 ( )
+void airy_ai_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST005 tests AIRY_AI_INT_VALUES.
+//    AIRY_AI_INT_VALUES_TEST tests AIRY_AI_INT_VALUES.
 //
 //  Licensing:
 //
@@ -812,7 +883,7 @@ void test005 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST005:\n";
+  cout << "AIRY_AI_INT_VALUES_TEST:\n";
   cout << "  AIRY_AI_INT_VALUES stores values of \n";
   cout << "  the integral of the Airy Ai function.\n";
   cout << "\n";
@@ -837,13 +908,13 @@ void test005 ( )
 }
 //****************************************************************************80
 
-void test006 ( )
+void airy_ai_prime_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST006 tests AIRY_AI_PRIME_VALUES.
+//    AIRY_AI_PRIME_VALUES_TEST tests AIRY_AI_PRIME_VALUES.
 //
 //  Licensing:
 //
@@ -863,7 +934,7 @@ void test006 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST006:\n";
+  cout << "AIRY_AI_PRIME_VALUES_TEST:\n";
   cout << "  AIRY_AI_PRIME_VALUES stores values of \n";
   cout << "  the derivative of the Airy function Ai'(X).\n";
   cout << "\n";
@@ -888,13 +959,13 @@ void test006 ( )
 }
 //****************************************************************************80
 
-void test007 ( )
+void airy_bi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST007 tests AIRY_BI_VALUES.
+//    AIRY_BI_VALUES_TEST tests AIRY_BI_VALUES.
 //
 //  Licensing:
 //
@@ -914,7 +985,7 @@ void test007 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST007:\n";
+  cout << "AIRY_BI_VALUES_TEST:\n";
   cout << "  AIRY_BI_VALUES stores values of \n";
   cout << "  the Airy function Bi.\n";
   cout << "\n";
@@ -939,13 +1010,13 @@ void test007 ( )
 }
 //****************************************************************************80
 
-void test008 ( )
+void airy_bi_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST008 tests AIRY_BI_INT_VALUES.
+//    AIRY_BI_INT_VALUES_TEST tests AIRY_BI_INT_VALUES.
 //
 //  Licensing:
 //
@@ -965,7 +1036,7 @@ void test008 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST008:\n";
+  cout << "AIRY_BI_INT_VALUES_TEST:\n";
   cout << "  AIRY_BI_INT_VALUES stores values of \n";
   cout << "  the integral of the Airy Bi function.\n";
   cout << "\n";
@@ -990,13 +1061,13 @@ void test008 ( )
 }
 //****************************************************************************80
 
-void test009 ( )
+void airy_bi_prime_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST009 tests AIRY_BI_PRIME_VALUES.
+//    AIRY_BI_PRIME_VALUES_TEST tests AIRY_BI_PRIME_VALUES.
 //
 //  Licensing:
 //
@@ -1016,7 +1087,7 @@ void test009 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST009:\n";
+  cout << "AIRY_BI_PRIME_VALUES_TEST:\n";
   cout << "  AIRY_BI_PRIME_VALUES stores values of \n";
   cout << "  the derivative of Airy function Bi'(X).\n";
   cout << "\n";
@@ -1041,13 +1112,13 @@ void test009 ( )
 }
 //****************************************************************************80
 
-void test0093 ( )
+void airy_cai_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0093 tests AIRY_CAI_VALUES.
+//    AIRY_CAI_VALUES_TEST tests AIRY_CAI_VALUES.
 //
 //  Licensing:
 //
@@ -1067,7 +1138,7 @@ void test0093 ( )
   complex <double> x;
 
   cout << "\n";
-  cout << "TEST0093:\n";
+  cout << "AIRY_CAI_VALUES_TEST:\n";
   cout << "  AIRY_CAI_VALUES stores values of \n";
   cout << "  the Airy functions Ai(X) for complex argument.\n";
   cout << "\n";
@@ -1094,13 +1165,13 @@ void test0093 ( )
 }
 //****************************************************************************80
 
-void test0095 ( )
+void airy_cbi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0095 tests AIRY_CBI_VALUES.
+//    AIRY_CBI_VALUES_TEST tests AIRY_CBI_VALUES.
 //
 //  Licensing:
 //
@@ -1120,7 +1191,7 @@ void test0095 ( )
   complex <double> x;
 
   cout << "\n";
-  cout << "TEST0095:\n";
+  cout << "AIRY_CBI_VALUES_TEST:\n";
   cout << "  AIRY_CBI_VALUES stores values of \n";
   cout << "  the Airy functions Bi(X) for complex argument.\n";
   cout << "\n";
@@ -1147,13 +1218,13 @@ void test0095 ( )
 }
 //****************************************************************************80
 
-void test010 ( )
+void airy_gi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST010 tests AIRY_GI_VALUES.
+//    AIRY_GI_VALUES_TEST tests AIRY_GI_VALUES.
 //
 //  Licensing:
 //
@@ -1173,7 +1244,7 @@ void test010 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST010:\n";
+  cout << "AIRY_GI_VALUES_TEST:\n";
   cout << "  AIRY_GI_VALUES stores values of \n";
   cout << "  the modified Airy function Gi(X).\n";
   cout << "\n";
@@ -1198,13 +1269,13 @@ void test010 ( )
 }
 //****************************************************************************80
 
-void test011 ( )
+void airy_hi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST011 tests AIRY_HI_VALUES.
+//    AIRY_HI_VALUES_TEST tests AIRY_HI_VALUES.
 //
 //  Licensing:
 //
@@ -1224,7 +1295,7 @@ void test011 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST011:\n";
+  cout << "AIRY_HI_VALUES_TEST:\n";
   cout << "  AIRY_HI_VALUES stores values of \n";
   cout << "  the modified Airy function Hi(X).\n";
   cout << "\n";
@@ -1249,13 +1320,13 @@ void test011 ( )
 }
 //****************************************************************************80
 
-void test0114 ( )
+void arccos_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0114 tests ARCCOS_VALUES.
+//    ARCCOS_VALUES_TEST tests ARCCOS_VALUES.
 //
 //  Licensing:
 //
@@ -1275,7 +1346,7 @@ void test0114 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0114:\n";
+  cout << "ARCCOS_VALUES_TEST:\n";
   cout << "  ARCCOS_VALUES stores values of the arc cosine function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -1299,13 +1370,13 @@ void test0114 ( )
 }
 //****************************************************************************80
 
-void test01145 ( )
+void arccosh_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST01145 tests ARCCOSH_VALUES.
+//    ARCCOSH_VALUES_TEST tests ARCCOSH_VALUES.
 //
 //  Licensing:
 //
@@ -1325,7 +1396,7 @@ void test01145 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST01145:\n";
+  cout << "ARCCOSH_VALUES_TEST:\n";
   cout << 
     "  ARCCOSH_VALUES stores values of the hyperbolic arc cosine function.\n";
   cout << "\n";
@@ -1350,13 +1421,13 @@ void test01145 ( )
 }
 //****************************************************************************80
 
-void test0115 ( )
+void arcsin_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0115 tests ARCSIN_VALUES.
+//    ARCSIN_VALUES_TEST tests ARCSIN_VALUES.
 //
 //  Licensing:
 //
@@ -1376,7 +1447,7 @@ void test0115 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0115:\n";
+  cout << "ARCSIN_VALUES_TEST:\n";
   cout << "  ARCSIN_VALUES stores values of the arc sine function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -1400,13 +1471,13 @@ void test0115 ( )
 }
 //****************************************************************************80
 
-void test01155 ( )
+void arcsinh_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST01155 tests ARCSINH_VALUES.
+//    ARCSINH_VALUES_TEST tests ARCSINH_VALUES.
 //
 //  Licensing:
 //
@@ -1426,7 +1497,7 @@ void test01155 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST01155:\n";
+  cout << "ARCSINH_VALUES_TEST:\n";
   cout << 
     "  ARCSINH_VALUES stores values of the hyperbolic arc sine function.\n";
   cout << "\n";
@@ -1451,13 +1522,13 @@ void test01155 ( )
 }
 //****************************************************************************80
 
-void test0116 ( )
+void arctan_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0116 tests ARCTAN_VALUES.
+//    ARCTAN_VALUES_TEST tests ARCTAN_VALUES.
 //
 //  Licensing:
 //
@@ -1477,7 +1548,7 @@ void test0116 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0116:\n";
+  cout << "ARCTAN_VALUES_TEST:\n";
   cout << "  ARCTAN_VALUES stores values of the arc tangent function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -1501,13 +1572,13 @@ void test0116 ( )
 }
 //****************************************************************************80
 
-void test012 ( )
+void arctan_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST012 tests ARCTAN_INT_VALUES.
+//    ARCTAN_INT_VALUES_TEST tests ARCTAN_INT_VALUES.
 //
 //  Licensing:
 //
@@ -1527,7 +1598,7 @@ void test012 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST012:\n";
+  cout << "ARCTAN_INT_VALUES_TEST:\n";
   cout << "  ARCTAN_INT_VALUES stores values of \n";
   cout << "  the arctangent integral.\n";
   cout << "\n";
@@ -1552,13 +1623,13 @@ void test012 ( )
 }
 //****************************************************************************80
 
-void test0123 ( )
+void arctanh_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST01235 tests ARCTANH_VALUES.
+//    ARCTANH_VALUES_TEST tests ARCTANH_VALUES.
 //
 //  Licensing:
 //
@@ -1578,7 +1649,7 @@ void test0123 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0123:\n";
+  cout << "ARCTANH_VALUES_TEST:\n";
   cout << 
     "  ARCTANH_VALUES stores values of the hyperbolic arc tangent function.\n";
   cout << "\n";
@@ -1603,13 +1674,13 @@ void test0123 ( )
 }
 //****************************************************************************80
 
-void test0127 ( )
+void bei0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0127 tests BEI0_VALUES.
+//    BEI0_VALUES_TEST tests BEI0_VALUES.
 //
 //  Licensing:
 //
@@ -1629,7 +1700,7 @@ void test0127 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0127:\n";
+  cout << "BEI0_VALUES_TEST:\n";
   cout << "  BEI0_VALUES stores values of \n";
   cout << "  the Kelvin function BEI of order 0.\n";
   cout << "\n";
@@ -1654,13 +1725,13 @@ void test0127 ( )
 }
 //****************************************************************************80
 
-void test0128 ( )
+void bei1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0128 tests BEI1_VALUES.
+//    BEI1_VALUES_TEST tests BEI1_VALUES.
 //
 //  Licensing:
 //
@@ -1680,7 +1751,7 @@ void test0128 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0128:\n";
+  cout << "BEI1_VALUES_TEST:\n";
   cout << "  BEI1_VALUES stores values of \n";
   cout << "  the Kelvin function BEI of order 1.\n";
   cout << "\n";
@@ -1705,13 +1776,13 @@ void test0128 ( )
 }
 //****************************************************************************80
 
-void test013 ( )
+void bell_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST013 tests BELL_VALUES.
+//    BELL_VALUES_TEST tests BELL_VALUES.
 //
 //  Licensing:
 //
@@ -1731,7 +1802,7 @@ void test013 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST013:\n";
+  cout << "BELL_VALUES_TEST:\n";
   cout << "  BELL_VALUES returns values of \n";
   cout << "  the Bell numbers.\n";
   cout << "\n";
@@ -1756,13 +1827,13 @@ void test013 ( )
 }
 //****************************************************************************80
 
-void test0134 ( )
+void ber0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0134 tests BER0_VALUES.
+//    BER0_VALUES_TEST tests BER0_VALUES.
 //
 //  Licensing:
 //
@@ -1782,7 +1853,7 @@ void test0134 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0134:\n";
+  cout << "BER0_VALUES_TEST:\n";
   cout << "  BER0_VALUES stores values of \n";
   cout << "  the Kelvin function BER of order 0.\n";
   cout << "\n";
@@ -1807,13 +1878,13 @@ void test0134 ( )
 }
 //****************************************************************************80
 
-void test0135 ( )
+void ber1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0135 tests BER1_VALUES.
+//    BER1_VALUES_TEST tests BER1_VALUES.
 //
 //  Licensing:
 //
@@ -1833,7 +1904,7 @@ void test0135 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0135:\n";
+  cout << "BER1_VALUES_TEST:\n";
   cout << "  BER1_VALUES stores values of \n";
   cout << "  the Kelvin function BER of order 1.\n";
   cout << "\n";
@@ -1858,13 +1929,13 @@ void test0135 ( )
 }
 //****************************************************************************80
 
-void test014 ( )
+void bernoulli_number_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST014 tests BERNOULLI_NUMBER_VALUES.
+//    BERNOULLI_NUMBER_VALUES_TEST tests BERNOULLI_NUMBER_VALUES.
 //
 //  Licensing:
 //
@@ -1884,7 +1955,7 @@ void test014 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST014:\n";
+  cout << "BERNOULLI_NUMBER_VALUES_TEST:\n";
   cout << "  BERNOULLI_NUMBER_VALUES returns values of \n";
   cout << "  the Bernoulli numbers.\n";
   cout << "\n";
@@ -1909,13 +1980,13 @@ void test014 ( )
 }
 //****************************************************************************80
 
-void test015 ( )
+void bernoulli_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST015 tests BERNOULLI_POLY_VALUES.
+//    BERNOULLI_POLY_VALUES_TEST tests BERNOULLI_POLY_VALUES.
 //
 //  Licensing:
 //
@@ -1936,7 +2007,7 @@ void test015 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST015:\n";
+  cout << "BERNOULLI_POLY_VALUES_TEST:\n";
   cout << "  BERNOULLI_POLY_VALUES returns values of \n";
   cout << "  the Bernoulli Polynomials.\n";
   cout << "\n";
@@ -1962,13 +2033,13 @@ void test015 ( )
 }
 //****************************************************************************80
 
-void test016 ( )
+void bernstein_poly_01_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST016 tests BERNSTEIN_POLY_VALUES.
+//    BERNSTEIN_POLY_01_VALUES_TEST tests BERNSTEIN_POLY_01_VALUES.
 //
 //  Licensing:
 //
@@ -1990,8 +2061,8 @@ void test016 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST016:\n";
-  cout << "  BERNSTEIN_POLY_VALUES returns values of \n";
+  cout << "BERNSTEIN_POLY_01_VALUES_TEST:\n";
+  cout << "  BERNSTEIN_POLY_01_VALUES returns values of \n";
   cout << "  the Bernstein Polynomials.\n";
   cout << "\n";
   cout << "     N     K       X      BERNSTEIN(N,K)(X)\n";
@@ -2001,7 +2072,7 @@ void test016 ( )
 
   for ( ; ; )
   {
-    bernstein_poly_values ( n_data, n, k, x, b );
+    bernstein_poly_01_values ( n_data, n, k, x, b );
 
     if ( n_data == 0 )
     {
@@ -2017,13 +2088,13 @@ void test016 ( )
 }
 //****************************************************************************80
 
-void test017 ( )
+void bessel_i0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST017 tests BESSEL_I0_VALUES.
+//    BESSEL_I0_VALUES_TEST tests BESSEL_I0_VALUES.
 //
 //  Licensing:
 //
@@ -2043,7 +2114,7 @@ void test017 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST017:\n";
+  cout << "BESSEL_I0_VALUES_TEST:\n";
   cout << "  BESSEL_I0_VALUES stores values of \n";
   cout << "  the Bessel I0 function.\n";
   cout << "\n";
@@ -2068,13 +2139,13 @@ void test017 ( )
 }
 //****************************************************************************80
 
-void test018 ( )
+void bessel_i0_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST018 tests BESSEL_I0_INT_VALUES.
+//    BESSEL_I0_INT_VALUES_TEST tests BESSEL_I0_INT_VALUES.
 //
 //  Licensing:
 //
@@ -2094,7 +2165,7 @@ void test018 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST018:\n";
+  cout << "BESSEL_I0_INT_VALUES_TEST:\n";
   cout << "  BESSEL_I0_INT_VALUES stores values of \n";
   cout << "  the integral of the Bessel I0 function.\n";
   cout << "\n";
@@ -2119,13 +2190,13 @@ void test018 ( )
 }
 //****************************************************************************80
 
-void test0185 ( )
+void bessel_i0_spherical_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0185 tests BESSEL_I0_SPHERICAL_VALUES.
+//    BESSEL_I0_SPHERICAL_VALUES_TEST tests BESSEL_I0_SPHERICAL_VALUES.
 //
 //  Licensing:
 //
@@ -2145,7 +2216,7 @@ void test0185 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0185:\n";
+  cout << "BESSEL_I0_SPHERICAL_VALUES_TEST:\n";
   cout << "  BESSEL_I0_SPHERICAL_VALUES stores values of\n";
   cout << "  the spherical Bessel i0 function.\n";
   cout << "\n";
@@ -2170,13 +2241,13 @@ void test0185 ( )
 }
 //****************************************************************************80
 
-void test019 ( )
+void bessel_i1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST019 tests BESSEL_I1_VALUES.
+//    BESSEL_I1_VALUES_TEST tests BESSEL_I1_VALUES.
 //
 //  Licensing:
 //
@@ -2196,7 +2267,7 @@ void test019 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST019:\n";
+  cout << "BESSEL_I1_VALUES_TEST:\n";
   cout << "  BESSEL_I1_VALUES stores values of \n";
   cout << "  the Bessel I1 function.\n";
   cout << "\n";
@@ -2221,13 +2292,13 @@ void test019 ( )
 }
 //****************************************************************************80
 
-void test0195 ( )
+void bessel_i1_spherical_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0195 tests BESSEL_I1_SPHERICAL_VALUES.
+//    BESSEL_I1_SPHERICAL_VALUES_TEST tests BESSEL_I1_SPHERICAL_VALUES.
 //
 //  Licensing:
 //
@@ -2247,7 +2318,7 @@ void test0195 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0195:\n";
+  cout << "BESSEL_I1_SPHERICAL_VALUES_TEST:\n";
   cout << "  BESSEL_I1_SPHERICAL_VALUES stores values of\n";
   cout << "  the spherical Bessel i1 function.\n";
   cout << "\n";
@@ -2272,13 +2343,13 @@ void test0195 ( )
 }
 //****************************************************************************80
 
-void test020 ( )
+void bessel_in_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST020 tests BESSEL_IN_VALUES.
+//    BESSEL_IN_VALUES_TEST tests BESSEL_IN_VALUES.
 //
 //  Licensing:
 //
@@ -2299,7 +2370,7 @@ void test020 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST020:\n";
+  cout << "BESSEL_IN_VALUES_TEST:\n";
   cout << "  BESSEL_IN_VALUES stores values of \n";
   cout << "  the Bessel In function.\n";
   cout << "\n";
@@ -2325,13 +2396,13 @@ void test020 ( )
 }
 //****************************************************************************80
 
-void test0205 ( )
+void bessel_ix_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0205 tests BESSEL_IX_VALUES.
+//    BESSEL_IX_VALUES_TEST tests BESSEL_IX_VALUES.
 //
 //  Licensing:
 //
@@ -2352,7 +2423,7 @@ void test0205 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0205:\n";
+  cout << "BESSEL_IX_VALUES_TEST:\n";
   cout << "  BESSEL_IX_VALUES stores values of \n";
   cout << "  the Bessel In function for NONINTEGER order.\n";
   cout << "\n";
@@ -2378,13 +2449,13 @@ void test0205 ( )
 }
 //****************************************************************************80
 
-void test021 ( )
+void bessel_j0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST021 tests BESSEL_J0_VALUES.
+//    BESSEL_J0_VALUES_TEST tests BESSEL_J0_VALUES.
 //
 //  Licensing:
 //
@@ -2404,7 +2475,7 @@ void test021 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST021:\n";
+  cout << "BESSEL_J0_VALUES_TEST:\n";
   cout << "  BESSEL_J0_VALUES stores values of \n";
   cout << "  the Bessel J0 function.\n";
   cout << "\n";
@@ -2429,13 +2500,13 @@ void test021 ( )
 }
 //****************************************************************************80
 
-void test022 ( )
+void bessel_j0_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST022 tests BESSEL_J0_INT_VALUES.
+//    BESSEL_J0_INT_VALUES_TEST tests BESSEL_J0_INT_VALUES.
 //
 //  Licensing:
 //
@@ -2455,7 +2526,7 @@ void test022 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST022:\n";
+  cout << "BESSEL_J0_INT_VALUES_TEST:\n";
   cout << "  BESSEL_J0_INT_VALUES stores values of \n";
   cout << "  the integral of the Bessel J0 function.\n";
   cout << "\n";
@@ -2480,13 +2551,13 @@ void test022 ( )
 }
 //****************************************************************************80
 
-void test023 ( )
+void bessel_j0_spherical_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST023 tests BESSEL_J0_SPHERICAL_VALUES.
+//    BESSEL_J0_SPHERICAL_VALUES_TEST tests BESSEL_J0_SPHERICAL_VALUES.
 //
 //  Licensing:
 //
@@ -2506,7 +2577,7 @@ void test023 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST023:\n";
+  cout << "BESSEL_J0_SPHERICAL_VALUES_TEST:\n";
   cout << "  BESSEL_J0_SPHERICAL_VALUES stores values of\n";
   cout << "  the spherical Bessel j0 function.\n";
   cout << "\n";
@@ -2531,13 +2602,13 @@ void test023 ( )
 }
 //****************************************************************************80
 
-void test024 ( )
+void bessel_j1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST024 tests BESSEL_J1_VALUES.
+//    BESSEL_J1_VALUES_TEST tests BESSEL_J1_VALUES.
 //
 //  Licensing:
 //
@@ -2557,7 +2628,7 @@ void test024 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST024:\n";
+  cout << "BESSEL_J1_VALUES_TEST:\n";
   cout << "  BESSEL_J1_VALUES stores values of \n";
   cout << "  the Bessel J1 function.\n";
   cout << "\n";
@@ -2582,13 +2653,13 @@ void test024 ( )
 }
 //****************************************************************************80
 
-void test025 ( )
+void bessel_j1_spherical_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST025 tests BESSEL_J1_SPHERICAL_VALUES.
+//    BESSEL_J1_SPHERICAL_VALUES_TEST tests BESSEL_J1_SPHERICAL_VALUES.
 //
 //  Licensing:
 //
@@ -2608,7 +2679,7 @@ void test025 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST025:\n";
+  cout << "BESSEL_J1_SPHERICAL_VALUES_TEST:\n";
   cout << "  BESSEL_J1_SPHERICAL_VALUES stores values of\n";
   cout << "  the spherical Bessel j1 function.\n";
   cout << "\n";
@@ -2633,13 +2704,13 @@ void test025 ( )
 }
 //****************************************************************************80
 
-void test026 ( )
+void bessel_jn_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST026 tests BESSEL_JN_VALUES.
+//    BESSEL_JN_VALUES_TEST tests BESSEL_JN_VALUES.
 //
 //  Licensing:
 //
@@ -2660,7 +2731,7 @@ void test026 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST026:\n";
+  cout << "BESSEL_JN_VALUES_TEST:\n";
   cout << "  BESSEL_JN_VALUES stores values of \n";
   cout << "  the Bessel Jn function.\n";
   cout << "\n";
@@ -2686,13 +2757,13 @@ void test026 ( )
 }
 //****************************************************************************80
 
-void test0265 ( )
+void bessel_jx_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0265 tests BESSEL_JX_VALUES.
+//    BESSEL_JX_VALUES_TEST tests BESSEL_JX_VALUES.
 //
 //  Licensing:
 //
@@ -2713,7 +2784,7 @@ void test0265 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0265:\n";
+  cout << "BESSEL_JX_VALUES_TEST:\n";
   cout << "  BESSEL_JX_VALUES stores values of \n";
   cout << "  the Bessel Jn function for NONINTEGER order.\n";
   cout << "\n";
@@ -2739,13 +2810,13 @@ void test0265 ( )
 }
 //****************************************************************************80
 
-void test027 ( )
+void bessel_k0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST027 tests BESSEL_K0_VALUES.
+//    BESSEL_K0_VALUES_TEST tests BESSEL_K0_VALUES.
 //
 //  Licensing:
 //
@@ -2765,7 +2836,7 @@ void test027 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST027:\n";
+  cout << "BESSEL_K0_VALUES_TEST:\n";
   cout << "  BESSEL_K0_VALUES stores values of \n";
   cout << "  the Bessel K0 function.\n";
   cout << "\n";
@@ -2790,13 +2861,13 @@ void test027 ( )
 }
 //****************************************************************************80
 
-void test028 ( )
+void bessel_k0_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST028 tests BESSEL_K0_INT_VALUES.
+//    BESSEL_K0_INT_VALUES_TEST tests BESSEL_K0_INT_VALUES.
 //
 //  Licensing:
 //
@@ -2816,7 +2887,7 @@ void test028 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST028:\n";
+  cout << "BESSEL_K0_INT_VALUES_TEST:\n";
   cout << "  BESSEL_K0_INT_VALUES stores values of \n";
   cout << "  the integral of the Bessel K0 function.\n";
   cout << "\n";
@@ -2841,13 +2912,13 @@ void test028 ( )
 }
 //****************************************************************************80
 
-void test029 ( )
+void bessel_k1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST029 tests BESSEL_K1_VALUES.
+//    BESSEL_K1_VALUES_TEST tests BESSEL_K1_VALUES.
 //
 //  Licensing:
 //
@@ -2867,7 +2938,7 @@ void test029 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST029:\n";
+  cout << "BESSEL_K1_VALUES_TEST:\n";
   cout << "  BESSEL_K1_VALUES stores values of \n";
   cout << "  the Bessel K1 function.\n";
   cout << "\n";
@@ -2892,13 +2963,13 @@ void test029 ( )
 }
 //****************************************************************************80
 
-void test030 ( )
+void bessel_kn_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST030 tests BESSEL_KN_VALUES.
+//    BESSEL_KN_VALUES_TEST tests BESSEL_KN_VALUES.
 //
 //  Licensing:
 //
@@ -2919,7 +2990,7 @@ void test030 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST030:\n";
+  cout << "BESSEL_KN_VALUES_TEST:\n";
   cout << "  BESSEL_KN_VALUES stores values of \n";
   cout << "  the Bessel Kn function.\n";
   cout << "\n";
@@ -2945,13 +3016,13 @@ void test030 ( )
 }
 //****************************************************************************80
 
-void test0305 ( )
+void bessel_kx_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0305 tests BESSEL_KX_VALUES.
+//    BESSEL_KX_VALUES_TEST tests BESSEL_KX_VALUES.
 //
 //  Licensing:
 //
@@ -2972,7 +3043,7 @@ void test0305 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0305:\n";
+  cout << "BESSEL_KX_VALUES_TEST:\n";
   cout << "  BESSEL_KX_VALUES stores values of \n";
   cout << "  the Bessel Kn function for NONINTEGER order.\n";
   cout << "\n";
@@ -2998,13 +3069,13 @@ void test0305 ( )
 }
 //****************************************************************************80
 
-void test031 ( )
+void bessel_y0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST031 tests BESSEL_Y0_VALUES.
+//    BESSEL_Y0_VALUES_TEST tests BESSEL_Y0_VALUES.
 //
 //  Licensing:
 //
@@ -3024,7 +3095,7 @@ void test031 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST031:\n";
+  cout << "BESSEL_Y0_VALUES_TEST:\n";
   cout << "  BESSEL_Y0_VALUES stores values of \n";
   cout << "  the Bessel Y0 function.\n";
   cout << "\n";
@@ -3049,13 +3120,13 @@ void test031 ( )
 }
 //****************************************************************************80
 
-void test032 ( )
+void bessel_y0_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST032 tests BESSEL_Y0_INT_VALUES.
+//    BESSEL_Y0_INT_VALUES_TEST tests BESSEL_Y0_INT_VALUES.
 //
 //  Licensing:
 //
@@ -3075,7 +3146,7 @@ void test032 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST032:\n";
+  cout << "BESSEL_Y0_INT_VALUES_TEST:\n";
   cout << "  BESSEL_Y0_INT_VALUES stores values of \n";
   cout << "  the integral of the Bessel Y0 function.\n";
   cout << "\n";
@@ -3100,13 +3171,13 @@ void test032 ( )
 }
 //****************************************************************************80
 
-void test033 ( )
+void bessel_y0_spherical_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST033 tests BESSEL_Y0_SPHERICAL_VALUES.
+//    BESSEL_Y0_SPHERICAL_VALUES_TEST tests BESSEL_Y0_SPHERICAL_VALUES.
 //
 //  Licensing:
 //
@@ -3126,7 +3197,7 @@ void test033 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST033:\n";
+  cout << "BESSEL_Y0_SPHERICAL_VALUES_TEST:\n";
   cout << "  BESSEL_Y0_SPHERICAL_VALUES stores values of\n";
   cout << "  the spherical Bessel y0 function.\n";
   cout << "\n";
@@ -3151,13 +3222,13 @@ void test033 ( )
 }
 //****************************************************************************80
 
-void test034 ( )
+void bessel_y1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST034 tests BESSEL_Y1_VALUES.
+//    BESSEL_Y1_VALUES_TEST tests BESSEL_Y1_VALUES.
 //
 //  Licensing:
 //
@@ -3177,7 +3248,7 @@ void test034 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST034:\n";
+  cout << "BESSEL_Y1_VALUES_TEST:\n";
   cout << "  BESSEL_Y1_VALUES stores values of \n";
   cout << "  the Bessel Y1 function.\n";
   cout << "\n";
@@ -3202,13 +3273,13 @@ void test034 ( )
 }
 //****************************************************************************80
 
-void test035 ( )
+void bessel_y1_spherical_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST035 tests BESSEL_Y1_SPHERICAL_VALUES.
+//    BESSEL_Y1_SPHERICAL_VALUES_TEST tests BESSEL_Y1_SPHERICAL_VALUES.
 //
 //  Licensing:
 //
@@ -3228,7 +3299,7 @@ void test035 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST035:\n";
+  cout << "BESSEL_Y1_SPHERICAL_VALUES_TEST:\n";
   cout << "  BESSEL_Y1_SPHERICAL_VALUES stores values of\n";
   cout << "  the spherical Bessel y1 function.\n";
   cout << "\n";
@@ -3253,13 +3324,13 @@ void test035 ( )
 }
 //****************************************************************************80
 
-void test036 ( )
+void bessel_yn_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST036 tests BESSEL_YN_VALUES.
+//    BESSEL_YN_VALUES_TEST tests BESSEL_YN_VALUES.
 //
 //  Licensing:
 //
@@ -3280,7 +3351,7 @@ void test036 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST036:\n";
+  cout << "BESSEL_YN_VALUES_TEST:\n";
   cout << "  BESSEL_YN_VALUES stores values of \n";
   cout << "  the Bessel Yn function.\n";
   cout << "\n";
@@ -3306,13 +3377,13 @@ void test036 ( )
 }
 //****************************************************************************80
 
-void test0365 ( )
+void bessel_yx_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0365 tests BESSEL_YX_VALUES.
+//    BESSEL_YX_VALUES_TEST tests BESSEL_YX_VALUES.
 //
 //  Licensing:
 //
@@ -3333,7 +3404,7 @@ void test0365 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0365:\n";
+  cout << "BESSEL_YX_VALUES_TEST:\n";
   cout << "  BESSEL_YX_VALUES stores values of \n";
   cout << "  the Bessel Yn function for NONINTEGER order.\n";
   cout << "\n";
@@ -3359,13 +3430,13 @@ void test0365 ( )
 }
 //****************************************************************************80
 
-void test037 ( )
+void beta_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST037 tests BETA_CDF_VALUES.
+//    BETA_CDF_VALUES_TEST tests BETA_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -3387,7 +3458,7 @@ void test037 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST037:\n";
+  cout << "BETA_CDF_VALUES_TEST:\n";
   cout << "  BETA_CDF_VALUES stores values of\n";
   cout << "  the Beta CDF.\n";
   cout << "\n";
@@ -3414,13 +3485,13 @@ void test037 ( )
 }
 //****************************************************************************80
 
-void test038 ( )
+void beta_inc_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST038 tests BETA_INC_VALUES.
+//    BETA_INC_VALUES_TEST tests BETA_INC_VALUES.
 //
 //  Licensing:
 //
@@ -3442,7 +3513,7 @@ void test038 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST038:\n";
+  cout << "BETA_INC_VALUES_TEST:\n";
   cout << "  BETA_INC_VALUES stores values of\n";
   cout << "  the incomplete Beta function.\n";
   cout << "\n";
@@ -3469,13 +3540,13 @@ void test038 ( )
 }
 //****************************************************************************80
 
-void test039 ( )
+void beta_log_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST039 tests BETA_LOG_VALUES.
+//    BETA_LOG_VALUES_TEST tests BETA_LOG_VALUES.
 //
 //  Licensing:
 //
@@ -3496,7 +3567,7 @@ void test039 ( )
   double y;
 
   cout << "\n";
-  cout << "TEST039:\n";
+  cout << "BETA_LOG_VALUES_TEST:\n";
   cout << "  BETA_LOG_VALUES stores values of\n";
   cout << "  the logarithm of the Beta function.\n";
   cout << "\n";
@@ -3522,13 +3593,13 @@ void test039 ( )
 }
 //****************************************************************************80
 
-void test0395 ( )
+void beta_noncentral_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0395 tests BETA_NONCENTRAL_CDF_VALUES.
+//    BETA_NONCENTRAL_CDF_VALUES_TEST tests BETA_NONCENTRAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -3551,7 +3622,7 @@ void test0395 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0395:\n";
+  cout << "BETA_NONCENTRAL_CDF_VALUES_TEST:\n";
   cout << "  BETA_NONCENTRAL_CDF_VALUES stores values of\n";
   cout << "  the noncentral Beta CDF.\n";
   cout << "\n";
@@ -3579,13 +3650,13 @@ void test0395 ( )
 }
 //****************************************************************************80
 
-void test040 ( )
+void beta_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST040 tests BETA_VALUES.
+//    BETA_VALUES_TEST tests BETA_VALUES.
 //
 //  Licensing:
 //
@@ -3606,7 +3677,7 @@ void test040 ( )
   double y;
 
   cout << "\n";
-  cout << "TEST040:\n";
+  cout << "BETA_VALUES_TEST:\n";
   cout << "  BETA_VALUES stores values of\n";
   cout << "  the Beta function.\n";
   cout << "\n";
@@ -3632,13 +3703,13 @@ void test040 ( )
 }
 //****************************************************************************80
 
-void test041 ( )
+void binomial_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST041 tests BINOMIAL_VALUES.
+//    BINOMIAL_VALUES_TEST tests BINOMIAL_VALUES.
 //
 //  Licensing:
 //
@@ -3659,7 +3730,7 @@ void test041 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST041:\n";
+  cout << "BINOMIAL_VALUES_TEST:\n";
   cout << "  BINOMIAL_VALUES returns values of\n";
   cout << "  the binomial numbers.\n";
   cout << "\n";
@@ -3685,13 +3756,13 @@ void test041 ( )
 }
 //****************************************************************************80
 
-void test042 ( )
+void binomial_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST042 tests BINOMIAL_CDF_VALUES.
+//    BINOMIAL_CDF_VALUES_TEST tests BINOMIAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -3713,7 +3784,7 @@ void test042 ( )
   int x;
 
   cout << "\n";
-  cout << "TEST042:\n";
+  cout << "BINOMIAL_CDF_VALUES_TEST:\n";
   cout << "  BINOMIAL_CDF_VALUES returns values of \n";
   cout << "  the Binomial Cumulative Density Function.\n";
   cout << "\n";
@@ -3740,13 +3811,13 @@ void test042 ( )
 }
 //****************************************************************************80
 
-void test0425 ( )
+void bivariate_normal_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0425 tests BETA_INC_VALUES.
+//    BIVARIATE_NORMAL_CDF_VALUES_TEST tests BIVARIATE_NORMAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -3768,7 +3839,7 @@ void test0425 ( )
   double y;
 
   cout << "\n";
-  cout << "TEST0425:\n";
+  cout << "BIVARIATE_NORMAL_CDF_VALUES_TEST:\n";
   cout << "  BIVARIATE_NORMAL_CDF_VALUES stores values of\n";
   cout << "  the bivariate normal CDF.\n";
   cout << "\n";
@@ -3795,13 +3866,13 @@ void test0425 ( )
 }
 //****************************************************************************80
 
-void test043 ( )
+void catalan_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST043 tests CATALAN_VALUES.
+//    CATALAN_VALUES_TEST tests CATALAN_VALUES.
 //
 //  Licensing:
 //
@@ -3821,7 +3892,7 @@ void test043 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST043:\n";
+  cout << "CATALAN_VALUES_TEST:\n";
   cout << "  CATALAN_VALUES returns values of \n";
   cout << "  the Catalan numbers.\n";
   cout << "\n";
@@ -3846,13 +3917,13 @@ void test043 ( )
 }
 //****************************************************************************80
 
-void test044 ( )
+void cauchy_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST044 tests CAUCHY_CDF_VALUES.
+//    CAUCHY_CDF_VALUES_TEST tests CAUCHY_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -3874,7 +3945,7 @@ void test044 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST044:\n";
+  cout << "CAUCHY_CDF_VALUES_TEST:\n";
   cout << "  CAUCHY_CDF_VALUES returns values of \n";
   cout << "  the Cauchy Cumulative Density Function.\n";
   cout << "\n";
@@ -3901,13 +3972,13 @@ void test044 ( )
 }
 //****************************************************************************80
 
-void test0445 ( )
+void cbrt_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0445 tests CBRT_VALUES.
+//    CBRT_VALUES_TEST tests CBRT_VALUES.
 //
 //  Licensing:
 //
@@ -3927,7 +3998,7 @@ void test0445 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0445:\n";
+  cout << "CBRT_VALUES_TEST:\n";
   cout << "  CBRT_VALUES stores values of the cube root function.\n";
   cout << "\n";
   cout << "      X            CBRT(X)\n";
@@ -3951,13 +4022,13 @@ void test0445 ( )
 }
 //****************************************************************************80
 
-void test045 ( )
+void cheby_t_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST045 tests CHEBY_T_POLY_VALUES.
+//    CHEBY_T_POLY_VALUES_TEST tests CHEBY_T_POLY_VALUES.
 //
 //  Licensing:
 //
@@ -3978,7 +4049,7 @@ void test045 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST045:\n";
+  cout << "CHEBY_T_POLY_VALUES_TEST:\n";
   cout << "  CHEBY_T_POLY_VALUES returns values of\n";
   cout << "  the Chebyshev T polynomials.\n";
   cout << "\n";
@@ -4004,13 +4075,13 @@ void test045 ( )
 }
 //****************************************************************************80
 
-void test046 ( )
+void cheby_u_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST046 tests CHEBY_U_POLY_VALUES.
+//    CHEBY_U_POLY_VALUES_TEST tests CHEBY_U_POLY_VALUES.
 //
 //  Licensing:
 //
@@ -4031,7 +4102,7 @@ void test046 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST046:\n";
+  cout << "CHEBY_U_POLY_VALUES_TEST:\n";
   cout << "  CHEBY_U_POLY_VALUES returns values of\n";
   cout << "  the Chebyshev U polynomials.\n";
   cout << "\n";
@@ -4057,13 +4128,119 @@ void test046 ( )
 }
 //****************************************************************************80
 
-void test0465 ( )
+void cheby_v_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0465 tests CHI_VALUES.
+//    CHEBY_V_POLY_VALUES_TEST tests CHEBY_V_POLY_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "CHEBY_V_POLY_VALUES_TEST:\n";
+  cout << "  CHEBY_V_POLY_VALUES returns values of\n";
+  cout << "  the Chebyshev V polynomials.\n";
+  cout << "\n";
+  cout << "     N       X      V(N)(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    cheby_v_poly_values ( n_data, n, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(6)  << n  << "  "
+         << setw(8)  << x  << "  "
+         << setw(12) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void cheby_w_poly_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CHEBY_W_POLY_VALUES_TEST tests CHEBY_W_POLY_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "CHEBY_W_POLY_VALUES_TEST:\n";
+  cout << "  CHEBY_W_POLY_VALUES returns values of\n";
+  cout << "  the Chebyshev W polynomials.\n";
+  cout << "\n";
+  cout << "     N       X      W(N)(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    cheby_w_poly_values ( n_data, n, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(6)  << n  << "  "
+         << setw(8)  << x  << "  "
+         << setw(12) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void chi_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CHI_VALUES_TEST tests CHI_VALUES.
 //
 //  Licensing:
 //
@@ -4083,7 +4260,7 @@ void test0465 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0465:\n";
+  cout << "CHI_VALUES_TEST:\n";
   cout << "  CHI_VALUES stores values of\n";
   cout << "  the Hyperbolic Cosine Integral function CHI(X).\n";
   cout << "\n";
@@ -4108,13 +4285,13 @@ void test0465 ( )
 }
 //****************************************************************************80
 
-void test047 ( )
+void chi_square_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST047 tests CHI_SQUARE_CDF_VALUES.
+//    CHI_SQUARE_CDF_VALUES_TEST tests CHI_SQUARE_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -4135,7 +4312,7 @@ void test047 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST047:\n";
+  cout << "CHI_SQUARE_CDF_VALUES_TEST:\n";
   cout << "  CHI_SQUARE_CDF_VALUES returns values of \n";
   cout << "  the Chi-Squared Cumulative Density Function.\n";
   cout << "\n";
@@ -4161,13 +4338,13 @@ void test047 ( )
 }
 //****************************************************************************80
 
-void test048 ( )
+void chi_square_noncentral_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST048 tests CHI_SQUARE_NONCENTRAL_CDF_VALUES.
+//    CHI_SQUARE_NONCENTRAL_CDF_VALUES_TEST tests CHI_SQUARE_NONCENTRAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -4189,7 +4366,7 @@ void test048 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST048:\n";
+  cout << "CHI_SQUARE_NONCENTRAL_CDF_VALUES_TEST:\n";
   cout << "  CHI_SQUARE_NONCENTRAL_CDF_VALUES returns values of\n";
   cout << "  the noncentral Chi-Squared Cumulative Density Function.\n";
   cout << "\n";
@@ -4216,13 +4393,13 @@ void test048 ( )
 }
 //****************************************************************************80
 
-void test049 ( )
+void ci_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST049 tests CI_VALUES.
+//    CI_VALUES_TEST tests CI_VALUES.
 //
 //  Licensing:
 //
@@ -4242,7 +4419,7 @@ void test049 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST049:\n";
+  cout << "CI_VALUES_TEST:\n";
   cout << "  CI_VALUES stores values of\n";
   cout << "  the Cosine Integral function CI(X).\n";
   cout << "\n";
@@ -4267,13 +4444,13 @@ void test049 ( )
 }
 //****************************************************************************80
 
-void test050 ( )
+void cin_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST050 tests CIN_VALUES.
+//    CIN_VALUES_TEST tests CIN_VALUES.
 //
 //  Licensing:
 //
@@ -4293,7 +4470,7 @@ void test050 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST050:\n";
+  cout << "CIN_VALUES_TEST:\n";
   cout << "  CIN_VALUES stores values of\n";
   cout << "  the Cosine Integral function CIN(X).\n";
   cout << "\n";
@@ -4318,13 +4495,64 @@ void test050 ( )
 }
 //****************************************************************************80
 
-void test051 ( )
+void cinh_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST051 tests BESSEL_Y0_INT_VALUES.
+//    CINH_VALUES_TEST tests CINH_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    21 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "CINH_VALUES_TEST:\n";
+  cout << "  CINH_VALUES stores values of\n";
+  cout << "  the Hyperbolic Cosine Integral function CINH(X).\n";
+  cout << "\n";
+  cout << "      X            CINH(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    cinh_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(12) << x  << "  "
+         << setw(12) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void clausen_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CLAUSEN_VALUES_TEST tests CLAUSEN_VALUES.
 //
 //  Licensing:
 //
@@ -4344,7 +4572,7 @@ void test051 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST051:\n";
+  cout << "CLAUSEN_VALUES_TEST:\n";
   cout << "  CLAUSEN_VALUES stores values of \n";
   cout << "  Clausen's integral function.\n";
   cout << "\n";
@@ -4369,13 +4597,13 @@ void test051 ( )
 }
 //****************************************************************************80
 
-void test05125 ( )
+void clebsch_gordan_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST05125 tests CLEBSCH_GORDAN_VALUES.
+//    CLEBSCH_GORDAN_VALUES_TEST tests CLEBSCH_GORDAN_VALUES.
 //
 //  Licensing:
 //
@@ -4400,7 +4628,7 @@ void test05125 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST05125:\n";
+  cout << "CLEBSCH_GORDAN_VALUES_TEST:\n";
   cout << "  CLEBSCH_GORDAN_VALUES returns values of\n";
   cout << "  the Clebsch Gordan coefficient.\n";
   cout << "\n";
@@ -4430,13 +4658,13 @@ void test05125 ( )
 }
 //****************************************************************************80
 
-void test0515 ( )
+void collatz_count_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0515 tests COLLATZ_COUNT_VALUES.
+//    COLLATZ_COUNT_VALUES_TEST tests COLLATZ_COUNT_VALUES.
 //
 //  Licensing:
 //
@@ -4456,7 +4684,7 @@ void test0515 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST0515:\n";
+  cout << "COLLATZ_COUNT_VALUES_TEST:\n";
   cout << "  COLLATZ_COUNT_VALUES returns values of\n";
   cout << "  the length of the Collatz sequence that\n";
   cout << "  starts at N.\n";
@@ -4482,13 +4710,13 @@ void test0515 ( )
 }
 //****************************************************************************80
 
-void test0517 ( )
+void cos_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0517 tests COS_VALUES.
+//    COS_VALUES_TEST tests COS_VALUES.
 //
 //  Licensing:
 //
@@ -4508,7 +4736,7 @@ void test0517 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0517:\n";
+  cout << "COS_VALUES_TEST:\n";
   cout << "   COS_VALUES stores values of the cosine function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -4532,13 +4760,118 @@ void test0517 ( )
 }
 //****************************************************************************80
 
-void test0519 ( )
+void cos_degree_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0519 tests COSH_VALUES.
+//    COS_DEGREE_VALUES_TEST tests COS_DEGREE_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 June 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "COS_DEGREE_VALUES_TEST:\n";
+  cout << "   COS_DEGREE_VALUES stores values of the cosine function.\n";
+  cout << "\n";
+  cout << "                X                     FX\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    cos_degree_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                          << "  "
+         << setw(24) << setprecision ( 16 ) << x  << "  "
+         << setw(24) << setprecision ( 16 ) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void cos_power_int_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    COS_POWER_INT_VALUES_TEST tests COS_POWER_INT_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    21 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double fx;
+  int n;
+  int n_data;
+
+  cout << "\n";
+  cout << "COS_POWER_INT_VALUES_TEST:\n";
+  cout << "  COS_POWER_INT_VALUES returns values of\n";
+  cout << "  the integral of the N-th power of the cosine function.\n";
+  cout << "\n";
+  cout << "         A         B       N        FX\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+   cos_power_int_values ( n_data, a, b, n, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                 << "  "
+         << setw(8)                      << a  << "  "
+         << setw(8)                      << b  << "  "
+         << setw(6)                      << n  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void cosh_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    COSH_VALUES_TEST tests COSH_VALUES.
 //
 //  Licensing:
 //
@@ -4558,7 +4891,7 @@ void test0519 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0519:\n";
+  cout << "COSH_VALUES_TEST:\n";
   cout << "   COSH_VALUES stores values of the hyperbolic cosine function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -4582,13 +4915,63 @@ void test0519 ( )
 }
 //****************************************************************************80
 
-void test052 ( )
+void cot_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST052 tests CP_VALUES.
+//    COT_VALUES_TEST tests COT_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    22 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "COT_VALUES_TEST:\n";
+  cout << "   COT_VALUES stores values of the cotangent function.\n";
+  cout << "\n";
+  cout << "                X                     FX\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    cot_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                          << "  "
+         << setw(24) << setprecision ( 16 ) << x  << "  "
+         << setw(24) << setprecision ( 16 ) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void cp_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    CP_VALUES_TEST tests CP_VALUES.
 //
 //  Licensing:
 //
@@ -4609,7 +4992,7 @@ void test052 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST052:\n";
+  cout << "CP_VALUES_TEST:\n";
   cout << "  CP_VALUES stores values of\n";
   cout << "  the specific heat CP\n";
   cout << "  as a function of temperature and pressure.\n";
@@ -4636,13 +5019,13 @@ void test052 ( )
 }
 //****************************************************************************80
 
-void test053 ( )
+void dawson_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST053 tests DAWSON_VALUES.
+//    DAWSON_VALUES_TEST tests DAWSON_VALUES.
 //
 //  Licensing:
 //
@@ -4662,7 +5045,7 @@ void test053 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST053:\n";
+  cout << "DAWSON_VALUES_TEST:\n";
   cout << "  DAWSON_VALUES stores values of\n";
   cout << "  Dawson's integral function.\n";
   cout << "\n";
@@ -4687,13 +5070,13 @@ void test053 ( )
 }
 //****************************************************************************80
 
-void test054 ( )
+void debye1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST054 tests DEBYE1_VALUES.
+//    DEBYE1_VALUES_TEST tests DEBYE1_VALUES.
 //
 //  Licensing:
 //
@@ -4713,7 +5096,7 @@ void test054 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST054:\n";
+  cout << "DEBYE1_VALUES_TEST:\n";
   cout << "  DEBYE1_VALUES stores values of \n";
   cout << "  the Debye function of order 1.\n";
   cout << "\n";
@@ -4738,13 +5121,13 @@ void test054 ( )
 }
 //****************************************************************************80
 
-void test055 ( )
+void debye2_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST055 tests DEBYE2_VALUES.
+//    DEBYE2_VALUES_TEST tests DEBYE2_VALUES.
 //
 //  Licensing:
 //
@@ -4764,7 +5147,7 @@ void test055 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST055:\n";
+  cout << "DEBYE2_VALUES_TEST:\n";
   cout << "  DEBYE2_VALUES stores values of \n";
   cout << "  the Debye function of order 2.\n";
   cout << "\n";
@@ -4789,13 +5172,13 @@ void test055 ( )
 }
 //****************************************************************************80
 
-void test056 ( )
+void debye3_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST056 tests DEBYE3_VALUES.
+//    DEBYE3_VALUES_TEST tests DEBYE3_VALUES.
 //
 //  Licensing:
 //
@@ -4815,7 +5198,7 @@ void test056 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST056:\n";
+  cout << "DEBYE3_VALUES_TEST:\n";
   cout << "  DEBYE3_VALUES stores values of \n";
   cout << "  the Debye function of order 3.\n";
   cout << "\n";
@@ -4840,13 +5223,13 @@ void test056 ( )
 }
 //****************************************************************************80
 
-void test057 ( )
+void debye4_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST057 tests DEBYE4_VALUES.
+//    DEBYE4_VALUES_TEST tests DEBYE4_VALUES.
 //
 //  Licensing:
 //
@@ -4866,7 +5249,7 @@ void test057 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST057:\n";
+  cout << "DEBYE4_VALUES_TEST:\n";
   cout << "  DEBYE4_VALUES stores values of \n";
   cout << "  the Debye function of order 4.\n";
   cout << "\n";
@@ -4891,13 +5274,13 @@ void test057 ( )
 }
 //****************************************************************************80
 
-void test0575 ( )
+void dedekind_sum_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0575 tests DEDEKIND_SUM_VALUES.
+//    DEDEKIND_SUM_VALUES_TEST tests DEDEKIND_SUM_VALUES.
 //
 //  Licensing:
 //
@@ -4919,7 +5302,7 @@ void test0575 ( )
   int q;
 
   cout << "\n";
-  cout << "TEST0575:\n";
+  cout << "DEDEKIND_SUM_VALUES_TEST:\n";
   cout << "  DEDEKIND_SUM_VALUES stores values of the Dedekind sum\n";
   cout << "  (N/D) = Dedekind_Sum(P,Q).\n";
   cout << "\n";
@@ -4946,13 +5329,13 @@ void test0575 ( )
 }
 //****************************************************************************80
 
-void test058 ( )
+void dielectric_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST058 tests DIELECTRIC_VALUES.
+//    DIELECTRIC_VALUES_TEST tests DIELECTRIC_VALUES.
 //
 //  Licensing:
 //
@@ -4973,7 +5356,7 @@ void test058 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST058:\n";
+  cout << "DIELECTRIC_VALUES_TEST:\n";
   cout << "  DIELECTRIC_VALUES stores values of\n";
   cout << "  the dielectric function.\n";
   cout << "\n";
@@ -4999,13 +5382,13 @@ void test058 ( )
 }
 //****************************************************************************80
 
-void test059 ( )
+void dilogarithm_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST059 tests DILOGARITHM_VALUES.
+//    DILOGARITHM_VALUES_TEST tests DILOGARITHM_VALUES.
 //
 //  Licensing:
 //
@@ -5025,7 +5408,7 @@ void test059 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST059:\n";
+  cout << "DILOGARITHM_VALUES_TEST:\n";
   cout << "  DILOGARITHM_VALUES stores values of\n";
   cout << "  the dilogarithm function.\n";
   cout << "\n";
@@ -5050,13 +5433,13 @@ void test059 ( )
 }
 //****************************************************************************80
 
-void test060 ( )
+void e1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST060 tests E1_VALUES.
+//    E1_VALUES_TEST tests E1_VALUES.
 //
 //  Licensing:
 //
@@ -5076,7 +5459,7 @@ void test060 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST060:\n";
+  cout << "E1_VALUES_TEST:\n";
   cout << "  E1_VALUES stores values of\n";
   cout << "  the exponential integral function E1(X).\n";
   cout << "\n";
@@ -5101,13 +5484,13 @@ void test060 ( )
 }
 //****************************************************************************80
 
-void test061 ( )
+void ei_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST061 tests EI_VALUES.
+//    EI_VALUES_TEST tests EI_VALUES.
 //
 //  Licensing:
 //
@@ -5127,7 +5510,7 @@ void test061 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST061:\n";
+  cout << "EI_VALUES_TEST:\n";
   cout << "  EI_VALUES stores values of\n";
   cout << "  the exponential integral function EI(X).\n";
   cout << "\n";
@@ -5152,13 +5535,13 @@ void test061 ( )
 }
 //****************************************************************************80
 
-void test062 ( )
+void elliptic_ea_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST062 tests ELLIPTIC_EA_VALUES.
+//    ELLIPTIC_EA_VALUES_TEST tests ELLIPTIC_EA_VALUES.
 //
 //  Licensing:
 //
@@ -5178,7 +5561,7 @@ void test062 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST062:\n";
+  cout << "ELLIPTIC_EA_VALUES_TEST:\n";
   cout << "  ELLIPTIC_EA_VALUES stores values of\n";
   cout << "  the complete elliptic integral of the second\n";
   cout << "  kind, with parameter angle ALPHA in degrees.\n";
@@ -5204,13 +5587,13 @@ void test062 ( )
 }
 //****************************************************************************80
 
-void test063 ( )
+void elliptic_em_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST063 tests ELLIPTIC_EM_VALUES.
+//    ELLIPTIC_EM_VALUES_TEST tests ELLIPTIC_EM_VALUES.
 //
 //  Licensing:
 //
@@ -5230,7 +5613,7 @@ void test063 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST063:\n";
+  cout << "ELLIPTIC_EM_VALUES_TEST:\n";
   cout << "  ELLIPTIC_EM_VALUES stores values of\n";
   cout << "  the complete elliptic integral of the second\n";
   cout << "  kind, with parameter modulus M.\n";
@@ -5256,13 +5639,13 @@ void test063 ( )
 }
 //****************************************************************************80
 
-void test064 ( )
+void elliptic_ka_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST064 tests ELLIPTIC_KA_VALUES.
+//    ELLIPTIC_KA_VALUES_TEST tests ELLIPTIC_KA_VALUES.
 //
 //  Licensing:
 //
@@ -5282,7 +5665,7 @@ void test064 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST064:\n";
+  cout << "ELLIPTIC_KA_VALUES_TEST:\n";
   cout << "  ELLIPTIC_KA_VALUES stores values of\n";
   cout << "  the complete elliptic integral of the first\n";
   cout << "  kind, with parameter angle ALPHA in degrees.\n";
@@ -5308,13 +5691,13 @@ void test064 ( )
 }
 //****************************************************************************80
 
-void test065 ( )
+void elliptic_km_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST065 tests ELLIPTIC_KM_VALUES.
+//    ELLIPTIC_KM_VALUES_TEST tests ELLIPTIC_KM_VALUES.
 //
 //  Licensing:
 //
@@ -5334,7 +5717,7 @@ void test065 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST065:\n";
+  cout << "ELLIIPTIC_KM_VALUES_TEST:\n";
   cout << "  ELLIPTIC_KM_VALUES stores values of\n";
   cout << "  the complete elliptic integral of the first\n";
   cout << "  kind, with parameter modulus M.\n";
@@ -5360,13 +5743,13 @@ void test065 ( )
 }
 //****************************************************************************80
 
-void test066 ( )
+void erf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST066 tests ERF_VALUES.
+//    ERF_VALUES_TEST tests ERF_VALUES.
 //
 //  Licensing:
 //
@@ -5386,7 +5769,7 @@ void test066 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST066:\n";
+  cout << "ERF_VALUES_TEST:\n";
   cout << "  ERF_VALUES stores values of\n";
   cout << "  the error function ERF(X).\n";
   cout << "\n";
@@ -5411,13 +5794,13 @@ void test066 ( )
 }
 //****************************************************************************80
 
-void test0665 ( )
+void erfc_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0665 tests ERFC_VALUES.
+//    ERFC_VALUES_TEST tests ERFC_VALUES.
 //
 //  Licensing:
 //
@@ -5437,7 +5820,7 @@ void test0665 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0665:\n";
+  cout << "ERFC_VALUES_TEST:\n";
   cout << "  ERFC_VALUES stores values of\n";
   cout << "  the complementary error function ERFC(X).\n";
   cout << "\n";
@@ -5462,13 +5845,13 @@ void test0665 ( )
 }
 //****************************************************************************80
 
-void test067 ( )
+void euler_number_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST067 tests EULER_NUMBER_VALUES.
+//    EULER_NUMBER_VALUES_TEST tests EULER_NUMBER_VALUES.
 //
 //  Licensing:
 //
@@ -5488,7 +5871,7 @@ void test067 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST067:\n";
+  cout << "EULER_NUMBER_VALUES_TEST:\n";
   cout << "  EULER_NUMBER_VALUES returns values of\n";
   cout << "  the Euler numbers.\n";
   cout << "\n";
@@ -5513,13 +5896,13 @@ void test067 ( )
 }
 //****************************************************************************80
 
-void test068 ( )
+void euler_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST068 tests EULER_POLY_VALUES.
+//    EULER_POLY_VALUES_TEST tests EULER_POLY_VALUES.
 //
 //  Licensing:
 //
@@ -5540,7 +5923,7 @@ void test068 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST068:\n";
+  cout << "EULER_POLY_VALUES_TEST:\n";
   cout << "  EULER_POLY_VALUES returns values of\n";
   cout << "  the Euler numbers.\n";
   cout << "\n";
@@ -5566,13 +5949,13 @@ void test068 ( )
 }
 //****************************************************************************80
 
-void test0685 ( )
+void exp_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0685 tests EXP_VALUES.
+//    EXP_VALUES_TEST tests EXP_VALUES.
 //
 //  Licensing:
 //
@@ -5592,7 +5975,7 @@ void test0685 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0685:\n";
+  cout << "EXP_VALUES_TEST:\n";
   cout << "   EXP_VALUES stores values of the exponential function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -5616,13 +5999,13 @@ void test0685 ( )
 }
 //****************************************************************************80
 
-void test069 ( )
+void exp3_int_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST069 tests EXP3_INT_VALUES.
+//    EXP3_INT_VALUES_TEST tests EXP3_INT_VALUES.
 //
 //  Licensing:
 //
@@ -5642,7 +6025,7 @@ void test069 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST069:\n";
+  cout << "EXP3_INT_VALUES_TEST:\n";
   cout << "  EXP3_INT_VALUES stores values of \n";
   cout << "  the exponential integral function.\n";
   cout << "\n";
@@ -5667,13 +6050,13 @@ void test069 ( )
 }
 //****************************************************************************80
 
-void test070 ( )
+void exponential_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST070 tests EXPONENTIAL_CDF_VALUES.
+//    EXPONENTIAL_CDF_VALUES_TEST tests EXPONENTIAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -5694,7 +6077,7 @@ void test070 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST070:\n";
+  cout << "EXPONENTIAL_CDF_VALUES_TEST:\n";
   cout << "  EXPONENTIAL_CDF_VALUES stores values of \n";
   cout << "  the exponential CDF.\n";
   cout << "\n";
@@ -5720,13 +6103,13 @@ void test070 ( )
 }
 //****************************************************************************80
 
-void test071 ( )
+void extreme_values_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST071 tests EXTREME_VALUES_CDF_VALUES.
+//    EXTREME_VALUES_CDF_VALUES_TEST tests EXTREME_VALUES_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -5748,7 +6131,7 @@ void test071 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST071:\n";
+  cout << "EXTREME_VALUES_CDF_VALUES_TEST:\n";
   cout << "  EXTREME_VALUES_CDF_VALUES stores values of \n";
   cout << "  the extreme values CDF.\n";
   cout << "\n";
@@ -5775,13 +6158,13 @@ void test071 ( )
 }
 //****************************************************************************80
 
-void test072 ( )
+void f_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST072 tests F_CDF_VALUES.
+//    F_CDF_VALUES_TEST tests F_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -5803,9 +6186,9 @@ void test072 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST072:\n";
-  cout << "   F_CDF_VALUES stores values of\n";
-  cout << "   the F cumulative density function.\n";
+  cout << "F_CDF_VALUES_TEST:\n";
+  cout << "  F_CDF_VALUES stores values of\n";
+  cout << "  the F cumulative density function.\n";
   cout << "\n";
   cout << "     A       B            X            CDF(X)\n";
   cout << "\n";
@@ -5830,13 +6213,13 @@ void test072 ( )
 }
 //****************************************************************************80
 
-void test073 ( )
+void f_noncentral_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST073 tests F_NONCENTRAL_CDF_VALUES.
+//    F_NONCENTRAL_CDF_VALUES_TEST tests F_NONCENTRAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -5859,9 +6242,9 @@ void test073 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST073:\n";
-  cout << "   F_NONCENTRAL_CDF_VALUES stores values of\n";
-  cout << "   the F cumulative density function.\n";
+  cout << "F_NONCENTRAL_CDF_VALUES_TEST:\n";
+  cout << "  F_NONCENTRAL_CDF_VALUES stores values of\n";
+  cout << "  the F cumulative density function.\n";
   cout << "\n";
   cout << "     A       B            LAMBDA    X            CDF\n";
   cout << "\n";
@@ -5887,13 +6270,13 @@ void test073 ( )
 }
 //****************************************************************************80
 
-void test074 ( )
+void fresnel_cos_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST074 tests FRESNEL_COS_VALUES.
+//    FRESNEL_COS_VALUES_TEST tests FRESNEL_COS_VALUES.
 //
 //  Licensing:
 //
@@ -5913,9 +6296,9 @@ void test074 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST074:\n";
-  cout << "   FRESNEL_COS_VALUES stores values of\n";
-  cout << "   the Fresnel cosine integral C(X).\n";
+  cout << "FRESNEL_COS_VALUES_TEST:\n";
+  cout << "  FRESNEL_COS_VALUES stores values of\n";
+  cout << "  the Fresnel cosine integral C(X).\n";
   cout << "\n";
   cout << "      X           C(X)\n";
   cout << "\n";
@@ -5938,13 +6321,13 @@ void test074 ( )
 }
 //****************************************************************************80
 
-void test075 ( )
+void fresnel_sin_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST075 tests FRESNEL_SIN_VALUES.
+//    FRESNEL_SIN_VALUES_TEST tests FRESNEL_SIN_VALUES.
 //
 //  Licensing:
 //
@@ -5964,9 +6347,9 @@ void test075 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST075:\n";
-  cout << "   FRESNEL_SIN_VALUES stores values of\n";
-  cout << "   the Fresnel sine integral S(X).\n";
+  cout << "FRESNEL_SIN_VALUES_TEST:\n";
+  cout << "  FRESNEL_SIN_VALUES stores values of\n";
+  cout << "  the Fresnel sine integral S(X).\n";
   cout << "\n";
   cout << "      X           S(X)\n";
   cout << "\n";
@@ -5989,13 +6372,13 @@ void test075 ( )
 }
 //****************************************************************************80
 
-void test0755 ( )
+void frobenius_number_data_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0755 tests FROBENIUS_NUMBER_ORDER2_VALUES.
+//    FROBENIUS_NUMBER_DATA_VALUES_TEST tests FROBENIUS_NUMBER_DATA_VALUES.
 //
 //  Licensing:
 //
@@ -6003,61 +6386,7 @@ void test0755 ( )
 //
 //  Modified:
 //
-//    20 January 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int c1;
-  int c2;
-  int f;
-  int n_data;
-
-  cout << "\n";
-  cout << "TEST0755:\n";
-  cout << "  FROBENIUS_NUMBER_ORDER2_VALUES returns values of \n";
-  cout << "  the Frobenius number of order 2.\n";
-  cout << "\n";
-  cout << "         C1        C2          F(C1,C2)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    frobenius_number_order2_values ( n_data, c1, c2, f );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-
-    cout << "  " << setw(8) << c1
-         << "  " << setw(8) << c2
-         << "  " << setw(8) << f << "\n";
-  }
-
-  return;
-}
-//****************************************************************************80
-
-void test0756 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST0756 tests FROBENIUS_NUMBER_ORDER_VALUES, FROBENIUS_NUMBER_DATA_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    23 November 2007
+//    27 January 2015
 //
 //  Author:
 //
@@ -6071,9 +6400,7 @@ void test0756 ( )
   int order;
 
   cout << "\n";
-  cout << "TEST0756:\n";
-  cout << "  FROBENIUS_NUMBER_ORDER_VALUES returns the order for\n";
-  cout << "  a Frobenius problem;\n";
+  cout << "FROBENIUS_NUMBER_DATA_VALUES_TEST:\n";
   cout << "  FROBENIUS_NUMBER_DATA_VALUES returns the corresponding\n";
   cout << "  coin denominations.\n";
 
@@ -6107,13 +6434,118 @@ void test0756 ( )
 }
 //****************************************************************************80
 
-void test076 ( )
+void frobenius_number_order_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST076 tests GAMMA_VALUES.
+//    FROBENIUS_NUMBER_ORDER_VALUES tests FROBENIUS_NUMBER_ORDER_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    27 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int n_data;
+  int order;
+
+  cout << "\n";
+  cout << "FROBENIUS_NUMBER_ORDER_VALUES_TEST:\n";
+  cout << "  FROBENIUS_NUMBER_ORDER_VALUES returns the order for\n";
+  cout << "  a Frobenius problem;\n";
+  cout << "\n";
+  cout << "   Problem   ORDER\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    frobenius_number_order_values ( n_data, order );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    cout << "\n";
+    cout << "  " << setw(4) << n_data
+         << "  " << setw(4) << order << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void frobenius_number_order2_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    FROBENIUS_NUMBER_ORDER2_VALUES_TEST tests FROBENIUS_NUMBER_ORDER2_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 January 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int c1;
+  int c2;
+  int f;
+  int n_data;
+
+  cout << "\n";
+  cout << "FROBENIUS_NUMBER_ORDER2_VALUES_TEST:\n";
+  cout << "  FROBENIUS_NUMBER_ORDER2_VALUES returns values of \n";
+  cout << "  the Frobenius number of order 2.\n";
+  cout << "\n";
+  cout << "         C1        C2          F(C1,C2)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    frobenius_number_order2_values ( n_data, c1, c2, f );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+
+    cout << "  " << setw(8) << c1
+         << "  " << setw(8) << c2
+         << "  " << setw(8) << f << "\n";
+  }
+
+  return;
+}
+//****************************************************************************80
+
+void gamma_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    GAMMA_VALUES_TEST tests GAMMA_VALUES.
 //
 //  Licensing:
 //
@@ -6133,8 +6565,8 @@ void test076 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST076:\n";
-  cout << "   GAMMA_VALUES stores values of the Gamma function.\n";
+  cout << "GAMMA_VALUES_TEST:\n";
+  cout << "  GAMMA_VALUES stores values of the Gamma function.\n";
   cout << "\n";
   cout << "      X            GAMMA(X)\n";
   cout << "\n";
@@ -6157,13 +6589,13 @@ void test076 ( )
 }
 //****************************************************************************80
 
-void test077 ( )
+void gamma_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST077 tests GAMMA_CDF_VALUES.
+//    GAMMA_CDF_VALUES_TEST tests GAMMA_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -6185,9 +6617,9 @@ void test077 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST077:\n";
-  cout << "   GAMMA_CDF_VALUES stores values of\n";
-  cout << "   the Gamma CDF.\n";
+  cout << "GAMMA_CDF_VALUES_TEST:\n";
+  cout << "  GAMMA_CDF_VALUES stores values of\n";
+  cout << "  the Gamma CDF.\n";
   cout << "\n";
   cout << "      M    Sigma      X            CDF((X)\n";
   cout << "\n";
@@ -6212,13 +6644,13 @@ void test077 ( )
 }
 //****************************************************************************80
 
-void test078 ( )
+void gamma_inc_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST078 tests GAMMA_INC_VALUES.
+//    GAMMA_INC_VALUES_TEST tests GAMMA_INC_VALUES.
 //
 //  Licensing:
 //
@@ -6239,7 +6671,7 @@ void test078 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST078:\n";
+  cout << "GAMMA_INC_VALUES_TEST:\n";
   cout << "   GAMMA_INC_VALUES stores values of\n";
   cout << "   the incomplete Gamma function.\n";
   cout << "\n";
@@ -6263,16 +6695,174 @@ void test078 ( )
   }
   return;
 }
-
 //****************************************************************************80
 
-void test079 ( )
+void gamma_inc_p_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST079 tests GAMMA_LOG_VALUES.
+//    GAMMA_INC_P_VALUES_TEST tests GAMMA_INC_P_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 January 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "GAMMA_INC_P_VALUES_TEST:\n";
+  cout << "   GAMMA_INC_P_VALUES stores values of\n";
+  cout << "   the incomplete Gamma P function.\n";
+  cout << "\n";
+  cout << "      A            X            F(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_inc_p_values ( n_data, a, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                       << "  "
+         << setw(12)                     << a  << "  "
+         << setw(12)                     << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void gamma_inc_q_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    GAMMA_INC_Q_VALUES_TEST tests GAMMA_INC_Q_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 January 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "GAMMA_INC_Q_VALUES_TEST:\n";
+  cout << "   GAMMA_INC_Q_VALUES stores values of\n";
+  cout << "   the incomplete Gamma Q function.\n";
+  cout << "\n";
+  cout << "      A            X            F(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_inc_q_values ( n_data, a, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                       << "  "
+         << setw(12)                     << a  << "  "
+         << setw(12)                     << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void gamma_inc_tricomi_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    GAMMA_INC_TRICOMI_VALUES_TEST tests GAMMA_INC_TRICOMI_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 January 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "GAMMA_INC_TRICOMI_VALUES_TEST:\n";
+  cout << "   GAMMA_INC_TRICOMI_VALUES stores values of\n";
+  cout << "   the incomplete Tricomi Gamma function.\n";
+  cout << "\n";
+  cout << "      A            X            F(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    gamma_inc_tricomi_values ( n_data, a, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                       << "  "
+         << setw(12)                     << a  << "  "
+         << setw(12)                     << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void gamma_log_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    GAMMA_LOG_VALUES_TEST tests GAMMA_LOG_VALUES.
 //
 //  Licensing:
 //
@@ -6292,9 +6882,9 @@ void test079 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST079:\n";
-  cout << "   GAMMA_LOG_VALUES stores values of\n";
-  cout << "   the logarithm of the Gamma function.\n";
+  cout << "GAMMA_LOG_VALUES_TEST:\n";
+  cout << "  GAMMA_LOG_VALUES stores values of\n";
+  cout << "  the logarithm of the Gamma function.\n";
   cout << "\n";
   cout << "      X            GAMMA_LOG(X)\n";
   cout << "\n";
@@ -6317,13 +6907,13 @@ void test079 ( )
 }
 //****************************************************************************80
 
-void test080 ( )
+void gegenbauer_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST080 tests GEGENBAUER_POLY_VALUES.
+//    GEGENBAUER_POLY_VALUES_TEST tests GEGENBAUER_POLY_VALUES.
 //
 //  Licensing:
 //
@@ -6345,7 +6935,7 @@ void test080 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST080:\n";
+  cout << "GEGENBAUER_POLY_VALUES_TEST:\n";
   cout << "  GEGENBAUER_POLY_VALUES returns values of\n";
   cout << "  the Gegenbauer polynomials.\n";
   cout << "\n";
@@ -6373,13 +6963,13 @@ void test080 ( )
 }
 //****************************************************************************80
 
-void test081 ( )
+void geometric_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST081 tests GEOMETRIC_CDF_VALUES.
+//    GEOMETRIC_CDF_VALUES_TEST tests GEOMETRIC_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -6400,9 +6990,9 @@ void test081 ( )
   int x;
 
   cout << "\n";
-  cout << " TEST081:\n";
-  cout << "   GEOMETRIC_CDF_VALUES stores values of\n";
-  cout << "   the Geometric Probability Cumulative Density Function.\n";
+  cout << "GEOMETRIC_CDF_VALUES_TEST:\n";
+  cout << "  GEOMETRIC_CDF_VALUES stores values of\n";
+  cout << "  the Geometric Probability Cumulative Density Function.\n";
   cout << "\n";
   cout << "      X      P       CDF\n";
   cout << "\n";
@@ -6426,13 +7016,13 @@ void test081 ( )
 }
 //****************************************************************************80
 
-void test082 ( )
+void goodwin_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST082 tests GOODWIN_VALUES.
+//    GOODWIN_VALUES_TEST tests GOODWIN_VALUES.
 //
 //  Licensing:
 //
@@ -6452,7 +7042,7 @@ void test082 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST082:\n";
+  cout << "GOODWIN_VALUES_TEST:\n";
   cout << "  GOODWIN_VALUES stores values of \n";
   cout << "  the Goodwin function.\n";
   cout << "\n";
@@ -6477,13 +7067,13 @@ void test082 ( )
 }
 //****************************************************************************80
 
-void test083 ( )
+void gud_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST083 tests GUD_VALUES.
+//    GUD_VALUES_TEST tests GUD_VALUES.
 //
 //  Licensing:
 //
@@ -6503,9 +7093,9 @@ void test083 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST083:\n";
-  cout << "   GUD_VALUES stores values of\n";
-  cout << "   the Gudermannian function.\n";
+  cout << "GUD_VALUES_TEST:\n";
+  cout << "  GUD_VALUES stores values of\n";
+  cout << "  the Gudermannian function.\n";
   cout << "\n";
   cout << "      X            GUD(X)\n";
   cout << "\n";
@@ -6528,13 +7118,13 @@ void test083 ( )
 }
 //****************************************************************************80
 
-void test0835 ( )
+void hermite_function_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0835 tests HERMITE_FUNCTION_VALUES.
+//    HERMITE_FUNCTION_VALUES_TEST tests HERMITE_FUNCTION_VALUES.
 //
 //  Licensing:
 //
@@ -6555,9 +7145,9 @@ void test0835 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST0835\n";
-  cout << "   HERMITE_FUNCTION_VALUES stores values of\n";
-  cout << "   the Hermite function.\n";
+  cout << "HERMITE_FUNCTION_VALUES_TEST\n";
+  cout << "  HERMITE_FUNCTION_VALUES stores values of\n";
+  cout << "  the Hermite function.\n";
   cout << "\n";
   cout << "     N      X            Hf(N,X)\n";
   cout << "\n";
@@ -6581,13 +7171,13 @@ void test0835 ( )
 }
 //****************************************************************************80
 
-void test084 ( )
+void hermite_poly_phys_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST084 tests HERMITE_POLY_PHYS_VALUES.
+//    HERMITE_POLY_PHYS_VALUES_TEST tests HERMITE_POLY_PHYS_VALUES.
 //
 //  Licensing:
 //
@@ -6608,9 +7198,9 @@ void test084 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST084\n";
-  cout << "   HERMITE_POLY_PHYS_VALUES stores values of\n";
-  cout << "   the physicist's Hermite polynomials.\n";
+  cout << "HERMITE_POLY_PHYS_VALUES_TEST\n";
+  cout << "  HERMITE_POLY_PHYS_VALUES stores values of\n";
+  cout << "  the physicist's Hermite polynomials.\n";
   cout << "\n";
   cout << "     N      X            H(N,X)\n";
   cout << "\n";
@@ -6634,13 +7224,13 @@ void test084 ( )
 }
 //****************************************************************************80
 
-void test0843 ( )
+void hermite_poly_prob_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0843 tests HERMITE_POLY_PROB_VALUES.
+//    HERMITE_POLY_PROB_VALUES_TEST tests HERMITE_POLY_PROB_VALUES.
 //
 //  Licensing:
 //
@@ -6661,9 +7251,9 @@ void test0843 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST0843\n";
-  cout << "   HERMITE_POLY_PROB_VALUES stores values of\n";
-  cout << "   the probabilist's Hermite polynomials.\n";
+  cout << "HERMITE_POLY_PROB_VALUES_TEST\n";
+  cout << "  HERMITE_POLY_PROB_VALUES stores values of\n";
+  cout << "  the probabilist's Hermite polynomials.\n";
   cout << "\n";
   cout << "     N      X            He(N,X)\n";
   cout << "\n";
@@ -6687,13 +7277,68 @@ void test0843 ( )
 }
 //****************************************************************************80
 
-void test0845 ( )
+void hyper_1f1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0845 tests HYPER_2F1_VALUES.
+//    HYPER_1F1_VALUES_TEST tests HYPER_1F1_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    28 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "HYPER_1F1_VALUES_TEST:\n";
+  cout << "  HYPER_1F1_VALUES stores values of\n";
+  cout << "  the hypergeometric function 1F1.\n";
+  cout << "\n";
+  cout << "      A      B      X   Hyper_1F1(A,B,X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    hyper_1f1_values ( n_data, a, b, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                       << "  "
+         << setw(8)                      << a  << "  "
+         << setw(8)                      << b  << "  "
+         << setw(8)                      << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void hyper_2f1_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    HYPER_2F1_VALUES_TEST tests HYPER_2F1_VALUES.
 //
 //  Licensing:
 //
@@ -6716,9 +7361,9 @@ void test0845 ( )
   double x;
 
   cout << "\n";
-  cout << " TEST0845:\n";
-  cout << "   HYPER_2F1_VALUES stores values of\n";
-  cout << "   the hypergeometric function 2F1.\n";
+  cout << "HYPER_2F1_VALUES_TEST:\n";
+  cout << "  HYPER_2F1_VALUES stores values of\n";
+  cout << "  the hypergeometric function 2F1.\n";
   cout << "\n";
   cout << "      A      B     C      X   Hyper_2F1(A,B,C,X)\n";
   cout << "\n";
@@ -6744,13 +7389,13 @@ void test0845 ( )
 }
 //****************************************************************************80
 
-void test085 ( )
+void hypergeometric_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST085 tests HYPERGEOMETRIC_CDF_VALUES.
+//    HYPERGEOMETRIC_CDF_VALUES_TEST tests HYPERGEOMETRIC_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -6773,9 +7418,9 @@ void test085 ( )
   int x;
 
   cout << "\n";
-  cout << " TEST085:\n";
-  cout << "   HYPERGEOMETRIC_CDF_VALUES stores values of\n";
-  cout << "   the Hypergeometric CDF.\n";
+  cout << "HYPERGEOMETRIC_CDF_VALUES_TEST:\n";
+  cout << "  HYPERGEOMETRIC_CDF_VALUES stores values of\n";
+  cout << "  the Hypergeometric CDF.\n";
   cout << "\n";
   cout << "     SAM    SUC   POP     X   HyperCDF(S,S,P)(X)\n";
   cout << "\n";
@@ -6801,13 +7446,13 @@ void test085 ( )
 }
 //****************************************************************************80
 
-void test0855 ( )
+void hypergeometric_pdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0855 tests HYPERGEOMETRIC_PDF_VALUES.
+//    HYPERGEOMETRIC_PDF_VALUES_TEST tests HYPERGEOMETRIC_PDF_VALUES.
 //
 //  Licensing:
 //
@@ -6830,9 +7475,9 @@ void test0855 ( )
   int x;
 
   cout << "\n";
-  cout << " TEST0855:\n";
-  cout << "   HYPERGEOMETRIC_PDF_VALUES stores values of\n";
-  cout << "   the Hypergeometric PDF.\n";
+  cout << "HYPERGEOMETRIC_PDF_VALUES_TEST:\n";
+  cout << "  HYPERGEOMETRIC_PDF_VALUES stores values of\n";
+  cout << "  the Hypergeometric PDF.\n";
   cout << "\n";
   cout << "     SAM    SUC   POP     X   HyperPDF(S,S,P)(X)\n";
   cout << "\n";
@@ -6858,13 +7503,13 @@ void test0855 ( )
 }
 //****************************************************************************80
 
-void test086 ( )
+void hypergeometric_u_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST086 tests FACTORIAL_VALUES.
+//    HYPERGEOMETRIC_U_VALUES_TEST tests HYPERGEOMETRIC_U_VALUES.
 //
 //  Licensing:
 //
@@ -6872,154 +7517,54 @@ void test086 ( )
 //
 //  Modified:
 //
-//    21 March 2007
+//    29 January 2015
 //
 //  Author:
 //
 //    John Burkardt
 //
 {
-  int fn;
-  int n;
+  double a;
+  double b;
+  double fx;
   int n_data;
+  double x;
 
   cout << "\n";
-  cout << " TEST086:\n";
-  cout << "   FACTORIAL_VALUES returns values of\n";
-  cout << "   the factorial function.\n";
+  cout << "HYPERGEOMETRIC_U_VALUES_TEST:\n";
+  cout << "  HYPERGEOMETRIC_U_VALUES stores values of\n";
+  cout << "  the hypergeometric function U.\n";
   cout << "\n";
-  cout << "      N        Factorial(N)\n";
+  cout << "      A      B      X   HyperU(A,B,X)\n";
   cout << "\n";
 
   n_data = 0;
 
   for ( ; ; )
   {
-    factorial_values ( n_data, n, fn );
+    hypergeometric_u_values ( n_data, a, b, x, fx );
 
     if ( n_data == 0 )
     {
       break;
     }
-    cout                   << "  "
-         << setw(6)  << n  << "  "
-         << setw(12) << fn << "\n";
+    cout                                       << "  "
+         << setw(8)                      << a  << "  "
+         << setw(8)                      << b  << "  "
+         << setw(8)                      << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
   }
   return;
 }
 //****************************************************************************80
 
-void test087 ( )
+void i0ml0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST087 tests FACTORIAL2_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    12 June 2007
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int fn;
-  int n;
-  int n_data;
-
-  cout << "\n";
-  cout << " TEST087:\n";
-  cout << "   FACTORIAL2_VALUES return;s values of\n";
-  cout << "   the double factorial function.\n";
-  cout << "\n";
-  cout << "      N         DoubleFactorial(N)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    factorial2_values ( n_data, n, fn );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-    cout                   << "  "
-         << setw(6)  << n  << "  "
-         << setw(12) << fn << "\n";
-  }
-  return;
-}
-//****************************************************************************80
-
-void test088 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST088 tests FACTORIAL_RISING_VALUES.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    18 January 2012
-//
-//  Author:
-//
-//    John Burkardt
-//
-{
-  int fmn;
-  int m;
-  int n;
-  int n_data;
-
-  cout << "\n";
-  cout << "TEST088:\n";
-  cout << "  FACTORIAL_RISING_VALUES returns some exact values\n";
-  cout << "  of the Pochhammer symbol:\n";
-  cout << "\n";
-  cout << "     M     N      Factorial_Rising(M,N)\n";
-  cout << "\n";
-
-  n_data = 0;
-
-  for ( ; ; )
-  {
-    factorial_rising_values ( n_data, m, n, fmn );
-
-    if ( n_data == 0 )
-    {
-      break;
-    }
-    cout                   << "  "
-         << setw(6)  << m   << "  "
-         << setw(6)  << n   << "  "
-         << setw(12) << fmn << "\n";
-  }
-  return;
-}
-//****************************************************************************80
-
-void test089 ( )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    TEST089 tests I0ML0_VALUES.
+//    I0ML0_VALUES_TEST tests I0ML0_VALUES.
 //
 //  Licensing:
 //
@@ -7039,7 +7584,7 @@ void test089 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST089:\n";
+  cout << "I0ML0_VALUES_TEST:\n";
   cout << "  I0ML0_VALUES stores values of \n";
   cout << "  the I0-L0 function.\n";
   cout << "\n";
@@ -7064,13 +7609,13 @@ void test089 ( )
 }
 //****************************************************************************80
 
-void test090 ( )
+void i1ml1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST090 tests I1ML1_VALUES.
+//    I1ML1_VALUES_TEST tests I1ML1_VALUES.
 //
 //  Licensing:
 //
@@ -7090,7 +7635,7 @@ void test090 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST090:\n";
+  cout << "I1ML1_VALUES_TEST:\n";
   cout << "  I1ML1_VALUES stores values of \n";
   cout << "  the I1-L1 function.\n";
   cout << "\n";
@@ -7115,13 +7660,271 @@ void test090 ( )
 }
 //****************************************************************************80
 
-void test091 ( )
+void i4_factorial_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST091 tests JACOBI_CN_VALUES.
+//    I4_FACTORIAL_TEST tests I4_FACTORIAL_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    21 March 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int fn;
+  int n;
+  int n_data;
+
+  cout << "\n";
+  cout << "I4_FACTORIAL_TEST:\n";
+  cout << "   I4_FACTORIAL_VALUES returns values of\n";
+  cout << "   the factorial function.\n";
+  cout << "\n";
+  cout << "      N        Factorial(N)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    i4_factorial_values ( n_data, n, fn );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(6)  << n  << "  "
+         << setw(12) << fn << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void i4_factorial2_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_FACTORIAL2_TEST tests I4_FACTORIAL2_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    12 June 2007
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int fn;
+  int n;
+  int n_data;
+
+  cout << "\n";
+  cout << "I4_FACTORIAL2_TEST:\n";
+  cout << "   I4_FACTORIAL2_VALUES return;s values of\n";
+  cout << "   the double factorial function.\n";
+  cout << "\n";
+  cout << "      N         DoubleFactorial(N)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    i4_factorial2_values ( n_data, n, fn );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(6)  << n  << "  "
+         << setw(12) << fn << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void i4_fall_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_FALL_VALUES_TEST tests I4_FALL_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int fmn;
+  int m;
+  int n;
+  int n_data;
+
+  cout << "\n";
+  cout << "I4_FALL_VALUES_TEST:\n";
+  cout << "  I4_FALL_VALUES returns some exact values\n";
+  cout << "  of the integer falling factorial function:\n";
+  cout << "\n";
+  cout << "     M     N      I4_FALL(M,N)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    i4_fall_values ( n_data, m, n, fmn );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(6)  << m   << "  "
+         << setw(6)  << n   << "  "
+         << setw(12) << fmn << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void i4_rise_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    I4_RISE_VALUES_TEST tests I4_RISE_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int fmn;
+  int m;
+  int n;
+  int n_data;
+
+  cout << "\n";
+  cout << "I4_RISE_VALUES_TEST:\n";
+  cout << "  I4_RISE_VALUES returns some exact values\n";
+  cout << "  of the integer rising factorial function:\n";
+  cout << "\n";
+  cout << "     M     N      I4_RISE(M,N)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    i4_rise_values ( n_data, m, n, fmn );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(6)  << m   << "  "
+         << setw(6)  << n   << "  "
+         << setw(12) << fmn << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void int_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    INT_VALUES_TEST tests INT_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    24 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "INT_VALUES_TEST:\n";
+  cout << "  INT_VALUES stores values of the integer part of a real number.\n";
+  cout << "\n";
+  cout << "      X            INT(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    int_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(12) << x  << "  "
+         << setw(12) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void jacobi_cn_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    JACOBI_CN_VALUES_TEST tests JACOBI_CN_VALUES.
 //
 //  Licensing:
 //
@@ -7142,7 +7945,7 @@ void test091 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST091:\n";
+  cout << "JACOBI_CN_VALUES_TEST:\n";
   cout << "  JACOBI_CN_VALUES returns values of \n";
   cout << "  the Jacobi elliptic CN function.\n";
   cout << "\n";
@@ -7168,13 +7971,13 @@ void test091 ( )
 }
 //****************************************************************************80
 
-void test092 ( )
+void jacobi_dn_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST092 tests JACOBI_DN_VALUES.
+//    JACOBI_DN_VALUES_TEST tests JACOBI_DN_VALUES.
 //
 //  Licensing:
 //
@@ -7195,7 +7998,7 @@ void test092 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST092:\n";
+  cout << "JACOBI_DN_VALUES_TEST:\n";
   cout << "  JACOBI_DN_VALUES returns values of \n";
   cout << "  the Jacobi elliptic DN function.\n";
   cout << "\n";
@@ -7221,13 +8024,13 @@ void test092 ( )
 }
 //****************************************************************************80
 
-void test093 ( )
+void jacobi_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST093 tests JACOBI_POLY_VALUES.
+//    JACOBI_POLY_VALUES_TEST tests JACOBI_POLY_VALUES.
 //
 //  Licensing:
 //
@@ -7250,7 +8053,7 @@ void test093 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST093:\n";
+  cout << "JACOBI_POLY_VALUES_TEST:\n";
   cout << "  JACOBI_POLY_VALUES returns values of\n";
   cout << "  the Jacobi polynomial.\n";
   cout << "\n";
@@ -7279,13 +8082,13 @@ void test093 ( )
 }
 //****************************************************************************80
 
-void test094 ( )
+void jacobi_sn_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST094 tests JACOBI_SN_VALUES.
+//    JACOBI_SN_VALUES_TEST tests JACOBI_SN_VALUES.
 //
 //  Licensing:
 //
@@ -7306,7 +8109,7 @@ void test094 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST094:\n";
+  cout << "JACOBI_SN_VALUES_TEST:\n";
   cout << "  JACOBI_SN_VALUES returns values of \n";
   cout << "  the Jacobi elliptic SN function.\n";
   cout << "\n";
@@ -7332,13 +8135,13 @@ void test094 ( )
 }
 //****************************************************************************80
 
-void test0945 ( )
+void jed_ce_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0945 tests JED_CE_VALUES.
+//    JED_CE_VALUES_TEST tests JED_CE_VALUES.
 //
 //  Licensing:
 //
@@ -7361,7 +8164,7 @@ void test0945 ( )
   int y;
 
   cout << "\n";
-  cout << "TEST0945:\n";
+  cout << "JED_CE_VALUES_TEST:\n";
   cout << "  JED_CE_VALUES returns:\n";
   cout << "  JED, a Julian Ephemeris Date, and\n";
   cout << "  YMDF, the corresponding year, month, day, fraction.\n";
@@ -7389,13 +8192,13 @@ void test0945 ( )
 }
 //****************************************************************************80
 
-void test095 ( )
+void jed_mjd_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST095 tests JED_MJD_VALUES.
+//    JED_MJD_VALUES_TEST tests JED_MJD_VALUES.
 //
 //  Licensing:
 //
@@ -7415,7 +8218,7 @@ void test095 ( )
   double mjd;
 
   cout << "\n";
-  cout << "TEST095:\n";
+  cout << "JED_MJD_VALUES_TEST:\n";
   cout << "  JED_MJD_VALUES returns:\n";
   cout << "  JED, a Julian Ephemeris Date, and\n";
   cout << "  MJD, the corresponding Modified Julian Day count.\n";
@@ -7441,13 +8244,13 @@ void test095 ( )
 }
 //****************************************************************************80
 
-void test096 ( )
+void jed_rd_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST096 tests JED_RD_VALUES.
+//    JED_RD_VALUES_TEST tests JED_RD_VALUES.
 //
 //  Licensing:
 //
@@ -7467,7 +8270,7 @@ void test096 ( )
   double rd;
 
   cout << "\n";
-  cout << "TEST096:\n";
+  cout << "JED_RD_VALUES_TEST:\n";
   cout << "  JED_RD_VALUES returns:\n";
   cout << "  JED, a Julian Ephemeris Date, and\n";
   cout << "  RD, the corresponding Reingold Dershowitz Day count.\n";
@@ -7493,13 +8296,13 @@ void test096 ( )
 }
 //****************************************************************************80
 
-void test097 ( )
+void jed_weekday_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST097 tests JED_WEEKDAY_VALUES.
+//    JED_WEEKDAY_VALUES_TEST tests JED_WEEKDAY_VALUES.
 //
 //  Licensing:
 //
@@ -7507,7 +8310,7 @@ void test097 ( )
 //
 //  Modified:
 //
-//    12 June 2007
+//    13 September 2013
 //
 //  Author:
 //
@@ -7517,12 +8320,12 @@ void test097 ( )
   double jed;
   int n_data;
   int weekday;
-  char *weekday_name[7] = {
+  string weekday_name[7] = {
     "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", 
     "Friday", "Saturday" };
 
   cout << "\n";
-  cout << "TEST097:\n";
+  cout << "JED_WEEKDAY_VALUES_TEST:\n";
   cout << "  JED_WEEKDAY_VALUES returns Julian Ephemeris Dates \n";
   cout << "  (JED) and the corresponding weekday\n";
   cout << "\n";
@@ -7548,13 +8351,13 @@ void test097 ( )
 }
 //****************************************************************************80
 
-void test0972 ( )
+void kei0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0972 tests KEI0_VALUES.
+//    KEI0_VALUES_TEST tests KEI0_VALUES.
 //
 //  Licensing:
 //
@@ -7574,7 +8377,7 @@ void test0972 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0972:\n";
+  cout << "KEI0_VALUES_TEST:\n";
   cout << "  KEI0_VALUES stores values of \n";
   cout << "  the Kelvin function KEI of order 0.\n";
   cout << "\n";
@@ -7599,13 +8402,13 @@ void test0972 ( )
 }
 //****************************************************************************80
 
-void test0973 ( )
+void kei1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0973 tests KEI1_VALUES.
+//    KEI1_VALUES_TEST tests KEI1_VALUES.
 //
 //  Licensing:
 //
@@ -7625,7 +8428,7 @@ void test0973 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0973:\n";
+  cout << "KEI1_VALUES_TEST:\n";
   cout << "  KEI1_VALUES stores values of \n";
   cout << "  the Kelvin function KEI of order 1.\n";
   cout << "\n";
@@ -7650,13 +8453,13 @@ void test0973 ( )
 }
 //****************************************************************************80
 
-void test0974 ( )
+void ker0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0974 tests KER0_VALUES.
+//    KER0_VALUES_TEST tests KER0_VALUES.
 //
 //  Licensing:
 //
@@ -7676,7 +8479,7 @@ void test0974 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0974:\n";
+  cout << "KER0_VALUES_TEST:\n";
   cout << "  KER0_VALUES stores values of \n";
   cout << "  the Kelvin function KER of order 0.\n";
   cout << "\n";
@@ -7701,13 +8504,13 @@ void test0974 ( )
 }
 //****************************************************************************80
 
-void test0975 ( )
+void ker1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0975 tests KER1_VALUES.
+//    KER1_VALUES_TEST tests KER1_VALUES.
 //
 //  Licensing:
 //
@@ -7727,7 +8530,7 @@ void test0975 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0975:\n";
+  cout << "KER1_VALUES_TEST:\n";
   cout << "  KER1_VALUES stores values of \n";
   cout << "  the Kelvin function KER of order 1.\n";
   cout << "\n";
@@ -7752,13 +8555,13 @@ void test0975 ( )
 }
 //****************************************************************************80
 
-void test098 ( )
+void laguerre_associated_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST098 tests LAGUERRE_ASSOCIATED_VALUES.
+//    LAGUERRE_ASSOCIATED_VALUES_TEST tests LAGUERRE_ASSOCIATED_VALUES.
 //
 //  Licensing:
 //
@@ -7780,7 +8583,7 @@ void test098 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST098:\n";
+  cout << "LAGUERRE_ASSOCIATED_VALUES_TEST:\n";
   cout << "  LAGUERRE_ASSOCIATED_VALUES stores values of\n";
   cout << "  the associated Laguerre polynomials.\n";
   cout << "\n";
@@ -7807,13 +8610,68 @@ void test098 ( )
 }
 //****************************************************************************80
 
-void test099 ( )
+void laguerre_general_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST099 tests LAGUERRE_POLYNOMIAL_VALUES.
+//    LAGUERRE_GENERAL_VALUES_TEST tests LAGUERRE_GENERAL_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    26 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double fx;
+  int n;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "LAGUERRE_GENERAL_VALUES_TEST:\n";
+  cout << "  LAGUERRE_GENERAL_VALUES stores values of\n";
+  cout << "  the generalized Laguerre function.\n";
+  cout << "\n";
+  cout << "     N     A    X             L(N,A)(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    laguerre_general_values ( n_data, n, a, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                 << "  "
+         << setw(6)                      << n  << "  "
+         << setw(12)                      << a  << "  "
+         << setw(12)                     << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void laguerre_polynomial_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LAGUERRE_POLYNOMIAL_VALUES_TEST tests LAGUERRE_POLYNOMIAL_VALUES.
 //
 //  Licensing:
 //
@@ -7834,7 +8692,7 @@ void test099 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST099:\n";
+  cout << "LAGUERRE_POLYNOMIAL_VALUES_TEST:\n";
   cout << "  LAGUERRE_POLYNOMIAL_VALUES stores values of \n";
   cout << "  the Laguerre polynomials.\n";
   cout << "\n";
@@ -7860,13 +8718,13 @@ void test099 ( )
 }
 //****************************************************************************80
 
-void test0995 ( )
+void lambert_w_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST0995 tests LAMBERT_W_VALUES.
+//    LAMBERT_W_VALUES_TEST tests LAMBERT_W_VALUES.
 //
 //  Licensing:
 //
@@ -7886,7 +8744,7 @@ void test0995 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST0995:\n";
+  cout << "LAMBERT_W_VALUES_TEST:\n";
   cout << "  LAMBERT_W_VALUES stores values of \n";
   cout << "  the Lambert W function.\n";
   cout << "\n";
@@ -7911,13 +8769,13 @@ void test0995 ( )
 }
 //****************************************************************************80
 
-void test100 ( )
+void laplace_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST100 tests LAPLACE_CDF_VALUES.
+//    LAPLACE_CDF_VALUES_TEST tests LAPLACE_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -7939,7 +8797,7 @@ void test100 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST100:\n";
+  cout << "LAPLACE_CDF_VALUES_TEST:\n";
   cout << "  LAPLACE_CDF_VALUES returns values of \n";
   cout << "  the Laplace Cumulative Density Function.\n";
   cout << "\n";
@@ -7966,13 +8824,13 @@ void test100 ( )
 }
 //****************************************************************************80
 
-void test101 ( )
+void legendre_associated_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST101 tests LEGENDRE_ASSOCIATED_VALUES.
+//    LEGENDRE_ASSOCIATED_VALUES_TEST tests LEGENDRE_ASSOCIATED_VALUES.
 //
 //  Licensing:
 //
@@ -7994,7 +8852,7 @@ void test101 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST101:\n";
+  cout << "LEGENDRE_ASSOCIATED_VALUES_TEST:\n";
   cout << "  LEGENDRE_ASSOCIATED_VALUES stores values of\n";
   cout << "  the associated Legendre polynomials.\n";
   cout << "\n";
@@ -8021,13 +8879,13 @@ void test101 ( )
 }
 //****************************************************************************80
 
-void test1015 ( )
+void legendre_associated_normalized_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1015 tests LEGENDRE_ASSOCIATED_NORMALIZED_VALUES.
+//    LEGENDRE_ASSOCIATED_NORMALIZED_VALUES_TEST tests LEGENDRE_ASSOCIATED_NORMALIZED_VALUES.
 //
 //  Licensing:
 //
@@ -8049,7 +8907,7 @@ void test1015 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1015:\n";
+  cout << "LEGENDRE_ASSOCIATED_NORMALIZED_VALUES_TEST:\n";
   cout << "  LEGENDRE_ASSOCIATED_NORMALIZED_VALUES stores values of\n";
   cout << "  the normalized associated Legendre polynomials.\n";
   cout << "\n";
@@ -8076,13 +8934,13 @@ void test1015 ( )
 }
 //****************************************************************************80
 
-void test1016 ( )
+void legendre_associated_normalized_sphere_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1016 tests LEGENDRE_ASSOCIATED_NORMALIZED_SPHERE_VALUES.
+//    LEGENDRE_ASSOCIATED_NORMALIZED_SPHERE_VALUES_TEST tests LEGENDRE_ASSOCIATED_NORMALIZED_SPHERE_VALUES.
 //
 //  Licensing:
 //
@@ -8104,7 +8962,7 @@ void test1016 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1016:\n";
+  cout << "LEGENDRE_ASSOCIATED_NORMALIZED_SPHERE_VALUES_TEST:\n";
   cout << "  LEGENDRE_ASSOCIATED_NORMALIZED_SPHERE_VALUES stores values of\n";
   cout << "  the associated Legendre polynomials, normalized for the unit sphere.\n";
   cout << "\n";
@@ -8131,13 +8989,13 @@ void test1016 ( )
 }
 //****************************************************************************80
 
-void test102 ( )
+void legendre_poly_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST102 tests LEGENDRE_POLY_VALUES.
+//    LEGENDRE_POLY_VALUES_TEST tests LEGENDRE_POLY_VALUES.
 //
 //  Licensing:
 //
@@ -8158,7 +9016,7 @@ void test102 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST102:\n";
+  cout << "LEGENDRE_POLY_VALUES_TEST:\n";
   cout << "  LEGENDRE_POLY_VALUES stores values of \n";
   cout << "  the Legendre polynomials.\n";
   cout << "\n";
@@ -8184,13 +9042,13 @@ void test102 ( )
 }
 //****************************************************************************80
 
-void test103 ( )
+void legendre_function_q_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST103 tests LEGENDRE_FUNCTION_Q_VALUES.
+//    LEGENDRE_FUNCTION_Q_VALUES_TEST tests LEGENDRE_FUNCTION_Q_VALUES.
 //
 //  Licensing:
 //
@@ -8211,7 +9069,7 @@ void test103 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST103:\n";
+  cout << "LEGENDRE_FUNCTION_Q_VALUES_TEST:\n";
   cout << "  LEGENDRE_FUNCTION_Q_VALUES stores values of\n";
   cout << "  the Legendre Q function.\n";
   cout << "\n";
@@ -8237,13 +9095,13 @@ void test103 ( )
 }
 //****************************************************************************80
 
-void test1035 ( )
+void lerch_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1035 tests LERCH_VALUES.
+//    LERCH_VALUES_TEST tests LERCH_VALUES.
 //
 //  Licensing:
 //
@@ -8265,7 +9123,7 @@ void test1035 ( )
   double z;
 
   cout << "\n";
-  cout << "TEST1035:\n";
+  cout << "LERCH_VALUES_TEST:\n";
   cout << "  LERCH_VALUES returns values of\n";
   cout << "  the Lerch transcendent function.\n";
   cout << "\n";
@@ -8292,13 +9150,13 @@ void test1035 ( )
 }
 //****************************************************************************80
 
-void test104 ( )
+void lobachevsky_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST104 tests LOBACHEVSKY_VALUES.
+//    LOBACHEVSKY_VALUES_TEST tests LOBACHEVSKY_VALUES.
 //
 //  Licensing:
 //
@@ -8318,7 +9176,7 @@ void test104 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST104:\n";
+  cout << "LOBACHEVSKY_VALUES_TEST:\n";
   cout << "  LOBACHEVSKY_VALUES stores values of \n";
   cout << "  the Lobachevsky function.\n";
   cout << "\n";
@@ -8343,13 +9201,119 @@ void test104 ( )
 }
 //****************************************************************************80
 
-void test1037 ( )
+void lobatto_polynomial_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1037 tests LOG_VALUES.
+//    LOBATTO_POLYNOMIAL_VALUES_TEST tests LOBATTO_POLYNOMIAL_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    02 May 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "LOBATTO_POLYNOMIAL_VALUES_TEST:\n";
+  cout << "  LOBATTO_POLYNOMIAL_VALUES stores values of \n";
+  cout << "  the completed Lobatto polynomials.\n";
+  cout << "\n";
+  cout << "     N    X             Lo(N)(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    lobatto_polynomial_values ( n_data, n, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                       << "  "
+         << setw(6)                      << n  << "  "
+         << setw(12)                     << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void lobatto_polynomial_derivatives_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LOBATTO_POLYNOMIAL_DERIVATIVES_TEST tests LOBATTO_POLYNOMIAL_DERIVATIVES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    18 November 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "LOBATTO_POLYNOMIAL_DERIVATIVES_TEST:\n";
+  cout << "  LOBATTO_POLYNOMIAL_VALUES stores derivatives of \n";
+  cout << "  the completed Lobatto polynomials.\n";
+  cout << "\n";
+  cout << "     N    X             Lo'(N)(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    lobatto_polynomial_derivatives ( n_data, n, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                       << "  "
+         << setw(6)                      << n  << "  "
+         << setw(12)                     << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void log_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LOG_VALUES_TEST tests LOG_VALUES.
 //
 //  Licensing:
 //
@@ -8369,7 +9333,7 @@ void test1037 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1037:\n";
+  cout << "LOG_VALUES_TEST:\n";
   cout << "   LOG_VALUES stores values of the natural logarithm function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -8393,13 +9357,13 @@ void test1037 ( )
 }
 //****************************************************************************80
 
-void test105 ( )
+void log_normal_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST105 tests LOG_NORMAL_CDF_VALUES.
+//    LOG_NORMAL_CDF_VALUES_TEST tests LOG_NORMAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -8421,7 +9385,7 @@ void test105 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST105:\n";
+  cout << "LOG_NORMAL_CDF_VALUES_TEST:\n";
   cout << "  LOG_NORMAL_CDF_VALUES returns values of \n";
   cout << "  the Log Normal Cumulative Density Function.\n";
   cout << "\n";
@@ -8448,13 +9412,13 @@ void test105 ( )
 }
 //****************************************************************************80
 
-void test106 ( )
+void log_series_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST106 tests LOG_SERIES_CDF_VALUES.
+//    LOG_SERIES_CDF_VALUES_TEST tests LOG_SERIES_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -8475,7 +9439,7 @@ void test106 ( )
   double t;
 
   cout << "\n";
-  cout << "TEST106:\n";
+  cout << "LOG_SERIES_CDF_VALUES_TEST:\n";
   cout << "  LOG_SERIES_CDF_VALUES returns values of \n";
   cout << "  the Log Series Cumulative Density Function.\n";
   cout << "\n";
@@ -8501,13 +9465,63 @@ void test106 ( )
 }
 //****************************************************************************80
 
-void test107 ( )
+void log10_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST107 tests LOGARITHMIC_INTEGRAL_VALUES.
+//    LOG10_VALUES_TEST tests LOG10_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    22 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "LOG10_VALUES_TEST:\n";
+  cout << "   LOG10_VALUES stores values of the base 10 logarithm function.\n";
+  cout << "\n";
+  cout << "                X                     FX\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    log10_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                          << "  "
+         << setw(24) << setprecision ( 16 ) << x  << "  "
+         << setw(24) << setprecision ( 16 ) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void logarithmic_integral_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    LOGARITHMIC_INTEGRAL_VALUES_TEST tests LOGARITHMIC_INTEGRAL_VALUES.
 //
 //  Licensing:
 //
@@ -8527,7 +9541,7 @@ void test107 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST107:\n";
+  cout << "LOGARITHMIC_INTEGRAL_VALUES_TEST:\n";
   cout << "  LOGARITHMIC_INTEGAL_VALUES stores values of\n";
   cout << "  the logarithmic integral function.\n";
   cout << "\n";
@@ -8552,13 +9566,13 @@ void test107 ( )
 }
 //****************************************************************************80
 
-void test108 ( )
+void logistic_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST108 tests LOGISTIC_CDF_VALUES.
+//    LOGISTIC_CDF_VALUES_TEST tests LOGISTIC_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -8580,7 +9594,7 @@ void test108 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST108:\n";
+  cout << "LOGISTIC_CDF_VALUES_TEST:\n";
   cout << "  LOGISTIC_CDF_VALUES returns values of \n";
   cout << "  the Logistic Cumulative Density Function.\n";
   cout << "\n";
@@ -8607,13 +9621,13 @@ void test108 ( )
 }
 //****************************************************************************80
 
-void test10875 ( )
+void mertens_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST10875 tests MERTENS_VALUES.
+//    MERTENS_VALUES_TEST tests MERTENS_VALUES.
 //
 //  Licensing:
 //
@@ -8633,7 +9647,7 @@ void test10875 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST10875:\n";
+  cout << "MERTENS_VALUES_TEST:\n";
   cout << "  MERTENS_VALUES returns values of\n";
   cout << "  the Mertens function.\n";
   cout << "\n";
@@ -8658,13 +9672,13 @@ void test10875 ( )
 }
 //****************************************************************************80
 
-void test109 ( )
+void moebius_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST109 tests MOEBIUS_VALUES.
+//    MOEBIUS_VALUES_TEST tests MOEBIUS_VALUES.
 //
 //  Licensing:
 //
@@ -8684,7 +9698,7 @@ void test109 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST109:\n";
+  cout << "MOEBIUS_VALUES_TEST:\n";
   cout << "  MOEBIUS_VALUES returns values of\n";
   cout << "  the Moebius function.\n";
   cout << "\n";
@@ -8709,13 +9723,13 @@ void test109 ( )
 }
 //****************************************************************************80
 
-void test110 ( )
+void negative_binomial_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST110 tests NEGATIVE_BINOMIAL_CDF_VALUES.
+//    NEGATIVE_BINOMIAL_CDF_VALUES_TEST tests NEGATIVE_BINOMIAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -8737,7 +9751,7 @@ void test110 ( )
   int s;
 
   cout << "\n";
-  cout << "TEST110:\n";
+  cout << "NEGATIVE_BINOMIAL_CDF_VALUES_TEST:\n";
   cout << "  NEGATIVE_BINOMIAL_CDF_VALUES stores values of\n";
   cout << "  the Negative Binomial Cumulative Density Function.\n";
   cout << "\n";
@@ -8764,13 +9778,13 @@ void test110 ( )
 }
 //****************************************************************************80
 
-void test1105 ( )
+void nine_j_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1105 demonstrates NINE_J_VALUES.
+//    NINE_J_VALUES_TEST demonstrates NINE_J_VALUES.
 //
 //  Licensing:
 //
@@ -8798,8 +9812,8 @@ void test1105 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST1105:\n";
-  cout << "  GSL_SF_COUPLING_9J returns values of\n";
+  cout << "NINE_J_VALUES_TEST:\n";
+  cout << "  NINE_J_VALUES returns values of\n";
   cout << "  the Wigner 9J coefficient.\n";
   cout << "\n";
   cout << "      J1      J2      J3      J4      J5      J6"
@@ -8832,13 +9846,13 @@ void test1105 ( )
 }
 //****************************************************************************80
 
-void test111 ( )
+void normal_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST111 tests NORMAL_CDF_VALUES.
+//    NORMAL_CDF_VALUES_TEST tests NORMAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -8860,7 +9874,7 @@ void test111 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST111:\n";
+  cout << "NORMAL_CDF_VALUES_TEST:\n";
   cout << "  NORMAL_CDF_VALUES stores values of\n";
   cout << "  the Normal Cumulative Density Function.\n";
   cout << "\n";
@@ -8887,13 +9901,13 @@ void test111 ( )
 }
 //****************************************************************************80
 
-void test112 ( )
+void normal_01_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST112 tests NORMAL_01_CDF_VALUES.
+//    NORMAL_01_CDF_VALUES_TEST tests NORMAL_01_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -8913,7 +9927,7 @@ void test112 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST112:\n";
+  cout << "NORMAL_01_CDF_VALUES_TEST:\n";
   cout << "  NORMAL_01_CDF_VALUES stores values of\n";
   cout << "  the Normal 01 Cumulative Density Function.\n";
   cout << "\n";
@@ -8938,13 +9952,13 @@ void test112 ( )
 }
 //****************************************************************************80
 
-void test113 ( )
+void omega_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST113 tests OMEGA_VALUES.
+//    OMEGA_VALUES_TEST tests OMEGA_VALUES.
 //
 //  Licensing:
 //
@@ -8964,7 +9978,7 @@ void test113 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST113:\n";
+  cout << "OMEGA_VALUES_TEST:\n";
   cout << "  OMEGA_VALUES returns values of\n";
   cout << "  the Omega function.\n";
   cout << "\n";
@@ -8989,13 +10003,13 @@ void test113 ( )
 }
 //****************************************************************************80
 
-void test1135 ( )
+void owen_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST1135 tests OWEN_VALUES.
+//    OWEN_VALUES_TEST tests OWEN_VALUES.
 //
 //  Licensing:
 //
@@ -9016,7 +10030,7 @@ void test1135 ( )
   double t;
 
   cout << "\n";
-  cout << "TEST1135\n";
+  cout << "OWEN_VALUES_TEST\n";
   cout << "  OWEN_VALUES stores values of\n";
   cout << "  Owen's T function.\n";
   cout << "\n";
@@ -9042,13 +10056,13 @@ void test1135 ( )
 }
 //****************************************************************************80
 
-void test114 ( )
+void partition_count_values_test ( )
  
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST114 tests PARTITION_COUNT_VALUES.
+//    PARTITION_COUNT_VALUES_TEST tests PARTITION_COUNT_VALUES.
 //
 //  Licensing:
 //
@@ -9068,7 +10082,7 @@ void test114 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST114:\n";
+  cout << "PARTITION_COUNT_VALUES_TEST:\n";
   cout << "  PARTITION_COUNT_VALUES returns values of \n";
   cout << "  the integer partition count function.\n";
   cout << "\n";
@@ -9093,13 +10107,13 @@ void test114 ( )
 }
 //****************************************************************************80
 
-void test115 ( )
+void partition_distinct_count_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST115 tests PARTITION_DISTINCT_COUNT_VALUES.
+//    PARTITION_DISTINCT_COUNT_VALUES_TEST tests PARTITION_DISTINCT_COUNT_VALUES.
 //
 //  Licensing:
 //
@@ -9119,7 +10133,7 @@ void test115 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST115:\n";
+  cout << "PARTITION_DISTINCT_COUNT_VALUES_TEST:\n";
   cout << "  PARTITION_DISTINCT_COUNT_VALUES returns values of \n";
   cout << "  the integer distinct partition count function.\n";
   cout << "\n";
@@ -9144,13 +10158,13 @@ void test115 ( )
 }
 //****************************************************************************80
 
-void test116 ( )
+void phi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST116 tests PHI_VALUES.
+//    PHI_VALUES_TEST tests PHI_VALUES.
 //
 //  Licensing:
 //
@@ -9170,7 +10184,7 @@ void test116 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST116:\n";
+  cout << "PHI_VALUES_TEST:\n";
   cout << "  PHI_VALUES returns values of\n";
   cout << "  the PHI function.\n";
   cout << "\n";
@@ -9195,13 +10209,13 @@ void test116 ( )
 }
 //****************************************************************************80
 
-void test117 ( )
+void pi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST117 tests PI_VALUES.
+//    PI_VALUES_TEST tests PI_VALUES.
 //
 //  Licensing:
 //
@@ -9221,7 +10235,7 @@ void test117 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST117:\n";
+  cout << "PI_VALUES_TEST:\n";
   cout << "  PI_VALUES returns values of\n";
   cout << "  the PI function.\n";
   cout << "\n";
@@ -9246,13 +10260,13 @@ void test117 ( )
 }
 //****************************************************************************80
 
-void test118 ( )
+void poisson_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST118 tests POISSON_CDF_VALUES.
+//    POISSON_CDF_VALUES_TEST tests POISSON_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -9273,7 +10287,7 @@ void test118 ( )
   int x;
 
   cout << "\n";
-  cout << "TEST118:\n";
+  cout << "POISSON_CDF_VALUES_TEST:\n";
   cout << "  POISSON_CDF_VALUES returns values of\n";
   cout << "  the Poisson Cumulative Density Function.\n";
   cout << "\n";
@@ -9299,13 +10313,13 @@ void test118 ( )
 }
 //****************************************************************************80
 
-void test1185 ( )
+void polylogarithm_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1185 tests POLYLOGARITHM_VALUES.
+//    POLYLOGARITHM_VALUES_TEST tests POLYLOGARITHM_VALUES.
 //
 //  Licensing:
 //
@@ -9326,7 +10340,7 @@ void test1185 ( )
   double z;
 
   cout << "\n";
-  cout << "TEST1185:\n";
+  cout << "POLYLOGARITHM_VALUES_TEST:\n";
   cout << "  POLYLOGARITHM_VALUES returns values of \n";
   cout << "  the polylogarithm function.\n";
   cout << "\n";
@@ -9352,13 +10366,13 @@ void test1185 ( )
 }
 //****************************************************************************80
 
-void test119 ( )
+void prandtl_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST119 tests PRANDTL_VALUES.
+//    PRANDTL_VALUES_TEST tests PRANDTL_VALUES.
 //
 //  Licensing:
 //
@@ -9379,7 +10393,7 @@ void test119 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST119:\n";
+  cout << "PRANDTL_VALUES_TEST:\n";
   cout << "  PRANDTL_VALUES stores values of\n";
   cout << "  the Prandtl number of water\n";
   cout << "  as a function of temperature and pressure.\n";
@@ -9406,13 +10420,13 @@ void test119 ( )
 }
 //****************************************************************************80
 
-void test120 ( )
+void prime_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST120 tests PRIME_VALUES.
+//    PRIME_VALUES_TEST tests PRIME_VALUES.
 //
 //  Licensing:
 //
@@ -9432,7 +10446,7 @@ void test120 ( )
   int p;
 
   cout << "\n";
-  cout << "TEST120:\n";
+  cout << "PRIME_VALUES_TEST:\n";
   cout << "  PRIME_VALUES returns values of\n";
   cout << "  the prime function.\n";
   cout << "\n";
@@ -9458,13 +10472,13 @@ void test120 ( )
 }
 //****************************************************************************80
 
-void test121 ( )
+void psat_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST121 tests PSAT_VALUES.
+//    PSAT_VALUES_TEST tests PSAT_VALUES.
 //
 //  Licensing:
 //
@@ -9484,7 +10498,7 @@ void test121 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST121:\n";
+  cout << "PSAT_VALUES_TEST:\n";
   cout << "  PSAT_VALUES stores values of\n";
   cout << "  the saturation pressure of water\n";
   cout << "  as a function of temperature.\n";
@@ -9510,13 +10524,13 @@ void test121 ( )
 }
 //****************************************************************************80
 
-void test122 ( )
+void psi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST122 tests PSI_VALUES.
+//    PSI_VALUES_TEST tests PSI_VALUES.
 //
 //  Licensing:
 //
@@ -9536,7 +10550,7 @@ void test122 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST122\n";
+  cout << "PSI_VALUES_TEST\n";
   cout << "  PSI_VALUES stores values of\n";
   cout << "  the PSI function.\n";
   cout << "\n";
@@ -9561,13 +10575,13 @@ void test122 ( )
 }
 //****************************************************************************80
 
-void test123 ( )
+void r8_factorial_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST123 tests R8_FACTORIAL_VALUES.
+//    R8_FACTORIAL_VALUES_TEST tests R8_FACTORIAL_VALUES.
 //
 //  Licensing:
 //
@@ -9587,7 +10601,7 @@ void test123 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST123:\n";
+  cout << "R8_FACTORIAL_VALUES_TEST:\n";
   cout << "  R8_FACTORIAL_VALUES stores values of\n";
   cout << "  the factorial function (using double arithmetic).\n";
   cout << "\n";
@@ -9612,13 +10626,13 @@ void test123 ( )
 }
 //****************************************************************************80
 
-void test124 ( )
+void r8_factorial_log_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST124 tests R8_FACTORIAL_LOG_VALUES.
+//    R8_FACTORIAL_LOG_VALUES_TEST tests R8_FACTORIAL_LOG_VALUES.
 //
 //  Licensing:
 //
@@ -9638,7 +10652,7 @@ void test124 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST124:\n";
+  cout << "R8_FACTORIAL_LOG_VALUES_TEST:\n";
   cout << "  R8_FACTORIAL_LOG_VALUES stores values of\n";
   cout << "  the logarithm of the factorial function\n";
   cout << "  (using real arithmetic).\n";
@@ -9664,13 +10678,223 @@ void test124 ( )
 }
 //****************************************************************************80
 
-void test125 ( )
+void r8_factorial2_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    R8_FACTORIAL2_VALUES_TEST tests R8_FACTORIAL2_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    07 February 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double f;
+  int n;
+  int n_data;
+
+  cout << "\n";
+  cout << "R8_FACTORIAL2_VALUES_TEST:\n";
+  cout << "  R8_FACTORIAL2_VALUES stores values of\n";
+  cout << "  the double factorial function (using double arithmetic).\n";
+  cout << "\n";
+  cout << "      N       F\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    r8_factorial2_values ( n_data, n, f );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                       << "  "
+         << setw(6)                      << n  << "  "
+         << setw(24) << setprecision(16) << f << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void r8_fall_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST125 tests SECVIR_VALUES.
+//    R8_FALL_VALUES_TEST tests R8_FALL_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double f;
+  int n;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "R8_FALL_VALUES_TEST:\n";
+  cout << "  R8_FALL_VALUES returns some exact values\n";
+  cout << "  of the falling factorial function:\n";
+  cout << "\n";
+  cout << "     X     N      R8_FALL(X,N)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    r8_fall_values ( n_data, x, n, f );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(8)  << x << "  "
+         << setw(8)  << n << "  "
+         << setw(12) << f << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void r8_rise_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    R8_RISE_VALUES_TEST tests R8_RISE_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    20 December 2014
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double f;
+  int n;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "R8_RISE_VALUES_TEST:\n";
+  cout << "  R8_RISE_VALUES returns some exact values\n";
+  cout << "  of the  rising factorial function:\n";
+  cout << "\n";
+  cout << "     X     N      R8_RISE(X,N)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    r8_rise_values ( n_data, x, n, f );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                   << "  "
+         << setw(8)  << x << "  "
+         << setw(8)  << n << "  "
+         << setw(12) << f << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void rayleigh_cdf_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    RAYLEIGH_CDF_VALUES_TEST tests RAYLEIGH_CDF_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double sigma;
+  double x;
+
+  cout << "\n";
+  cout << "RAYLEIGH_CDF_VALUES_TEST:\n";
+  cout << "  RAYLEIGH_CDF_VALUES stores values of\n";
+  cout << "  the Rayleigh CDF.\n";
+  cout << "\n";
+  cout << "      SIGMA        X            CDF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    rayleigh_cdf_values ( n_data, sigma, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                 << "  "
+         << setw(12)                     << sigma  << "  "
+         << setw(12)                     << x  << "  "
+         << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void secvir_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    SECVIR_VALUES_TEST tests SECVIR_VALUES.
 //
 //  Licensing:
 //
@@ -9690,7 +10914,7 @@ void test125 ( )
   double vir;
 
   cout << "\n";
-  cout << "TEST125:\n";
+  cout << "SECVIR_VALUES_TEST:\n";
   cout << "  SECVIR_VALUES stores values of\n";
   cout << "  the second virial coefficient of water\n";
   cout << "  as a function of temperature.\n";
@@ -9716,13 +10940,13 @@ void test125 ( )
 }
 //****************************************************************************80
 
-void test1255 ( )
+void shi_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1255 tests SHI_VALUES.
+//    SHI_VALUES_TEST tests SHI_VALUES.
 //
 //  Licensing:
 //
@@ -9742,7 +10966,7 @@ void test1255 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1255:\n";
+  cout << "SHI_VALUES_TEST:\n";
   cout << "  SHI_VALUES stores values of\n";
   cout << "  the hyperbolic sine integral function.\n";
   cout << "\n";
@@ -9767,13 +10991,13 @@ void test1255 ( )
 }
 //****************************************************************************80
 
-void test126 ( )
+void si_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST126 tests SI_VALUES.
+//    SI_VALUES_TEST tests SI_VALUES.
 //
 //  Licensing:
 //
@@ -9793,7 +11017,7 @@ void test126 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST126:\n";
+  cout << "SI_VALUES_TEST:\n";
   cout << "  SI_VALUES stores values of\n";
   cout << "  the sine integral function.\n";
   cout << "\n";
@@ -9818,13 +11042,13 @@ void test126 ( )
 }
 //****************************************************************************80
 
-void test127 ( )
+void sigma_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST127 tests SIGMA_VALUES.
+//    SIGMA_VALUES_TEST tests SIGMA_VALUES.
 //
 //  Licensing:
 //
@@ -9844,7 +11068,7 @@ void test127 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST127:\n";
+  cout << "SIGMA_VALUES_TEST:\n";
   cout << "  SIGMA_VALUES returns values of\n";
   cout << "  the SIGMA function.\n";
   cout << "\n";
@@ -9869,13 +11093,13 @@ void test127 ( )
 }
 //****************************************************************************80
 
-void test1275 ( )
+void sin_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1275 tests SIN_VALUES.
+//    SIN_VALUES_TEST tests SIN_VALUES.
 //
 //  Licensing:
 //
@@ -9895,7 +11119,7 @@ void test1275 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1275:\n";
+  cout << "SIN_VALUES_TEST:\n";
   cout << "   SIN_VALUES stores values of the sine function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -9919,13 +11143,63 @@ void test1275 ( )
 }
 //****************************************************************************80
 
-void test128 ( )
+void sin_degree_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST128 tests SIN_POWER_INT_VALUES.
+//    SIN_DEGREE_VALUES_TEST tests SIN_DEGREE_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    22 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double fx;
+  int n_data;
+  double x;
+
+  cout << "\n";
+  cout << "SIN_DEGREE_VALUES_TEST:\n";
+  cout << "   SIN_DEGREE_VALUES stores values of the sine function.\n";
+  cout << "\n";
+  cout << "                X                     FX\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    sin_degree_values ( n_data, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout                                          << "  "
+         << setw(24) << setprecision ( 16 ) << x  << "  "
+         << setw(24) << setprecision ( 16 ) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void sin_power_int_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    SIN_POWER_INT_VALUES_TEST tests SIN_POWER_INT_VALUES.
 //
 //  Licensing:
 //
@@ -9947,7 +11221,7 @@ void test128 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST128:\n";
+  cout << "SIN_POWER_INT_VALUES_TEST:\n";
   cout << "  SIN_POWER_INT_VALUES returns values of\n";
   cout << "  the integral of the N-th power of the sine function.\n";
   cout << "\n";
@@ -9974,13 +11248,13 @@ void test128 ( )
 }
 //****************************************************************************80
 
-void test1283 ( )
+void sinh_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1283 tests SINH_VALUES.
+//    SINH_VALUES_TEST tests SINH_VALUES.
 //
 //  Licensing:
 //
@@ -10000,7 +11274,7 @@ void test1283 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1283:\n";
+  cout << "SINH_VALUES_TEST:\n";
   cout << "   SINH_VALUES stores values of the hyperbolic sine function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -10024,13 +11298,13 @@ void test1283 ( )
 }
 //****************************************************************************80
 
-void test1285 ( )
+void six_j_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1285 tests SIX_J_VALUES.
+//    SIX_J_VALUES_TEST tests SIX_J_VALUES.
 //
 //  Licensing:
 //
@@ -10055,7 +11329,7 @@ void test1285 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST1285:\n";
+  cout << "SIX_J_VALUES_TEST:\n";
   cout << "  SIX_J_VALUES returns values of \n";
   cout << "  the Wigner 6J coefficient.\n";
   cout << "\n";
@@ -10086,13 +11360,13 @@ void test1285 ( )
 }
 //****************************************************************************80
 
-void test129 ( )
+void sound_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST129 tests SOUND_VALUES.
+//    SOUND_VALUES_TEST tests SOUND_VALUES.
 //
 //  Licensing:
 //
@@ -10113,7 +11387,7 @@ void test129 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST129:\n";
+  cout << "SOUND_VALUES_TEST:\n";
   cout << "  SOUND_VALUES stores values of\n";
   cout << "  the spead of sound in water\n";
   cout << "  as a function of temperature and pressure.\n";
@@ -10140,13 +11414,13 @@ void test129 ( )
 }
 //****************************************************************************80
 
-void test131 ( )
+void sphere_unit_area_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST131 tests SPHERE_UNIT_AREA_VALUES.
+//    SPHERE_UNIT_AREA_VALUES_TEST tests SPHERE_UNIT_AREA_VALUES.
 //
 //  Licensing:
 //
@@ -10166,7 +11440,7 @@ void test131 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST131:\n";
+  cout << "SPHERE_UNIT_AREA_VALUES_TEST:\n";
   cout << "  SPHERE_UNIT_AREA_VALUES stores values of\n";
   cout << "  the area of the unit sphere in various dimensions.\n";
   cout << "\n";
@@ -10191,13 +11465,13 @@ void test131 ( )
 }
 //****************************************************************************80
 
-void test132 ( )
+void sphere_unit_volume_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST132 tests SPHERE_UNIT_VOLUME_VALUES.
+//    SPHERE_UNIT_VOLUME_VALUES_TEST tests SPHERE_UNIT_VOLUME_VALUES.
 //
 //  Licensing:
 //
@@ -10217,7 +11491,7 @@ void test132 ( )
   int n;
 
   cout << "\n";
-  cout << "TEST132:\n";
+  cout << "SPHERE_UNIT_VOLUME_VALUES_TEST:\n";
   cout << "  SPHERE_UNIT_VOLUME_VALUES stores values of\n";
   cout << "  the volume of the unit sphere in various dimensions.\n";
   cout << "\n";
@@ -10242,13 +11516,13 @@ void test132 ( )
 }
 //****************************************************************************80
 
-void test1325 ( )
+void spherical_harmonic_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1325 tests SPHERICAL_HARMONIC_VALUES.
+//    SPHERICAL_HARMONIC_VALUES_TEST tests SPHERICAL_HARMONIC_VALUES.
 //
 //  Licensing:
 //
@@ -10273,7 +11547,7 @@ void test1325 ( )
   double yr;
 
   cout << "\n";
-  cout << "TEST1325:\n";
+  cout << "SPHERICAL_HARMONIC_VALUES_TEST:\n";
   cout << "  SPHERICAL_HARMONIC_VALUES stores values of\n";
   cout << "  the spherical harmonic function.\n";
   cout << "\n";
@@ -10302,13 +11576,13 @@ void test1325 ( )
 }
 //****************************************************************************80
 
-void test130 ( )
+void sqrt_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST130 tests SQRT_VALUES.
+//    SQRT_VALUES_TEST tests SQRT_VALUES.
 //
 //  Licensing:
 //
@@ -10328,7 +11602,7 @@ void test130 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST130:\n";
+  cout << "SQRT_VALUES_TEST:\n";
   cout << "  SQRT_VALUES returns some exact values.\n";
   cout << "\n";
   cout << "     X       Fx\n";
@@ -10353,13 +11627,13 @@ void test130 ( )
 }
 //****************************************************************************80
 
-void test133 ( )
+void stirling1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST133 tests STIRLING1_VALUES.
+//    STIRLING1_VALUES_TEST tests STIRLING1_VALUES.
 //
 //  Licensing:
 //
@@ -10380,7 +11654,7 @@ void test133 ( )
   int s1;
 
   cout << "\n";
-  cout << "TEST133:\n";
+  cout << "STIRLING1_VALUES_TEST:\n";
   cout << "  STIRLING1_VALUES returns values of\n";
   cout << "  the Stirling numbers of the first kind.\n";
   cout << "\n";
@@ -10406,13 +11680,13 @@ void test133 ( )
 }
 //****************************************************************************80
 
-void test134 ( )
+void stirling2_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST134 tests STIRLING2_VALUES.
+//    STIRLING2_VALUES_TEST tests STIRLING2_VALUES.
 //
 //  Licensing:
 //
@@ -10433,7 +11707,7 @@ void test134 ( )
   int s2;
 
   cout << "\n";
-  cout << "TEST134:\n";
+  cout << "STIRLING2_VALUES_TEST:\n";
   cout << "  STIRLING2_VALUES returns values of\n";
   cout << "  the Stirling numbers of the second kind.\n";
   cout << "\n";
@@ -10459,13 +11733,13 @@ void test134 ( )
 }
 //****************************************************************************80
 
-void test135 ( )
+void stromgen_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST135 tests STROMGEN_VALUES.
+//    STROMGEN_VALUES_TEST tests STROMGEN_VALUES.
 //
 //  Licensing:
 //
@@ -10485,7 +11759,7 @@ void test135 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST135:\n";
+  cout << "STROMGEN_VALUES_TEST:\n";
   cout << "  STROMGEN_VALUES stores values of \n";
   cout << "  the Stromgen function.\n";
   cout << "\n";
@@ -10510,13 +11784,13 @@ void test135 ( )
 }
 //****************************************************************************80
 
-void test136 ( )
+void struve_h0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST136 tests STRUVE_H0_VALUES.
+//    STRUVE_H0_VALUES_TEST tests STRUVE_H0_VALUES.
 //
 //  Licensing:
 //
@@ -10536,7 +11810,7 @@ void test136 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST136:\n";
+  cout << "STRUVE_H0_VALUES_TEST:\n";
   cout << "  STRUVE_H0_VALUES stores values of\n";
   cout << "  the Struve H0 function.\n";
   cout << "\n";
@@ -10561,13 +11835,13 @@ void test136 ( )
 }
 //****************************************************************************80
 
-void test137 ( )
+void struve_h1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST137 tests STRUVE_H1_VALUES.
+//    STRUVE_H1_VALUES_TEST tests STRUVE_H1_VALUES.
 //
 //  Licensing:
 //
@@ -10587,7 +11861,7 @@ void test137 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST137:\n";
+  cout << "STRUVE_H1_VALUES_TEST:\n";
   cout << "  STRUVE_H1_VALUES stores values of\n";
   cout << "  the Struve H1 function.\n";
   cout << "\n";
@@ -10612,13 +11886,13 @@ void test137 ( )
 }
 //****************************************************************************80
 
-void test138 ( )
+void struve_l0_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST138 tests STRUVE_L0_VALUES.
+//    STRUVE_L0_VALUES_TEST tests STRUVE_L0_VALUES.
 //
 //  Licensing:
 //
@@ -10638,7 +11912,7 @@ void test138 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST138:\n";
+  cout << "STRUVE_L0_VALUES_TEST:\n";
   cout << "  STRUVE_L0_VALUES stores values of\n";
   cout << "  the Struve L0 function.\n";
   cout << "\n";
@@ -10663,13 +11937,13 @@ void test138 ( )
 }
 //****************************************************************************80
 
-void test139 ( )
+void struve_l1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST139 tests STRUVE_L1_VALUES.
+//    STRUVE_L1_VALUES_TEST tests STRUVE_L1_VALUES.
 //
 //  Licensing:
 //
@@ -10689,7 +11963,7 @@ void test139 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST139:\n";
+  cout << "STRUVE_L1_VALUES_TEST:\n";
   cout << "  STRUVE_L1_VALUES stores values of\n";
   cout << "  the Struve L1 function.\n";
   cout << "\n";
@@ -10714,13 +11988,13 @@ void test139 ( )
 }
 //****************************************************************************80
 
-void test140 ( )
+void student_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST140 tests STUDENT_CDF_VALUES.
+//    STUDENT_CDF_VALUES_TEST tests STUDENT_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -10741,7 +12015,7 @@ void test140 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST140:\n";
+  cout << "STUDENT_CDF_VALUES_TEST:\n";
   cout << "  STUDENT_CDF_VALUES returns values of\n";
   cout << "  the Student T Cumulative Density Function.\n";
   cout << "\n";
@@ -10767,13 +12041,13 @@ void test140 ( )
 }
 //****************************************************************************80
 
-void test141 ( )
+void student_noncentral_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST141 tests STUDENT_NONCENTRAL_CDF_VALUES.
+//    STUDENT_NONCENTRAL_CDF_VALUES_TEST tests STUDENT_NONCENTRAL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -10795,7 +12069,7 @@ void test141 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST141:\n";
+  cout << "STUDENT_NONCENTRAL_CDF_VALUES_TEST:\n";
   cout << "  STUDENT_NONCENTRAL_CDF_VALUES returns values of\n";
   cout << "  the noncentral Student T Cumulative Density Function.\n";
   cout << "\n";
@@ -10822,13 +12096,13 @@ void test141 ( )
 }
 //****************************************************************************80
 
-void test1415 ( )
+void subfactorial_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1415 tests SUBFACTORIAL_VALUES.
+//    SUBFACTORIAL_VALUES_TEST tests SUBFACTORIAL_VALUES.
 //
 //  Licensing:
 //
@@ -10848,9 +12122,9 @@ void test1415 ( )
   int n_data;
 
   cout << "\n";
-  cout << " TEST1415:\n";
-  cout << "   SUBFACTORIAL_VALUES returns values of\n";
-  cout << "   the subfactorial function.\n";
+  cout << "SUBFACTORIAL_VALUES_TEST:\n";
+  cout << "  SUBFACTORIAL_VALUES returns values of\n";
+  cout << "  the subfactorial function.\n";
   cout << "\n";
   cout << "      N       Subfactorial[N]\n";
   cout << "\n";
@@ -10873,13 +12147,13 @@ void test1415 ( )
 }
 //****************************************************************************80
 
-void test142 ( )
+void surten_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST142 tests SURTEN_VALUES.
+//    SURTEN_VALUES_TEST tests SURTEN_VALUES.
 //
 //  Licensing:
 //
@@ -10899,7 +12173,7 @@ void test142 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST142:\n";
+  cout << "SURTEN_VALUES_TEST:\n";
   cout << "  SURTEN_VALUES stores values of\n";
   cout << "  the surface tension of water\n";
   cout << "  as a function of temperature.\n";
@@ -10925,13 +12199,13 @@ void test142 ( )
 }
 //****************************************************************************80
 
-void test143 ( )
+void synch1_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST143 tests SYNCH1_VALUES.
+//    SYNCH1_VALUES_TEST tests SYNCH1_VALUES.
 //
 //  Licensing:
 //
@@ -10951,7 +12225,7 @@ void test143 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST143:\n";
+  cout << "SYNCH1_VALUES_TEST:\n";
   cout << "  SYNCH1_VALUES stores values of \n";
   cout << "  the Synchrotron function of order 1.\n";
   cout << "\n";
@@ -10976,13 +12250,13 @@ void test143 ( )
 }
 //****************************************************************************80
 
-void test144 ( )
+void synch2_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST144 tests SYNCH2_VALUES.
+//    SYNCH2_VALUES_TEST tests SYNCH2_VALUES.
 //
 //  Licensing:
 //
@@ -11002,7 +12276,7 @@ void test144 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST144:\n";
+  cout << "SYNCH2_VALUES_TEST:\n";
   cout << "  SYNCH2_VALUES stores values of \n";
   cout << "  the Synchrotron function of order 2.\n";
   cout << "\n";
@@ -11027,13 +12301,13 @@ void test144 ( )
 }
 //****************************************************************************80
 
-void test1445 ( )
+void tan_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1445 tests TAN_VALUES.
+//    TAN_VALUES_TEST tests TAN_VALUES.
 //
 //  Licensing:
 //
@@ -11053,7 +12327,7 @@ void test1445 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1445:\n";
+  cout << "TAN_VALUES_TEST:\n";
   cout << "   TAN_VALUES stores values of the tangent function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -11077,13 +12351,13 @@ void test1445 ( )
 }
 //****************************************************************************80
 
-void test1447 ( )
+void tanh_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1447 tests TANH_VALUES.
+//    TANH_VALUES_TEST tests TANH_VALUES.
 //
 //  Licensing:
 //
@@ -11103,7 +12377,7 @@ void test1447 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1447:\n";
+  cout << "TANH_VALUES_TEST:\n";
   cout << "   TANH_VALUES stores values of the hyperbolic tangent function.\n";
   cout << "\n";
   cout << "                X                     FX\n";
@@ -11127,13 +12401,13 @@ void test1447 ( )
 }
 //****************************************************************************80
 
-void test145 ( )
+void tau_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST145 tests TAU_VALUES.
+//    TAU_VALUES_TEST tests TAU_VALUES.
 //
 //  Licensing:
 //
@@ -11153,7 +12427,7 @@ void test145 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST145:\n";
+  cout << "TAU_VALUES_TEST:\n";
   cout << "  TAU_VALUES returns values of\n";
   cout << "  the TAU function.\n";
   cout << "\n";
@@ -11178,13 +12452,13 @@ void test145 ( )
 }
 //****************************************************************************80
 
-void test146 ( )
+void thercon_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST146 tests THERCON_VALUES.
+//    THERCON_VALUES_TEST tests THERCON_VALUES.
 //
 //  Licensing:
 //
@@ -11205,7 +12479,7 @@ void test146 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST146:\n";
+  cout << "THERCON_VALUES_TEST:\n";
   cout << "  THERCON_VALUES stores values of\n";
   cout << "  the thermal conductivity of water\n";
   cout << "  as a function of temperature and pressure.\n";
@@ -11232,13 +12506,13 @@ void test146 ( )
 }
 //****************************************************************************80
 
-void test1465 ( )
+void three_j_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1465 tests THREE_J_VALUES.
+//    THREE_J_VALUES_TEST tests THREE_J_VALUES.
 //
 //  Licensing:
 //
@@ -11263,7 +12537,7 @@ void test1465 ( )
   int n_data;
 
   cout << "\n";
-  cout << "TEST1465:\n";
+  cout << "THREE_J_VALUES_TEST:\n";
   cout << "  THREE_J_VALUES returns values of\n";
   cout << "  the Wigner 3J coefficient.\n";
   cout << "\n";
@@ -11293,13 +12567,13 @@ void test1465 ( )
 }
 //****************************************************************************80
 
-void test147 ( )
+void tran02_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST147 tests TRAN02_VALUES.
+//    TRAN02_VALUES_TEST tests TRAN02_VALUES.
 //
 //  Licensing:
 //
@@ -11319,7 +12593,7 @@ void test147 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST147:\n";
+  cout << "TRAN02_VALUES_TEST:\n";
   cout << "  TRAN02_VALUES stores values of \n";
   cout << "  the Transport function of order 2.\n";
   cout << "\n";
@@ -11344,13 +12618,13 @@ void test147 ( )
 }
 //****************************************************************************80
 
-void test148 ( )
+void tran03_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST148 tests TRAN03_VALUES.
+//    TRAN03_VALUES_TEST tests TRAN03_VALUES.
 //
 //  Licensing:
 //
@@ -11370,7 +12644,7 @@ void test148 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST148:\n";
+  cout << "TRAN03_VALUES_TEST:\n";
   cout << "  TRAN03_VALUES stores values of \n";
   cout << "  the Transport function of order 3.\n";
   cout << "\n";
@@ -11395,13 +12669,13 @@ void test148 ( )
 }
 //****************************************************************************80
 
-void test149 ( )
+void tran04_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST149 tests TRAN04_VALUES.
+//    TRAN04_VALUES_TEST tests TRAN04_VALUES.
 //
 //  Licensing:
 //
@@ -11421,7 +12695,7 @@ void test149 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST149:\n";
+  cout << "TRAN04_VALUES_TEST:\n";
   cout << "  TRAN04_VALUES stores values of \n";
   cout << "  the Transport function of order 4.\n";
   cout << "\n";
@@ -11446,13 +12720,13 @@ void test149 ( )
 }
 //****************************************************************************80
 
-void test150 ( )
+void tran05_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST150 tests TRAN05_VALUES.
+//    TRAN05_VALUES_TEST tests TRAN05_VALUES.
 //
 //  Licensing:
 //
@@ -11472,7 +12746,7 @@ void test150 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST150:\n";
+  cout << "TRAN05_VALUES_TEST:\n";
   cout << "  TRAN05_VALUES stores values of \n";
   cout << "  the Transport function of order 5.\n";
   cout << "\n";
@@ -11497,13 +12771,13 @@ void test150 ( )
 }
 //****************************************************************************80
 
-void test151 ( )
+void tran06_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST151 tests TRAN06_VALUES.
+//    TRAN06_VALUES_TEST tests TRAN06_VALUES.
 //
 //  Licensing:
 //
@@ -11523,7 +12797,7 @@ void test151 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST151:\n";
+  cout << "TRAN06_VALUES_TEST:\n";
   cout << "  TRAN06_VALUES stores values of \n";
   cout << "  the Transport function of order 6.\n";
   cout << "\n";
@@ -11548,13 +12822,13 @@ void test151 ( )
 }
 //****************************************************************************80
 
-void test152 ( )
+void tran07_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST152 tests TRAN07_VALUES.
+//    TRAN07_VALUES_TEST tests TRAN07_VALUES.
 //
 //  Licensing:
 //
@@ -11574,7 +12848,7 @@ void test152 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST152:\n";
+  cout << "TRAN07_VALUES_TEST:\n";
   cout << "  TRAN07_VALUES stores values of \n";
   cout << "  the Transport function of order 7.\n";
   cout << "\n";
@@ -11599,13 +12873,13 @@ void test152 ( )
 }
 //****************************************************************************80
 
-void test153 ( )
+void tran08_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST153 tests TRAN08_VALUES.
+//    TRAN08_VALUES_TEST tests TRAN08_VALUES.
 //
 //  Licensing:
 //
@@ -11625,7 +12899,7 @@ void test153 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST153:\n";
+  cout << "TRAN08_VALUES_TEST:\n";
   cout << "  TRAN08_VALUES stores values of \n";
   cout << "  the Transport function of order 8.\n";
   cout << "\n";
@@ -11642,21 +12916,20 @@ void test153 ( )
     {
       break;
     }
-    cout                                          << "  "
-         << setw(24) << setprecision ( 16 ) << x  << "  "
-         << setw(24) << setprecision ( 16 ) << fx << "\n";
+    cout << "  " << setw(24) << setprecision ( 16 ) << x  
+         << "  " << setw(24) << setprecision ( 16 ) << fx << "\n";
   }
   return;
 }
 //****************************************************************************80
 
-void test154 ( )
+void tran09_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST154 tests TRAN09_VALUES.
+//    TRAN09_VALUES_TEST tests TRAN09_VALUES.
 //
 //  Licensing:
 //
@@ -11676,7 +12949,7 @@ void test154 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST154:\n";
+  cout << "TRAN09_VALUES_TEST:\n";
   cout << "  TRAN09_VALUES stores values of \n";
   cout << "  the Transport function of order 9.\n";
   cout << "\n";
@@ -11701,13 +12974,13 @@ void test154 ( )
 }
 //****************************************************************************80
 
-void test1545 ( )
+void trigamma_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST1545 tests TRIGAMMA_VALUES.
+//    TRIGAMMA_VALUES_TEST tests TRIGAMMA_VALUES.
 //
 //  Licensing:
 //
@@ -11727,7 +13000,7 @@ void test1545 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1545\n";
+  cout << "TRIGAMMA_VALUES_TEST\n";
   cout << "  TRIGAMMA_VALUES stores values of\n";
   cout << "  the TriGamma function.\n";
   cout << "\n";
@@ -11744,22 +13017,361 @@ void test1545 ( )
     {
       break;
     }
-    cout                                       << "  "
-         << setw(12)                     << x  << "  "
-         << setw(24) << setprecision(16) << fx << "\n";
+    cout << "  " << setw(12)                     << x  
+         << "  " << setw(24) << setprecision(16) << fx << "\n";
   }
   return;
 }
-
 //****************************************************************************80
 
-void test155 ( )
+void truncated_normal_ab_cdf_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST155 tests TSAT_VALUES.
+//    TRUNCATED_NORMAL_AB_CDF_VALUES_TEST tests TRUNCATED_NORMAL_AB_CDF_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    13 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double fx;
+  double mu;
+  int n_data;
+  double sigma;
+  double x;
+
+  cout << "\n";
+  cout << "TRUNCATED_NORMAL_AB_CDF_VALUES_TEST:\n";
+  cout << "  TRUNCATED_NORMAL_AB_CDF_VALUES stores values of\n";
+  cout << "  the Truncated Normal Cumulative Density Function.\n";
+  cout << "\n";
+  cout << "        MU     SIGMA       A         B         X        CDF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    truncated_normal_ab_cdf_values ( n_data, mu, sigma, a, b, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout << "  " << setw(8) << mu
+         << "  " << setw(8) << sigma
+         << "  " << setw(8) << a
+         << "  " << setw(8) << b
+         << "  " << setw(8) << x
+         << "  " << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void truncated_normal_ab_pdf_test ( )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    TRUNCATED_NORMAL_AB_PDF_VALUES_TEST tests TRUNCATED_NORMAL_AB_PDF_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    13 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double fx;
+  double mu;
+  int n_data;
+  double sigma;
+  double x;
+
+  cout << "\n";
+  cout << "TEST1547:\n";
+  cout << "  TRUNCATED_NORMAL_AB_PDF_VALUES stores values of\n";
+  cout << "  the Truncated Normal Probability Density Function.\n";
+  cout << "\n";
+  cout << "        MU     SIGMA       A         B         X        PDF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    truncated_normal_ab_pdf_values ( n_data, mu, sigma, a, b, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout << "  " << setw(8) << mu
+         << "  " << setw(8) << sigma
+         << "  " << setw(8) << a
+         << "  " << setw(8) << b
+         << "  " << setw(8) << x
+         << "  " << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void truncated_normal_a_cdf_test ( )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    TRUNCATED_NORMAL_A_CDF_VALUES_TEST tests TRUNCATED_NORMAL_A_CDF_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double fx;
+  double mu;
+  int n_data;
+  double sigma;
+  double x;
+
+  cout << "\n";
+  cout << "TEST1548:\n";
+  cout << "  TRUNCATED_NORMAL_A_CDF_VALUES stores values of\n";
+  cout << "  the lower Truncated Normal Cumulative Density Function.\n";
+  cout << "\n";
+  cout << "        MU     SIGMA       A         X        CDF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    truncated_normal_a_cdf_values ( n_data, mu, sigma, a, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout << "  " << setw(8) << mu
+         << "  " << setw(8) << sigma
+         << "  " << setw(8) << a
+         << "  " << setw(8) << x
+         << "  " << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void truncated_normal_a_pdf_test ( )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    TRUNCATED_NORMAL_A_PDF_VALUES_TEST tests TRUNCATED_NORMAL_A_PDF_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double fx;
+  double mu;
+  int n_data;
+  double sigma;
+  double x;
+
+  cout << "\n";
+  cout << "TRUNCATED_NORMAL_A_PDF_VALUES_TEST:\n";
+  cout << "  TRUNCATED_NORMAL_A_PDF_VALUES stores values of\n";
+  cout << "  the lower Truncated Normal Probability Density Function.\n";
+  cout << "\n";
+  cout << "        MU     SIGMA       A         X        PDF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    truncated_normal_a_pdf_values ( n_data, mu, sigma, a, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout << "  " << setw(8) << mu
+         << "  " << setw(8) << sigma
+         << "  " << setw(8) << a
+         << "  " << setw(8) << x
+         << "  " << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void truncated_normal_b_cdf_test ( )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    TRUNCATED_NORMAL_B_CDF_VALUES_TEST tests TRUNCATED_NORMAL_B_CDF_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double b;
+  double fx;
+  double mu;
+  int n_data;
+  double sigma;
+  double x;
+
+  cout << "\n";
+  cout << "TRUNCATED_NORMAL_B_CDF_VALUES_TEST:\n";
+  cout << "  TRUNCATED_NORMAL_B_CDF_VALUES stores values of\n";
+  cout << "  the upper Truncated Normal Cumulative Density Function.\n";
+  cout << "\n";
+  cout << "        MU     SIGMA       B         X        CDF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    truncated_normal_b_cdf_values ( n_data, mu, sigma, b, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout << "  " << setw(8) << mu
+         << "  " << setw(8) << sigma
+         << "  " << setw(8) << b
+         << "  " << setw(8) << x
+         << "  " << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void truncated_normal_b_pdf_test ( )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    TRUNCATED_NORMAL_B_PDF_VALUES_TEST tests TRUNCATED_NORMAL_B_PDF_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    14 September 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  double a;
+  double b;
+  double fx;
+  double mu;
+  int n_data;
+  double sigma;
+  double x;
+
+  cout << "\n";
+  cout << "TRUNCATED_NORMAL_B_PDF_VALUES_TEST:\n";
+  cout << "  TRUNCATED_NORMAL_B_PDF_VALUES stores values of\n";
+  cout << "  the upper Truncated Normal Probability Density Function.\n";
+  cout << "\n";
+  cout << "        MU     SIGMA       B         X        PDF(X)\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    truncated_normal_b_pdf_values ( n_data, mu, sigma, b, x, fx );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout << "  " << setw(8) << mu
+         << "  " << setw(8) << sigma
+         << "  " << setw(8) << b
+         << "  " << setw(8) << x
+         << "  " << setw(24) << setprecision(16) << fx << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void tsat_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose: 
+//
+//    TSAT_VALUES_TEST tests TSAT_VALUES.
 //
 //  Licensing:
 //
@@ -11779,7 +13391,7 @@ void test155 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST155:\n";
+  cout << "TSAT_VALUES_TEST:\n";
   cout << "  TSAT_VALUES stores values of\n";
   cout << "  the saturation temperature\n";
   cout << "  as a function of pressure.\n";
@@ -11805,13 +13417,13 @@ void test155 ( )
 }
 //****************************************************************************80
 
-void test156 ( )
+void van_der_corput_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST156 tests VAN_DER_CORPUT_VALUES.
+//    VAN_DER_CORPUT_VALUES_TEST tests VAN_DER_CORPUT_VALUES.
 //
 //  Licensing:
 //
@@ -11832,7 +13444,7 @@ void test156 ( )
   double value;
 
   cout << "\n";
-  cout << "TEST156:\n";
+  cout << "VAN_DER_CORPUT_VALUES_TEST:\n";
   cout << "  VAN_DER_CORPUT_VALUES stores values of\n";
   cout << "  the van der Corput sequence in a given base.\n";
   cout << "\n";
@@ -11861,13 +13473,13 @@ void test156 ( )
 }
 //****************************************************************************80
 
-void test157 ( )
+void viscosity_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose: 
 //
-//    TEST157 tests VISCOSITY_VALUES.
+//    VISCOSITY_VALUES_TEST tests VISCOSITY_VALUES.
 //
 //  Licensing:
 //
@@ -11888,7 +13500,7 @@ void test157 ( )
   double tc;
 
   cout << "\n";
-  cout << "TEST157:\n";
+  cout << "VISCOSITY_VALUES_TEST:\n";
   cout << "  VISCOSITY_VALUES stores values of\n";
   cout << "  the viscosity of water\n";
   cout << "  as a function of temperature and pressure.\n";
@@ -11915,13 +13527,13 @@ void test157 ( )
 }
 //****************************************************************************80
 
-void test1575 ( )
+void von_mises_cdf_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST1575 tests VON_MISES_CDF_VALUES.
+//    VON_MISES_CDF_VALUES_TEST tests VON_MISES_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -11943,7 +13555,7 @@ void test1575 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST1575:\n";
+  cout << "VON_MISES_CDF_VALUES_TEST:\n";
   cout << "  VON_MISES_CDF_VALUES stores values of\n";
   cout << "  the von Mises CDF.\n";
   cout << "\n";
@@ -11970,13 +13582,67 @@ void test1575 ( )
 }
 //****************************************************************************80
 
-void test158 ( )
+void weekday_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST158 tests WEIBULL_CDF_VALUES.
+//    WEEKDAY_VALUES_TEST tests WEEKDAY_VALUES.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    23 January 2015
+//
+//  Author:
+//
+//    John Burkardt
+//
+{
+  int d;
+  int m;
+  int n_data;
+  int w;
+  int y;
+
+  cout << "\n";
+  cout << "WEEKDAY_VALUES_TEST:\n";
+  cout << "  WEEKDAY_VALUES returns values of \n";
+  cout << "  the weekday for a given Y/M/D date.\n";
+  cout << "\n";
+  cout << "     Y     M     D     W\n";
+  cout << "\n";
+
+  n_data = 0;
+
+  for ( ; ; )
+  {
+    weekday_values ( n_data, y, m, d, w );
+
+    if ( n_data == 0 )
+    {
+      break;
+    }
+    cout << "  " << setw(4) << y
+         << "  " << setw(4) << m
+         << "  " << setw(4) << d 
+         << "  " << setw(4) << w << "\n";
+  }
+  return;
+}
+//****************************************************************************80
+
+void weibull_cdf_values_test ( )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    WEIBULL_CDF_VALUES_TEST tests WEIBULL_CDF_VALUES.
 //
 //  Licensing:
 //
@@ -11998,7 +13664,7 @@ void test158 ( )
   double x;
 
   cout << "\n";
-  cout << "TEST158:\n";
+  cout << "WEIBULL_CDF_VALUES_TEST:\n";
   cout << "  WEIBULL_CDF_VALUES returns values of \n";
   cout << "  the Weibull Cumulative Density Function.\n";
   cout << "\n";
@@ -12025,13 +13691,13 @@ void test158 ( )
 }
 //****************************************************************************80
 
-void test159 ( )
+void zeta_values_test ( )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    TEST159 tests ZETA_VALUES.
+//    ZETA_VALUES_TEST tests ZETA_VALUES.
 //
 //  Licensing:
 //
@@ -12051,7 +13717,7 @@ void test159 ( )
   double zeta;
 
   cout << "\n";
-  cout << "TEST159:\n";
+  cout << "ZETA_VALUES_TEST:\n";
   cout << "  ZETA_VALUES returns values of \n";
   cout << "  the Riemann Zeta function.\n";
   cout << "\n";

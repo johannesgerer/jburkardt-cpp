@@ -1,0 +1,477 @@
+<html>
+
+  <head>
+    <title>
+      SUPERLU - Sparse Linear Equation Solver
+    </title>
+  </head>
+
+  <body bgcolor="#EEEEEE" link="#CC0000" alink="#FF3300" vlink="#000055">
+
+    <h1 align = "center">
+      SUPERLU <br> Sparse Linear Equation Solver
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>SUPERLU</b>,
+      C++ programs which
+      illustrate the use of the SUPERLU library
+      for the fast direct solution of large sparse systems of linear equations.
+    </p>
+
+    <p>
+      Although SUPERLU is written in C, these examples show how
+       a C++ program can pass data to SUPERLU
+      and receive results computed by it.
+    </p>
+
+    <p>
+      SUPERLU contains a set of subroutines to solve a sparse linear
+      system A*X=B.  It uses Gaussian elimination with partial pivoting (GEPP).
+      The columns of A may be preordered before factorization; the
+      preordering for sparsity is completely separate from the factorization.
+    </p>
+
+    <p>
+      SUPERLU is implemented in ANSI C, and must be compiled with
+      an ANSI C compiler.  It provides functionality for both real
+      and complex matrices, in both single and double precision.  The
+      initial letter of a routine name indicates the arithmetic type
+      and precision:
+      <ul>
+        <li>
+          C, such as <b>cgstrf</b>, is for single precision complex arithmetic;
+        </li>
+        <li>
+          D, such as <b>dgstrf</b>, is for double precision real arithmetic;
+        </li>
+        <li>
+          S, such as <b>sgstrf</b>, is for single precision real arithmetic;
+        </li>
+        <li>
+          Z, such as <b>zgstrf</b>, is for double precision complex arithmetic.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      SUPERLU includes functions to read a sparse matrix from a file
+      in the Harwell-Boeing sparse matrix format.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      Copyright (c) 2003, The Regents of the University of California, through
+      Lawrence Berkeley National Laboratory (subject to receipt of any required 
+      approvals from U.S. Dept. of Energy) 
+    </p>
+
+    <p>
+      All rights reserved. 
+    </p>
+
+    <p>
+      Redistribution and use in source and binary forms, with or without 
+      modification, are permitted provided that the following conditions 
+      are met: 
+    </p>
+
+    <p>
+      <ol>
+        <li>
+          Redistributions of source code must retain the above copyright notice,
+          this list of conditions and the following disclaimer. 
+        </li>
+        <li>
+          Redistributions in binary form must reproduce the above copyright 
+          notice, this list of conditions and the following disclaimer in the
+          documentation and/or other materials provided with the distribution. 
+        </li>
+        <li>
+          Neither the name of Lawrence Berkeley National Laboratory, U.S. Dept. of
+          Energy nor the names of its contributors may be used to endorse or promote
+          products derived from this software without specific prior written permission.
+        </li>
+      </ol>
+    </p>
+
+    <p>
+      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+      IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+      THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+      PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+      CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+      EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+      PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+      PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+      LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+      NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+      SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+    </p>  
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>SUPERLU</b> is available in
+      <a href = "../../c_src/superlu/superlu.html">a C version</a> and
+      <a href = "../../cpp_src/superlu/superlu.html">a C++ version</a> and
+      <a href = "../../f77_src/superlu/superlu.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/superlu/superlu.html">a FORTRAN90 version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../data/cc/cc.html">
+      CC</a>,
+      a data directory which
+      contains a description and examples of the CC format,
+      ("compressed column") for storing a sparse matrix,
+      including a way to write the matrix as a set of three files.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cg_rc/cg_rc.html">
+      CG_RC</a>,
+      a C++ library which
+      implements the conjugate gradient method for solving 
+      a positive definite sparse linear system A*x=b, 
+      using reverse communication.
+    </p>
+
+    <p>
+      <a href = "../../data/hb/hb.html">
+      HB</a>,
+      a data directory which
+      contains examples of Harwell Boeing (HB) files,
+      a sparse matrix file format;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/mgmres/mgmres.html">
+      MGMRES</a>,
+      a C++ library which
+      applies the restarted GMRES algorithm to solve a sparse linear system,
+      by Lili Ju.
+    </p>
+
+    <p>
+      <a href = "../../c_src/st_to_cc/st_to_cc.html">
+      ST_TO_CC</a>,
+      a C library which
+      converts sparse matrix data from Sparse Triplet (ST) format 
+      to Compressed Column (CC) format.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/superlu_openmp/superlu_openmp.html">
+      SUPERLU_OPENMP</a>,
+      C++ programs which
+      illustrate how to use the SUPERLU library with the 
+      OpenMP parallel programming interface,
+      which applies a fast direct solution method to solve
+      sparse linear systems,
+      by James Demmel, John Gilbert, and Xiaoye Li.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          <a href = "http://crd.lbl.gov/~xiaoye/SuperLU/">
+                     http://crd.lbl.gov/~xiaoye/SuperLU/</a>
+          the SuperLU web site.
+        </li>
+        <li>
+          James Demmel, John Gilbert, Xiaoye Li,<br>
+          SuperLU Users's Guide.
+        </li>
+        <li>
+          James Demmel, Stanley Eisenstat, John Gilbert, Xiaoye Li,
+          Joseph Liu<br>
+          A Supernodal Approach to Sparse Partial Pivoting,<br>
+          SIAM Journal on Matrix Analysis and Applications,<br>
+          Volume 20, Number 3, pages 720-755, 1999.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      Many of the examples read the matrix from a file, which uses the
+      Harwell-Boeing sparse matrix format.  These matrices include:
+      <ul>
+        <li>
+          <a href = "sample_cst.txt">sample_cst.txt</a>, 
+          a complex 5x5 matrix in Sparse Triplet (ST) format;
+        </li>
+        <li>
+          <a href = "sample_cua.txt">sample_cua.txt</a>, 
+          a complex 5x5 matrix in Harwell Boeing (HB) CUA format;
+        </li>
+        <li>
+          <a href = "sample_rst.txt">sample_rst.txt</a>, 
+          a real 5x5 matrix in Sparse Triplet (ST) format;
+        </li>
+        <li>
+          <a href = "sample_rua.txt">sample_rua.txt</a>, 
+          a real 5x5 matrix in Harwell Boeing (HB) RUA format;
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>C_SAMPLE</b> uses CGSSV to solve a 5x5 system.
+      Single precision complex arithmetic is used.
+      <ul>
+        <li>
+          <a href = "c_sample.cpp">c_sample.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "c_sample.sh">c_sample.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "c_sample_output.txt">c_sample_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>C_SAMPLE_HB</b> reads a 5x5 matrix from a file in Harwell-Boeing (HB) format,
+      into compressed column (CC) format, and then uses CGSSV to solve the linear system.
+      Single precision complex arithmetic is used.
+      <ul>
+        <li>
+          <a href = "c_sample_hb.cpp">c_sample_hb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "c_sample_hb.sh">c_sample_hb.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "c_sample_hb_output.txt">c_sample_hb_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>C_SAMPLE_ST</b> reads a 5x5 matrix from a file in Sparse Triplet (ST) format,
+      into compressed column (CC) format, and then uses CGSSV to solve the linear system.
+      Single precision complex arithmetic is used.
+      <ul>
+        <li>
+          <a href = "c_sample_st.cpp">c_sample_st.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "c_sample_st.sh">c_sample_st.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "c_sample_st_output.txt">c_sample_st_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>D_SAMPLE</b> uses DGSSV to solve a 5x5 system.
+      Double precision real arithmetic is used.
+      <ul>
+        <li>
+          <a href = "d_sample.cpp">d_sample.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "d_sample.sh">d_sample.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "d_sample_output.txt">d_sample_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>D_SAMPLE_HB</b> reads a 5x5 matrix from a file in Harwell-Boeing (HB) format,
+      into compressed column (CC) format, and then uses DGSSV to solve the linear system.
+      Double precision real arithmetic is used.
+      <ul>
+        <li>
+          <a href = "d_sample_hb.cpp">d_sample_hb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "d_sample_hb.sh">d_sample_hb.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "d_sample_hb_output.txt">d_sample_hb_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>D_SAMPLE_ST</b> reads a 5x5 matrix from a file in Sparse Triplet (ST) format,
+      into compressed column (CC) format, and then uses DGSSV to solve the linear system.
+      Double precision real arithmetic is used.
+      <ul>
+        <li>
+          <a href = "d_sample_st.cpp">d_sample_st.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "d_sample_st.sh">d_sample_st.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "d_sample_st_output.txt">d_sample_st_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>S_SAMPLE</b> uses SGSSV to solve a 5x5 system.
+      Single precision real arithmetic is used.
+      <ul>
+        <li>
+          <a href = "s_sample.cpp">s_sample.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "s_sample.sh">s_sample.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "s_sample_output.txt">s_sample_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>S_SAMPLE_HB</b> reads a 5x5 matrix from a file in Harwell-Boeing (HB) format,
+      into compressed column (CC) format, and then uses SGSSV to solve the linear system.
+      Single precision real arithmetic is used.
+      <ul>
+        <li>
+          <a href = "s_sample_hb.cpp">s_sample_hb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "s_sample_hb.sh">s_sample_hb.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "s_sample_hb_output.txt">s_sample_hb_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>S_SAMPLE_ST</b> reads a 5x5 matrix from a file in Sparse Triplet (ST) format,
+      into compressed column (CC) format, and then uses SGSSV to solve the linear system.
+      Single precision real arithmetic is used.
+      <ul>
+        <li>
+          <a href = "s_sample_st.cpp">s_sample_st.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "s_sample_st.sh">s_sample_st.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "s_sample_st_output.txt">s_sample_st_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>Z_SAMPLE</b> uses ZGSSV to solve a 5x5 system.
+      Double precision complex arithmetic is used.
+      <ul>
+        <li>
+          <a href = "z_sample.cpp">z_sample.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "z_sample.sh">z_sample.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "z_sample_output.txt">z_sample_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>Z_SAMPLE_HB</b> reads a 5x5 matrix from a file in Harwell-Boeing (HB) format,
+      into compressed column (CC) format, and then uses ZGSSV to solve the linear system.
+      Double precision complex arithmetic is used.
+      <ul>
+        <li>
+          <a href = "z_sample_hb.cpp">z_sample_hb.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "z_sample_hb.sh">z_sample_hb.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "z_sample_hb_output.txt">z_sample_hb_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      <b>Z_SAMPLE_ST</b> reads a 5x5 matrix from a file in Sparse Triplet (ST) format,
+      into compressed column (CC) format, and then uses ZGSSV to solve the linear system.
+      Double precision complex arithmetic is used.
+      <ul>
+        <li>
+          <a href = "z_sample_st.cpp">z_sample_st.cpp</a>, the calling program;
+        </li>
+        <li>
+          <a href = "z_sample_st.sh">z_sample_st.sh</a>,
+          commands to compile, link and run the calling program;
+        </li>
+        <li>
+          <a href = "z_sample_st_output.txt">z_sample_st_output.txt</a>, 
+          the sample output.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 17 July 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+</html>

@@ -1,0 +1,18 @@
+# bnt_commands.txt
+#
+# Usage:
+#  gnuplot < bnt_commands.txt
+#
+set term png
+set output 'bnt_contour.png'
+set xlabel '<---X--->'
+set ylabel '<---Y--->'
+set zlabel '<---DC(X,Y)--->'
+set title 'BNT Stochastic diffusivity function'
+set contour
+set timestamp
+set cntrparam levels 10
+#set view map
+set view 75, 75
+unset key
+splot 'bnt_data.txt'

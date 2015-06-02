@@ -1,4 +1,4 @@
-24 December 2011 09:47:20 AM
+04 November 2014 04:37:43 PM
 
 IHS_PRB
   C++ version
@@ -21,16 +21,21 @@ TEST01
   Standard deviation:      0
   Covariance:              0
 
-   1      10  
-   2       9  
-   3       8  
-   4       7  
-   5       6  
-   6       5  
-   7       4  
-   8       3  
-   9       2  
-  10       1  
+  X:
+
+  Row:      0  
+  Col
+
+    0:    10  
+    1:     9  
+    2:     8  
+    3:     7  
+    4:     6  
+    5:     5  
+    6:     4  
+    7:     3  
+    8:     2  
+    9:     1  
 
   Random number seed =       17
   Spatial dimension =        2
@@ -42,16 +47,21 @@ TEST01
   Standard deviation:      0.646017
   Covariance:              0.247293
 
-   1      10     8  
-   2       8     2  
-   3       7     5  
-   4       9     9  
-   5       6    10  
-   6       5     7  
-   7       2     6  
-   8       4     4  
-   9       3     1  
-  10       1     3  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:    10       8  
+    1:     8       2  
+    2:     7       5  
+    3:     9       9  
+    4:     6      10  
+    5:     5       7  
+    6:     2       6  
+    7:     4       4  
+    8:     3       1  
+    9:     1       3  
 
   Random number seed =       17
   Spatial dimension =        3
@@ -63,16 +73,21 @@ TEST01
   Standard deviation:      0.381952
   Covariance:              0.0898556
 
-   1       8     7     6  
-   2       9     8     2  
-   3       2     5     3  
-   4       3     9    10  
-   5      10     2     1  
-   6       7     4     4  
-   7       6    10     5  
-   8       4     6     7  
-   9       5     1     8  
-  10       1     3     9  
+  X:
+
+  Row:      0       1       2  
+  Col
+
+    0:     8       7       6  
+    1:     9       8       2  
+    2:     2       5       3  
+    3:     3       9      10  
+    4:    10       2       1  
+    5:     7       4       4  
+    6:     6      10       5  
+    7:     4       6       7  
+    8:     5       1       8  
+    9:     1       3       9  
 
   Random number seed =       17
   Spatial dimension =        4
@@ -84,16 +99,21 @@ TEST01
   Standard deviation:      0.823054
   Covariance:              0.159313
 
-   1       9     7     8     2  
-   2      10     6     3     5  
-   3       7     9     6     1  
-   4       4     2     1    10  
-   5       8     1     7     3  
-   6       3    10     5     9  
-   7       5     8     2     4  
-   8       2     5     4     7  
-   9       6     4    10     6  
-  10       1     3     9     8  
+  X:
+
+  Row:      0       1       2       3  
+  Col
+
+    0:     9       7       8       2  
+    1:    10       6       3       5  
+    2:     7       9       6       1  
+    3:     4       2       1      10  
+    4:     8       1       7       3  
+    5:     3      10       5       9  
+    6:     5       8       2       4  
+    7:     2       5       4       7  
+    8:     6       4      10       6  
+    9:     1       3       9       8  
 
 TEST02
   IHS implements the IHS Algorithm
@@ -113,16 +133,21 @@ TEST02
   Standard deviation:      0.831132
   Covariance:              0.301915
 
-   1       5     7  
-   2      10     4  
-   3       8     2  
-   4       7     5  
-   5       2     9  
-   6       9    10  
-   7       6     8  
-   8       3     6  
-   9       4     1  
-  10       1     3  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:     5       7  
+    1:    10       4  
+    2:     8       2  
+    3:     7       5  
+    4:     2       9  
+    5:     9      10  
+    6:     6       8  
+    7:     3       6  
+    8:     4       1  
+    9:     1       3  
 
   Random number seed =       17
   Duplication factor =       2
@@ -131,16 +156,21 @@ TEST02
   Standard deviation:      0.305893
   Covariance:              0.118038
 
-   1       9     7  
-   2       8     4  
-   3       6     2  
-   4      10     9  
-   5       7    10  
-   6       5     8  
-   7       4     5  
-   8       2     6  
-   9       3     1  
-  10       1     3  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:     9       7  
+    1:     8       4  
+    2:     6       2  
+    3:    10       9  
+    4:     7      10  
+    5:     5       8  
+    6:     4       5  
+    7:     2       6  
+    8:     3       1  
+    9:     1       3  
 
   Random number seed =       17
   Duplication factor =       3
@@ -149,16 +179,21 @@ TEST02
   Standard deviation:      0.1724
   Covariance:              0.0582044
 
-   1       3     9  
-   2       6     4  
-   3      10    10  
-   4       9     5  
-   5       8     8  
-   6       7     1  
-   7       4     2  
-   8       5     7  
-   9       2     6  
-  10       1     3  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:     3       9  
+    1:     6       4  
+    2:    10      10  
+    3:     9       5  
+    4:     8       8  
+    5:     7       1  
+    6:     4       2  
+    7:     5       7  
+    8:     2       6  
+    9:     1       3  
 
   Random number seed =       17
   Duplication factor =       4
@@ -167,16 +202,21 @@ TEST02
   Standard deviation:      0.646017
   Covariance:              0.247293
 
-   1       2    10  
-   2       3     9  
-   3       9     1  
-   4       6     2  
-   5      10     6  
-   6       7     5  
-   7       8     8  
-   8       5     7  
-   9       4     4  
-  10       1     3  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:     2      10  
+    1:     3       9  
+    2:     9       1  
+    3:     6       2  
+    4:    10       6  
+    5:     7       5  
+    6:     8       8  
+    7:     5       7  
+    8:     4       4  
+    9:     1       3  
 
   Random number seed =       17
   Duplication factor =       5
@@ -185,16 +225,21 @@ TEST02
   Standard deviation:      0.646017
   Covariance:              0.247293
 
-   1      10     8  
-   2       8     2  
-   3       7     5  
-   4       9     9  
-   5       6    10  
-   6       5     7  
-   7       2     6  
-   8       4     4  
-   9       3     1  
-  10       1     3  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:    10       8  
+    1:     8       2  
+    2:     7       5  
+    3:     9       9  
+    4:     6      10  
+    5:     5       7  
+    6:     2       6  
+    7:     4       4  
+    8:     3       1  
+    9:     1       3  
 
 TEST03
   IHS implements the IHS Algorithm
@@ -366,16 +411,21 @@ TEST04
   Standard deviation:      0.646017
   Covariance:              0.247293
 
-   1      10     8  
-   2       8     2  
-   3       7     5  
-   4       9     9  
-   5       6    10  
-   6       5     7  
-   7       2     6  
-   8       4     4  
-   9       3     1  
-  10       1     3  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:    10       8  
+    1:     8       2  
+    2:     7       5  
+    3:     9       9  
+    4:     6      10  
+    5:     5       7  
+    6:     2       6  
+    7:     4       4  
+    8:     3       1  
+    9:     1       3  
 
   Random number seed =       1207526547
 
@@ -383,16 +433,21 @@ TEST04
   Standard deviation:      0.701024
   Covariance:              0.258441
 
-   1       4     8  
-   2       8    10  
-   3       7     7  
-   4       3     9  
-   5       1     3  
-   6       2     6  
-   7       5     5  
-   8      10     4  
-   9       9     1  
-  10       6     2  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:     4       8  
+    1:     8      10  
+    2:     7       7  
+    3:     3       9  
+    4:     1       3  
+    5:     2       6  
+    6:     5       5  
+    7:    10       4  
+    8:     9       1  
+    9:     6       2  
 
   Random number seed =       1136848141
 
@@ -400,16 +455,21 @@ TEST04
   Standard deviation:      4.68111e-16
   Covariance:              1.4803e-16
 
-   1       3     3  
-   2       8     8  
-   3       2     6  
-   4       1     9  
-   5       9     5  
-   6      10     2  
-   7       7     1  
-   8       6     4  
-   9       5     7  
-  10       4    10  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:     3       3  
+    1:     8       8  
+    2:     2       6  
+    3:     1       9  
+    4:     9       5  
+    5:    10       2  
+    6:     7       1  
+    7:     6       4  
+    8:     5       7  
+    9:     4      10  
 
   Random number seed =       1231916218
 
@@ -417,18 +477,23 @@ TEST04
   Standard deviation:      0.140764
   Covariance:              0.0454736
 
-   1      10     8  
-   2       7     7  
-   3       1     3  
-   4       9     1  
-   5       4     2  
-   6       6    10  
-   7       3     9  
-   8       8     4  
-   9       2     6  
-  10       5     5  
+  X:
+
+  Row:      0       1  
+  Col
+
+    0:    10       8  
+    1:     7       7  
+    2:     1       3  
+    3:     9       1  
+    4:     4       2  
+    5:     6      10  
+    6:     3       9  
+    7:     8       4  
+    8:     2       6  
+    9:     5       5  
 
 IHS_PRB
   Normal end of execution.
 
-24 December 2011 09:47:20 AM
+04 November 2014 04:37:43 PM

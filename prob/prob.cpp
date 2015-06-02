@@ -49,10 +49,10 @@ double angle_cdf ( double x, int n )
 
   if ( n < 2 )
   {
-    cout << "\n";
-    cout << "ANGLE_CDF - Fatal error!\n";
-    cout << "  N must be at least 2.\n";
-    cout << "  The input value of N = " << n << "\n";
+    cerr << "\n";
+    cerr << "ANGLE_CDF - Fatal error!\n";
+    cerr << "  N must be at least 2.\n";
+    cerr << "  The input value of N = " << n << "\n";
     exit ( 1 );
   }
 
@@ -130,7 +130,7 @@ double angle_pdf ( double x, int n )
 //
 //  Formula:
 //
-//    PDF(X) = ( sin ( X ) )**(N-2) * Gamma ( N / 2 )
+//    PDF(X) = ( sin ( X ) )^(N-2) * Gamma ( N / 2 )
 //             / ( sqrt ( PI ) * Gamma ( ( N - 1 ) / 2 ) )
 //
 //    PDF(X) = 1 / PI if N = 2.
@@ -164,10 +164,10 @@ double angle_pdf ( double x, int n )
 
   if ( n < 2 )
   {
-    cout << "\n";
-    cout << "ANGLE_PDF - Fatal error!\n";
-    cout << "  N must be at least 2.\n";
-    cout << "  The input value of N = " << n << "\n";
+    cerr << "\n";
+    cerr << "ANGLE_PDF - Fatal error!\n";
+    cerr << "  N must be at least 2.\n";
+    cerr << "  The input value of N = " << n << "\n";
     exit ( 1 );
   }
 
@@ -262,9 +262,9 @@ double anglit_cdf_inv ( double cdf )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "ANGLIT_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "ANGLIT_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -342,7 +342,7 @@ double anglit_pdf ( double x )
 }
 //****************************************************************************80
 
-double anglit_sample ( int *seed )
+double anglit_sample ( int &seed )
 
 //****************************************************************************80
 //
@@ -360,9 +360,9 @@ double anglit_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double *X, a sample of the PDF.
+//    Output, double ANGLIT_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -459,7 +459,7 @@ double arcsin_cdf ( double x, double a )
 
   return cdf;
 }
-//*****************************************************************************
+//****************************************************************************80
 
 double arcsin_cdf_inv ( double cdf, double a )
 
@@ -493,9 +493,9 @@ double arcsin_cdf_inv ( double cdf, double a )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "ARCSIN_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "ARCSIN_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -537,7 +537,7 @@ bool arcsin_check ( double a )
     return true;
   }
 }
-//*****************************************************************************
+//****************************************************************************80
 
 double arcsin_mean ( double a )
 
@@ -568,7 +568,7 @@ double arcsin_mean ( double a )
 
   return mean;
 }
-//*****************************************************************************
+//****************************************************************************80
 
 double arcsin_pdf ( double x, double a )
 
@@ -635,9 +635,9 @@ double arcsin_pdf ( double x, double a )
 
   if ( a <= 0 )
   {
-    cout << "\n";
-    cout << "ARCSIN_PDF - Fatal error!\n";
-    cout << "  Parameter A <= 0.\n";
+    cerr << "\n";
+    cerr << "ARCSIN_PDF - Fatal error!\n";
+    cerr << "  Parameter A <= 0.\n";
     exit ( 1 );
   }
 
@@ -652,9 +652,9 @@ double arcsin_pdf ( double x, double a )
 
   return pdf;
 }
-//*****************************************************************************
+//****************************************************************************80
 
-double arcsin_sample ( double a, int *seed )
+double arcsin_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -675,7 +675,7 @@ double arcsin_sample ( double a, int *seed )
 //    Input, double A, the parameter of the CDF.
 //    A must be positive.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double ARCSIN_SAMPLE, a sample of the PDF.
 //
@@ -689,11 +689,11 @@ double arcsin_sample ( double a, int *seed )
 
   return x;
 }
-//*****************************************************************************
+//****************************************************************************80
 
 double arcsin_variance ( double a )
 
-//*****************************************************************************
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -871,12 +871,12 @@ int bernoulli_cdf_inv ( double cdf, double a )
 //
 {
   int x;
-//
+
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "BERNOULLI_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "BERNOULLI_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -969,7 +969,7 @@ double bernoulli_pdf ( int x, double a )
 //
 //  Formula:
 //
-//    PDF(X)(A) = A**X * ( 1.0 - A )**( X - 1 )
+//    PDF(X)(A) = A^X * ( 1.0 - A )^( X - 1 )
 //
 //    X = 0 or 1.
 //
@@ -999,7 +999,7 @@ double bernoulli_pdf ( int x, double a )
 //
 {
   double pdf;
-//
+
   if ( x < 0 )
   {
     pdf = 0.0;
@@ -1021,7 +1021,7 @@ double bernoulli_pdf ( int x, double a )
 }
 //****************************************************************************80
 
-int bernoulli_sample ( double a, int *seed )
+int bernoulli_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -1042,7 +1042,7 @@ int bernoulli_sample ( double a, int *seed )
 //    Input, double A, the probability of success on one trial.
 //    0.0 <= A <= 1.0.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int BERNOULLI_SAMPLE, a sample of the PDF.
 //
@@ -1153,12 +1153,8 @@ double bessel_i0 ( double arg )
 //
 //  Author:
 //
-//    W. J. Cody and L. Stoltz,
-//    Mathematics and Computer Science Division,
-//    Argonne National Laboratory,
-//    Argonne, Illinois, 60439.
-//
-//    C++ translation by John Burkardt.
+//    Original FORTRAN77 version by W. J. Cody and L. Stoltz.
+//    C++ version by John Burkardt.
 //
 //  Parameters:
 //
@@ -1303,7 +1299,7 @@ double bessel_i0 ( double arg )
 }
 //****************************************************************************80
 
-void bessel_i0_values ( int *n_data, double *x, double *fx )
+void bessel_i0_values ( int &n_data, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -1353,20 +1349,19 @@ void bessel_i0_values ( int *n_data, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
-//
 # define N_MAX 20
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1010025027795146E+01,
      0.1040401782229341E+01,
@@ -1388,12 +1383,12 @@ void bessel_i0_values ( int *n_data, double *x, double *fx )
      0.4275641157218048E+03,
      0.2815716628466254E+04 };
 
-  double x_vec[N_MAX] = {
-     0.00,
-     0.20,
-     0.40,
-     0.60,
-     0.80,
+  static double x_vec[N_MAX] = {
+     0.00E+00,
+     0.20E+00,
+     0.40E+00,
+     0.60E+00,
+     0.80E+00,
      0.10E+01,
      0.12E+01,
      0.14E+01,
@@ -1410,23 +1405,23 @@ void bessel_i0_values ( int *n_data, double *x, double *fx )
      0.80E+01,
      0.10E+02 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -1563,7 +1558,7 @@ double bessel_i1 ( double arg )
   double xmax = 713.987;
   double xx;
   double zero = 0.0;
-//
+
   x = r8_abs ( arg );
 //
 //  ABS(ARG) < EPSILON ( ARG )
@@ -1648,7 +1643,7 @@ double bessel_i1 ( double arg )
 }
 //****************************************************************************80
 
-void bessel_i1_values ( int *n_data, double *x, double *fx )
+void bessel_i1_values ( int &n_data, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -1696,27 +1691,27 @@ void bessel_i1_values ( int *n_data, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 20
 
-  double fx_vec[N_MAX] = {
-     0.0000000000000000,
-     0.1005008340281251,
-     0.2040267557335706,
-     0.3137040256049221,
-     0.4328648026206398,
-     0.5651591039924850,
-     0.7146779415526431,
-     0.8860919814143274,
+  static double fx_vec[N_MAX] = {
+     0.0000000000000000E+00,
+     0.1005008340281251E+00,
+     0.2040267557335706E+00,
+     0.3137040256049221E+00,
+     0.4328648026206398E+00,
+     0.5651591039924850E+00,
+     0.7146779415526431E+00,
+     0.8860919814143274E+00,
      0.1084810635129880E+01,
      0.1317167230391899E+01,
      0.1590636854637329E+01,
@@ -1730,12 +1725,12 @@ void bessel_i1_values ( int *n_data, double *x, double *fx )
      0.3998731367825601E+03,
      0.2670988303701255E+04 };
 
-  double x_vec[N_MAX] = {
-     0.00,
-     0.20,
-     0.40,
-     0.60,
-     0.80,
+  static double x_vec[N_MAX] = {
+     0.00E+00,
+     0.20E+00,
+     0.40E+00,
+     0.60E+00,
+     0.80E+00,
      0.10E+01,
      0.12E+01,
      0.14E+01,
@@ -1752,23 +1747,23 @@ void bessel_i1_values ( int *n_data, double *x, double *fx )
      0.80E+01,
      0.10E+02 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -1776,7 +1771,7 @@ void bessel_i1_values ( int *n_data, double *x, double *fx )
 }
 //****************************************************************************80
 
-void bessel_ix_values ( int *n_data, double *nu, double *x, double *fx )
+void bessel_ix_values ( int &n_data, double &nu, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -1829,21 +1824,21 @@ void bessel_ix_values ( int *n_data, double *nu, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *NU, the order of the function.
+//    Output, double &NU, the order of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 28
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
     0.3592084175833614E+00,
     0.9376748882454876E+00,
     2.046236863089055E+00,
@@ -1873,7 +1868,7 @@ void bessel_ix_values ( int *n_data, double *nu, double *x, double *fx )
     1894.575731562383E+00,
     2.716911375760483E+20 };
 
-  double nu_vec[N_MAX] = {
+  static double nu_vec[N_MAX] = {
     0.50E+00,
     0.50E+00,
     0.50E+00,
@@ -1903,7 +1898,7 @@ void bessel_ix_values ( int *n_data, double *nu, double *x, double *fx )
     2.75E+00,
     2.75E+00 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
       0.2E+00,
       1.0E+00,
       2.0E+00,
@@ -1933,25 +1928,25 @@ void bessel_ix_values ( int *n_data, double *nu, double *x, double *fx )
      10.0E+00,
      50.0E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *nu = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    nu = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *nu = nu_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    nu = nu_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -1972,7 +1967,7 @@ double beta ( double x, double y )
 //    BETA(X,Y) = ( GAMMA(X) * GAMMA(Y) ) / GAMMA(X+Y)
 //
 //    BETA(X,Y) = BETA(Y,X).
-//    BETA(X,Y) = Integral ( 0 <= T <= 1 ) T**(X-1) (1-T)**(Y-1) dT.
+//    BETA(X,Y) = Integral ( 0 <= T <= 1 ) T^(X-1) (1-T)^(Y-1) dT.
 //    BETA(X,Y) = GAMMA(X) * GAMMA(Y) / GAMMA(X+Y)
 //
 //    Both X and Y must be greater than 0.
@@ -1999,9 +1994,9 @@ double beta ( double x, double y )
 {
   if ( x <= 0.0 || y <= 0.0 )
   {
-    cout << "\n";
-    cout << "BETA - Fatal error!\n";
-    cout << "  Both X and Y must be greater than 0.\n";
+    cerr << "\n";
+    cerr << "BETA - Fatal error!\n";
+    cerr << "  Both X and Y must be greater than 0.\n";
     exit ( 1 );
   }
 
@@ -2122,9 +2117,9 @@ int beta_binomial_cdf_inv ( double cdf, double a, double b, int c )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "BETA_BINOMIAL_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "BETA_BINOMIAL_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -2187,25 +2182,25 @@ bool beta_binomial_check ( double a, double b, int c )
 {
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "BETA_BINOMIAL_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "BETA_BINOMIAL_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return false;
   }
 
   if ( b <= 0.0 )
   {
-    cout << "\n";
-    cout << "BETA_BINOMIAL_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << "\n";
+    cerr << "BETA_BINOMIAL_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
   if ( c < 0 )
   {
-    cout << "\n";
-    cout << "BETA_BINOMIAL_CHECK - Fatal error!\n";
-    cout << "  C < 0.\n";
+    cerr << "\n";
+    cerr << "BETA_BINOMIAL_CHECK - Fatal error!\n";
+    cerr << "  C < 0.\n";
     return false;
   }
 
@@ -2285,7 +2280,7 @@ double beta_binomial_pdf ( int x, double a, double b, int c )
 //      A THETA value of 0 ( or A+B --> Infinity ) results in the binomial
 //      distribution:
 //
-//        PDF2(X) ( N, MU, 0 ) = C(N,X) * MU**X * ( 1 - MU )**(N-X)
+//        PDF2(X) ( N, MU, 0 ) = C(N,X) * MU^X * ( 1 - MU )^(N-X)
 //
 //    Given A, B, C for PDF, then the equivalent PDF2 has:
 //
@@ -2350,7 +2345,7 @@ double beta_binomial_pdf ( int x, double a, double b, int c )
 }
 //****************************************************************************80
 
-int beta_binomial_sample ( double a, double b, int c, int *seed )
+int beta_binomial_sample ( double a, double b, int c, int &seed )
 
 //****************************************************************************80
 //
@@ -2379,9 +2374,9 @@ int beta_binomial_sample ( double a, double b, int c, int *seed )
 //    Input, int C, a parameter of the PDF.
 //    0 <= C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, int X, a sample of the PDF.
+//    Output, int BETA_BINOMIAL_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -2487,13 +2482,286 @@ double beta_cdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double beta_cdf_inv ( double cdf, double a, double b )
+double beta_cdf_inv ( double cdf, double p, double q )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
 //    BETA_CDF_INV inverts the Beta CDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    28 April 2013
+//
+//  Author:
+//
+//    Original FORTRAN77 version by GW Cran, KJ Martin, GE Thomas.
+//    C++ version by John Burkardt.
+//
+//  Reference:
+//
+//    GW Cran, KJ Martin, GE Thomas,
+//    Remark AS R19 and Algorithm AS 109:
+//    A Remark on Algorithms AS 63: The Incomplete Beta Integral
+//    and AS 64: Inverse of the Incomplete Beta Integeral,
+//    Applied Statistics,
+//    Volume 26, Number 1, 1977, pages 111-114.
+//
+//  Parameters:
+//
+//    Input, double CDF, the value of the incomplete Beta
+//    function.  0 <= CDF <= 1.
+//
+//    Input, double P, Q, the parameters of the incomplete
+//    Beta function.
+//
+//    Output, double BETA_CDF_INV, the argument of the Beta CDF which 
+//    produces the value CDF.
+//
+//  Local Parameters:
+//
+//    Local, double SAE, the most negative decimal exponent
+//    which does not cause an underflow.
+//
+{
+  double a;
+  double acu;
+  double adj;
+  double beta_log;
+  double fpu;
+  double g;
+  double h;
+  int iex;
+  bool indx;
+  double pp;
+  double prev;
+  double qq;
+  double r;
+  double s;
+  double sae = -37.0;
+  double sq;
+  double t;
+  double tx;
+  double value;
+  double w;
+  double xin;
+  double y;
+  double yprev;
+
+  fpu = pow ( 10.0, sae );
+//
+//  Test for admissibility of parameters.
+//
+  if ( p <= 0.0 )
+  {
+    cerr << "\n";
+    cerr << "BETA_CDF_INV - Fatal error!\n";
+    cerr << "  P <= 0.0\n";
+    value = -1.0;
+    return value;
+  }
+
+  if ( q <= 0.0 )
+  {
+    cerr << "\n";
+    cerr << "BETA_CDF_INV - Fatal error!\n";
+    cerr << "  Q <= 0.0\n";
+    value = -1.0;
+    return value;
+  }
+
+  if ( cdf < 0.0 || 1.0 < cdf )
+  {
+    cerr << "\n";
+    cerr << "BETA_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0.0 or 1.0 < CDF\n";
+    value = -1.0;
+    return value;
+  }
+//
+//  Return immediately if the answer is easy.
+//
+  if ( cdf == 0.0 )
+  {
+    value = 0.0;
+    return value;
+  }
+  if ( cdf == 1.0 )
+  {
+    value = 1.0;
+    return value;
+  }
+//
+//  Change tail if necessary.
+//
+  if ( 0.5 < cdf )
+  {
+    a = 1.0 - cdf;
+    pp = q;
+    qq = p;
+    indx = true;
+  }
+  else
+  {
+    a = cdf;
+    pp = p;
+    qq = q;
+    indx = false;
+  }
+//
+//  Calculate the initial approximation.
+//
+  r = sqrt ( - log ( a * a ) );
+
+  y = r - ( 2.30753 + 0.27061 * r ) 
+    / ( 1.0 + ( 0.99229 + 0.04481 * r ) * r );
+
+  if ( 1.0 < pp && 1.0 < qq )
+  {
+    r = ( y * y - 3.0 ) / 6.0;
+    s = 1.0 / ( pp + pp - 1.0 );
+    t = 1.0 / ( qq + qq - 1.0 );
+    h = 2.0 / ( s + t );
+    w = y * sqrt ( h + r ) / h - ( t - s ) 
+      * ( r + 5.0 / 6.0 - 2.0 / ( 3.0 * h ) );
+    value = pp / ( pp + qq * exp ( w + w ) );
+  }
+  else
+  {
+    r = qq + qq;
+    t = 1.0 / ( 9.0 * qq );
+    t = r * pow ( 1.0 - t + y * sqrt ( t ), 3 );
+
+    if ( t <= 0.0 )
+    {
+      value = 1.0 - exp ( ( log ( ( 1.0 - a ) * qq ) + beta_log ) / qq );
+    }
+    else
+    {
+      t = ( 4.0 * pp + r - 2.0 ) / t;
+
+      if ( t <= 1.0 )
+      {
+        value = exp ( ( log ( a * pp ) + beta_log ) / pp );
+      }
+      else
+      {
+        value = 1.0 - 2.0 / ( t + 1.0 );
+      }
+    }
+  }
+//
+//  Solve for X by a modified Newton-Raphson method.
+//
+  r = 1.0 - pp;
+  t = 1.0 - qq;
+  yprev = 0.0;
+  sq = 1.0;
+  prev = 1.0;
+
+  if ( value < 0.0001 )
+  {
+    value = 0.0001;
+  }
+
+  if ( 0.9999 < value )
+  {
+    value = 0.9999;
+  }
+
+  iex = r8_max ( - 5.0 / pp / pp - 1.0 / pow ( a, 0.2 ) - 13.0, sae );
+
+  acu = pow ( 10.0, iex );
+
+  for ( ; ; )
+  {
+    y = beta_inc ( pp, qq, value );
+
+    xin = value;
+    y = ( y - a ) * exp ( beta_log + r * log ( xin ) + t * log ( 1.0 - xin ) );
+
+    if ( y * yprev <= 0.0 )
+    {
+      prev = r8_max ( sq, fpu );
+    }
+
+    g = 1.0;
+
+    for ( ; ; )
+    {
+      for ( ; ; )
+      {
+        adj = g * y;
+        sq = adj * adj;
+
+        if ( sq < prev )
+        {
+          tx = value - adj;
+
+          if ( 0.0 <= tx && tx <= 1.0 )
+          {
+            break;
+          }
+        }
+        g = g / 3.0;
+      }
+
+      if ( prev <= acu )
+      {
+        if ( indx )
+        {
+          value = 1.0 - value;
+        }
+        return value;
+      }
+
+      if ( y * y <= acu )
+      {
+        if ( indx )
+        {
+          value = 1.0 - value;
+        }
+        return value;
+      }
+
+      if ( tx != 0.0 && tx != 1.0 )
+      {
+        break;
+      }
+
+      g = g / 3.0;
+    }
+
+    if ( tx == value )
+    {
+      break;
+    }
+
+    value = tx;
+    yprev = y;
+  }
+
+  if ( indx )
+  {
+    value = 1.0 - value;
+  }
+
+  return value;
+}
+//****************************************************************************80
+
+double beta_cdf_inv_old ( double cdf, double a, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    BETA_CDF_INV_OLD inverts the Beta CDF.
 //
 //  Licensing:
 //
@@ -2505,9 +2773,8 @@ double beta_cdf_inv ( double cdf, double a, double b )
 //
 //  Author:
 //
-//    Abernathy and Smith.
-//
-//    C++ translation by John Burkardt.
+//    Original FORTRAN77 version by Abernathy and Smith.
+//    C++ version by John Burkardt.
 //
 //  Reference:
 //
@@ -2551,9 +2818,9 @@ double beta_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "BETA_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "BETA_CDF_INV_OLD - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 //
@@ -2625,9 +2892,9 @@ double beta_cdf_inv ( double cdf, double a, double b )
 //
       if ( x <= 0.0 || 1.0 <= x )
       {
-        cout << " \n";
-        cout << "BETA_CDF_INV - Fatal error!\n";
-        cout << "  The series has diverged.\n";
+        cerr << " \n";
+        cerr << "BETA_CDF_INV_OLD - Fatal error!\n";
+        cerr << "  The series has diverged.\n";
         x = -1.0;
         return x;
       }
@@ -2670,17 +2937,17 @@ bool beta_check ( double a, double b )
 {
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "BETA_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "BETA_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return false;
   }
 
   if ( b <= 0.0 )
   {
-    cout << "\n";
-    cout << "BETA_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << "\n";
+    cerr << "BETA_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -2688,8 +2955,8 @@ bool beta_check ( double a, double b )
 }
 //****************************************************************************80
 
-void beta_cdf_values ( int *n_data, double *a, double *b, double *x,
-  double *fx )
+void beta_cdf_values ( int &n_data, double &a, double &b, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -2699,7 +2966,25 @@ void beta_cdf_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Discussion:
 //
+//    The incomplete Beta function may be written
+//
+//      BETA_INC(A,B,X) = Integral (0 <= t <= X) T^(A-1) * (1-T)^(B-1) dT
+//                      / Integral (0 <= t <= 1) T^(A-1) * (1-T)^(B-1) dT
+//
+//    Thus,
+//
+//      BETA_INC(A,B,0.0) = 0.0;
+//      BETA_INC(A,B,1.0) = 1.0
+//
+//    The incomplete Beta function is also sometimes called the
+//    "modified" Beta function, or the "normalized" Beta function
+//    or the Beta CDF (cumulative density function.
+//
 //    In Mathematica, the function can be evaluated by:
+//
+//      BETA[X,A,B] / BETA[A,B]
+//
+//    The function can also be evaluated by using the Statistics package:
 //
 //      Needs["Statistics`ContinuousDistributions`"]
 //      dist = BetaDistribution [ a, b ]
@@ -2711,7 +2996,7 @@ void beta_cdf_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Modified:
 //
-//    02 September 2004
+//    28 April 2013
 //
 //  Author:
 //
@@ -2738,97 +3023,229 @@ void beta_cdf_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *A, B, the parameters of the function.
+//    Output, double &A, &B, the parameters of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 12
+# define N_MAX 45
 
-  double a_vec[N_MAX] = {
-      0.10E+01,
-      0.10E+01,
-      0.10E+01,
-      0.10E+01,
-      0.10E+01,
-      0.10E+01,
-      0.10E+01,
-      0.10E+01,
-      0.20E+01,
-      0.30E+01,
-      0.40E+01,
-      0.50E+01 };
+  static double a_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.5E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     30.0E+00,
+     30.0E+00,
+     40.0E+00,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      1.30625,
+      1.30625,
+      1.30625 };
 
-  double b_vec[N_MAX] = {
-      0.50,
-      0.50,
-      0.50,
-      0.50,
-      0.20E+01,
-      0.30E+01,
-      0.40E+01,
-      0.50E+01,
-      0.20E+01,
-      0.20E+01,
-      0.20E+01,
-      0.20E+01 };
+  static double b_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.0E+00,
+      0.5E+00,
+      5.0E+00,
+      5.0E+00,
+     10.0E+00,
+      5.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+     20.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+     11.7562, 
+     11.7562, 
+     11.7562 };
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
+     0.6376856085851985E-01,
+     0.2048327646991335E+00,
+     0.1000000000000000E+01,
+     0.0000000000000000E+00,
+     0.5012562893380045E-02,
      0.5131670194948620E-01,
-     0.1055728090000841,
-     0.1633399734659245,
-     0.2254033307585166,
-     0.3600000000000000,
-     0.4880000000000000,
-     0.5904000000000000,
-     0.6723200000000000,
-     0.2160000000000000,
+     0.2928932188134525E+00,
+     0.5000000000000000E+00,
+     0.2800000000000000E-01,
+     0.1040000000000000E+00,
+     0.2160000000000000E+00,
+     0.3520000000000000E+00,
+     0.5000000000000000E+00,
+     0.6480000000000000E+00,
+     0.7840000000000000E+00,
+     0.8960000000000000E+00,
+     0.9720000000000000E+00,
+     0.4361908850559777E+00,
+     0.1516409096347099E+00,
+     0.8978271484375000E-01,
+     0.1000000000000000E+01,
+     0.5000000000000000E+00,
+     0.4598773297575791E+00,
+     0.2146816102371739E+00,
+     0.9507364826957875E+00,
+     0.5000000000000000E+00,
+     0.8979413687105918E+00,
+     0.2241297491808366E+00,
+     0.7586405487192086E+00,
+     0.7001783247477069E+00,
+     0.5131670194948620E-01,
+     0.1055728090000841E+00,
+     0.1633399734659245E+00,
+     0.2254033307585166E+00,
+     0.3600000000000000E+00,
+     0.4880000000000000E+00,
+     0.5904000000000000E+00,
+     0.6723200000000000E+00,
+     0.2160000000000000E+00,
      0.8370000000000000E-01,
      0.3078000000000000E-01,
-     0.1093500000000000E-01 };
+     0.1093500000000000E-01,
+     0.918884684620518,
+     0.21052977489419,
+     0.1824130512500673 };
 
-  double x_vec[N_MAX] = {
-     0.10,
-     0.20,
-     0.30,
-     0.40,
-     0.20,
-     0.20,
-     0.20,
-     0.20,
-     0.30,
-     0.30,
-     0.30,
-     0.30 };
+  static double x_vec[N_MAX] = {
+     0.01E+00,
+     0.10E+00,
+     1.00E+00,
+     0.00E+00,
+     0.01E+00,
+     0.10E+00,
+     0.50E+00,
+     0.50E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.50E+00,
+     0.60E+00,
+     0.70E+00,
+     0.80E+00,
+     0.90E+00,
+     0.50E+00,
+     0.90E+00,
+     0.50E+00,
+     1.00E+00,
+     0.50E+00,
+     0.80E+00,
+     0.60E+00,
+     0.80E+00,
+     0.50E+00,
+     0.60E+00,
+     0.70E+00,
+     0.80E+00,
+     0.70E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.225609,
+     0.0335568,
+     0.0295222 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0.0;
-    *b = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0.0;
+    b = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *b = b_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -2851,10 +3268,10 @@ double beta_inc ( double a, double b, double x )
 //
 //    BETA_INC(A,B,X)
 //
-//      =   Integral ( 0 <= T <= X ) T**(A-1) (1-T)**(B-1) dT
-//        / Integral ( 0 <= T <= 1 ) T**(A-1) (1-T)**(B-1) dT
+//      =   Integral ( 0 <= T <= X ) T^(A-1) (1-T)^(B-1) dT
+//        / Integral ( 0 <= T <= 1 ) T^(A-1) (1-T)^(B-1) dT
 //
-//      =   Integral ( 0 <= T <= X ) T**(A-1) (1-T)**(B-1) dT
+//      =   Integral ( 0 <= T <= X ) T^(A-1) (1-T)^(B-1) dT
 //        / BETA(A,B)
 //
 //  Licensing:
@@ -2907,17 +3324,17 @@ double beta_inc ( double a, double b, double x )
 
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "BETA_INC - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "BETA_INC - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     exit ( 1 );
   }
 
   if ( b <= 0.0 )
   {
-    cout << "\n";
-    cout << "BETA_INC - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << "\n";
+    cerr << "BETA_INC - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     exit ( 1 );
   }
 
@@ -2977,10 +3394,10 @@ double beta_inc ( double a, double b, double x )
 
     if ( it_max < it )
     {
-      cout << "\n";
-      cout << "BETA_INC - Fatal error!\n";
-      cout << "  Maximum number of iterations exceeded!\n";
-      cout << "  IT_MAX = " << it_max << "\n";
+      cerr << "\n";
+      cerr << "BETA_INC - Fatal error!\n";
+      cerr << "  Maximum number of iterations exceeded!\n";
+      cerr << "  IT_MAX = " << it_max << "\n";
       exit ( 1 );
     }
 
@@ -3025,8 +3442,8 @@ double beta_inc ( double a, double b, double x )
 }
 //****************************************************************************80
 
-void beta_inc_values ( int *n_data, double *a, double *b, double *x,
-  double *fx )
+void beta_inc_values ( int &n_data, double &a, double &b, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -3038,17 +3455,27 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //    The incomplete Beta function may be written
 //
-//      BETA_INC(A,B,X) = Integral (0 to X) T**(A-1) * (1-T)**(B-1) dT
-//                      / Integral (0 to 1) T**(A-1) * (1-T)**(B-1) dT
+//      BETA_INC(A,B,X) = Integral (0 <= t <= X) T^(A-1) * (1-T)^(B-1) dT
+//                      / Integral (0 <= t <= 1) T^(A-1) * (1-T)^(B-1) dT
 //
 //    Thus,
 //
 //      BETA_INC(A,B,0.0) = 0.0;
 //      BETA_INC(A,B,1.0) = 1.0
 //
+//    The incomplete Beta function is also sometimes called the
+//    "modified" Beta function, or the "normalized" Beta function
+//    or the Beta CDF (cumulative density function.
+//
 //    In Mathematica, the function can be evaluated by:
 //
 //      BETA[X,A,B] / BETA[A,B]
+//
+//    The function can also be evaluated by using the Statistics package:
+//
+//      Needs["Statistics`ContinuousDistributions`"]
+//      dist = BetaDistribution [ a, b ]
+//      CDF [ dist, x ]
 //
 //  Licensing:
 //
@@ -3056,7 +3483,7 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Modified:
 //
-//    09 June 2004
+//    28 April 2013
 //
 //  Author:
 //
@@ -3083,169 +3510,229 @@ void beta_inc_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *A, B, the parameters of the function.
+//    Output, double &A, &B, the parameters of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 30
+# define N_MAX 45
 
-  double a_vec[N_MAX] = {
-      0.5,
-      0.5,
-      0.5,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      1.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      5.5,
-     10.0,
-     10.0,
-     10.0,
-     10.0,
-     20.0,
-     20.0,
-     20.0,
-     20.0,
-     20.0,
-     30.0,
-     30.0,
-     40.0 };
+  static double a_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.5E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     20.0E+00,
+     30.0E+00,
+     30.0E+00,
+     40.0E+00,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.1E+01,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      1.30625,
+      1.30625,
+      1.30625 };
 
-  double b_vec[N_MAX] = {
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      0.5,
-      1.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      2.0,
-      5.0,
-      0.5,
-      5.0,
-      5.0,
-     10.0,
-      5.0,
-     10.0,
-     10.0,
-     20.0,
-     20.0,
-     10.0,
-     10.0,
-     20.0 };
+  static double b_vec[N_MAX] = {
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      1.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      2.0E+00,
+      5.0E+00,
+      0.5E+00,
+      5.0E+00,
+      5.0E+00,
+     10.0E+00,
+      5.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+     20.0E+00,
+     10.0E+00,
+     10.0E+00,
+     20.0E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.5E+00,
+      0.2E+01,
+      0.3E+01,
+      0.4E+01,
+      0.5E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+      0.2E+01,
+     11.7562, 
+     11.7562, 
+     11.7562 };
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
      0.6376856085851985E-01,
-     0.2048327646991335,
+     0.2048327646991335E+00,
      0.1000000000000000E+01,
-     0.0000000000000000,
+     0.0000000000000000E+00,
      0.5012562893380045E-02,
      0.5131670194948620E-01,
-     0.2928932188134525,
-     0.5000000000000000,
+     0.2928932188134525E+00,
+     0.5000000000000000E+00,
      0.2800000000000000E-01,
-     0.1040000000000000,
-     0.2160000000000000,
-     0.3520000000000000,
-     0.5000000000000000,
-     0.6480000000000000,
-     0.7840000000000000,
-     0.8960000000000000,
-     0.9720000000000000,
-     0.4361908850559777,
-     0.1516409096347099,
+     0.1040000000000000E+00,
+     0.2160000000000000E+00,
+     0.3520000000000000E+00,
+     0.5000000000000000E+00,
+     0.6480000000000000E+00,
+     0.7840000000000000E+00,
+     0.8960000000000000E+00,
+     0.9720000000000000E+00,
+     0.4361908850559777E+00,
+     0.1516409096347099E+00,
      0.8978271484375000E-01,
      0.1000000000000000E+01,
-     0.5000000000000000,
-     0.4598773297575791,
-     0.2146816102371739,
-     0.9507364826957875,
-     0.5000000000000000,
-     0.8979413687105918,
-     0.2241297491808366,
-     0.7586405487192086,
-     0.7001783247477069 };
+     0.5000000000000000E+00,
+     0.4598773297575791E+00,
+     0.2146816102371739E+00,
+     0.9507364826957875E+00,
+     0.5000000000000000E+00,
+     0.8979413687105918E+00,
+     0.2241297491808366E+00,
+     0.7586405487192086E+00,
+     0.7001783247477069E+00,
+     0.5131670194948620E-01,
+     0.1055728090000841E+00,
+     0.1633399734659245E+00,
+     0.2254033307585166E+00,
+     0.3600000000000000E+00,
+     0.4880000000000000E+00,
+     0.5904000000000000E+00,
+     0.6723200000000000E+00,
+     0.2160000000000000E+00,
+     0.8370000000000000E-01,
+     0.3078000000000000E-01,
+     0.1093500000000000E-01,
+     0.918884684620518,
+     0.21052977489419,
+     0.1824130512500673 };
 
-  double x_vec[N_MAX] = {
-     0.01,
-     0.10,
-     1.00,
-     0.00,
-     0.01,
-     0.10,
-     0.50,
-     0.50,
-     0.10,
-     0.20,
-     0.30,
-     0.40,
-     0.50,
-     0.60,
-     0.70,
-     0.80,
-     0.90,
-     0.50,
-     0.90,
-     0.50,
-     1.00,
-     0.50,
-     0.80,
-     0.60,
-     0.80,
-     0.50,
-     0.60,
-     0.70,
-     0.80,
-     0.70 };
+  static double x_vec[N_MAX] = {
+     0.01E+00,
+     0.10E+00,
+     1.00E+00,
+     0.00E+00,
+     0.01E+00,
+     0.10E+00,
+     0.50E+00,
+     0.50E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.50E+00,
+     0.60E+00,
+     0.70E+00,
+     0.80E+00,
+     0.90E+00,
+     0.50E+00,
+     0.90E+00,
+     0.50E+00,
+     1.00E+00,
+     0.50E+00,
+     0.80E+00,
+     0.60E+00,
+     0.80E+00,
+     0.50E+00,
+     0.60E+00,
+     0.70E+00,
+     0.80E+00,
+     0.70E+00,
+     0.10E+00,
+     0.20E+00,
+     0.30E+00,
+     0.40E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.20E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.225609,
+     0.0335568,
+     0.0295222 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0.0;
-    *b = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0.0;
+    b = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *b = b_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -3300,7 +3787,7 @@ double beta_pdf ( double x, double a, double b )
 //
 //  Discussion:
 //
-//    PDF(A,B;X) = X**(A-1) * (1-X)**(B-1) / BETA(A,B).
+//    PDF(A,B;X) = X^(A-1) * (1-X)^(B-1) / BETA(A,B).
 //
 //    A = B = 1 yields the Uniform distribution on [0,1].
 //    A = B = 1/2 yields the Arcsin distribution.
@@ -3346,7 +3833,7 @@ double beta_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double beta_sample ( double a, double b, int *seed )
+double beta_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -3379,7 +3866,7 @@ double beta_sample ( double a, double b, int *seed )
 //    0.0 < A,
 //    0.0 < B.
 //
-//    Input/output, int SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double BETA_SAMPLE, a sample of the PDF.
 //
@@ -3542,7 +4029,7 @@ double binomial_cdf ( double x, int a, double b )
 }
 //****************************************************************************80
 
-void binomial_cdf_values ( int *n_data, int *a, double *b, int *x, double *fx )
+void binomial_cdf_values ( int &n_data, int &a, double &b, int &x, double &fx )
 
 //****************************************************************************80
 //
@@ -3594,95 +4081,95 @@ void binomial_cdf_values ( int *n_data, int *a, double *b, int *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *A, a parameter of the function.
+//    Output, int &A, a parameter of the function.
 //
-//    Output, double *B, a parameter of the function.
+//    Output, double &B, a parameter of the function.
 //
-//    Output, int *X, the argument of the function.
+//    Output, int &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 17
 
-  int a_vec[N_MAX] = {
+  static int a_vec[N_MAX] = {
      2,  2,  2,  2,
      2,  4,  4,  4,
      4, 10, 10, 10,
     10, 10, 10, 10,
     10 };
 
-  double b_vec[N_MAX] = {
-     0.05,
-     0.05,
-     0.05,
-     0.50,
-     0.50,
-     0.25,
-     0.25,
-     0.25,
-     0.25,
-     0.05,
-     0.10,
-     0.15,
-     0.20,
-     0.25,
-     0.30,
-     0.40,
-     0.50  };
+  static double b_vec[N_MAX] = {
+     0.05E+00,
+     0.05E+00,
+     0.05E+00,
+     0.50E+00,
+     0.50E+00,
+     0.25E+00,
+     0.25E+00,
+     0.25E+00,
+     0.25E+00,
+     0.05E+00,
+     0.10E+00,
+     0.15E+00,
+     0.20E+00,
+     0.25E+00,
+     0.30E+00,
+     0.40E+00,
+     0.50E+00  };
 
-  double fx_vec[N_MAX] = {
-     0.9025000000000000,
-     0.9975000000000000,
+  static double fx_vec[N_MAX] = {
+     0.9025000000000000E+00,
+     0.9975000000000000E+00,
      0.1000000000000000E+01,
-     0.2500000000000000,
-     0.7500000000000000,
-     0.3164062500000000,
-     0.7382812500000000,
-     0.9492187500000000,
-     0.9960937500000000,
-     0.9999363101685547,
-     0.9983650626000000,
-     0.9901259090013672,
-     0.9672065024000000,
-     0.9218730926513672,
-     0.8497316674000000,
-     0.6331032576000000,
-     0.3769531250000000 };
+     0.2500000000000000E+00,
+     0.7500000000000000E+00,
+     0.3164062500000000E+00,
+     0.7382812500000000E+00,
+     0.9492187500000000E+00,
+     0.9960937500000000E+00,
+     0.9999363101685547E+00,
+     0.9983650626000000E+00,
+     0.9901259090013672E+00,
+     0.9672065024000000E+00,
+     0.9218730926513672E+00,
+     0.8497316674000000E+00,
+     0.6331032576000000E+00,
+     0.3769531250000000E+00 };
 
-  int x_vec[N_MAX] = {
+  static int x_vec[N_MAX] = {
      0, 1, 2, 0,
      1, 0, 1, 2,
      3, 4, 4, 4,
      4, 4, 4, 4,
      4 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0;
-    *b = 0.0;
-    *x = 0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0;
+    b = 0.0;
+    x = 0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *b = b_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -3731,9 +4218,9 @@ int binomial_cdf_inv ( double cdf, int a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "BINOMIAL_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "BINOMIAL_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -3790,17 +4277,17 @@ bool binomial_check ( int a, double b )
 {
   if ( a < 1 )
   {
-    cout << "\n";
-    cout << "BINOMIAL_CHECK - Fatal error!\n";
-    cout << "  A < 1.\n";
+    cerr << "\n";
+    cerr << "BINOMIAL_CHECK - Fatal error!\n";
+    cerr << "  A < 1.\n";
     return false;
   }
 
   if ( b < 0.0 || 1.0 < b )
   {
-    cout << "\n";
-    cout << "BINOMIAL_CHECK - Fatal error!\n";
-    cout << "  B < 0 or 1 < B.\n";
+    cerr << "\n";
+    cerr << "BINOMIAL_CHECK - Fatal error!\n";
+    cerr << "  B < 0 or 1 < B.\n";
     return false;
   }
 
@@ -3973,7 +4460,7 @@ double binomial_pdf ( int x, int a, double b )
 //    PDF(A,B;X) is the probability of exactly X successes in A trials,
 //    given that the probability of success on a single trial is B.
 //
-//    PDF(A,B;X) = C(N,X) * B**X * ( 1.0 - B )**( A - X )
+//    PDF(A,B;X) = C(N,X) * B^X * ( 1.0 - B )^( A - X )
 //
 //    Binomial_PDF(1,B;X) = Bernoulli_PDF(B;X).
 //
@@ -4047,7 +4534,7 @@ double binomial_pdf ( int x, int a, double b )
 }
 //****************************************************************************80
 
-int binomial_sample ( int a, double b, int *seed )
+int binomial_sample ( int a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -4082,7 +4569,7 @@ int binomial_sample ( int a, double b, int *seed )
 //    Input, double B, the probability of success on one trial.
 //    0.0 <= B <= 1.0.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int BINOMIAL_SAMPLE, a sample of the PDF.
 //
@@ -4416,9 +4903,9 @@ double bradford_cdf_inv ( double cdf, double a, double b, double c )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "BRADFORD_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "BRADFORD_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -4470,17 +4957,17 @@ bool bradford_check ( double a, double b, double c )
 {
   if ( b <= a )
   {
-    cout << " \n";
-    cout << "BRADFORD_CHECK - Fatal error!\n";
-    cout << "  B <= A.\n";
+    cerr << " \n";
+    cerr << "BRADFORD_CHECK - Fatal error!\n";
+    cerr << "  B <= A.\n";
     return false;
   }
 
   if ( c <= 0.0 )
   {
-    cout << " \n";
-    cout << "BRADFORD_CHECK - Fatal error!\n";
-    cout << "  C <= 0.\n";
+    cerr << " \n";
+    cerr << "BRADFORD_CHECK - Fatal error!\n";
+    cerr << "  C <= 0.\n";
     return false;
   }
 
@@ -4581,7 +5068,7 @@ double bradford_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double bradford_sample ( double a, double b, double c, int *seed )
+double bradford_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -4607,7 +5094,7 @@ double bradford_sample ( double a, double b, double c, int *seed )
 //    A < B,
 //    0.0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double BRADFORD_SAMPLE, a sample of the PDF.
 //
@@ -4735,9 +5222,9 @@ double buffon_laplace_pdf ( double a, double b, double l )
 
   if ( a < 0.0 )
   {
-    cout << "\n";
-    cout << "BUFFON_LAPLACE_PDF - Fatal error!\n";
-    cout << "  Input A < 0.\n";
+    cerr << "\n";
+    cerr << "BUFFON_LAPLACE_PDF - Fatal error!\n";
+    cerr << "  Input A < 0.\n";
     exit ( 1 );
   }
   else if ( a == 0.0 )
@@ -4748,9 +5235,9 @@ double buffon_laplace_pdf ( double a, double b, double l )
 
   if ( b < 0.0 )
   {
-    cout << "\n";
-    cout << "BUFFON_LAPLACE_PDF - Fatal error!\n";
-    cout << "  Input B < 0.\n";
+    cerr << "\n";
+    cerr << "BUFFON_LAPLACE_PDF - Fatal error!\n";
+    cerr << "  Input B < 0.\n";
     exit ( 1 );
   }
   else if ( b == 0.0 )
@@ -4761,9 +5248,9 @@ double buffon_laplace_pdf ( double a, double b, double l )
 
   if ( l < 0.0 )
   {
-    cout << "\n";
-    cout << "BUFFON_LAPLACE_PDF - Fatal error!\n";
-    cout << "  Input L < 0.\n";
+    cerr << "\n";
+    cerr << "BUFFON_LAPLACE_PDF - Fatal error!\n";
+    cerr << "  Input L < 0.\n";
     exit ( 1 );
   }
   else if ( l == 0.0 )
@@ -4773,9 +5260,9 @@ double buffon_laplace_pdf ( double a, double b, double l )
   }
   else if ( r8_min ( a, b ) < l )
   {
-    cout << "\n";
-    cout << "BUFFON_LAPLACE_PDF - Fatal error!\n";
-    cout << "  min ( A, B ) < L.\n";
+    cerr << "\n";
+    cerr << "BUFFON_LAPLACE_PDF - Fatal error!\n";
+    cerr << "  min ( A, B ) < L.\n";
     exit ( 1 );
   }
 
@@ -4967,9 +5454,9 @@ double buffon_pdf ( double a, double l )
 
   if ( a < 0.0 )
   {
-    cout << "\n";
-    cout << "BUFFON_PDF - Fatal error!\n";
-    cout << "  Input A < 0.\n";
+    cerr << "\n";
+    cerr << "BUFFON_PDF - Fatal error!\n";
+    cerr << "  Input A < 0.\n";
     exit ( 1 );
   }
   else if ( a == 0.0 )
@@ -4980,9 +5467,9 @@ double buffon_pdf ( double a, double l )
 
   if ( l < 0.0 )
   {
-    cout << "\n";
-    cout << "BUFFON_PDF - Fatal error!\n";
-    cout << "  Input L < 0.\n";
+    cerr << "\n";
+    cerr << "BUFFON_PDF - Fatal error!\n";
+    cerr << "  Input L < 0.\n";
     exit ( 1 );
   }
   else if ( l == 0.0 )
@@ -5180,9 +5667,9 @@ double burr_cdf_inv ( double cdf, double a, double b, double c, double d )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "BURR_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "BURR_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -5223,17 +5710,17 @@ bool burr_check ( double a, double b, double c, double d )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "BURR_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "BURR_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
   if ( c <= 0 )
   {
-    cout << " \n";
-    cout << "BURR_CHECK - Fatal error!\n";
-    cout << "  C <= 0.\n";
+    cerr << " \n";
+    cerr << "BURR_CHECK - Fatal error!\n";
+    cerr << "  C <= 0.\n";
     return false;
   }
 
@@ -5247,7 +5734,7 @@ double burr_mean ( double a, double b, double c, double d )
 //
 //  Purpose:
 //
-//   BURR_MEAN returns the mean of the Burr PDF.
+//    BURR_MEAN returns the mean of the Burr PDF.
 //
 //  Licensing:
 //
@@ -5289,8 +5776,8 @@ double burr_pdf ( double x, double a, double b, double c, double d )
 //
 //  Discussion:
 //
-//    PDF(A,B,C,D;X) = ( C * D / B ) * ( ( X - A ) / B )**( - C - 1 )
-//      * ( 1 + ( ( X - A ) / B )**( - C ) )**( - D - 1 )
+//    PDF(A,B,C,D;X) = ( C * D / B ) * ( ( X - A ) / B )^( - C - 1 )
+//      * ( 1 + ( ( X - A ) / B )^( - C ) )^( - D - 1 )
 //
 //  Licensing:
 //
@@ -5342,7 +5829,7 @@ double burr_pdf ( double x, double a, double b, double c, double d )
 }
 //****************************************************************************80
 
-double burr_sample ( double a, double b, double c, double d, int *seed )
+double burr_sample ( double a, double b, double c, double d, int &seed )
 
 //****************************************************************************80
 //
@@ -5368,7 +5855,7 @@ double burr_sample ( double a, double b, double c, double d, int *seed )
 //    0 < B,
 //    0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double BURR_SAMPLE, a sample of the PDF.
 //
@@ -5517,7 +6004,7 @@ double cardioid_cdf_inv ( double cdf, double a, double b )
 //    Input, double A, B, the parameters.
 //    0.0 <= B <= 0.5.
 //
-//    Output, double X, the argument with the given CDF.
+//    Output, double CARDIOD_CDF_INV, the argument with the given CDF.
 //    A - PI <= X <= A + PI.
 //
 {
@@ -5549,9 +6036,9 @@ double cardioid_cdf_inv ( double cdf, double a, double b )
 
       if ( 10 < it )
       {
-        cout << "\n";
-        cout << "CARDIOID_CDF_INV - Fatal error!\n";
-        cout << "  Too many iterations.\n";
+        cerr << "\n";
+        cerr << "CARDIOID_CDF_INV - Fatal error!\n";
+        cerr << "  Too many iterations.\n";
         exit ( 1 );
       }
 
@@ -5605,9 +6092,9 @@ bool cardioid_check ( double a, double b )
 
   if ( b < -0.5 || 0.5 < b )
   {
-    cout << "\n";
-    cout << "CARDIOID_CHECK - Fatal error!\n";
-    cout << "  B < -0.5 or 0.5 < B.\n";
+    cerr << "\n";
+    cerr << "CARDIOID_CHECK - Fatal error!\n";
+    cerr << "  B < -0.5 or 0.5 < B.\n";
     value = false;
     return value;
   }
@@ -5707,7 +6194,7 @@ double cardioid_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double cardioid_sample ( double a, double b, int *seed )
+double cardioid_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -5732,10 +6219,10 @@ double cardioid_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 <= B <= 0.5.
 //
-//    Output, double X, a sample of the PDF.
-//    A - PI <= X <= A + PI.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Output, double CARDIOD_SAMPLE, a sample of the PDF.
+//    A - PI <= X <= A + PI.
 //
 {
   double cdf;
@@ -5855,7 +6342,7 @@ double cauchy_cdf_inv ( double cdf, double a, double b )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Output, double X, the corresponding argument.
+//    Output, double CAUCHY_CDF_INV, the corresponding argument.
 //
 {
   const double pi = 3.14159265358979323;
@@ -5863,9 +6350,9 @@ double cauchy_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "CAUCHY_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "CAUCHY_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -5875,8 +6362,8 @@ double cauchy_cdf_inv ( double cdf, double a, double b )
 }
 //****************************************************************************80
 
-void cauchy_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
-  double *fx )
+void cauchy_cdf_values ( int &n_data, double &mu, double &sigma, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -5921,37 +6408,37 @@ void cauchy_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *MU, the mean of the distribution.
+//    Output, double &MU, the mean of the distribution.
 //
-//    Output, double *SIGMA, the variance of the distribution.
+//    Output, double &SIGMA, the variance of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double fx_vec[N_MAX] = {
-     0.5000000000000000,
-     0.8524163823495667,
-     0.9220208696226307,
-     0.9474315432887466,
-     0.6475836176504333,
-     0.6024163823495667,
-     0.5779791303773693,
-     0.5628329581890012,
-     0.6475836176504333,
-     0.5000000000000000,
-     0.3524163823495667,
-     0.2500000000000000 };
+  static double fx_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.8524163823495667E+00,
+     0.9220208696226307E+00,
+     0.9474315432887466E+00,
+     0.6475836176504333E+00,
+     0.6024163823495667E+00,
+     0.5779791303773693E+00,
+     0.5628329581890012E+00,
+     0.6475836176504333E+00,
+     0.5000000000000000E+00,
+     0.3524163823495667E+00,
+     0.2500000000000000E+00 };
 
-  double mu_vec[N_MAX] = {
+  static double mu_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -5965,11 +6452,11 @@ void cauchy_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double sigma_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double sigma_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
@@ -5979,7 +6466,7 @@ void cauchy_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -5993,27 +6480,27 @@ void cauchy_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.3000000000000000E+01,
      0.3000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *mu = 0.0;
-    *sigma = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *mu = mu_vec[*n_data-1];
-    *sigma = sigma_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -6051,9 +6538,9 @@ bool cauchy_check ( double a, double b )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "CAUCHY_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "CAUCHY_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -6151,7 +6638,7 @@ double cauchy_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double cauchy_sample ( double a, double b, int *seed )
+double cauchy_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -6176,9 +6663,9 @@ double cauchy_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double CAUCHY_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -6319,7 +6806,7 @@ double chi_cdf_inv ( double cdf, double a, double b, double c )
 //    0 < B,
 //    0 < C.
 //
-//    Output, double X, the corresponding argument of the CDF.
+//    Output, double CHI_CDF_INV, the corresponding argument of the CDF.
 //
 {
   double cdf1;
@@ -6335,9 +6822,9 @@ double chi_cdf_inv ( double cdf, double a, double b, double c )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "CHI_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "CHI_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -6388,9 +6875,9 @@ double chi_cdf_inv ( double cdf, double a, double b, double c )
 
     if ( it_max < it )
     {
-      cout << " \n";
-      cout << "CHI_CDF_INV - Fatal error!\n";
-      cout << "  Iteration limit exceeded.\n";
+      cerr << " \n";
+      cerr << "CHI_CDF_INV - Fatal error!\n";
+      cerr << "  Iteration limit exceeded.\n";
       return x;
     }
 
@@ -6442,17 +6929,17 @@ bool chi_check ( double a, double b, double c )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "CHI_CHECK - Fatal error!\n";
-    cout << "  B <= 0.0.\n";
+    cerr << " \n";
+    cerr << "CHI_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.0.\n";
     return false;
   }
 
   if ( c <= 0.0 )
   {
-    cout << " \n";
-    cout << "CHI_CHECK - Fatal error!\n";
-    cout << "  C <= 0.0.\n";
+    cerr << " \n";
+    cerr << "CHI_CHECK - Fatal error!\n";
+    cerr << "  C <= 0.0.\n";
     return false;
   }
 
@@ -6509,8 +6996,8 @@ double chi_pdf ( double x, double a, double b, double c )
 //  Discussion:
 //
 //    PDF(A,B,C;X) = EXP ( - 0.5 * ( ( X - A ) / B )^2 )
-//      * ( ( X - A ) / B )**( C - 1 ) /
-//      ( 2**( 0.5 * C - 1 ) * B * GAMMA ( 0.5 * C ) )
+//      * ( ( X - A ) / B )^( C - 1 ) /
+//      ( 2^( 0.5 * C - 1 ) * B * GAMMA ( 0.5 * C ) )
 //
 //    CHI(A,B,1) is the Half Normal PDF;
 //    CHI(0,B,2) is the Rayleigh PDF;
@@ -6559,7 +7046,7 @@ double chi_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double chi_sample ( double a, double b, double c, int *seed )
+double chi_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -6585,9 +7072,9 @@ double chi_sample ( double a, double b, double c, int *seed )
 //    0 < B,
 //    0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double CHI_SAMPLE, a sample of the PDF.
 //
 {
   double x;
@@ -6723,7 +7210,7 @@ double chi_square_cdf_inv ( double cdf, double a )
 //    Input, double A, the parameter of the chi-squared
 //    probability density function.  0 < A.
 //
-//    Output, double X, the value of the chi-squared random deviate
+//    Output, double CHI_SQUARE_CDF_INV, the value of the chi-squared random deviate
 //    with the property that the probability that a chi-squared random
 //    deviate with parameter A is less than or equal to X is CDF.
 //
@@ -6794,18 +7281,18 @@ double chi_square_cdf_inv ( double cdf, double a )
   if ( cdf < cdf_min )
   {
     x = -1.0;
-    cout << " \n";
-    cout << "CHI_SQUARE_CDF_INV - Fatal error!\n";
-    cout << "  CDF < CDF_MIN.\n";
+    cerr << " \n";
+    cerr << "CHI_SQUARE_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < CDF_MIN.\n";
     exit ( 1 );
   }
 
   if ( cdf_max < cdf )
   {
     x = -1.0;
-    cout << " \n";
-    cout << "CHI_SQUARE_CDF_INV - Fatal error!\n";
-    cout << "  CDF_MAX < CDF.\n";
+    cerr << " \n";
+    cerr << "CHI_SQUARE_CDF_INV - Fatal error!\n";
+    cerr << "  CDF_MAX < CDF.\n";
     exit ( 1 );
   }
 
@@ -6939,7 +7426,7 @@ double chi_square_cdf_inv ( double cdf, double a )
 }
 //****************************************************************************80
 
-void chi_square_cdf_values ( int *n_data, int *a, double *x, double *fx )
+void chi_square_cdf_values ( int &n_data, int &a, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -6984,22 +7471,22 @@ void chi_square_cdf_values ( int *n_data, int *a, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *A, the parameter of the function.
+//    Output, int &A, the parameter of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 //
 # define N_MAX 21
 
-  int a_vec[N_MAX] = {
+  static int a_vec[N_MAX] = {
      1,  2,  1,  2,
      1,  2,  3,  4,
      1,  2,  3,  4,
@@ -7007,71 +7494,71 @@ void chi_square_cdf_values ( int *n_data, int *a, double *x, double *fx )
      3,  3, 10, 10,
     10 };
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
      0.7965567455405796E-01,
      0.4987520807317687E-02,
-     0.1124629160182849,
+     0.1124629160182849E+00,
      0.9950166250831946E-02,
-     0.4729107431344619,
-     0.1812692469220181,
+     0.4729107431344619E+00,
+     0.1812692469220181E+00,
      0.5975750516063926E-01,
      0.1752309630642177E-01,
-     0.6826894921370859,
-     0.3934693402873666,
-     0.1987480430987992,
+     0.6826894921370859E+00,
+     0.3934693402873666E+00,
+     0.1987480430987992E+00,
      0.9020401043104986E-01,
      0.3743422675270363E-01,
-     0.4275932955291202,
-     0.6083748237289110,
-     0.7385358700508894,
-     0.8282028557032669,
-     0.8883897749052874,
+     0.4275932955291202E+00,
+     0.6083748237289110E+00,
+     0.7385358700508894E+00,
+     0.8282028557032669E+00,
+     0.8883897749052874E+00,
      0.1721156299558408E-03,
      0.3659846827343712E-02,
      0.1857593622214067E-01 };
 
-  double x_vec[N_MAX] = {
-     0.01,
-     0.01,
-     0.02,
-     0.02,
-     0.40,
-     0.40,
-     0.40,
-     0.40,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     2.00,
-     3.00,
-     4.00,
-     5.00,
-     6.00,
-     1.00,
-     2.00,
-     3.00 };
+  static double x_vec[N_MAX] = {
+     0.01E+00,
+     0.01E+00,
+     0.02E+00,
+     0.02E+00,
+     0.40E+00,
+     0.40E+00,
+     0.40E+00,
+     0.40E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     2.00E+00,
+     3.00E+00,
+     4.00E+00,
+     5.00E+00,
+     6.00E+00,
+     1.00E+00,
+     2.00E+00,
+     3.00E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -7109,9 +7596,9 @@ bool chi_square_check ( double a )
 {
   if ( a < 1.0 )
   {
-    cout << " \n";
-    cout << "CHI_SQUARE_CHECK - Fatal error!\n";
-    cout << "  A < 1.0.\n";
+    cerr << " \n";
+    cerr << "CHI_SQUARE_CHECK - Fatal error!\n";
+    cerr << "  A < 1.0.\n";
     return false;
   }
 
@@ -7166,7 +7653,7 @@ double chi_square_pdf ( double x, double a )
 //  Discussion:
 //
 //    PDF(A;X) =
-//      EXP ( - X / 2 ) * X**((A-2)/2) / ( 2**(A/2) * GAMMA ( A/2 ) )
+//      EXP ( - X / 2 ) * X^((A-2)/2) / ( 2^(A/2) * GAMMA ( A/2 ) )
 //
 //  Licensing:
 //
@@ -7209,7 +7696,7 @@ double chi_square_pdf ( double x, double a )
 }
 //****************************************************************************80
 
-double chi_square_sample ( double a, int *seed )
+double chi_square_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -7234,9 +7721,9 @@ double chi_square_sample ( double a, int *seed )
 //    Input, double A, the parameter of the PDF.
 //    1 <= A.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double CHI_SQUARE_SAMPLE, a sample of the PDF.
 //
 {
   double a2;
@@ -7310,8 +7797,8 @@ double chi_square_variance ( double a )
 }
 //****************************************************************************80
 
-void chi_square_noncentral_cdf_values ( int *n_data, int *df, double *lambda,
-  double *x, double *cdf )
+void chi_square_noncentral_cdf_values ( int &n_data, int &df, double &lambda,
+  double &x, double &cdf )
 
 //****************************************************************************80
 //
@@ -7350,32 +7837,32 @@ void chi_square_noncentral_cdf_values ( int *n_data, int *df, double *lambda,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *DF, the number of degrees of freedom.
+//    Output, int &DF, the number of degrees of freedom.
 //
-//    Output, double *LAMBDA, the noncentrality parameter.
+//    Output, double &LAMBDA, the noncentrality parameter.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *CDF, the noncentral chi CDF.
+//    Output, double &CDF, the noncentral chi CDF.
 //
 {
 # define N_MAX 28
 
-  double cdf_vec[N_MAX] = {
-     0.8399444269398261,
-     0.6959060300435139,
-     0.5350879697078847,
-     0.7647841496310313,
-     0.6206436532195436,
-     0.4691667375373180,
-     0.3070884345937569,
-     0.2203818092990903,
-     0.1500251895581519,
+  static double cdf_vec[N_MAX] = {
+     0.8399444269398261E+00,
+     0.6959060300435139E+00,
+     0.5350879697078847E+00,
+     0.7647841496310313E+00,
+     0.6206436532195436E+00,
+     0.4691667375373180E+00,
+     0.3070884345937569E+00,
+     0.2203818092990903E+00,
+     0.1500251895581519E+00,
      0.3071163194335791E-02,
      0.1763982670131894E-02,
      0.9816792594625022E-03,
@@ -7391,12 +7878,12 @@ void chi_square_noncentral_cdf_values ( int *n_data, int *df, double *lambda,
      0.5838039534819351E-01,
      0.4249784402463712E-01,
      0.3082137716021596E-01,
-     0.1057878223400849,
+     0.1057878223400849E+00,
      0.7940842984598509E-01,
      0.5932010895599639E-01,
-     0.2110395656918684 };
+     0.2110395656918684E+00 };
 
-  int df_vec[N_MAX] = {
+  static int df_vec[N_MAX] = {
       1,   2,   3,
       1,   2,   3,
       1,   2,   3,
@@ -7408,87 +7895,87 @@ void chi_square_noncentral_cdf_values ( int *n_data, int *df, double *lambda,
      10,  10,  10,
       8 };
 
-  double lambda_vec[N_MAX] = {
-     0.5,
-     0.5,
-     0.5,
-     1.0,
-     1.0,
-     1.0,
-     5.0,
-     5.0,
-     5.0,
-    20.0,
-    20.0,
-    20.0,
-    30.0,
-    30.0,
-    30.0,
-     5.0,
-     5.0,
-     5.0,
-     2.0,
-     3.0,
-     4.0,
-     2.0,
-     3.0,
-     4.0,
-     2.0,
-     3.0,
-     4.0,
-     0.5 };
+  static double lambda_vec[N_MAX] = {
+     0.5E+00,
+     0.5E+00,
+     0.5E+00,
+     1.0E+00,
+     1.0E+00,
+     1.0E+00,
+     5.0E+00,
+     5.0E+00,
+     5.0E+00,
+    20.0E+00,
+    20.0E+00,
+    20.0E+00,
+    30.0E+00,
+    30.0E+00,
+    30.0E+00,
+     5.0E+00,
+     5.0E+00,
+     5.0E+00,
+     2.0E+00,
+     3.0E+00,
+     4.0E+00,
+     2.0E+00,
+     3.0E+00,
+     4.0E+00,
+     2.0E+00,
+     3.0E+00,
+     4.0E+00,
+     0.5E+00 };
 
-  double x_vec[N_MAX] = {
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-      3.000,
-     60.000,
-     60.000,
-     60.000,
-      0.050,
-      0.050,
-      0.050,
-      4.000,
-      4.000,
-      4.000,
-      5.000,
-      5.000,
-      5.000,
-      6.000,
-      6.000,
-      6.000,
-      5.000 };
+  static double x_vec[N_MAX] = {
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+      3.000E+00,
+     60.000E+00,
+     60.000E+00,
+     60.000E+00,
+      0.050E+00,
+      0.050E+00,
+      0.050E+00,
+      4.000E+00,
+      4.000E+00,
+      4.000E+00,
+      5.000E+00,
+      5.000E+00,
+      5.000E+00,
+      6.000E+00,
+      6.000E+00,
+      6.000E+00,
+      5.000E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *x = 0.0;
-    *lambda = 0.0;
-    *df = 0;
-    *cdf = 0.0;
+    n_data = 0;
+    x = 0.0;
+    lambda = 0.0;
+    df = 0;
+    cdf = 0.0;
   }
   else
   {
-    *x = x_vec[*n_data-1];
-    *lambda = lambda_vec[*n_data-1];
-    *df = df_vec[*n_data-1];
-    *cdf = cdf_vec[*n_data-1];
+    x = x_vec[n_data-1];
+    lambda = lambda_vec[n_data-1];
+    df = df_vec[n_data-1];
+    cdf = cdf_vec[n_data-1];
   }
 
   return;
@@ -7530,17 +8017,17 @@ double chi_square_noncentral_check ( double a, double b )
 {
   if ( a < 1.0 )
   {
-    cout << " \n";
-    cout << "CHI_SQUARE_NONCENTRAL_CHECK - Fatal error!\n";
-    cout << "  A < 1.\n";
+    cerr << " \n";
+    cerr << "CHI_SQUARE_NONCENTRAL_CHECK - Fatal error!\n";
+    cerr << "  A < 1.\n";
     return false;
   }
 
   if ( b < 0.0 )
   {
-    cout << " \n";
-    cout << "CHI_SQUARE_NONCENTRAL_CHECK - Fatal error!\n";
-    cout << "  B < 0.\n";
+    cerr << " \n";
+    cerr << "CHI_SQUARE_NONCENTRAL_CHECK - Fatal error!\n";
+    cerr << "  B < 0.\n";
     return false;
   }
 
@@ -7587,7 +8074,7 @@ double chi_square_noncentral_mean ( double a, double b )
 }
 //****************************************************************************80
 
-double chi_square_noncentral_sample ( double a, double b, int *seed )
+double chi_square_noncentral_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -7615,9 +8102,9 @@ double chi_square_noncentral_sample ( double a, double b, int *seed )
 //    Input, double B, the noncentrality parameter of the PDF.
 //    0.0 <= B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double CHI_SQUARE_NONCENTRAL_SAMPLE, a sample of the PDF.
 //
 {
   double a1;
@@ -7647,7 +8134,7 @@ double chi_square_noncentral_variance ( double a, double b )
 //
 //  Purpose:
 //
-//    CHI_SQUARE_NONCENTRAL_VARIANCE returns the variance of the noncentral Chi squared PDF.
+//    CHI_SQUARE_NONCENTRAL_VARIANCE: variance of the noncentral Chi squared PDF.
 //
 //  Licensing:
 //
@@ -7680,7 +8167,7 @@ double chi_square_noncentral_variance ( double a, double b )
 }
 //****************************************************************************80
 
-double *circle_sample ( double a, double b, double c, int *seed )
+double *circle_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -7706,7 +8193,7 @@ double *circle_sample ( double a, double b, double c, int *seed )
 //    The circle is centered at (A,B) and has radius C.
 //    0.0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double CIRCLE_SAMPLE[2], a sampled point of the circle.
 //
@@ -7805,7 +8292,7 @@ double circular_normal_01_pdf ( double x[2] )
 }
 //****************************************************************************80
 
-double *circular_normal_01_sample ( int *seed )
+double *circular_normal_01_sample ( int &seed )
 
 //****************************************************************************80
 //
@@ -7827,7 +8314,7 @@ double *circular_normal_01_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double CIRCULAR_NORMAL_01_SAMPLE[2], a sample of the PDF.
 //
@@ -7974,7 +8461,7 @@ double circular_normal_pdf ( double x[2], double a[2], double b )
 }
 //****************************************************************************80
 
-double *circular_normal_sample ( double a[2], double b, int *seed )
+double *circular_normal_sample ( double a[2], double b, int &seed )
 
 //****************************************************************************80
 //
@@ -8000,7 +8487,7 @@ double *circular_normal_sample ( double a[2], double b, int *seed )
 //
 //    Input, double B, a parameter of the PDF, the standard deviation.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double CIRCULAR_NORMAL_SAMPLE[2], a sample of the PDF.
 //
@@ -8225,7 +8712,7 @@ double cosine_cdf_inv ( double cdf, double a, double b )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Output, double X, the corresponding argument of the CDF.
+//    Output, double COSINE_CDF_INV, the corresponding argument of the CDF.
 //
 {
   double cdf1;
@@ -8242,9 +8729,9 @@ double cosine_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "COSINE_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "COSINE_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -8293,12 +8780,10 @@ double cosine_cdf_inv ( double cdf, double a, double b )
 
   }
 
-  cout << " \n";
-  cout << "COSINE_CDF_INV - Fatal error!\n";
-  cout << "  Iteration limit exceeded.\n";
-
+  cerr << " \n";
+  cerr << "COSINE_CDF_INV - Fatal error!\n";
+  cerr << "  Iteration limit exceeded.\n";
   exit ( 1 );
-  return x;
 }
 //****************************************************************************80
 
@@ -8332,9 +8817,9 @@ bool cosine_check ( double a, double b )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "COSINE_CHECK - Fatal error!\n";
-    cout << "  B <= 0.0\n";
+    cerr << " \n";
+    cerr << "COSINE_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.0\n";
     return false;
   }
 
@@ -8436,7 +8921,7 @@ double cosine_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double cosine_sample ( double a, double b, int *seed )
+double cosine_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -8461,9 +8946,9 @@ double cosine_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double COSINE_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -8660,10 +9145,10 @@ double coupon_mean ( int j, int type_num )
 
   if ( type_num < j )
   {
-    cout << " \n";
-    cout << "COUPON_MEAN - Fatal error!\n";
-    cout << "  Number of distinct coupons desired must be no more\n";
-    cout << "  than the total number of boxes opened.\n";
+    cerr << " \n";
+    cerr << "COUPON_MEAN - Fatal error!\n";
+    cerr << "  Number of distinct coupons desired must be no more\n";
+    cerr << "  than the total number of boxes opened.\n";
     exit ( 1 );
   }
 
@@ -8679,7 +9164,7 @@ double coupon_mean ( int j, int type_num )
 }
 //****************************************************************************80
 
-void coupon_simulate ( int type_num, int *seed, int coupon[], int *box_num )
+void coupon_simulate ( int type_num, int &seed, int coupon[], int *box_num )
 
 //****************************************************************************80
 //
@@ -8732,7 +9217,7 @@ void coupon_simulate ( int type_num, int *seed, int coupon[], int *box_num )
 //
 //    Input, int TYPE_NUM, the number of types of coupons.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int COUPON[TYPE_NUM], the number of coupons of each type
 //    that were collected during the simulation.
@@ -8756,7 +9241,7 @@ void coupon_simulate ( int type_num, int *seed, int coupon[], int *box_num )
 //
   while ( *box_num < box_max )
   {
-    i = i4_uniform ( 1, type_num, seed );
+    i = i4_uniform_ab ( 1, type_num, seed );
 //
 //  Increment the number of I coupons.
 //
@@ -8788,9 +9273,9 @@ void coupon_simulate ( int type_num, int *seed, int coupon[], int *box_num )
     }
   }
 
-  cout << " \n";
-  cout << "COUPON_SIMULATE - Fatal error!\n";
-  cout << "  Maximum number of coupons drawn without success.\n";
+  cerr << " \n";
+  cerr << "COUPON_SIMULATE - Fatal error!\n";
+  cerr << "  Maximum number of coupons drawn without success.\n";
 
   exit ( 1 );
 }
@@ -8818,7 +9303,7 @@ double coupon_variance ( int j, int type_num )
 //
 //  Modified:
 //
-//    13 October 2004
+//    09 June 2013
 //
 //  Author:
 //
@@ -8840,10 +9325,10 @@ double coupon_variance ( int j, int type_num )
 
   if ( type_num < j )
   {
-    cout << " \n";
-    cout << "COUPON_VARIANCE - Fatal error!\n";
-    cout << "  Number of distinct coupons desired must be no more\n";
-    cout << "  than the total number of distinct coupons.\n";
+    cerr << " \n";
+    cerr << "COUPON_VARIANCE - Fatal error!\n";
+    cerr << "  Number of distinct coupons desired must be no more\n";
+    cerr << "  than the total number of distinct coupons.\n";
     exit ( 1 );
   }
 
@@ -8851,7 +9336,7 @@ double coupon_variance ( int j, int type_num )
   for ( i = 1; i <= j; i++ )
   {
     variance = variance + ( double ) ( i - 1 ) /
-      pow ( double ( type_num - i + 1 ), 2 );
+      pow ( ( double ) ( type_num - i + 1 ), 2 );
   }
   variance = variance * ( double ) ( type_num );
 
@@ -8944,19 +9429,19 @@ int deranged_cdf_inv ( double cdf, int a )
 //    Input, int A, the number of items.
 //    1 <= A.
 //
-//    Output, int X, the corresponding argument.
+//    Output, int DERANGED_CDF_INV, the corresponding argument.
 //
 {
   double cdf2;
   double pdf;
   int x;
   int x2;
-//
+
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "DERANGED_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "DERANGED_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -9012,9 +9497,9 @@ bool deranged_check ( int a )
 {
   if ( a < 1 )
   {
-    cout << " \n";
-    cout << "DERANGED_CHECK - Fatal error!\n";
-    cout << "  A < 1.\n";
+    cerr << " \n";
+    cerr << "DERANGED_CHECK - Fatal error!\n";
+    cerr << "  A < 1.\n";
     return false;
   }
 
@@ -9047,7 +9532,7 @@ int deranged_enum ( int n )
 //
 //      D(0) = 1
 //      D(1) = 0
-//      D(N) = N * D(N-1) + (-1)**N
+//      D(N) = N * D(N-1) + (-1)^N
 //
 //    D(N) = N! * ( 1 - 1/1! + 1/2! - 1/3! ... 1/N! )
 //
@@ -9236,7 +9721,7 @@ double deranged_pdf ( int x, int a )
 }
 //****************************************************************************80
 
-int deranged_sample ( int a, int *seed )
+int deranged_sample ( int a, int &seed )
 
 //****************************************************************************80
 //
@@ -9261,9 +9746,9 @@ int deranged_sample ( int a, int *seed )
 //    Input, int A, the number of items.
 //    1 <= A.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, int X, a sample of the PDF.
+//    Output, int DERANGED_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -9383,9 +9868,9 @@ double digamma ( double x )
   if ( x <= 0.0 )
   {
     value = 0.0;
-    cout << " \n";
-    cout << "DIGAMMA - Fatal error!\n";
-    cout << "  X <= 0.\n";
+    cerr << " \n";
+    cerr << "DIGAMMA - Fatal error!\n";
+    cerr << "  X <= 0.\n";
     exit ( 1 );
   }
 //
@@ -9507,9 +9992,9 @@ double dipole_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "DIPOLE_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "DIPOLE_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -9571,9 +10056,9 @@ double dipole_cdf_inv ( double cdf, double a, double b )
 
     if ( it_max < it )
     {
-      cout << " \n";
-      cout << "DIPOLE_CDF_INV - Fatal error!\n";
-      cout << "  Iteration limit exceeded.\n";
+      cerr << " \n";
+      cerr << "DIPOLE_CDF_INV - Fatal error!\n";
+      cerr << "  Iteration limit exceeded.\n";
       exit ( 1 );
     }
 
@@ -9625,10 +10110,10 @@ bool dipole_check ( double a, double b )
 {
   if ( b < -1.0 || 1.0 < b )
   {
-    cout << " \n";
-    cout << "DIPOLE_CHECK - Fatal error!\n";
-    cout << "  -1.0 <= B <= 1.0 is required.\n";
-    cout << "  The input B = " << b << "\n";
+    cerr << " \n";
+    cerr << "DIPOLE_CHECK - Fatal error!\n";
+    cerr << "  -1.0 <= B <= 1.0 is required.\n";
+    cerr << "  The input B = " << b << "\n";
     return false;
   }
 
@@ -9699,7 +10184,7 @@ double dipole_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double dipole_sample ( double a, double b, int *seed )
+double dipole_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -9732,9 +10217,9 @@ double dipole_sample ( double a, double b, int *seed )
 //      is interesting,
 //    and -1.0 <= B <= 1.0.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double DIPOLE_SAMPLE, a sample of the PDF.
 //
 {
   double a2;
@@ -9800,10 +10285,10 @@ bool dirichlet_check ( int n, double a[] )
   {
     if ( a[i] <= 0.0 )
     {
-      cout << " \n";
-      cout << "DIRICHLET_CHECK - Fatal error!\n";
-      cout << "  A[" << i << "] <= 0.\n";
-      cout << "  A[" << i << "] = " << a[i] << ".\n";
+      cerr << " \n";
+      cerr << "DIRICHLET_CHECK - Fatal error!\n";
+      cerr << "  A[" << i << "] <= 0.\n";
+      cerr << "  A[" << i << "] = " << a[i] << ".\n";
       return false;
     }
     else if ( 0.0 < a[i] )
@@ -9814,9 +10299,9 @@ bool dirichlet_check ( int n, double a[] )
 
   if ( !positive )
   {
-    cout << " \n";
-    cout << "DIRICHLET_CHECK - Fatal error!\n";
-    cout << "  All parameters are zero!\n";
+    cerr << " \n";
+    cerr << "DIRICHLET_CHECK - Fatal error!\n";
+    cerr << "  All parameters are zero!\n";
     return false;
   }
 
@@ -9938,7 +10423,7 @@ double dirichlet_pdf ( double x[], int n, double a[] )
 //
 //  Discussion:
 //
-//    PDF(N,A;X) = Product ( 1 <= I <= N ) X(I)**( A(I) - 1 )
+//    PDF(N,A;X) = Product ( 1 <= I <= N ) X(I)^( A(I) - 1 )
 //      * Gamma ( A_SUM ) / A_PROD
 //
 //    where
@@ -9985,9 +10470,9 @@ double dirichlet_pdf ( double x[], int n, double a[] )
   {
     if ( x[i] <= 0.0 )
     {
-      cout << " \n";
-      cout << "DIRICHLET_PDF - Fatal error!\n";
-      cout << "  X(I) <= 0.\n";
+      cerr << " \n";
+      cerr << "DIRICHLET_PDF - Fatal error!\n";
+      cerr << "  X(I) <= 0.\n";
       exit ( 1 );
     }
   }
@@ -9996,9 +10481,9 @@ double dirichlet_pdf ( double x[], int n, double a[] )
 
   if ( tol < r8_abs ( x_sum - 1.0 ) )
   {
-    cout << " \n";
-    cout << "DIRICHLET_PDF - Fatal error!\n";
-    cout << "  SUM X(I) =/= 1.\n";
+    cerr << " \n";
+    cerr << "DIRICHLET_PDF - Fatal error!\n";
+    cerr << "  SUM X(I) =/= 1.\n";
     exit ( 1 );
   }
 
@@ -10021,7 +10506,7 @@ double dirichlet_pdf ( double x[], int n, double a[] )
 }
 //****************************************************************************80
 
-double *dirichlet_sample ( int n, double a[], int *seed )
+double *dirichlet_sample ( int n, double a[], int &seed )
 
 //****************************************************************************80
 //
@@ -10054,7 +10539,7 @@ double *dirichlet_sample ( int n, double a[], int *seed )
 //    Input, double A(N), the probabilities for each component.
 //    Each A(I) should be positive.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double DIRICHLET_SAMPLE[N], a sample of the PDF.  The entries
 //    of X should sum to 1.
@@ -10183,12 +10668,12 @@ bool dirichlet_mix_check ( int comp_num, int elem_num, double a[],
     {
       if ( a[elem_i+comp_i*elem_num] <= 0.0 )
       {
-        cout << " \n";
-        cout << "DIRICHLET_MIX_CHECK - Fatal error!\n";
-        cout << "  A(ELEM,COMP) <= 0.\n";
-        cout << "  COMP = " << comp_i << "\n";
-        cout << "  ELEM = " << elem_i << "\n";
-        cout << "  A(COMP,ELEM) = " << a[elem_i+comp_i*elem_num] << "\n";
+        cerr << " \n";
+        cerr << "DIRICHLET_MIX_CHECK - Fatal error!\n";
+        cerr << "  A(ELEM,COMP) <= 0.\n";
+        cerr << "  COMP = " << comp_i << "\n";
+        cerr << "  ELEM = " << elem_i << "\n";
+        cerr << "  A(COMP,ELEM) = " << a[elem_i+comp_i*elem_num] << "\n";
         return false;
       }
     }
@@ -10200,11 +10685,11 @@ bool dirichlet_mix_check ( int comp_num, int elem_num, double a[],
   {
     if ( comp_weight[comp_i] < 0.0 )
     {
-      cout << " \n";
-      cout << "DIRICHLET_MIX_CHECK - Fatal error!\n";
-      cout << "  COMP_WEIGHT(COMP) < 0.\n";
-      cout << "  COMP = " << comp_i << "\n";
-      cout << "  COMP_WEIGHT(COMP) = " << comp_weight[comp_i] << "\n";
+      cerr << " \n";
+      cerr << "DIRICHLET_MIX_CHECK - Fatal error!\n";
+      cerr << "  COMP_WEIGHT(COMP) < 0.\n";
+      cerr << "  COMP = " << comp_i << "\n";
+      cerr << "  COMP_WEIGHT(COMP) = " << comp_weight[comp_i] << "\n";
       return false;
     }
     else if ( 0.0 < comp_weight[comp_i] )
@@ -10215,9 +10700,9 @@ bool dirichlet_mix_check ( int comp_num, int elem_num, double a[],
 
   if ( !positive )
   {
-    cout << " \n";
-    cout << "DIRICHLET_MIX_CHECK - Fatal error!\n";
-    cout << "  All component weights are zero.\n";
+    cerr << " \n";
+    cerr << "DIRICHLET_MIX_CHECK - Fatal error!\n";
+    cerr << "  All component weights are zero.\n";
     return false;
   }
 
@@ -10394,7 +10879,7 @@ double dirichlet_mix_pdf ( double x[], int comp_num, int elem_num, double a[],
 //****************************************************************************80
 
 double *dirichlet_mix_sample ( int comp_num, int elem_num, double a[],
-  double comp_weight[], int *seed, int *comp )
+  double comp_weight[], int &seed, int *comp )
 
 //****************************************************************************80
 //
@@ -10431,7 +10916,7 @@ double *dirichlet_mix_sample ( int comp_num, int elem_num, double a[],
 //    the relative probability that that component will be used to generate
 //    the sample.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int *COMP, the index of the component of the Dirichlet
 //    mixture that was chosen to generate the sample.
@@ -10631,9 +11116,9 @@ int discrete_cdf_inv ( double cdf, int a, double b[] )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "DISCRETE_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "DISCRETE_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -10695,9 +11180,9 @@ bool discrete_check ( int a, double b[] )
   {
     if ( b[j] < 0.0 )
     {
-      cout << " \n";
-      cout << "DISCRETE_CHECK - Fatal error!\n";
-      cout << "  Negative probabilities not allowed.\n";
+      cerr << " \n";
+      cerr << "DISCRETE_CHECK - Fatal error!\n";
+      cerr << "  Negative probabilities not allowed.\n";
       return false;
     }
   }
@@ -10706,9 +11191,9 @@ bool discrete_check ( int a, double b[] )
 
   if ( b_sum == 0.0 )
   {
-    cout << " \n";
-    cout << "DISCRETE_CHECK - Fatal error!\n";
-    cout << "  Total probablity is zero.\n";
+    cerr << " \n";
+    cerr << "DISCRETE_CHECK - Fatal error!\n";
+    cerr << "  Total probablity is zero.\n";
     return false;
   }
 
@@ -10819,7 +11304,7 @@ double discrete_pdf ( int x, int a, double b[] )
 }
 //****************************************************************************80
 
-int discrete_sample ( int a, double b[], int *seed )
+int discrete_sample ( int a, double b[], int &seed )
 
 //****************************************************************************80
 //
@@ -10846,7 +11331,7 @@ int discrete_sample ( int a, double b[], int *seed )
 //    Input, double B[A], the relative probabilities of
 //    outcomes 1 through A.  Each entry must be nonnegative.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int DISCRETE_SAMPLE, a sample of the PDF.
 //
@@ -11059,9 +11544,9 @@ double empirical_discrete_cdf_inv ( double cdf, int a, double b[], double c[] )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "EMPIRICAL_DISCRETE_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "EMPIRICAL_DISCRETE_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -11126,11 +11611,11 @@ bool empirical_discrete_check ( int a, double b[], double c[] )
 
   if ( a <= 0 )
   {
-    cout << " \n";
-    cout << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
-    cout << "  A must be positive.\n";
-    cout << "  Input A = " << a << "\n";
-    cout << "  A is the number of weights.\n";
+    cerr << " \n";
+    cerr << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
+    cerr << "  A must be positive.\n";
+    cerr << "  Input A = " << a << "\n";
+    cerr << "  A is the number of weights.\n";
     return false;
   }
 
@@ -11138,10 +11623,10 @@ bool empirical_discrete_check ( int a, double b[], double c[] )
   {
     if ( b[i] < 0.0 )
     {
-      cout << " \n";
-      cout << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
-      cout << "  B[" << i << "] < 0.\n";
-      cout << "  But all B values must be nonnegative.\n";
+      cerr << " \n";
+      cerr << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
+      cerr << "  B[" << i << "] < 0.\n";
+      cerr << "  But all B values must be nonnegative.\n";
       return false;
     }
   }
@@ -11158,10 +11643,10 @@ bool empirical_discrete_check ( int a, double b[], double c[] )
 
   if ( !positive )
   {
-    cout << " \n";
-    cout << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
-    cout << "  All B(*) = 0.\n";
-    cout << "  But at least one B values must be nonzero.\n";
+    cerr << " \n";
+    cerr << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
+    cerr << "  All B(*) = 0.\n";
+    cerr << "  But at least one B values must be nonzero.\n";
     return false;
   }
 
@@ -11171,10 +11656,10 @@ bool empirical_discrete_check ( int a, double b[], double c[] )
     {
       if ( c[i] == c[j] )
       {
-        cout << " \n";
-        cout << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
-        cout << "  All values C must be unique.\n";
-        cout << "  But at least two values are identical.\n";
+        cerr << " \n";
+        cerr << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
+        cerr << "  All values C must be unique.\n";
+        cerr << "  But at least two values are identical.\n";
         return false;
       }
     }
@@ -11184,9 +11669,9 @@ bool empirical_discrete_check ( int a, double b[], double c[] )
   {
     if ( c[i+1] < c[i] )
     {
-      cout << " \n";
-      cout << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
-      cout << "  The values in C must be in ascending order.\n";
+      cerr << " \n";
+      cerr << "EMPIRICAL_DISCRETE_CHECK - Fatal error!\n";
+      cerr << "  The values in C must be in ascending order.\n";
       return false;
     }
   }
@@ -11305,7 +11790,7 @@ double empirical_discrete_pdf ( double x, int a, double b[], double c[] )
 }
 //****************************************************************************80
 
-double empirical_discrete_sample ( int a, double b[], double c[], int *seed )
+double empirical_discrete_sample ( int a, double b[], double c[], int &seed )
 
 //****************************************************************************80
 //
@@ -11336,7 +11821,7 @@ double empirical_discrete_sample ( int a, double b[], double c[], int *seed )
 //    Input, double C(A), the values.
 //    The values must be distinct and in ascending order.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double EMPIRICAL_DISCRETE_SAMPLE, a sample of the PDF.
 //
@@ -11672,9 +12157,9 @@ int english_sentence_length_cdf_inv ( double cdf )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "ENGLISH_SENTENCE_LENGTH_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "ENGLISH_SENTENCE_LENGTH_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -11965,7 +12450,7 @@ double english_sentence_length_pdf ( int x )
 }
 //****************************************************************************80
 
-int english_sentence_length_sample ( int *seed )
+int english_sentence_length_sample ( int &seed )
 
 //****************************************************************************80
 //
@@ -11993,7 +12478,7 @@ int english_sentence_length_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int ENGLISH_SENTENCE_LENGTH_SAMPLE, a sample of the PDF.
 //
@@ -12311,9 +12796,9 @@ int english_word_length_cdf_inv ( double cdf )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "ENGLISH_WORD_LENGTH_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "ENGLISH_WORD_LENGTH_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -12500,7 +12985,7 @@ double english_word_length_pdf ( int x )
 }
 //****************************************************************************80
 
-int english_word_length_sample ( int *seed )
+int english_word_length_sample ( int &seed )
 
 //****************************************************************************80
 //
@@ -12528,7 +13013,7 @@ int english_word_length_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int ENGLISH_WORD_LENGTH_SAMPLE, a sample of the PDF.
 //
@@ -12731,9 +13216,9 @@ double erlang_cdf_inv ( double cdf, double a, double b, int c )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "ERLANG_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "ERLANG_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -12835,17 +13320,17 @@ bool erlang_check ( double a, double b, int c )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "ERLANG_CHECK - Fatal error!\n";
-    cout << "  B <= 0.0\n";
+    cerr << " \n";
+    cerr << "ERLANG_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.0\n";
     return false;
   }
 
   if ( c <= 0 )
   {
-    cout << " \n";
-    cout << "ERLANG_CHECK - Fatal error!\n";
-    cout << "  C <= 0.\n";
+    cerr << " \n";
+    cerr << "ERLANG_CHECK - Fatal error!\n";
+    cerr << "  C <= 0.\n";
     return false;
   }
 
@@ -12900,7 +13385,7 @@ double erlang_pdf ( double x, double a, double b, int c )
 //
 //  Discussion:
 //
-//    PDF(A,B,C;X) = ( ( X - A ) / B )**( C - 1 )
+//    PDF(A,B,C;X) = ( ( X - A ) / B )^( C - 1 )
 //      / ( B * Gamma ( C ) * EXP ( ( X - A ) / B ) )
 //
 //    for 0 < B, 0 < C integer, A <= X.
@@ -12947,7 +13432,7 @@ double erlang_pdf ( double x, double a, double b, int c )
 }
 //****************************************************************************80
 
-double erlang_sample ( double a, double b, int c, int *seed )
+double erlang_sample ( double a, double b, int c, int &seed )
 
 //****************************************************************************80
 //
@@ -12973,9 +13458,9 @@ double erlang_sample ( double a, double b, int c, int *seed )
 //    0.0 < B.
 //    0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double ERLANG_SAMPLE, a sample of the PDF.
 //
 {
   double a2;
@@ -13399,9 +13884,9 @@ double exponential_01_cdf_inv ( double cdf )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "EXPONENTIAL_01_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "EXPONENTIAL_01_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -13491,7 +13976,7 @@ double exponential_01_pdf ( double x )
 }
 //****************************************************************************80
 
-double exponential_01_sample ( int *seed )
+double exponential_01_sample ( int &seed )
 
 //****************************************************************************80
 //
@@ -13513,9 +13998,9 @@ double exponential_01_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double EXPONENTIAL_01_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -13642,9 +14127,9 @@ double exponential_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "EXPONENTIAL_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "EXPONENTIAL_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -13654,8 +14139,8 @@ double exponential_cdf_inv ( double cdf, double a, double b )
 }
 //****************************************************************************80
 
-void exponential_cdf_values ( int *n_data, double *lambda, double *x,
-  double *fx )
+void exponential_cdf_values ( int &n_data, double &lambda, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -13700,43 +14185,43 @@ void exponential_cdf_values ( int *n_data, double *lambda, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *LAMBDA, the parameter of the distribution.
+//    Output, double &LAMBDA, the parameter of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 9
 
-  double fx_vec[N_MAX] = {
-     0.3934693402873666,
-     0.6321205588285577,
-     0.7768698398515702,
-     0.8646647167633873,
-     0.8646647167633873,
-     0.9816843611112658,
-     0.9975212478233336,
-     0.9996645373720975,
-     0.9999546000702375 };
+  static double fx_vec[N_MAX] = {
+     0.3934693402873666E+00,
+     0.6321205588285577E+00,
+     0.7768698398515702E+00,
+     0.8646647167633873E+00,
+     0.8646647167633873E+00,
+     0.9816843611112658E+00,
+     0.9975212478233336E+00,
+     0.9996645373720975E+00,
+     0.9999546000702375E+00 };
 
-  double lambda_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double lambda_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -13747,25 +14232,25 @@ void exponential_cdf_values ( int *n_data, double *lambda, double *x,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *lambda = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    lambda = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *lambda = lambda_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    lambda = lambda_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -13803,9 +14288,9 @@ bool exponential_check ( double a, double b )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "EXPONENTIAL_CHECK - Fatal error!\n";
-    cout << "  B <= 0.0\n";
+    cerr << " \n";
+    cerr << "EXPONENTIAL_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.0\n";
     return false;
   }
 
@@ -13918,7 +14403,7 @@ double exponential_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double exponential_sample ( double a, double b, int *seed )
+double exponential_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -13943,7 +14428,7 @@ double exponential_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double EXPONENTIAL_SAMPLE, a sample of the PDF.
 //
@@ -14071,9 +14556,9 @@ double extreme_values_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "EXTREME_VALUES_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "EXTREME_VALUES_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -14083,8 +14568,8 @@ double extreme_values_cdf_inv ( double cdf, double a, double b )
 }
 //****************************************************************************80
 
-void extreme_values_cdf_values ( int *n_data, double *alpha, double *beta,
-  double *x, double *fx )
+void extreme_values_cdf_values ( int &n_data, double &alpha, double &beta,
+  double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -14129,23 +14614,23 @@ void extreme_values_cdf_values ( int *n_data, double *alpha, double *beta,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *ALPHA, the first parameter of the distribution.
+//    Output, double &ALPHA, the first parameter of the distribution.
 //
-//    Output, double *BETA, the second parameter of the distribution.
+//    Output, double &BETA, the second parameter of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double alpha_vec[N_MAX] = {
+  static double alpha_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -14159,11 +14644,11 @@ void extreme_values_cdf_values ( int *n_data, double *alpha, double *beta,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double beta_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double beta_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
@@ -14173,21 +14658,21 @@ void extreme_values_cdf_values ( int *n_data, double *alpha, double *beta,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double fx_vec[N_MAX] = {
-     0.3678794411714423,
-     0.8734230184931166,
-     0.9818510730616665,
-     0.9975243173927525,
-     0.5452392118926051,
-     0.4884435800065159,
-     0.4589560693076638,
-     0.4409910259429826,
-     0.5452392118926051,
-     0.3678794411714423,
-     0.1922956455479649,
+  static double fx_vec[N_MAX] = {
+     0.3678794411714423E+00,
+     0.8734230184931166E+00,
+     0.9818510730616665E+00,
+     0.9975243173927525E+00,
+     0.5452392118926051E+00,
+     0.4884435800065159E+00,
+     0.4589560693076638E+00,
+     0.4409910259429826E+00,
+     0.5452392118926051E+00,
+     0.3678794411714423E+00,
+     0.1922956455479649E+00,
      0.6598803584531254E-01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -14201,27 +14686,27 @@ void extreme_values_cdf_values ( int *n_data, double *alpha, double *beta,
      0.3000000000000000E+01,
      0.3000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *alpha = 0.0;
-    *beta = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    alpha = 0.0;
+    beta = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *alpha = alpha_vec[*n_data-1];
-    *beta = beta_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    alpha = alpha_vec[n_data-1];
+    beta = beta_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -14259,9 +14744,9 @@ bool extreme_values_check ( double a, double b )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "EXTREME_VALUES_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "EXTREME_VALUES_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -14363,7 +14848,7 @@ double extreme_values_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double extreme_values_sample ( double a, double b, int *seed )
+double extreme_values_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -14388,7 +14873,7 @@ double extreme_values_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double EXTREME_VALUES_SAMPLE, a sample of the PDF.
 //
@@ -14503,7 +14988,7 @@ double f_cdf ( double x, int m, int n )
 }
 //****************************************************************************80
 
-void f_cdf_values ( int *n_data, int *a, int *b, double *x, double *fx )
+void f_cdf_values ( int &n_data, int &a, int &b, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -14548,21 +15033,21 @@ void f_cdf_values ( int *n_data, int *a, int *b, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *A, int B, the parameters of the function.
+//    Output, int &A, int &B, the parameters of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 20
 
-  int a_vec[N_MAX] = {
+  static int a_vec[N_MAX] = {
     1,
     1,
     5,
@@ -14584,7 +15069,7 @@ void f_cdf_values ( int *n_data, int *a, int *b, double *x, double *fx )
     4,
     5 };
 
-  int b_vec[N_MAX] = {
+  static int b_vec[N_MAX] = {
      1,
      5,
      1,
@@ -14606,71 +15091,71 @@ void f_cdf_values ( int *n_data, int *a, int *b, double *x, double *fx )
      5,
      5 };
 
-  double fx_vec[N_MAX] = {
-     0.5000000000000000,
-     0.4999714850534485,
-     0.4996034370170990,
-     0.7496993658293228,
-     0.7504656462757382,
-     0.7514156325324275,
-     0.8999867031372156,
-     0.8997127554259699,
-     0.9002845660853669,
-     0.9500248817817622,
-     0.9500574946122442,
-     0.9501926400000000,
-     0.9750133887312993,
-     0.9900022327445249,
-     0.9949977837872073,
-     0.9989999621122122,
-     0.5687988496283079,
-     0.5351452100063650,
-     0.5143428032407864,
-     0.5000000000000000 };
+  static double fx_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.4999714850534485E+00,
+     0.4996034370170990E+00,
+     0.7496993658293228E+00,
+     0.7504656462757382E+00,
+     0.7514156325324275E+00,
+     0.8999867031372156E+00,
+     0.8997127554259699E+00,
+     0.9002845660853669E+00,
+     0.9500248817817622E+00,
+     0.9500574946122442E+00,
+     0.9501926400000000E+00,
+     0.9750133887312993E+00,
+     0.9900022327445249E+00,
+     0.9949977837872073E+00,
+     0.9989999621122122E+00,
+     0.5687988496283079E+00,
+     0.5351452100063650E+00,
+     0.5143428032407864E+00,
+     0.5000000000000000E+00 };
 
-  double x_vec[N_MAX] = {
-      1.00,
-      0.528,
-      1.89,
-      1.69,
-      1.60,
-      1.47,
-      4.06,
-      3.05,
-      2.09,
-      6.61,
-      3.71,
-      3.00,
-     10.01,
-     16.26,
-     22.78,
-     47.18,
-      1.00,
-      1.00,
-      1.00,
-      1.00 };
+  static double x_vec[N_MAX] = {
+      1.00E+00,
+      0.528E+00,
+      1.89E+00,
+      1.69E+00,
+      1.60E+00,
+      1.47E+00,
+      4.06E+00,
+      3.05E+00,
+      2.09E+00,
+      6.61E+00,
+      3.71E+00,
+      3.00E+00,
+     10.01E+00,
+     16.26E+00,
+     22.78E+00,
+     47.18E+00,
+      1.00E+00,
+      1.00E+00,
+      1.00E+00,
+      1.00E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0;
-    *b = 0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0;
+    b = 0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *b = b_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -14709,17 +15194,17 @@ bool f_check ( int m, int n )
 {
   if ( m <= 0 )
   {
-    cout << "\n";
-    cout << "F_CHECK - Fatal error!\n";
-    cout << "  M <= 0.\n";
+    cerr << "\n";
+    cerr << "F_CHECK - Fatal error!\n";
+    cerr << "  M <= 0.\n";
     return false;
   }
 
   if ( n <= 0 )
   {
-    cout << "\n";
-    cout << "F_CHECK - Fatal error!\n";
-    cout << "  N <= 0.\n";
+    cerr << "\n";
+    cerr << "F_CHECK - Fatal error!\n";
+    cerr << "  N <= 0.\n";
     return false;
   }
 
@@ -14761,9 +15246,9 @@ double f_mean ( int m, int n )
 
   if ( n < 3 )
   {
-    cout << " \n";
-    cout << "F_MEAN - Fatal error!\n";
-    cout << "  The mean is not defined for N < 3.\n";
+    cerr << " \n";
+    cerr << "F_MEAN - Fatal error!\n";
+    cerr << "  The mean is not defined for N < 3.\n";
     exit ( 1 );
   }
 
@@ -14783,8 +15268,8 @@ double f_pdf ( double x, int m, int n )
 //
 //  Discussion:
 //
-//    PDF(M,N;X) = M**(M/2) * X**((M-2)/2)
-//      / ( Beta(M/2,N/2) * N**(M/2) * ( 1 + (M/N) * X )**((M+N)/2)
+//    PDF(M,N;X) = M^(M/2) * X^((M-2)/2)
+//      / ( Beta(M/2,N/2) * N^(M/2) * ( 1 + (M/N) * X )^((M+N)/2)
 //
 //  Licensing:
 //
@@ -14838,7 +15323,7 @@ double f_pdf ( double x, int m, int n )
 }
 //****************************************************************************80
 
-double f_sample ( int m, int n, int *seed )
+double f_sample ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -14864,7 +15349,7 @@ double f_sample ( int m, int n, int *seed )
 //    1 <= M,
 //    1 <= N.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double F_SAMPLE, a sample of the PDF.
 //
@@ -14920,9 +15405,9 @@ double f_variance ( int m, int n )
 
   if ( n < 5 )
   {
-    cout << " \n";
-    cout << "F_VARIANCE - Fatal error!\n";
-    cout << "  The variance is not defined for N < 5.\n";
+    cerr << " \n";
+    cerr << "F_VARIANCE - Fatal error!\n";
+    cerr << "  The variance is not defined for N < 5.\n";
     exit ( 1 );
   }
 
@@ -14933,8 +15418,8 @@ double f_variance ( int m, int n )
 }
 //****************************************************************************80
 
-void f_noncentral_cdf_values ( int *n_data, int *n1, int *n2, double *lambda,
-  double *x, double *fx )
+void f_noncentral_cdf_values ( int &n_data, int &n1, int &n2, double &lambda,
+  double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -14979,72 +15464,72 @@ void f_noncentral_cdf_values ( int *n_data, int *n1, int *n2, double *lambda,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *N1, int *N2, the numerator and denominator
+//    Output, int &N1, int &N2, the numerator and denominator
 //    degrees of freedom.
 //
-//    Output, double *LAMBDA, the noncentrality parameter.
+//    Output, double &LAMBDA, the noncentrality parameter.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 22
 
-  double fx_vec[N_MAX] = {
-     0.5000000000000000,
-     0.6367825323508774,
-     0.5840916116305482,
-     0.3234431872392788,
-     0.4501187879813550,
-     0.6078881441188312,
-     0.7059275551414605,
-     0.7721782003263727,
-     0.8191049017635072,
-     0.3170348430749965,
-     0.4327218008454471,
-     0.4502696915707327,
-     0.4261881186594096,
-     0.6753687206341544,
-     0.4229108778879005,
-     0.6927667261228938,
-     0.3632174676491226,
-     0.4210054012695865,
-     0.4266672258818927,
-     0.4464016600524644,
-     0.8445888579504827,
-     0.4339300273343604 };
+  static double fx_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.6367825323508774E+00,
+     0.5840916116305482E+00,
+     0.3234431872392788E+00,
+     0.4501187879813550E+00,
+     0.6078881441188312E+00,
+     0.7059275551414605E+00,
+     0.7721782003263727E+00,
+     0.8191049017635072E+00,
+     0.3170348430749965E+00,
+     0.4327218008454471E+00,
+     0.4502696915707327E+00,
+     0.4261881186594096E+00,
+     0.6753687206341544E+00,
+     0.4229108778879005E+00,
+     0.6927667261228938E+00,
+     0.3632174676491226E+00,
+     0.4210054012695865E+00,
+     0.4266672258818927E+00,
+     0.4464016600524644E+00,
+     0.8445888579504827E+00,
+     0.4339300273343604E+00 };
 
-  double lambda_vec[N_MAX] = {
-     0.00,
-     0.00,
-     0.25,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     2.00,
-     1.00,
-     1.00,
-     1.00,
-     2.00,
-     1.00,
-     1.00,
-     0.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00 };
+  static double lambda_vec[N_MAX] = {
+     0.00E+00,
+     0.00E+00,
+     0.25E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     2.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     2.00E+00,
+     1.00E+00,
+     1.00E+00,
+     0.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00 };
 
-  int n1_vec[N_MAX] = {
+  static int n1_vec[N_MAX] = {
      1,  1,  1,  1,
      1,  1,  1,  1,
      1,  1,  2,  2,
@@ -15052,7 +15537,7 @@ void f_noncentral_cdf_values ( int *n_data, int *n1, int *n2, double *lambda,
      5,  5,  6,  6,
      8, 16 };
 
-  int n2_vec[N_MAX] = {
+  static int n2_vec[N_MAX] = {
      1,  5,  5,  5,
      5,  5,  5,  5,
      5,  5,  5, 10,
@@ -15060,53 +15545,53 @@ void f_noncentral_cdf_values ( int *n_data, int *n1, int *n2, double *lambda,
      1,  5,  6, 12,
     16,  8 };
 
-  double x_vec[N_MAX] = {
-     1.00,
-     1.00,
-     1.00,
-     0.50,
-     1.00,
-     2.00,
-     3.00,
-     4.00,
-     5.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     2.00,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     2.00,
-     2.00 };
+  static double x_vec[N_MAX] = {
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     0.50E+00,
+     1.00E+00,
+     2.00E+00,
+     3.00E+00,
+     4.00E+00,
+     5.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     2.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     2.00E+00,
+     2.00E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *n1 = 0;
-    *n2 = 0;
-    *lambda = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    n1 = 0;
+    n2 = 0;
+    lambda = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *n1 = n1_vec[*n_data-1];
-    *n2 = n2_vec[*n_data-1];
-    *lambda = lambda_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    n1 = n1_vec[n_data-1];
+    n2 = n2_vec[n_data-1];
+    lambda = lambda_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -15147,25 +15632,25 @@ bool f_noncentral_check ( double a, int m, int n )
 {
   if ( a <= 0.0 )
   {
-    cout << " \n";
-    cout << "F_NONCENTRAL_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << " \n";
+    cerr << "F_NONCENTRAL_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     exit ( 1 );
   }
 
   if ( m <= 0 )
   {
-    cout << "\n";
-    cout << "F_NONCENTRAL_CHECK - Fatal error!\n";
-    cout << "  M <= 0.\n";
+    cerr << "\n";
+    cerr << "F_NONCENTRAL_CHECK - Fatal error!\n";
+    cerr << "  M <= 0.\n";
     return false;
   }
 
   if ( n <= 0 )
   {
-    cout << "\n";
-    cout << "F_NONCENTRAL_CHECK - Fatal error!\n";
-    cout << "  N <= 0.\n";
+    cerr << "\n";
+    cerr << "F_NONCENTRAL_CHECK - Fatal error!\n";
+    cerr << "  N <= 0.\n";
     return false;
   }
 
@@ -15209,9 +15694,9 @@ double f_noncentral_mean ( double a, int m, int n )
 
   if ( n < 3 )
   {
-    cout << " \n";
-    cout << "F_NONCENTRAL_MEAN - Fatal error!\n";
-    cout << "  The mean is not defined for N < 3.\n";
+    cerr << " \n";
+    cerr << "F_NONCENTRAL_MEAN - Fatal error!\n";
+    cerr << "  The mean is not defined for N < 3.\n";
     exit ( 1 );
   }
 
@@ -15260,9 +15745,9 @@ double f_noncentral_variance ( double a, int m, int n )
 
   if ( n < 5 )
   {
-    cout << " \n";
-    cout << "F_NONCENTRAL_VARIANCE - Fatal error!\n";
-    cout << "  The variance is not defined for N < 5.\n";
+    cerr << " \n";
+    cerr << "F_NONCENTRAL_VARIANCE - Fatal error!\n";
+    cerr << "  The variance is not defined for N < 5.\n";
     exit ( 1 );
   }
 
@@ -15317,9 +15802,9 @@ double factorial_log ( int n )
 
   if ( n < 0 )
   {
-    cout << "\n";
-    cout << "FACTORIAL_LOG - Fatal error!\n";
-    cout << "  N < 0.\n";
+    cerr << "\n";
+    cerr << "FACTORIAL_LOG - Fatal error!\n";
+    cerr << "  N < 0.\n";
     exit ( 1 );
   }
 
@@ -15346,7 +15831,7 @@ double factorial_stirling ( int n )
 //
 //    N! = Product ( 1 <= I <= N ) I
 //
-//    Stirling ( N ) = sqrt ( 2 * PI * N ) * ( N / E )**N * E**(1/(12*N) )
+//    Stirling ( N ) = sqrt ( 2 * PI * N ) * ( N / E )^N * E^(1/(12*N) )
 //
 //    This routine returns the raw approximation for all nonnegative
 //    values of N.  If N is less than 0, the value is returned as 0,
@@ -15416,7 +15901,7 @@ double fisher_pdf ( double x[3], double kappa, double mu[3] )
 //      X is any point on the unit sphere,
 //      and C(KAPPA) is a normalization factor:
 //
-//      C(KAPPA) = sqrt ( KAPPA ) / ( ( 2 * pi )**(3/2) * I(0.5,KAPPA) )
+//      C(KAPPA) = sqrt ( KAPPA ) / ( ( 2 * pi )^(3/2) * I(0.5,KAPPA) )
 //
 //    where
 //
@@ -15482,10 +15967,10 @@ double fisher_pdf ( double x[3], double kappa, double mu[3] )
 
   if ( kappa < 0.0 )
   {
-    cout << "\n";
-    cout << "FISHER_PDF - Fatal error!\n";
-    cout << "  KAPPA must be nonnegative.\n";
-    cout << "  Input KAPPA = " << kappa << "\n";
+    cerr << "\n";
+    cerr << "FISHER_PDF - Fatal error!\n";
+    cerr << "  KAPPA must be nonnegative.\n";
+    cerr << "  Input KAPPA = " << kappa << "\n";
     exit ( 1 );
   }
 
@@ -15527,7 +16012,7 @@ double fisher_pdf ( double x[3], double kappa, double mu[3] )
 }
 //****************************************************************************80
 
-double *fisher_sample ( double kappa, double mu[], int n, int *seed )
+double *fisher_sample ( double kappa, double mu[], int n, int &seed )
 
 //****************************************************************************80
 //
@@ -15565,7 +16050,7 @@ double *fisher_sample ( double kappa, double mu[], int n, int *seed )
 //
 //    Input, int N, the number of samples to choose.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double FISHER_SAMPLE[3*N], a sample of the Fisher distribution.
 //
@@ -15593,9 +16078,9 @@ double *fisher_sample ( double kappa, double mu[], int n, int *seed )
 
   if ( mu_norm == 0.0 )
   {
-    cout << "\n";
-    cout << "FISHER_SAMPLE - Fatal error!\n";
-    cout << "  MU = 0.\n";
+    cerr << "\n";
+    cerr << "FISHER_SAMPLE - Fatal error!\n";
+    cerr << "  MU = 0.\n";
     exit ( 1 );
   }
 
@@ -15752,9 +16237,9 @@ double fisk_cdf_inv ( double cdf, double a, double b, double c )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "FISK_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "FISK_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -15806,17 +16291,17 @@ bool fisk_check ( double a, double b, double c )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "FISK_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "FISK_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
   if ( c <= 0.0 )
   {
-    cout << " \n";
-    cout << "FISK_CHECK - Fatal error!\n";
-    cout << "  C <= 0.\n";
+    cerr << " \n";
+    cerr << "FISK_CHECK - Fatal error!\n";
+    cerr << "  C <= 0.\n";
     return false;
   }
 
@@ -15858,9 +16343,9 @@ double fisk_mean ( double a, double b, double c )
 
   if ( c <= 1.0 )
   {
-    cout << " \n";
-    cout << "FISK_MEAN - Fatal error!\n";
-    cout << "  No mean defined for C <= 1.0\n";
+    cerr << " \n";
+    cerr << "FISK_MEAN - Fatal error!\n";
+    cerr << "  No mean defined for C <= 1.0\n";
     exit ( 1 );
   }
 
@@ -15882,7 +16367,7 @@ double fisk_pdf ( double x, double a, double b, double c )
 //
 //    PDF(A,B,C;X) =
 //      ( C / B ) * ( ( X - A ) / B )^( C - 1 ) /
-//      ( 1 + ( ( X - A ) / B )**C )^2
+//      ( 1 + ( ( X - A ) / B )^C )^2
 //
 //    The Fisk PDF is also known as the Log Logistic PDF.
 //
@@ -15928,7 +16413,7 @@ double fisk_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double fisk_sample ( double a, double b, double c, int *seed )
+double fisk_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -15954,7 +16439,7 @@ double fisk_sample ( double a, double b, double c, int *seed )
 //    0.0 < B,
 //    0.0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double FISK_SAMPLE, a sample of the PDF.
 //
@@ -16005,9 +16490,9 @@ double fisk_variance ( double a, double b, double c )
 
   if ( c <= 2.0 )
   {
-    cout << " \n";
-    cout << "FISK_VARIANCE - Fatal error!\n";
-    cout << "  No variance defined for C <= 2.0\n";
+    cerr << " \n";
+    cerr << "FISK_VARIANCE - Fatal error!\n";
+    cerr << "  No variance defined for C <= 2.0\n";
     exit ( 1 );
   }
 
@@ -16122,9 +16607,9 @@ double folded_normal_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "FOLDED_NORMAL_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "FOLDED_NORMAL_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -16180,9 +16665,9 @@ double folded_normal_cdf_inv ( double cdf, double a, double b )
 
     if ( it_max < it )
     {
-      cout << " \n";
-      cout << "FOLDED_NORMAL_CDF_INV - Fatal error!\n";
-      cout << "  Iteration limit exceeded.\n";
+      cerr << " \n";
+      cerr << "FOLDED_NORMAL_CDF_INV - Fatal error!\n";
+      cerr << "  Iteration limit exceeded.\n";
       exit ( 1 );
     }
 
@@ -16233,17 +16718,17 @@ bool folded_normal_check ( double a, double b )
 {
   if ( a < 0.0 )
   {
-    cout << " \n";
-    cout << "FOLDED_NORMAL_CHECK - Fatal error!\n";
-    cout << "  A < 0.\n";
+    cerr << " \n";
+    cerr << "FOLDED_NORMAL_CHECK - Fatal error!\n";
+    cerr << "  A < 0.\n";
     return false;
   }
 
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "FOLDED_NORMAL_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "FOLDED_NORMAL_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -16350,7 +16835,7 @@ double folded_normal_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double folded_normal_sample ( double a, double b, int *seed )
+double folded_normal_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -16376,7 +16861,7 @@ double folded_normal_sample ( double a, double b, int *seed )
 //    0.0 <= A,
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double FOLDED_NORMAL_SAMPLE, a sample of the PDF.
 //
@@ -16466,9 +16951,9 @@ double frechet_cdf ( double x, double alpha )
 
   if ( alpha <= 0.0 )
   {
-    cout << "\n";
-    cout << "FRECHET_CDF - Fatal error!\n";
-    cout << "  ALPHA <= 0.0.\n";
+    cerr << "\n";
+    cerr << "FRECHET_CDF - Fatal error!\n";
+    cerr << "  ALPHA <= 0.0.\n";
     exit ( 1 );
   }
 
@@ -16513,24 +16998,24 @@ double frechet_cdf_inv ( double cdf, double alpha )
 //    Input, double ALPHA, the parameter.
 //    It is required that 0.0 < ALPHA.
 //
-//    Output, double X, the corresponding argument of the CDF.
+//    Output, double FRECHET_CDF_INV, the corresponding argument of the CDF.
 //
 {
   double x;
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << "\n";
-    cout << "FRECHET_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << "\n";
+    cerr << "FRECHET_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
   if ( alpha <= 0.0 )
   {
-    cout << "\n";
-    cout << "FRECHET_CDF_INV - Fatal error!\n";
-    cout << "  ALPHA <= 0.0.\n";
+    cerr << "\n";
+    cerr << "FRECHET_CDF_INV - Fatal error!\n";
+    cerr << "  ALPHA <= 0.0.\n";
     exit ( 1 );
   }
 
@@ -16583,9 +17068,9 @@ double frechet_mean ( double alpha )
 
   if ( alpha <= 1.0 )
   {
-    cout << "\n";
-    cout << "FRECHET_MEAN - Fatal error!\n";
-    cout << "  Mean does not exist if ALPHA <= 1.\n";
+    cerr << "\n";
+    cerr << "FRECHET_MEAN - Fatal error!\n";
+    cerr << "  Mean does not exist if ALPHA <= 1.\n";
     exit ( 1 );
   }
 
@@ -16633,9 +17118,9 @@ double frechet_pdf ( double x, double alpha )
 
   if ( alpha <= 0.0 )
   {
-    cout << "\n";
-    cout << "FRECHET_PDF - Fatal error!\n";
-    cout << "  ALPHA <= 0.0.\n";
+    cerr << "\n";
+    cerr << "FRECHET_PDF - Fatal error!\n";
+    cerr << "  ALPHA <= 0.0.\n";
     exit ( 1 );
   }
 
@@ -16645,7 +17130,7 @@ double frechet_pdf ( double x, double alpha )
 }
 //****************************************************************************80
 
-double frechet_sample ( double alpha, int *seed )
+double frechet_sample ( double alpha, int &seed )
 
 //****************************************************************************80
 //
@@ -16670,9 +17155,9 @@ double frechet_sample ( double alpha, int *seed )
 //    Input, double ALPHA, the parameter.
 //    It is required that 0.0 < ALPHA.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double FRECHET_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -16680,9 +17165,9 @@ double frechet_sample ( double alpha, int *seed )
 
   if ( alpha <= 0.0 )
   {
-    cout << "\n";
-    cout << "FRECHET_SAMPLE - Fatal error!\n";
-    cout << "  ALPHA <= 0.0.\n";
+    cerr << "\n";
+    cerr << "FRECHET_SAMPLE - Fatal error!\n";
+    cerr << "  ALPHA <= 0.0.\n";
     exit ( 1 );
   }
 
@@ -16731,9 +17216,9 @@ double frechet_variance ( double alpha )
 
   if ( alpha <= 2.0 )
   {
-    cout << "\n";
-    cout << "FRECHET_VARIANCE - Fatal error!\n";
-    cout << "  Variance does not exist if ALPHA <= 2.\n";
+    cerr << "\n";
+    cerr << "FRECHET_VARIANCE - Fatal error!\n";
+    cerr << "  Variance does not exist if ALPHA <= 2.\n";
     exit ( 1 );
   }
 
@@ -16790,8 +17275,8 @@ double gamma_cdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-void gamma_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
-  double *fx )
+void gamma_cdf_values ( int &n_data, double &mu, double &sigma, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -16836,37 +17321,37 @@ void gamma_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *MU, the mean of the distribution.
+//    Output, double &MU, the mean of the distribution.
 //
-//    Output, double *SIGMA, the variance of the distribution.
+//    Output, double &SIGMA, the variance of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double fx_vec[N_MAX] = {
-     0.8646647167633873,
-     0.9816843611112658,
-     0.9975212478233336,
-     0.9996645373720975,
-     0.6321205588285577,
-     0.4865828809674080,
-     0.3934693402873666,
-     0.3296799539643607,
-     0.4421745996289254,
-     0.1911531694619419,
+  static double fx_vec[N_MAX] = {
+     0.8646647167633873E+00,
+     0.9816843611112658E+00,
+     0.9975212478233336E+00,
+     0.9996645373720975E+00,
+     0.6321205588285577E+00,
+     0.4865828809674080E+00,
+     0.3934693402873666E+00,
+     0.3296799539643607E+00,
+     0.4421745996289254E+00,
+     0.1911531694619419E+00,
      0.6564245437845009E-01,
      0.1857593622214067E-01 };
 
-  double mu_vec[N_MAX] = {
+  static double mu_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -16880,11 +17365,11 @@ void gamma_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double sigma_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double sigma_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
@@ -16894,7 +17379,7 @@ void gamma_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -16908,27 +17393,27 @@ void gamma_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.3000000000000000E+01,
      0.3000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *mu = 0.0;
-    *sigma = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *mu = mu_vec[*n_data-1];
-    *sigma = sigma_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -16967,19 +17452,19 @@ bool gamma_check ( double a, double b, double c )
 {
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "GAMMA_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
-    cout << "  B = " << b << "\n";
+    cerr << " \n";
+    cerr << "GAMMA_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
+    cerr << "  B = " << b << "\n";
     return false;
   }
 
   if ( c <= 0.0 )
   {
-    cout << " \n";
-    cout << "GAMMA_CHECK - Fatal error!\n";
-    cout << "  C <= 0.\n";
-    cout << "  C = " << c << "\n";
+    cerr << " \n";
+    cerr << "GAMMA_CHECK - Fatal error!\n";
+    cerr << "  C <= 0.\n";
+    cerr << "  C = " << c << "\n";
     return false;
   }
 
@@ -17084,7 +17569,7 @@ double gamma_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double gamma_sample ( double a, double b, double c, int *seed )
+double gamma_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -17107,19 +17592,21 @@ double gamma_sample ( double a, double b, double c, int *seed )
 //
 //  Reference:
 //
-//    J H Ahrens and U Dieter,
-//    Generating Gamma Variates by a Modified Rejection Technique,
+//    Joachim Ahrens, Ulrich Dieter,
+//    Generating Gamma variates by a modified rejection technique,
 //    Communications of the ACM,
-//    Volume 25, Number 1, January 1982, pages 47 - 54.
+//    Volume 25, Number 1, January 1982, pages 47-54.
 //
-//    J H Ahrens and U Dieter,
-//    Computer Methods for Sampling from Gamma, Beta, Poisson and
-//      Binomial Distributions.
-//    Computing, Volume 12, 1974, pages 223 - 246.
+//    Joachim Ahrens, Ulrich Dieter,
+//    Computer methods for sampling from Gamma, Beta, Poisson and
+//    binomial distributions,
+//    Computing,
+//    Volume 12, Number 3, September 1974, pages 223-246.
 //
-//    J H Ahrens, K D Kohrt, and U Dieter,
-//    Algorithm 599,
-//    ACM Transactions on Mathematical Software,
+//    Joachim Ahrens, Klaus-Dieter Kohrt, Ulrich Dieter,<br>
+//    Algorithm 599:
+//    Sampling from Gamma and Poisson Distributions,<br>
+//    ACM Transactions on Mathematical Software,<br>
 //    Volume 9, Number 2, June 1983, pages 255-257.
 //
 //  Parameters:
@@ -17128,9 +17615,9 @@ double gamma_sample ( double a, double b, double c, int *seed )
 //    0.0 < B,
 //    0.0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double GAMMA_SAMPLE, a sample of the PDF.
 //
 {
   double a1 =   0.3333333;
@@ -17585,7 +18072,7 @@ double gamma_inc ( double p, double x )
 }
 //****************************************************************************80
 
-void gamma_inc_values ( int *n_data, double *a, double *x, double *fx )
+void gamma_inc_values ( int &n_data, double &a, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -17595,21 +18082,13 @@ void gamma_inc_values ( int *n_data, double *a, double *x, double *fx )
 //
 //  Discussion:
 //
-//    The (normalized) incomplete Gamma function P(A,X) is defined as:
+//    The incomplete Gamma function is defined as:
 //
-//      PN(A,X) = 1/Gamma(A) * Integral ( 0 <= T <= X ) T**(A-1) * exp(-T) dT.
-//
-//    With this definition, for all A and X,
-//
-//      0 <= PN(A,X) <= 1
-//
-//    and
-//
-//      PN(A,INFINITY) = 1.0
+//      Integral ( X <= T < oo ) T^(A-1) * exp(-T) dT.
 //
 //    In Mathematica, the function can be evaluated by:
 //
-//      1 - GammaRegularized[A,X]
+//      Gamma[A,X]
 //
 //  Licensing:
 //
@@ -17617,7 +18096,7 @@ void gamma_inc_values ( int *n_data, double *a, double *x, double *fx )
 //
 //  Modified:
 //
-//    20 November 2004
+//    11 April 2010
 //
 //  Author:
 //
@@ -17640,27 +18119,27 @@ void gamma_inc_values ( int *n_data, double *a, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *A, the parameter of the function.
+//    Output, double &A, the parameter of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 20
 
-  double a_vec[N_MAX] = {
-     0.10,
-     0.10,
-     0.10,
-     0.50,
-     0.50,
-     0.50,
+  static double a_vec[N_MAX] = {
+     0.10E+00,
+     0.10E+00,
+     0.10E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
      0.10E+01,
      0.10E+01,
      0.10E+01,
@@ -17676,42 +18155,42 @@ void gamma_inc_values ( int *n_data, double *a, double *x, double *fx )
      0.26E+02,
      0.41E+02  };
 
-  double fx_vec[N_MAX] = {
-     0.7382350532339351,
-     0.9083579897300343,
-     0.9886559833621947,
-     0.3014646416966613,
-     0.7793286380801532,
-     0.9918490284064973,
-     0.9516258196404043E-01,
-     0.6321205588285577,
-     0.9932620530009145,
-     0.7205974576054322E-01,
-     0.5891809618706485,
-     0.9915368159845525,
-     0.1018582711118352E-01,
-     0.4421745996289254,
-     0.9927049442755639,
-     0.4202103819530612E-01,
-     0.9796589705830716,
-     0.9226039842296429,
-     0.4470785799755852,
-     0.7444549220718699 };
+  static double fx_vec[N_MAX] = {
+    2.490302836300570E+00,
+    0.8718369702247978E+00,
+    0.1079213896175866E+00,
+    1.238121685818417E+00,
+    0.3911298052193973E+00,
+    0.01444722098952533E+00,
+    0.9048374180359596E+00,
+    0.3678794411714423E+00,
+    0.006737946999085467E+00,
+    0.8827966752611692E+00,
+    0.3908330082003269E+00,
+    0.008051456628620993E+00,
+    0.9898141728888165E+00,
+    0.5578254003710746E+00,
+    0.007295055724436130E+00,
+    114.9574754165633E+00,
+    2.440923530031405E+00,
+    280854.6620274718E+00,
+    8.576480283455533E+24,
+    2.085031346403364E+47 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.30E-01,
-     0.30,
+     0.30E+00,
      0.15E+01,
      0.75E-01,
-     0.75,
+     0.75E+00,
      0.35E+01,
-     0.10,
+     0.10E+00,
      0.10E+01,
      0.50E+01,
-     0.10,
+     0.10E+00,
      0.10E+01,
      0.50E+01,
-     0.15,
+     0.15E+00,
      0.15E+01,
      0.70E+01,
      0.25E+01,
@@ -17720,25 +18199,25 @@ void gamma_inc_values ( int *n_data, double *a, double *x, double *fx )
      0.25E+02,
      0.45E+02 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -18144,7 +18623,7 @@ double genlogistic_cdf_inv ( double cdf, double a, double b, double c )
 //    0.0 < B,
 //    0.0 < C.
 //
-//    Output, double X, the corresponding argument.
+//    Output, double GENLOGISTIC_CDF_INV, the corresponding argument.
 //
 {
   double x;
@@ -18271,7 +18750,7 @@ double genlogistic_pdf ( double x, double a, double b, double c )
 //  Discussion:
 //
 //    PDF(A,B,C;X) = ( C / B ) * EXP ( ( A - X ) / B ) /
-//      ( ( 1 + EXP ( ( A - X ) / B ) )**(C+1) )
+//      ( ( 1 + EXP ( ( A - X ) / B ) )^(C+1) )
 //
 //  Licensing:
 //
@@ -18307,7 +18786,7 @@ double genlogistic_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double genlogistic_sample ( double a, double b, double c, int *seed )
+double genlogistic_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -18333,7 +18812,7 @@ double genlogistic_sample ( double a, double b, double c, int *seed )
 //    0.0 < B,
 //    0.0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double GENLOGISTIC_SAMPLE, a sample of the PDF.
 //
@@ -18460,7 +18939,7 @@ int geometric_cdf_inv ( double cdf, double a )
 //
 //  Modified:
 //
-//    22 November 2004
+//    09 June 2013
 //
 //  Author:
 //
@@ -18497,14 +18976,14 @@ int geometric_cdf_inv ( double cdf, double a )
   }
   else
   {
-    x = 1 + int ( log ( 1.0 - cdf ) / log ( 1.0 - a ) );
+    x = 1 + ( int ) ( log ( 1.0 - cdf ) / log ( 1.0 - a ) );
   }
 
   return x;
 }
 //****************************************************************************80
 
-void geometric_cdf_values ( int *n_data, int *x, double *p, double *cdf )
+void geometric_cdf_values ( int &n_data, int &x, double &p, double &cdf )
 
 //****************************************************************************80
 //
@@ -18554,77 +19033,77 @@ void geometric_cdf_values ( int *n_data, int *x, double *p, double *cdf )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *X, the number of trials.
+//    Output, int &X, the number of trials.
 //
-//    Output, double *P, the probability of success
+//    Output, double &P, the probability of success
 //    on one trial.
 //
-//    Output, double *CDF, the cumulative density function.
+//    Output, double &CDF, the cumulative density function.
 //
 {
 # define N_MAX 14
 
-  double cdf_vec[N_MAX] = {
-     0.1900000000000000,
-     0.2710000000000000,
-     0.3439000000000000,
-     0.6861894039100000,
-     0.3600000000000000,
-     0.4880000000000000,
-     0.5904000000000000,
-     0.9141006540800000,
-     0.7599000000000000,
-     0.8704000000000000,
-     0.9375000000000000,
-     0.9843750000000000,
-     0.9995117187500000,
-     0.9999000000000000 };
+  static double cdf_vec[N_MAX] = {
+     0.1900000000000000E+00,
+     0.2710000000000000E+00,
+     0.3439000000000000E+00,
+     0.6861894039100000E+00,
+     0.3600000000000000E+00,
+     0.4880000000000000E+00,
+     0.5904000000000000E+00,
+     0.9141006540800000E+00,
+     0.7599000000000000E+00,
+     0.8704000000000000E+00,
+     0.9375000000000000E+00,
+     0.9843750000000000E+00,
+     0.9995117187500000E+00,
+     0.9999000000000000E+00 };
 
-  double p_vec[N_MAX] = {
-     0.1,
-     0.1,
-     0.1,
-     0.1,
-     0.2,
-     0.2,
-     0.2,
-     0.2,
-     0.3,
-     0.4,
-     0.5,
-     0.5,
-     0.5,
-     0.9 };
+  static double p_vec[N_MAX] = {
+     0.1E+00,
+     0.1E+00,
+     0.1E+00,
+     0.1E+00,
+     0.2E+00,
+     0.2E+00,
+     0.2E+00,
+     0.2E+00,
+     0.3E+00,
+     0.4E+00,
+     0.5E+00,
+     0.5E+00,
+     0.5E+00,
+     0.9E+00 };
 
-  int x_vec[N_MAX] = {
+  static int x_vec[N_MAX] = {
     1,  2,  3, 10, 1,
     2,  3, 10,  3, 3,
     3,  5, 10,  3 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *x = 0;
-    *p = 0.0;
-    *cdf = 0.0;
+    n_data = 0;
+    x = 0;
+    p = 0.0;
+    cdf = 0.0;
   }
   else
   {
-    *x = x_vec[*n_data-1];
-    *p = p_vec[*n_data-1];
-    *cdf = cdf_vec[*n_data-1];
+    x = x_vec[n_data-1];
+    p = p_vec[n_data-1];
+    cdf = cdf_vec[n_data-1];
   }
 
   return;
@@ -18723,7 +19202,7 @@ double geometric_pdf ( int x, double a )
 //
 //  Discussion:
 //
-//    PDF(A;X) = A * ( 1 - A )**(X-1)
+//    PDF(A;X) = A * ( 1 - A )^(X-1)
 //
 //    PDF(A;X) is the probability that exactly X Bernoulli trials, each
 //    with probability of success A, will be required to achieve
@@ -18785,7 +19264,7 @@ double geometric_pdf ( int x, double a )
 }
 //****************************************************************************80
 
-int geometric_sample ( double a, int *seed )
+int geometric_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -18810,7 +19289,7 @@ int geometric_sample ( double a, int *seed )
 //    Input, double A, the probability of success on one trial.
 //    0.0 <= A <= 1.0.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int GEOMETRIC_SAMPLE, a sample of the PDF.
 //
@@ -19168,7 +19647,7 @@ double gompertz_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double gompertz_sample ( double a, double b, int *seed )
+double gompertz_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -19193,7 +19672,7 @@ double gompertz_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    1 < A, 0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double GOMPERTZ_SAMPLE, a sample of the PDF.
 //
@@ -19368,7 +19847,7 @@ double gumbel_pdf ( double x )
 }
 //****************************************************************************80
 
-double gumbel_sample ( int *seed )
+double gumbel_sample ( int &seed )
 
 //****************************************************************************80
 //
@@ -19390,7 +19869,7 @@ double gumbel_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double GUMBEL_SAMPLE, a sample of the PDF.
 //
@@ -19675,7 +20154,7 @@ double half_normal_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double half_normal_sample ( double a, double b, int *seed )
+double half_normal_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -19700,7 +20179,7 @@ double half_normal_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double HALF_NORMAL_SAMPLE, a sample of the PDF.
 //
@@ -19813,8 +20292,8 @@ double hypergeometric_cdf ( int x, int n, int m, int l )
 }
 //****************************************************************************80
 
-void hypergeometric_cdf_values ( int *n_data, int *sam, int *suc, int *pop,
-  int *n, double *fx )
+void hypergeometric_cdf_values ( int &n_data, int &sam, int &suc, int &pop,
+  int &n, double &fx )
 
 //****************************************************************************80
 //
@@ -19866,86 +20345,86 @@ void hypergeometric_cdf_values ( int *n_data, int *sam, int *suc, int *pop,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *SAM, int *SUC, int *POP, the sample size,
+//    Output, int &SAM, int &SUC, int &POP, the sample size,
 //    success size, and population parameters of the function.
 //
-//    Output, int *N, the argument of the function.
+//    Output, int &N, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 16
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
      0.6001858177500578E-01,
-     0.2615284665839845,
-     0.6695237889132748,
+     0.2615284665839845E+00,
+     0.6695237889132748E+00,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
-     0.5332595856827856,
-     0.1819495964117640,
+     0.5332595856827856E+00,
+     0.1819495964117640E+00,
      0.4448047017527730E-01,
-     0.9999991751316731,
-     0.9926860896560750,
-     0.8410799901444538,
-     0.3459800113391901,
-     0.0000000000000000,
+     0.9999991751316731E+00,
+     0.9926860896560750E+00,
+     0.8410799901444538E+00,
+     0.3459800113391901E+00,
+     0.0000000000000000E+00,
      0.2088888139634505E-02,
-     0.3876752992448843,
-     0.9135215248834896 };
+     0.3876752992448843E+00,
+     0.9135215248834896E+00 };
 
-  int n_vec[N_MAX] = {
+  static int n_vec[N_MAX] = {
      7,  8,  9, 10,
      6,  6,  6,  6,
      6,  6,  6,  6,
      0,  0,  0,  0 };
 
-  int pop_vec[N_MAX] = {
+  static int pop_vec[N_MAX] = {
     100, 100, 100, 100,
     100, 100, 100, 100,
     100, 100, 100, 100,
     90,  200, 1000, 10000 };
 
-  int sam_vec[N_MAX] = {
+  static int sam_vec[N_MAX] = {
     10, 10, 10, 10,
      6,  7,  8,  9,
     10, 10, 10, 10,
     10, 10, 10, 10 };
 
-  int suc_vec[N_MAX] = {
+  static int suc_vec[N_MAX] = {
     90, 90, 90, 90,
     90, 90, 90, 90,
     10, 30, 50, 70,
     90, 90, 90, 90 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *sam = 0;
-    *suc = 0;
-    *pop = 0;
-    *n = 0;
-    *fx = 0.0;
+    n_data = 0;
+    sam = 0;
+    suc = 0;
+    pop = 0;
+    n = 0;
+    fx = 0.0;
   }
   else
   {
-    *sam = sam_vec[*n_data-1];
-    *suc = suc_vec[*n_data-1];
-    *pop = pop_vec[*n_data-1];
-    *n = n_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    sam = sam_vec[n_data-1];
+    suc = suc_vec[n_data-1];
+    pop = pop_vec[n_data-1];
+    n = n_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -20153,7 +20632,7 @@ double hypergeometric_pdf ( int x, int n, int m, int l )
 }
 //****************************************************************************80
 
-int hypergeometric_sample ( int n, int m, int l, int *seed )
+int hypergeometric_sample ( int n, int m, int l, int &seed )
 
 //****************************************************************************80
 //
@@ -20190,7 +20669,7 @@ int hypergeometric_sample ( int n, int m, int l, int *seed )
 //    Input, int L, the number of balls to select from.
 //    0 <= L.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int HYPERGEOMETRIC_SAMPLE, a sample of the PDF.
 //
@@ -20432,13 +20911,13 @@ int i4_min ( int i1, int i2 )
 }
 //****************************************************************************80
 
-int i4_uniform ( int a, int b, int *seed )
+int i4_uniform_ab ( int a, int b, int &seed )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    I4_UNIFORM returns a scaled pseudorandom I4.
+//    I4_UNIFORM_AB returns a scaled pseudorandom I4.
 //
 //  Discussion:
 //
@@ -20485,34 +20964,34 @@ int i4_uniform ( int a, int b, int *seed )
 //
 //    Input, int A, B, the limits of the interval.
 //
-//    Input/output, int *SEED, the "seed" value, which should NOT be 0.
+//    Input/output, int &SEED, the "seed" value, which should NOT be 0.
 //    On output, SEED has been updated.
 //
-//    Output, int I4_UNIFORM, a number between A and B.
+//    Output, int I4_UNIFORM_AB, a number between A and B.
 //
 {
   int k;
   float r;
   int value;
 
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
     cerr << "\n";
-    cerr << "I4_UNIFORM - Fatal error!\n";
+    cerr << "I4_UNIFORM_AB - Fatal error!\n";
     cerr << "  Input value of SEED = 0.\n";
     exit ( 1 );
   }
 
-  k = *seed / 127773;
+  k = seed / 127773;
 
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + 2147483647;
+    seed = seed + 2147483647;
   }
 
-  r = ( float ) ( *seed ) * 4.656612875E-10;
+  r = ( float ) ( seed ) * 4.656612875E-10;
 //
 //  Scale R to lie between A-0.5 and B+0.5.
 //
@@ -21321,7 +21800,7 @@ double inverse_gaussian_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double inverse_gaussian_sample ( double a, double b, int *seed )
+double inverse_gaussian_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -21347,7 +21826,7 @@ double inverse_gaussian_sample ( double a, double b, int *seed )
 //    0.0 < A,
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double INVERSE_GAUSSIAN_SAMPLE, a sample of the PDF.
 //
@@ -21416,8 +21895,8 @@ double inverse_gaussian_variance ( double a, double b )
 }
 //****************************************************************************80
 
-void laplace_cdf_values ( int *n_data, double *mu, double *beta, double *x,
-  double *fx )
+void laplace_cdf_values ( int &n_data, double &mu, double &beta, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -21462,23 +21941,23 @@ void laplace_cdf_values ( int *n_data, double *mu, double *beta, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *MU, the mean of the distribution.
+//    Output, double &MU, the mean of the distribution.
 //
-//    Output, double *BETA, the shape parameter.
+//    Output, double &BETA, the shape parameter.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double beta_vec[N_MAX] = {
+  static double beta_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -21492,21 +21971,21 @@ void laplace_cdf_values ( int *n_data, double *mu, double *beta, double *x,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double fx_vec[N_MAX] = {
-     0.5000000000000000,
-     0.8160602794142788,
-     0.9323323583816937,
-     0.9751064658160680,
-     0.6967346701436833,
-     0.6417343447131054,
-     0.6105996084642976,
-     0.5906346234610091,
-     0.5000000000000000,
-     0.3032653298563167,
-     0.1839397205857212,
-     0.1115650800742149 };
+  static double fx_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.8160602794142788E+00,
+     0.9323323583816937E+00,
+     0.9751064658160680E+00,
+     0.6967346701436833E+00,
+     0.6417343447131054E+00,
+     0.6105996084642976E+00,
+     0.5906346234610091E+00,
+     0.5000000000000000E+00,
+     0.3032653298563167E+00,
+     0.1839397205857212E+00,
+     0.1115650800742149E+00 };
 
-  double mu_vec[N_MAX] = {
+  static double mu_vec[N_MAX] = {
      0.0000000000000000E+01,
      0.0000000000000000E+01,
      0.0000000000000000E+01,
@@ -21520,7 +21999,7 @@ void laplace_cdf_values ( int *n_data, double *mu, double *beta, double *x,
      0.3000000000000000E+01,
      0.4000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.0000000000000000E+01,
      0.1000000000000000E+01,
      0.2000000000000000E+01,
@@ -21534,27 +22013,27 @@ void laplace_cdf_values ( int *n_data, double *mu, double *beta, double *x,
      0.1000000000000000E+01,
      0.1000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *mu = 0.0;
-    *beta = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    mu = 0.0;
+    beta = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *mu = mu_vec[*n_data-1];
-    *beta = beta_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    mu = mu_vec[n_data-1];
+    beta = beta_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -21784,7 +22263,7 @@ double laplace_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double laplace_sample ( double a, double b, int *seed )
+double laplace_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -21809,7 +22288,7 @@ double laplace_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double LAPLACE_SAMPLE, a sample of the PDF.
 //
@@ -21873,7 +22352,7 @@ double lerch ( double a, double b, double c )
 //
 //    The Lerch transcendent function is defined as:
 //
-//      LERCH ( A, B, C ) = Sum ( 0 <= K < Infinity ) A**K / ( C + K )**B
+//      LERCH ( A, B, C ) = Sum ( 0 <= K < Infinity ) A^K / ( C + K )^B
 //
 //    excluding any term with ( C + K ) = 0.
 //
@@ -22023,7 +22502,7 @@ double levy_cdf_inv ( double cdf, double a, double b )
 //    Input, double A, B, the parameters of the PDF.
 //    0 < B.
 //
-//    Output, double X, the corresponding argument.
+//    Output, double LEVY_CDF_INV, the corresponding argument.
 //
 {
   double cdf1;
@@ -22121,7 +22600,7 @@ double levy_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double levy_sample ( double a, double b, int *seed )
+double levy_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -22146,7 +22625,7 @@ double levy_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double LEVY_SAMPLE, a sample of the PDF.
 //
@@ -22239,7 +22718,7 @@ double log_normal_cdf_inv ( double cdf, double a, double b )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input, double X, the corresponding argument.
+//    Input, double LOG_NORMAL_CDF_INV, the corresponding argument.
 //
 {
   double logx;
@@ -22261,8 +22740,8 @@ double log_normal_cdf_inv ( double cdf, double a, double b )
 }
 //****************************************************************************80
 
-void log_normal_cdf_values ( int *n_data, double *mu, double *sigma,
-  double *x, double *fx )
+void log_normal_cdf_values ( int &n_data, double &mu, double &sigma,
+  double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -22307,37 +22786,37 @@ void log_normal_cdf_values ( int *n_data, double *mu, double *sigma,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *MU, the mean of the distribution.
+//    Output, double &MU, the mean of the distribution.
 //
-//    Output, double *SIGMA, the shape parameter of the distribution.
+//    Output, double &SIGMA, the shape parameter of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
      0.2275013194817921E-01,
-     0.2697049307349095,
-     0.5781741008028732,
-     0.7801170895122241,
-     0.4390310097476894,
-     0.4592655190218048,
-     0.4694258497695908,
-     0.4755320473858733,
-     0.3261051056816658,
-     0.1708799040927608,
+     0.2697049307349095E+00,
+     0.5781741008028732E+00,
+     0.7801170895122241E+00,
+     0.4390310097476894E+00,
+     0.4592655190218048E+00,
+     0.4694258497695908E+00,
+     0.4755320473858733E+00,
+     0.3261051056816658E+00,
+     0.1708799040927608E+00,
      0.7343256357952060E-01,
      0.2554673736161761E-01 };
 
-  double mu_vec[N_MAX] = {
+  static double mu_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -22351,11 +22830,11 @@ void log_normal_cdf_values ( int *n_data, double *mu, double *sigma,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double sigma_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double sigma_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
@@ -22365,7 +22844,7 @@ void log_normal_cdf_values ( int *n_data, double *mu, double *sigma,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -22379,27 +22858,27 @@ void log_normal_cdf_values ( int *n_data, double *mu, double *sigma,
      0.3000000000000000E+01,
      0.3000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *mu = 0.0;
-    *sigma = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *mu = mu_vec[*n_data-1];
-    *sigma = sigma_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -22545,7 +23024,7 @@ double log_normal_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double log_normal_sample ( double a, double b, int *seed )
+double log_normal_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -22570,9 +23049,9 @@ double log_normal_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double LOG_NORMAL_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -22757,7 +23236,7 @@ int log_series_cdf_inv ( double cdf, double a )
 }
 //****************************************************************************80
 
-void log_series_cdf_values ( int *n_data, double *t, int *n, double *fx )
+void log_series_cdf_values ( int &n_data, double &t, int &n, double &fx )
 
 //****************************************************************************80
 //
@@ -22796,52 +23275,52 @@ void log_series_cdf_values ( int *n_data, double *t, int *n, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *T, the parameter of the function.
+//    Output, double &T, the parameter of the function.
 //
-//    Output, int *N, the argument of the function.
+//    Output, int &N, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 29
 
-  double fx_vec[N_MAX] = {
-     0.9491221581029903,
-     0.9433541128559735,
-     0.9361094611773272,
-     0.9267370278044118,
-     0.9141358246245129,
-     0.8962840235449100,
-     0.8690148741955517,
-     0.8221011541254772,
-     0.7213475204444817,
-     0.6068261510845583,
-     0.5410106403333613,
-     0.4970679476476894,
-     0.4650921887927060,
-     0.4404842934597863,
-     0.4207860535926143,
-     0.4045507673897055,
-     0.3908650337129266,
-     0.2149757685421097,
-     0.0000000000000000,
-     0.2149757685421097,
-     0.3213887739704539,
-     0.3916213575531612,
-     0.4437690508633213,
-     0.4850700239649681,
-     0.5191433267738267,
-     0.5480569580144867,
-     0.5731033910767085,
-     0.5951442521714636,
-     0.6147826594068904 };
+  static double fx_vec[N_MAX] = {
+     0.9491221581029903E+00,
+     0.9433541128559735E+00,
+     0.9361094611773272E+00,
+     0.9267370278044118E+00,
+     0.9141358246245129E+00,
+     0.8962840235449100E+00,
+     0.8690148741955517E+00,
+     0.8221011541254772E+00,
+     0.7213475204444817E+00,
+     0.6068261510845583E+00,
+     0.5410106403333613E+00,
+     0.4970679476476894E+00,
+     0.4650921887927060E+00,
+     0.4404842934597863E+00,
+     0.4207860535926143E+00,
+     0.4045507673897055E+00,
+     0.3908650337129266E+00,
+     0.2149757685421097E+00,
+     0.0000000000000000E+00,
+     0.2149757685421097E+00,
+     0.3213887739704539E+00,
+     0.3916213575531612E+00,
+     0.4437690508633213E+00,
+     0.4850700239649681E+00,
+     0.5191433267738267E+00,
+     0.5480569580144867E+00,
+     0.5731033910767085E+00,
+     0.5951442521714636E+00,
+     0.6147826594068904E+00 };
 
-  int n_vec[N_MAX] = {
+  static int n_vec[N_MAX] = {
      1, 1, 1, 1, 1,
      1, 1, 1, 1, 1,
      1, 1, 1, 1, 1,
@@ -22849,56 +23328,56 @@ void log_series_cdf_values ( int *n_data, double *t, int *n, double *fx )
      2, 3, 4, 5, 6,
      7, 8, 9, 10 };
 
-  double t_vec[N_MAX] = {
-     0.1000000000000000,
-     0.1111111111111111,
-     0.1250000000000000,
-     0.1428571428571429,
-     0.1666666666666667,
-     0.2000000000000000,
-     0.2500000000000000,
-     0.3333333333333333,
-     0.5000000000000000,
-     0.6666666666666667,
-     0.7500000000000000,
-     0.8000000000000000,
-     0.8333333333333333,
-     0.8571485714857149,
-     0.8750000000000000,
-     0.8888888888888889,
-     0.9000000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000,
-     0.9900000000000000  };
+  static double t_vec[N_MAX] = {
+     0.1000000000000000E+00,
+     0.1111111111111111E+00,
+     0.1250000000000000E+00,
+     0.1428571428571429E+00,
+     0.1666666666666667E+00,
+     0.2000000000000000E+00,
+     0.2500000000000000E+00,
+     0.3333333333333333E+00,
+     0.5000000000000000E+00,
+     0.6666666666666667E+00,
+     0.7500000000000000E+00,
+     0.8000000000000000E+00,
+     0.8333333333333333E+00,
+     0.8571485714857149E+00,
+     0.8750000000000000E+00,
+     0.8888888888888889E+00,
+     0.9000000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00,
+     0.9900000000000000E+00  };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *t = 0.0;
-    *n = 0;
-    *fx = 0.0;
+    n_data = 0;
+    t = 0.0;
+    n = 0;
+    fx = 0.0;
   }
   else
   {
-    *t = t_vec[*n_data-1];
-    *n = n_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    t = t_vec[n_data-1];
+    n = n_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -22991,7 +23470,7 @@ double log_series_pdf ( int x, double a )
 //
 //  Discussion:
 //
-//    PDF(A;X) = - A**X / ( X * log ( 1 - A ) )
+//    PDF(A;X) = - A^X / ( X * log ( 1 - A ) )
 //
 //  Licensing:
 //
@@ -23030,7 +23509,7 @@ double log_series_pdf ( int x, double a )
 }
 //****************************************************************************80
 
-int log_series_sample ( double a, int *seed )
+int log_series_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -23061,7 +23540,7 @@ int log_series_sample ( double a, int *seed )
 //    Input, double A, the parameter of the PDF.
 //    0.0 < A < 1.0.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int LOG_SERIES_SAMPLE, a sample of the PDF.
 //
@@ -23195,7 +23674,7 @@ double log_uniform_cdf_inv ( double cdf, double a, double b )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Output, double X, the corresponding argument.
+//    Output, double LOG_UNIFORM_CDF_INV, the corresponding argument.
 //
 {
   double x;
@@ -23350,7 +23829,7 @@ double log_uniform_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double log_uniform_sample ( double a, double b, int *seed )
+double log_uniform_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -23375,9 +23854,9 @@ double log_uniform_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    1.0 < A < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double LOG_UNIFORM_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -23518,8 +23997,8 @@ double logistic_cdf_inv ( double cdf, double a, double b )
 }
 //****************************************************************************80
 
-void logistic_cdf_values ( int *n_data, double *mu, double *beta, double *x,
-  double *fx )
+void logistic_cdf_values ( int &n_data, double &mu, double &beta, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -23564,27 +24043,27 @@ void logistic_cdf_values ( int *n_data, double *mu, double *beta, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *MU, the mean of the distribution.
+//    Output, double &MU, the mean of the distribution.
 //
-//    Output, double *BETA, the shape parameter of the distribution.
+//    Output, double &BETA, the shape parameter of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double beta_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double beta_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
@@ -23594,21 +24073,21 @@ void logistic_cdf_values ( int *n_data, double *mu, double *beta, double *x,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double fx_vec[N_MAX] = {
-     0.5000000000000000,
-     0.8807970779778824,
-     0.9820137900379084,
-     0.9975273768433652,
-     0.6224593312018546,
-     0.5825702064623147,
-     0.5621765008857981,
-     0.5498339973124779,
-     0.6224593312018546,
-     0.5000000000000000,
-     0.3775406687981454,
-     0.2689414213699951 };
+  static double fx_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.8807970779778824E+00,
+     0.9820137900379084E+00,
+     0.9975273768433652E+00,
+     0.6224593312018546E+00,
+     0.5825702064623147E+00,
+     0.5621765008857981E+00,
+     0.5498339973124779E+00,
+     0.6224593312018546E+00,
+     0.5000000000000000E+00,
+     0.3775406687981454E+00,
+     0.2689414213699951E+00 };
 
-  double mu_vec[N_MAX] = {
+  static double mu_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -23622,7 +24101,7 @@ void logistic_cdf_values ( int *n_data, double *mu, double *beta, double *x,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -23636,27 +24115,27 @@ void logistic_cdf_values ( int *n_data, double *mu, double *beta, double *x,
      0.3000000000000000E+01,
      0.3000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *mu = 0.0;
-    *beta = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    mu = 0.0;
+    beta = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *mu = mu_vec[*n_data-1];
-    *beta = beta_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    mu = mu_vec[n_data-1];
+    beta = beta_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -23787,7 +24266,7 @@ double logistic_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double logistic_sample ( double a, double b, int *seed )
+double logistic_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -23812,7 +24291,7 @@ double logistic_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double LOGISTIC_SAMPLE, a sample of the PDF.
 //
@@ -24025,7 +24504,7 @@ double lorentz_pdf ( double x )
 }
 //****************************************************************************80
 
-double lorentz_sample ( int *seed )
+double lorentz_sample ( int &seed )
 
 //****************************************************************************80
 //
@@ -24047,7 +24526,7 @@ double lorentz_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double LORENTZ_SAMPLE, a sample of the PDF.
 //
@@ -24415,7 +24894,7 @@ double maxwell_pdf ( double x, double a )
 }
 //****************************************************************************80
 
-double maxwell_sample ( double a, int *seed )
+double maxwell_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -24440,7 +24919,7 @@ double maxwell_sample ( double a, int *seed )
 //    Input, double A, the parameter of the PDF.
 //    0 < A.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double MAXWELL_SAMPLE, a sample of the PDF.
 //
@@ -24893,7 +25372,7 @@ double multinomial_pdf ( int x[], int a, int b, double c[] )
 //
 //  Discussion:
 //
-//    PDF(A,B,C;X) = Comb(A,B,X) * Product ( 1 <= I <= B ) C(I)**X(I)
+//    PDF(A,B,C;X) = Comb(A,B,X) * Product ( 1 <= I <= B ) C(I)^X(I)
 //
 //    where Comb(A,B,X) is the multinomial coefficient
 //      C( A; X(1), X(2), ..., X(B) )
@@ -24954,7 +25433,7 @@ double multinomial_pdf ( int x[], int a, int b, double c[] )
 }
 //****************************************************************************80
 
-int *multinomial_sample ( int a, int b, double c[], int *seed )
+int *multinomial_sample ( int a, int b, double c[], int &seed )
 
 //****************************************************************************80
 //
@@ -24993,9 +25472,9 @@ int *multinomial_sample ( int a, int b, double c[], int *seed )
 //    0.0 <= C(I) <= 1.0,
 //    SUM ( 1 <= I <= B) C(I) = 1.0.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, int X[B]; X(I) is the number of
+//    Output, int MULTINOMIAL_SAMPLE[B]; The Ith entry is the number of
 //    occurrences of event I during the N trials.
 //
 {
@@ -25092,8 +25571,8 @@ double *multinomial_variance ( int a, int b, double c[] )
 }
 //****************************************************************************80
 
-double *multivariate_normal_sample ( int n, double mean[], double covar_factor[],
-  int *seed )
+double *multivariate_normal_sample ( int n, double mean[], 
+  double covar_factor[], int &seed )
 
 //****************************************************************************80
 //
@@ -25103,7 +25582,8 @@ double *multivariate_normal_sample ( int n, double mean[], double covar_factor[]
 //
 //  Discussion:
 //
-//    PDF ( Mean(1:N), S(1:N,1:N); X(1:N) ) = 1 / ( 2 * PI * det ( S ) )^(N/2)
+//    PDF ( Mean(1:N), S(1:N,1:N); X(1:N) ) = 
+//      1 / ( 2 * pi ) ^ ( N / 2 ) * 1 / det ( S )
 //      * exp ( - ( X - Mean )' * inverse ( S ) * ( X - Mean ) / 2 )
 //
 //    Here,
@@ -25143,7 +25623,7 @@ double *multivariate_normal_sample ( int n, double mean[], double covar_factor[]
 //    Input, double COVAR_FACTOR[N*N], the lower triangular Cholesky
 //    factor L of the covariance matrix S.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double MULTIVARIATE_NORMAL_SAMPLE[N], a sample point
 //    of the distribution.
@@ -25530,8 +26010,8 @@ int negative_binomial_cdf_inv ( double cdf, int a, double b )
 }
 //****************************************************************************80
 
-void negative_binomial_cdf_values ( int *n_data, int *f, int *s, double *p,
-  double *cdf )
+void negative_binomial_cdf_values ( int &n_data, int &f, int &s, double &p,
+  double &cdf )
 
 //****************************************************************************80
 //
@@ -25547,7 +26027,7 @@ void negative_binomial_cdf_values ( int *n_data, int *f, int *s, double *p,
 //    tails that occur in this process, then the value of F satisfies
 //    a negative binomial PDF:
 //
-//      PDF(F,S,P) = Choose ( F from F+S-1 ) * P**S * (1-P)**F
+//      PDF(F,S,P) = Choose ( F from F+S-1 ) * P^S * (1-P)^F
 //
 //    The negative binomial CDF is the probability that there are F or
 //    fewer failures upon the attainment of the S-th success.  Thus,
@@ -25587,53 +26067,53 @@ void negative_binomial_cdf_values ( int *n_data, int *f, int *s, double *p,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *F, the maximum number of failures.
+//    Output, int &F, the maximum number of failures.
 //
-//    Output, int *S, the number of successes.
+//    Output, int &S, the number of successes.
 //
-//    Output, double *P, the probability of a success on one trial.
+//    Output, double &P, the probability of a success on one trial.
 //
-//    Output, double *CDF, the probability of at most F failures
+//    Output, double &CDF, the probability of at most F failures
 //    before the S-th success.
 //
 {
 # define N_MAX 27
 
-  double cdf_vec[N_MAX] = {
-     0.6367187500000000,
-     0.3632812500000000,
-     0.1445312500000000,
-     0.5000000000000000,
-     0.2265625000000000,
+  static double cdf_vec[N_MAX] = {
+     0.6367187500000000E+00,
+     0.3632812500000000E+00,
+     0.1445312500000000E+00,
+     0.5000000000000000E+00,
+     0.2265625000000000E+00,
      0.6250000000000000E-01,
-     0.3437500000000000,
-     0.1093750000000000,
+     0.3437500000000000E+00,
+     0.1093750000000000E+00,
      0.1562500000000000E-01,
-     0.1792000000000000,
+     0.1792000000000000E+00,
      0.4096000000000000E-01,
      0.4096000000000000E-02,
      0.7047000000000000E-01,
      0.1093500000000000E-01,
      0.7290000000000000E-03,
-     0.9861587127990000,
-     0.9149749500510000,
-     0.7471846521450000,
-     0.8499053647030009,
-     0.5497160941090026,
-     0.2662040052146710,
-     0.6513215599000000,
-     0.2639010709000000,
+     0.9861587127990000E+00,
+     0.9149749500510000E+00,
+     0.7471846521450000E+00,
+     0.8499053647030009E+00,
+     0.5497160941090026E+00,
+     0.2662040052146710E+00,
+     0.6513215599000000E+00,
+     0.2639010709000000E+00,
      0.7019082640000000E-01,
      0.1000000000000000E+01,
      0.1990000000000000E-01,
      0.1000000000000000E-03 };
 
-  int f_vec[N_MAX] = {
+  static int f_vec[N_MAX] = {
      4,  3,  2,
      3,  2,  1,
      2,  1,  0,
@@ -25644,36 +26124,36 @@ void negative_binomial_cdf_values ( int *n_data, int *f, int *s, double *p,
      9,  8,  7,
      2,  1,  0 };
 
-  double p_vec[N_MAX] = {
-     0.50,
-     0.50,
-     0.50,
-     0.50,
-     0.50,
-     0.50,
-     0.50,
-     0.50,
-     0.50,
-     0.40,
-     0.40,
-     0.40,
-     0.30,
-     0.30,
-     0.30,
-     0.30,
-     0.30,
-     0.30,
-     0.10,
-     0.10,
-     0.10,
-     0.10,
-     0.10,
-     0.10,
+  static double p_vec[N_MAX] = {
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     0.40E+00,
+     0.40E+00,
+     0.40E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.30E+00,
+     0.10E+00,
+     0.10E+00,
+     0.10E+00,
+     0.10E+00,
+     0.10E+00,
+     0.10E+00,
      0.10E-01,
      0.10E-01,
      0.10E-01 };
 
-  int s_vec[N_MAX] = {
+  static int s_vec[N_MAX] = {
     4, 5, 6,
     4, 5, 6,
     4, 5, 6,
@@ -25684,27 +26164,27 @@ void negative_binomial_cdf_values ( int *n_data, int *f, int *s, double *p,
     1, 2, 3,
     0, 1, 2 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *f = 0;
-    *s = 0;
-    *p = 0.0;
-    *cdf = 0.0;
+    n_data = 0;
+    f = 0;
+    s = 0;
+    p = 0.0;
+    cdf = 0.0;
   }
   else
   {
-    *f = f_vec[*n_data-1];
-    *s = s_vec[*n_data-1];
-    *p = p_vec[*n_data-1];
-    *cdf = cdf_vec[*n_data-1];
+    f = f_vec[n_data-1];
+    s = s_vec[n_data-1];
+    p = p_vec[n_data-1];
+    cdf = cdf_vec[n_data-1];
   }
 
   return;
@@ -25718,7 +26198,7 @@ bool negative_binomial_check ( int a, double b )
 //
 //  Purpose:
 //
-//    NEGATIVE_BINOMIAL_CHECK checks the parameters of the Negative Binomial PDF.
+//    NEGATIVE_BINOMIAL_CHECK checks parameters of the Negative Binomial PDF.
 //
 //  Licensing:
 //
@@ -25809,7 +26289,7 @@ double negative_binomial_pdf ( int x, int a, double b )
 //
 //  Discussion:
 //
-//    PDF(A,B;X) = C(X-1,A-1) * B**A * ( 1 - B )**(X-A)
+//    PDF(A,B;X) = C(X-1,A-1) * B^A * ( 1 - B )^(X-A)
 //
 //    PDF(A,B;X) is the probability that the A-th success will
 //    occur on the X-th trial, given that the probability
@@ -25864,7 +26344,7 @@ double negative_binomial_pdf ( int x, int a, double b )
 }
 //****************************************************************************80
 
-int negative_binomial_sample ( int a, double b, int *seed )
+int negative_binomial_sample ( int a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -25890,7 +26370,7 @@ int negative_binomial_sample ( int a, double b, int *seed )
 //    0 <= A,
 //    0 < B <= 1.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int NEGATIVE_BINOMIAL_SAMPLE, a sample of the PDF.
 //
@@ -26109,7 +26589,7 @@ double normal_01_cdf_inv ( double p )
 //    densitity function.  0 < P < 1.  If P is outside this range, an
 //    "infinite" value is returned.
 //
-//    Output, double NORMAL_01_CDF_INVERSE, the normal deviate value
+//    Output, double NORMAL_01_CDF_INV, the normal deviate value
 //    with the property that the probability of a standard normal deviate being
 //    less than or equal to this value is P.
 //
@@ -26213,7 +26693,7 @@ double normal_01_cdf_inv ( double p )
 }
 //****************************************************************************80
 
-void normal_01_cdf_values ( int *n_data, double *x, double *fx )
+void normal_01_cdf_values ( int &n_data, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -26258,48 +26738,48 @@ void normal_01_cdf_values ( int *n_data, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 17
 
-  double fx_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5398278372770290,
-     0.5792597094391030,
-     0.6179114221889526,
-     0.6554217416103242,
-     0.6914624612740131,
-     0.7257468822499270,
-     0.7580363477769270,
-     0.7881446014166033,
-     0.8159398746532405,
-     0.8413447460685429,
-     0.9331927987311419,
-     0.9772498680518208,
-     0.9937903346742239,
-     0.9986501019683699,
-     0.9997673709209645,
-     0.9999683287581669 };
+  static double fx_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5398278372770290E+00,
+     0.5792597094391030E+00,
+     0.6179114221889526E+00,
+     0.6554217416103242E+00,
+     0.6914624612740131E+00,
+     0.7257468822499270E+00,
+     0.7580363477769270E+00,
+     0.7881446014166033E+00,
+     0.8159398746532405E+00,
+     0.8413447460685429E+00,
+     0.9331927987311419E+00,
+     0.9772498680518208E+00,
+     0.9937903346742239E+00,
+     0.9986501019683699E+00,
+     0.9997673709209645E+00,
+     0.9999683287581669E+00 };
 
-  double x_vec[N_MAX] = {
-     0.0000000000000000,
-     0.1000000000000000,
-     0.2000000000000000,
-     0.3000000000000000,
-     0.4000000000000000,
-     0.5000000000000000,
-     0.6000000000000000,
-     0.7000000000000000,
-     0.8000000000000000,
-     0.9000000000000000,
+  static double x_vec[N_MAX] = {
+     0.0000000000000000E+00,
+     0.1000000000000000E+00,
+     0.2000000000000000E+00,
+     0.3000000000000000E+00,
+     0.4000000000000000E+00,
+     0.5000000000000000E+00,
+     0.6000000000000000E+00,
+     0.7000000000000000E+00,
+     0.8000000000000000E+00,
+     0.9000000000000000E+00,
      0.1000000000000000E+01,
      0.1500000000000000E+01,
      0.2000000000000000E+01,
@@ -26308,23 +26788,23 @@ void normal_01_cdf_values ( int *n_data, double *x, double *fx )
      0.3500000000000000E+01,
      0.4000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -26406,11 +26886,11 @@ double normal_01_pdf ( double x )
 
   return pdf;
 }
-//**********************************************************************
+//****************************************************************************80
 
-double normal_01_sample ( int *seed )
+double normal_01_sample ( int &seed )
 
-//**********************************************************************
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -26430,7 +26910,7 @@ double normal_01_sample ( int *seed )
 //
 //  Modified:
 //
-//    18 September 2004
+//    26 August 2013
 //
 //  Author:
 //
@@ -26438,7 +26918,7 @@ double normal_01_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double NORMAL_01_SAMPLE, a normally distributed random value.
 //
@@ -26446,42 +26926,11 @@ double normal_01_sample ( int *seed )
   const double pi = 3.14159265358979323;
   double r1;
   double r2;
-  static int used = -1;
   double x;
-  static double y = 0.0;
 
-  if ( used == -1 )
-  {
-    used = 0;
-  }
-//
-//  If we've used an even number of values so far, generate two more, return one,
-//  and save one.
-//
-  if ( ( used % 2 )== 0 )
-  {
-    for ( ; ; )
-    {
-      r1 = r8_uniform_01 ( seed );
-      if ( r1 != 0.0 )
-      {
-        break;
-      }
-    }
-
-    r2 = r8_uniform_01 ( seed );
-
-    x = sqrt ( -2.0 * log ( r1 ) ) * cos ( 2.0 * pi * r2 );
-    y = sqrt ( -2.0 * log ( r1 ) ) * sin ( 2.0 * pi * r2 );
-  }
-  else
-  {
-
-    x = y;
-
-  }
-
-  used = used + 1;
+  r1 = r8_uniform_01 ( seed );
+  r2 = r8_uniform_01 ( seed );
+  x = sqrt ( -2.0 * log ( r1 ) ) * cos ( 2.0 * pi * r2 );
 
   return x;
 }
@@ -26520,7 +26969,7 @@ double normal_01_variance ( )
 }
 //****************************************************************************80
 
-double *normal_01_vector ( int n, int *seed )
+double *normal_01_vector ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -26540,11 +26989,7 @@ double *normal_01_vector ( int n, int *seed )
 //    Before calling this routine, the user may call RANDOM_SEED
 //    in order to set the seed of the random number generator.
 //
-//    The Box-Muller method is used, which is efficient, but
-//    generates an even number of values each time.  On any call
-//    to this routine, an even number of new values are generated.
-//    Depending on the situation, one value may be left over.
-//    In that case, it is saved for the next call.
+//    The Box-Muller method is used.
 //
 //  Licensing:
 //
@@ -26552,7 +26997,7 @@ double *normal_01_vector ( int n, int *seed )
 //
 //  Modified:
 //
-//    18 October 2004
+//    26 August 2013
 //
 //  Author:
 //
@@ -26560,102 +27005,46 @@ double *normal_01_vector ( int n, int *seed )
 //
 //  Parameters:
 //
-//    Input, int N, the number of values desired.  If N is negative,
-//    then the code will flush its internal memory; in particular,
-//    if there is a saved value to be used on the next call, it is
-//    instead discarded.  This is useful if the user has reset the
-//    random number seed, for instance.
+//    Input, int N, the number of values desired.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double X(N), a sample of the standard normal PDF.
 //
 //  Local parameters:
 //
-//    Local, int MADE, records the number of values that have
-//    been computed.  On input with negative N, this value overwrites
-//    the return value of N, so the user can get an accounting of
-//    how much work has been done.
-//
 //    Local, real R(N+1), is used to store some uniform random values.
 //    Its dimension is N+1, but really it is only needed to be the
 //    smallest even number greater than or equal to N.
-//
-//    Local, int SAVED, is 0 or 1 depending on whether there is a
-//    single saved value left over from the previous call.
 //
 //    Local, int X_LO, X_HI, records the range of entries of
 //    X that we need to compute.  This starts off as 1:N, but is adjusted
 //    if we have a saved value that can be immediately stored in X(1),
 //    and so on.
 //
-//    Local, real Y, the value saved from the previous call, if
-//    SAVED is 1.
-//
 {
   int i;
   int m;
-  static int made = 0;
   const double pi = 3.14159265358979323;
   double *r;
-  static int saved = 0;
   double *x;
   int x_hi;
   int x_lo;
-  static double y = 0.0;
 
   x = new double[n];
-//
-//  I'd like to allow the user to reset the internal data.
-//  But this won't work properly if we have a saved value Y.
-//  I'm making a crock option that allows the user to signal
-//  explicitly that any internal memory should be flushed,
-//  by passing in a negative value for N.
-//
-  if ( n < 0 )
-  {
-    made = 0;
-    saved = 0;
-    y = 0.0;
-    return NULL;
-  }
-  else if ( n == 0 )
-  {
-    return NULL;
-  }
 //
 //  Record the range of X we need to fill in.
 //
   x_lo = 1;
   x_hi = n;
 //
-//  Use up the old value, if we have it.
-//
-  if ( saved == 1 )
-  {
-    x[0] = y;
-    saved = 0;
-    x_lo = 2;
-  }
-//
-//  Maybe we don't need any more values.
-//
-  if ( x_hi - x_lo + 1 == 0 )
-  {
-  }
-//
 //  If we need just one new value, do that here to avoid null arrays.
 //
-  else if ( x_hi - x_lo + 1 == 1 )
+  if ( x_hi - x_lo + 1 == 1 )
   {
     r = r8vec_uniform_01 ( 2, seed );
 
     x[x_hi-1] = sqrt ( -2.0 * log ( r[0] ) ) * cos ( 2.0 * pi * r[1] );
-    y =         sqrt ( -2.0 * log ( r[0] ) ) * sin ( 2.0 * pi * r[1] );
-
-    saved = 1;
-
-    made = made + 2;
 
     delete [] r;
   }
@@ -26673,14 +27062,12 @@ double *normal_01_vector ( int n, int *seed )
       x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
       x[x_lo+i  ] = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
     }
-    made = made + x_hi - x_lo + 1;
 
     delete [] r;
   }
 //
 //  If we require an odd number of values, we generate an even number,
-//  and handle the last pair specially, storing one in X(N), and
-//  saving the other for later.
+//  and handle the last pair specially, storing one in X(N).
 //
   else
   {
@@ -26699,11 +27086,6 @@ double *normal_01_vector ( int n, int *seed )
     i = 2*m - 2;
 
     x[x_lo+i-1] = sqrt ( -2.0 * log ( r[i] ) ) * cos ( 2.0 * pi * r[i+1] );
-    y           = sqrt ( -2.0 * log ( r[i] ) ) * sin ( 2.0 * pi * r[i+1] );
-
-    saved = 1;
-
-    made = made + x_hi - x_lo + 2;
 
     delete [] r;
   }
@@ -26787,7 +27169,7 @@ double normal_cdf_inv ( double cdf, double a, double b )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Output, double X, the corresponding argument.
+//    Output, double NORMAL_CDF_INV, the corresponding argument.
 //
 {
   double x;
@@ -26809,8 +27191,8 @@ double normal_cdf_inv ( double cdf, double a, double b )
 }
 //****************************************************************************80
 
-void normal_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
-  double *fx )
+void normal_cdf_values ( int &n_data, double &mu, double &sigma, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -26855,37 +27237,37 @@ void normal_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *MU, the mean of the distribution.
+//    Output, double &MU, the mean of the distribution.
 //
-//    Output, double *SIGMA, the variance of the distribution.
+//    Output, double &SIGMA, the variance of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double fx_vec[N_MAX] = {
-     0.5000000000000000,
-     0.9772498680518208,
-     0.9999683287581669,
-     0.9999999990134124,
-     0.6914624612740131,
-     0.6305586598182364,
-     0.5987063256829237,
-     0.5792597094391030,
-     0.6914624612740131,
-     0.5000000000000000,
-     0.3085375387259869,
-     0.1586552539314571 };
+  static double fx_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.9772498680518208E+00,
+     0.9999683287581669E+00,
+     0.9999999990134124E+00,
+     0.6914624612740131E+00,
+     0.6305586598182364E+00,
+     0.5987063256829237E+00,
+     0.5792597094391030E+00,
+     0.6914624612740131E+00,
+     0.5000000000000000E+00,
+     0.3085375387259869E+00,
+     0.1586552539314571E+00 };
 
-  double mu_vec[N_MAX] = {
+  static double mu_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -26899,11 +27281,11 @@ void normal_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double sigma_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double sigma_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
@@ -26913,7 +27295,7 @@ void normal_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -26927,27 +27309,27 @@ void normal_cdf_values ( int *n_data, double *mu, double *sigma, double *x,
      0.3000000000000000E+01,
      0.3000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *mu = 0.0;
-    *sigma = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    mu = 0.0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *mu = mu_vec[*n_data-1];
-    *sigma = sigma_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    mu = mu_vec[n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -27081,7 +27463,7 @@ double normal_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double normal_sample ( double a, double b, int *seed )
+double normal_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -27106,7 +27488,7 @@ double normal_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double NORMAL_SAMPLE, a sample of the PDF.
 //
@@ -27157,7 +27539,7 @@ double normal_variance ( double a, double b )
 }
 //****************************************************************************80
 
-double *normal_vector ( int n, double mean, double dev, int *seed )
+double *normal_vector ( int n, double mean, double dev, int &seed )
 
 //****************************************************************************80
 //
@@ -27177,11 +27559,7 @@ double *normal_vector ( int n, double mean, double dev, int *seed )
 //    Before calling this routine, the user may call RANDOM_SEED
 //    in order to set the seed of the random number generator.
 //
-//    The Box-Muller method is used, which is efficient, but
-//    generates an even number of values each time.  On any call
-//    to this routine, an even number of new values are generated.
-//    Depending on the situation, one value may be left over.
-//    In that case, it is saved for the next call.
+//    The Box-Muller method is used.
 //
 //  Licensing:
 //
@@ -27189,7 +27567,7 @@ double *normal_vector ( int n, double mean, double dev, int *seed )
 //
 //  Modified:
 //
-//    18 October 2004
+//    26 August 2013
 //
 //  Author:
 //
@@ -27207,7 +27585,7 @@ double *normal_vector ( int n, double mean, double dev, int *seed )
 //
 //    Input, double DEV, the desired standard deviation.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double NORMAL_VECTOR[N], a sample of the normal PDF.
 //
@@ -27226,7 +27604,969 @@ double *normal_vector ( int n, double mean, double dev, int *seed )
 }
 //****************************************************************************80
 
-void owen_values ( int *n_data, double *h, double *a, double *t )
+double normal_truncated_ab_cdf ( double x, double mu, double s, double a, 
+  double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_AB_CDF evaluates the truncated Normal CDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the CDF.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, B, the lower and upper truncation limits.
+//
+//    Output, double NORMAL_TRUNCATED_AB_CDF, the value of the CDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double beta;
+  double beta_cdf;
+  double cdf;
+  double xi;
+  double xi_cdf;
+
+  alpha = ( a - mu ) / s;
+  beta = ( b - mu ) / s;
+  xi = ( x - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  beta_cdf = normal_01_cdf ( beta );
+  xi_cdf = normal_01_cdf ( xi );
+
+  cdf = ( xi_cdf - alpha_cdf ) / ( beta_cdf - alpha_cdf );
+
+  return cdf;
+}
+//****************************************************************************80
+
+double normal_truncated_ab_cdf_inv ( double cdf, double mu, double s, double a, 
+  double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_AB_CDF_INV inverts the truncated Normal CDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double CDF, the value of the CDF.
+//    0.0 <= CDF <= 1.0.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, B, the lower and upper truncation limits.
+//
+//    Output, double NORMAL_TRUNCATED_AB_CDF_INV, the corresponding argument.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double beta;
+  double beta_cdf;
+  double x;
+  double xi;
+  double xi_cdf;
+
+  if ( cdf < 0.0 || 1.0 < cdf )
+  {
+    cerr << "\n";
+    cerr << "NORMAL_TRUNCATED_AB_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
+    exit ( 1 );
+  }
+
+  alpha = ( a - mu ) / s;
+  beta = ( b - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  beta_cdf = normal_01_cdf ( beta );
+
+  xi_cdf = ( beta_cdf - alpha_cdf ) * cdf + alpha_cdf;
+  xi = normal_01_cdf_inv ( xi_cdf );
+
+  x = mu + s * xi;
+
+  return x;
+}
+//****************************************************************************80
+
+double normal_truncated_ab_mean ( double mu, double s, double a, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_AB_MEAN returns the mean of the truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviatione of the
+//    parent Normal distribution.
+//
+//    Input, double A, B, the lower and upper truncation limits.
+//
+//    Output, double NORMAL_TRUNCATED_AB_MEAN, the mean of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double alpha_pdf;
+  double beta;
+  double beta_cdf;
+  double beta_pdf;
+  double mean;
+
+  alpha = ( a - mu ) / s;
+  beta = ( b - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  beta_cdf = normal_01_cdf ( beta  );
+
+  alpha_pdf = normal_01_pdf ( alpha );
+  beta_pdf = normal_01_pdf ( beta );
+
+  mean = mu + s * ( alpha_pdf - beta_pdf ) / ( beta_cdf - alpha_cdf );
+
+  return mean;
+}
+//****************************************************************************80
+
+double normal_truncated_ab_pdf ( double x, double mu, double s, double a, 
+  double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_AB_PDF evaluates the truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the PDF.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, B, the lower and upper truncation limits.
+//
+//    Output, double NORMAL_TRUNCATED_AB_PDF, the value of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double beta;
+  double beta_cdf;
+  double pdf;
+  double xi;
+  double xi_pdf;
+
+  alpha = ( a - mu ) / s;
+  beta = ( b - mu ) / s;
+  xi = ( x - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  beta_cdf = normal_01_cdf ( beta );
+  xi_pdf = normal_01_pdf ( xi );
+
+  pdf = xi_pdf / ( beta_cdf - alpha_cdf ) / s;
+
+  return pdf;
+}
+//****************************************************************************80
+
+double normal_truncated_ab_sample ( double mu, double s, double a, double b, 
+  int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_AB_SAMPLE samples the truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, B, the lower and upper truncation limits.
+//
+//    Input/output, int &SEED, a seed for the random number
+//    generator.
+//
+//    Output, double NORMAL_TRUNCATED_AB_SAMPLE, a sample of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double beta;
+  double beta_cdf;
+  double u;
+  double x;
+  double xi;
+  double xi_cdf;
+
+  alpha = ( a - mu ) / s;
+  beta = ( b - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  beta_cdf = normal_01_cdf ( beta );
+
+  u = r8_uniform_01 ( seed );
+  xi_cdf = alpha_cdf + u * ( beta_cdf - alpha_cdf );
+  xi = normal_01_cdf_inv ( xi_cdf );
+
+  x = mu + s * xi;
+
+  return x;
+}
+//****************************************************************************80
+
+double normal_truncated_ab_variance ( double mu, double s, double a, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_AB_VARIANCE returns the variance of the truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, B, the lower and upper truncation limits.
+//
+//    Output, double NORMAL_TRUNCATED_AB_VARIANCE, the variance of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double alpha_pdf;
+  double beta;
+  double beta_cdf;
+  double beta_pdf;
+  double variance;
+
+  alpha = ( a - mu ) / s;
+  beta = ( b - mu ) / s;
+
+  alpha_pdf = normal_01_pdf ( alpha );
+  beta_pdf = normal_01_pdf ( beta );
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  beta_cdf = normal_01_cdf ( beta );
+
+  variance = s * s * ( 1.0 
+    + ( alpha * alpha_pdf - beta * beta_pdf ) / ( beta_cdf - alpha_cdf ) 
+    - pow ( ( alpha_pdf - beta_pdf ) / ( beta_cdf - alpha_cdf ), 2 ) );
+
+  return variance;
+}
+//****************************************************************************80
+
+double normal_truncated_a_cdf ( double x, double mu, double s, double a )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_A_CDF evaluates the lower truncated Normal CDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the CDF.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, the lower truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_A_CDF, the value of the CDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double cdf;
+  double xi;
+  double xi_cdf;
+
+  alpha = ( a - mu ) / s;
+  xi = ( x - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  xi_cdf = normal_01_cdf ( xi );
+
+  cdf = ( xi_cdf - alpha_cdf ) / ( 1.0 - alpha_cdf );
+
+  return cdf;
+}
+//****************************************************************************80
+
+double normal_truncated_a_cdf_inv ( double cdf, double mu, double s, double a )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_A_CDF_INV inverts the lower truncated Normal CDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double CDF, the value of the CDF.
+//    0.0 <= CDF <= 1.0.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, the lower truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_A_CDF_INV, the corresponding argument.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double x;
+  double xi;
+  double xi_cdf;
+
+  if ( cdf < 0.0 || 1.0 < cdf )
+  {
+    cerr << "\n";
+    cerr << "NORMAL_TRUNCATED_A_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
+    exit ( 1 );
+  }
+
+  alpha = ( a - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+
+  xi_cdf = ( 1.0 - alpha_cdf ) * cdf + alpha_cdf;
+  xi = normal_01_cdf_inv ( xi_cdf );
+
+  x = mu + s * xi;
+
+  return x;
+}
+//****************************************************************************80
+
+double normal_truncated_a_mean ( double mu, double s, double a )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_A_MEAN returns the mean of the lower truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviatione of the
+//    parent Normal distribution.
+//
+//    Input, double A, the lower truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_A_MEAN, the mean of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double alpha_pdf;
+  double mean;
+
+  alpha = ( a - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+
+  alpha_pdf = normal_01_pdf ( alpha );
+
+  mean = mu + s * alpha_pdf / ( 1.0 - alpha_cdf );
+
+  return mean;
+}
+//****************************************************************************80
+
+double normal_truncated_a_pdf ( double x, double mu, double s, double a )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_A_PDF evaluates the lower truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the PDF.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, the lower truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_A_PDF, the value of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double pdf;
+  double xi;
+  double xi_pdf;
+
+  alpha = ( a - mu ) / s;
+  xi = ( x - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+  xi_pdf = normal_01_pdf ( xi );
+
+  pdf = xi_pdf / ( 1.0 - alpha_cdf ) / s;
+
+  return pdf;
+}
+//****************************************************************************80
+
+double normal_truncated_a_sample ( double mu, double s, double a, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_A_SAMPLE samples the lower truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, the lower truncation limit.
+//
+//    Input/output, int &SEED, a seed for the random number
+//    generator.
+//
+//    Output, double NORMAL_TRUNCATED_A_SAMPLE, a sample of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double u;
+  double x;
+  double xi;
+  double xi_cdf;
+
+  alpha = ( a - mu ) / s;
+
+  alpha_cdf = normal_01_cdf ( alpha );
+
+  u = r8_uniform_01 ( seed );
+  xi_cdf = alpha_cdf + u * ( 1.0 - alpha_cdf );
+  xi = normal_01_cdf_inv ( xi_cdf );
+
+  x = mu + s * xi;
+
+  return x;
+}
+//****************************************************************************80
+
+double normal_truncated_a_variance ( double mu, double s, double a )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_A_VARIANCE: variance of the lower truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double A, the lower truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_A_VARIANCE, the variance of the PDF.
+//
+{
+  double alpha;
+  double alpha_cdf;
+  double alpha_pdf;
+  double variance;
+
+  alpha = ( a - mu ) / s;
+
+  alpha_pdf = normal_01_pdf ( alpha );
+
+  alpha_cdf = normal_01_cdf ( alpha );
+
+  variance = s * s * ( 1.0 
+    + alpha * alpha_pdf / ( 1.0 - alpha_cdf ) 
+    - pow ( alpha_pdf / ( 1.0 - alpha_cdf ), 2 ) );
+
+  return variance;
+}
+//****************************************************************************80
+
+double normal_truncated_b_cdf ( double x, double mu, double s, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_B_CDF evaluates the upper truncated Normal CDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the CDF.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double B, the upper truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_B_CDF, the value of the CDF.
+//
+{
+  double beta;
+  double beta_cdf;
+  double cdf;
+  double xi;
+  double xi_cdf;
+
+  beta = ( b - mu ) / s;
+  xi = ( x - mu ) / s;
+
+  beta_cdf = normal_01_cdf ( beta );
+  xi_cdf = normal_01_cdf ( xi );
+
+  cdf = xi_cdf / beta_cdf;
+
+  return cdf;
+}
+//****************************************************************************80
+
+double normal_truncated_b_cdf_inv ( double cdf, double mu, double s, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_B_CDF_INV inverts the upper truncated Normal CDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double CDF, the value of the CDF.
+//    0.0 <= CDF <= 1.0.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double B, the upper truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_B_CDF_INV, the corresponding argument.
+//
+{
+  double beta;
+  double beta_cdf;
+  double x;
+  double xi;
+  double xi_cdf;
+
+  if ( cdf < 0.0 || 1.0 < cdf )
+  {
+    cerr << "\n";
+    cerr << "NORMAL_TRUNCATED_B_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
+    exit ( 1 );
+  }
+
+  beta = ( b - mu ) / s;
+
+  beta_cdf = normal_01_cdf ( beta );
+
+  xi_cdf = beta_cdf * cdf;
+  xi = normal_01_cdf_inv ( xi_cdf );
+
+  x = mu + s * xi;
+
+  return x;
+}
+//****************************************************************************80
+
+double normal_truncated_b_mean ( double mu, double s, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_B_MEAN returns the mean of the upper truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviatione of the
+//    parent Normal distribution.
+//
+//    Input, double B, the upper truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_B_MEAN, the mean of the PDF.
+//
+{
+  double beta;
+  double beta_cdf;
+  double beta_pdf;
+  double mean;
+
+  beta = ( b - mu ) / s;
+
+  beta_cdf = normal_01_cdf ( beta );
+
+  beta_pdf = normal_01_pdf ( beta );
+
+  mean = mu - s * beta_pdf / beta_cdf;
+
+  return mean;
+}
+//****************************************************************************80
+
+double normal_truncated_b_pdf ( double x, double mu, double s, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_B_PDF evaluates the upper truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double X, the argument of the PDF.
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double B, the upper truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_B_PDF, the value of the PDF.
+//
+{
+  double beta;
+  double beta_cdf;
+  double pdf;
+  double xi;
+  double xi_pdf;
+
+  beta = ( b - mu ) / s;
+  xi = ( x - mu ) / s;
+
+  beta_cdf = normal_01_cdf ( beta );
+  xi_pdf = normal_01_pdf ( xi );
+
+  pdf = xi_pdf / beta_cdf / s;
+
+  return pdf;
+}
+//****************************************************************************80
+
+double normal_truncated_b_sample ( double mu, double s, double b, int &seed )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_B_SAMPLE samples the upper truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    21 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double B, the upper truncation limit.
+//
+//    Input/output, int &SEED, a seed for the random number
+//    generator.
+//
+//    Output, double NORMAL_TRUNCATED_B_SAMPLE, a sample of the PDF.
+//
+{
+  double beta;
+  double beta_cdf;
+  double u;
+  double x;
+  double xi;
+  double xi_cdf;
+
+  beta = ( b - mu ) / s;
+
+  beta_cdf = normal_01_cdf ( beta );
+
+  u = r8_uniform_01 ( seed );
+  xi_cdf = u * beta_cdf;
+  xi = normal_01_cdf_inv ( xi_cdf );
+
+  x = mu + s * xi;
+
+  return x;
+}
+//****************************************************************************80
+
+double normal_truncated_b_variance ( double mu, double s, double b )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    NORMAL_TRUNCATED_B_VARIANCE: variance of the upper truncated Normal PDF.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
+//
+//  Modified:
+//
+//    14 August 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, double MU, S, the mean and standard deviation of the
+//    parent Normal distribution.
+//
+//    Input, double B, the upper truncation limit.
+//
+//    Output, double NORMAL_TRUNCATED_B_VARIANCE, the variance of the PDF.
+//
+{
+  double beta;
+  double beta_cdf;
+  double beta_pdf;
+  double variance;
+
+  beta = ( b - mu ) / s;
+
+  beta_pdf = normal_01_pdf ( beta );
+
+  beta_cdf = normal_01_cdf ( beta );
+
+  variance = s * s * ( 1.0 
+    - beta * beta_pdf / beta_cdf 
+    - pow ( beta_pdf / beta_cdf, 2 ) );
+
+  return variance;
+}
+//****************************************************************************80
+
+void owen_values ( int &n_data, double &h, double &a, double &t )
 
 //****************************************************************************80
 //
@@ -27255,13 +28595,18 @@ void owen_values ( int *n_data, double *h, double *a, double *t )
 //
 //  Modified:
 //
-//    10 December 2004
+//    24 May 2009
 //
 //  Author:
 //
 //    John Burkardt
 //
 //  Reference:
+//
+//    Mike Patefield, David Tandy,
+//    Fast and Accurate Calculation of Owen's T Function,
+//    Journal of Statistical Software,
+//    Volume 5, Number 5, 2000, pages 1-25.
 //
 //    Stephen Wolfram,
 //    The Mathematica Book,
@@ -27272,61 +28617,73 @@ void owen_values ( int *n_data, double *h, double *a, double *t )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *H, a parameter.
+//    Output, double &H, a parameter.
 //
-//    Output, double *A, the upper limit of the integral.
+//    Output, double &A, the upper limit of the integral.
 //
-//    Output, double *T, the value of the function.
+//    Output, double &T, the value of the function.
 //
 {
-# define N_MAX 22
+# define N_MAX 28
 
-  double a_vec[N_MAX] = {
-    0.5000000000000000,
+  static double a_vec[N_MAX] = {
+    0.2500000000000000E+00,
+    0.4375000000000000E+00,
+    0.9687500000000000E+00,
+    0.0625000000000000E+00,
+    0.5000000000000000E+00,
+    0.9999975000000000E+00,
+    0.5000000000000000E+00,
     0.1000000000000000E+01,
     0.2000000000000000E+01,
     0.3000000000000000E+01,
-    0.5000000000000000,
+    0.5000000000000000E+00,
     0.1000000000000000E+01,
     0.2000000000000000E+01,
     0.3000000000000000E+01,
-    0.5000000000000000,
+    0.5000000000000000E+00,
     0.1000000000000000E+01,
     0.2000000000000000E+01,
     0.3000000000000000E+01,
-    0.5000000000000000,
+    0.5000000000000000E+00,
     0.1000000000000000E+01,
     0.2000000000000000E+01,
     0.3000000000000000E+01,
-    0.5000000000000000,
+    0.5000000000000000E+00,
     0.1000000000000000E+01,
     0.2000000000000000E+01,
     0.3000000000000000E+01,
     0.1000000000000000E+02,
     0.1000000000000000E+03 };
 
-  double h_vec[N_MAX] = {
+  static double h_vec[N_MAX] = {
+    0.0625000000000000E+00,
+    6.5000000000000000E+00,
+    7.0000000000000000E+00,
+    4.7812500000000000E+00,
+    2.0000000000000000E+00,
+    1.0000000000000000E+00,
     0.1000000000000000E+01,
     0.1000000000000000E+01,
     0.1000000000000000E+01,
     0.1000000000000000E+01,
-    0.5000000000000000,
-    0.5000000000000000,
-    0.5000000000000000,
-    0.5000000000000000,
-    0.2500000000000000,
-    0.2500000000000000,
-    0.2500000000000000,
-    0.2500000000000000,
-    0.1250000000000000,
-    0.1250000000000000,
-    0.1250000000000000,
-    0.1250000000000000,
+    0.5000000000000000E+00,
+    0.5000000000000000E+00,
+    0.5000000000000000E+00,
+    0.5000000000000000E+00,
+    0.2500000000000000E+00,
+    0.2500000000000000E+00,
+    0.2500000000000000E+00,
+    0.2500000000000000E+00,
+    0.1250000000000000E+00,
+    0.1250000000000000E+00,
+    0.1250000000000000E+00,
+    0.1250000000000000E+00,
     0.7812500000000000E-02,
     0.7812500000000000E-02,
     0.7812500000000000E-02,
@@ -27334,49 +28691,55 @@ void owen_values ( int *n_data, double *h, double *a, double *t )
     0.7812500000000000E-02,
     0.7812500000000000E-02 };
 
-  double t_vec[N_MAX] = {
+  static double t_vec[N_MAX] = {
+    3.8911930234701366E-02,
+    2.0005773048508315E-11,
+    6.3990627193898685E-13,
+    1.0632974804687463E-07,
+    8.6250779855215071E-03,
+    6.6741808978228592E-02,
     0.4306469112078537E-01,
     0.6674188216570097E-01,
     0.7846818699308410E-01,
     0.7929950474887259E-01,
     0.6448860284750376E-01,
-    0.1066710629614485,
-    0.1415806036539784,
-    0.1510840430760184,
+    0.1066710629614485E+00,
+    0.1415806036539784E+00,
+    0.1510840430760184E+00,
     0.7134663382271778E-01,
-    0.1201285306350883,
-    0.1666128410939293,
-    0.1847501847929859,
+    0.1201285306350883E+00,
+    0.1666128410939293E+00,
+    0.1847501847929859E+00,
     0.7317273327500385E-01,
-    0.1237630544953746,
-    0.1737438887583106,
-    0.1951190307092811,
+    0.1237630544953746E+00,
+    0.1737438887583106E+00,
+    0.1951190307092811E+00,
     0.7378938035365546E-01,
-    0.1249951430754052,
-    0.1761984774738108,
-    0.1987772386442824,
-    0.2340886964802671,
-    0.2479460829231492 };
+    0.1249951430754052E+00,
+    0.1761984774738108E+00,
+    0.1987772386442824E+00,
+    0.2340886964802671E+00,
+    0.2479460829231492E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *h = 0.0;
-    *a = 0.0;
-    *t = 0.0;
+    n_data = 0;
+    h = 0.0;
+    a = 0.0;
+    t = 0.0;
   }
   else
   {
-    *h = h_vec[*n_data-1];
-    *a = a_vec[*n_data-1];
-    *t = t_vec[*n_data-1];
+    h = h_vec[n_data-1];
+    a = a_vec[n_data-1];
+    t = t_vec[n_data-1];
   }
 
   return;
@@ -27509,17 +28872,17 @@ bool pareto_check ( double a, double b )
 {
   if ( a <= 0.0 )
   {
-    cout << " \n";
-    cout << "PARETO_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << " \n";
+    cerr << "PARETO_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return false;
   }
 
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "PARETO_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "PARETO_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -27560,9 +28923,9 @@ double pareto_mean ( double a, double b )
 
   if ( b <= 1.0 )
   {
-    cout << " \n";
-    cout << "PARETO_MEAN - Fatal error!\n";
-    cout << "  For B <= 1, the mean does not exist.\n";
+    cerr << " \n";
+    cerr << "PARETO_MEAN - Fatal error!\n";
+    cerr << "  For B <= 1, the mean does not exist.\n";
     mean = 0.0;
     return mean;
   }
@@ -27583,7 +28946,7 @@ double pareto_pdf ( double x, double a, double b )
 //
 //  Discussion:
 //
-//    PDF(A,B;X) = B * A**B / X**(B+1).
+//    PDF(A,B;X) = B * A^B / X^(B+1).
 //
 //  Licensing:
 //
@@ -27624,7 +28987,7 @@ double pareto_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double pareto_sample ( double a, double b, int *seed )
+double pareto_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -27650,7 +29013,7 @@ double pareto_sample ( double a, double b, int *seed )
 //    0.0 < A.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double PARETO_SAMPLE, a sample of the PDF.
 //
@@ -27742,17 +29105,17 @@ bool pearson_05_check ( double a, double b, double c )
 {
   if ( a <= 0.0 )
   {
-    cout << " \n";
-    cout << "PEARSON_05_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << " \n";
+    cerr << "PEARSON_05_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return false;
   }
 
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "PEARSON_05_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "PEARSON_05_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -27819,7 +29182,7 @@ double pearson_05_pdf ( double x, double a, double b, double c )
 //
 //  Discussion:
 //
-//    PDF(A,B;X) = A**B * ( X - C )**(-B-1)
+//    PDF(A,B;X) = A^B * ( X - C )^(-B-1)
 //      * exp ( - A / ( X - C ) ) / Gamma ( B )
 //
 //  Licensing:
@@ -27861,7 +29224,7 @@ double pearson_05_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double pearson_05_sample ( double a, double b, double c, int *seed )
+double pearson_05_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -27886,7 +29249,7 @@ double pearson_05_sample ( double a, double b, double c, int *seed )
 //    Input, double A, B, C, the parameters of the PDF.
 //    0.0 < A, 0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double PEARSON_05_SAMPLE, a sample of the PDF.
 //
@@ -27940,17 +29303,17 @@ bool planck_check ( double a, double b )
 {
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "PLANCK_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "PLANCK_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return false;
   }
 
   if ( b <= 0.0 )
   {
-    cout << "\n";
-    cout << "PLANCK_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << "\n";
+    cerr << "PLANCK_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -28007,7 +29370,7 @@ double planck_pdf ( double x, double a, double b )
 //
 //    The Planck PDF has the form
 //
-//      PDF(A,B;X) = A**(B+1) * X**B / ( exp ( A * X ) - 1 ) / K
+//      PDF(A,B;X) = A^(B+1) * X^B / ( exp ( A * X ) - 1 ) / K
 //
 //    where K is the normalization constant, and has the value
 //
@@ -28016,11 +29379,11 @@ double planck_pdf ( double x, double a, double b )
 //    The original Planck distribution governed the frequencies in
 //    blackbody radiation at a given temperature T, and has the form
 //
-//      PDF(A;X) = K * X**3 / ( exp ( A * X ) - 1 )
+//      PDF(A;X) = K * X^3 / ( exp ( A * X ) - 1 )
 //
 //    where
 //
-//      K = 15 / PI**4.
+//      K = 15 / PI^4.
 //
 //    Thus, in terms of the Planck PDF, the original Planck distribution
 //    has A = 1, B = 3.
@@ -28066,7 +29429,7 @@ double planck_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double planck_sample ( double a, double b, int *seed )
+double planck_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -28098,7 +29461,7 @@ double planck_sample ( double a, double b, int *seed )
 //    0.0 < A,
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double PLANCK_SAMPLE, a sample of the PDF.
 //
@@ -28182,7 +29545,7 @@ double point_distance_1d_pdf ( double x, int a, double b )
 //
 //    Note that this PDF is a form of the Gamma PDF.???
 //
-//    PDF(A,B;X) = B**A * X**( A - 1 ) * EXP ( - B * X ) / ( A - 1 )!
+//    PDF(A,B;X) = B^A * X^( A - 1 ) * EXP ( - B * X ) / ( A - 1 )!
 //
 //  Licensing:
 //
@@ -28214,17 +29577,17 @@ double point_distance_1d_pdf ( double x, int a, double b )
 
   if ( a < 1 )
   {
-    cout << " \n";
-    cout << "POINT_DISTANCE_1D_PDF - Fatal error!\n";
-    cout << "  Input parameter A < 1.\n";
+    cerr << " \n";
+    cerr << "POINT_DISTANCE_1D_PDF - Fatal error!\n";
+    cerr << "  Input parameter A < 1.\n";
     exit ( 1 );
   }
 
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "POINT_DISTANCE_1D_PDF - Fatal error!\n";
-    cout << "  Input parameter B <= 0.0.\n";
+    cerr << " \n";
+    cerr << "POINT_DISTANCE_1D_PDF - Fatal error!\n";
+    cerr << "  Input parameter B <= 0.0.\n";
     exit ( 1 );
   }
 
@@ -28261,7 +29624,7 @@ double point_distance_2d_pdf ( double x, int a, double b )
 //    in the PDF that governs the expected behavior of the distances
 //    of rank A = 1, 2, 3, ... with Poisson density B.
 //
-//    PDF(A,B;X) = 2 * ( B * PI )**A * X**( 2 * A - 1 )
+//    PDF(A,B;X) = 2 * ( B * PI )^A * X^( 2 * A - 1 )
 //      * EXP ( - B * PI * X * X ) / ( A - 1 )!
 //
 //  Licensing:
@@ -28302,17 +29665,17 @@ double point_distance_2d_pdf ( double x, int a, double b )
 
   if ( a < 1 )
   {
-    cout << " \n";
-    cout << "POINT_DISTANCE_2D_PDF - Fatal error!\n";
-    cout << "  Input parameter A < 1.\n";
+    cerr << " \n";
+    cerr << "POINT_DISTANCE_2D_PDF - Fatal error!\n";
+    cerr << "  Input parameter A < 1.\n";
     exit ( 1 );
   }
 
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "POINT_DISTANCE_2D_PDF - Fatal error!\n";
-    cout << "  Input parameter B <= 0.0.\n";
+    cerr << " \n";
+    cerr << "POINT_DISTANCE_2D_PDF - Fatal error!\n";
+    cerr << "  Input parameter B <= 0.0.\n";
     exit ( 1 );
   }
 
@@ -28349,7 +29712,7 @@ double point_distance_3d_pdf ( double x, int a, double b )
 //    in the PDF that governs the expected behavior of the distances
 //    of rank A = 1, 2, 3, ... with Poisson density B.
 //
-//    PDF(A,B;X) = 3 * ( (4/3) * B * PI )**A * X**( 3 * A - 1 )
+//    PDF(A,B;X) = 3 * ( (4/3) * B * PI )^A * X^( 3 * A - 1 )
 //      * EXP ( - (4/3) * B * PI * X * X * X ) / ( A - 1 )!
 //
 //  Licensing:
@@ -28390,17 +29753,17 @@ double point_distance_3d_pdf ( double x, int a, double b )
 
   if ( a < 1 )
   {
-    cout << " \n";
-    cout << "POINT_DISTANCE_3D_PDF - Fatal error!\n";
-    cout << "  Input parameter A < 1.\n";
+    cerr << " \n";
+    cerr << "POINT_DISTANCE_3D_PDF - Fatal error!\n";
+    cerr << "  Input parameter A < 1.\n";
     exit ( 1 );
   }
 
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "POINT_DISTANCE_3D_PDF - Fatal error!\n";
-    cout << "  Input parameter B <= 0.0.\n";
+    cerr << " \n";
+    cerr << "POINT_DISTANCE_3D_PDF - Fatal error!\n";
+    cerr << "  Input parameter B <= 0.0.\n";
     exit ( 1 );
   }
 
@@ -28464,9 +29827,9 @@ double poisson_cdf ( int k, double a )
 //
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "POISSON_CDF - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "POISSON_CDF - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return 0;
   }
 //
@@ -28535,9 +29898,9 @@ int poisson_cdf_inv ( double cdf, double a )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "POISSON_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "POISSON_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 //
@@ -28579,7 +29942,7 @@ int poisson_cdf_inv ( double cdf, double a )
 }
 //****************************************************************************80
 
-void poisson_cdf_values ( int *n_data, double *a, int *x, double *fx )
+void poisson_cdf_values ( int &n_data, double &a, int &x, double &fx )
 
 //****************************************************************************80
 //
@@ -28631,67 +29994,67 @@ void poisson_cdf_values ( int *n_data, double *a, int *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *A, the parameter of the function.
+//    Output, double &A, the parameter of the function.
 //
 //    Output, int *X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 21
 
-  double a_vec[N_MAX] = {
-     0.02,
-     0.10,
-     0.10,
-     0.50,
-     0.50,
-     0.50,
-     1.00,
-     1.00,
-     1.00,
-     1.00,
-     2.00,
-     2.00,
-     2.00,
-     2.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00,
-     5.00 };
+  static double a_vec[N_MAX] = {
+     0.02E+00,
+     0.10E+00,
+     0.10E+00,
+     0.50E+00,
+     0.50E+00,
+     0.50E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     1.00E+00,
+     2.00E+00,
+     2.00E+00,
+     2.00E+00,
+     2.00E+00,
+     5.00E+00,
+     5.00E+00,
+     5.00E+00,
+     5.00E+00,
+     5.00E+00,
+     5.00E+00,
+     5.00E+00 };
 
-  double fx_vec[N_MAX] = {
-     0.9801986733067553,
-     0.9048374180359596,
-     0.9953211598395555,
-     0.6065306597126334,
-     0.9097959895689501,
-     0.9856123220330293,
-     0.3678794411714423,
-     0.7357588823428846,
-     0.9196986029286058,
-     0.9810118431238462,
-     0.1353352832366127,
-     0.4060058497098381,
-     0.6766764161830635,
-     0.8571234604985470,
+  static double fx_vec[N_MAX] = {
+     0.9801986733067553E+00,
+     0.9048374180359596E+00,
+     0.9953211598395555E+00,
+     0.6065306597126334E+00,
+     0.9097959895689501E+00,
+     0.9856123220330293E+00,
+     0.3678794411714423E+00,
+     0.7357588823428846E+00,
+     0.9196986029286058E+00,
+     0.9810118431238462E+00,
+     0.1353352832366127E+00,
+     0.4060058497098381E+00,
+     0.6766764161830635E+00,
+     0.8571234604985470E+00,
      0.6737946999085467E-02,
      0.4042768199451280E-01,
-     0.1246520194830811,
-     0.2650259152973617,
-     0.4404932850652124,
-     0.6159606548330631,
-     0.7621834629729387 };
+     0.1246520194830811E+00,
+     0.2650259152973617E+00,
+     0.4404932850652124E+00,
+     0.6159606548330631E+00,
+     0.7621834629729387E+00 };
 
-  int x_vec[N_MAX] = {
+  static int x_vec[N_MAX] = {
      0, 0, 1, 0,
      1, 2, 0, 1,
      2, 3, 0, 1,
@@ -28699,25 +30062,25 @@ void poisson_cdf_values ( int *n_data, double *a, int *x, double *fx )
      2, 3, 4, 5,
      6 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0.0;
-    *x = 0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0.0;
+    x = 0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -28755,9 +30118,9 @@ bool poisson_check ( double a )
 {
   if ( a <= 0.0 )
   {
-    cout << " \n";
-    cout << "POISSON_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << " \n";
+    cerr << "POISSON_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return false;
   }
 
@@ -28856,14 +30219,13 @@ double poisson_mean ( double a )
 {
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "POISSON_MEAN - Fatal error!\n" ;
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "POISSON_MEAN - Fatal error!\n" ;
+    cerr << "  A <= 0.\n";
     return 0;
   }
 
   return a;
-
 }
 //****************************************************************************80
 
@@ -28916,10 +30278,11 @@ double poisson_pdf ( int k, double a )
 //
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "POISSON_PDF - Fatal error!\n";
-    cout << "  A <= 0.\n";
-    return (0.0);
+    cerr << "\n";
+    cerr << "POISSON_PDF - Fatal error!\n";
+    cerr << "  A <= 0.\n";
+    pdf = 0.0;
+    return pdf;
   }
 
   pdf = exp ( -a ) * pow ( a, ( double ) k ) / i4_factorial ( k );
@@ -28928,7 +30291,7 @@ double poisson_pdf ( int k, double a )
 }
 //****************************************************************************80
 
-int poisson_sample ( double a, int *seed )
+int poisson_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -28953,7 +30316,7 @@ int poisson_sample ( double a, int *seed )
 //    Input, double A, the parameter of the PDF.
 //    0 < A.
 //
-//    Input/output, int *SEED, the random number generator seed.
+//    Input/output, int &SEED, the random number generator seed.
 //
 //    Output, int POISSON_SAMPLE, a sample of the PDF.
 //
@@ -28970,9 +30333,9 @@ int poisson_sample ( double a, int *seed )
 //
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "POISSON_SAMPLE - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "POISSON_SAMPLE - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return 0;
   }
 //
@@ -29049,9 +30412,9 @@ double poisson_variance ( double a )
 //
   if ( a <= 0.0 )
   {
-    cout << "\n";
-    cout << "POISSON_VARIANCE - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << "\n";
+    cerr << "POISSON_VARIANCE - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return (0.0);
   }
 
@@ -29143,9 +30506,9 @@ double power_cdf_inv ( double cdf, double a, double b )
 
   if ( cdf < 0.0 || 1.0 < cdf )
   {
-    cout << " \n";
-    cout << "POWER_CDF_INV - Fatal error!\n";
-    cout << "  CDF < 0 or 1 < CDF.\n";
+    cerr << " \n";
+    cerr << "POWER_CDF_INV - Fatal error!\n";
+    cerr << "  CDF < 0 or 1 < CDF.\n";
     exit ( 1 );
   }
 
@@ -29196,17 +30559,17 @@ bool power_check ( double a, double b )
 {
   if ( a <= 0.0 )
   {
-    cout << " \n";
-    cout << "POWER_CHECK - Fatal error!\n";
-    cout << "  A <= 0.\n";
+    cerr << " \n";
+    cerr << "POWER_CHECK - Fatal error!\n";
+    cerr << "  A <= 0.\n";
     return false;
   }
 
   if ( b <= 0.0 )
   {
-    cout << " \n";
-    cout << "POWER_CHECK - Fatal error!\n";
-    cout << "  B <= 0.\n";
+    cerr << " \n";
+    cerr << "POWER_CHECK - Fatal error!\n";
+    cerr << "  B <= 0.\n";
     return false;
   }
 
@@ -29260,7 +30623,7 @@ double power_pdf ( double x, double a, double b )
 //
 //  Discussion:
 //
-//    PDF(A;X) = (A/B) * (X/B)**(A-1)
+//    PDF(A;X) = (A/B) * (X/B)^(A-1)
 //
 //  Licensing:
 //
@@ -29306,7 +30669,7 @@ double power_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double power_sample ( double a, double b, int *seed )
+double power_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -29331,7 +30694,7 @@ double power_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < A, 0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double POWER_SAMPLE, a sample of the PDF.
 //
@@ -29383,7 +30746,7 @@ double power_variance ( double a, double b )
 }
 //****************************************************************************80
 
-void psi_values ( int *n_data, double *x, double *fx )
+void psi_values ( int &n_data, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -29413,7 +30776,7 @@ void psi_values ( int *n_data, double *x, double *fx )
 //
 //  Modified:
 //
-//    17 August 2004
+//    04 June 2013
 //
 //  Author:
 //
@@ -29436,61 +30799,79 @@ void psi_values ( int *n_data, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
-# define N_MAX 11
+# define N_MAX 20
 
-  double fx_vec[N_MAX] = {
-     -0.5772156649015329,
-     -0.4237549404110768,
-     -0.2890398965921883,
-     -0.1691908888667997,
+  static double fx_vec[N_MAX] = {
+    -10.42375494041108E+00, 
+     -5.289039896592188E+00, 
+     -3.502524222200133E+00, 
+     -2.561384544585116E+00, 
+     -1.963510026021423E+00, 
+     -1.540619213893190E+00, 
+     -1.220023553697935E+00, 
+     -0.9650085667061385E+00, 
+     -0.7549269499470514E+00, 
+     -0.5772156649015329E+00,
+     -0.4237549404110768E+00,
+     -0.2890398965921883E+00,
+     -0.1691908888667997E+00,
      -0.6138454458511615E-01,
       0.3648997397857652E-01,
-      0.1260474527734763,
-      0.2085478748734940,
-      0.2849914332938615,
-      0.3561841611640597,
-      0.4227843350984671 };
+      0.1260474527734763E+00,
+      0.2085478748734940E+00,
+      0.2849914332938615E+00,
+      0.3561841611640597E+00,
+      0.4227843350984671E+00 };
 
-  double x_vec[N_MAX] = {
-     1.0,
-     1.1,
-     1.2,
-     1.3,
-     1.4,
-     1.5,
-     1.6,
-     1.7,
-     1.8,
-     1.9,
-     2.0 };
+  static double x_vec[N_MAX] = {
+     0.1E+00,
+     0.2E+00,
+     0.3E+00,
+     0.4E+00,
+     0.5E+00,
+     0.6E+00,
+     0.7E+00,
+     0.8E+00,
+     0.9E+00,
+     1.0E+00,
+     1.1E+00,
+     1.2E+00,
+     1.3E+00,
+     1.4E+00,
+     1.5E+00,
+     1.6E+00,
+     1.7E+00,
+     1.8E+00,
+     1.9E+00,
+     2.0E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -29792,7 +31173,7 @@ double quasigeometric_pdf ( int x, double a, double b )
 }
 //****************************************************************************80
 
-int quasigeometric_sample ( double a, double b, int *seed )
+int quasigeometric_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -29820,7 +31201,7 @@ int quasigeometric_sample ( double a, double b, int *seed )
 //    Input, double B, the depreciation constant.
 //    0.0 <= B < 1.0.
 //
-//    Input/output, int *SEED, a seed for the random
+//    Input/output, int &SEED, a seed for the random
 //    number generator.
 //
 //    Output, int QUASIGEOMETRIC_SAMPLE, a sample of the PDF.
@@ -29972,7 +31353,7 @@ int r4_nint ( float x )
 }
 //****************************************************************************80
 
-float r4_uniform_01 ( int *seed )
+float r4_uniform_01 ( int &seed )
 
 //****************************************************************************80
 //
@@ -29984,8 +31365,8 @@ float r4_uniform_01 ( int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      r4_uniform_01 = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      r4_uniform_01 = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -30037,7 +31418,7 @@ float r4_uniform_01 ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has been updated.
 //
 //    Output, float R4_UNIFORM_01, a new pseudorandom variate, strictly between
@@ -30047,19 +31428,19 @@ float r4_uniform_01 ( int *seed )
   int k;
   float r;
 
-  k = *seed / 127773;
+  k = seed / 127773;
 
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + 2147483647;
+    seed = seed + 2147483647;
   }
 //
 //  Although SEED can be represented exactly as a 32 bit integer,
 //  it generally cannot be represented exactly as a 32 bit real number!
 //
-  r = ( float ) ( *seed ) * 4.656612875E-10;
+  r = ( float ) ( seed ) * 4.656612875E-10;
 
   return r;
 }
@@ -30148,7 +31529,7 @@ int r8_ceiling ( double r )
 {
   int value;
 
-  value = int ( r );
+  value = ( int ) ( r );
 
   if ( ( double ) value < r )
   {
@@ -30215,12 +31596,12 @@ double r8_epsilon ( )
 //
 //  Purpose:
 //
-//    R8_EPSILON returns the R8 round off unit.
+//    R8_EPSILON returns the R8 roundoff unit.
 //
 //  Discussion:
 //
-//    R8_EPSILON is a number R which is a power of 2 with the property that,
-//    to the precision of the computer's arithmetic,
+//    The roundoff unit is a number R which is a power of 2 with the
+//    property that, to the precision of the computer's arithmetic,
 //      1 < 1 + R
 //    but
 //      1 = ( 1 + R / 2 )
@@ -30231,7 +31612,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    06 May 2003
+//    01 September 2012
 //
 //  Author:
 //
@@ -30239,19 +31620,12 @@ double r8_epsilon ( )
 //
 //  Parameters:
 //
-//    Output, double R8_EPSILON, the floating point round-off unit.
+//    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double r;
+  const double value = 2.220446049250313E-016;
 
-  r = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + r )  )
-  {
-    r = r / 2.0;
-  }
-
-  return ( 2.0 * r );
+  return value;
 }
 //****************************************************************************80
 
@@ -30778,7 +32152,7 @@ double r8_pi ( )
 }
 //****************************************************************************80
 
-double r8_random ( double rlo, double rhi, int *seed )
+double r8_random ( double rlo, double rhi, int &seed )
 
 //****************************************************************************80
 //
@@ -30802,7 +32176,7 @@ double r8_random ( double rlo, double rhi, int *seed )
 //
 //    Input, double RLO, RHI, the minimum and maximum values.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R8_RANDOM, the randomly chosen value.
 //
@@ -30853,7 +32227,7 @@ double r8_sign ( double x )
 }
 //****************************************************************************80
 
-double r8_uniform_01 ( int *seed )
+double r8_uniform_01 ( int &seed )
 
 //****************************************************************************80
 //
@@ -30865,8 +32239,8 @@ double r8_uniform_01 ( int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -30898,7 +32272,7 @@ double r8_uniform_01 ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, the "seed" value.  Normally, this
+//    Input/output, int &SEED, the "seed" value.  Normally, this
 //    value should not be 0.  On output, SEED has been updated.
 //
 //    Output, double R8_UNIFORM_01, a new pseudorandom variate, strictly between
@@ -30908,19 +32282,16 @@ double r8_uniform_01 ( int *seed )
   int k;
   double r;
 
-  k = *seed / 127773;
+  k = seed / 127773;
 
-  *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+  seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + 2147483647;
+    seed = seed + 2147483647;
   }
-//
-//  Although SEED can be represented exactly as a 32 bit integer,
-//  it generally cannot be represented exactly as a 32 bit real number!
-//
-  r = ( double ) ( *seed ) * 4.656612875E-10;
+
+  r = ( double ) ( seed ) * 4.656612875E-10;
 
   return r;
 }
@@ -31769,7 +33140,7 @@ void r8vec_print ( int n, double a[], char *title )
 }
 //****************************************************************************80
 
-double *r8vec_random ( int n, double alo, double ahi, int *seed )
+double *r8vec_random ( int n, double alo, double ahi, int &seed )
 
 //****************************************************************************80
 //
@@ -31795,7 +33166,7 @@ double *r8vec_random ( int n, double alo, double ahi, int *seed )
 //
 //    Input, double ALO, AHI, the range allowed for the entries.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R8VEC_RANDOM[N], the vector of randomly chosen integers.
 //
@@ -31856,7 +33227,7 @@ double r8vec_sum ( int n, double a[] )
 }
 //****************************************************************************80
 
-double *r8vec_uniform_01 ( int n, int *seed )
+double *r8vec_uniform_01 ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -31868,8 +33239,8 @@ double *r8vec_uniform_01 ( int n, int *seed )
 //
 //    This routine implements the recursion
 //
-//      seed = 16807 * seed mod ( 2**31 - 1 )
-//      unif = seed / ( 2**31 - 1 )
+//      seed = 16807 * seed mod ( 2^31 - 1 )
+//      unif = seed / ( 2^31 - 1 )
 //
 //    The integer arithmetic never requires more than 32 bits,
 //    including a sign bit.
@@ -31903,7 +33274,7 @@ double *r8vec_uniform_01 ( int n, int *seed )
 //
 //    Input, int N, the number of entries in the vector.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double R8VEC_UNIFORM_01[N], the vector of pseudorandom values.
 //
@@ -31916,16 +33287,16 @@ double *r8vec_uniform_01 ( int n, int *seed )
 
   for ( i = 0; i < n; i++ )
   {
-    k = *seed / 127773;
+    k = seed / 127773;
 
-    *seed = 16807 * ( *seed - k * 127773 ) - k * 2836;
+    seed = 16807 * ( seed - k * 127773 ) - k * 2836;
 
-    if ( *seed < 0 )
+    if ( seed < 0 )
     {
-      *seed = *seed + 2147483647;
+      seed = seed + 2147483647;
     }
 
-    r[i] = ( double ) ( *seed ) * 4.656612875E-10;
+    r[i] = ( double ) ( seed ) * 4.656612875E-10;
   }
 
   return r;
@@ -32134,7 +33505,7 @@ double rayleigh_cdf_inv ( double cdf, double a )
 }
 //****************************************************************************80
 
-void rayleigh_cdf_values ( int *n_data, double *sigma, double *x, double *fx )
+void rayleigh_cdf_values ( int &n_data, double &sigma, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -32179,43 +33550,43 @@ void rayleigh_cdf_values ( int *n_data, double *sigma, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *SIGMA, the shape parameter of the distribution.
+//    Output, double &SIGMA, the shape parameter of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 9
 
-  double fx_vec[N_MAX] = {
-     0.8646647167633873,
-     0.9996645373720975,
-     0.9999999847700203,
-     0.999999999999987,
-     0.8646647167633873,
-     0.3934693402873666,
-     0.1992625970831920,
-     0.1175030974154046,
+  static double fx_vec[N_MAX] = {
+     0.8646647167633873E+00,
+     0.9996645373720975E+00,
+     0.9999999847700203E+00,
+     0.999999999999987E+00,
+     0.8646647167633873E+00,
+     0.3934693402873666E+00,
+     0.1992625970831920E+00,
+     0.1175030974154046E+00,
      0.7688365361336422E-01 };
 
-  double sigma_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double sigma_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -32226,25 +33597,25 @@ void rayleigh_cdf_values ( int *n_data, double *sigma, double *x, double *fx )
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *sigma = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    sigma = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *sigma = sigma_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    sigma = sigma_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -32379,7 +33750,7 @@ double rayleigh_pdf ( double x, double a )
 }
 //****************************************************************************80
 
-double rayleigh_sample ( double a, int *seed )
+double rayleigh_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -32404,7 +33775,7 @@ double rayleigh_sample ( double a, int *seed )
 //    Input, double A, the parameter of the PDF.
 //    0.0 < A.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double RAYLEIGH_SAMPLE, a sample of the PDF.
 //
@@ -32689,7 +34060,7 @@ double reciprocal_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double reciprocal_sample ( double a, double b, int *seed )
+double reciprocal_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -32714,7 +34085,7 @@ double reciprocal_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < A <= B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double RECIPROCAL_SAMPLE, a sample of the PDF.
 //
@@ -33591,7 +34962,7 @@ double runs_pdf ( int m, int n, int r )
 }
 //****************************************************************************80
 
-int runs_sample ( int m, int n, int *seed )
+int runs_sample ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -33615,7 +34986,7 @@ int runs_sample ( int m, int n, int *seed )
 //
 //    Input, int M, N, the parameters of the PDF.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int RUNS_SAMPLE, the number of runs.
 //
@@ -33633,7 +35004,7 @@ int runs_sample ( int m, int n, int *seed )
 }
 //****************************************************************************80
 
-int *runs_simulate ( int m, int n, int *seed )
+int *runs_simulate ( int m, int n, int &seed )
 
 //****************************************************************************80
 //
@@ -33657,7 +35028,7 @@ int *runs_simulate ( int m, int n, int *seed )
 //
 //    Input, int M, N, the parameters of the PDF.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int RUNS_SIMULATE[M+N], a sequence of M 0's and N 1's chosen
 //    uniformly at random.
@@ -33679,9 +35050,9 @@ int *runs_simulate ( int m, int n, int *seed )
     a[i] = 1;
   }
 
-  for ( i = 1; i <= m+n-1; i++ )
+  for ( i = 1; i <= m + n - 1; i++ )
   {
-    j = i4_uniform ( i, m+n, seed );
+    j = i4_uniform_ab ( i, m + n, seed );
 
     k      = a[i-1];
     a[i-1] = a[j-1];
@@ -34041,7 +35412,7 @@ double sech_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double sech_sample ( double a, double b, int *seed )
+double sech_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -34066,7 +35437,7 @@ double sech_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double SECH_SAMPLE, a sample of the PDF.
 //
@@ -34420,7 +35791,7 @@ double semicircular_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double semicircular_sample ( double a, double b, int *seed )
+double semicircular_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -34445,7 +35816,7 @@ double semicircular_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double SEMICIRCULAR_SAMPLE, a sample of the PDF.
 //
@@ -34733,7 +36104,7 @@ int stirling2_value ( int n, int m )
 //
 //    sum ( 1 <= K <= M ) S2(I,K) * S1(K,J) = Delta(I,J)
 //
-//    X**N = sum ( 0 <= K <= N ) S2(N,K) X_K
+//    X^N = sum ( 0 <= K <= N ) S2(N,K) X_K
 //    where X_K is the falling factorial function.
 //
 //  Licensing:
@@ -34861,7 +36232,7 @@ double student_cdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-void student_cdf_values ( int *n_data, double *c, double *x, double *fx )
+void student_cdf_values ( int &n_data, double &c, double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -34883,7 +36254,7 @@ void student_cdf_values ( int *n_data, double *c, double *x, double *fx )
 //
 //  Modified:
 //
-//    31 July 2006
+//    02 November 2005
 //
 //  Author:
 //
@@ -34906,30 +36277,30 @@ void student_cdf_values ( int *n_data, double *c, double *x, double *fx )
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *C, is usually called the number of
+//    Output, double &C, is usually called the number of
 //    degrees of freedom of the distribution.  C is typically an
 //    integer, but that is not essential.  It is required that
 //    C be strictly positive.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 13
 
-  double c_vec[N_MAX] = {
+  static double c_vec[N_MAX] = {
     1.0, 2.0, 3.0, 4.0,
     5.0, 2.0, 5.0, 2.0,
     5.0, 2.0, 3.0, 4.0,
     5.0 };
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
      0.6000231200328521,
      0.6001080279134390,
      0.6001150934648930,
@@ -34944,7 +36315,7 @@ void student_cdf_values ( int *n_data, double *c, double *x, double *fx )
      0.9900004567580596,
      0.9900007637471291 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.325,
      0.289,
      0.277,
@@ -34959,25 +36330,25 @@ void student_cdf_values ( int *n_data, double *c, double *x, double *fx )
      3.747,
      3.365 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *c = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    c = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *c = c_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    c = c_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -35140,7 +36511,7 @@ double student_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double student_sample ( double a, double b, double c, int *seed )
+double student_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -35176,7 +36547,7 @@ double student_sample ( double a, double b, double c, int *seed )
 //    integer, but that is not essential.  It is required that
 //    C be strictly positive.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double STUDENT_SAMPLE, a sample of the PDF.
 //
@@ -35415,8 +36786,8 @@ double student_noncentral_cdf ( double x, int idf, double d )
 }
 //****************************************************************************80
 
-void student_noncentral_cdf_values ( int *n_data, int *df, double *lambda,
-  double *x, double *fx )
+void student_noncentral_cdf_values ( int &n_data, int &df, double &lambda,
+  double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -35464,22 +36835,22 @@ void student_noncentral_cdf_values ( int *n_data, int *df, double *lambda,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, int *DF, double *LAMBDA, the parameters of the
+//    Output, int &DF, double &LAMBDA, the parameters of the
 //    function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 30
 
-  int df_vec[N_MAX] = {
+  static int df_vec[N_MAX] = {
      1,  2,  3,
      1,  2,  3,
      1,  2,  3,
@@ -35491,123 +36862,123 @@ void student_noncentral_cdf_values ( int *n_data, int *df, double *lambda,
     10, 10, 10,
     10, 10, 10 };
 
-  double fx_vec[N_MAX] = {
-     0.8975836176504333,
-     0.9522670169,
-     0.9711655571887813,
-     0.8231218864,
-     0.9049021510,
-     0.9363471834,
-     0.7301025986,
-     0.8335594263,
-     0.8774010255,
-     0.5248571617,
-     0.6293856597,
-     0.6800271741,
-     0.20590131975,
-     0.2112148916,
-     0.2074730718,
-     0.9981130072,
-     0.9994873850,
-     0.9998391562,
-     0.168610566972,
-     0.16967950985,
-     0.1701041003,
-     0.9247683363,
-     0.7483139269,
-     0.4659802096,
-     0.9761872541,
-     0.8979689357,
-     0.7181904627,
-     0.9923658945,
-     0.9610341649,
-     0.8688007350 };
+  static double fx_vec[N_MAX] = {
+     0.8975836176504333E+00,
+     0.9522670169E+00,
+     0.9711655571887813E+00,
+     0.8231218864E+00,
+     0.9049021510E+00,
+     0.9363471834E+00,
+     0.7301025986E+00,
+     0.8335594263E+00,
+     0.8774010255E+00,
+     0.5248571617E+00,
+     0.6293856597E+00,
+     0.6800271741E+00,
+     0.20590131975E+00,
+     0.2112148916E+00,
+     0.2074730718E+00,
+     0.9981130072E+00,
+     0.9994873850E+00,
+     0.9998391562E+00,
+     0.168610566972E+00,
+     0.16967950985E+00,
+     0.1701041003E+00,
+     0.9247683363E+00,
+     0.7483139269E+00,
+     0.4659802096E+00,
+     0.9761872541E+00,
+     0.8979689357E+00,
+     0.7181904627E+00,
+     0.9923658945E+00,
+     0.9610341649E+00,
+     0.8688007350E+00 };
 
-  double lambda_vec[N_MAX] = {
-     0.0,
-     0.0,
-     0.0,
-     0.5,
-     0.5,
-     0.5,
-     1.0,
-     1.0,
-     1.0,
-     2.0,
-     2.0,
-     2.0,
-     4.0,
-     4.0,
-     4.0,
-     7.0,
-     7.0,
-     7.0,
-     1.0,
-     1.0,
-     1.0,
-     2.0,
-     3.0,
-     4.0,
-     2.0,
-     3.0,
-     4.0,
-     2.0,
-     3.0,
-     4.0 };
+  static double lambda_vec[N_MAX] = {
+     0.0E+00,
+     0.0E+00,
+     0.0E+00,
+     0.5E+00,
+     0.5E+00,
+     0.5E+00,
+     1.0E+00,
+     1.0E+00,
+     1.0E+00,
+     2.0E+00,
+     2.0E+00,
+     2.0E+00,
+     4.0E+00,
+     4.0E+00,
+     4.0E+00,
+     7.0E+00,
+     7.0E+00,
+     7.0E+00,
+     1.0E+00,
+     1.0E+00,
+     1.0E+00,
+     2.0E+00,
+     3.0E+00,
+     4.0E+00,
+     2.0E+00,
+     3.0E+00,
+     4.0E+00,
+     2.0E+00,
+     3.0E+00,
+     4.0E+00 };
 
-  double x_vec[N_MAX] = {
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-      3.00,
-     15.00,
-     15.00,
-     15.00,
-      0.05,
-      0.05,
-      0.05,
-      4.00,
-      4.00,
-      4.00,
-      5.00,
-      5.00,
-      5.00,
-      6.00,
-      6.00,
-      6.00 };
+  static double x_vec[N_MAX] = {
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+      3.00E+00,
+     15.00E+00,
+     15.00E+00,
+     15.00E+00,
+      0.05E+00,
+      0.05E+00,
+      0.05E+00,
+      4.00E+00,
+      4.00E+00,
+      4.00E+00,
+      5.00E+00,
+      5.00E+00,
+      5.00E+00,
+      6.00E+00,
+      6.00E+00,
+      6.00E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *df = 0;
-    *lambda = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    df = 0;
+    lambda = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *df = df_vec[*n_data-1];
-    *lambda = lambda_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    df = df_vec[n_data-1];
+    lambda = lambda_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -35911,7 +37282,7 @@ double triangle_cdf_inv ( double cdf, double a, double b, double c )
 //    Input, double A, B, C, the parameters of the PDF.
 //    A <= B <= C and A < C.
 //
-//    Output, double TRIANGLE_X, the corresponding argument.
+//    Output, double TRIANGLE_CDF_INV, the corresponding argument.
 //
 {
   double cdf_mid;
@@ -36111,7 +37482,7 @@ double triangle_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double triangle_sample ( double a, double b, double c, int *seed )
+double triangle_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -36136,9 +37507,9 @@ double triangle_sample ( double a, double b, double c, int *seed )
 //    Input, double A, B, C, the parameters of the PDF.
 //    A <= B <= C and A < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double TRIANGLE_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -36432,7 +37803,7 @@ double triangular_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double triangular_sample ( double a, double b, int *seed )
+double triangular_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -36457,7 +37828,7 @@ double triangular_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    A < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double TRIANGULAR_SAMPLE, a sample of the PDF.
 //
@@ -36777,11 +38148,11 @@ double uniform_01_pdf ( double x )
 
   return pdf;
 }
-//**********************************************************************
+//****************************************************************************80
 
-double uniform_01_sample ( int *seed )
+double uniform_01_sample ( int &seed )
 
-//**********************************************************************
+//****************************************************************************80
 //
 //  Purpose:
 //
@@ -36806,21 +38177,21 @@ double uniform_01_sample ( int *seed )
 //
 //  Parameters:
 //
-//    Input/output, int *SEED, the integer "seed" used to generate
+//    Input/output, int &SEED, the integer "seed" used to generate
 //    the output random number, and updated in preparation for the
-//    next one.  *SEED should not be zero.
+//    next one.  SEED should not be zero.
 //
 //    Output, double UNIFORM_01_SAMPLE, a random value between 0 and 1.
 //
 //  Local Parameters:
 //
-//    Local, int IA = 7**5.
+//    Local, int IA = 7^5.
 //
-//    Local, int IB = 2**15.
+//    Local, int IB = 2^15.
 //
-//    Local, int IB16 = 2**16.
+//    Local, int IB16 = 2^16.
 //
-//    Local, int IP = 2**31 - 1.
+//    Local, int IP = 2^31 - 1.
 //
 {
   static int ia = 16807;
@@ -36836,18 +38207,18 @@ double uniform_01_sample ( int *seed )
 //
 //  Don't let SEED be 0.
 //
-  if ( *seed == 0 )
+  if ( seed == 0 )
   {
-    *seed = ip;
+    seed = ip;
   }
 //
 //  Get the 15 high order bits of SEED.
 //
-  ixhi = *seed / ib16;
+  ixhi = seed / ib16;
 //
 //  Get the 16 low bits of SEED and form the low product.
 //
-  loxa = ( *seed - ixhi * ib16 ) * ia;
+  loxa = ( seed - ixhi * ib16 ) * ia;
 //
 //  Get the 15 high order bits of the low product.
 //
@@ -36863,21 +38234,21 @@ double uniform_01_sample ( int *seed )
 //
 //  Assemble all the parts and presubtract IP.  The parentheses are essential.
 //
-  *seed = ( ( ( loxa - leftlo * ib16 ) - ip ) +
+  seed = ( ( ( loxa - leftlo * ib16 ) - ip ) +
     ( iprhi - k * ib15 ) * ib16 ) + k;
 //
 //  Add IP back in if necessary.
 //
-  if ( *seed < 0 )
+  if ( seed < 0 )
   {
-    *seed = *seed + ip;
+    seed = seed + ip;
   }
 //
-//  Multiply by 1 / (2**31-1).
+//  Multiply by 1 / (2^31-1).
 //
-  temp = ( ( double ) *seed ) * 4.656612875E-10;
+  temp = ( ( double ) seed ) * 4.656612875E-10;
 
-  return ( temp );
+  return temp;
 }
 //****************************************************************************80
 
@@ -36914,7 +38285,7 @@ double uniform_01_variance ( )
 }
 //****************************************************************************80
 
-double *uniform_01_order_sample ( int n, int *seed )
+double *uniform_01_order_sample ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -36956,7 +38327,7 @@ double *uniform_01_order_sample ( int n, int *seed )
 //
 //    Input, int N, the number of elements in the sample.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_01_ORDER_SAMPLE[N], N samples of the Uniform 01 PDF, in
 //    ascending order.
@@ -37206,7 +38577,7 @@ double uniform_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double uniform_sample ( double a, double b, int *seed )
+double uniform_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -37231,7 +38602,7 @@ double uniform_sample ( double a, double b, int *seed )
 //    Input, double A, B, the parameters of the PDF.
 //    A < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_SAMPLE, a sample of the PDF.
 //
@@ -37522,7 +38893,7 @@ double uniform_discrete_pdf ( int x, int a, int b )
 }
 //****************************************************************************80
 
-int uniform_discrete_sample ( int a, int b, int *seed )
+int uniform_discrete_sample ( int a, int b, int &seed )
 
 //****************************************************************************80
 //
@@ -37547,7 +38918,7 @@ int uniform_discrete_sample ( int a, int b, int *seed )
 //    Input, int A, B, the parameters of the PDF.
 //    A <= B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int UNIFORM_DISCRETE_SAMPLE, a sample of the PDF.
 //
@@ -37599,7 +38970,7 @@ double uniform_discrete_variance ( int a, int b )
 }
 //****************************************************************************80
 
-double *uniform_nsphere_sample ( int n, int *seed )
+double *uniform_nsphere_sample ( int n, int &seed )
 
 //****************************************************************************80
 //
@@ -37629,7 +39000,7 @@ double *uniform_nsphere_sample ( int n, int *seed )
 //
 //    Input, int N, the dimension of the sphere.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, double UNIFORM_NSPHERE_SAMPLE[N], a point on the unit N
 //    sphere, chosen with a uniform probability.
@@ -37926,8 +39297,8 @@ double von_mises_cdf_inv ( double cdf, double a, double b )
 }
 //****************************************************************************80
 
-void von_mises_cdf_values ( int *n_data, double *a, double *b, double *x,
-  double *fx )
+void von_mises_cdf_values ( int &n_data, double &a, double &b, double &x,
+  double &fx )
 
 //****************************************************************************80
 //
@@ -37955,26 +39326,26 @@ void von_mises_cdf_values ( int *n_data, double *a, double *b, double *x,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *A, B, the parameters of the function.
+//    Output, double &A, &B, the parameters of the function.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 23
 
-  double a_vec[N_MAX] = {
-     0.0,
-     0.0,
-     0.0,
-     0.0,
-     0.0,
+  static double a_vec[N_MAX] = {
+     0.0E+00,
+     0.0E+00,
+     0.0E+00,
+     0.0E+00,
+     0.0E+00,
      0.1E+01,
      0.1E+01,
      0.1E+01,
@@ -37987,14 +39358,14 @@ void von_mises_cdf_values ( int *n_data, double *a, double *b, double *x,
      0.1E+01,
      0.2E+01,
      0.3E+01,
-     0.0,
-     0.0,
-     0.0,
-     0.0,
-     0.0,
-     0.0 };
+     0.0E+00,
+     0.0E+00,
+     0.0E+00,
+     0.0E+00,
+     0.0E+00,
+     0.0E+00 };
 
-  double b_vec[N_MAX] = {
+  static double b_vec[N_MAX] = {
       0.1E+01,
       0.1E+01,
       0.1E+01,
@@ -38012,42 +39383,42 @@ void von_mises_cdf_values ( int *n_data, double *a, double *b, double *x,
       0.3E+01,
       0.3E+01,
       0.3E+01,
-      0.0,
+      0.0E+00,
       0.1E+01,
       0.2E+01,
       0.3E+01,
       0.4E+01,
       0.5E+01 };
 
-  double fx_vec[N_MAX] = {
+  static double fx_vec[N_MAX] = {
      0.2535089956281180E-01,
-     0.1097539041177346,
-     0.5000000000000000,
-     0.8043381312498558,
-     0.9417460124555197,
-     0.5000000000000000,
-     0.6018204118446155,
-     0.6959356933122230,
-     0.7765935901304593,
-     0.8410725934916615,
-     0.8895777369550366,
-     0.9960322705517925,
-     0.9404336090170247,
-     0.5000000000000000,
+     0.1097539041177346E+00,
+     0.5000000000000000E+00,
+     0.8043381312498558E+00,
+     0.9417460124555197E+00,
+     0.5000000000000000E+00,
+     0.6018204118446155E+00,
+     0.6959356933122230E+00,
+     0.7765935901304593E+00,
+     0.8410725934916615E+00,
+     0.8895777369550366E+00,
+     0.9960322705517925E+00,
+     0.9404336090170247E+00,
+     0.5000000000000000E+00,
      0.5956639098297530E-01,
      0.3967729448207649E-02,
      0.2321953958111930E-03,
-     0.6250000000000000,
-     0.7438406999109122,
-     0.8369224904294019,
-     0.8941711407897124,
-     0.9291058600568743,
-     0.9514289900655436 };
+     0.6250000000000000E+00,
+     0.7438406999109122E+00,
+     0.8369224904294019E+00,
+     0.8941711407897124E+00,
+     0.9291058600568743E+00,
+     0.9514289900655436E+00 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      -0.2617993977991494E+01,
      -0.1570796326794897E+01,
-      0.0000000000000000,
+      0.0000000000000000E+00,
       0.1047197551196598E+01,
       0.2094395102393195E+01,
       0.1000000000000000E+01,
@@ -38056,40 +39427,40 @@ void von_mises_cdf_values ( int *n_data, double *a, double *b, double *x,
       0.1600000000000000E+01,
       0.1800000000000000E+01,
       0.2000000000000000E+01,
-      0.0000000000000000,
-      0.0000000000000000,
-      0.0000000000000000,
-      0.0000000000000000,
-      0.0000000000000000,
-      0.0000000000000000,
-      0.7853981633974483,
-      0.7853981633974483,
-      0.7853981633974483,
-      0.7853981633974483,
-      0.7853981633974483,
-      0.7853981633974483 };
+      0.0000000000000000E+00,
+      0.0000000000000000E+00,
+      0.0000000000000000E+00,
+      0.0000000000000000E+00,
+      0.0000000000000000E+00,
+      0.0000000000000000E+00,
+      0.7853981633974483E+00,
+      0.7853981633974483E+00,
+      0.7853981633974483E+00,
+      0.7853981633974483E+00,
+      0.7853981633974483E+00,
+      0.7853981633974483E+00 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *a = 0.0;
-    *b = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    a = 0.0;
+    b = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *a = a_vec[*n_data-1];
-    *b = b_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    a = a_vec[n_data-1];
+    b = b_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -38304,7 +39675,7 @@ double von_mises_pdf ( double x, double a, double b )
 }
 //****************************************************************************80
 
-double von_mises_sample ( double a, double b, int *seed )
+double von_mises_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -38337,9 +39708,9 @@ double von_mises_sample ( double a, double b, int *seed )
 //    -PI <= A <= PI,
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double VON_MISES_SAMPLE, a sample of the PDF.
 //
 {
   double c;
@@ -38465,7 +39836,7 @@ double weibull_cdf_inv ( double cdf, double a, double b, double c )
 //    0.0 < B,
 //    0.0 < C.
 //
-//    Output, double X, the corresponding argument of the CDF.
+//    Output, double WEIBULL_CDF_INV, the corresponding argument of the CDF.
 //
 {
   double x;
@@ -38484,8 +39855,8 @@ double weibull_cdf_inv ( double cdf, double a, double b, double c )
 }
 //****************************************************************************80
 
-void weibull_cdf_values ( int *n_data, double *alpha, double *beta,
-  double *x, double *fx )
+void weibull_cdf_values ( int &n_data, double &alpha, double &beta,
+  double &x, double &fx )
 
 //****************************************************************************80
 //
@@ -38530,23 +39901,23 @@ void weibull_cdf_values ( int *n_data, double *alpha, double *beta,
 //
 //  Parameters:
 //
-//    Input/output, int *N_DATA.  The user sets N_DATA to 0 before the
+//    Input/output, int &N_DATA.  The user sets N_DATA to 0 before the
 //    first call.  On each call, the routine increments N_DATA by 1, and
 //    returns the corresponding data; when there is no more data, the
 //    output value of N_DATA will be 0 again.
 //
-//    Output, double *ALPHA, the first parameter of the distribution.
+//    Output, double &ALPHA, the first parameter of the distribution.
 //
-//    Output, double *BETA, the second parameter of the distribution.
+//    Output, double &BETA, the second parameter of the distribution.
 //
-//    Output, double *X, the argument of the function.
+//    Output, double &X, the argument of the function.
 //
-//    Output, double *FX, the value of the function.
+//    Output, double &FX, the value of the function.
 //
 {
 # define N_MAX 12
 
-  double alpha_vec[N_MAX] = {
+  static double alpha_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.1000000000000000E+01,
      0.1000000000000000E+01,
@@ -38560,11 +39931,11 @@ void weibull_cdf_values ( int *n_data, double *alpha, double *beta,
      0.4000000000000000E+01,
      0.5000000000000000E+01 };
 
-  double beta_vec[N_MAX] = {
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
-     0.5000000000000000,
+  static double beta_vec[N_MAX] = {
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
+     0.5000000000000000E+00,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
      0.4000000000000000E+01,
@@ -38574,21 +39945,21 @@ void weibull_cdf_values ( int *n_data, double *alpha, double *beta,
      0.2000000000000000E+01,
      0.2000000000000000E+01 };
 
-  double fx_vec[N_MAX] = {
-     0.8646647167633873,
-     0.9816843611112658,
-     0.9975212478233336,
-     0.9996645373720975,
-     0.6321205588285577,
-     0.4865828809674080,
-     0.3934693402873666,
-     0.3296799539643607,
-     0.8946007754381357,
-     0.9657818816883340,
-     0.9936702845725143,
-     0.9994964109502630 };
+  static double fx_vec[N_MAX] = {
+     0.8646647167633873E+00,
+     0.9816843611112658E+00,
+     0.9975212478233336E+00,
+     0.9996645373720975E+00,
+     0.6321205588285577E+00,
+     0.4865828809674080E+00,
+     0.3934693402873666E+00,
+     0.3296799539643607E+00,
+     0.8946007754381357E+00,
+     0.9657818816883340E+00,
+     0.9936702845725143E+00,
+     0.9994964109502630E+00 };
 
-  double x_vec[N_MAX] = {
+  static double x_vec[N_MAX] = {
      0.1000000000000000E+01,
      0.2000000000000000E+01,
      0.3000000000000000E+01,
@@ -38602,27 +39973,27 @@ void weibull_cdf_values ( int *n_data, double *alpha, double *beta,
      0.3000000000000000E+01,
      0.3000000000000000E+01 };
 
-  if ( *n_data < 0 )
+  if ( n_data < 0 )
   {
-    *n_data = 0;
+    n_data = 0;
   }
 
-  *n_data = *n_data + 1;
+  n_data = n_data + 1;
 
-  if ( N_MAX < *n_data )
+  if ( N_MAX < n_data )
   {
-    *n_data = 0;
-    *alpha = 0.0;
-    *beta = 0.0;
-    *x = 0.0;
-    *fx = 0.0;
+    n_data = 0;
+    alpha = 0.0;
+    beta = 0.0;
+    x = 0.0;
+    fx = 0.0;
   }
   else
   {
-    *alpha = alpha_vec[*n_data-1];
-    *beta = beta_vec[*n_data-1];
-    *x = x_vec[*n_data-1];
-    *fx = fx_vec[*n_data-1];
+    alpha = alpha_vec[n_data-1];
+    beta = beta_vec[n_data-1];
+    x = x_vec[n_data-1];
+    fx = fx_vec[n_data-1];
   }
 
   return;
@@ -38727,8 +40098,8 @@ double weibull_pdf ( double x, double a, double b, double c )
 //
 //  Discussion:
 //
-//    PDF(A,B,C;X) = ( C / B ) * ( ( X - A ) / B )**( C - 1 )
-//     * EXP ( - ( ( X - A ) / B )**C ).
+//    PDF(A,B,C;X) = ( C / B ) * ( ( X - A ) / B )^( C - 1 )
+//     * EXP ( - ( ( X - A ) / B )^C ).
 //
 //    The Weibull PDF is also known as the Frechet PDF.
 //
@@ -38774,7 +40145,7 @@ double weibull_pdf ( double x, double a, double b, double c )
 }
 //****************************************************************************80
 
-double weibull_sample ( double a, double b, double c, int *seed )
+double weibull_sample ( double a, double b, double c, int &seed )
 
 //****************************************************************************80
 //
@@ -38800,9 +40171,9 @@ double weibull_sample ( double a, double b, double c, int *seed )
 //    0.0 < B,
 //    0.0 < C.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, double X, a sample of the PDF.
+//    Output, double WEIBULL_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -39014,7 +40385,7 @@ double weibull_discrete_pdf ( int x, double a, double b )
 //
 //  Discussion:
 //
-//    PDF(A,B;X) = ( 1 - A )**X**B - ( 1 - A )**(X+1)**B.
+//    PDF(A,B;X) = ( 1 - A )^X^B - ( 1 - A )^(X+1)^B.
 //
 //    WEIBULL_DISCRETE_PDF(A,1;X) = GEOMETRIC_PDF(A;X)
 //
@@ -39057,7 +40428,7 @@ double weibull_discrete_pdf ( int x, double a, double b )
 }
 //****************************************************************************80
 
-int weibull_discrete_sample ( double a, double b, int *seed )
+int weibull_discrete_sample ( double a, double b, int &seed )
 
 //****************************************************************************80
 //
@@ -39083,9 +40454,9 @@ int weibull_discrete_sample ( double a, double b, int *seed )
 //    0.0 <= A <= 1.0,
 //    0.0 < B.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
-//    Output, int X, a sample of the PDF.
+//    Output, int WEIBULL_DISCRETE_SAMPLE, a sample of the PDF.
 //
 {
   double cdf;
@@ -39410,11 +40781,11 @@ double zipf_pdf ( int x, double a )
 //
 //  Discussion:
 //
-//    PDF(A;X) = ( 1 / X**A ) / C
+//    PDF(A;X) = ( 1 / X^A ) / C
 //
 //    where the normalizing constant is chosen so that
 //
-//    C = Sum ( 1 <= I < Infinity ) 1 / I**A.
+//    C = Sum ( 1 <= I < Infinity ) 1 / I^A.
 //
 //    From observation, the frequency of different words in long
 //    sequences of text seems to follow the Zipf PDF, with
@@ -39471,7 +40842,7 @@ double zipf_pdf ( int x, double a )
 }
 //****************************************************************************80
 
-int zipf_sample ( double a, int *seed )
+int zipf_sample ( double a, int &seed )
 
 //****************************************************************************80
 //
@@ -39502,7 +40873,7 @@ int zipf_sample ( double a, int *seed )
 //    Input, double A, the parameter of the PDF.
 //    1.0 < A.
 //
-//    Input/output, int *SEED, a seed for the random number generator.
+//    Input/output, int &SEED, a seed for the random number generator.
 //
 //    Output, int ZIPF_SAMPLE, a sample of the PDF.
 //
@@ -39571,9 +40942,9 @@ double zipf_variance ( double a )
 
   if ( a <= 3.0 )
   {
-    cout << " \n";
-    cout << "ZIPF_VARIANCE - Fatal error!\n";
-    cout << "  No variance defined for A <= 3.0.\n";
+    cerr << " \n";
+    cerr << "ZIPF_VARIANCE - Fatal error!\n";
+    cerr << "  No variance defined for A <= 3.0.\n";
     exit ( 1 );
   }
 

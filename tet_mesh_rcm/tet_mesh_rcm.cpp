@@ -67,6 +67,10 @@ void tet_mesh_order4_adj_count ( int node_num, int element_num,
   int element_node[], int *adj_num, int adj_row[] );
 int *tet_mesh_order4_adj_set ( int node_num, int element_num, 
   int element_node[], int adj_num, int adj_row[] );
+void tet_mesh_order10_adj_count ( int node_num, int tetra_num, 
+  int tetra_node[], int *adj_num, int adj_row[] );
+int *tet_mesh_order10_adj_set ( int node_num, int tetra_num, 
+  int tetra_node[], int adj_num, int adj_row[] );
 void timestamp ( );
 
 //****************************************************************************80
@@ -119,7 +123,7 @@ int main ( int argc, char *argv[] )
 //
 //  Modified:
 //
-//    12 May 2011
+//    08 March 2013
 //
 //  Author:
 //
@@ -239,7 +243,8 @@ int main ( int argc, char *argv[] )
 //
 //  If the element information is 1-based, make it 0-based.
 //
-  base_user = tet_mesh_base_zero ( node_num, element_order, element_num, element_node );
+  base_user = tet_mesh_base_zero ( node_num, element_order, 
+    element_num, element_node );
 
   if ( base_user != 0 && base_user != 1 )
   {
@@ -282,10 +287,32 @@ int main ( int argc, char *argv[] )
   }
   else if ( element_order == 10 )
   {
-    cerr << "\n";
-    cerr << "TET_MESH_RCM - Fatal error!\n";
-    cerr << "  This order 10 code is not ready.\n";
-    exit ( 1 );
+//
+//  Count the number of adjacencies.
+//  Set up the ADJ_ROW adjacency pointer array.
+//
+    adj_row = new int[node_num+1];
+
+    tet_mesh_order10_adj_count ( node_num, element_num, element_node, 
+      &adj_num, adj_row );
+
+    if ( debug || node_num < 10 )
+    {
+      cout << "\n";
+      cout << "  ADJ_NUM = " << adj_num << "\n";
+
+      i4vec_print ( node_num + 1, adj_row, "  ADJ_ROW:" );
+    }
+//
+//  Set up the ADJ adjacency array.
+//
+    adj = tet_mesh_order10_adj_set ( node_num, element_num, element_node,
+      adj_num, adj_row );
+
+    if ( node_num < 10 )
+    {
+      adj_print ( node_num, adj_num, adj_row, adj, "  ADJ" );
+    }
   }
 //
 //  Compute the bandwidth.
@@ -366,7 +393,7 @@ int main ( int argc, char *argv[] )
     
   cout << "  Created the file \"" << element_rcm_filename << "\".\n";
 //
-//  Deallocate memory.
+//  Free memory.
 //
   delete [] adj;
   delete [] adj_row;
@@ -4683,6 +4710,281 @@ int *tet_mesh_order4_adj_set ( int node_num, int element_num,
 //
 //  Force the nodes of each pair to be listed in ascending order.
 //
+  i4col_sort2_a ( 2, pair_num, pair );
+//
+//  Rearrange the columns in ascending order.
+//
+  i4col_sort_a ( 2, pair_num, pair );
+//
+//  Mark all entries of ADJ so we will know later if we missed one.
+//
+  adj = new int[adj_num];
+
+  for ( i = 0; i < adj_num; i++ )
+  {
+    adj[i] = -1;
+  }
+//
+//  Copy the ADJ_ROW array and use it to keep track of the next
+//  free entry for each row.
+//
+  adj_row_copy = new int[node_num];
+
+  for ( node = 0; node < node_num; node++ )
+  {
+    adj_row_copy[node] = adj_row[node];
+  }
+//
+//  Now set up the ADJ_ROW counts.
+//
+  for ( k = 0; k < pair_num; k++ )
+  {
+    if ( 0 < k )
+    {
+      if ( pair[0+(k-1)*2] == pair[0+k*2] &&
+           pair[1+(k-1)*2] == pair[1+k*2] )
+      {
+        continue;
+      }
+    }
+    i = pair[0+k*2];
+    j = pair[1+k*2];
+
+    adj[adj_row_copy[i]] = j;
+    adj_row_copy[i] = adj_row_copy[i] + 1;
+    adj[adj_row_copy[j]] = i;
+    adj_row_copy[j] = adj_row_copy[j] + 1;
+  }
+  delete [] adj_row_copy;
+  delete [] pair;
+
+  return adj;
+}
+//****************************************************************************80
+
+void tet_mesh_order10_adj_count ( int node_num, int tet_num, 
+  int tet_node[], int *adj_num, int adj_row[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TET_MESH_ORDER10_ADJ_COUNT counts the number of nodal adjacencies.
+//
+//  Discussion:
+//
+//    Assuming that the tet mesh is to be used in a finite element
+//    computation, we declare that two distinct nodes are "adjacent" if and
+//    only if they are both included in some tetrahedron.
+//
+//    It is the purpose of this routine to determine the number of
+//    such adjacency relationships.
+//
+//    The initial count gets only the (I,J) relationships, for which
+//    node I is strictly less than node J.  This value is doubled
+//    to account for symmetry.
+//
+//    Thanks to Ken C. L. Wong for pointing out three indexing errors
+//    in the previous version of this function, 25/26 October 2013.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    26 October 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int TET_NUM, the number of tetrahedrons.
+//
+//    Input, int TET_NODE[10*TET_NUM], the indices of the nodes.
+//
+//    Output, int *ADJ_NUM, the total number of adjacency relationships,
+//
+//    Output, int ADJ_ROW[NODE_NUM+1], the ADJ pointer array.
+//
+{
+  int i;
+  int j;
+  int k;
+  int l;
+  int node;
+  int *pair;
+  int pair_num;
+  int pair_unique_num;
+//
+//  Each order 10 tetrahedron defines 45 adjacency pairs.
+//
+  pair = new int[2*45*tet_num];
+
+  k = 0;
+  for ( i = 0; i < 9; i++ )
+  {
+    for ( j = i + 1; j < 10; j++ )
+    {
+      for ( l = 0; l < tet_num; l++ )
+      {
+        pair[0+(k*tet_num+l)*2] = tet_node[i+l*10];
+        pair[1+(k*tet_num+l)*2] = tet_node[j+l*10];
+      }
+      k = k + 1;
+    }
+  }
+//
+//  Force the nodes of each pair to be listed in ascending order.
+//
+  pair_num = 45 * tet_num;
+
+  i4col_sort2_a ( 2, pair_num, pair );
+//
+//  Rearrange the columns in ascending order.
+//
+  i4col_sort_a ( 2, pair_num, pair );
+//
+//  Get the number of unique columns.
+//
+  pair_unique_num = i4col_sorted_unique_count ( 2, pair_num, pair );
+//
+//  The number of adjacencies is TWICE this value, plus the number of nodes.
+//
+  *adj_num = 2 * pair_unique_num;
+//
+//  Now set up the ADJ_ROW counts.
+//
+  for ( node = 0; node < node_num; node++ )
+  {
+    adj_row[node] = 0;
+  }
+
+  for ( k = 0; k < pair_num; k++ )
+  {
+    if ( 0 < k )
+    {
+      if ( pair[0+(k-1)*2] == pair[0+k*2] &&
+           pair[1+(k-1)*2] == pair[1+k*2] )
+      {
+        continue;
+      }
+    }
+    i = pair[0+k*2];
+    j = pair[1+k*2];
+
+    adj_row[i] = adj_row[i] + 1;
+    adj_row[j] = adj_row[j] + 1;
+  }
+//
+//  We used ADJ_ROW to count the number of entries in each row.
+//  Convert it to pointers into the ADJ array.
+//
+  for ( node = node_num-1; 0 <= node; node-- )
+  {
+    adj_row[node+1] = adj_row[node];
+  }
+
+  adj_row[0] = 0;
+  for ( node = 1; node <= node_num; node++ )
+  {
+    adj_row[node] = adj_row[node-1] + adj_row[node];
+  }
+
+  delete [] pair;
+
+  return;
+}
+//****************************************************************************80
+
+int *tet_mesh_order10_adj_set ( int node_num, int tet_num, 
+  int tet_node[], int adj_num, int adj_row[] )
+
+//****************************************************************************80
+//
+//  Purpose:
+//
+//    TET_MESH_ORDER10_ADJ_SET sets the nodal adjacency matrix.
+//
+//  Discussion:
+//
+//    A compressed format is used for the nodal adjacency matrix.
+//
+//    It is assumed that we know ADJ_NUM, the number of adjacency entries
+//    and the ADJ_ROW array, which keeps track of the list of slots
+//    in ADJ where we can store adjacency information for each row.
+//
+//    We essentially repeat the work of TET_MESH_ORDER4_ADJ_COUNT, but
+//    now we have a place to store the adjacency information.
+//
+//    A copy of the ADJ_ROW array is useful, as we can use it to keep track
+//    of the next available entry in ADJ for adjacencies associated with
+//    a given row.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license. 
+//
+//  Modified:
+//
+//    08 March 2013
+//
+//  Author:
+//
+//    John Burkardt
+//
+//  Parameters:
+//
+//    Input, int NODE_NUM, the number of nodes.
+//
+//    Input, int TET_NUM, the number of tetrahedrons.
+//
+//    Input, int TET_NODE[10*TET_NUM], the indices of the nodes.
+//
+//    Input, int ADJ_NUM, the total number of adjacency relationships,
+//
+//    Input, int ADJ_ROW[NODE_NUM+1], the ADJ pointer array.
+//
+//    Output, int TET_MESH_ORDER4_ADJ_SET[ADJ_NUM], 
+//    the adjacency information.
+//
+{
+  int *adj;
+  int *adj_row_copy;
+  int i;
+  int j;
+  int k;
+  int l;
+  int node;
+  int *pair;
+  int pair_num;
+//
+//  Each order 10 tetrahedron defines 45 adjacency pairs.
+//
+  pair = new int[2*45*tet_num];
+
+  k = 0;
+  for ( i = 0; i < 9; i++ )
+  {
+    for ( j = i + 1; j < 10; j++ )
+    {
+      for ( l = 0; l < tet_num; l++ )
+      {
+        pair[0+(k*tet_num+l)*2] = tet_node[i+l*10];
+        pair[1+(k*tet_num+l)*2] = tet_node[j+l*10];
+      }
+      k = k + 1;
+    }
+  }
+//
+//  Force the nodes of each pair to be listed in ascending order.
+//
+  pair_num = 45 * tet_num;
+
   i4col_sort2_a ( 2, pair_num, pair );
 //
 //  Rearrange the columns in ascending order.

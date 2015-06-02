@@ -1,6 +1,6 @@
 int i4_max ( int i1, int i2 );
 int i4_min ( int i1, int i2 );
-string i4_to_string ( int i4, string format );
+string i4_to_string ( int i4 );
 void imtqlx ( int n, double d[], double e[], double z[] );
 double j_double_product_integral ( int i, int j, double a, double b );
 double j_integral ( int n );
@@ -10,8 +10,6 @@ void j_polynomial_values ( int &n_data, int &n, double &a, double &b, double &x,
 double *j_polynomial_zeros ( int n, double alpha, double beta );
 void j_quadrature_rule ( int n, double alpha, double beta, double x[], 
   double w[] );
-double r8_abs ( double x );
-double r8_add ( double x, double y );
 double r8_choose ( int n, int k );
 double r8_epsilon ( );
 double r8_factorial ( int n );

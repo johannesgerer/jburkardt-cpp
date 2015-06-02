@@ -64,13 +64,13 @@ char digit_to_ch ( int i )
 }
 //****************************************************************************80
 
-void file_name_inc ( string *filename )
+void filename_inc ( string *filename )
 
 //****************************************************************************80
 //
 //  Purpose:
 //
-//    FILE_NAME_INC increments a partially numeric file name.
+//    FILENAME_INC increments a partially numeric file name.
 //
 //  Discussion:
 //
@@ -120,7 +120,7 @@ void file_name_inc ( string *filename )
   if ( lens <= 0 )
   {
     cerr << "\n";
-    cerr << "FILE_NAME_INC - Fatal error!\n";
+    cerr << "FILENAME_INC - Fatal error!\n";
     cerr << "  The input string is empty.\n";
     exit ( 1 );
   }

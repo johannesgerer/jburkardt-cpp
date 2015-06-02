@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-g++ -c wrap2.cpp >& compiler.txt
+g++ -c wrap2.cpp
 if [ $? -ne 0 ]; then
   echo "Errors compiling wrap2.cpp"
   exit
 fi
-rm compiler.txt
 #
 g++ wrap2.o
 if [ $? -ne 0 ]; then

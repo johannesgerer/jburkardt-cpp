@@ -22,7 +22,11 @@ int main ( )
 //
 //  Purpose:
 //
-//    MAIN runs the quick checks for the MGMRES code.
+//    MAIN is the main program for MGMRES_PRB.
+//
+//  Discussion:
+//
+//    MGMRES_PRB tests the MGMRES library.
 //
 //  Licensing:
 //
@@ -38,7 +42,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "MGMRES_PRB:\n";
   cout << "  C++ version\n";
@@ -54,7 +57,6 @@ int main ( )
   cout << "\n";
   cout << "MGMRES_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

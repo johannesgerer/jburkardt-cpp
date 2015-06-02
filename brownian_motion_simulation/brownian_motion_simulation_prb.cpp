@@ -19,6 +19,10 @@ int main ( )
 //
 //  Purpose:
 //
+//    MAIN is the main program for BROWNIAN_MOTION_SIMULATION_PRB.
+//
+//  Discussion:
+//
 //    BROWNIAN_MOTION_SIMULATION_PRB tests the BROWNIAN_MOTION_SIMULATION library.
 //
 //  Licensing:

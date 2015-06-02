@@ -17,10 +17,13 @@
     <p>
       <b>LINPLUS</b> 
       is a C++ library which 
-      carries out simple manipulations of matrices in a variety of formats,
-      including matrices stored in banded, border-banded, circulant, 
-      lower triangular, pentadiagonal, sparse, sparse, 
-      toeplitz, tridiagonal, upper triangular and vandermonde formats.
+      carries out operations such as matrix-vector products,
+      matrix factorization, linear solvers including Gauss-elimination,
+      Jacobi iteration, Gauss-Seidel iteration, Conjugate Gradient (CG),
+      for matrices in a 
+      variety of formats, including banded, border-banded, circulant, lower
+      triangular, pentadiagonal, sparse, symmetric, toeplitz, tridiagonal, 
+      upper triangular and vandermonde formats.
     </p>
 
     <p>
@@ -46,6 +49,9 @@
         </li>
         <li>
           <b>R83P</b> - Real double precision tridiagonal periodic;
+        </li>
+        <li>
+          <b>R83S</b> - Real double precision tridiagonal scalar;
         </li>
         <li>
           <b>R85</b> - Real double precision pentadiagonal;
@@ -110,6 +116,10 @@
           used by LINPACK and LAPACK;
         </li>
         <li>
+          <b>R8RI</b> - Real double precision Row-Indexed matrix,
+          used by Numerical Recipes;
+        </li>
+        <li>
           <b>R8S3</b> - Real double precision sparse matrix stored by row,
           column, value (used by SLAP/DLAP, symmetric or nonsymmetric);
         </li>
@@ -139,6 +149,10 @@
         </li>
         <li>
           <b>R8UT</b> - Real double precision upper triangular;
+        </li>
+        <li>
+          <b>R8UTP</b> - Real double precision upper triangular, packed
+          (only nonzeros are stored);
         </li>
         <li>
           <b>R8VEC</b> - Real double precision vector, which in some cases
@@ -178,10 +192,27 @@
     </h3>
 
     <p>
-      <a href = "../../cpp_src/blas1/blas1.html">
-      BLAS1</a>, 
+      <a href = "../../data/cc/cc.html">
+      CC</a>,
+      a data directory which
+      contains examples of the Compressed Column (CC)
+      sparse matrix file format;
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/cg/cg.html">
+      CG</a>,
       a C++ library which
-      carries out basic linear algebra routines.
+      implements the conjugate gradient method for solving 
+      a positive definite sparse linear system A*x=b, using reverse communication.
+    </p>
+
+    <p>
+      <a href = "../../data/cr/cr.html">
+      CR</a>,
+      a data directory which
+      contains examples of the Compressed Row (CR)
+      sparse matrix file format;
     </p>
 
     <p>
@@ -192,32 +223,10 @@
     </p>
 
     <p>
-      <a href = "../../f_src/dlap/dlap.html">
-      DLAP</a>,
-      a FORTRAN90 library which
-      contains iterative linear algebra routines for sparse systems.
-    </p>
-
-    <p>
-      <a href = "../../data/dsp/dsp.html">
-      DSP</a>,
-      a data format which
-      can be used to store a DSP matrix in a file.
-    </p>
-
-    <p>
       <a href = "../../cpp_src/gsl/gsl.html">
       GSL</a>, 
       a C++ library which
       includes many linear algebra routines.
-    </p>
-
-    <p>
-      <a href = "../../f_src/hb_to_st/hb_to_st.html">
-      HB_TO_ST</a>, 
-      a FORTRAN77 program which 
-      converts the sparse matrix information stored as a Harwell-Boeing file into a
-      sparse triplet file.
     </p>
 
     <p>
@@ -226,13 +235,6 @@
       a dataset directory which
       contains the Harwell-Boeing Sparse Matrix Collection
       of large sparse matrices.
-    </p>
-
-    <p>
-      <a href = "../../f_src/lapack_examples/lapack_examples.html">
-      LAPACK_EXAMPLES</a>,
-      a FORTRAN90 program which
-      demonstrates the use of the LAPACK linear algebra library.
     </p>
 
     <p>
@@ -259,53 +261,11 @@
     </p>
 
     <p>
-      <a href = "../../f_src/mm_io/mm_io.html">
-      MM_IO</a>, 
-      a FORTRAN90 library which
-      reads and writes
-      files of sparse matrix information stored in the Matrix Market format.
-    </p>
-
-    <p>
-      <a href = "../../data/sparse_cc/sparse_cc.html">
-      SPARSE_CC</a>,
-      a data directory which
-      contains a description and examples of the CC format,
-      ("compressed column") for storing a sparse matrix,
-      including a way to write the matrix as a set of three files.
-    </p>
-
-    <p>
-      <a href = "../../data/sparse_cr/sparse_cr.html">
-      SPARSE_CR</a>,
-      a data directory which
-      contains a description and examples of the CR format,
-      ("compressed row") for storing a sparse matrix,
-      including a way to write the matrix as a set of three files.
-    </p>
-
-    <p>
-      <a href = "../../f_src/sparsekit/sparsekit.html">
-      SPARSEKIT</a>, 
-      a FORTRAN90 library which
-      carries out operations
-      on sparse matrices, including conversion between various formats.
-    </p>
-
-    <p>
-      <a href = "../../c_src/super_lu/super_lu.html">
-      SUPER_LU</a>, 
+      <a href = "../../c_src/superlu/superlu.html">
+      SUPERLU</a>, 
       a C library which 
       implements some very fast solvers
       for systems of sparse linear equations.
-    </p>
-
-    <p>
-      <a href = "../../m_src/templates/templates.html">
-      TEMPLATES</a>, 
-      a MATLAB library which
-      implements
-      various iterative methods for solving a linear system.
     </p>
 
     <p>
@@ -323,6 +283,17 @@
       a C++ library which
       computes the Cholesky factorization of a nonnegative definite symmetric
       Toeplitz matrix.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/wathen/wathen.html">
+      WATHEN</a>,
+      a C++ library which
+      compares storage schemes (full, banded, sparse triplet) and 
+      solution strategies (Linpack full, Linpack banded, 
+      conjugate gradient (CG)) for linear systems involving the Wathen matrix,
+      which can arise when solving a problem using the 
+      finite element method (FEM).
     </p>
 
     <h3 align = "center">
@@ -424,6 +395,14 @@
           Academic Press, 1978,<br>
           ISBN: 0-12-519260-6,<br>
           LC: QA164.N54.
+        </li>
+        <li>
+          William Press, Brian Flannery, Saul Teukolsky, William Vetterling,<br>
+          Numerical Recipes in FORTRAN: The Art of Scientific Computing,<br>
+          Third Edition,<br>
+          Cambridge University Press, 2007,<br>
+          ISBN13: 978-0-521-88068-8,<br>
+          LC: QA297.N866.
         </li>
       </ol>
     </p>

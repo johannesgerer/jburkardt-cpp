@@ -1,0 +1,285 @@
+<html>
+
+  <head>
+    <title>
+      WATHEN - Assemble, Factor, Solve a Finite Element System
+    </title>
+  </head>
+
+  <body bgcolor="#eeeeee" link="#cc0000" alink="#ff3300" vlink="#000055">
+
+    <h1 align = "center">
+      WATHEN <br> Assemble, Factor, Solve a Finite Element System
+    </h1>
+
+    <hr>
+
+    <p>
+      <b>WATHEN</b>
+      is a C++ library which
+      compares storage schemes (full, banded, sparse triplet, sparse) and 
+      solution strategies (A\x, Linpack, conjugate gradient (CG)) 
+      for linear systems involving the Wathen matrix, 
+      which can arise when solving a problem using the 
+      finite element method (FEM).
+    </p>
+
+    <p>
+      The Wathen matrix is a typical example of a matrix that arises during
+      finite element computations.  The parameters NX and NY specify how many
+      elements are to be set up in the X and Y directions.  The number of
+      variables N is then
+      <pre>
+        N = 3 NX NY + 2 NX + 2 NY + 1
+      </pre>
+      and the full linear system will require N * N storage for the matrix.
+    </p>
+
+    <p>
+      However, the matrix is sparse, and a banded or sparse storage scheme
+      can be used to save storage.  However, even if storage is saved, a
+      revised program may eat up too much time because MATLAB's sparse storage
+      scheme is not efficiently used by inserting nonzero elements one at a time.
+      Moreover, if banded storage is employed, the user must provide a
+      suitable fast solver.  Simply "translating" a banded solver from another
+      language will probably not provide an efficient routine.
+    </p>
+
+    <p>
+      This library looks at how the complexity of the problem grows with
+      increasing NX and NY; how the computing time increases; how the
+      various full, banded and sparse approaches perform.
+    </p>
+
+    <h3 align = "center">
+      Licensing:
+    </h3>
+
+    <p>
+      The computer code and data files made available on this web page
+      are distributed under
+      <a href = "../../txt/gnu_lgpl.txt">the GNU LGPL license.</a>
+    </p>
+
+    <h3 align = "center">
+      Languages:
+    </h3>
+
+    <p>
+      <b>WATHEN</b> is available in
+      <a href = "../../c_src/wathen/wathen.html">a C version</a> and
+      <a href = "../../cpp_src/wathen/wathen.html">a C++ version</a> and
+      <a href = "../../f77_src/wathen/wathen.html">a FORTRAN77 version</a> and
+      <a href = "../../f_src/wathen/wathen.html">a FORTRAN90 version</a> and
+      <a href = "../../m_src/wathen/wathen.html">a MATLAB version</a> and
+      <a href = "../../py_src/wathen/wathen.html">a Python version</a>.
+    </p>
+
+    <h3 align = "center">
+      Related Data and Programs:
+    </h3>
+
+    <p>
+      <a href = "../../cpp_src/cg/cg.html">
+      CG</a>,
+      a C++ library which
+      implements a simple version of the conjugate gradient (CG) method
+      for solving a system of linear equations of the form A*x=b, 
+      suitable for situations in which the matrix A is positive definite
+      (only real, positive eigenvalues) and symmetric.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/linpack_d/linpack_d.html">
+      LINPACK_D</a>,
+      a C++ library which
+      factors and solves linear systems using double precision real arithmetic,
+      by Jack Dongarra, Jim Bunch, Cleve Moler, Pete Stewart.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/sparse_display/sparse_display.html">
+      SPARSE_DISPLAY</a>,
+      a C++ library which
+      can read information defining a matrix of numbers and display
+      the sparsity pattern or location of the nonzero elements using
+      gnuplot.  This operation is already available in the built-in 
+      MATLAB "spy" command.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/test_mat/test_mat.html">
+      TEST_MAT</a>,
+      a C++ library which
+      defines test matrices for which some of the determinant, eigenvalues, 
+      inverse, null vectors, P*L*U factorization or linear system solution 
+      are already known, including the Vandermonde and Wathen matrix.
+    </p>
+
+    <h3 align = "center">
+      Reference:
+    </h3>
+
+    <p>
+      <ol>
+        <li>
+          Nicholas Higham,<br>
+          Algorithm 694: 
+          A Collection of Test Matrices in MATLAB,<br>
+          ACM Transactions on Mathematical Software,<br>
+          Volume 17, Number 3, September 1991, pages 289-305.
+        </li>
+        <li>
+          Andrew Wathen,<br>
+          Realistic eigenvalue bounds for the Galerkin mass matrix,<br>
+          IMA Journal of Numerical Analysis,<br>
+          Volume 7, Number 4, October 1987, pages 449-457.
+        </li>
+      </ol>
+    </p>
+
+    <h3 align = "center">
+      Source Code:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "wathen.cpp">wathen.cpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "wathen.hpp">wathen.hpp</a>, the source code.
+        </li>
+        <li>
+          <a href = "wathen.sh">wathen.sh</a>,
+          BASH commands to compile the source code.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      Examples and Tests:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <a href = "wathen_prb.cpp">wathen_prb.cpp</a>,
+          a sample calling program.
+        </li>
+        <li>
+          <a href = "wathen_prb.sh">wathen_prb.sh</a>,
+          BASH commands to compile and run the sample program.
+        </li>
+        <li>
+          <a href = "wathen_prb_output.txt">wathen_prb_output.txt</a>,
+          the output file.
+        </li>
+      </ul>
+    </p>
+
+    <h3 align = "center">
+      List of Routines:
+    </h3>
+
+    <p>
+      <ul>
+        <li>
+          <b>BANDWIDTH</b> returns the bandwidth of a matrix.
+        </li>
+        <li>
+          <b>CG_FULL</b> uses the conjugate gradient method for a full storage matrix.
+        </li>
+        <li>
+          <b>CG_ST</b> uses the conjugate gradient method for a sparse triplet storage matrix.
+        </li>
+        <li>
+          <b>DAXPY</b> computes constant times a vector plus a vector.
+        </li>
+        <li>
+          <b>DDOT</b> forms the dot product of two vectors.
+        </li>
+        <li>
+          <b>DGBFA</b> factors a real band matrix by elimination.
+        </li>
+        <li>
+          <b>DGBSL</b> solves a real banded system factored by DGBCO or DGBFA.
+        </li>
+        <li>
+          <b>DGEFA</b> factors a real general matrix.
+        </li>
+        <li>
+          <b>DGESL</b> solves a real general linear system A * X = B.
+        </li>
+        <li>
+          <b>DSCAL</b> scales a vector by a constant.
+        </li>
+        <li>
+          <b>IDAMAX</b> indexes the array element of maximum absolute value.
+        </li>
+        <li>
+          <b>NONZEROS</b> counts the nonzeros in a matrix.
+        </li>
+        <li>
+          <b>R8_UNIFORM_01</b> returns a unit pseudorandom R8.
+        </li>
+        <li>
+          <b>R8GE_CG</b> uses the conjugate gradient method on an R8GE system.
+        </li>
+        <li>
+          <b>R8GE_MXV</b> multiplies an R8GE matrix by an R8VEC.
+        </li>
+        <li>
+          <b>R8MAT_UNIFORM_01</b> fills an R8MAT with unit pseudorandom numbers.
+        </li>
+        <li>
+          <b>R8VEC_PRINT</b> prints an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_01</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>ST_MV</b> multiplies a sparse triple matrix times a vector.
+        </li>
+        <li>
+          <b>TIMESTAMP</b> prints the current YMDHMS date as a time stamp.
+        </li>
+        <li>
+          <b>WATHEN_BANDWIDTH</b> returns the bandwidth of the WATHEN matrix.
+        </li>
+        <li>
+          <b>WATHEN_BANDED</b> returns the Wathen matrix, using banded storage.
+        </li>
+        <li>
+          <b>WATHEN_FULL</b> returns the Wathen matrix, using full storage.
+        </li>
+        <li>
+          <b>WATHEN_ORDER</b> returns the order of the WATHEN matrix.
+        </li>
+        <li>
+          <b>WATHEN_ST:</b> Wathen matrix stored in sparse triplet format.
+        </li>
+        <li>
+          <b>WATHEN_ST_SIZE:</b> Size of Wathen matrix stored in sparse triplet format.
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      You can go up one level to <a href = "../cpp_src.html">
+      the C++ source codes</a>.
+    </p>
+
+    <hr>
+
+    <i>
+      Last revised on 08 June 2014.
+    </i>
+
+    <!-- John Burkardt -->
+
+  </body>
+
+  <!-- Initial HTML skeleton created by HTMLINDEX. -->
+
+</html>

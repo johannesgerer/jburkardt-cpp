@@ -424,7 +424,7 @@
 
     <p>
       <ul>
-        <li>
+       <li>
           <b>ANGLE_BOX_2D</b> "boxes" an angle defined by three points in 2D.
         </li>
         <li>
@@ -464,13 +464,7 @@
           <b>ANNULUS_SECTOR_CENTROID_2D</b> computes the centroid of an annular sector in 2D.
         </li>
         <li>
-          <b>ARC_COSINE</b> computes the arc cosine function, with argument truncation.
-        </li>
-        <li>
-          <b>ARC_SINE</b> computes the arc sine function, with argument truncation.
-        </li>
-        <li>
-          <b>ATAN4</b> computes the inverse tangent of the ratio Y / X.
+          <b>r8_atan</b> computes the inverse tangent of the ratio Y / X.
         </li>
         <li>
           <b>BALL_UNIT_SAMPLE_2D</b> picks a random point in the unit ball in 2D.
@@ -734,7 +728,7 @@
           <b>HEXAGON_VERTICES_2D</b> returns the vertices of the unit hexagon in 2D.
         </li>
         <li>
-          <b>I4_DEDEKIND_FACTOR</b> computes a function needed for a Dedekind sum. 
+          <b>I4_DEDEKIND_FACTOR</b> computes a function needed for a Dedekind sum.
         </li>
         <li>
           <b>I4_DEDEKIND_SUM</b> computes the Dedekind sum of two I4's.
@@ -911,7 +905,16 @@
           <b>LINE_PAR_POINT_DIST_3D:</b> distance ( parametric line, point ) in 3D.
         </li>
         <li>
+          <b>LINE_PAR_POINT_NEAR_2D:</b> nearest point on parametric line to point in 2D.
+        </li>
+        <li>
+          <b>LINE_PAR_POINT_DIST_3D:</b> distance ( parametric line, point ) in 3D.
+        </li>
+        <li>
           <b>LINE_PAR2EXP_2D</b> converts a parametric line to explicit form in 2D.
+        </li>
+        <li>
+          <b>LINE_PAR2EXP_2D</b> converts a parametric line to explicit form in 3D.
         </li>
         <li>
           <b>LINE_PAR2IMP_2D</b> converts a parametric line to implicit form in 2D.
@@ -974,7 +977,7 @@
           <b>MINABS</b> finds a local minimum of F(X) = A * abs ( X ) + B.
         </li>
         <li>
-          <b>MINQUAD</b> finds a local minimum of F(X) = A * X**2 + B * X + C.
+          <b>MINQUAD</b> finds a local minimum of F(X) = A * X^2 + B * X + C.
         </li>
         <li>
           <b>OCTAHEDRON_SHAPE_3D</b> describes an octahedron in 3D.
@@ -1079,6 +1082,9 @@
           <b>PLANE_NORMAL_LINE_EXP_INT_3D:</b> intersection of plane and line in 3D.
         </li>
         <li>
+          <b>PLANE_NORMAL_QR_TO_XYZ:</b> QR_TO_XYZ coordinates for a normal form plane.
+        </li>
+        <li>
           <b>PLANE_NORMAL_TETRAHEDRON_INTERSECT</b> intersects a plane and a tetrahedron.
         </li>
         <li>
@@ -1089,6 +1095,9 @@
         </li>
         <li>
           <b>PLANE_NORMAL_UNIFORM_ND</b> generates a random normal plane in ND.
+        </li>
+        <li>
+          <b>PLANE_NORMAL_XYZ_TO_QR:</b> XYZ to QR coordinates for a normal form plane.
         </li>
         <li>
           <b>PLANE_NORMAL2EXP_3D</b> converts a normal plane to explicit form in 3D.
@@ -1310,6 +1319,12 @@
           <b>R8_ABS</b> returns the absolute value of an R8.
         </li>
         <li>
+          <b>R8_ACOS</b> computes the arc cosine function, with argument truncation.
+        </li>
+        <li>
+          <b>R8_ASIN</b> computes the arc sine function, with argument truncation.
+        </li>
+        <li>
           <b>R8_EPSILON</b> returns the R8 round off unit.
         </li>
         <li>
@@ -1478,6 +1493,12 @@
           <b>R8VEC_NORMAL_01_NEW</b> returns a unit pseudonormal R8VEC.
         </li>
         <li>
+          <b>R8VEC_NORMSQ</b> returns the squared L2 norm of an R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_NORMSQ_AFFINE</b> returns the squared affine L2 norm of an R8VEC.
+        </li>
+        <li>
           <b>R8VEC_POSITIVE_STRICT:</b> all entries of R8VEC are strictly positive.
         </li>
         <li>
@@ -1490,16 +1511,19 @@
           <b>R8VEC_PRINT_3D</b> prints a 3D vector.
         </li>
         <li>
-          <b>R8VEC_SWAP</b> swaps the entries of two R8VEC's.
+          <b>R8VEC_SCALAR_TRIPLE_PRODUCT</b> finds the scalar triple product in 3D.
         </li>
         <li>
-          <b>R8VEC_TRIPLE_PRODUCT</b> finds the triple product in 3D.
+          <b>R8VEC_SWAP</b> swaps the entries of two R8VEC's.
         </li>
         <li>
           <b>R8VEC_UNIFORM_NEW</b> returns a scaled pseudorandom R8VEC.
         </li>
         <li>
           <b>R8VEC_UNIFORM_01_NEW</b> returns a unit pseudorandom R8VEC.
+        </li>
+        <li>
+          <b>R8VEC_UNIFORM_UNIT_NEW</b> generates a random direction vector in ND.
         </li>
         <li>
           <b>R8VEC_VARIANCE</b> returns the variance of an R8VEC.
@@ -1683,6 +1707,9 @@
         </li>
         <li>
           <b>SPHERE_EXP2IMP_3D</b> converts a sphere from explicit to implicit form in 3D.
+        </li>
+        <li>
+          <b>SPHERE_EXP2IMP_ND</b> finds an N-dimensional sphere through N+1 points.
         </li>
         <li>
           <b>SPHERE_IMP_AREA_3D</b> computes the surface area of an implicit sphere in 3D.
@@ -1979,6 +2006,9 @@
           <b>TRIANGLE_CIRCUMCENTER_2D_2</b> computes the circumcenter of a triangle in 2D.
         </li>
         <li>
+          <b>TRIANGLE_CIRCUMCENTER</b> computes the circumcenter of a triangle in ND.
+        </li>
+        <li>
           <b>TRIANGLE_CIRCUMCIRCLE_2D</b> computes the circumcircle of a triangle in 2D.
         </li>
         <li>
@@ -2142,7 +2172,7 @@
     <hr>
 
     <i>
-      Last revised on 27 October 2010.
+      Last revised on 14 April 2013.
     </i>
 
     <!-- John Burkardt -->

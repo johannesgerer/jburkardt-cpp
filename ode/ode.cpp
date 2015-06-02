@@ -265,7 +265,7 @@ void de
 //  subroutine STEP.
 //
   del = tout - t;
-  absdel = r8_abs ( del );
+  absdel = fabs ( del );
 
   if ( isn < 0 )
   {
@@ -295,14 +295,14 @@ void de
     }
     delsgn = r8_sign ( del );
 
-    h = r8_max ( r8_abs ( tout - x ), fouru * r8_abs ( x ) ) * r8_sign ( tout - x );
+    h = r8_max ( fabs ( tout - x ), fouru * fabs ( x ) ) * r8_sign ( tout - x );
   }
 //
 //  If already past the output point, then interpolate and return.
 //
   for ( ; ; )
   {
-    if ( absdel <= r8_abs ( x - t ) )
+    if ( absdel <= fabs ( x - t ) )
     {
       intrp ( x, yy, tout, y, ypout, neqn, kold, phi, psi );
       iflag = 2;
@@ -315,7 +315,7 @@ void de
 //  If we cannot go past the output point, and we are sufficiently
 //  close to it, then extrapolate and return.
 //
-    if ( isn <= 0 && r8_abs ( tout - x ) < fouru * r8_abs ( x ) )
+    if ( isn <= 0 && fabs ( tout - x ) < fouru * fabs ( x ) )
     {
       h = tout - x;
       f ( x, yy, yp );
@@ -351,11 +351,11 @@ void de
 //
 //  Limit the step size, set the weight vector and take a step.
 //
-    h = r8_min ( r8_abs ( h ), r8_abs ( tend - x ) ) * r8_sign ( h );
+    h = r8_min ( fabs ( h ), fabs ( tend - x ) ) * r8_sign ( h );
 
     for ( l = 1; l <= neqn; l++ )
     {
-      wt[l-1] = releps * r8_abs ( yy[l-1] ) + abseps;
+      wt[l-1] = releps * fabs ( yy[l-1] ) + abseps;
     }
 
     step ( x, yy, f, neqn, h, eps, wt, start, 
@@ -798,82 +798,6 @@ void ode
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = + x;
-  }
-  else
-  {
-    value = - x;
-  }
-  return value;
-}
-//****************************************************************************80
-
-double r8_add ( double x, double y )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ADD adds two R8's.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    11 August 2010
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, Y, the numbers to be added.
-//
-//    Output, double R8_ADD, the sum of X and Y.
-//
-{
-  double value;
-
-  value = x + y;
-
-  return value;
-}
-//****************************************************************************80
-
 double r8_epsilon ( )
 
 //****************************************************************************80
@@ -896,7 +820,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    11 August 2010
+//    01 September 2012
 //
 //  Author:
 //
@@ -907,23 +831,8 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double one;
-  double temp;
-  double test;
-  double value;
+  const double value = 2.220446049250313E-016;
 
-  one = ( double ) ( 1 );
-
-  value = one;
-  temp = value / 2.0;
-  test = r8_add ( one, temp );
-
-  while ( one < test )
-  {
-    value = temp;
-    temp = value / 2.0;
-    test = r8_add ( one, temp );
-  }
   return value;
 }
 //****************************************************************************80
@@ -1281,9 +1190,9 @@ void step
 //
   crash = true;
 
-  if ( r8_abs ( h ) < fouru * r8_abs ( x ) )
+  if ( fabs ( h ) < fouru * fabs ( x ) )
   {
-    h = fouru * r8_abs ( x ) * r8_sign ( h );
+    h = fouru * fabs ( x ) * r8_sign ( h );
     return;
   }
 
@@ -1325,12 +1234,12 @@ void step
       total = total + pow ( yp[l-1] / wt[l-1], 2 );
     }
     total = sqrt ( total );
-    absh = r8_abs ( h );
+    absh = fabs ( h );
     if ( eps < 16.0 * total * h * h )
     {
       absh = 0.25 * sqrt ( eps / total );
     }
-    h = r8_max ( absh, fouru * r8_abs ( x ) ) * r8_sign ( h );
+    h = r8_max ( absh, fouru * fabs ( x ) ) * r8_sign ( h );
     hold = 0.0;
     k = 1;
     kold = 0;
@@ -1493,7 +1402,7 @@ void step
     }
     xold = x;
     x = x + h;
-    absh = r8_abs ( h );
+    absh = fabs ( h );
     f ( x, p, yp );
 //
 //  Estimate the errors at orders K, K-1 and K-2.
@@ -1597,10 +1506,10 @@ void step
     h = temp2 * h;
     k = knew;
 
-    if ( r8_abs ( h ) < fouru * r8_abs ( x ) )
+    if ( fabs ( h ) < fouru * fabs ( x ) )
     {
       crash = true;
-      h = r8_abs ( fouru * r8_abs ( x ) ) * r8_sign ( h );
+      h = fabs ( fouru * fabs ( x ) ) * r8_sign ( h );
       eps = eps + eps;
       return;
     }
@@ -1718,7 +1627,7 @@ void step
         temp2 = ( double ) ( k + 1 );
         r = pow ( p5eps / erk, 1.0 / temp2 );
         hnew = absh * r8_max ( 0.5, r8_min ( 0.9, r ) );
-        hnew = r8_abs ( r8_max ( hnew, fouru * r8_abs ( x ) ) ) * r8_sign ( h );
+        hnew = fabs ( r8_max ( hnew, fouru * fabs ( x ) ) ) * r8_sign ( h );
       }
     }
   }

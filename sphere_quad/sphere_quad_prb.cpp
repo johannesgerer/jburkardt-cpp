@@ -34,7 +34,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPHERE_QUAD_PRB tests SPHERE_QUAD.
+//    SPHERE_QUAD_PRB tests the SPHERE_QUAD library.
 //
 //  Licensing:
 //
@@ -50,7 +50,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "SPHERE_QUAD_PRB\n";
   cout << "  C++ version\n";
@@ -67,7 +66,6 @@ int main ( )
   cout << "\n";
   cout << "SPHERE_QUAD_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

@@ -26,7 +26,7 @@ int main ( int argc, char *argv[] )
 //
 //  Discussion:
 //
-//    PGMA_IO_PRB calls the PGMA_IO test routines.
+//    PGMA_IO_PRB tests the PGMA_IO library.
 //
 //  Licensing:
 //
@@ -58,7 +58,6 @@ int main ( int argc, char *argv[] )
   cout << "\n";
   cout << "PGMA_IO_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 

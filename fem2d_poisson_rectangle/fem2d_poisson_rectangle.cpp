@@ -2747,7 +2747,7 @@ void quad_e ( double node_xy[], int element_node[],
   double z5;
   double z6;
   double z7;
-//
+
   for ( i = 1; i <= 3; i++ )
   {
     wqe[i-1] = 0.175615257433204E+00;
@@ -3699,7 +3699,7 @@ void xy_set ( int nx, int ny, int node_num, double xl, double xr, double yb,
 //
 //  Modified:
 //
-//    23 September 2008
+//    19 March 2013
 //
 //  Author:
 //
@@ -3727,14 +3727,14 @@ void xy_set ( int nx, int ny, int node_num, double xl, double xr, double yb,
     for ( i = 1; i <= 2*nx - 1; i++ )
     {
       node_xy[0+(i-1+(j-1)*(2*nx-1))*2] =
-        ( double ( 2 * nx - i - 1 ) * xl
-        + double (          i - 1 ) * xr )
-        / double ( 2 * nx     - 2 );
+        ( ( double ) ( 2 * nx - i - 1 ) * xl
+        + ( double ) (          i - 1 ) * xr )
+        / ( double ) ( 2 * nx     - 2 );
 
       node_xy[1+(i-1+(j-1)*(2*nx-1))*2] =
-        ( double ( 2 * ny - j - 1 ) * yb
-        + double (          j - 1 ) * yt )
-        / double ( 2 * ny     - 2 );
+        ( ( double ) ( 2 * ny - j - 1 ) * yb
+        + ( double ) (          j - 1 ) * yt )
+        / ( double ) ( 2 * ny     - 2 );
 
     }
   }

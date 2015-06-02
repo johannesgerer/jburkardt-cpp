@@ -34,7 +34,7 @@ int main ( )
 //
 //  Discussion:
 //
-//    SPHERE_TRIANGLE_QUAD_PRB tests SPHERE_TRIANGLE_QUAD.
+//    SPHERE_TRIANGLE_QUAD_PRB tests the SPHERE_TRIANGLE_QUAD library.
 //
 //  Licensing:
 //
@@ -50,7 +50,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "SPHERE_TRIANGLE_QUAD_PRB\n";
   cout << "  C++ version\n";
@@ -68,7 +67,6 @@ int main ( )
   cout << "\n";
   cout << "SPHERE_TRIANGLE_QUAD_PRB\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -119,25 +117,16 @@ void test01 ( )
 //
 //  Choose three points at random to define a spherical triangle.
 //
-  v1 = sphere01_sample ( 1, &seed );
-  v2 = sphere01_sample ( 1, &seed );
-  v3 = sphere01_sample ( 1, &seed );
+  v1 = sphere01_sample ( 1, seed );
+  v2 = sphere01_sample ( 1, seed );
+  v3 = sphere01_sample ( 1, seed );
 
   cout << "\n";
   cout << "  Vertices of random spherical triangle:\n";
   cout << "\n";
-  cout << "  V1:" 
-       << "  " << setw(12) << v1[0]
-       << "  " << setw(12) << v1[1] 
-       << "  " << setw(12) << v1[2] << "\n";
-  cout << "  V2:" 
-       << "  " << setw(12) << v2[0]
-       << "  " << setw(12) << v2[1] 
-       << "  " << setw(12) << v2[2] << "\n";
-  cout << "  V3:" 
-       << "  " << setw(12) << v3[0]
-       << "  " << setw(12) << v3[1] 
-       << "  " << setw(12) << v3[2] << "\n";
+  r8vec_transpose_print ( 3, v1, "  V1:" );
+  r8vec_transpose_print ( 3, v2, "  V2:" );
+  r8vec_transpose_print ( 3, v3, "  V3:" );
 
   cout << "\n";
   cout << "QUAD_01      QUAD_02      QUAD_03\n";
@@ -291,8 +280,8 @@ void test02 ( )
   int e[3];
   int i;
   int n_mc1 = 1000;
-  int n_mc2 = 100000;
-  int n_mc3 = 10000000;
+  int n_mc2 = 10000;
+  int n_mc3 = 100000;
   double result_01;
   double result_02;
   double result_03;
@@ -308,31 +297,22 @@ void test02 ( )
   cout << "  Approximate the integral of a function on a random spherical triangle.\n";
   cout << "\n";
   cout << "  SPHERE01_TRIANGLE_QUAD_00 uses the Monte Carlo method.\n";
-  cout << "  QUAD_MC1 uses a Monte Carlo method with      1,000 points.\n";
-  cout << "  QUAD_MC2 uses a Monte Carlo method with    100,000 points.\n";
-  cout << "  QUAD_MC3 uses a Monte Carlo method with 10,000,000 points.\n";
+  cout << "  QUAD_MC1 uses a Monte Carlo method with " << n_mc1 << " points.\n";
+  cout << "  QUAD_MC2 uses a Monte Carlo method with " << n_mc2 << " points.\n";
+  cout << "  QUAD_MC3 uses a Monte Carlo method with " << n_mc3 << " points.\n";
 //
 //  Choose three points at random to define a spherical triangle.
 //
-  v1 = sphere01_sample ( 1, &seed );
-  v2 = sphere01_sample ( 1, &seed );
-  v3 = sphere01_sample ( 1, &seed );
+  v1 = sphere01_sample ( 1, seed );
+  v2 = sphere01_sample ( 1, seed );
+  v3 = sphere01_sample ( 1, seed );
 
   cout << "\n";
   cout << "  Vertices of random spherical triangle:\n";
   cout << "\n";
-  cout << "  V1:" 
-       << "  " << setw(12) << v1[0]
-       << "  " << setw(12) << v1[1] 
-       << "  " << setw(12) << v1[2] << "\n";
-  cout << "  V2:" 
-       << "  " << setw(12) << v2[0]
-       << "  " << setw(12) << v2[1] 
-       << "  " << setw(12) << v2[2] << "\n";
-  cout << "  V3:" 
-       << "  " << setw(12) << v3[0]
-       << "  " << setw(12) << v3[1] 
-       << "  " << setw(12) << v3[2] << "\n";
+  r8vec_transpose_print ( 3, v1, "  V1:" );
+  r8vec_transpose_print ( 3, v2, "  V2:" );
+  r8vec_transpose_print ( 3, v3, "  V3:" );
 
   cout << "\n";
   cout << "QUAD_MC1     QUAD_MC2     QUAD_MC3\n";
@@ -447,13 +427,13 @@ void test02 ( )
     polyterm_exponent ( "PRINT", e );
 
     result_01 = sphere01_triangle_quad_00 ( n_mc1, v1, v2, v3, 
-      polyterm_value_3d, &seed );
+      polyterm_value_3d, seed );
 
     result_02 = sphere01_triangle_quad_00 ( n_mc2, v1, v2, v3, 
-      polyterm_value_3d, &seed );
+      polyterm_value_3d, seed );
 
     result_03 = sphere01_triangle_quad_00 ( n_mc3, v1, v2, v3, 
-      polyterm_value_3d, &seed );
+      polyterm_value_3d, seed );
 
     cout << "  " << setw(14) << result_01
          << "  " << setw(14) << result_02
@@ -514,25 +494,16 @@ void test03 ( )
 //
 //  Choose three points at random to define a spherical triangle.
 //
-  v1 = sphere01_sample ( 1, &seed );
-  v2 = sphere01_sample ( 1, &seed );
-  v3 = sphere01_sample ( 1, &seed );
+  v1 = sphere01_sample ( 1, seed );
+  v2 = sphere01_sample ( 1, seed );
+  v3 = sphere01_sample ( 1, seed );
 
   cout << "\n";
   cout << "  Vertices of random spherical triangle:\n";
   cout << "\n";
-  cout << "  V1:" 
-       << "  " << setw(12) << v1[0]
-       << "  " << setw(12) << v1[1] 
-       << "  " << setw(12) << v1[2] << "\n";
-  cout << "  V2:" 
-       << "  " << setw(12) << v2[0]
-       << "  " << setw(12) << v2[1] 
-       << "  " << setw(12) << v2[2] << "\n";
-  cout << "  V3:" 
-       << "  " << setw(12) << v3[0]
-       << "  " << setw(12) << v3[1] 
-       << "  " << setw(12) << v3[2] << "\n";
+  r8vec_transpose_print ( 3, v1, "  V1:" );
+  r8vec_transpose_print ( 3, v2, "  V2:" );
+  r8vec_transpose_print ( 3, v3, "  V3:" );
 
   cout << "\n";
   cout << "FACTOR   N   RESULT\n";
@@ -649,14 +620,14 @@ void test03 ( )
     factor = i4_power ( 2, 9 );
 
     best = sphere01_triangle_quad_icos1c ( v1, v2, v3, factor, 
-      polyterm_value_3d, &node_num  );
+      polyterm_value_3d, node_num  );
 
     factor = 1;
 
     for ( factor_log = 0; factor_log <= 9; factor_log++ )
     {
       result = sphere01_triangle_quad_icos1c ( v1, v2, v3, factor, 
-        polyterm_value_3d, &node_num );
+        polyterm_value_3d, node_num );
 
       error = r8_abs ( result - best );
 
@@ -722,25 +693,16 @@ void test04 ( )
 //
 //  Choose three points at random to define a spherical triangle.
 //
-  v1 = sphere01_sample ( 1, &seed );
-  v2 = sphere01_sample ( 1, &seed );
-  v3 = sphere01_sample ( 1, &seed );
+  v1 = sphere01_sample ( 1, seed );
+  v2 = sphere01_sample ( 1, seed );
+  v3 = sphere01_sample ( 1, seed );
 
   cout << "\n";
   cout << "  Vertices of random spherical triangle:\n";
   cout << "\n";
-  cout << "  V1:" 
-       << "  " << setw(12) << v1[0]
-       << "  " << setw(12) << v1[1] 
-       << "  " << setw(12) << v1[2] << "\n";
-  cout << "  V2:" 
-       << "  " << setw(12) << v2[0]
-       << "  " << setw(12) << v2[1] 
-       << "  " << setw(12) << v2[2] << "\n";
-  cout << "  V3:" 
-       << "  " << setw(12) << v3[0]
-       << "  " << setw(12) << v3[1] 
-       << "  " << setw(12) << v3[2] << "\n";
+  r8vec_transpose_print ( 3, v1, "  V1:" );
+  r8vec_transpose_print ( 3, v2, "  V2:" );
+  r8vec_transpose_print ( 3, v3, "  V3:" );
 
   cout << "\n";
   cout << "FACTOR   N   RESULT\n";
@@ -857,14 +819,14 @@ void test04 ( )
     factor = i4_power ( 2, 9 );
 
     best = sphere01_triangle_quad_icos1m ( v1, v2, v3, factor, 
-      polyterm_value_3d, &node_num  );
+      polyterm_value_3d, node_num  );
 
     factor = 1;
 
     for ( factor_log = 0; factor_log <= 9; factor_log++ )
     {
       result = sphere01_triangle_quad_icos1m ( v1, v2, v3, factor, 
-        polyterm_value_3d, &node_num );
+        polyterm_value_3d, node_num );
 
       error = r8_abs ( result - best );
 
@@ -930,25 +892,16 @@ void test05 ( )
 //
 //  Choose three points at random to define a spherical triangle.
 //
-  v1 = sphere01_sample ( 1, &seed );
-  v2 = sphere01_sample ( 1, &seed );
-  v3 = sphere01_sample ( 1, &seed );
+  v1 = sphere01_sample ( 1, seed );
+  v2 = sphere01_sample ( 1, seed );
+  v3 = sphere01_sample ( 1, seed );
 
   cout << "\n";
   cout << "  Vertices of random spherical triangle:\n";
   cout << "\n";
-  cout << "  V1:" 
-       << "  " << setw(12) << v1[0]
-       << "  " << setw(12) << v1[1] 
-       << "  " << setw(12) << v1[2] << "\n";
-  cout << "  V2:" 
-       << "  " << setw(12) << v2[0]
-       << "  " << setw(12) << v2[1] 
-       << "  " << setw(12) << v2[2] << "\n";
-  cout << "  V3:" 
-       << "  " << setw(12) << v3[0]
-       << "  " << setw(12) << v3[1] 
-       << "  " << setw(12) << v3[2] << "\n";
+  r8vec_transpose_print ( 3, v1, "  V1:" );
+  r8vec_transpose_print ( 3, v2, "  V2:" );
+  r8vec_transpose_print ( 3, v3, "  V3:" );
 
   cout << "\n";
   cout << "FACTOR   N   RESULT\n";
@@ -1065,14 +1018,14 @@ void test05 ( )
     factor = i4_power ( 2, 9 );
 
     best = sphere01_triangle_quad_icos1v ( v1, v2, v3, factor, 
-      polyterm_value_3d, &node_num  );
+      polyterm_value_3d, node_num  );
 
     factor = 1;
 
     for ( factor_log = 0; factor_log <= 9; factor_log++ )
     {
       result = sphere01_triangle_quad_icos1v ( v1, v2, v3, factor, 
-        polyterm_value_3d, &node_num );
+        polyterm_value_3d, node_num );
 
       error = r8_abs ( result - best );
 
@@ -1138,25 +1091,16 @@ void test06 ( )
 //
 //  Choose three points at random to define a spherical triangle.
 //
-  v1 = sphere01_sample ( 1, &seed );
-  v2 = sphere01_sample ( 1, &seed );
-  v3 = sphere01_sample ( 1, &seed );
+  v1 = sphere01_sample ( 1, seed );
+  v2 = sphere01_sample ( 1, seed );
+  v3 = sphere01_sample ( 1, seed );
 
   cout << "\n";
   cout << "  Vertices of random spherical triangle:\n";
   cout << "\n";
-  cout << "  V1:" 
-       << "  " << setw(12) << v1[0]
-       << "  " << setw(12) << v1[1] 
-       << "  " << setw(12) << v1[2] << "\n";
-  cout << "  V2:" 
-       << "  " << setw(12) << v2[0]
-       << "  " << setw(12) << v2[1] 
-       << "  " << setw(12) << v2[2] << "\n";
-  cout << "  V3:" 
-       << "  " << setw(12) << v3[0]
-       << "  " << setw(12) << v3[1] 
-       << "  " << setw(12) << v3[2] << "\n";
+  r8vec_transpose_print ( 3, v1, "  V1:" );
+  r8vec_transpose_print ( 3, v2, "  V2:" );
+  r8vec_transpose_print ( 3, v3, "  V3:" );
 
   cout << "\n";
   cout << "FACTOR   N   RESULT\n";
@@ -1273,14 +1217,14 @@ void test06 ( )
     factor = i4_power ( 2, 9 );
 
     best = sphere01_triangle_quad_icos2v ( v1, v2, v3, factor, 
-      polyterm_value_3d, &node_num  );
+      polyterm_value_3d, node_num  );
 
     factor = 1;
 
     for ( factor_log = 0; factor_log <= 9; factor_log++ )
     {
       result = sphere01_triangle_quad_icos2v ( v1, v2, v3, factor, 
-        polyterm_value_3d, &node_num );
+        polyterm_value_3d, node_num );
 
       error = r8_abs ( result - best );
 

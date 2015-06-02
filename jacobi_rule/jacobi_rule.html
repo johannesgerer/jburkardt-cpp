@@ -51,10 +51,10 @@
           <i>order</i> is the number of points in the quadrature rule.
         </li>
         <li>
-          <i>alpha</i> is the exponent of (1-x), which must be greater than -1.
+          <i>alpha</i> is the exponent of (B-x), which must be greater than -1.
         </li>
         <li>
-          <i>beta</i> is the exponent of (1+x), which must be greater than -1.
+          <i>beta</i> is the exponent of (x-A), which must be greater than -1.
         </li>
         <li>
           <i>a</i> is the left endpoint;
@@ -70,6 +70,7 @@
         </li>
       </ul>
     </p>
+
     <h3 align = "center">
       Licensing:
     </h3>
@@ -181,6 +182,23 @@
     </p>
 
     <p>
+      <a href = "../../cpp_src/line_felippa_rule/line_felippa_rule.html">
+      LINE_FELIPPA_RULE</a>,
+      a C++ library which
+      returns the points and weights of a Felippa quadrature rule
+      over the interior of a line segment in 1D.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/line_nco_rule/line_nco_rule.html">
+      LINE_NCO_RULE</a>,
+      a C++ library which
+      computes a Newton Cotes Open (NCO) quadrature rule,
+      using equally spaced points,
+      over the interior of a line segment in 1D.
+    </p>
+
+    <p>
       <a href = "../../cpp_src/patterson_rule/patterson_rule.html">
       PATTERSON_RULE</a>,
       a C++ program which
@@ -215,6 +233,15 @@
       TANH_SINH_RULE</a>,
       a C++ program which
       computes and writes out a tanh-sinh quadrature rule of given order.
+    </p>
+
+    <p>
+      <a href = "../../cpp_src/truncated_normal_rule/truncated_normal_rule.html">
+      TRUNCATED_NORMAL_RULE</a>,
+      a C++ program which 
+      computes a quadrature rule for a normal probability density function (PDF),
+      also called a Gaussian distribution, that has been
+      truncated to [A,+oo), (-oo,B] or [A,B].
     </p>
 
     <h3 align = "center">

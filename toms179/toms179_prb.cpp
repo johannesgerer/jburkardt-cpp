@@ -23,7 +23,11 @@ int main ( )
 //
 //  Discussion:
 //
-//    TOMS179_PRB calls the TOMS179 routines.
+//    TOMS179_PRB tests the TOMS179 library.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -35,7 +39,6 @@ int main ( )
 //
 {
   timestamp ( );
-
   cout << "\n";
   cout << "TOMS179_PRB:\n";
   cout << "  C++ version\n";
@@ -49,7 +52,6 @@ int main ( )
   cout << "\n";
   cout << "TOMS179_PRB:\n";
   cout << "  Normal end of execution.\n";
-
   cout << "\n";
   timestamp ( );
 
@@ -64,6 +66,10 @@ void test01 ( )
 //  Purpose:
 //
 //    TEST01 demonstrates the use of ALOGAM.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //
@@ -122,6 +128,10 @@ void test02 ( )
 //  Purpose:
 //
 //    TEST02 demonstrates the use of MDBETA.
+//
+//  Licensing:
+//
+//    This code is distributed under the GNU LGPL license.
 //
 //  Modified:
 //

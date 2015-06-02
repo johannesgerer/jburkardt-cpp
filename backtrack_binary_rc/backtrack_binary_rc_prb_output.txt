@@ -1,0 +1,46 @@
+01 January 2014 10:06:12 AM
+
+BACKTRACK_BINARY_RC_PRB:
+  C++ version
+  Test the BACKTRACK_BINARY_RC library.
+
+TEST01
+  Use BACKBIN_RC to find the binary expansion of
+  an integer between 0 and 255.
+  The choices are 0/1 for the 8 digits.
+
+  TARGET = 73
+  Number of calls = 13
+  Binary search space = 256
+   0 1 0 0 1 0 0 1
+
+  TARGET = 299
+  Termination without solution.
+  Number of calls = 511
+  Binary search space = 256
+  -1-1-1-1-1-1-1-1
+
+  TARGET = -3
+  Termination without solution.
+  Number of calls = 3
+  Binary search space = 256
+  -1-1-1-1-1-1-1-1
+
+TEST02
+  Use BACKBIN_RC to seek subsets of a set W
+  that sum to a given target value.
+  The choices are 0/1 to select each element of W.
+
+  TARGET = 53
+
+   1 1 0 0 0 0 1 0
+   1 0 1 0 0 0 1 1
+   0 1 1 0 0 1 0 1
+
+  Number of calls = 217
+  Binary search space = 256
+
+BACKTRACK_BINARY_RC_PRB:
+  Normal end of execution.
+
+01 January 2014 10:06:12 AM

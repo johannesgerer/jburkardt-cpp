@@ -194,7 +194,7 @@ double ppnd ( double p, int *ifault )
 //
 //  0.08 < P < 0.92
 //
-  if ( r8_abs ( p - 0.5 ) <= split )
+  if ( fabs ( p - 0.5 ) <= split )
   {
     r = ( p - 0.5 ) * ( p - 0.5 );
 
@@ -247,47 +247,6 @@ double ppnd ( double p, int *ifault )
     value = 0.0;
   }
 
-  return value;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
   return value;
 }
 //****************************************************************************80

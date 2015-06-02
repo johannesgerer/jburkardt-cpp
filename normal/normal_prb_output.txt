@@ -1,14 +1,14 @@
-09 April 2012 03:20:18 PM
+04 March 2015 08:20:29 AM
 
 NORMAL_PRB
   C++ version
   Test the NORMAL library
 
-TEST01
+C4_NORMAL_01_TEST
   C4_NORMAL_01 computes pseudorandom complex values
   normally distributed in the unit circle.
 
-  The initial seed is 123456789
+  SEED = 123456789
 
        1       1.67904     -0.472768
        2      -0.56606     -0.231124
@@ -21,11 +21,11 @@ TEST01
        9     -0.275127       0.37494
       10         2.164        0.1856
 
-TEST02
+C8_NORMAL_01_TEST
   C8_NORMAL_01 computes pseudorandom complex values
   normally distributed in the unit circle.
 
-  The initial seed is 123456789
+  SEED = 123456789
 
        1       1.67904     -0.472769
        2      -0.56606     -0.231124
@@ -38,226 +38,151 @@ TEST02
        9     -0.275127       0.37494
       10         2.164        0.1856
 
-TEST03
-  I4_NORMAL computes pseudonormal integer values
-  with mean A and standard deviation B.
+I4_NORMAL_AB_TEST
+  I4_NORMAL_AB computes pseudonormal integer values
+  with mean MU and standard deviation SIGMA.
 
-  The mean A = 70
-  The standard deviation B = 10
-  The initial seed is 123456789
+  The mean = 70
+  The standard deviation = 10
+  SEED = 123456789
+
+         1        86
+         2        64
+         3        82
+         4        82
+         5        53
+         6        47
+         7        70
+         8        76
+         9        67
+        10        91
+
+I8_NORMAL_AB_TEST
+  I8_NORMAL_AB computes pseudonormal integer values
+  with mean MU and standard deviation SIGMA.
+
+  The mean = 70
+  The standard deviation = 10
+  SEED = 123456789
 
          1        87
-         2        65
-         3        64
-         4        68
-         5        82
-         6        75
-         7        83
-         8        80
-         9        53
-        10        51
+         2        64
+         3        82
+         4        83
+         5        53
+         6        48
+         7        70
+         8        77
+         9        67
+        10        92
 
-TEST04
-  I8_NORMAL computes pseudonormal integer values
-  with mean A and standard deviation B.
-
-  The mean A = 70
-  The standard deviation B = 10
-  The initial seed is 12345678987654321
-
-         1        78
-         2        72
-         3        59
-         4        63
-         5        75
-         6        69
-         7        87
-         8        79
-         9        58
-        10        55
-
-TEST05
-  R4_NORMAL computes pseudonormal values
-  with mean A and standard deviation B.
-
-  The mean A = 10
-  The standard deviation B = 2
-  The initial seed is 123456789
-
-       1         13.3581
-       2         9.05446
-       3         8.86788
-       4         9.53775
-       5         12.4259
-       6         11.0701
-       7         12.5388
-       8         12.0991
-       9         6.66783
-      10         6.26954
-
-TEST06
+R4_NORMAL_01_TEST
   R4_NORMAL_01 computes pseudonormal values
-  with mean 0 and standard deviation 1.
+  with mean 0.0 and standard deviation 1.0.
 
-  The initial seed is 123456789
+  SEED = 123456789
 
        1         1.67904
-       2       -0.472769
-       3        -0.56606
-       4       -0.231124
-       5         1.21293
-       6        0.535037
-       7         1.26938
-       8         1.04954
-       9        -1.66609
-      10        -1.86523
+       2        -0.56606
+       3         1.21293
+       4         1.26938
+       5        -1.66609
+       6        -2.24246
+       7       0.0396751
+       8        0.673068
+       9       -0.275127
+      10           2.164
 
-TEST07
-  R8_NORMAL computes pseudonormal values
-  with mean A and standard deviation B.
+R4_NORMAL_AB_TEST
+  R4_NORMAL_AB computes pseudonormal values
+  with mean MU and standard deviation SIGMA.
 
-  The mean A = 10
-  The standard deviation B = 2
-  The initial seed is 123456789
+  The mean = 10
+  The standard deviation = 2
+  SEED = 123456789
 
        1         13.3581
-       2         9.05446
-       3         8.86788
-       4         9.53775
-       5         12.4259
-       6         11.0701
-       7         12.5388
-       8         12.0991
-       9         6.66783
-      10         6.26954
+       2         8.86788
+       3         12.4259
+       4         12.5388
+       5         6.66783
+       6         5.51507
+       7         10.0794
+       8         11.3461
+       9         9.44975
+      10          14.328
 
-TEST08
+R8_NORMAL_01_TEST
   R8_NORMAL_01 computes pseudonormal values
-  with mean 0 and standard deviation 1.
+  with mean 0.0 and standard deviation 1.0.
 
-  The initial seed is 123456789
+  SEED = 123456789
 
        1         1.67904
-       2       -0.472769
-       3        -0.56606
-       4       -0.231124
-       5         1.21293
-       6        0.535037
-       7         1.26938
-       8         1.04954
-       9        -1.66609
-      10        -1.86523
+       2        -0.56606
+       3         1.21293
+       4         1.26938
+       5        -1.66609
+       6        -2.24246
+       7       0.0396749
+       8        0.673068
+       9       -0.275127
+      10           2.164
 
-TEST09
-  R8_NORMAL_01 computes pseudonormal values
-  with mean 0 and standard deviation 1.
+R8_NORMAL_AB_TEST
+  R8_NORMAL_AB computes pseudonormal values
+  with mean MU and standard deviation SIGMA.
 
-  Verify that we can change the seed
-  and get the desired results.
+  The mean = 10
+  The standard deviation = 2
+  SEED = 123456789
 
-  The initial seed is 123456789
+       1         13.3581
+       2         8.86788
+       3         12.4259
+       4         12.5388
+       5         6.66783
+       6         5.51507
+       7         10.0793
+       8         11.3461
+       9         9.44975
+      10          14.328
 
-         I    Seed(in)   Seed(out)   R8_NORMAL_01
-
-         1     123456789     469049721         1.67904
-         2     469049721    2053676357       -0.472769
-         3    2053676357    1781357515        -0.56606
-         4    1781357515    1206231778       -0.231124
-         5    1206231778     891865166         1.21293
-
-  Resetting seed to repeat, after an ODD number of steps.
-
-         6     123456789     469049721         1.67904
-         7     469049721    2053676357       -0.472769
-         8    2053676357    1781357515        -0.56606
-         9    1781357515    1206231778       -0.231124
-        10    1206231778     891865166         1.21293
-
-  Resetting seed to repeat, after an EVEN number of steps.
-
-        11     123456789     469049721         1.67904
-        12     469049721    2053676357       -0.472769
-        13    2053676357    1781357515        -0.56606
-        14    1781357515    1206231778       -0.231124
-        15    1206231778     891865166         1.21293
-
-TEST10
-  R8_NORMAL_01 computes a sequence of normally distributed
-  pseudorandom numbers.
-
-  Initial SEED = 12345
-
-  First 10 values:
-
-       I         Input        Output   R8_NORMAL_01
-                  SEED          SEED
-
-       1         12345     207482415     1.08874
-       2     207482415    1790989824    -1.86779
-       3    1790989824    2035175616    0.319471
-       4    2035175616      77048696   0.0732642
-       5      77048696      24794531     2.83414
-       6      24794531     109854999    0.943666
-       7     109854999    1644515420   -0.628978
-       8    1644515420    1256127050   -0.371602
-       9    1256127050    1963079340   0.0893188
-      10    1963079340    1683198519   -0.414231
-
-  Now call R8_NORMAL_01 1000 times.
-
-  Average value = -0.027474
-  Expecting       0
-
-  Variance =      0.991456
-  Expecting       1
-
-TEST11
-  R8_NORMAL_01 computes pseudorandom normal values one at a time.
+R8MAT_NORMAL_01_NEW_TEST
   R8MAT_NORMAL_01_NEW computes a matrix of values.
 
-  For the same initial seed, the results should be identical,
-  but R8MAT_NORMAL_01 might be faster.
+  SEED = 123456789
 
-  Initial seed is 123456789
+  Matrix:
 
-      I       J      A[I,J]        B[I,J]
-                 (R8_NORMAL_01)  (R8MAT_NORMAL_01_NEW)
+  Col:          0             1             2             3       
+  Row
 
-      0       0       1.67904       1.67904
-      9       0      -1.86523      -1.86523
-     19       1     -0.275993     -0.275993
-     29       2      0.620309      0.620309
-     39       3     -0.384676     -0.384676
-     49       4       -2.8698       -2.8698
-     59       5      0.971005      0.971005
-     69       6     -0.287301     -0.287301
-     79       7      -1.90593      -1.90593
-     89       8     -0.827487     -0.827487
-     99       9      -1.10849      -1.10849
+    0:      1.67904      0.535037      -2.24246    0.00777484  
+    1:    -0.472769       1.26938      0.735809     -0.275127  
+    2:     -0.56606       1.04954     0.0396749       0.37494  
+    3:    -0.231124      -1.66609      -1.35074         2.164  
+    4:      1.21293      -1.86523      0.673068        0.1856  
 
-TEST12
-  R8_NORMAL_01 computes pseudeorandom normal values one at a time.
-  R8VEC_NORMAL_01_NEW computes a vector of values.
+R8VEC_NORMAL_01_NEW_TEST
+  R8VEC_NORMAL_01_NEW computes a vector of Normal 01 values.
 
-  For the same initial seed, the results should be identical,
-  but R8VEC_NORMAL_01_NEW might be faster.
+  SEED = 123456789
 
-  Initial seed is 123456789
+  Random vector:
 
-      I      A[I]          B[I]
-         (R8_NORMAL_01)  (R8VEC_NORMAL_01_NEW)
-
-      1     -0.472769     -0.472769
-      2      -0.56606      -0.56606
-      3     -0.231124     -0.231124
-      4       1.21293       1.21293
-      5      0.535037      0.535037
-      6       1.26938       1.26938
-      7       1.04954       1.04954
-      8      -1.66609      -1.66609
-      9      -1.86523      -1.86523
+         0:        1.67904
+         1:      -0.472769
+         2:       -0.56606
+         3:      -0.231124
+         4:        1.21293
+         5:       0.535037
+         6:        1.26938
+         7:        1.04954
+         8:       -1.66609
+         9:       -1.86523
 
 NORMAL_PRB
   Normal end of execution.
 
-09 April 2012 03:20:18 PM
+04 March 2015 08:20:29 AM

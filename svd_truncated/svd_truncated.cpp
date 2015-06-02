@@ -2276,7 +2276,7 @@ void svd_truncated_v ( int m, int n, double a[], double u[], double sm[],
 
   svd_truncated_u ( m2, n2, a2, vm, sm, u );
 
-  delete a2;
+  delete [] a2;
 
   return;
 }

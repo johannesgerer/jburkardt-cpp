@@ -1,0 +1,23 @@
+02 July 2013 01:01:00 PM
+
+SGMG_CC_SL
+  C++ version
+
+SGMG_WRITE_TESTS
+  Call SGMG_WRITE_TEST with various arguments.
+
+SGMG_CREATE_RULE
+  Create the requested sparse grid rule, and write it
+  to X, W and R files.
+
+SGMG_WRITE:
+  Wrote the N file = "sgmg_cc_sl_n.txt".
+  Wrote the P file = "sgmg_cc_sl_p.txt".
+  Wrote the R file = "sgmg_cc_sl_r.txt".
+  Wrote the W file = "sgmg_cc_sl_w.txt".
+  Wrote the X file = "sgmg_cc_sl_x.txt".
+
+SGMG_CC_SL
+  Normal end of execution.
+
+02 July 2013 01:01:01 PM

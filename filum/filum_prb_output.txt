@@ -1,4 +1,4 @@
-22 November 2011 09:23:21 AM
+03 December 2012 04:25:30 PM
 
 FILUM_PRB:
   C++ version
@@ -28,8 +28,8 @@ TEST06
 
   Exist?   File_name
 
-       1  filum_prb.C
-       1  filum.C
+       0  filum_prb.C
+       0  filum.C
        0  raisin.txt
        0  make.money.fast
 
@@ -57,7 +57,7 @@ TEST085
   Longest line is: 22 characters.
 
 TEST11
-  FILE_NAME_DEC decrements a string
+  FILENAME_DEC decrements a string
 
      Input             Output
 
@@ -82,9 +82,9 @@ TEST11
   fred00.txt     fred99.txt 
 
 TEST12
-  FILE_NAME_EXT_GET finds a file extension.
+  FILENAME_EXT_GET finds a file extension.
 
-  FILE_NAME     Begin    End
+  FILENAME     Begin    End
 
      bob.for       3       6
      N.B.C.D       5       6
@@ -93,9 +93,9 @@ TEST12
        .amos       0       4
 
 TEST13
-  FILE_NAME_EXT_SWAP changes a file extension.
+  FILENAME_EXT_SWAP changes a file extension.
 
-  FILE_NAME   EXT   FILE_NAME_EXT_SWAP
+  FILENAME   EXT   FILENAME_EXT_SWAP
 
        bob.for  obj         bob.obj
    bob.bob.bob  txt     bob.bob.txt
@@ -104,7 +104,7 @@ TEST13
          .oops  eek            .eek
 
 TEST14
-  FILE_NAME_INC increments a string
+  FILENAME_INC increments a string
 
      Input             Output
 
@@ -127,7 +127,7 @@ TEST14
   fred01.txt     fred02.txt 
 
 TEST15
-  FILE_NAME_INC increments a string.
+  FILENAME_INC increments a string.
 
   In this example, the string is a file name.
   The user is going to carry out several simulations.
@@ -163,7 +163,7 @@ TEST15
   file_04_004.txt
 
 TEST165
-  FILE_NAME_INC_NOWRAP increments a string
+  FILENAME_INC_NOWRAP increments a string
 
      Input             Output
 
@@ -217,4 +217,4 @@ TEST24
 FILUM_PRB:
   Normal end of execution.
 
-22 November 2011 09:23:21 AM
+03 December 2012 04:25:30 PM

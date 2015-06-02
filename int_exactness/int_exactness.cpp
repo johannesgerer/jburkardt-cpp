@@ -15,7 +15,6 @@ int ch_to_digit ( char ch );
 int file_column_count ( string input_filename );
 int file_row_count ( string input_filename );
 double monomial_quadrature ( int expon, int order, double w[], double x[] );
-double r8_abs ( double x );
 double *r8mat_data_read ( string input_filename, int m, int n );
 void r8mat_header_read ( string input_filename, int *m, int *n );
 int s_len_trim ( string s );
@@ -149,7 +148,7 @@ int main ( int argc, char *argv[] )
     cout << "INT_EXACTNESS - Fatal error!\n";
     cout << "  The spatial dimension of X should be 1.\n";
     cout << " The implicit input dimension was DIM_NUM = " << dim_num << "\n";
-    return 1;
+    exit ( 1 );
   }
 
   cout << "\n";
@@ -168,7 +167,7 @@ int main ( int argc, char *argv[] )
     cout << "INT_EXACTNESS - Fatal error!\n";
     cout << "  The quadrature weight file should have exactly\n";
     cout << "  one value on each line.\n";
-    return 1;
+    exit ( 1 );
   }
 
   if ( point_num != order )
@@ -177,7 +176,7 @@ int main ( int argc, char *argv[] )
     cout << "INT_EXACTNESS - Fatal error!\n";
     cout << "  The quadrature weight file should have exactly\n";
     cout << "  the same number of lines as the abscissa file.\n";
-    return 1;
+    exit ( 1 );
   }
 
   w = r8mat_data_read ( quad_w_filename, dim_num, order );
@@ -193,7 +192,7 @@ int main ( int argc, char *argv[] )
     cout << "  The quadrature region file should have the\n";
     cout << "  same number of values on each line as the\n";
     cout << "  abscissa file does.\n";
-    return 1;
+    exit ( 1 );
   }
 
   if ( point_num2 != 2 )
@@ -201,7 +200,7 @@ int main ( int argc, char *argv[] )
     cout << "\n";
     cout << "INT_EXACTNESS - Fatal error!\n";
     cout << "  The quadrature region file should have two lines.\n";
-    return 1;
+    exit ( 1 );
   }
 
   r = r8mat_data_read ( quad_r_filename, dim_num, point_num2 );
@@ -244,7 +243,7 @@ int main ( int argc, char *argv[] )
 //
 //  Rescale the weights, and translate the abscissas.
 //
-  volume = r8_abs ( r[1] - r[0] );
+  volume = fabs ( r[1] - r[0] );
   for ( i = 0; i < order; i++ )
   {
     w[i] = w[i] / volume;
@@ -692,50 +691,9 @@ double monomial_quadrature ( int expon, int order, double w[], double x[] )
 //
 //  Relative error:
 //
-  quad_error = r8_abs ( quad - exact ) / exact;
+  quad_error = fabs ( quad - exact ) / exact;
 
   return quad_error;
-}
-//****************************************************************************80
-
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license. 
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  } 
-  else
-  {
-    value = -x;
-  }
-  return value;
 }
 //****************************************************************************80
 

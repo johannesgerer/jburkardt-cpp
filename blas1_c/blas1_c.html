@@ -21,14 +21,14 @@
     <p>
       <b>BLAS1_C</b>
       is a C++ library which
-      implements the Level 1 <b>BLAS</b>,
+      implements the Level 1 BLAS,
       or Basic Linear Algebra Subprograms, using single precision complex arithmetic.
     </p>
 
     <p>
-      The <b>BLAS</b> are a small core library of linear algebra utilities,
+      The BLAS are a small core library of linear algebra utilities,
       which can be highly optimized for various architectures.  Software
-      that relies on the <b>BLAS</b> is thus highly portable, and will typically
+      that relies on the BLAS is thus highly portable, and will typically
       run very efficiently.
     </p>
 
@@ -66,6 +66,14 @@
     </h3>
 
     <p>
+      <a href = "../../cpp_src/blas0/blas0.html">
+      BLAS0</a>,
+      a C++ library which
+      contains auxilliary functions for the Basic Linear Algebra Subprograms 
+      (BLAS).
+    </p>
+
+    <p>
       <a href = "../../cpp_src/blas1_d/blas1_d.html">
       BLAS1_D</a>,
       a C++ library which
@@ -90,19 +98,19 @@
     </p>
 
     <p>
-      <a href = "../../f77_src/blas2/blas2.html">
+      <a href = "../../cpp_src/blas2/blas2.html">
       BLAS2</a>,
-      a FORTRAN77 library which
-      contains basic linear algebra routines for matrix-vector operations,
-      using single or precision real or complex arithmetic.
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for matrix-vector operations;
     </p>
 
     <p>
-      <a href = "../../f77_src/blas3/blas3.html">
+      <a href = "../../cpp_src/blas3/blas3.html">
       BLAS3</a>,
-      a FORTRAN77 library which
-      contains basic linear algebra routines for matrix-matrix operations,
-      using single or precision real or complex arithmetic.
+      a C++ library which
+      contains basic linear algebra subprograms (BLAS) 
+      for matrix-matrix operations;
     </p>
 
     <p>
@@ -121,15 +129,8 @@
     </p>
 
     <p>
-      <a href = "../../f77_src/lapack_examples/lapack_examples.html">
-      LAPACK_EXAMPLES</a>,
-      a FORTRAN77 program which
-      demonstrates the use of the LAPACK linear algebra library.
-    </p>
-
-    <p>
-      <a href = "../../cpp_src/linpack_c/linpack_c.html">
-      LINPACK_C</a>,
+      <a href = "../../cpp_src/linpack/linpack.html">
+      LINPACK</a>,
       a C++ library which
       solves linear systems using single precision complex arithmetic;
     </p>
@@ -228,12 +229,6 @@
     <p>
       <ul>
         <li>
-          <b>CABS1</b> returns the L1 norm of a complex number.
-        </li>
-        <li>
-          <b>CABS2</b> returns the L2 norm of a complex number.
-        </li>
-        <li>
           <b>CAXPY</b> computes a complex constant times a vector plus a vector.
         </li>
         <li>
@@ -246,19 +241,10 @@
           <b>CDOTU</b> forms the unconjugated dot product of two complex vectors.
         </li>
         <li>
-          <b>CMACH</b> computes machine parameters for complex arithmetic.
-        </li>
-        <li>
           <b>CROTG</b> determines a complex Givens rotation.
         </li>
         <li>
           <b>CSCAL</b> scales a complex vector by a constant.
-        </li>
-        <li>
-          <b>CSIGN1</b> is a complex transfer-of-sign function.
-        </li>
-        <li>
-          <b>CSIGN2</b> is a complex transfer-of-sign function.
         </li>
         <li>
           <b>CSROT</b> applies a complex plane rotation.
@@ -270,31 +256,13 @@
           <b>CSWAP</b> interchanges two complex vectors.
         </li>
         <li>
-          <b>I4_MAX</b> returns the maximum of two integers.
-        </li>
-        <li>
-          <b>I4_MIN</b> returns the smaller of two integers.
-        </li>
-        <li>
           <b>ICAMAX</b> indexes the complex vector element of maximum absolute value.
-        </li>
-        <li>
-          <b>LSAME</b> returns TRUE if CA is the same letter as CB regardless of case.
-        </li>
-        <li>
-          <b>R4_ABS</b> returns the absolute value of a float.
-        </li>
-        <li>
-          <b>R4_SIGN</b> returns the sign of a float.
         </li>
         <li>
           <b>SCASUM</b> takes the sum of the absolute values of a complex vector.
         </li>
         <li>
           <b>SCNRM2</b> returns the euclidean norm of a complex vector.
-        </li>
-        <li>
-          <b>XERBLA</b> is an error handler for the LAPACK routines.
         </li>
       </ul>
     </p>

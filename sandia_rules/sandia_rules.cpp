@@ -20820,7 +20820,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    18 February 2008
+//    01 September 2012
 //
 //  Author:
 //
@@ -20831,16 +20831,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }

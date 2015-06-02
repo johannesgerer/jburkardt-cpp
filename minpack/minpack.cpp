@@ -65,8 +65,8 @@ void chkder ( int m, int n, double x[], double fvec[], double fjac[],
 //
 //  Parameters:
 //
-//       m is a positive integer input variable set to the number
-//         of functions.
+//    Input, int M, is a positive integer input variable set to the number
+//    of functions.
 //
 //       n is a positive integer input variable set to the number
 //         of variables.
@@ -132,7 +132,7 @@ void chkder ( int m, int n, double x[], double fvec[], double fjac[],
       }
       else
       {
-        temp = eps * r8_abs ( x[j] );
+        temp = eps * fabs ( x[j] );
       }
       xp[j] = x[j] + temp;
     }
@@ -157,7 +157,7 @@ void chkder ( int m, int n, double x[], double fvec[], double fjac[],
       }
       else
       {
-        temp = r8_abs ( x[j] );
+        temp = fabs ( x[j] );
       }
       for ( i = 0; i < m; i++ )
       {
@@ -170,10 +170,10 @@ void chkder ( int m, int n, double x[], double fvec[], double fjac[],
       temp = 1.0;
       if ( fvec[i] != 0.0 &&
            fvecp[i] != 0.0 &&
-           epsf * r8_abs ( fvec[i] ) <= r8_abs ( fvecp[i] - fvec[i] ) )
+           epsf * fabs ( fvec[i] ) <= fabs ( fvecp[i] - fvec[i] ) )
       {
-        temp = eps * r8_abs ( ( fvecp[i] - fvec[i] ) / eps - err[i] )
-          / ( r8_abs ( fvec[i] ) + r8_abs ( fvecp[i] ) );
+        temp = eps * fabs ( ( fvecp[i] - fvec[i] ) / eps - err[i] )
+          / ( fabs ( fvec[i] ) + fabs ( fvecp[i] ) );
 
         if ( temp <= epsmch )
         {
@@ -241,10 +241,9 @@ void dogleg ( int n, double r[], int lr, double diag[], double qtb[],
 //
 //  Parameters:
 //
-//       n is a positive integer input variable set to the order of r.
+//    Input, int N, is a positive integer input variable set to the order of r.
 //
-//       r is an input array of length lr which must contain the upper
-//         triangular matrix r stored by rows.
+//    Input, double R[LR], the upper triangular matrix R stored by rows.
 //
 //       lr is a positive integer input variable not less than
 //         (n*(n+1))/2.
@@ -306,7 +305,7 @@ void dogleg ( int n, double r[], int lr, double diag[], double qtb[],
       l = j;
       for ( i = 1; i <= j; i++ )
       {
-        temp = r8_max ( temp, r8_abs ( r[l-1] ) );
+        temp = r8_max ( temp, fabs ( r[l-1] ) );
         l = l + n - i;
       }
       temp = epsmch * temp;
@@ -507,10 +506,9 @@ void fdjac1 ( void fcn ( int n, double x[], double f[], int *iflag ),
 //         the user wants to terminate execution of fdjac1.
 //         in this case set iflag to a negative integer.
 //
-//       n is a positive integer input variable set to the number
-//         of functions and variables.
+//    Input, int N, the number of functions and variables.
 //
-//       x is an input array of length n.
+//    Input, double X[N], the evaluation point.
 //
 //       fvec is an input array of length n which must contain the
 //         functions evaluated at x.
@@ -569,7 +567,7 @@ void fdjac1 ( void fcn ( int n, double x[], double f[], int *iflag ),
     for ( j = 0; j < n; j++ )
     {
       temp = x[j];
-      h = eps * r8_abs ( temp );
+      h = eps * fabs ( temp );
       if ( h == 0.0 )
       {
         h = eps;
@@ -597,7 +595,7 @@ void fdjac1 ( void fcn ( int n, double x[], double f[], int *iflag ),
       for ( j = k; j < n; j = j + msum )
       {
         wa2[j] = x[j];
-        h = eps * r8_abs ( wa2[j] );
+        h = eps * fabs ( wa2[j] );
         if ( h == 0.0 )
         {
           h = eps;
@@ -612,7 +610,7 @@ void fdjac1 ( void fcn ( int n, double x[], double f[], int *iflag ),
       for ( j = k; j < n; j = j + msum )
       {
         x[j] = wa2[j];
-        h = eps * r8_abs ( wa2[j] );
+        h = eps * fabs ( wa2[j] );
         if ( h == 0.0 )
         {
           h = eps;
@@ -692,8 +690,7 @@ void fdjac2 ( void fcn ( int m, int n, double x[], double fvec[], int *iflag ),
 //         the user wants to terminate execution of fdjac2.
 //         in this case set iflag to a negative integer.
 //
-//       m is a positive integer input variable set to the number
-//         of functions.
+//    Input, int M, the number of functions.
 //
 //       n is a positive integer input variable set to the number
 //         of variables. n must not exceed m.
@@ -744,7 +741,7 @@ void fdjac2 ( void fcn ( int m, int n, double x[], double fvec[], int *iflag ),
     }
     else
     {
-      h = eps * r8_abs ( temp );
+      h = eps * fabs ( temp );
     }
     x[j] = temp + h;
     fcn ( m, n, x, wa, iflag );
@@ -824,8 +821,7 @@ int hybrd ( void fcn ( int n, double x[], double fvec[], int *iflag ),
 //         the user wants to terminate execution of hybrd.
 //         in this case set iflag to a negative integer.
 //
-//       n is a positive integer input variable set to the number
-//         of functions and variables.
+//    Input, int N, the number of functions and variables.
 //
 //       x is an array of length n. on input x must contain
 //         an initial estimate of the solution vector. on output x
@@ -943,7 +939,6 @@ int hybrd ( void fcn ( int n, double x[], double fvec[], int *iflag ),
   int iwa[1];
   int j;
   bool jeval;
-  int jm1;
   int l;
   int msum;
   int ncfail;
@@ -1292,7 +1287,7 @@ int hybrd ( void fcn ( int n, double x[], double fvec[], int *iflag ),
         {
           delta = r8_max ( delta, pnorm / p5 );
         }
-        if ( r8_abs ( ratio - 1.0 ) <= p1 )
+        if ( fabs ( ratio - 1.0 ) <= p1 )
         {
           delta = pnorm / p5;
         }
@@ -1428,7 +1423,7 @@ int hybrd1 ( void fcn ( int n, double x[], double fvec[], int *iflag ), int n,
 //
 //  Modified:
 //
-//    05 April 2010
+//    26 July 2014
 //
 //  Author:
 //
@@ -1481,18 +1476,13 @@ int hybrd1 ( void fcn ( int n, double x[], double fvec[], int *iflag ), int n,
 //         terminated execution, info is set to the (negative)
 //         value of iflag. see description of fcn. otherwise,
 //         info is set as follows.
-//
 //         info = 0   improper input parameters.
-//
 //         info = 1   algorithm estimates that the relative error
 //                    between x and the solution is at most tol.
-//
 //         info = 2   number of calls to fcn has reached or exceeded
 //                    200*(n+1).
-//
 //         info = 3   tol is too small. no further improvement in
 //                    the approximate solution x is possible.
-//
 //         info = 4   iteration is not making good progress.
 //
 //       wa is a work array of length lwa.
@@ -1502,7 +1492,7 @@ int hybrd1 ( void fcn ( int n, double x[], double fvec[], int *iflag ), int n,
 //
 {
   double epsfcn;
-  double factor = 100.0;
+  double factor;
   int index;
   int info;
   int j;
@@ -1534,17 +1524,19 @@ int hybrd1 ( void fcn ( int n, double x[], double fvec[], int *iflag ), int n,
 //
 //  Call HYBRD.
 //
-  maxfev = 200 * ( n + 1 );
   xtol = tol;
+  maxfev = 200 * ( n + 1 );
   ml = n - 1;
   mu = n - 1;
   epsfcn = 0.0;
-  mode = 2;
   for ( j = 0; j < n; j++ )
   {
     wa[j] = 1.0;
   }
+  mode = 2;
+  factor = 100.0;
   nprint = 0;
+  nfev = 0;
   lr = ( n * ( n + 1 ) ) / 2;
   index = 6 * n + lr;
 
@@ -1678,8 +1670,7 @@ void qform ( int m, int n, double q[], int ldq, double wa[] )
 //
 //  Parameters:
 //
-//       m is a positive integer input variable set to the number
-//         of rows of a and the order of q.
+//    Input, int M, the number of rows of A, and the order of Q.
 //
 //       n is a positive integer input variable set to the number
 //         of columns of a.
@@ -1696,11 +1687,8 @@ void qform ( int m, int n, double q[], int ldq, double wa[] )
 {
   int i;
   int j;
-  int jm1;
   int k;
-  int l;
   int minmn;
-  int np1;
   double sum;
   double temp;
 //
@@ -1806,8 +1794,7 @@ void qrfac ( int m, int n, double a[], int lda, bool pivot, int ipvt[],
 //
 //  Parameters:
 //
-//       m is a positive integer input variable set to the number
-//         of rows of a.
+//    Input, int M, the number of rows of A.
 //
 //       n is a positive integer input variable set to the number
 //         of columns of a.
@@ -2003,8 +1990,7 @@ void r1mpyq ( int m, int n, double a[], int lda, double v[], double w[] )
 //
 //  Parameters:
 //
-//       m is a positive integer input variable set to the number
-//         of rows of a.
+//    Input, int M, the number of rows of A.
 //
 //       n is a positive integer input variable set to the number
 //         of columns of a.
@@ -2035,7 +2021,7 @@ void r1mpyq ( int m, int n, double a[], int lda, double v[], double w[] )
 //
   for ( j = n - 2; 0 <= j; j-- )
   {
-    if ( 1.0 < r8_abs ( v[j] ) )
+    if ( 1.0 < fabs ( v[j] ) )
     {
       c = 1.0 / v[j];
       s = sqrt ( 1.0 - c * c );
@@ -2057,7 +2043,7 @@ void r1mpyq ( int m, int n, double a[], int lda, double v[], double w[] )
 //
   for ( j = 0; j < n - 1; j++ )
   {
-    if ( 1.0 < r8_abs ( w[j] ) )
+    if ( 1.0 < fabs ( w[j] ) )
     {
       c = 1.0 / w[j];
       s = sqrt ( 1.0 - c * c );
@@ -2130,8 +2116,7 @@ bool r1updt ( int m, int n, double s[], int ls, double u[], double v[],
 //
 //  Parameters:
 //
-//       m is a positive integer input variable set to the number
-//         of rows of s.
+//    Input, int M, the number of rows of S.
 //
 //       n is a positive integer input variable set to the number
 //         of columns of s. n must not exceed m.
@@ -2166,7 +2151,6 @@ bool r1updt ( int m, int n, double s[], int ls, double u[], double v[],
   int j;
   int jj;
   int l;
-  int nmj;
   int nm1;
   double p25 = 0.25;
   double p5 = 0.5;
@@ -2212,13 +2196,13 @@ bool r1updt ( int m, int n, double s[], int ls, double u[], double v[],
 //
 //  Determine a Givens rotation which eliminates the J-th element of V.
 //
-      if ( r8_abs ( v[n-1] ) < r8_abs ( v[j-1] ) )
+      if ( fabs ( v[n-1] ) < fabs ( v[j-1] ) )
       {
         cotan = v[n-1] / v[j-1];
         sn = p5 / sqrt ( p25 + p25 * cotan * cotan );
         cs = sn * cotan;
         tau = 1.0;
-        if ( 1.0 < r8_abs ( cs ) * giant )
+        if ( 1.0 < fabs ( cs ) * giant )
         {
           tau = 1.0 / cs;
         }
@@ -2270,13 +2254,13 @@ bool r1updt ( int m, int n, double s[], int ls, double u[], double v[],
     if ( w[j-1] != 0.0 )
     {
 
-      if ( r8_abs ( s[jj-1] ) < r8_abs ( w[j-1] ) )
+      if ( fabs ( s[jj-1] ) < fabs ( w[j-1] ) )
       {
         cotan = s[jj-1] / w[j-1];
         sn = p5 / sqrt ( p25 + p25 * cotan * cotan );
         cs = sn * cotan;
         tau = 1.0;
-        if ( 1.0 < r8_abs ( cs ) * giant )
+        if ( 1.0 < fabs ( cs ) * giant )
         {
           tau = 1.0 / cs;
         }
@@ -2331,47 +2315,6 @@ bool r1updt ( int m, int n, double s[], int ls, double u[], double v[],
 }
 //****************************************************************************80
 
-double r8_abs ( double x )
-
-//****************************************************************************80
-//
-//  Purpose:
-//
-//    R8_ABS returns the absolute value of an R8.
-//
-//  Licensing:
-//
-//    This code is distributed under the GNU LGPL license.
-//
-//  Modified:
-//
-//    14 November 2006
-//
-//  Author:
-//
-//    John Burkardt
-//
-//  Parameters:
-//
-//    Input, double X, the quantity whose absolute value is desired.
-//
-//    Output, double R8_ABS, the absolute value of X.
-//
-{
-  double value;
-
-  if ( 0.0 <= x )
-  {
-    value = x;
-  }
-  else
-  {
-    value = - x;
-  }
-  return value;
-}
-//****************************************************************************80
-
 double r8_epsilon ( )
 
 //****************************************************************************80
@@ -2394,7 +2337,7 @@ double r8_epsilon ( )
 //
 //  Modified:
 //
-//    01 July 2004
+//    01 September 2012
 //
 //  Author:
 //
@@ -2405,16 +2348,7 @@ double r8_epsilon ( )
 //    Output, double R8_EPSILON, the R8 round-off unit.
 //
 {
-  double value;
-
-  value = 1.0;
-
-  while ( 1.0 < ( double ) ( 1.0 + value )  )
-  {
-    value = value / 2.0;
-  }
-
-  value = 2.0 * value;
+  const double value = 2.220446049250313E-016;
 
   return value;
 }

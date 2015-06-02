@@ -23,6 +23,10 @@ int main ( )
 //
 //    MAIN is the main program for TRIANGLE_IO_PRB.
 //
+//  Discussion:
+//
+//    TRIANGLE_IO_PRB tests the TRIANGLE_IO library.
+//
 //  Licensing:
 //
 //    This code is distributed under the GNU LGPL license. 
@@ -59,7 +63,7 @@ int main ( )
 }
 //****************************************************************************80
 
-void test01 ( void )
+void test01 ( )
 
 //****************************************************************************80
 //
@@ -95,7 +99,8 @@ void test01 ( void )
 //
 //  Get node example size.
 //
-  node_size_example ( &node_num, &node_dim, &node_att_num, &node_marker_num );
+  triangle_node_size_example ( &node_num, &node_dim, &node_att_num, 
+    &node_marker_num );
 //
 //  Print the sizes.
 //
@@ -113,8 +118,8 @@ void test01 ( void )
 //
 //  Get the node data.
 //
-  node_data_example ( node_num, node_dim, node_att_num, node_marker_num,
-    node_coord, node_att, node_marker );
+  triangle_node_data_example ( node_num, node_dim, node_att_num, 
+    node_marker_num, node_coord, node_att, node_marker );
 //
 //  Print some of the data.
 //
@@ -129,8 +134,8 @@ void test01 ( void )
 //
 //  Write the node information to node file.
 //
-  node_write ( node_file, node_num, node_dim, node_att_num, node_marker_num, 
-    node_coord, node_att, node_marker );
+  triangle_node_write ( node_file, node_num, node_dim, node_att_num, 
+    node_marker_num, node_coord, node_att, node_marker );
 
   cout << "\n";
   cout << "  Node data written to file \"" << node_file << "\"\n";
@@ -179,7 +184,8 @@ void test02 ( )
 //
 //  Get element example size.
 //
-  element_size_example ( &element_num, &element_order, &element_att_num );
+  triangle_element_size_example ( &element_num, &element_order, 
+    &element_att_num );
 //
 //  Print the sizes.
 //
@@ -195,7 +201,7 @@ void test02 ( )
 //
 //  Get the data.
 //
-  element_data_example ( element_num, element_order, element_att_num, 
+  triangle_element_data_example ( element_num, element_order, element_att_num, 
     element_node, element_att );
 //
 //  Print some of the data.
@@ -208,8 +214,8 @@ void test02 ( )
 //
 //  Write the node information to node file.
 //
-  element_write ( element_file, element_num, element_order, element_att_num, 
-    element_node, element_att );
+  triangle_element_write ( element_file, element_num, element_order, 
+    element_att_num, element_node, element_att );
 
   cout << "\n";
   cout << "  Element data written to file \"" << element_file << "\"\n";
@@ -259,7 +265,7 @@ void test03 ( )
 //
 //  Get the data size.
 //
-  node_size_read ( node_file, &node_num, &node_dim, &node_att_num, 
+  triangle_node_size_read ( node_file, &node_num, &node_dim, &node_att_num, 
     &node_marker_num );
 //
 //  Print the sizes.
@@ -280,8 +286,8 @@ void test03 ( )
 //
 //  Get the data.
 //
-  node_data_read ( node_file, node_num, node_dim, node_att_num, node_marker_num,
-    node_coord, node_att, node_marker );
+  triangle_node_data_read ( node_file, node_num, node_dim, node_att_num, 
+    node_marker_num, node_coord, node_att, node_marker );
 //
 //  Print some of the data.
 //
@@ -338,7 +344,7 @@ void test04 ( )
 //
 //  Get data size.
 //
-  element_size_read ( element_file, &element_num, &element_order, 
+  triangle_element_size_read ( element_file, &element_num, &element_order, 
     &element_att_num );
 //
 //  Print the sizes.
@@ -357,8 +363,8 @@ void test04 ( )
 //
 //  Get the data.
 //
-  element_data_read ( element_file, element_num, element_order, element_att_num, 
-    element_node, element_att );
+  triangle_element_data_read ( element_file, element_num, element_order, 
+    element_att_num, element_node, element_att );
 //
 //  Print some of the data.
 //
