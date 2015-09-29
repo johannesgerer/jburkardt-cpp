@@ -53,7 +53,7 @@ C++ Source Codes
 48. [bits\_to\_ui](bits_to_ui/bits_to_ui.html), a program which reads a text file of bits and writes a binary file in which groups of 32 bits have been interpreted as an unsigned integer;
 49. [black\_scholes](black_scholes/black_scholes.html), a library which implements some simple approaches to the Black-Scholes option valuation theory, by Desmond Higham.
 50. [blas](blas/blas.html), a library which contains the Basic Linear Algebra Subprograms (BLAS) for level 1, 2 and 3, for single and double precision, and for real and complex arithmetic.
-51. [blas0](blas0/blas0.html), a library which contains auxilliary functions for the Basic Linear Algebra Subprograms (BLAS).
+51. [blas0](blas0/blas0.html), a library which contains auxiliary functions for the Basic Linear Algebra Subprograms (BLAS).
 52. [blas1](blas1/blas1.html), a library which contains the Basic Linear Algebra Subprograms (BLAS) for level 1 (vector-vector operations), for single and double precision, and for real and complex arithmetic, by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
 53. [blas1\_c](blas1_c/blas1_c.html), a library which constitutes the Level 1 Basic Linear Algebra Subprograms (BLAS), using single precision complex arithmetic, by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
 54. [blas1\_d](blas1_d/blas1_d.html), a library which constitutes the Level 1 Basic Linear Algebra Subprograms (BLAS), using double precision real arithmetic, by Charles Lawson, Richard Hanson, David Kincaid, Fred Krogh.
